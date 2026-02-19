@@ -65,26 +65,27 @@
     </div>
 
     <!-- Hero секция с улучшенными анимациями -->
-    <section class="min-h-screen flex items-center relative pt-24 px-6 overflow-hidden">
+    <section class="min-h-screen flex items-center relative pt-24 px-4 sm:px-6 overflow-hidden">
       <!-- Фоновые градиентные пятна только в хедере -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute top-0 left-0 w-[600px] h-[600px] bg-violet-600/20 rounded-full blur-[150px] animate-pulse-slow"></div>
-        <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-fuchsia-600/20 rounded-full blur-[130px] animate-pulse-slow animation-delay-1000"></div>
-        <div class="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-purple-600/15 rounded-full blur-[180px]"></div>
+        <div class="absolute top-0 left-0 w-[300px] sm:w-[400px] md:w-[500px] lg:w-[600px] h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] bg-violet-600/15 sm:bg-violet-600/20 rounded-full blur-[80px] sm:blur-[100px] md:blur-[120px] lg:blur-[150px] animate-pulse-slow"></div>
+        <div class="absolute bottom-0 right-0 w-[200px] sm:w-[300px] md:w-[400px] lg:w-[500px] h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px] bg-fuchsia-600/15 sm:bg-fuchsia-600/20 rounded-full blur-[60px] sm:blur-[80px] md:blur-[100px] lg:blur-[130px] animate-pulse-slow animation-delay-1000"></div>
+        <div class="absolute top-1/3 right-1/4 w-[180px] sm:w-[250px] md:w-[320px] lg:w-[400px] h-[180px] sm:h-[250px] md:h-[320px] lg:h-[400px] bg-purple-600/10 sm:bg-purple-600/15 rounded-full blur-[80px] sm:blur-[100px] md:blur-[140px] lg:blur-[180px]"></div>
       </div>
-      
+
       <div class="max-w-7xl mx-auto w-full relative z-10">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="grid lg:grid-cols-[45%_55%] gap-8 lg:gap-12 items-center">
           <!-- Левая часть - текст и кнопки -->
           <div class="text-left">
             <!-- Badge с glow -->
-            <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.05] border border-white/15 text-sm text-gray-200 mb-8 animate-fade-in shadow-lg shadow-violet-500/10 backdrop-blur-sm">
+            <div class="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-white/[0.05] border border-white/15 text-xs sm:text-sm text-gray-200 mb-6 sm:mb-8 animate-fade-in shadow-lg shadow-violet-500/10 backdrop-blur-sm">
               <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse shadow-[0_0_10px_rgba(74,222,128,0.5)]"></div>
-              Доступны для новых проектов
+              <span class="hidden sm:inline">Доступны для новых проектов</span>
+              <span class="sm:hidden">Доступны для проектов</span>
             </div>
 
             <!-- Заголовок с улучшенным градиентом -->
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-[1.2] animate-fade-in-up">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-[1.2] animate-fade-in-up">
               <span class="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">Разработка сайтов,</span>
               <br />
               <span class="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent">веб приложений</span>
@@ -92,91 +93,90 @@
               <span class="bg-gradient-to-r from-fuchsia-400 via-violet-400 to-purple-400 bg-clip-text text-transparent">и чат-ботов.</span>
             </h1>
 
-            <p class="text-lg text-gray-400 max-w-xl mb-10 leading-relaxed animate-fade-in-up animation-delay-200">
-              Превращаем сложные бизнес-задачи в элегантные 
+            <p class="text-base sm:text-lg text-gray-400 max-w-xl mb-6 sm:mb-10 leading-relaxed animate-fade-in-up animation-delay-200">
+              Превращаем сложные бизнес-задачи в элегантные
               <span class="text-violet-300 font-medium">автоматизированные решения</span> с помощью AI
             </p>
 
             <!-- Кнопки -->
-            <div class="flex flex-col sm:flex-row gap-3 animate-fade-in-up animation-delay-400">
-              <Button as-child class="px-5 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm bg-white text-black hover:bg-gray-100 shadow-xl shadow-white/10 hover:shadow-white/20 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 whitespace-nowrap">
+            <div class="flex flex-row gap-3 animate-fade-in-up animation-delay-400 flex-wrap">
+              <Button as-child class="px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm bg-white text-black hover:bg-gray-100 shadow-xl shadow-white/10 hover:shadow-white/20 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 whitespace-nowrap flex-1 sm:flex-none">
                 <a href="https://t.me/artemselifanov" target="_blank" class="flex items-center justify-center">
                   <span class="whitespace-nowrap">Обсудить проект</span>
                   <ArrowRight class="ml-2 h-3.5 w-3.5 flex-shrink-0" />
                 </a>
               </Button>
-              <Button as-child variant="outline" class="px-5 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm border-white/20 hover:bg-white/10 hover:border-white/40 backdrop-blur-sm transition-all duration-300 hover:scale-105 whitespace-nowrap">
+              <Button as-child variant="outline" class="px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm border-white/20 hover:bg-white/10 hover:border-white/40 backdrop-blur-sm transition-all duration-300 hover:scale-105 whitespace-nowrap flex-1 sm:flex-none">
                 <a href="#portfolio" class="whitespace-nowrap">Смотреть работы</a>
               </Button>
             </div>
 
             <!-- Stats -->
-            <div class="flex gap-8 mt-12 animate-fade-in-up animation-delay-600">
-              <div>
-                <div class="text-3xl font-bold text-white">50+</div>
-                <div class="text-sm text-gray-500">Проектов</div>
+            <div class="flex justify-center sm:justify-start gap-4 sm:gap-6 lg:gap-8 mt-8 sm:mt-12 animate-fade-in-up animation-delay-600">
+              <div class="text-center sm:text-left">
+                <div class="text-2xl sm:text-3xl font-bold text-white">50+</div>
+                <div class="text-xs sm:text-sm text-gray-500">Проектов</div>
               </div>
-              <div>
-                <div class="text-3xl font-bold text-white">98%</div>
-                <div class="text-sm text-gray-500">Довольных</div>
+              <div class="text-center sm:text-left">
+                <div class="text-2xl sm:text-3xl font-bold text-white">98%</div>
+                <div class="text-xs sm:text-sm text-gray-500">Довольных</div>
               </div>
-              <div>
-                <div class="text-3xl font-bold text-white">24/7</div>
-                <div class="text-sm text-gray-500">Поддержка</div>
+              <div class="text-center sm:text-left">
+                <div class="text-2xl sm:text-3xl font-bold text-white">24/7</div>
+                <div class="text-xs sm:text-sm text-gray-500">Поддержка</div>
               </div>
             </div>
           </div>
 
-          <!-- Правая часть - Dashboard CRM Stack -->
-          <div class="relative h-[500px] lg:h-[600px] animate-fade-in-up animation-delay-300 flex items-center justify-center">
-            <div class="flex gap-3">
-              
-              <!-- Левая колонка: Dashboard + Клиенты -->
-              <div class="flex flex-col gap-3">
-                
-                <!-- Dashboard (верхний) -->
-                <div class="w-[380px] h-[260px] rounded-xl border border-white/15 p-4 backdrop-blur-xl bg-gradient-to-br from-white/[0.06] to-white/[0.03] shadow-2xl">
+          <!-- Правая часть - CRM Dashboard и Код -->
+          <div class="flex gap-4 lg:gap-6 h-[360px] sm:h-[400px] lg:h-[420px]">
+            
+            <!-- CRM Dashboard -->
+            <div class="flex flex-col gap-2 sm:gap-3 flex-[2] w-full lg:flex-[2]">
+
+              <!-- Dashboard (верхний) -->
+              <div class="w-full flex-1 rounded-lg sm:rounded-xl border border-white/15 p-3 sm:p-4 backdrop-blur-xl bg-gradient-to-br from-white/[0.06] to-white/[0.03] shadow-2xl overflow-hidden">
                   <!-- Header -->
-                  <div class="mb-3">
-                    <div class="flex gap-1.5 mb-2">
-                      <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                      <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                      <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                  <div class="mb-2 sm:mb-3">
+                    <div class="flex gap-1.5 sm:gap-2 mb-2">
+                      <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80"></div>
+                      <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80"></div>
+                      <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/80"></div>
                     </div>
-                    <h3 class="text-xs font-semibold text-white">CRM Dashboard</h3>
-                    <p class="text-[9px] text-gray-500">Real-time</p>
+                    <h3 class="text-[10px] sm:text-xs font-semibold text-white">CRM Dashboard</h3>
+                    <p class="text-[8px] sm:text-[9px] text-gray-500">Real-time</p>
                   </div>
 
                   <!-- Stats Row -->
-                  <div class="grid grid-cols-3 gap-2 mb-3">
-                    <div class="p-2.5 rounded-lg bg-white/[0.03] border border-white/5">
-                      <div class="text-base font-bold text-white">1.3K</div>
-                      <div class="text-[9px] text-gray-500">Клиентов</div>
+                  <div class="grid grid-cols-3 gap-2 sm:gap-2.5 mb-2 sm:mb-3">
+                    <div class="p-2 sm:p-2.5 rounded bg-white/[0.03] border border-white/5">
+                      <div class="text-sm sm:text-base font-bold text-white">1.3K</div>
+                      <div class="text-[8px] sm:text-[9px] text-gray-500">Клиентов</div>
                       <div class="flex items-center gap-1 mt-1">
-                        <TrendingUp class="w-2 h-2 text-green-500" />
-                        <span class="text-[8px] text-green-400">+12%</span>
+                        <TrendingUp class="w-2 h-2 sm:w-2.5 sm:h-2.5 text-green-500" />
+                        <span class="text-[7px] sm:text-[8px] text-green-400">+12%</span>
                       </div>
                     </div>
-                    <div class="p-2.5 rounded-lg bg-white/[0.03] border border-white/5">
-                      <div class="text-base font-bold text-white">856</div>
-                      <div class="text-[9px] text-gray-500">Сделок</div>
+                    <div class="p-2 sm:p-2.5 rounded bg-white/[0.03] border border-white/5">
+                      <div class="text-sm sm:text-base font-bold text-white">856</div>
+                      <div class="text-[8px] sm:text-[9px] text-gray-500">Сделок</div>
                       <div class="flex items-center gap-1 mt-1">
-                        <TrendingUp class="w-2 h-2 text-green-500" />
-                        <span class="text-[8px] text-green-400">+8%</span>
+                        <TrendingUp class="w-2 h-2 sm:w-2.5 sm:h-2.5 text-green-500" />
+                        <span class="text-[7px] sm:text-[8px] text-green-400">+8%</span>
                       </div>
                     </div>
-                    <div class="p-2.5 rounded-lg bg-gradient-to-br from-violet-500/15 to-fuchsia-500/15 border border-violet-500/25">
-                      <div class="text-base font-bold text-white">2.4M</div>
-                      <div class="text-[9px] text-gray-400">Выручка</div>
+                    <div class="p-2 sm:p-2.5 rounded bg-gradient-to-br from-violet-500/15 to-fuchsia-500/15 border border-violet-500/25">
+                      <div class="text-sm sm:text-base font-bold text-white">2.4M</div>
+                      <div class="text-[8px] sm:text-[9px] text-gray-400">Выручка</div>
                       <div class="flex items-center gap-1 mt-1">
-                        <TrendingUp class="w-2 h-2 text-violet-400" />
-                        <span class="text-[8px] text-violet-400">+24%</span>
+                        <TrendingUp class="w-2 h-2 sm:w-2.5 sm:h-2.5 text-violet-400" />
+                        <span class="text-[7px] sm:text-[8px] text-violet-400">+24%</span>
                       </div>
                     </div>
                   </div>
 
                   <!-- Chart -->
-                  <div class="h-12 flex items-end gap-1">
+                  <div class="h-10 sm:h-12 flex items-end gap-1">
                     <div class="flex-1 bg-gradient-to-t from-violet-500/60 to-violet-500/15 rounded-sm" style="height: 35%"></div>
                     <div class="flex-1 bg-gradient-to-t from-fuchsia-500/60 to-fuchsia-500/15 rounded-sm" style="height: 55%"></div>
                     <div class="flex-1 bg-gradient-to-t from-violet-500/60 to-violet-500/15 rounded-sm" style="height: 42%"></div>
@@ -189,77 +189,100 @@
                 </div>
 
                 <!-- Клиенты (нижний) -->
-                <div class="w-[380px] h-[140px] rounded-lg border border-white/10 p-3 backdrop-blur-xl bg-[#0a0a0f]/95 shadow-2xl">
-                  <div class="flex items-center gap-2 mb-2">
-                    <div class="w-5 h-5 rounded bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center">
-                      <Users class="w-3 h-3 text-white" />
+                <div class="w-full flex-1 rounded-lg border border-white/10 p-3 sm:p-4 backdrop-blur-xl bg-[#0a0a0f]/95 shadow-2xl overflow-hidden">
+                  <div class="flex items-center justify-between mb-3 sm:mb-4">
+                    <div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-sm sm:text-base font-semibold text-white">Клиенты</span>
+                        <span class="text-[10px] sm:text-xs text-green-400 bg-green-500/10 px-1.5 sm:px-2 py-0.5 rounded-full border border-green-500/30 flex-shrink-0">Live</span>
+                      </div>
+                      <div class="text-[10px] sm:text-xs text-gray-500">Активных пользователей</div>
                     </div>
-                    <span class="text-xs text-gray-300 font-medium">Клиенты</span>
-                    <span class="text-[9px] text-green-400 bg-green-500/10 px-2 py-0.5 rounded-full border border-green-500/20 ml-auto">Live</span>
+                    <div class="text-right flex-shrink-0">
+                      <div class="text-base sm:text-lg font-bold text-white">2,847</div>
+                      <div class="text-[10px] text-green-400 flex items-center justify-end gap-0.5">
+                        <div class="w-2 h-2 sm:w-3 sm:h-3 border-l border-b border-green-400 rotate-45"></div>
+                        +18%
+                      </div>
+                    </div>
                   </div>
-                  <div class="grid grid-cols-3 gap-2">
-                    <div class="flex items-center gap-2 p-2 rounded bg-white/[0.02] border border-white/5">
-                      <div class="w-5 h-5 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center flex-shrink-0">
-                        <CheckCircle2 class="w-2.5 h-2.5 text-white" />
+                  <div class="grid grid-cols-3 gap-2 sm:gap-3">
+                    <div class="flex flex-col gap-1.5 sm:gap-2 p-2 sm:p-3 rounded-lg bg-white/[0.02] border border-white/5">
+                      <div class="flex items-center gap-1.5">
+                        <div class="w-5 h-5 sm:w-6 sm:h-6 rounded bg-violet-500/20 border border-violet-500/30 flex items-center justify-center flex-shrink-0">
+                          <div class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-violet-400"></div>
+                        </div>
+                        <div class="min-w-0">
+                          <div class="text-base sm:text-lg font-bold text-white">1,234</div>
+                          <div class="text-[9px] sm:text-xs text-gray-500 truncate">Активных</div>
+                        </div>
                       </div>
-                      <div class="min-w-0">
-                        <div class="h-1.5 w-12 bg-white/15 rounded-full mb-1"></div>
-                        <div class="h-1 w-8 bg-white/8 rounded-full"></div>
-                      </div>
-                    </div>
-                    <div class="flex items-center gap-2 p-2 rounded bg-white/[0.02] border border-white/5">
-                      <div class="w-5 h-5 rounded-full bg-gradient-to-br from-fuchsia-500 to-purple-500 flex items-center justify-center flex-shrink-0">
-                        <Clock class="w-2.5 h-2.5 text-white" />
-                      </div>
-                      <div class="min-w-0">
-                        <div class="h-1.5 w-10 bg-white/15 rounded-full mb-1"></div>
-                        <div class="h-1 w-6 bg-white/8 rounded-full"></div>
+                      <div class="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+                        <div class="h-full w-[75%] bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full"></div>
                       </div>
                     </div>
-                    <div class="flex items-center gap-2 p-2 rounded bg-white/[0.02] border border-white/5">
-                      <div class="w-5 h-5 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center flex-shrink-0">
-                        <Sparkles class="w-2.5 h-2.5 text-white" />
+                    <div class="flex flex-col gap-1.5 sm:gap-2 p-2 sm:p-3 rounded-lg bg-white/[0.02] border border-white/5">
+                      <div class="flex items-center gap-1.5">
+                        <div class="w-5 h-5 sm:w-6 sm:h-6 rounded bg-fuchsia-500/20 border border-fuchsia-500/30 flex items-center justify-center flex-shrink-0">
+                          <div class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-fuchsia-400"></div>
+                        </div>
+                        <div class="min-w-0">
+                          <div class="text-base sm:text-lg font-bold text-white">856</div>
+                          <div class="text-[9px] sm:text-xs text-gray-500 truncate">В ожидании</div>
+                        </div>
                       </div>
-                      <div class="min-w-0">
-                        <div class="h-1.5 w-14 bg-white/15 rounded-full mb-1"></div>
-                        <div class="h-1 w-8 bg-white/8 rounded-full"></div>
+                      <div class="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+                        <div class="h-full w-[45%] bg-gradient-to-r from-fuchsia-500 to-purple-500 rounded-full"></div>
+                      </div>
+                    </div>
+                    <div class="flex flex-col gap-1.5 sm:gap-2 p-2 sm:p-3 rounded-lg bg-white/[0.02] border border-white/5">
+                      <div class="flex items-center gap-1.5">
+                        <div class="w-5 h-5 sm:w-6 sm:h-6 rounded bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+                          <div class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-purple-400"></div>
+                        </div>
+                        <div class="min-w-0">
+                          <div class="text-base sm:text-lg font-bold text-white">757</div>
+                          <div class="text-[9px] sm:text-xs text-gray-500 truncate">VIP клиентов</div>
+                        </div>
+                      </div>
+                      <div class="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+                        <div class="h-full w-[60%] bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full"></div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Правая колонка: Код (на всю высоту) -->
-              <div class="w-[340px] h-[420px] rounded-xl border border-white/10 p-4 backdrop-blur-xl bg-[#0d0d12]/95 shadow-2xl">
-                <div class="flex items-center justify-between mb-3 pb-3 border-b border-white/5">
-                  <div class="flex items-center gap-2">
-                    <div class="flex gap-1.5">
-                      <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                      <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                      <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
-                    </div>
-                    <span class="ml-2 text-xs text-gray-500 font-mono">ai-processor.js</span>
+            <!-- Код -->
+            <div class="hidden lg:block lg:flex-[1] h-full rounded-lg sm:rounded-xl border border-white/10 p-3 sm:p-4 backdrop-blur-xl bg-[#0d0d12]/95 shadow-2xl overflow-hidden">
+              <div class="flex items-center justify-between mb-3 sm:mb-4 pb-2.5 sm:pb-3 border-b border-white/5">
+                <div class="flex items-center gap-2 sm:gap-2.5">
+                  <div class="flex gap-1.5 sm:gap-2 flex-shrink-0">
+                    <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80 flex-shrink-0"></div>
+                    <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80 flex-shrink-0"></div>
+                    <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/80 flex-shrink-0"></div>
                   </div>
-                  <span class="text-[9px] text-violet-400 bg-violet-500/10 px-2 py-0.5 rounded-full border border-violet-500/20 ml-auto">AI Core</span>
+                  <span class="text-[8px] sm:text-[9px] text-gray-500 font-mono whitespace-nowrap">ai-processor.js</span>
                 </div>
-                <pre class="text-[10px] leading-relaxed font-mono text-gray-400"><code><span class="text-violet-400">class</span> <span class="text-amber-400">CRMProcessor</span> {
+                <span class="text-[6px] sm:text-[7px] text-violet-400 bg-violet-500/10 px-1.5 sm:px-2 py-0.5 rounded-full border border-violet-500/20 flex-shrink-0">AI Core</span>
+              </div>
+              <pre class="text-[7px] sm:text-[8px] lg:text-[9px] leading-relaxed font-mono text-gray-400"><code><span class="text-violet-400">class</span> <span class="text-amber-400">CRMProcessor</span> {
   <span class="text-violet-400">async</span> <span class="text-blue-400">process</span>(<span class="text-blue-400">data</span>) {
     <span class="text-gray-500">// AI анализ данных</span>
     <span class="text-blue-400">const</span> <span class="text-blue-400">insights</span> = <span class="text-violet-400">await</span> <span class="text-amber-400">analyzeAI</span>(<span class="text-blue-400">data</span>);
-    
+
     <span class="text-violet-400">const</span> <span class="text-blue-400">metrics</span> = {
       <span class="text-green-400">revenue</span>: <span class="text-blue-400">insights</span>.<span class="text-blue-400">revenue</span> * <span class="text-orange-400">1.24</span>,
       <span class="text-green-400">customers</span>: <span class="text-blue-400">insights</span>.<span class="text-blue-400">count</span>,
       <span class="text-green-400">conversion</span>: <span class="text-blue-400">insights</span>.<span class="text-blue-400">rate</span> + <span class="text-orange-400">0.12</span>
     };
-    
+
     <span class="text-violet-400">return</span> <span class="text-amber-400">optimize</span>(<span class="text-blue-400">metrics</span>);
   }
 }
 
 <span class="text-violet-400">const</span> <span class="text-blue-400">crm</span> = <span class="text-violet-400">new</span> <span class="text-amber-400">CRMProcessor</span>();
 <span class="text-blue-400">crm</span>.<span class="text-blue-400">process</span>(<span class="text-blue-400">analytics</span>);</code></pre>
-              </div>
             </div>
           </div>
         </div>
@@ -267,55 +290,55 @@
     </section>
 
     <!-- Секция Проблемы бизнеса - Единый стиль сайта -->
-    <section id="problems" ref="problemsSection" class="py-32 px-6 relative">
+    <section id="problems" ref="problemsSection" class="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 relative">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-20">
-          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300 mb-6 backdrop-blur-sm">
-            <AlertCircle class="w-4 h-4 text-violet-400" />
+        <div class="text-center mb-12 sm:mb-16 lg:mb-20">
+          <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/5 border border-white/10 text-xs sm:text-sm text-gray-300 mb-4 sm:mb-6 backdrop-blur-sm">
+            <AlertCircle class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-violet-400" />
             Диагностика
           </div>
-          <h2 class="text-4xl md:text-6xl font-bold mb-6">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
             <span class="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">Узнаёте свой</span>
             <span class="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent"> бизнес?</span>
           </h2>
-          <p class="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
+          <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg leading-relaxed px-2">
             Эти проблемы знакомы большинству компаний, которые хотят масштабироваться
           </p>
         </div>
 
         <!-- Карточки проблем в едином стиле -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           <div v-for="(problem, index) in problems" :key="index"
                :ref="(el) => problemRefs[index] = el"
-               class="group relative rounded-2xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] p-8 hover:border-violet-500/30 hover:bg-white/[0.04] transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-violet-500/10 overflow-hidden">
+               class="group relative rounded-2xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] p-5 sm:p-6 lg:p-8 hover:border-violet-500/30 hover:bg-white/[0.04] transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-violet-500/10 overflow-hidden">
             <!-- Градиентный фон при наведении -->
             <div class="absolute inset-0 bg-gradient-to-br from-violet-500/10 to-fuchsia-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
             <!-- Номер проблемы -->
-            <div class="absolute top-6 right-6 text-6xl font-bold text-white/[0.03] group-hover:text-violet-500/10 transition-colors select-none">
+            <div class="absolute top-4 sm:top-6 right-4 sm:right-6 text-4xl sm:text-5xl lg:text-6xl font-bold text-white/[0.03] group-hover:text-violet-500/10 transition-colors select-none">
               {{ String(index + 1).padStart(2, '0') }}
             </div>
 
             <div class="relative z-10">
               <!-- Иконка с белой обводкой -->
-              <div class="w-14 h-14 rounded-2xl border border-white/30 bg-transparent flex items-center justify-center mb-6 group-hover:border-white/50 group-hover:scale-110 transition-all duration-300">
-                <component :is="problem.icon" class="h-7 w-7 text-white" />
+              <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl border border-white/30 bg-transparent flex items-center justify-center mb-4 sm:mb-6 group-hover:border-white/50 group-hover:scale-110 transition-all duration-300">
+                <component :is="problem.icon" class="h-6 w-6 sm:h-7 sm:w-7 text-white" />
               </div>
 
               <!-- Заголовок -->
-              <h3 class="text-xl font-bold text-white mb-3 group-hover:text-violet-200 transition-colors">
+              <h3 class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 group-hover:text-violet-200 transition-colors">
                 {{ problem.title }}
               </h3>
 
               <!-- Описание -->
-              <p class="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
+              <p class="text-sm sm:text-base text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
                 {{ problem.description }}
               </p>
 
               <!-- Решение -->
-              <div class="mt-6 pt-6 border-t border-white/5">
-                <div class="flex items-center gap-2 text-sm">
-                  <CheckCircle2 class="w-4 h-4 text-violet-400" />
+              <div class="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-white/5">
+                <div class="flex items-center gap-2 text-xs sm:text-sm">
+                  <CheckCircle2 class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-violet-400 flex-shrink-0" />
                   <span class="text-violet-300">{{ problem.solution }}</span>
                 </div>
               </div>
@@ -329,101 +352,101 @@
     </section>
 
     <!-- Секция Услуги с улучшенным Bento Grid -->
-    <section id="services" class="py-32 px-6 relative">
+    <section id="services" class="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 relative">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-20">
-          <h2 class="text-4xl md:text-6xl font-bold mb-6">
+        <div class="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
             <span class="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">Наши</span>
             <span class="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent"> услуги</span>
           </h2>
-          <p class="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">Комплексные решения для цифровизации вашего бизнеса</p>
+          <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg leading-relaxed px-2">Комплексные решения для цифровизации вашего бизнеса</p>
         </div>
 
         <!-- Bento Grid с улучшенным дизайном -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           <!-- Большая карточка -->
-          <div class="md:col-span-2 rounded-2xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] p-8 hover:border-violet-500/40 hover:bg-white/[0.04] transition-all duration-500 group overflow-hidden relative hover:-translate-y-1 hover:shadow-xl hover:shadow-violet-500/10">
-            <div class="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-violet-600/30 to-fuchsia-600/30 rounded-full blur-[100px] group-hover:scale-110 transition-all duration-700"></div>
+          <div class="md:col-span-2 rounded-2xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] p-6 sm:p-8 hover:border-violet-500/40 hover:bg-white/[0.04] transition-all duration-500 group overflow-hidden relative hover:-translate-y-1 hover:shadow-xl hover:shadow-violet-500/10">
+            <div class="absolute top-0 right-0 w-60 h-60 sm:w-80 sm:h-80 bg-gradient-to-br from-violet-600/30 to-fuchsia-600/30 rounded-full blur-[80px] sm:blur-[100px] group-hover:scale-110 transition-all duration-700"></div>
             <div class="relative z-10">
-              <div class="flex items-start justify-between">
-                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 via-fuchsia-500 to-purple-600 flex items-center justify-center shadow-lg shadow-violet-500/30 mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                  <Monitor class="h-7 w-7 text-white" />
+              <div class="flex items-start justify-between flex-wrap gap-4">
+                <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-violet-500 via-fuchsia-500 to-purple-600 flex items-center justify-center shadow-lg shadow-violet-500/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <Monitor class="h-6 w-6 sm:h-7 sm:w-7 text-white" />
                 </div>
                 <div class="hidden md:flex gap-2">
-                  <span class="px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/30 text-xs text-violet-300">Nuxt</span>
-                  <span class="px-4 py-1.5 rounded-full bg-fuchsia-500/10 border border-fuchsia-500/30 text-xs text-fuchsia-300">Vue</span>
-                  <span class="px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-xs text-purple-300">React</span>
+                  <span class="px-3 sm:px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/30 text-xs text-violet-300">Nuxt</span>
+                  <span class="px-3 sm:px-4 py-1.5 rounded-full bg-fuchsia-500/10 border border-fuchsia-500/30 text-xs text-fuchsia-300">Vue</span>
+                  <span class="px-3 sm:px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-xs text-purple-300">React</span>
                 </div>
               </div>
-              <h3 class="text-3xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-4">Веб-сайты</h3>
-              <p class="text-gray-400 mb-6 max-w-md text-lg leading-relaxed">
-                От лендингов до корпоративных порталов. Современный дизайн, адаптивность, 
+              <h3 class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-3 sm:mb-4 mt-4 sm:mt-0">Веб-сайты</h3>
+              <p class="text-gray-400 mb-4 sm:mb-6 text-sm sm:text-base lg:text-lg leading-relaxed">
+                От лендингов до корпоративных порталов. Современный дизайн, адаптивность,
                 SEO-оптимизация и высокая конверсия
               </p>
             </div>
           </div>
 
           <!-- Маленькая карточка чат-боты -->
-          <div class="rounded-2xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] p-8 hover:border-fuchsia-500/40 hover:bg-white/[0.04] transition-all duration-500 group overflow-hidden relative hover:-translate-y-1 hover:shadow-xl hover:shadow-fuchsia-500/10">
-            <div class="absolute top-0 right-0 w-60 h-60 bg-gradient-to-br from-fuchsia-600/30 to-violet-600/30 rounded-full blur-[80px] group-hover:scale-110 transition-all duration-700"></div>
+          <div class="rounded-2xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] p-6 sm:p-8 hover:border-fuchsia-500/40 hover:bg-white/[0.04] transition-all duration-500 group overflow-hidden relative hover:-translate-y-1 hover:shadow-xl hover:shadow-fuchsia-500/10">
+            <div class="absolute top-0 right-0 w-40 h-40 sm:w-60 sm:h-60 bg-gradient-to-br from-fuchsia-600/30 to-violet-600/30 rounded-full blur-[60px] sm:blur-[80px] group-hover:scale-110 transition-all duration-700"></div>
             <div class="relative z-10">
-              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-fuchsia-500 via-violet-500 to-purple-600 flex items-center justify-center shadow-lg shadow-fuchsia-500/30 mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                <Bot class="h-7 w-7 text-white" />
+              <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-fuchsia-500 via-violet-500 to-purple-600 flex items-center justify-center shadow-lg shadow-fuchsia-500/30 mb-4 sm:mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                <Bot class="h-6 w-6 sm:h-7 sm:w-7 text-white" />
               </div>
-              <h3 class="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-3">AI чат-боты</h3>
-              <p class="text-gray-400 leading-relaxed">
+              <h3 class="text-xl sm:text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-2 sm:mb-3">AI чат-боты</h3>
+              <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
                 Умные боты для Telegram, VK и MAX с интеграцией AI. Автоматизация продаж и поддержки
               </p>
-              <div class="mt-4 flex gap-2 flex-wrap">
-                <span class="px-3 py-1 rounded-full bg-fuchsia-500/10 border border-fuchsia-500/30 text-xs text-fuchsia-300">Telegram</span>
-                <span class="px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/30 text-xs text-violet-300">VK</span>
-                <span class="px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-xs text-purple-300">MAX</span>
+              <div class="mt-3 sm:mt-4 flex gap-2 flex-wrap">
+                <span class="px-2.5 sm:px-3 py-1 rounded-full bg-fuchsia-500/10 border border-fuchsia-500/30 text-[10px] sm:text-xs text-fuchsia-300">Telegram</span>
+                <span class="px-2.5 sm:px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/30 text-[10px] sm:text-xs text-violet-300">VK</span>
+                <span class="px-2.5 sm:px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-[10px] sm:text-xs text-purple-300">MAX</span>
               </div>
             </div>
           </div>
 
           <!-- Маленькая карточка веб-приложения -->
-          <div class="rounded-2xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] p-8 hover:border-violet-500/40 hover:bg-white/[0.04] transition-all duration-500 group overflow-hidden relative hover:-translate-y-1 hover:shadow-xl hover:shadow-violet-500/10">
-            <div class="absolute top-0 right-0 w-60 h-60 bg-gradient-to-br from-violet-600/30 to-indigo-600/30 rounded-full blur-[80px] group-hover:scale-110 transition-all duration-700"></div>
+          <div class="rounded-2xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] p-6 sm:p-8 hover:border-violet-500/40 hover:bg-white/[0.04] transition-all duration-500 group overflow-hidden relative hover:-translate-y-1 hover:shadow-xl hover:shadow-violet-500/10">
+            <div class="absolute top-0 right-0 w-40 h-40 sm:w-60 sm:h-60 bg-gradient-to-br from-violet-600/30 to-indigo-600/30 rounded-full blur-[60px] sm:blur-[80px] group-hover:scale-110 transition-all duration-700"></div>
             <div class="relative z-10">
-              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 via-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-violet-500/30 mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                <Code2 class="h-7 w-7 text-white" />
+              <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-violet-500 via-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-violet-500/30 mb-4 sm:mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                <Code2 class="h-6 w-6 sm:h-7 sm:w-7 text-white" />
               </div>
-              <h3 class="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-3">Веб-приложения</h3>
-              <p class="text-gray-400 leading-relaxed">
+              <h3 class="text-xl sm:text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-2 sm:mb-3">Веб-приложения</h3>
+              <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
                 CRM, личные кабинеты, сервисы с AI-функционалом
               </p>
             </div>
           </div>
 
           <!-- Большая карточка автоматизация -->
-          <div class="md:col-span-2 rounded-2xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] p-8 hover:border-violet-500/40 hover:bg-white/[0.04] transition-all duration-500 group overflow-hidden relative hover:-translate-y-1 hover:shadow-xl hover:shadow-violet-500/10">
-            <div class="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-violet-600/30 to-fuchsia-600/30 rounded-full blur-[100px] group-hover:scale-110 transition-all duration-700"></div>
-            <div class="relative z-10 flex flex-col md:flex-row gap-8 items-start">
+          <div class="md:col-span-2 rounded-2xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] p-6 sm:p-8 hover:border-violet-500/40 hover:bg-white/[0.04] transition-all duration-500 group overflow-hidden relative hover:-translate-y-1 hover:shadow-xl hover:shadow-violet-500/10">
+            <div class="absolute top-0 right-0 w-60 h-60 sm:w-80 sm:h-80 bg-gradient-to-br from-violet-600/30 to-fuchsia-600/30 rounded-full blur-[80px] sm:blur-[100px] group-hover:scale-110 transition-all duration-700"></div>
+            <div class="relative z-10 flex flex-col md:flex-row gap-6 sm:gap-8 items-start">
               <div class="flex-1">
-                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 via-fuchsia-500 to-purple-600 flex items-center justify-center shadow-lg shadow-violet-500/30 mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                  <Zap class="h-7 w-7 text-white" />
+                <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-violet-500 via-fuchsia-500 to-purple-600 flex items-center justify-center shadow-lg shadow-violet-500/30 mb-4 sm:mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <Zap class="h-6 w-6 sm:h-7 sm:w-7 text-white" />
                 </div>
-                <h3 class="text-3xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-4">Автоматизация</h3>
-                <p class="text-gray-400 mb-6 text-lg leading-relaxed">
-                  Интеграция систем, автоматические воронки, триггерные рассылки. 
+                <h3 class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-3 sm:mb-4">Автоматизация</h3>
+                <p class="text-gray-400 mb-4 sm:mb-6 text-sm sm:text-base lg:text-lg leading-relaxed">
+                  Интеграция систем, автоматические воронки, триггерные рассылки.
                   Освободим время для важных задач
                 </p>
-                <div class="flex gap-2">
-                  <span class="px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/30 text-xs text-violet-300">API</span>
-                  <span class="px-4 py-1.5 rounded-full bg-fuchsia-500/10 border border-fuchsia-500/30 text-xs text-fuchsia-300">CRM</span>
-                  <span class="px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-xs text-purple-300">AI</span>
+                <div class="flex gap-2 flex-wrap">
+                  <span class="px-3 sm:px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/30 text-xs text-violet-300">API</span>
+                  <span class="px-3 sm:px-4 py-1.5 rounded-full bg-fuchsia-500/10 border border-fuchsia-500/30 text-xs text-fuchsia-300">CRM</span>
+                  <span class="px-3 sm:px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-xs text-purple-300">AI</span>
                 </div>
               </div>
               <!-- Code snippet с улучшенным стилем -->
-              <div class="w-full md:w-80 bg-[#0a0a0f] rounded-xl p-5 border border-white/[0.08] shadow-xl font-mono text-sm">
-                <div class="flex items-center gap-2 mb-4">
-                  <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-                  <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                  <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-                  <span class="ml-2 text-xs text-gray-600">automate.js</span>
+              <div class="w-full md:w-72 lg:w-80 bg-[#0a0a0f] rounded-lg sm:rounded-xl p-3 sm:p-5 border border-white/[0.08] shadow-xl font-mono text-xs sm:text-sm overflow-x-auto">
+                <div class="flex items-center gap-1.5 sm:gap-2 mb-3 sm:mb-4">
+                  <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80"></div>
+                  <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80"></div>
+                  <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/80"></div>
+                  <span class="ml-1 sm:ml-2 text-[10px] sm:text-xs text-gray-600">automate.js</span>
                 </div>
-                <pre class="text-gray-400"><code><span class="text-purple-400">const</span> <span class="text-blue-400">result</span> = <span class="text-purple-400">await</span> <span class="text-yellow-400">automate</span>({
+                <pre class="text-gray-400 overflow-x-auto"><code><span class="text-purple-400">const</span> <span class="text-blue-400">result</span> = <span class="text-purple-400">await</span> <span class="text-yellow-400">automate</span>({
   <span class="text-green-400">efficiency</span>: <span class="text-orange-400">'+90%'</span>,
   <span class="text-green-400">timeSaved</span>: <span class="text-orange-400">'-80%'</span>,
   <span class="text-green-400">roi</span>: <span class="text-orange-400">'300%'</span>
@@ -436,25 +459,25 @@
     </section>
 
     <!-- Секция Почему мы с улучшенными карточками -->
-    <section id="why-us" class="py-32 px-6 relative">
+    <section id="why-us" class="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 relative">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-20">
-          <h2 class="text-4xl md:text-6xl font-bold mb-6">
+        <div class="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
             <span class="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">Почему выбирают</span>
-            <span class="font-syncopate font-bold text-white tracking-wider"> YAPPIE</span>
+            <span class="font-syncopate font-bold text-white tracking-wider text-xl sm:text-2xl md:text-3xl lg:text-4xl"> YAPPIE</span>
           </h2>
-          <p class="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">Решения, которые экономят время и деньги вашего бизнеса</p>
+          <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg leading-relaxed px-2">Решения, которые экономят время и деньги вашего бизнеса</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div v-for="(benefit, index) in benefits" :key="index" 
-               class="group flex gap-6 p-8 rounded-2xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] hover:border-white/30 hover:bg-white/[0.04] transition-all duration-500 hover:-translate-y-1">
-            <div class="w-16 h-16 rounded-2xl border border-white/30 bg-transparent flex items-center justify-center flex-shrink-0 group-hover:border-white/50 group-hover:scale-110 transition-all duration-500">
-              <component :is="benefit.icon" class="h-8 w-8 text-white" />
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          <div v-for="(benefit, index) in benefits" :key="index"
+               class="group flex flex-col sm:flex-row gap-4 sm:gap-6 p-5 sm:p-6 lg:p-8 rounded-2xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] hover:border-white/30 hover:bg-white/[0.04] transition-all duration-500 hover:-translate-y-1">
+            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl border border-white/30 bg-transparent flex items-center justify-center flex-shrink-0 group-hover:border-white/50 group-hover:scale-110 transition-all duration-500">
+              <component :is="benefit.icon" class="h-7 w-7 sm:h-8 sm:w-8 text-white" />
             </div>
             <div>
-              <h4 class="text-xl font-bold text-white mb-3">{{ benefit.title }}</h4>
-              <p class="text-gray-400 leading-relaxed">{{ benefit.description }}</p>
+              <h4 class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">{{ benefit.title }}</h4>
+              <p class="text-sm sm:text-base text-gray-400 leading-relaxed">{{ benefit.description }}</p>
             </div>
           </div>
         </div>
@@ -462,24 +485,24 @@
     </section>
 
     <!-- Секция Автоматизация и заработок -->
-    <section id="automation" class="py-32 px-6 relative">
+    <section id="automation" class="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 relative">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl md:text-6xl font-bold mb-6">
+        <div class="text-center mb-12 sm:mb-16">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
             <span class="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">Наши решения</span>
           </h2>
-          <p class="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
+          <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg leading-relaxed px-2">
             Автоматизация, веб-сервисы и мобильные приложения для роста вашего бизнеса
           </p>
         </div>
 
         <!-- Линия с названиями -->
-        <div class="flex flex-wrap justify-center gap-8 mb-16 border-b border-white/10 pb-4">
+        <div class="flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 lg:mb-16 border-b border-white/10 pb-3 sm:pb-4">
           <button
             v-for="(item, index) in automationItems"
             :key="index"
             @click="activeSlide = index"
-            class="text-lg transition-all duration-300 pb-4 relative"
+            class="text-base sm:text-lg transition-all duration-300 pb-3 sm:pb-4 relative"
             :class="activeSlide === index ? 'text-white' : 'text-gray-500 hover:text-gray-300'"
           >
             {{ item.shortTitle }}
@@ -491,7 +514,7 @@
         </div>
 
         <!-- Слайдер -->
-        <div class="relative min-h-[500px] overflow-hidden rounded-3xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08]">
+        <div class="relative min-h-[450px] sm:min-h-[500px] overflow-hidden rounded-2xl sm:rounded-3xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08]">
           <div
             class="flex transition-transform duration-500 ease-out h-full"
             :style="{ transform: `translateX(-${activeSlide * 100}%)` }"
@@ -502,33 +525,33 @@
               class="w-full flex-shrink-0 flex flex-col lg:flex-row h-full"
             >
               <!-- Левая часть - текст -->
-              <div class="lg:w-1/2 p-12 flex flex-col justify-center">
-                <div class="mb-6">
-                  <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/30 text-sm text-violet-300 mb-4">
-                    <Zap class="w-4 h-4" />
+              <div class="lg:w-1/2 p-6 sm:p-8 lg:p-12 flex flex-col justify-center">
+                <div class="mb-4 sm:mb-6">
+                  <span class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-violet-500/10 border border-violet-500/30 text-xs sm:text-sm text-violet-300 mb-3 sm:mb-4">
+                    <Zap class="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     {{ item.category || 'Решение' }}
                   </span>
                 </div>
-                <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">{{ item.title }}</h3>
-                <p class="text-gray-400 text-lg leading-relaxed mb-8">{{ item.description }}</p>
-                
-                <div class="space-y-4 mb-8">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 flex items-center justify-center">
-                      <TrendingUp class="w-5 h-5 text-violet-400" />
+                <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">{{ item.title }}</h3>
+                <p class="text-gray-400 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8">{{ item.description }}</p>
+
+                <div class="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+                  <div class="flex items-center gap-2 sm:gap-3">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 flex items-center justify-center">
+                      <TrendingUp class="w-4 h-4 sm:w-5 sm:h-5 text-violet-400" />
                     </div>
                     <div>
-                      <div class="text-white font-semibold">Прибыль</div>
-                      <div class="text-gray-500 text-sm">{{ item.profit }}</div>
+                      <div class="text-white font-semibold text-sm sm:text-base">Прибыль</div>
+                      <div class="text-gray-500 text-xs sm:text-sm">{{ item.profit }}</div>
                     </div>
                   </div>
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 flex items-center justify-center">
-                      <Clock class="w-5 h-5 text-violet-400" />
+                  <div class="flex items-center gap-2 sm:gap-3">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 flex items-center justify-center">
+                      <Clock class="w-4 h-4 sm:w-5 sm:h-5 text-violet-400" />
                     </div>
                     <div>
-                      <div class="text-white font-semibold">Экономия времени</div>
-                      <div class="text-gray-500 text-sm">{{ item.timeSaved }}</div>
+                      <div class="text-white font-semibold text-sm sm:text-base">Экономия времени</div>
+                      <div class="text-gray-500 text-xs sm:text-sm">{{ item.timeSaved }}</div>
                     </div>
                   </div>
                 </div>
@@ -542,20 +565,20 @@
               </div>
 
               <!-- Правая часть - референс/картинка -->
-              <div class="lg:w-1/2 p-8 flex items-center justify-center">
-                <div class="relative w-full max-w-lg">
+              <div class="lg:w-1/2 p-6 sm:p-8 flex items-center justify-center">
+                <div class="relative w-full max-w-sm sm:max-w-lg">
                   <div class="absolute inset-0 bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 rounded-2xl blur-2xl"></div>
-                  <div class="relative bg-gradient-to-br from-white/[0.05] to-white/[0.02] rounded-2xl p-8 border border-white/[0.08] backdrop-blur-xl">
-                    <component 
-                      :is="item.icon" 
-                      class="w-32 h-32 mx-auto text-white/20 mb-6"
+                  <div class="relative bg-gradient-to-br from-white/[0.05] to-white/[0.02] rounded-2xl p-6 sm:p-8 border border-white/[0.08] backdrop-blur-xl">
+                    <component
+                      :is="item.icon"
+                      class="w-24 h-24 sm:w-32 sm:h-32 mx-auto text-white/20 mb-4 sm:mb-6"
                     />
                     <div class="text-center">
-                      <div class="text-2xl font-bold text-white mb-2">{{ item.metric }}</div>
-                      <div class="text-gray-500">{{ item.metricLabel }}</div>
+                      <div class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">{{ item.metric }}</div>
+                      <div class="text-gray-500 text-xs sm:text-sm">{{ item.metricLabel }}</div>
                     </div>
-                    <div class="mt-6 pt-6 border-t border-white/10">
-                      <div class="flex justify-between items-center text-sm">
+                    <div class="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-white/10">
+                      <div class="flex justify-between items-center text-xs sm:text-sm">
                         <span class="text-gray-500">ROI</span>
                         <span class="text-violet-400 font-semibold">{{ item.roi }}</span>
                       </div>
@@ -568,42 +591,42 @@
         </div>
 
         <!-- Индикаторы слайдов -->
-        <div class="flex justify-center gap-3 mt-8">
+        <div class="flex justify-center gap-2 sm:gap-3 mt-6 sm:mt-8">
           <button
             v-for="(item, index) in automationItems"
             :key="index"
             @click="activeSlide = index"
-            class="w-3 h-3 rounded-full transition-all duration-300"
-            :class="activeSlide === index ? 'bg-violet-500 w-8' : 'bg-white/20 hover:bg-white/40'"
+            class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300"
+            :class="activeSlide === index ? 'bg-violet-500 w-6 sm:w-8' : 'bg-white/20 hover:bg-white/40'"
           ></button>
         </div>
       </div>
     </section>
 
     <!-- Секция Портфолио с улучшенными карточками -->
-    <section id="portfolio" class="py-32 px-6 relative">
+    <section id="portfolio" class="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 relative">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-20">
-          <h2 class="text-4xl md:text-6xl font-bold mb-6">
+        <div class="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
             <span class="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">Наши</span>
             <span class="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent"> проекты</span>
           </h2>
-          <p class="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">Реальные кейсы с измеримыми результатами</p>
+          <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg leading-relaxed px-2">Реальные кейсы с измеримыми результатами</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           <div v-for="(project, index) in portfolio" :key="index"
                class="group relative rounded-2xl overflow-hidden border border-white/[0.08] hover:border-violet-500/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-violet-500/20 bg-white/[0.02] backdrop-blur-xl">
             <div class="aspect-video bg-gradient-to-br from-violet-600/20 to-fuchsia-600/20 flex items-center justify-center relative overflow-hidden">
               <div class="absolute inset-0 bg-gradient-to-t from-[#030305] via-transparent to-transparent opacity-60"></div>
-              <component :is="project.icon" class="h-20 w-20 text-white/30 group-hover:scale-110 group-hover:text-white/50 transition-all duration-500" />
+              <component :is="project.icon" class="h-16 w-16 sm:h-20 sm:w-20 text-white/30 group-hover:scale-110 group-hover:text-white/50 transition-all duration-500" />
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-2">{{ project.title }}</h3>
-              <p class="text-gray-400 mb-4 leading-relaxed">{{ project.description }}</p>
+            <div class="p-4 sm:p-6">
+              <h3 class="text-lg sm:text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-2">{{ project.title }}</h3>
+              <p class="text-gray-400 text-sm sm:text-base mb-3 sm:mb-4 leading-relaxed">{{ project.description }}</p>
               <div class="flex flex-wrap gap-2">
-                <span v-for="tag in project.tags" :key="tag" 
-                      class="px-3 py-1.5 rounded-full bg-gradient-to-r from-violet-500/10 to-fuchsia-500/10 border border-violet-500/30 text-xs text-violet-300">
+                <span v-for="tag in project.tags" :key="tag"
+                      class="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-gradient-to-r from-violet-500/10 to-fuchsia-500/10 border border-violet-500/30 text-[10px] sm:text-xs text-violet-300">
                   {{ tag }}
                 </span>
               </div>
@@ -614,22 +637,22 @@
     </section>
 
     <!-- Секция FAQ с улучшенным дизайном -->
-    <section id="faq" class="py-32 px-6 relative">
+    <section id="faq" class="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 relative">
       <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-20">
-          <h2 class="text-4xl md:text-6xl font-bold mb-6">
+        <div class="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
             <span class="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">Частые</span>
             <span class="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent"> вопросы</span>
           </h2>
         </div>
 
-        <Accordion type="single" collapsible class="space-y-4">
+        <Accordion type="single" collapsible class="space-y-3 sm:space-y-4">
           <AccordionItem v-for="(faq, index) in faqs" :key="index" :value="`item-${index}`"
-                        class="rounded-2xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] px-6 hover:border-violet-500/30 data-[state=open]:border-violet-500/40 data-[state=open]:bg-white/[0.04] transition-all duration-300">
-            <AccordionTrigger class="text-left text-white hover:text-violet-300 py-6 text-lg font-medium">
+                        class="rounded-xl sm:rounded-2xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] px-4 sm:px-6 hover:border-violet-500/30 data-[state=open]:border-violet-500/40 data-[state=open]:bg-white/[0.04] transition-all duration-300">
+            <AccordionTrigger class="text-left text-white hover:text-violet-300 py-4 sm:py-6 text-sm sm:text-lg font-medium">
               {{ faq.question }}
             </AccordionTrigger>
-            <AccordionContent class="text-gray-400 pb-6 leading-relaxed">
+            <AccordionContent class="text-gray-400 pb-4 sm:pb-6 text-sm sm:text-base leading-relaxed">
               {{ faq.answer }}
             </AccordionContent>
           </AccordionItem>
@@ -638,13 +661,13 @@
     </section>
 
     <!-- Секция Контакты с улучшенным CTA -->
-    <section id="contact" class="py-32 px-6 relative">
+    <section id="contact" class="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 relative">
       <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-4xl md:text-6xl font-bold mb-6">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
           <span class="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">Готовы</span>
           <span class="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent"> начать проект?</span>
         </h2>
-        <p class="text-gray-400 mb-12 max-w-xl mx-auto text-xl leading-relaxed">
+        <p class="text-gray-400 mb-8 sm:mb-12 max-w-xl mx-auto text-base sm:text-lg lg:text-xl leading-relaxed px-2">
           Расскажите о вашей задаче — мы предложим решение и рассчитаем стоимость бесплатно
         </p>
 
@@ -656,23 +679,23 @@
           </a>
         </Button>
 
-        <p class="text-gray-500 mt-8 text-base">Бесплатная консультация и расчёт стоимости в течение 24 часов</p>
+        <p class="text-gray-500 mt-6 sm:mt-8 text-xs sm:text-sm sm:px-2">Бесплатная консультация и расчёт стоимости в течение 24 часов</p>
       </div>
     </section>
 
     <!-- Footer с улучшенным стилем -->
-    <footer class="py-12 px-6 border-t border-white/[0.08]">
-      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+    <footer class="py-8 sm:py-12 px-4 sm:px-6 border-t border-white/[0.08]">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
         <div class="flex items-center gap-2">
-          <span class="font-syncopate font-bold text-white tracking-wider text-xl">YAPPIE</span>
+          <span class="font-syncopate font-bold text-white tracking-wider text-lg sm:text-xl">YAPPIE</span>
         </div>
-        <div class="flex gap-8 text-sm text-gray-500">
+        <div class="flex flex-wrap justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-gray-500">
           <a href="#services" class="hover:text-white transition-colors hover:text-violet-300">Услуги</a>
           <a href="#portfolio" class="hover:text-white transition-colors hover:text-violet-300">Кейсы</a>
           <a href="#faq" class="hover:text-white transition-colors hover:text-violet-300">FAQ</a>
           <a href="#contact" class="hover:text-white transition-colors hover:text-violet-300">Контакты</a>
         </div>
-        <div class="text-gray-600 text-sm">© 2026 Yappie</div>
+        <div class="text-gray-600 text-xs sm:text-sm">© 2026 Yappie</div>
       </div>
     </footer>
 

@@ -45,7 +45,7 @@
               <br />
               <span class="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent">веб приложений</span>
               <br />
-              <span class="bg-gradient-to-r from-fuchsia-400 via-violet-400 to-purple-400 bg-clip-text text-transparent">и чат-ботов</span>
+              <span class="bg-gradient-to-r from-fuchsia-400 via-violet-400 to-purple-400 bg-clip-text text-transparent">и чат-ботов.</span>
             </h1>
 
             <p class="text-lg text-gray-400 max-w-xl mb-10 leading-relaxed animate-fade-in-up animation-delay-200">

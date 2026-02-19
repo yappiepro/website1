@@ -2,7 +2,7 @@
 import { reactiveOmit } from "@vueuse/core"
 import { ChevronDown } from "lucide-vue-next"
 import { AccordionHeader, AccordionTrigger } from "reka-ui"
-import { cn } from "@/lib/utils.js"
+import { cn } from "~/lib/utils.js"
 
 const props = defineProps({
   class: String,

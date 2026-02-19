@@ -128,20 +128,20 @@
           </div>
 
           <!-- Правая часть - Dashboard CRM Stack -->
-          <div class="relative h-auto lg:h-[500px] animate-fade-in-up animation-delay-300 flex items-center justify-center overflow-x-auto">
-            <div class="flex gap-3 w-full justify-center p-4">
+          <div class="relative h-[500px] lg:h-[600px] animate-fade-in-up animation-delay-300 flex items-center justify-center">
+            <div class="flex gap-3">
               
               <!-- Левая колонка: Dashboard + Клиенты -->
-              <div class="flex flex-col gap-3 h-auto lg:h-[420px] flex-shrink-0">
+              <div class="flex flex-col gap-3">
                 
                 <!-- Dashboard (верхний) -->
-                <div class="w-[320px] lg:w-[420px] flex-1 rounded-xl border border-white/15 p-3 lg:p-4 backdrop-blur-xl bg-gradient-to-br from-white/[0.06] to-white/[0.03] shadow-2xl">
+                <div class="w-[380px] h-[260px] rounded-xl border border-white/15 p-4 backdrop-blur-xl bg-gradient-to-br from-white/[0.06] to-white/[0.03] shadow-2xl">
                   <!-- Header -->
                   <div class="mb-3">
                     <div class="flex gap-1.5 mb-2">
-                      <div class="w-2 h-2 rounded-full bg-red-500/80"></div>
-                      <div class="w-2 h-2 rounded-full bg-yellow-500/80"></div>
-                      <div class="w-2 h-2 rounded-full bg-green-500/80"></div>
+                      <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+                      <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+                      <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
                     </div>
                     <h3 class="text-xs font-semibold text-white">CRM Dashboard</h3>
                     <p class="text-[9px] text-gray-500">Real-time</p>
@@ -149,34 +149,34 @@
 
                   <!-- Stats Row -->
                   <div class="grid grid-cols-3 gap-2 mb-3">
-                    <div class="p-2 rounded-lg bg-white/[0.03] border border-white/5">
-                      <div class="text-sm lg:text-base font-bold text-white">1.3K</div>
-                      <div class="text-[8px] lg:text-[9px] text-gray-500">Клиентов</div>
+                    <div class="p-2.5 rounded-lg bg-white/[0.03] border border-white/5">
+                      <div class="text-base font-bold text-white">1.3K</div>
+                      <div class="text-[9px] text-gray-500">Клиентов</div>
                       <div class="flex items-center gap-1 mt-1">
                         <TrendingUp class="w-2 h-2 text-green-500" />
-                        <span class="text-[7px] lg:text-[8px] text-green-400">+12%</span>
+                        <span class="text-[8px] text-green-400">+12%</span>
                       </div>
                     </div>
-                    <div class="p-2 rounded-lg bg-white/[0.03] border border-white/5">
-                      <div class="text-sm lg:text-base font-bold text-white">856</div>
-                      <div class="text-[8px] lg:text-[9px] text-gray-500">Сделок</div>
+                    <div class="p-2.5 rounded-lg bg-white/[0.03] border border-white/5">
+                      <div class="text-base font-bold text-white">856</div>
+                      <div class="text-[9px] text-gray-500">Сделок</div>
                       <div class="flex items-center gap-1 mt-1">
                         <TrendingUp class="w-2 h-2 text-green-500" />
-                        <span class="text-[7px] lg:text-[8px] text-green-400">+8%</span>
+                        <span class="text-[8px] text-green-400">+8%</span>
                       </div>
                     </div>
-                    <div class="p-2 rounded-lg bg-gradient-to-br from-violet-500/15 to-fuchsia-500/15 border border-violet-500/25">
-                      <div class="text-sm lg:text-base font-bold text-white">2.4M</div>
-                      <div class="text-[8px] lg:text-[9px] text-gray-400">Выручка</div>
+                    <div class="p-2.5 rounded-lg bg-gradient-to-br from-violet-500/15 to-fuchsia-500/15 border border-violet-500/25">
+                      <div class="text-base font-bold text-white">2.4M</div>
+                      <div class="text-[9px] text-gray-400">Выручка</div>
                       <div class="flex items-center gap-1 mt-1">
                         <TrendingUp class="w-2 h-2 text-violet-400" />
-                        <span class="text-[7px] lg:text-[8px] text-violet-400">+24%</span>
+                        <span class="text-[8px] text-violet-400">+24%</span>
                       </div>
                     </div>
                   </div>
 
                   <!-- Chart -->
-                  <div class="h-10 lg:h-12 flex items-end gap-1">
+                  <div class="h-12 flex items-end gap-1">
                     <div class="flex-1 bg-gradient-to-t from-violet-500/60 to-violet-500/15 rounded-sm" style="height: 35%"></div>
                     <div class="flex-1 bg-gradient-to-t from-fuchsia-500/60 to-fuchsia-500/15 rounded-sm" style="height: 55%"></div>
                     <div class="flex-1 bg-gradient-to-t from-violet-500/60 to-violet-500/15 rounded-sm" style="height: 42%"></div>
@@ -189,67 +189,74 @@
                 </div>
 
                 <!-- Клиенты (нижний) -->
-                <div class="w-[320px] lg:w-[420px] h-[120px] lg:h-[140px] rounded-lg border border-white/10 p-2 lg:p-3 backdrop-blur-xl bg-[#0a0a0f]/95 shadow-2xl">
+                <div class="w-[380px] h-[140px] rounded-lg border border-white/10 p-3 backdrop-blur-xl bg-[#0a0a0f]/95 shadow-2xl">
                   <div class="flex items-center gap-2 mb-2">
-                    <div class="w-4 h-4 lg:w-5 lg:h-5 rounded bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center">
-                      <Users class="w-2.5 h-2.5 lg:w-3 lg:h-3 text-white" />
+                    <div class="w-5 h-5 rounded bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center">
+                      <Users class="w-3 h-3 text-white" />
                     </div>
                     <span class="text-xs text-gray-300 font-medium">Клиенты</span>
-                    <span class="text-[8px] lg:text-[9px] text-green-400 bg-green-500/10 px-2 py-0.5 rounded-full border border-green-500/20 ml-auto">Live</span>
+                    <span class="text-[9px] text-green-400 bg-green-500/10 px-2 py-0.5 rounded-full border border-green-500/20 ml-auto">Live</span>
                   </div>
                   <div class="grid grid-cols-3 gap-2">
-                    <div class="flex items-center gap-1.5 lg:gap-2 p-1.5 lg:p-2 rounded bg-white/[0.02] border border-white/5">
-                      <div class="w-4 h-4 lg:w-5 lg:h-5 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center flex-shrink-0">
-                        <CheckCircle2 class="w-2 h-2 lg:w-2.5 lg:h-2.5 text-white" />
+                    <div class="flex items-center gap-2 p-2 rounded bg-white/[0.02] border border-white/5">
+                      <div class="w-5 h-5 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center flex-shrink-0">
+                        <CheckCircle2 class="w-2.5 h-2.5 text-white" />
                       </div>
                       <div class="min-w-0">
-                        <div class="h-1 lg:h-1.5 w-10 lg:w-12 bg-white/15 rounded-full mb-1"></div>
-                        <div class="h-1 w-6 lg:w-8 bg-white/8 rounded-full"></div>
+                        <div class="h-1.5 w-12 bg-white/15 rounded-full mb-1"></div>
+                        <div class="h-1 w-8 bg-white/8 rounded-full"></div>
                       </div>
                     </div>
-                    <div class="flex items-center gap-1.5 lg:gap-2 p-1.5 lg:p-2 rounded bg-white/[0.02] border border-white/5">
-                      <div class="w-4 h-4 lg:w-5 lg:h-5 rounded-full bg-gradient-to-br from-fuchsia-500 to-purple-500 flex items-center justify-center flex-shrink-0">
-                        <Clock class="w-2 h-2 lg:w-2.5 lg:h-2.5 text-white" />
+                    <div class="flex items-center gap-2 p-2 rounded bg-white/[0.02] border border-white/5">
+                      <div class="w-5 h-5 rounded-full bg-gradient-to-br from-fuchsia-500 to-purple-500 flex items-center justify-center flex-shrink-0">
+                        <Clock class="w-2.5 h-2.5 text-white" />
                       </div>
                       <div class="min-w-0">
-                        <div class="h-1 lg:h-1.5 w-8 lg:w-10 bg-white/15 rounded-full mb-1"></div>
-                        <div class="h-1 w-5 lg:w-6 bg-white/8 rounded-full"></div>
+                        <div class="h-1.5 w-10 bg-white/15 rounded-full mb-1"></div>
+                        <div class="h-1 w-6 bg-white/8 rounded-full"></div>
                       </div>
                     </div>
-                    <div class="flex items-center gap-1.5 lg:gap-2 p-1.5 lg:p-2 rounded bg-white/[0.02] border border-white/5">
-                      <div class="w-4 h-4 lg:w-5 lg:h-5 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center flex-shrink-0">
-                        <Sparkles class="w-2 h-2 lg:w-2.5 lg:h-2.5 text-white" />
+                    <div class="flex items-center gap-2 p-2 rounded bg-white/[0.02] border border-white/5">
+                      <div class="w-5 h-5 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center flex-shrink-0">
+                        <Sparkles class="w-2.5 h-2.5 text-white" />
                       </div>
                       <div class="min-w-0">
-                        <div class="h-1 lg:h-1.5 w-12 lg:w-14 bg-white/15 rounded-full mb-1"></div>
-                        <div class="h-1 w-6 lg:w-8 bg-white/8 rounded-full"></div>
+                        <div class="h-1.5 w-14 bg-white/15 rounded-full mb-1"></div>
+                        <div class="h-1 w-8 bg-white/8 rounded-full"></div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Правая колонка: Код (на всю высоту, скрыта на мобильных) -->
-              <div class="hidden lg:block w-[280px] h-[420px] rounded-xl border border-white/10 p-3 backdrop-blur-xl bg-[#0d0d12]/95 shadow-2xl flex-shrink-0">
-                <div class="flex items-center gap-2 mb-2 pb-2 border-b border-white/5">
-                  <div class="w-5 h-5 rounded bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center">
-                    <Code2 class="w-3 h-3 text-white" />
+              <!-- Правая колонка: Код (на всю высоту) -->
+              <div class="w-[340px] h-[420px] rounded-xl border border-white/10 p-4 backdrop-blur-xl bg-[#0d0d12]/95 shadow-2xl">
+                <div class="flex items-center justify-between mb-3 pb-3 border-b border-white/5">
+                  <div class="flex items-center gap-2">
+                    <div class="flex gap-1.5">
+                      <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+                      <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+                      <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                    </div>
+                    <span class="ml-2 text-xs text-gray-500 font-mono">ai-processor.js</span>
                   </div>
-                  <span class="text-[10px] text-gray-500 font-mono">ai-processor.js</span>
-                  <span class="text-[8px] text-violet-400 bg-violet-500/10 px-1.5 py-0.5 rounded-full border border-violet-500/20 ml-auto">AI Core</span>
+                  <span class="text-[9px] text-violet-400 bg-violet-500/10 px-2 py-0.5 rounded-full border border-violet-500/20 ml-auto">AI Core</span>
                 </div>
-                <pre class="text-[8px] leading-relaxed font-mono text-gray-400"><code><span class="text-violet-400">class</span> <span class="text-amber-400">CRMProcessor</span> {
+                <pre class="text-[10px] leading-relaxed font-mono text-gray-400"><code><span class="text-violet-400">class</span> <span class="text-amber-400">CRMProcessor</span> {
   <span class="text-violet-400">async</span> <span class="text-blue-400">process</span>(<span class="text-blue-400">data</span>) {
-    <span class="text-gray-500">// AI анализ</span>
+    <span class="text-gray-500">// AI анализ данных</span>
     <span class="text-blue-400">const</span> <span class="text-blue-400">insights</span> = <span class="text-violet-400">await</span> <span class="text-amber-400">analyzeAI</span>(<span class="text-blue-400">data</span>);
+    
     <span class="text-violet-400">const</span> <span class="text-blue-400">metrics</span> = {
       <span class="text-green-400">revenue</span>: <span class="text-blue-400">insights</span>.<span class="text-blue-400">revenue</span> * <span class="text-orange-400">1.24</span>,
       <span class="text-green-400">customers</span>: <span class="text-blue-400">insights</span>.<span class="text-blue-400">count</span>,
       <span class="text-green-400">conversion</span>: <span class="text-blue-400">insights</span>.<span class="text-blue-400">rate</span> + <span class="text-orange-400">0.12</span>
     };
+    
     <span class="text-violet-400">return</span> <span class="text-amber-400">optimize</span>(<span class="text-blue-400">metrics</span>);
   }
 }
+
 <span class="text-violet-400">const</span> <span class="text-blue-400">crm</span> = <span class="text-violet-400">new</span> <span class="text-amber-400">CRMProcessor</span>();
 <span class="text-blue-400">crm</span>.<span class="text-blue-400">process</span>(<span class="text-blue-400">analytics</span>);</code></pre>
               </div>
@@ -280,53 +287,42 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div v-for="(problem, index) in problems" :key="index"
                :ref="(el) => problemRefs[index] = el"
-               :class="['group relative rounded-2xl backdrop-blur-xl border p-8 transition-all duration-500 hover:-translate-y-2 overflow-hidden',
-                        activeProblemIndex === index
-                          ? 'bg-white/[0.08] border-violet-500/50 shadow-xl shadow-violet-500/20'
-                          : 'bg-white/[0.02] border-white/[0.08] opacity-60']">
+               class="group relative rounded-2xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] p-8 hover:border-violet-500/30 hover:bg-white/[0.04] transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-violet-500/10 overflow-hidden">
             <!-- Градиентный фон при наведении -->
             <div class="absolute inset-0 bg-gradient-to-br from-violet-500/10 to-fuchsia-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            
+
             <!-- Номер проблемы -->
-            <div :class="['absolute top-6 right-6 text-6xl font-bold transition-colors select-none',
-                          activeProblemIndex === index ? 'text-violet-500/20' : 'text-white/[0.03]']">
+            <div class="absolute top-6 right-6 text-6xl font-bold text-white/[0.03] group-hover:text-violet-500/10 transition-colors select-none">
               {{ String(index + 1).padStart(2, '0') }}
             </div>
-            
+
             <div class="relative z-10">
               <!-- Иконка с белой обводкой -->
-              <div :class="['w-14 h-14 rounded-2xl border flex items-center justify-center mb-6 transition-all duration-500',
-                           activeProblemIndex === index ? 'border-white/60 scale-110 bg-white/[0.05]' : 'border-white/30']">
-                <component :is="problem.icon" :class="['h-7 w-7 transition-colors duration-500',
-                           activeProblemIndex === index ? 'text-white' : 'text-white/70']" />
+              <div class="w-14 h-14 rounded-2xl border border-white/30 bg-transparent flex items-center justify-center mb-6 group-hover:border-white/50 group-hover:scale-110 transition-all duration-300">
+                <component :is="problem.icon" class="h-7 w-7 text-white" />
               </div>
 
               <!-- Заголовок -->
-              <h3 :class="['text-xl font-bold mb-3 transition-all duration-500',
-                           activeProblemIndex === index ? 'text-white' : 'text-white/70']">
+              <h3 class="text-xl font-bold text-white mb-3 group-hover:text-violet-200 transition-colors">
                 {{ problem.title }}
               </h3>
 
               <!-- Описание -->
-              <p :class="['leading-relaxed transition-all duration-500',
-                          activeProblemIndex === index ? 'text-gray-200' : 'text-gray-500']">
+              <p class="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
                 {{ problem.description }}
               </p>
 
               <!-- Решение -->
               <div class="mt-6 pt-6 border-t border-white/5">
                 <div class="flex items-center gap-2 text-sm">
-                  <CheckCircle2 :class="['w-4 h-4 transition-colors duration-500',
-                              activeProblemIndex === index ? 'text-violet-400' : 'text-violet-400/50']" />
-                  <span :class="['transition-colors duration-500',
-                              activeProblemIndex === index ? 'text-violet-300' : 'text-violet-300/50']">{{ problem.solution }}</span>
+                  <CheckCircle2 class="w-4 h-4 text-violet-400" />
+                  <span class="text-violet-300">{{ problem.solution }}</span>
                 </div>
               </div>
             </div>
 
             <!-- Декоративная линия снизу -->
-            <div :class="['absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-500 to-fuchsia-500 transition-transform duration-500 origin-left',
-                          activeProblemIndex === index ? 'scale-x-100' : 'scale-x-0']"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-500 to-fuchsia-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
           </div>
         </div>
       </div>
@@ -768,12 +764,6 @@ const showScrollTop = ref(false)
 // Refs для отслеживания видимости элементов
 const problemsSection = ref(null)
 const problemRefs = ref([])
-const activeProblemIndex = ref(-1)
-
-// Intersection Observer для отслеживания видимости карточек
-let observer = null
-let lastScrollTop = 0
-let scrollDirection = 1 // 1 = вниз, -1 = вверх
 
 // Пункты мобильного меню
 const mobileMenuItems = [
@@ -784,12 +774,9 @@ const mobileMenuItems = [
   { href: '#faq', label: 'FAQ' }
 ]
 
-// Обработчик скролла для показа кнопки "Наверх" и определения направления
+// Обработчик скролла для показа кнопки "Наверх"
 const handleScroll = () => {
-  const scrollTop = window.scrollY
-  scrollDirection = scrollTop > lastScrollTop ? 1 : -1 // 1 = вниз, -1 = вверх
-  lastScrollTop = scrollTop
-  showScrollTop.value = scrollTop > window.innerHeight
+  showScrollTop.value = window.scrollY > window.innerHeight
 }
 
 // Прокрутка наверх
@@ -797,49 +784,13 @@ const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
-// Добавляем слушатель скролла и настраиваем Observer
+// Добавляем слушатель скролла
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll, { passive: true })
-  
-  // Настраиваем Intersection Observer для карточек
-  observer = new IntersectionObserver((entries) => {
-    const viewportCenter = window.innerHeight / 2
-    let closestDistance = Infinity
-    let activeIndex = -1
-    
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const rect = entry.target.getBoundingClientRect()
-        const elementCenter = rect.top + rect.height / 2
-        const distance = Math.abs(viewportCenter - elementCenter)
-        
-        // Выбираем карточку, центр которой ближе к центру экрана
-        if (distance < closestDistance) {
-          closestDistance = distance
-          activeIndex = problemRefs.value.indexOf(entry.target)
-        }
-      }
-    })
-    
-    if (activeIndex !== -1) {
-      activeProblemIndex.value = activeIndex
-    }
-  }, {
-    threshold: [0.5],
-    rootMargin: '0px'
-  })
-  
-  // Наблюдаем за каждой карточкой
-  setTimeout(() => {
-    problemRefs.value.forEach(ref => {
-      if (ref) observer.observe(ref)
-    })
-  }, 100)
+  window.addEventListener('scroll', handleScroll)
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
-  if (observer) observer.disconnect()
 })
 
 const automationItems = ref([

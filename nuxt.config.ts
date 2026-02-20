@@ -29,7 +29,7 @@ export default defineNuxtConfig({
   
   // SEO Site Configuration
   site: {
-    url: 'https://yappiepro.github.io/website1',
+    url: 'https://yappiepro.github.io',
     name: 'Yappie - Разработка сайтов, чат-ботов и приложений',
     description: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса. Автоматизируем процессы, увеличиваем эффективность.',
     defaultLocale: 'ru'

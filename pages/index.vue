@@ -87,11 +87,11 @@
 
             <!-- Заголовок с улучшенным градиентом -->
             <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-[1.2] animate-fade-in-up">
-              <span class="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">Разработка сайтов,</span>
+              <span class="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">Разработка сайтов</span>
               <br />
               <span class="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent">веб приложений</span>
               <br />
-              <span class="bg-gradient-to-r from-fuchsia-400 via-violet-400 to-purple-400 bg-clip-text text-transparent">и чат-ботов.</span>
+              <span class="bg-gradient-to-r from-fuchsia-400 via-violet-400 to-purple-400 bg-clip-text text-transparent">и чат-ботов</span>
             </h1>
 
             <p class="text-base sm:text-lg text-gray-400 max-w-xl mb-6 sm:mb-10 leading-relaxed animate-fade-in-up animation-delay-200">
@@ -1007,25 +1007,26 @@ const faqs = ref([
 </script>
 
 <style>
-/* Syncopate font for logo */
-.font-syncopate {
-  font-family: 'Syncopate', sans-serif;
-}
-
 /* 3D perspective for dashboard stack */
 .perspective-1000 {
   perspective: 1000px;
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fade-in-up {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
@@ -1034,38 +1035,41 @@ const faqs = ref([
 }
 
 @keyframes pulse-slow {
-  0%, 100% {
-    opacity: 0.5;
-    transform: scale(1);
+  0% {
+    opacity: 0.42;
   }
   50% {
-    opacity: 0.8;
-    transform: scale(1.05);
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0.42;
   }
 }
 
 .animate-fade-in {
-  animation: fade-in 0.8s ease-out forwards;
+  animation: fade-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: opacity, transform;
 }
 
 .animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out forwards;
+  animation: fade-in-up 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: opacity, transform;
 }
 
 .animate-pulse-slow {
-  animation: pulse-slow 8s ease-in-out infinite;
+  animation: pulse-slow 14s ease-in-out infinite;
 }
 
 .animation-delay-200 {
-  animation-delay: 0.2s;
+  animation-delay: 0.12s;
 }
 
 .animation-delay-400 {
-  animation-delay: 0.4s;
+  animation-delay: 0.24s;
 }
 
 .animation-delay-600 {
-  animation-delay: 0.6s;
+  animation-delay: 0.36s;
 }
 
 .animation-delay-1000 {
@@ -1074,6 +1078,14 @@ const faqs = ref([
 
 .animation-delay-2000 {
   animation-delay: 2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-fade-in-up,
+  .animate-pulse-slow {
+    animation: none !important;
+  }
 }
 
 html {

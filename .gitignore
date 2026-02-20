@@ -4,7 +4,7 @@
 .nuxt
 .nitro
 .cache
-# Note: dist is not ignored for GitHub Pages deployment
+dist
 
 # Node dependencies
 node_modules

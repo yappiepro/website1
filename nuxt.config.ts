@@ -81,6 +81,7 @@ export default defineNuxtConfig({
         { name: 'keywords', content: 'разработка сайтов, чат-боты, веб-приложения, AI, автоматизация, CRM, Telegram боты, WhatsApp' },
         { name: 'author', content: 'Yappie' },
         { name: 'robots', content: 'index, follow' },
+        { name: 'yandex-verification', content: '5dd84e7965966e23' },
         // Open Graph
         { property: 'og:title', content: 'Разработка сайтов, чат-ботов и приложений — Yappie' },
         { property: 'og:description', content: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса' },

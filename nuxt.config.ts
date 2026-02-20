@@ -96,9 +96,6 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/website1/favicon.ico' },
         { rel: 'canonical', href: 'https://yappiepro.github.io/website1' },
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap' }
       ],
       script: [
         {

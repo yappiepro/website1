@@ -29,7 +29,7 @@ export default defineNuxtConfig({
   
   // SEO Site Configuration
   site: {
-    url: 'https://yappie.ru',
+    url: 'https://yappiepro.github.io/website1',
     name: 'Yappie - Разработка сайтов, чат-ботов и приложений',
     description: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса. Автоматизируем процессы, увеличиваем эффективность.',
     defaultLocale: 'ru'
@@ -95,7 +95,7 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' },
-        { rel: 'canonical', href: 'https://yappie.ru' },
+        { rel: 'canonical', href: 'https://yappiepro.github.io/website1' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap' }
@@ -108,12 +108,12 @@ export default defineNuxtConfig({
             '@graph': [
               {
                 '@type': 'Organization',
-                '@id': 'https://yappie.ru/#organization',
+                '@id': 'https://yappiepro.github.io/website1/#organization',
                 name: 'Yappie',
-                url: 'https://yappie.ru',
+                url: 'https://yappiepro.github.io/website1',
                 logo: {
                   '@type': 'ImageObject',
-                  url: 'https://yappie.ru/logo.png'
+                  url: 'https://yappiepro.github.io/website1/logo.png'
                 },
                 sameAs: [
                   'https://t.me/artemselifanov'
@@ -126,27 +126,27 @@ export default defineNuxtConfig({
               },
               {
                 '@type': 'WebSite',
-                '@id': 'https://yappie.ru/#website',
-                url: 'https://yappie.ru',
+                '@id': 'https://yappiepro.github.io/website1/#website',
+                url: 'https://yappiepro.github.io/website1',
                 name: 'Yappie - Разработка сайтов, чат-ботов и приложений',
                 description: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса',
                 inLanguage: 'ru-RU',
                 publisher: {
-                  '@id': 'https://yappie.ru/#organization'
+                  '@id': 'https://yappiepro.github.io/website1/#organization'
                 }
               },
               {
                 '@type': 'WebPage',
-                '@id': 'https://yappie.ru/#webpage',
-                url: 'https://yappie.ru',
+                '@id': 'https://yappiepro.github.io/website1/#webpage',
+                url: 'https://yappiepro.github.io/website1',
                 name: 'Разработка сайтов, чат-ботов и приложений — Yappie',
                 description: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса. Автоматизируем процессы, увеличиваем эффективность.',
                 inLanguage: 'ru-RU',
                 isPartOf: {
-                  '@id': 'https://yappie.ru/#website'
+                  '@id': 'https://yappiepro.github.io/website1/#website'
                 },
                 about: {
-                  '@id': 'https://yappie.ru/#organization'
+                  '@id': 'https://yappiepro.github.io/website1/#organization'
                 }
               }
             ]

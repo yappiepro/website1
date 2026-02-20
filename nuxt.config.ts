@@ -43,7 +43,7 @@ export default defineNuxtConfig({
     },
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/blog', '/blog/avtomatizaciya-biznesa-s-ai', '/blog/chat-boty-dlya-biznesa', '/blog/kak-vybrat-crm'],
+      routes: ['/', '/blog', '/blog/skolko-stoit-razrabotka-sayta', '/blog/razrabotka-sayta-pod-klyuch'],
       failOnError: false
     }
   },

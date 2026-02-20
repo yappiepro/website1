@@ -17,6 +17,7 @@ logs
 .DS_Store
 .fleet
 .idea
+yappie-website-ready.zip
 
 # Local env files
 .env

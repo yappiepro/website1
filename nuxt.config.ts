@@ -94,7 +94,7 @@ export default defineNuxtConfig({
         { name: 'twitter:description', content: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса' }
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' },
+        { rel: 'icon', type: 'image/x-icon', href: '/website1/favicon.ico' },
         { rel: 'canonical', href: 'https://yappiepro.github.io/website1' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },

@@ -43,7 +43,8 @@ export default defineNuxtConfig({
     },
     prerender: {
       crawlLinks: true,
-      routes: ['/']
+      routes: ['/', '/blog', '/blog/avtomatizaciya-biznesa-s-ai', '/blog/chat-boty-dlya-biznesa', '/blog/kak-vybrat-crm'],
+      failOnError: false
     }
   },
   
@@ -93,7 +94,7 @@ export default defineNuxtConfig({
         { name: 'twitter:description', content: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса' }
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' },
         { rel: 'canonical', href: 'https://yappie.ru' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },

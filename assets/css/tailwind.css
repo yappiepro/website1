@@ -1,5 +1,25 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Syncopate';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/website1/fonts/Syncopate-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Syncopate';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/website1/fonts/Syncopate-Bold.woff2') format('woff2');
+}
+
+.font-syncopate {
+  font-family: 'Syncopate', sans-serif;
+}
+
 :root {
   --background: 0 0% 0%;
   --foreground: 0 0% 100%;

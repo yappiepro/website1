@@ -16,6 +16,7 @@
           <a href="#portfolio" class="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-y-[-1px]">Кейсы</a>
           <a href="/website1/blog" class="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-y-[-1px]">Блог</a>
           <a href="#faq" class="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-y-[-1px]">FAQ</a>
+          <a href="/website1/demo-mindmap" class="text-sm text-violet-400 hover:text-violet-300 transition-all duration-300 hover:translate-y-[-1px]">Demo</a>
           <Button as-child class="px-4 py-2 text-xs bg-white text-black hover:bg-gray-100 shadow-lg shadow-white/10 hover:shadow-white/20 transition-all">
             <a href="https://t.me/artemselifanov" target="_blank">Связаться</a>
           </Button>
@@ -796,7 +797,8 @@ const mobileMenuItems = [
   { href: '#why-us', label: 'Почему мы' },
   { href: '#portfolio', label: 'Кейсы' },
   { href: '/website1/blog', label: 'Блог' },
-  { href: '#faq', label: 'FAQ' }
+  { href: '#faq', label: 'FAQ' },
+  { href: '/website1/demo-mindmap', label: 'Demo' }
 ]
 
 // Обработчик скролла для показа кнопки "Наверх"
@@ -1092,22 +1094,24 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - macOS style */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #030305;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #8b5cf6, #d946ef);
-  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  transition: background 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #a78bfa, #e879f9);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 /* Selection color */

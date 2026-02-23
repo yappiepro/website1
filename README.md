@@ -1,120 +1,51 @@
 # YAPPIE Website
 
-## Разработка сайтов, веб-приложений и чат-ботов для бизнеса
+> **AI Agent Documentation:** See `.ai/` folder
 
-Сайт компании YAPPIE - команды AI-разработчиков.
+Development of websites, web applications, and chatbots for business.
 
-## 🚀 Автоматический деплой через GitHub Actions
-
-Этот проект настроен на **автоматический деплой** на GitHub Pages при каждом пуше в ветку `main`.
-
-### Шаг 1: Создайте репозиторий на GitHub
-
-1. Зайдите на https://github.com/new
-2. Название: `website1`
-3. Описание: `YAPPIE - Landing page`
-4. Сделайте **Public**
-5. **НЕ** создавайте README, .gitignore или license
-6. Нажмите **Create repository**
-
-### Шаг 2: Загрузите проект
-
-**Способ A - Через терминал:**
+## Quick Start
 
 ```bash
-# Перейдите в папку проекта
-cd "/Users/artemselifanov/qwen/лендинг ai"
-
-# Добавьте remote (замените на свой username)
-git remote add origin https://github.com/yappiepro/website1.git
-
-# Запушьте код
-git push -u origin main
-```
-
-**Способ B - Через ZIP:**
-1. Создайте ZIP архив папки проекта
-2. На GitHub нажмите **"uploading an existing file"**
-3. Загрузите все файлы
-4. Нажмите **Commit changes**
-
-### Шаг 3: Включите GitHub Actions
-
-1. Перейдите в **Settings** → **Actions** → **General**
-2. В разделе **"Workflow permissions"** выберите:
-   - ✅ **Read and write permissions**
-   - ✅ **Allow GitHub Actions to create and approve pull requests**
-3. Нажмите **Save**
-
-### Шаг 4: Включите GitHub Pages
-
-1. Перейдите в **Settings** → **Pages**
-2. В разделе **Source** выберите **GitHub Actions**
-3. Нажмите **Save**
-
-### Шаг 5: Готово! 🎉
-
-- GitHub Actions автоматически соберёт и опубликует сайт
-- Перейдите во вкладку **Actions** чтобы следить за процессом
-- После успешного деплоя сайт будет доступен: `https://yappiepro.github.io/website1/`
-
-## 🔄 Автоматическое обновление
-
-При каждом изменении кода:
-1. Просто запушьте изменения в ветку `main`
-2. GitHub Actions автоматически пересоберёт и обновит сайт
-3. Обновление занимает 2-3 минуты
-
-```bash
-git add .
-git commit -m "Обновление сайта"
-git push origin main
-```
-
-## 🛠 Разработка локально
-
-```bash
-# Установка зависимостей
 npm install
-
-# Запуск dev сервера
 npm run dev
+```
 
-# Сборка для продакшена
+## Build
+
+```bash
 npm run generate
 ```
 
-## 📁 Структура проекта
+## Deploy
 
-```
-.
-├── .github/
-│   └── workflows/
-│       └── deploy.yml    # GitHub Actions workflow
-├── assets/               # Статические ресурсы
-├── components/           # Vue компоненты
-├── dist/                 # Собранный сайт
-├── app.vue               # Главный компонент
-├── nuxt.config.ts        # Конфигурация Nuxt
-└── package.json          # Зависимости
+Auto-deploys to GitHub Pages on push to `main`.
+
+```bash
+git add .
+git commit -m "Update"
+git push origin main
 ```
 
-## 🛠 Технологии
+## Documentation
 
-- **Nuxt.js 3** - Vue фреймворк
-- **Tailwind CSS** - CSS фреймворк
-- **Vue 3** - JavaScript фреймворк
-- **GitHub Actions** - CI/CD
-- **GitHub Pages** - Хостинг
+| File | Purpose |
+|------|---------|
+| `.ai/README.md` | Project overview |
+| `.ai/ARCHITECTURE.md` | File structure |
+| `.ai/DESIGN.md` | Design system |
+| `.ai/CONTENT.md` | Content management |
+| `.ai/BUILD.md` | Development guide |
+| `.ai/DEPLOY.md` | Deployment guide |
+| `.ai/RULES.md` | AI agent rules |
 
-## 🆘 Проблемы?
+## Tech Stack
 
-1. **Actions не запускается?** Проверьте права в Settings → Actions → General
-2. **Сайт не открывается?** Проверьте URL в Settings → Pages
-3. **Ошибка сборки?** Посмотрите логи во вкладке Actions
+- Nuxt 3
+- Tailwind CSS v4
+- Vue 3
+- GitHub Pages
 
-## 📝 Примечания
+## Live Site
 
-- Сайт использует статическую генерацию (`ssr: false`)
-- Базовый URL настроен для репозитория `/website1/`
-- GitHub Actions автоматически собирает проект при каждом пуше
+https://yappiepro.github.io/website1/

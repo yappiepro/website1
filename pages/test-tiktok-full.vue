@@ -960,6 +960,21 @@ useSeoMeta({
   pointer-events: none;
 }
 
+/* Разрешаем клики внутри интерактивных элементов */
+.tiktok-page.locked .quiz-game,
+.tiktok-page.locked .game-process,
+.tiktok-page.locked .checklist-process,
+.tiktok-page.locked .quiz7-process {
+  pointer-events: auto;
+}
+
+.tiktok-page.locked .quiz-game *,
+.tiktok-page.locked .game-process *,
+.tiktok-page.locked .checklist-process *,
+.tiktok-page.locked .quiz7-process * {
+  pointer-events: auto;
+}
+
 .slides-container {
   height: 100vh;
   overflow-y: scroll;

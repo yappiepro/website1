@@ -2797,11 +2797,10 @@ p {
   }
   
   .unpack-step {
-    flex-direction: row;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0.75rem;
     padding: 0;
-    align-items: center;
-    display: flex;
+    align-items: flex-start;
   }
 
   .step-number {
@@ -2809,16 +2808,12 @@ p {
     height: 44px;
     font-size: 1.1rem;
     flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-bottom: 0.5rem;
   }
 
   .step-content {
     width: 100%;
     padding-left: 0;
-    display: flex;
-    align-items: center;
   }
 
   .finish-btn {

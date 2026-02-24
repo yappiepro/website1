@@ -972,7 +972,6 @@ useSeoMeta({
   padding: 5rem 1.5rem 3rem;
   box-sizing: border-box;
   position: relative;
-  overflow: hidden;
   touch-action: pan-y;
   user-select: none;
   -webkit-user-select: none;
@@ -986,6 +985,7 @@ useSeoMeta({
 /* === КАРТОЧКА 1: КРЮЧОК === */
 .slide-1 {
   background: radial-gradient(circle at 50% 50%, rgba(20, 20, 25, 0.8), #0a0a0a 100%);
+  padding-top: 6rem;
 }
 
 .hook-icon {
@@ -1996,6 +1996,10 @@ useSeoMeta({
   .slide {
     padding: 4rem 1rem 2rem;
     touch-action: pan-y;
+  }
+  
+  .slide-1 {
+    padding-top: 5rem;
   }
 
   .slide-content {

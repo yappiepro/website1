@@ -5,6 +5,59 @@ const currentSlide = ref(0)
 const isAnimating = ref(false)
 const isLocked = ref(false) // Блокировка скролла для интерактивных карточек
 
+// Блокировка горизонтального скролла и pull-to-refresh
+onMounted(() => {
+  let touchStartX = 0
+  let touchStartY = 0
+  
+  const handleTouchStart = (e: TouchEvent) => {
+    touchStartX = e.touches[0].clientX
+    touchStartY = e.touches[0].clientY
+  }
+  
+  const handleTouchMove = (e: TouchEvent) => {
+    if (e.touches.length > 1) return
+    
+    const touchEndX = e.touches[0].clientX
+    const touchEndY = e.touches[0].clientY
+    
+    const diffX = Math.abs(touchEndX - touchStartX)
+    const diffY = Math.abs(touchEndY - touchStartY)
+    
+    // Если горизонтальное движение больше вертикального — блокируем
+    if (diffX > diffY && diffX > 10) {
+      e.preventDefault()
+    }
+  }
+  
+  const preventPullToRefresh = (e: TouchEvent) => {
+    const target = e.target as HTMLElement
+    const isScrollable = target.scrollHeight > target.clientHeight
+    
+    if (!isScrollable) {
+      e.preventDefault()
+    }
+  }
+  
+  document.addEventListener('touchstart', handleTouchStart, { passive: true })
+  document.addEventListener('touchmove', handleTouchMove, { passive: false })
+  document.addEventListener('touchstart', preventPullToRefresh, { passive: false })
+  
+  // Блокировка зума
+  document.addEventListener('gesturestart', (e) => {
+    e.preventDefault()
+  })
+  
+  onUnmounted(() => {
+    document.removeEventListener('touchstart', handleTouchStart)
+    document.removeEventListener('touchmove', handleTouchMove)
+    document.removeEventListener('touchstart', preventPullToRefresh)
+    document.removeEventListener('gesturestart', (e) => {
+      e.preventDefault()
+    })
+  })
+})
+
 // === КАРТОЧКА 5: ТЕСТ "ПРАВДА ИЛИ МИФ" ===
 const quizState = ref<'start' | 'playing' | 'result'>('start')
 const currentQuestion = ref(0)
@@ -172,6 +225,13 @@ const toggleType = (index: number) => {
   expandedType.value = expandedType.value === index ? null : index
 }
 
+// === КАРТОЧКА 6A: ГДЕ ИСКАТЬ ЦА (АККОРДЕОН) ===
+const expandedChannel = ref<number | null>(null)
+
+const toggleChannelExpand = (index: number) => {
+  expandedChannel.value = expandedChannel.value === index ? null : index
+}
+
 // === КАРТОЧКА 6B: ЧЕКЛИСТ "ВЫБЕРИ КАНАЛЫ" ===
 const checklistState = ref<'start' | 'selecting' | 'result'>('start')
 const selectedChannels = ref<number[]>([])
@@ -195,12 +255,17 @@ const toggleChannel = (index: number) => {
   }
 }
 
+const startChecklist = () => {
+  isLocked.value = true // Блокируем скролл
+  checklistState.value = 'selecting'
+}
+
 const submitChecklist = () => {
   checklistSubmitted.value = true
 }
 
 const nextAfterChecklistResult = () => {
-  isLocked.value = false
+  isLocked.value = false // Разблокируем скролл
   const container = document.querySelector('.slides-container')
   if (container) {
     container.scrollTo({
@@ -216,6 +281,13 @@ const quiz7Current = ref(0)
 const quiz7Score = ref(0)
 const quiz7Answered = ref(false)
 const selectedQuiz7Answer = ref<number | null>(null)
+
+// Аккордеон для ошибок (7A)
+const expandedError = ref<number | null>(null)
+
+const toggleErrorExpand = (index: number) => {
+  expandedError.value = expandedError.value === index ? null : index
+}
 
 const mistakes = [
   {
@@ -360,7 +432,8 @@ const nextAfterChecklist = () => {
 
 useSeoMeta({
   title: 'ЦА: Как найти свою аудиторию',
-  description: 'Интерактивная история про целевую аудиторию'
+  description: 'Интерактивная история про целевую аудиторию',
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
 })
 </script>
 
@@ -585,49 +658,74 @@ useSeoMeta({
         </div>
       </div>
 
-      <!-- КАРТОЧКА 7: Где искать ЦА (6A по ТЗ) -->
+      <!-- КАРТОЧКА 7: Где искать ЦА (6A по ТЗ) - АККОРДЕОН -->
       <div class="slide slide-7">
         <div class="slide-content">
           <h2 class="slide-title-small">Где искать ЦА прямо сейчас</h2>
           <p class="method-intro">Не выдумывай ЦА — иди туда, где она уже есть:</p>
           
-          <div class="channels-list">
-            <div class="channel-item">
-              <span class="channel-emoji">💬</span>
-              <div class="channel-content">
-                <strong>Комментарии конкурентов</strong>
+          <div class="channels-accordion">
+            <div class="accordion-item channel-accordion-item" 
+                 :class="{ expanded: expandedChannel === 0 }" 
+                 @click="toggleChannelExpand(0)">
+              <div class="accordion-header channel-header">
+                <span class="channel-emoji">💬</span>
+                <span class="channel-name">Комментарии конкурентов</span>
+                <span class="accordion-arrow">{{ expandedChannel === 0 ? '−' : '+' }}</span>
+              </div>
+              <div class="accordion-content channel-content">
                 <p>Люди пишут свои боли</p>
               </div>
             </div>
             
-            <div class="channel-item">
-              <span class="channel-emoji">🔍</span>
-              <div class="channel-content">
-                <strong>Яндекс Вордстат</strong>
+            <div class="accordion-item channel-accordion-item" 
+                 :class="{ expanded: expandedChannel === 1 }" 
+                 @click="toggleChannelExpand(1)">
+              <div class="accordion-header channel-header">
+                <span class="channel-emoji">🔍</span>
+                <span class="channel-name">Яндекс Вордстат</span>
+                <span class="accordion-arrow">{{ expandedChannel === 1 ? '−' : '+' }}</span>
+              </div>
+              <div class="accordion-content channel-content">
                 <p>Показывает что люди ищут</p>
               </div>
             </div>
             
-            <div class="channel-item">
-              <span class="channel-emoji">📱</span>
-              <div class="channel-content">
-                <strong>Тематические чаты</strong>
+            <div class="accordion-item channel-accordion-item" 
+                 :class="{ expanded: expandedChannel === 2 }" 
+                 @click="toggleChannelExpand(2)">
+              <div class="accordion-header channel-header">
+                <span class="channel-emoji">📱</span>
+                <span class="channel-name">Тематические чаты</span>
+                <span class="accordion-arrow">{{ expandedChannel === 2 ? '−' : '+' }}</span>
+              </div>
+              <div class="accordion-content channel-content">
                 <p>Telegram, форумы — живые обсуждения проблем</p>
               </div>
             </div>
             
-            <div class="channel-item">
-              <span class="channel-emoji">⭐</span>
-              <div class="channel-content">
-                <strong>Отзывы на маркетплейсах</strong>
+            <div class="accordion-item channel-accordion-item" 
+                 :class="{ expanded: expandedChannel === 3 }" 
+                 @click="toggleChannelExpand(3)">
+              <div class="accordion-header channel-header">
+                <span class="channel-emoji">⭐</span>
+                <span class="channel-name">Отзывы на маркетплейсах</span>
+                <span class="accordion-arrow">{{ expandedChannel === 3 ? '−' : '+' }}</span>
+              </div>
+              <div class="accordion-content channel-content">
                 <p>Пишут, что НЕ устроило в товарах конкурентов</p>
               </div>
             </div>
             
-            <div class="channel-item">
-              <span class="channel-emoji">👥</span>
-              <div class="channel-content">
-                <strong>Опросы подписчиков</strong>
+            <div class="accordion-item channel-accordion-item" 
+                 :class="{ expanded: expandedChannel === 4 }" 
+                 @click="toggleChannelExpand(4)">
+              <div class="accordion-header channel-header">
+                <span class="channel-emoji">👥</span>
+                <span class="channel-name">Опросы подписчиков</span>
+                <span class="accordion-arrow">{{ expandedChannel === 4 ? '−' : '+' }}</span>
+              </div>
+              <div class="accordion-content channel-content">
                 <p>Спроси напрямую: "Что тебя сейчас бесит?"</p>
               </div>
             </div>
@@ -644,7 +742,7 @@ useSeoMeta({
           <div v-if="checklistState === 'start'" class="checklist-intro">
             <h2 class="slide-title-small">Где искать ЦА прямо сейчас?</h2>
             <p class="checklist-subtitle">Выбери 3 лучших места</p>
-            <button class="btn-start" @click="checklistState = 'selecting'">Начать →</button>
+            <button class="btn-start" @click="startChecklist">Начать →</button>
           </div>
 
           <!-- Процесс выбора -->
@@ -693,35 +791,61 @@ useSeoMeta({
         </div>
       </div>
 
-      <!-- КАРТОЧКА 9: Топ-3 ошибки + Квиз "Найди ошибку" (7A + 7B по ТЗ) -->
+      <!-- КАРТОЧКА 9: Топ-3 ошибки (аккордеон) + Квиз "Найди ошибку" (7A + 7B по ТЗ) -->
       <div class="slide slide-9">
         <div class="slide-content">
-          <!-- Статичная часть: Топ-3 ошибки -->
+          <!-- Статичная часть: Топ-3 ошибки (аккордеон) -->
           <div v-if="quiz7State === 'start'" class="errors-intro">
             <h2 class="slide-title-small">Топ-3 ошибки при поиске ЦА</h2>
             
-            <div class="error-card">
-              <span class="error-number">❌ ОШИБКА #1</span>
-              <h3>Слишком широко</h3>
-              <p class="error-example">"Все, кто хочет похудеть"</p>
-              <p class="error-problem"><strong>Проблема:</strong> теряешь фокус</p>
-              <p class="error-solution"><strong>Решение:</strong> выбери ОДНУ группу (например: мамы после родов)</p>
-            </div>
-            
-            <div class="error-card">
-              <span class="error-number">❌ ОШИБКА #2</span>
-              <h3>Только демография</h3>
-              <p class="error-example">"Женщины 25-35 лет из Москвы"</p>
-              <p class="error-problem"><strong>Проблема:</strong> это не боль</p>
-              <p class="error-solution"><strong>Решение:</strong> добавь проблему (хотят вернуть форму за 3 мес)</p>
-            </div>
-            
-            <div class="error-card">
-              <span class="error-number">❌ ОШИБКА #3</span>
-              <h3>Забыли про боль</h3>
-              <p class="error-example">"Активные люди, любят спорт"</p>
-              <p class="error-problem"><strong>Проблема:</strong> нет мотивации купить</p>
-              <p class="error-solution"><strong>Решение:</strong> найди конкретную боль (нет времени на зал, но хотят)</p>
+            <div class="errors-accordion">
+              <!-- Ошибка 1 -->
+              <div class="accordion-item error-accordion-item" 
+                   :class="{ expanded: expandedError === 0 }" 
+                   @click="toggleErrorExpand(0)">
+                <div class="accordion-header error-header">
+                  <span class="error-number-short">❌ #1</span>
+                  <span class="error-title-short">Слишком широко</span>
+                  <span class="accordion-arrow">{{ expandedError === 0 ? '−' : '+' }}</span>
+                </div>
+                <div class="accordion-content error-content">
+                  <p class="error-example">"Все, кто хочет похудеть"</p>
+                  <p class="error-problem"><strong>Проблема:</strong> теряешь фокус</p>
+                  <p class="error-solution"><strong>Решение:</strong> выбери ОДНУ группу (например: мамы после родов)</p>
+                </div>
+              </div>
+              
+              <!-- Ошибка 2 -->
+              <div class="accordion-item error-accordion-item" 
+                   :class="{ expanded: expandedError === 1 }" 
+                   @click="toggleErrorExpand(1)">
+                <div class="accordion-header error-header">
+                  <span class="error-number-short">❌ #2</span>
+                  <span class="error-title-short">Только демография</span>
+                  <span class="accordion-arrow">{{ expandedError === 1 ? '−' : '+' }}</span>
+                </div>
+                <div class="accordion-content error-content">
+                  <p class="error-example">"Женщины 25-35 лет из Москвы"</p>
+                  <p class="error-problem"><strong>Проблема:</strong> это не боль</p>
+                  <p class="error-solution"><strong>Решение:</strong> добавь проблему (хотят вернуть форму за 3 мес)</p>
+                </div>
+              </div>
+              
+              <!-- Ошибка 3 -->
+              <div class="accordion-item error-accordion-item" 
+                   :class="{ expanded: expandedError === 2 }" 
+                   @click="toggleErrorExpand(2)">
+                <div class="accordion-header error-header">
+                  <span class="error-number-short">❌ #3</span>
+                  <span class="error-title-short">Забыли про боль</span>
+                  <span class="accordion-arrow">{{ expandedError === 2 ? '−' : '+' }}</span>
+                </div>
+                <div class="accordion-content error-content">
+                  <p class="error-example">"Активные люди, любят спорт"</p>
+                  <p class="error-problem"><strong>Проблема:</strong> нет мотивации купить</p>
+                  <p class="error-solution"><strong>Решение:</strong> найди конкретную боль (нет времени на зал, но хотят)</p>
+                </div>
+              </div>
             </div>
             
             <button class="btn-start" @click="startQuiz7">Пройти тест →</button>
@@ -821,6 +945,8 @@ useSeoMeta({
   color: #ffffff;
   overflow: hidden;
   font-family: 'Golos Text', sans-serif;
+  touch-action: pan-y;
+  overscroll-behavior: none;
 }
 
 .tiktok-page.locked {
@@ -831,11 +957,21 @@ useSeoMeta({
   overflow: hidden;
 }
 
+/* Глобальная блокировка горизонтального скролла */
+:deep(body) {
+  overflow-x: hidden;
+  overscroll-behavior: none;
+}
+
 .slides-container {
   height: 100vh;
   overflow-y: scroll;
+  overflow-x: hidden;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  overscroll-behavior: contain;
 }
 
 .slide {
@@ -849,6 +985,10 @@ useSeoMeta({
   padding: 5rem 1.5rem 3rem;
   box-sizing: border-box;
   position: relative;
+  overflow: hidden;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .slide-content {
@@ -1391,51 +1531,47 @@ useSeoMeta({
   font-weight: 600;
 }
 
-/* === КАРТОЧКА 7: ГДЕ ИСКАТЬ ЦА === */
+/* === КАРТОЧКА 7: ГДЕ ИСКАТЬ ЦА (АККОРДЕОН) === */
 .slide-7 {
   background: #0a0a0a;
 }
 
-.method-intro {
-  font-size: 1.125rem;
-  color: #9ca3af;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.channels-list {
+.channels-accordion {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.75rem;
   margin-bottom: 2rem;
 }
 
-.channel-item {
+.channel-accordion-item {
+  border: 2px solid rgba(200, 240, 96, 0.3);
+  background: rgba(200, 240, 96, 0.05);
+}
+
+.channel-header {
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1.25rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-left: 3px solid #c8f060;
-  border-radius: 12px;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
 }
 
-.channel-emoji {
-  font-size: 2rem;
-  flex-shrink: 0;
-}
-
-.channel-content strong {
-  display: block;
+.channel-name {
+  flex: 1;
+  font-weight: 600;
   color: #ffffff;
   font-size: 1rem;
-  margin-bottom: 0.25rem;
+}
+
+.channel-content {
+  padding: 0 1.25rem;
 }
 
 .channel-content p {
   color: #9ca3af;
-  font-size: 0.875rem;
+  font-size: 0.95rem;
   margin: 0;
+  padding-bottom: 1rem;
 }
 
 /* === КАРТОЧКА 8: ЧЕКЛИСТ === */
@@ -1558,7 +1694,7 @@ useSeoMeta({
   border-radius: 12px;
 }
 
-/* === КАРТОЧКА 9: ОШИБКИ + КВИЗ === */
+/* === КАРТОЧКА 9: ОШИБКИ (АККОРДЕОН) + КВИЗ === */
 .slide-9 {
   background: #0a0a0a;
 }
@@ -1567,41 +1703,55 @@ useSeoMeta({
   text-align: left;
 }
 
-.error-card {
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-left: 4px solid #ef4444;
-  border-radius: 12px;
-  margin-bottom: 1.5rem;
+.errors-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
 }
 
-.error-number {
-  display: block;
+.error-accordion-item {
+  border: 2px solid rgba(239, 68, 68, 0.3);
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.error-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+}
+
+.error-number-short {
   font-size: 0.875rem;
   font-weight: 700;
   color: #ef4444;
-  margin-bottom: 0.5rem;
 }
 
-.error-card h3 {
-  font-family: 'Unbounded', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 700;
+.error-title-short {
+  flex: 1;
+  font-weight: 600;
   color: #ffffff;
-  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.error-content {
+  padding: 0 1.25rem;
 }
 
 .error-example {
   font-style: italic;
   color: #9ca3af;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   padding: 0.75rem;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
+  font-size: 0.95rem;
 }
 
 .error-problem, .error-solution {
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   margin-bottom: 0.5rem;
 }
 
@@ -1858,10 +2008,16 @@ useSeoMeta({
 @media (max-width: 720px) {
   .slide {
     padding: 4rem 1rem 2rem;
+    touch-action: pan-y;
   }
 
   .slide-content {
     padding: 0 0.5rem;
+    max-height: 85vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    overscroll-behavior: contain;
   }
 
   .slide-indicators-vertical {
@@ -1879,6 +2035,161 @@ useSeoMeta({
 
   .answer-buttons, .temp-buttons {
     grid-template-columns: 1fr;
+  }
+  
+  /* Аккордеон для карточки 3 на мобильном */
+  .pain-formula {
+    font-size: clamp(2rem, 6vw, 3rem);
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Сжимаем текст на мобильном */
+  .slide-title-main {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+  }
+  
+  .slide-title-small {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+  }
+  
+  .slide-subtitle {
+    font-size: 1rem;
+  }
+  
+  /* Уменьшаем отступы в аккордеоне */
+  .accordion-header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .accordion-item.expanded .accordion-content {
+    padding: 0 1rem 1rem;
+  }
+  
+  /* Каналы аккордеон */
+  .channel-header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .channel-name {
+    font-size: 0.95rem;
+  }
+  
+  .channel-content p {
+    font-size: 0.85rem;
+    padding-bottom: 0.75rem;
+  }
+  
+  /* Ошибки аккордеон */
+  .error-header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .error-number-short {
+    font-size: 0.75rem;
+  }
+  
+  .error-title-short {
+    font-size: 0.9rem;
+  }
+  
+  .error-example {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
+  
+  .error-problem, .error-solution {
+    font-size: 0.75rem;
+  }
+  
+  /* Сжимаем карточки с каналами */
+  .channel-item {
+    padding: 1rem;
+  }
+  
+  .channel-emoji {
+    font-size: 1.5rem;
+  }
+  
+  /* Уменьшаем ошибки */
+  .error-card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .error-card h3 {
+    font-size: 1rem;
+  }
+  
+  .error-example {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+  }
+  
+  .error-problem, .error-solution {
+    font-size: 0.8rem;
+  }
+  
+  /* Сжимаем финал */
+  .final-icon {
+    font-size: 3rem;
+  }
+  
+  .final-title {
+    font-size: 1.25rem;
+  }
+  
+  .score-item {
+    padding: 0.5rem 0;
+  }
+  
+  .score-label {
+    font-size: 0.875rem;
+  }
+  
+  .score-value {
+    font-size: 1rem;
+  }
+  
+  .score-total .score-value {
+    font-size: 1.25rem;
+  }
+  
+  /* Уменьшаем кнопки */
+  .btn-start, .btn-next, .btn-cta {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+  
+  /* Сжимаем квизы */
+  .quiz7-description {
+    padding: 1.25rem;
+    font-size: 1rem;
+  }
+  
+  .quiz7-option {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  /* Чеклист */
+  .channel-option {
+    padding: 1rem;
+  }
+  
+  .channel-text {
+    font-size: 0.95rem;
+  }
+  
+  .result-item {
+    padding: 0.75rem;
+  }
+  
+  .result-text {
+    font-size: 0.9rem;
+  }
+  
+  .result-feedback {
+    font-size: 0.75rem;
   }
 }
 </style>

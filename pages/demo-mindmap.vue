@@ -1914,9 +1914,9 @@ main {
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(167, 139, 250, 0.2);
   border-radius: 8px;
-  padding: 0.75rem;
+  padding: 0.875rem;
   color: #ffffff;
-  font-size: var(--text-sm);
+  font-size: 1rem;
   font-family: inherit;
   resize: vertical;
   transition: border-color 0.2s ease;
@@ -2954,7 +2954,7 @@ p {
   }
 
   .question-input {
-    font-size: 0.85rem;
+    font-size: 16px;
     padding: 0.875rem;
     width: 100%;
     background: rgba(255, 255, 255, 0.05);

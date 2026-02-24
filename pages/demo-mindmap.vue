@@ -17,8 +17,49 @@
           <a href="#faq" class="text-sm text-gray-400 hover:text-white transition-all duration-300">FAQ</a>
           <a href="https://t.me/artemselifanov" target="_blank" class="px-4 py-2 text-xs bg-white text-black hover:bg-gray-100 shadow-lg shadow-white/10 hover:shadow-white/20 transition-all rounded-md font-medium">Связаться</a>
         </div>
+
+        <!-- Кнопка бургер-меню для мобильных -->
+        <button
+          @click="isMobileMenuOpen = !isMobileMenuOpen"
+          class="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
+          aria-label="Открыть меню"
+        >
+          <Menu v-if="!isMobileMenuOpen" class="w-6 h-6" />
+          <X v-else class="w-6 h-6" />
+        </button>
       </div>
     </nav>
+
+    <!-- Мобильное меню на весь экран -->
+    <div v-if="isMobileMenuOpen" class="fixed inset-0 z-[100] md:hidden bg-black flex flex-col">
+      <div class="flex-1 flex flex-col justify-center items-center px-6">
+        <nav class="flex flex-col gap-8 w-full max-w-xs">
+          <a
+            v-for="item in mobileMenuItems"
+            :key="item.href"
+            :href="item.href"
+            @click="isMobileMenuOpen = false"
+            class="text-3xl font-bold text-white text-center py-4 hover:text-violet-400 transition-colors"
+          >
+            {{ item.label }}
+          </a>
+        </nav>
+        <button
+          @click="isMobileMenuOpen = false"
+          class="mt-12 px-10 py-5 text-xl font-semibold bg-white text-black hover:bg-gray-100 w-full max-w-xs rounded-md"
+        >
+          <a href="https://t.me/artemselifanov" target="_blank">Связаться</a>
+        </button>
+      </div>
+      <!-- Кнопка закрытия -->
+      <button
+        @click="isMobileMenuOpen = false"
+        class="absolute top-6 right-6 text-white p-3 hover:bg-white/10 rounded-lg transition-colors"
+        aria-label="Закрыть меню"
+      >
+        <X class="w-8 h-8" />
+      </button>
+    </div>
 
     <!-- Старый header скрыт
     <header class="demo-header" v-if="isUnlocked">
@@ -48,7 +89,8 @@
             </div>
           </div>
           <button class="search-btn" @click="unlockPage">
-            <span>НАЧАТЬ</span>
+            <span class="btn-text-desktop">НАЧАТЬ</span>
+            <span class="btn-text-mobile">GO</span>
           </button>
         </div>
       </section>
@@ -546,10 +588,25 @@
 </template>
 
 <script setup lang="ts">
+import { Menu, X } from 'lucide-vue-next'
+
 const config = useRuntimeConfig()
 const baseURL = config.app.baseURL
 
 const scrambleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?'
+
+// Мобильное меню
+const isMobileMenuOpen = ref(false)
+
+const mobileMenuItems = [
+  { href: '#problems', label: 'Проблемы' },
+  { href: '#services', label: 'Услуги' },
+  { href: '#why-us', label: 'Почему мы' },
+  { href: '#portfolio', label: 'Кейсы' },
+  { href: '/website1/blog', label: 'Блог' },
+  { href: '#faq', label: 'FAQ' },
+  { href: '/website1/demo-mindmap', label: 'Demo' }
+]
 
 // FAQ данные
 const faqs = ref([
@@ -1142,39 +1199,21 @@ main {
   height: 100vh;
   padding: 2rem;
   overflow: hidden;
-  background: #030305;
+  background: #0a0a0a;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .hero-stage::before {
-  content: '';
-  position: absolute;
-  top: -100px;
-  left: -100px;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(167, 139, 250, 0.15), transparent 70%);
-  border-radius: 50%;
-  filter: blur(80px);
-  pointer-events: none;
+  content: none;
 }
 
 .hero-stage::after {
-  content: '';
-  position: absolute;
-  bottom: -100px;
-  right: -100px;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(232, 121, 249, 0.1), transparent 70%);
-  border-radius: 50%;
-  filter: blur(80px);
-  pointer-events: none;
+  content: none;
 }
 
 /* Печатная машинка - стилизация под поисковую строку */
 .typewriter-container {
-  width: min(720px, 92vw);
+  width: min(900px, 92vw);
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -1186,8 +1225,8 @@ main {
   border-radius: 24px;
   padding: 1.25rem 1.5rem;
   box-sizing: border-box;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
+  margin: 0 auto;
 }
 
 .typewriter-icon {
@@ -1260,6 +1299,10 @@ main {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+.search-btn .btn-text-mobile {
+  display: none;
 }
 
 .search-btn:hover {
@@ -1546,6 +1589,7 @@ main {
 
 .unpack-step-prompt {
   align-items: flex-start;
+  flex-direction: column;
 }
 
 .unpack-step:hover {
@@ -1568,6 +1612,10 @@ main {
   color: #a78bfa;
 }
 
+.step-content {
+  width: 100%;
+}
+
 .step-content h3.step-title {
   margin: 0 0 1rem;
   font-size: var(--text-lg);
@@ -1584,7 +1632,7 @@ main {
 
 .step-content p {
   margin: 0;
-  color: #9ca3af;
+  color: #ffffff;
   font-size: var(--text-base);
   line-height: var(--leading-relaxed);
 }
@@ -1645,6 +1693,7 @@ main {
   cursor: pointer;
   transition: all 0.2s ease;
   box-shadow: 0 4px 12px rgba(167, 139, 250, 0.3);
+  margin-left: 0;
 }
 
 .finish-btn:hover {
@@ -1671,7 +1720,7 @@ main {
 }
 
 .brief-intro {
-  padding: 1.25rem 1.25rem 3rem;
+  padding: 1.25rem 1.5rem 3rem;
   background: rgba(167, 139, 250, 0.08);
   border: 1px solid rgba(167, 139, 250, 0.15);
   border-radius: 12px;
@@ -1683,6 +1732,7 @@ main {
   line-height: var(--leading-relaxed);
   margin: 0 0 3rem;
   font-weight: 500;
+  padding: 0 0.5rem;
 }
 
 .brief-info-grid {
@@ -1789,9 +1839,12 @@ main {
   color: #ffffff;
   font-size: var(--text-sm);
   line-height: var(--leading-relaxed);
-  margin: 0 0 2rem;
-  padding-bottom: 1rem;
+  margin: 2rem 0;
+  padding: 0.75rem 0.5rem;
   font-weight: 500;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .prompt-goal {
@@ -1813,8 +1866,8 @@ main {
 }
 
 .prompt-list {
-  margin: 0 0 1.5rem;
-  padding-left: 1.25rem;
+  margin: 1rem 0 !important;
+  padding-left: 0.75rem !important;
   color: #ffffff;
   font-size: var(--text-sm);
   line-height: var(--leading-relaxed);
@@ -1822,6 +1875,8 @@ main {
 
 .prompt-list li {
   margin-bottom: 0.5rem;
+  color: #ffffff;
+  line-height: 1.5;
 }
 
 .prompt-questions {
@@ -1835,6 +1890,7 @@ main {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 12px;
+  margin-bottom: 1rem;
 }
 
 .question-item strong {
@@ -1846,11 +1902,11 @@ main {
 }
 
 .question-hint {
-  color: #6b7280;
+  color: #d1d5db;
   font-size: 0.75rem;
   line-height: var(--leading-relaxed);
   margin: 0 0 0.75rem;
-  font-style: italic;
+  font-style: normal;
 }
 
 .question-input {
@@ -1877,9 +1933,9 @@ main {
 
 .question-block {
   margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.01);
-  border: 1px solid rgba(255, 255, 255, 0.03);
+  padding: 0;
+  background: transparent;
+  border: none;
   border-radius: 16px;
 }
 
@@ -1888,10 +1944,8 @@ main {
   font-weight: 700;
   color: #a78bfa;
   margin-bottom: 1.25rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid rgba(167, 139, 250, 0.2);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  padding: 0 0.5rem 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Quiz Progress */
@@ -2562,11 +2616,21 @@ p {
      MOBILE TYPOGRAPHY
      Scale adjusted for smaller screens
      ================================== */
-  
+
   html {
     font-size: 15px; /* Slightly smaller base for mobile */
   }
-  
+
+  /* Основные отступы только по краям экрана */
+  main {
+    padding: 0 1rem 4rem;
+  }
+
+  section {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
   .demo-header-inner {
     gap: 1rem;
     overflow-x: auto;
@@ -2575,8 +2639,11 @@ p {
   }
 
   .typing-line {
-    font-size: var(--text-lg);
-    min-height: 96px;
+    font-size: 1rem;
+    line-height: 1.3;
+    min-height: auto;
+    width: 100%;
+    max-width: none;
   }
   
   .typing-line-system {
@@ -2584,9 +2651,39 @@ p {
     line-height: 0.9;
   }
 
+  .typewriter-container {
+    width: 95vw;
+    padding: 0.75rem 1rem;
+    height: 60px;
+    box-sizing: border-box;
+  }
+
+  .typewriter-icon {
+    width: 20px;
+    height: 20px;
+  }
+
   .search-btn {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  .search-btn .btn-text-desktop {
+    display: none;
+  }
+
+  .search-btn .btn-text-mobile {
+    display: inline;
+  }
+
+  .typewriter-content {
+    max-width: none;
+    width: 100%;
+  }
+
+  .typing-line {
+    width: 100%;
+    max-width: none;
   }
 
   .problem-card,
@@ -2673,101 +2770,248 @@ p {
     transform: translateX(18px);
   }
   
+  .unpack-container {
+    padding: 1rem 0;
+  }
+
+  .unpack-container-secondary {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .unpack-motivation {
+    padding: 1rem;
+  }
+
+  .unpack-toggle-wrapper {
+    margin: 0.75rem 0;
+  }
+
+  .unpack-toggle {
+    padding: 0.75rem 1rem;
+  }
+
   .toggle-text {
     font-size: 0.75rem;
   }
   
   .unpack-step {
-    flex-direction: column;
+    flex-direction: row;
     gap: 1rem;
+    padding: 0;
+    align-items: center;
+    display: flex;
   }
-  
+
   .step-number {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     font-size: 1.1rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  
-  .network-badge {
-    font-size: 0.7rem;
-    padding: 0.375rem 0.75rem;
-  }
-  
-  .prompt-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
-  }
-  
-  .prompt-actions {
-    flex-wrap: wrap;
+
+  .step-content {
     width: 100%;
+    padding-left: 0;
+    display: flex;
+    align-items: center;
   }
-  
+
+  .finish-btn {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .step-content h3.step-title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    font-weight: 700;
+  }
+
   .brief-intro {
-    padding: 1rem;
+    padding: 1rem 0;
   }
-  
+
+  .brief-intro-text {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff !important;
+    line-height: 1.5;
+    padding: 0 0.5rem;
+  }
+
   .brief-info-grid {
     grid-template-columns: 1fr;
-    gap: 0.75rem;
+    gap: 1rem;
+    margin-top: 1.5rem;
   }
-  
+
   .brief-info-item {
-    gap: 0.5rem;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
   }
-  
+
   .brief-info-icon {
     width: 32px;
     height: 32px;
+    flex-shrink: 0;
+    color: #a78bfa;
   }
-  
+
+  .brief-info-content strong {
+    font-size: 0.85rem;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .brief-info-content p {
+    font-size: 0.8rem;
+    color: #d1d5db;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  .prompt-intro,
+  .prompt-goal,
+  .prompt-task {
+    font-size: 0.9rem;
+    color: #ffffff !important;
+    line-height: 1.5;
+    padding: 0 0.5rem;
+  }
+
+  .prompt-intro {
+    margin-top: 1.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .prompt-goal {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: rgba(167, 139, 250, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(167, 139, 250, 0.2);
+  }
+
+  .prompt-list {
+    padding-left: 1rem !important;
+    margin: 1rem 0;
+  }
+
+  .prompt-list li {
+    font-size: 0.85rem;
+    color: #ffffff !important;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+
   .prompt-box {
-    padding: 1rem;
+    padding: 1rem 0;
   }
-  
-  .fill-example-btn,
-  .copy-btn {
-    font-size: 0.7rem;
-    padding: 0.375rem 0.75rem;
-    flex: 1;
-    justify-content: center;
-    min-width: 140px;
-  }
-  
-  .question-item strong,
-  .question-item span {
-    font-size: 0.7rem;
-  }
-  
-  .question-hint {
-    font-size: 0.65rem;
-  }
-  
-  .question-input {
-    font-size: 0.7rem;
-    padding: 0.5rem;
-  }
-  
+
   .question-block {
-    padding: 1rem;
+    padding: 1rem 0;
     margin-bottom: 1.5rem;
   }
-  
+
   .block-title {
     font-size: 0.75rem;
     margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #a78bfa;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
-  
+
+  .question-item {
+    margin-bottom: 1.25rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .question-item strong {
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .question-hint {
+    font-size: 0.75rem;
+    margin-bottom: 0.75rem;
+    color: #9ca3af;
+    line-height: 1.4;
+  }
+
+  .question-input {
+    font-size: 0.85rem;
+    padding: 0.875rem;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #ffffff;
+    resize: vertical;
+  }
+
+  .question-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
   .quiz-navigation {
     flex-direction: column;
     gap: 0.75rem;
+    padding: 1rem 0;
+    margin-top: 1rem;
   }
-  
+
   .nav-btn {
     width: 100%;
     justify-content: center;
+    font-size: 0.85rem;
+    padding: 0.875rem 1.25rem;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-btn-next,
+  .nav-btn-finish {
+    background: linear-gradient(135deg, #a78bfa, #e879f9);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 15px rgba(167, 139, 250, 0.3);
+  }
+
+  .nav-btn-next:hover,
+  .nav-btn-finish:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(167, 139, 250, 0.4);
+  }
+
+  .nav-btn-back {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-btn-back:hover {
+    background: rgba(255, 255, 255, 0.15);
   }
   
   .nav-btn-next,

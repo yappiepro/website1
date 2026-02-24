@@ -949,6 +949,7 @@ useSeoMeta({
 
 .tiktok-page.locked .slides-container {
   overflow: hidden;
+  pointer-events: none;
 }
 
 .slides-container {
@@ -1049,7 +1050,7 @@ useSeoMeta({
 
 .big-number {
   font-family: 'Unbounded', sans-serif;
-  font-size: clamp(8rem, 25vw, 15rem);
+  font-size: clamp(5rem, 20vw, 10rem);
   font-weight: 900;
   color: #c8f060;
   text-align: center;
@@ -1101,19 +1102,18 @@ useSeoMeta({
 }
 
 .pain-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .pain-card {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  padding: 1.5rem 1rem;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
   background: rgba(255, 255, 255, 0.03);
-  border-radius: 16px;
+  border-radius: 12px;
   border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -1122,13 +1122,15 @@ useSeoMeta({
 .pain-card.color-lime { border-color: rgba(200, 240, 96, 0.5); }
 
 .pain-emoji {
-  font-size: 3rem;
+  font-size: 2rem;
+  flex-shrink: 0;
 }
 
 .pain-label {
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #ffffff;
+  margin: 0;
 }
 
 /* === КАРТОЧКА 4: МЕТОД === */

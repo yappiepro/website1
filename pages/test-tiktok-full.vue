@@ -1003,12 +1003,17 @@ useSeoMeta({
   color: #c8f060;
   font-family: 'Unbounded', sans-serif;
   margin: 0 auto 2rem;
+  padding: 10px;
   animation: pulse-icon 2s ease-in-out infinite;
 }
 
 @keyframes pulse-icon {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
+}
+
+.slide-1 .slide-content {
+  overflow: visible;
 }
 
 .slide-title-main {

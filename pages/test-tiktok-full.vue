@@ -231,6 +231,7 @@ const toggleChannelExpand = (index: number) => {
 const checklistState = ref<'start' | 'selecting' | 'result'>('start')
 const selectedChannels = ref<number[]>([])
 const checklistSubmitted = ref(false)
+const checklistScore = ref(0)
 
 const channels = [
   { text: '💬 Комментарии у конкурентов', isGood: true, feedback: '✅ Отлично! Там люди пишут реальные боли и вопросы' },
@@ -257,6 +258,9 @@ const startChecklist = () => {
 
 const submitChecklist = () => {
   checklistSubmitted.value = true
+  // Подсчёт баллов: 1 балл за каждый правильный выбор (макс. 3)
+  const goodChoices = selectedChannels.value.filter(i => channels[i].isGood).length
+  checklistScore.value = Math.min(goodChoices, 3) // Максимум 3 балла
 }
 
 const nextAfterChecklistResult = () => {
@@ -903,12 +907,16 @@ useSeoMeta({
                 <span class="score-value">{{ game2Score }}/6</span>
               </div>
               <div class="score-item">
+                <span class="score-label">Чеклист "Каналы"</span>
+                <span class="score-value">{{ checklistScore }}/3</span>
+              </div>
+              <div class="score-item">
                 <span class="score-label">Квиз "Найди ошибку"</span>
                 <span class="score-value">{{ quiz7Score }}/3</span>
               </div>
               <div class="score-total">
                 <span class="score-label">Итого</span>
-                <span class="score-value">{{ quizScore + game2Score + quiz7Score }}/14</span>
+                <span class="score-value">{{ quizScore + game2Score + checklistScore + quiz7Score }}/17</span>
               </div>
             </div>
             

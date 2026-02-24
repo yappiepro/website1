@@ -257,7 +257,10 @@ const startChecklist = () => {
 }
 
 const submitChecklist = () => {
+  if (selectedChannels.value.length < 3) return
+  
   checklistSubmitted.value = true
+  checklistState.value = 'result' // Переключаем на результаты
   // Подсчёт баллов: 1 балл за каждый правильный выбор (макс. 3)
   const goodChoices = selectedChannels.value.filter(i => channels[i].isGood).length
   checklistScore.value = Math.min(goodChoices, 3) // Максимум 3 балла
@@ -758,8 +761,8 @@ useSeoMeta({
             
             <p class="channels-count">Выбрано: {{ selectedChannels.length }}/3</p>
             
-            <button class="btn-next" 
-                    :disabled="selectedChannels.length < 3"
+            <button class="btn-next"
+                    :class="{ 'btn-disabled': selectedChannels.length < 3 }"
                     @click="submitChecklist">
               Проверить ответ
             </button>
@@ -1388,6 +1391,12 @@ useSeoMeta({
   box-shadow: 0 8px 20px rgba(200, 240, 96, 0.3);
 }
 
+.btn-next.btn-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
 /* === КАРТОЧКА 6: АККОРДЕОН === */
 .slide-6 {
   background: #0a0a0a;
@@ -1610,7 +1619,18 @@ useSeoMeta({
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.channels-count {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #9ca3af;
+  margin-bottom: 1rem;
+}
+
+.checklist-process .btn-next {
+  margin-top: 1rem;
 }
 
 .channel-option {
@@ -1645,13 +1665,6 @@ useSeoMeta({
   flex: 1;
   font-size: 1rem;
   color: #ffffff;
-}
-
-.channels-count {
-  text-align: center;
-  font-size: 0.95rem;
-  color: #9ca3af;
-  margin-bottom: 1.5rem;
 }
 
 .checklist-result {

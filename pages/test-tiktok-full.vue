@@ -24,24 +24,18 @@ onMounted(() => {
     const diffX = Math.abs(touchEndX - touchStartX)
     const diffY = Math.abs(touchEndY - touchStartY)
     
-    // Если горизонтальное движение больше вертикального — блокируем
-    if (diffX > diffY && diffX > 10) {
+    // Блокируем только если горизонтальное движение значительно больше вертикального
+    if (diffX > diffY * 1.5 && diffX > 10) {
       e.preventDefault()
     }
   }
   
-  const preventPullToRefresh = (e: TouchEvent) => {
-    const target = e.target as HTMLElement
-    const isScrollable = target.scrollHeight > target.clientHeight
-    
-    if (!isScrollable) {
-      e.preventDefault()
-    }
+  // Применяем обработчики только к основному контейнеру, не к slide-content
+  const container = document.querySelector('.slides-container')
+  if (container) {
+    container.addEventListener('touchstart', handleTouchStart, { passive: true })
+    container.addEventListener('touchmove', handleTouchMove, { passive: false })
   }
-  
-  document.addEventListener('touchstart', handleTouchStart, { passive: true })
-  document.addEventListener('touchmove', handleTouchMove, { passive: false })
-  document.addEventListener('touchstart', preventPullToRefresh, { passive: false })
   
   // Блокировка зума
   document.addEventListener('gesturestart', (e) => {
@@ -49,9 +43,10 @@ onMounted(() => {
   })
   
   onUnmounted(() => {
-    document.removeEventListener('touchstart', handleTouchStart)
-    document.removeEventListener('touchmove', handleTouchMove)
-    document.removeEventListener('touchstart', preventPullToRefresh)
+    if (container) {
+      container.removeEventListener('touchstart', handleTouchStart)
+      container.removeEventListener('touchmove', handleTouchMove)
+    }
     document.removeEventListener('gesturestart', (e) => {
       e.preventDefault()
     })
@@ -946,7 +941,6 @@ useSeoMeta({
   overflow: hidden;
   font-family: 'Golos Text', sans-serif;
   touch-action: pan-y;
-  overscroll-behavior: none;
 }
 
 .tiktok-page.locked {
@@ -957,12 +951,6 @@ useSeoMeta({
   overflow: hidden;
 }
 
-/* Глобальная блокировка горизонтального скролла */
-:deep(body) {
-  overflow-x: hidden;
-  overscroll-behavior: none;
-}
-
 .slides-container {
   height: 100vh;
   overflow-y: scroll;
@@ -971,7 +959,6 @@ useSeoMeta({
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   touch-action: pan-y;
-  overscroll-behavior: contain;
 }
 
 .slide {
@@ -2016,8 +2003,6 @@ useSeoMeta({
     max-height: 85vh;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    touch-action: pan-y;
-    overscroll-behavior: contain;
   }
 
   .slide-indicators-vertical {

@@ -254,5 +254,10 @@ export default {
       <li><a href="https://tilda.cc" target="_blank">Tilda — официальный сайт и тарифы</a></li>
       <li><a href="https://www.1c-bitrix.ru" target="_blank">1С-Битрикс — тарифы и возможности</a></li>
     </ol>
+
+<div class="article-nav">
+<p><strong>Читать далее:</strong> <a href="/blog/kak-zakazat-razrabotku-sayta">Как заказать разработку сайта: пошаговое руководство →</a></p>
+<p><strong>Назад:</strong> <a href="/blog/razrabotka-sayta-pod-klyuch">← Разработка сайта под ключ: полное руководство</a></p>
+</div>
   `
 }

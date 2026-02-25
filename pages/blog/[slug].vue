@@ -210,4 +210,42 @@ useSeoMeta({
   border: 1px solid #e5e7eb;
   color: #374151;
 }
+
+/* Article Navigation */
+.prose .article-nav {
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+  border: 1px solid #ddd6fe;
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0 0 0;
+}
+
+.prose .article-nav p {
+  margin: 0.5rem 0;
+  color: #374151;
+}
+
+.prose .article-nav p:first-child {
+  margin-top: 0;
+}
+
+.prose .article-nav p:last-child {
+  margin-bottom: 0;
+}
+
+.prose .article-nav strong {
+  color: #111827;
+  font-weight: 600;
+}
+
+.prose .article-nav a {
+  color: #7c3aed;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.prose .article-nav a:hover {
+  color: #6d28d9;
+  text-decoration: underline;
+}
 </style>

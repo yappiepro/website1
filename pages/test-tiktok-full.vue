@@ -5,47 +5,107 @@ const currentSlide = ref(0)
 const isAnimating = ref(false)
 const isLocked = ref(false) // Блокировка скролла для интерактивных карточек
 
+// Проверка, заблокирован ли скролл вперёд на слайде с тестом
+const isQuizScrollLocked = () => {
+  // Блокируем если мы на слайде 4 и тест ещё не завершён (кнопка «Дальше» не нажата)
+  return currentSlide.value === 4 && !quizCompleted.value
+}
+
+// Проверка, заблокирован ли скролл вперёд на слайде с игрой
+const isGameScrollLocked = () => {
+  // Блокируем если мы на слайде 6 и игра ещё не завершена (кнопка «Дальше» не нажата)
+  return currentSlide.value === 6 && !game2Completed.value
+}
+
+// Проверка, заблокирован ли скролл вперёд на слайде с чеклистом
+const isChecklistScrollLocked = () => {
+  // Блокируем если мы на слайде 8 и чеклист ещё не завершён (кнопка «Дальше» не нажата)
+  return currentSlide.value === 8 && !checklistCompleted.value
+}
+
+// Проверка, заблокирован ли скролл вперёд на слайде с квизом
+const isQuiz7ScrollLocked = () => {
+  // Блокируем если мы на слайде 9 (индекс 9) и квиз ещё не завершён (кнопка «Дальше» не нажата)
+  return currentSlide.value === 9 && !quiz7Completed.value
+}
+
 // Блокировка горизонтального скролла и pull-to-refresh
 onMounted(() => {
   let touchStartX = 0
   let touchStartY = 0
+
+  const container = document.querySelector('.slides-container')
   
   const handleTouchStart = (e: TouchEvent) => {
     touchStartX = e.touches[0].clientX
     touchStartY = e.touches[0].clientY
   }
-  
+
   const handleTouchMove = (e: TouchEvent) => {
     if (e.touches.length > 1) return
-    
+
     const touchEndX = e.touches[0].clientX
     const touchEndY = e.touches[0].clientY
-    
+
     const diffX = Math.abs(touchEndX - touchStartX)
     const diffY = Math.abs(touchEndY - touchStartY)
-    
+
+    // Блокируем скролл вперёд на слайде с тестом, игрой, чеклистом или квизом
+    if (isQuizScrollLocked() || isGameScrollLocked() || isChecklistScrollLocked() || isQuiz7ScrollLocked()) {
+      if (container) {
+        const slideHeight = container.clientHeight
+        const currentScroll = container.scrollTop
+        const currentSlideIndex = Math.round(currentScroll / slideHeight)
+        
+        // Если мы на слайде с тестом, игрой, чеклистом или квизом и пытаемся скроллить вниз
+        const isScrollingDown = touchEndY < touchStartY
+        if ((currentSlideIndex === 4 || currentSlideIndex === 6 || currentSlideIndex === 8 || currentSlideIndex === 9) && isScrollingDown) {
+          e.preventDefault()
+          return
+        }
+      }
+    }
+
     // Блокируем только если горизонтальное движение значительно больше вертикального
     if (diffX > diffY * 1.5 && diffX > 10) {
       e.preventDefault()
     }
   }
-  
+
+  // Обработчик wheel для блокировки скролла вперёд на слайде с тестом
+  const handleWheel = (e: WheelEvent) => {
+    if (isQuizScrollLocked() || isGameScrollLocked() || isChecklistScrollLocked() || isQuiz7ScrollLocked()) {
+      if (container) {
+        const slideHeight = container.clientHeight
+        const currentScroll = container.scrollTop
+        const currentSlideIndex = Math.round(currentScroll / slideHeight)
+
+        // Если мы на слайде с тестом, игрой, чеклистом или квизом и пытаемся скроллить вниз
+        if ((currentSlideIndex === 4 || currentSlideIndex === 6 || currentSlideIndex === 8 || currentSlideIndex === 9) && e.deltaY > 0) {
+          e.preventDefault()
+          return
+        }
+      }
+    }
+  }
+
   // Применяем обработчики только к основному контейнеру, не к slide-content
-  const container = document.querySelector('.slides-container')
   if (container) {
     container.addEventListener('touchstart', handleTouchStart, { passive: true })
     container.addEventListener('touchmove', handleTouchMove, { passive: false })
+    container.addEventListener('wheel', handleWheel, { passive: false })
   }
-  
+
   // Блокировка зума
   document.addEventListener('gesturestart', (e) => {
     e.preventDefault()
   })
-  
+
   onUnmounted(() => {
     if (container) {
       container.removeEventListener('touchstart', handleTouchStart)
       container.removeEventListener('touchmove', handleTouchMove)
+      container.removeEventListener('wheel', handleWheel)
     }
     document.removeEventListener('gesturestart', (e) => {
       e.preventDefault()
@@ -59,6 +119,7 @@ const currentQuestion = ref(0)
 const quizScore = ref(0)
 const quizAnswered = ref(false)
 const selectedAnswer = ref<boolean | null>(null)
+const quizCompleted = ref(false) // Флаг: тест завершён и кнопка «Дальше» нажата
 
 const quizQuestions = [
   {
@@ -90,15 +151,15 @@ const quizQuestions = [
 
 const handleQuizAnswer = (answer: boolean) => {
   if (quizAnswered.value) return
-  
+
   selectedAnswer.value = answer
   quizAnswered.value = true
-  
+
   const isCorrect = answer === quizQuestions[currentQuestion.value].correct
   if (isCorrect) {
     quizScore.value++
   }
-  
+
   // Переход к следующему вопросу через 2.5 секунды
   setTimeout(() => {
     if (currentQuestion.value < quizQuestions.length - 1) {
@@ -107,12 +168,14 @@ const handleQuizAnswer = (answer: boolean) => {
       selectedAnswer.value = null
     } else {
       quizState.value = 'result'
+      // Не разблокируем скролл — пользователь должен нажать кнопку «Дальше»
     }
   }, 2500)
 }
 
 const startQuiz = () => {
   isLocked.value = true // Блокируем скролл
+  quizCompleted.value = false // Сбрасываем флаг завершения
   quizState.value = 'playing'
   currentQuestion.value = 0
   quizScore.value = 0
@@ -137,6 +200,7 @@ const game2Current = ref(0)
 const game2Score = ref(0)
 const game2Answered = ref(false)
 const selectedTemp = ref<'cold' | 'warm' | 'hot' | null>(null)
+const game2Completed = ref(false) // Флаг: игра завершена и кнопка «Дальше» нажата
 
 const temperatureClients = [
   {
@@ -189,12 +253,14 @@ const handleTempAnswer = (temp: 'cold' | 'warm' | 'hot') => {
       selectedTemp.value = null
     } else {
       game2State.value = 'result'
+      // Не разблокируем скролл — пользователь должен нажать кнопку «Дальше»
     }
   }, 3000)
 }
 
 const startGame2 = () => {
   isLocked.value = true // Блокируем скролл
+  game2Completed.value = false // Сбрасываем флаг завершения
   game2State.value = 'playing'
   game2Current.value = 0
   game2Score.value = 0
@@ -232,6 +298,7 @@ const checklistState = ref<'start' | 'selecting' | 'result'>('start')
 const selectedChannels = ref<number[]>([])
 const checklistSubmitted = ref(false)
 const checklistScore = ref(0)
+const checklistCompleted = ref(false) // Флаг: чеклист завершён и кнопка «Дальше» нажата
 
 const channels = [
   { text: '💬 Комментарии у конкурентов', isGood: true, feedback: '✅ Отлично! Там люди пишут реальные боли и вопросы' },
@@ -253,25 +320,28 @@ const toggleChannel = (index: number) => {
 
 const startChecklist = () => {
   isLocked.value = true // Блокируем скролл
+  checklistCompleted.value = false // Сбрасываем флаг завершения
   checklistState.value = 'selecting'
 }
 
 const submitChecklist = () => {
   if (selectedChannels.value.length < 3) return
-  
+
   checklistSubmitted.value = true
   checklistState.value = 'result' // Переключаем на результаты
+  // Не разблокируем скролл — пользователь должен нажать кнопку «Дальше»
   // Подсчёт баллов: 1 балл за каждый правильный выбор (макс. 3)
   const goodChoices = selectedChannels.value.filter(i => channels[i].isGood).length
   checklistScore.value = Math.min(goodChoices, 3) // Максимум 3 балла
 }
 
 const nextAfterChecklistResult = () => {
+  checklistCompleted.value = true // Помечаем что чеклист завершён
   isLocked.value = false // Разблокируем скролл
   const container = document.querySelector('.slides-container')
   if (container) {
     container.scrollTo({
-      top: container.clientHeight * 8, // Переход к карточке 9 (7A+7B)
+      top: container.clientHeight * 9, // Переход к карточке 10 (Ошибки + Квиз)
       behavior: 'smooth'
     })
   }
@@ -283,6 +353,7 @@ const quiz7Current = ref(0)
 const quiz7Score = ref(0)
 const quiz7Answered = ref(false)
 const selectedQuiz7Answer = ref<number | null>(null)
+const quiz7Completed = ref(false) // Флаг: квиз завершён и кнопка «Дальше» нажата
 
 // Аккордеон для ошибок (7A)
 const expandedError = ref<number | null>(null)
@@ -342,12 +413,14 @@ const handleQuiz7Answer = (optionIndex: number) => {
       selectedQuiz7Answer.value = null
     } else {
       quiz7State.value = 'result'
+      // Не разблокируем скролл — пользователь должен нажать кнопку «Дальше»
     }
   }, 4000)
 }
 
 const startQuiz7 = () => {
   isLocked.value = true
+  quiz7Completed.value = false // Сбрасываем флаг завершения
   quiz7State.value = 'playing'
   quiz7Current.value = 0
   quiz7Score.value = 0
@@ -356,11 +429,12 @@ const startQuiz7 = () => {
 }
 
 const nextAfterQuiz7 = () => {
-  isLocked.value = false
+  quiz7Completed.value = true // Помечаем что квиз завершён
+  isLocked.value = false // Разблокируем скролл
   const container = document.querySelector('.slides-container')
   if (container) {
     container.scrollTo({
-      top: container.clientHeight * 9, // Переход к карточке 10 (финал)
+      top: container.clientHeight * 10, // Переход к карточке 11 (Финал)
       behavior: 'smooth'
     })
   }
@@ -377,19 +451,62 @@ const quiz7Result = computed(() => {
   }
 })
 
+// Функция для отправки скриншота с результатами
+const shareResults = async () => {
+  const totalScore = quizScore.value + game2Score.value + checklistScore.value + quiz7Score.value
+  const maxScore = 5 + 6 + 3 + 3
+  
+  const shareText = `Я прошёл курс по ЦА от Yappie!
+Мой результат: ${totalScore}/${maxScore}
+
+📊 Результаты по модулям:
+• Тест "Правда или миф": ${quizScore.value}/5
+• Игра "Температура": ${game2Score.value}/6
+• Чеклист "Каналы": ${checklistScore.value}/3
+• Квиз "Найди ошибку": ${quiz7Score.value}/3
+
+ЦА — это человек с болью, а не сегмент в Excel!
+
+#Yappie #ЦА #Маркетинг`
+
+  try {
+    if (navigator.share) {
+      await navigator.share({
+        title: 'Мои результаты по ЦА',
+        text: shareText
+      })
+    } else {
+      // Если Web Share API не поддерживается, копируем в буфер
+      await navigator.clipboard.writeText(shareText)
+      alert('Результаты скопированы в буфер обмена!')
+    }
+  } catch (error) {
+    console.log('Ошибка при отправке:', error)
+    // Копируем в буфер в случае ошибки
+    await navigator.clipboard.writeText(shareText)
+    alert('Результаты скопированы в буфер обмена!')
+  }
+}
+
 // === НАВИГАЦИЯ ===
 const handleScroll = (e: Event) => {
   if (isLocked.value) {
+    const container = e.target as HTMLElement
+    // Блокируем скролл — возвращаем на предыдущий слайд
+    container.scrollTo({
+      top: currentSlide.value * container.clientHeight,
+      behavior: 'auto'
+    })
     e.preventDefault()
     return
   }
-  
+
   const container = e.target as HTMLElement
   const slideHeight = container.clientHeight
   const scrollTop = container.scrollTop
   const newIndex = Math.round(scrollTop / slideHeight)
-  
-  if (newIndex >= 0 && newIndex <= 9) {
+
+  if (newIndex >= 0 && newIndex <= 10) {
     currentSlide.value = newIndex
   }
 }
@@ -400,33 +517,24 @@ const goToSlide = (index: number) => {
 
 // Переход к следующему слайду после завершения теста
 const nextAfterQuiz = () => {
+  quizCompleted.value = true // Помечаем что тест завершён
   isLocked.value = false // Разблокируем скролл
   const container = document.querySelector('.slides-container')
   if (container) {
     container.scrollTo({
-      top: container.clientHeight * 6, // Переход к карточке 7 (6A)
+      top: container.clientHeight * 5, // Переход к карточке 6 (3 типа аудитории)
       behavior: 'smooth'
     })
   }
 }
 
 const nextAfterGame = () => {
+  game2Completed.value = true // Помечаем что игра завершена
   isLocked.value = false // Разблокируем скролл
   const container = document.querySelector('.slides-container')
   if (container) {
     container.scrollTo({
-      top: container.clientHeight * 6, // Переход к карточке 7 (6A - Где искать ЦА)
-      behavior: 'smooth'
-    })
-  }
-}
-
-const nextAfterChecklist = () => {
-  isLocked.value = false // Разблокируем скролл
-  const container = document.querySelector('.slides-container')
-  if (container) {
-    container.scrollTo({
-      top: container.clientHeight * 9, // Переход к карточке 10 (финал)
+      top: container.clientHeight * 7, // Переход к карточке 8 (Где искать ЦА - аккордеон)
       behavior: 'smooth'
     })
   }
@@ -595,7 +703,7 @@ useSeoMeta({
       <div class="slide slide-6">
         <div class="slide-content">
           <h2 class="slide-title-small">3 типа твоей аудитории</h2>
-          
+
           <div class="accordion">
             <!-- Холодная -->
             <div class="accordion-item" :class="{ expanded: expandedType === 0 }" @click="toggleType(0)">
@@ -611,7 +719,7 @@ useSeoMeta({
                   <ul>
                     <li>Образовывать</li>
                     <li>Показывать проблему</li>
-                    <li>Давать value без продаж</li>
+                    <li>Давать пользу без продаж</li>
                   </ul>
                 </div>
               </div>
@@ -660,8 +768,90 @@ useSeoMeta({
         </div>
       </div>
 
-      <!-- КАРТОЧКА 7: Где искать ЦА (6A по ТЗ) - АККОРДЕОН -->
+      <!-- КАРТОЧКА 7: ИГРА "Определи температуру" -->
       <div class="slide slide-7">
+        <div class="slide-content">
+          <!-- Начало игры -->
+          <div v-if="game2State === 'start'" class="game-intro">
+            <h2 class="slide-title-small">Игра: Какая это аудитория?</h2>
+            <p class="game-subtitle">Определи температуру ЦА</p>
+            <div class="game-info">
+              <span>6 клиентов</span>
+              <span>•</span>
+              <span>3 минуты</span>
+            </div>
+            <button class="btn-start" @click="startGame2">Начать игру →</button>
+          </div>
+
+          <!-- Процесс игры -->
+          <div v-else-if="game2State === 'playing'" class="game-process">
+            <div class="game-progress">Клиент {{ game2Current + 1 }}/6</div>
+
+            <div class="client-card">
+              <p class="client-text">"{{ temperatureClients[game2Current].text }}"</p>
+            </div>
+
+            <div class="temp-buttons">
+              <button
+                class="btn-temp btn-cold"
+                :class="{
+                  selected: selectedTemp === 'cold',
+                  correct: game2Answered && temperatureClients[game2Current].correct === 'cold',
+                  wrong: game2Answered && selectedTemp === 'cold' && temperatureClients[game2Current].correct !== 'cold'
+                }"
+                @click="handleTempAnswer('cold')"
+                :disabled="game2Answered"
+              >
+                <span class="temp-icon">❄️</span>
+                <span class="temp-label">Холодная</span>
+              </button>
+              <button
+                class="btn-temp btn-warm"
+                :class="{
+                  selected: selectedTemp === 'warm',
+                  correct: game2Answered && temperatureClients[game2Current].correct === 'warm',
+                  wrong: game2Answered && selectedTemp === 'warm' && temperatureClients[game2Current].correct !== 'warm'
+                }"
+                @click="handleTempAnswer('warm')"
+                :disabled="game2Answered"
+              >
+                <span class="temp-icon">🔥</span>
+                <span class="temp-label">Тёплая</span>
+              </button>
+              <button
+                class="btn-temp btn-hot"
+                :class="{
+                  selected: selectedTemp === 'hot',
+                  correct: game2Answered && temperatureClients[game2Current].correct === 'hot',
+                  wrong: game2Answered && selectedTemp === 'hot' && temperatureClients[game2Current].correct !== 'hot'
+                }"
+                @click="handleTempAnswer('hot')"
+                :disabled="game2Answered"
+              >
+                <span class="temp-icon">⚡</span>
+                <span class="temp-label">Горячая</span>
+              </button>
+            </div>
+
+            <div v-if="game2Answered" class="game-explanation" :class="selectedTemp === temperatureClients[game2Current].correct ? 'correct' : 'wrong'">
+              {{ temperatureClients[game2Current].explanation }}
+            </div>
+
+            <div class="game-score">Правильно: {{ game2Score }}/{{ game2Current + (game2Answered ? 1 : 0) }} 🎯</div>
+          </div>
+
+          <!-- Результаты игры -->
+          <div v-else class="game-result">
+            <div class="result-icon">{{ game2Result.icon }}</div>
+            <h3 class="result-title">{{ game2Result.message }}</h3>
+            <div class="result-score">Твой счёт: {{ game2Score }}/6</div>
+            <button class="btn-next" @click="nextAfterGame">Дальше →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- КАРТОЧКА 8: Где искать ЦА (аккордеон) -->
+      <div class="slide slide-8">
         <div class="slide-content">
           <h2 class="slide-title-small">Где искать ЦА прямо сейчас</h2>
           <p class="method-intro">Не выдумывай ЦА — иди туда, где она уже есть:</p>
@@ -732,13 +922,11 @@ useSeoMeta({
               </div>
             </div>
           </div>
-          
-          <button class="btn-next" @click="goToSlide(8)">Дальше →</button>
         </div>
       </div>
 
-      <!-- КАРТОЧКА 8: Чеклист "Выбери каналы" (6B по ТЗ) -->
-      <div class="slide slide-8">
+      <!-- КАРТОЧКА 9: Чеклист "Выбери каналы" -->
+      <div class="slide slide-9">
         <div class="slide-content">
           <!-- Начало чеклиста -->
           <div v-if="checklistState === 'start'" class="checklist-intro">
@@ -793,8 +981,8 @@ useSeoMeta({
         </div>
       </div>
 
-      <!-- КАРТОЧКА 9: Топ-3 ошибки (аккордеон) + Квиз "Найди ошибку" (7A + 7B по ТЗ) -->
-      <div class="slide slide-9">
+      <!-- КАРТОЧКА 10: Топ-3 ошибки (аккордеон) + Квиз "Найди ошибку" -->
+      <div class="slide slide-10">
         <div class="slide-content">
           <!-- Статичная часть: Топ-3 ошибки (аккордеон) -->
           <div v-if="quiz7State === 'start'" class="errors-intro">
@@ -893,8 +1081,8 @@ useSeoMeta({
         </div>
       </div>
 
-      <!-- КАРТОЧКА 10: Финал с результатами -->
-      <div class="slide slide-10">
+      <!-- КАРТОЧКА 11: Финал с результатами -->
+      <div class="slide slide-11">
         <div class="slide-content">
           <div class="final-summary">
             <div class="final-icon">🏆</div>
@@ -927,8 +1115,8 @@ useSeoMeta({
               ЦА — это человек с болью,<br/>а не сегмент в Excel
             </div>
             
-            <button class="btn-cta">Получить чек-лист по ЦА</button>
-            <button class="btn-share">Поделиться</button>
+            <button class="btn-cta">Дальше →</button>
+            <button class="btn-share" @click="shareResults">Поделиться</button>
             <p class="author-signature">@yappie</p>
           </div>
         </div>
@@ -937,7 +1125,7 @@ useSeoMeta({
 
     <!-- Индикаторы -->
     <div class="slide-indicators-vertical">
-      <div v-for="index in 10" :key="index" class="indicator-dot" :class="{ active: index - 1 === currentSlide }" @click="goToSlide(index - 1)"></div>
+      <div v-for="index in 11" :key="index" class="indicator-dot" :class="{ active: index - 1 === currentSlide }" @click="goToSlide(index - 1)"></div>
     </div>
   </div>
 </template>
@@ -967,14 +1155,28 @@ useSeoMeta({
 .tiktok-page.locked .quiz-game,
 .tiktok-page.locked .game-process,
 .tiktok-page.locked .checklist-process,
-.tiktok-page.locked .quiz7-process {
+.tiktok-page.locked .quiz7-process,
+.tiktok-page.locked .quiz7-result,
+.tiktok-page.locked .quiz-result,
+.tiktok-page.locked .game-intro,
+.tiktok-page.locked .game-result,
+.tiktok-page.locked .checklist-intro,
+.tiktok-page.locked .checklist-result,
+.tiktok-page.locked .errors-intro {
   pointer-events: auto;
 }
 
 .tiktok-page.locked .quiz-game *,
 .tiktok-page.locked .game-process *,
 .tiktok-page.locked .checklist-process *,
-.tiktok-page.locked .quiz7-process * {
+.tiktok-page.locked .quiz7-process *,
+.tiktok-page.locked .quiz7-result *,
+.tiktok-page.locked .quiz-result *,
+.tiktok-page.locked .game-intro *,
+.tiktok-page.locked .game-result *,
+.tiktok-page.locked .checklist-intro *,
+.tiktok-page.locked .checklist-result *,
+.tiktok-page.locked .errors-intro * {
   pointer-events: auto;
 }
 
@@ -1002,6 +1204,12 @@ useSeoMeta({
   touch-action: pan-y;
   user-select: none;
   -webkit-user-select: none;
+}
+
+.slide button {
+  user-select: auto;
+  -webkit-user-select: auto;
+  pointer-events: auto;
 }
 
 .slide-content {
@@ -1112,20 +1320,20 @@ useSeoMeta({
 
 .slide-title-small {
   font-family: 'Unbounded', sans-serif;
-  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-size: clamp(1.25rem, 3.5vw, 1.75rem);
   font-weight: 700;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   color: #c8f060;
 }
 
 .pain-formula {
   font-family: 'Unbounded', sans-serif;
-  font-size: clamp(3rem, 8vw, 5rem);
+  font-size: clamp(2rem, 6vw, 3.5rem);
   font-weight: 900;
   text-align: center;
   color: #c8f060;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   background: linear-gradient(135deg, #c8f060, #ff6b35);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1135,16 +1343,16 @@ useSeoMeta({
 .pain-cards {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
 .pain-card {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem 1.25rem;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
   background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
+  border-radius: 10px;
   border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -1153,15 +1361,16 @@ useSeoMeta({
 .pain-card.color-lime { border-color: rgba(200, 240, 96, 0.5); }
 
 .pain-emoji {
-  font-size: 2rem;
+  font-size: 1.5rem;
   flex-shrink: 0;
 }
 
 .pain-label {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #ffffff;
   margin: 0;
+  white-space: nowrap;
 }
 
 /* === КАРТОЧКА 4: МЕТОД === */
@@ -1230,6 +1439,17 @@ useSeoMeta({
   color: #6b7280;
 }
 
+@keyframes btn-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(200, 240, 96, 0.4);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 10px rgba(200, 240, 96, 0);
+  }
+}
+
 .btn-start {
   padding: 1.25rem 2.5rem;
   background: #c8f060;
@@ -1240,12 +1460,14 @@ useSeoMeta({
   font-size: 1.125rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  animation: btn-pulse 2s ease-in-out infinite;
 }
 
 .btn-start:hover {
   background: #a8d840;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(200, 240, 96, 0.3);
+  animation: none;
 }
 
 .quiz-game, .game-process {
@@ -1616,8 +1838,8 @@ useSeoMeta({
 }
 
 .channels-select {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 0.75rem;
   margin-bottom: 1rem;
 }
@@ -1627,10 +1849,19 @@ useSeoMeta({
   font-size: 0.95rem;
   color: #9ca3af;
   margin-bottom: 1rem;
+  grid-column: span 2;
 }
 
 .checklist-process .btn-next {
   margin-top: 1rem;
+  grid-column: span 2;
+}
+
+.checklist-result .btn-next {
+  margin-top: 0.5rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  flex-shrink: 0;
 }
 
 .channel-option {
@@ -1668,15 +1899,43 @@ useSeoMeta({
 }
 
 .checklist-result {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.checklist-result::-webkit-scrollbar {
+  width: 6px;
+}
+
+.checklist-result::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.checklist-result::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.checklist-result::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .result-item {
-  padding: 1rem;
-  border-radius: 12px;
+  padding: 0.75rem;
+  border-radius: 10px;
   border: 2px solid;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.checklist-verdict,
+.checklist-result .btn-next {
+  grid-column: span 2;
 }
 
 .result-good {
@@ -1696,8 +1955,9 @@ useSeoMeta({
 }
 
 .result-icon {
-  font-size: 1.25rem;
+  font-size: 1rem;
   margin-right: 0.5rem;
+  flex-shrink: 0;
 }
 
 .result-text {
@@ -1705,23 +1965,27 @@ useSeoMeta({
   font-weight: 600;
   color: #ffffff;
   margin-bottom: 0.25rem;
+  font-size: 0.875rem;
 }
 
 .result-feedback {
   display: block;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: #9ca3af;
+  line-height: 1.3;
 }
 
 .checklist-verdict {
   text-align: center;
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: #c8f060;
   font-weight: 600;
-  margin: 1.5rem 0;
-  padding: 1rem;
+  margin: 1rem 0;
+  padding: 0.75rem;
   background: rgba(200, 240, 96, 0.1);
   border-radius: 12px;
+  border: 1px solid rgba(200, 240, 96, 0.2);
+  flex-shrink: 0;
 }
 
 /* === КАРТОЧКА 9: ОШИБКИ (АККОРДЕОН) + КВИЗ === */
@@ -1898,30 +2162,30 @@ useSeoMeta({
 }
 
 .final-icon {
-  font-size: 5rem;
-  margin-bottom: 1rem;
+  font-size: 3.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .final-title {
   font-family: 'Unbounded', sans-serif;
-  font-size: 1.75rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
 
 .scores-summary {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .score-item {
   display: flex;
   justify-content: space-between;
-  padding: 0.75rem 0;
+  padding: 0.5rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -1932,34 +2196,35 @@ useSeoMeta({
 .score-total {
   display: flex;
   justify-content: space-between;
-  padding: 1rem 0 0;
-  margin-top: 1rem;
+  padding: 0.75rem 0 0;
+  margin-top: 0.75rem;
   border-top: 2px solid rgba(200, 240, 96, 0.3);
   font-weight: 700;
 }
 
 .score-label {
   color: #9ca3af;
-  font-size: 1rem;
+  font-size: 0.875rem;
+  text-align: left;
 }
 
 .score-value {
   color: #c8f060;
   font-weight: 700;
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 
 .score-total .score-value {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 .final-message {
   font-family: 'Unbounded', sans-serif;
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: clamp(1.2rem, 3.5vw, 2rem);
   font-weight: 900;
   text-align: center;
   color: #ffffff;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   line-height: 1.4;
 }
 
@@ -1971,10 +2236,11 @@ useSeoMeta({
   border: none;
   border-radius: 12px;
   font-weight: 700;
-  font-size: 1.125rem;
+  font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-bottom: 1rem;
+  white-space: nowrap;
 }
 
 .btn-cta:hover {
@@ -1985,13 +2251,13 @@ useSeoMeta({
 
 .btn-share {
   width: 100%;
-  padding: 1rem;
+  padding: 0.875rem;
   background: transparent;
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -2001,8 +2267,8 @@ useSeoMeta({
 }
 
 .author-signature {
-  margin-top: 2rem;
-  font-size: 0.875rem;
+  margin-top: 1.25rem;
+  font-size: 0.8rem;
   color: #6b7280;
   text-align: center;
 }
@@ -2040,7 +2306,11 @@ useSeoMeta({
     padding: 4rem 1rem 2rem;
     touch-action: pan-y;
   }
-  
+
+  .slide button {
+    pointer-events: auto;
+  }
+
   .slide-1 {
     padding-top: 5rem;
   }
@@ -2050,6 +2320,39 @@ useSeoMeta({
     max-height: 85vh;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+  }
+
+  .checklist-result {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .checklist-verdict,
+  .checklist-result .btn-next {
+    grid-column: span 1;
+  }
+
+  .result-item {
+    padding: 0.6rem;
+  }
+
+  .result-text {
+    font-size: 0.8rem;
+  }
+
+  .result-feedback {
+    font-size: 0.75rem;
+  }
+
+  .checklist-verdict {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+    margin: 0.75rem 0;
+  }
+
+  .checklist-result .btn-next {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
   }
 
   .slide-indicators-vertical {
@@ -2071,8 +2374,25 @@ useSeoMeta({
   
   /* Аккордеон для карточки 3 на мобильном */
   .pain-formula {
-    font-size: clamp(2rem, 6vw, 3rem);
-    margin-bottom: 1.5rem;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    margin-bottom: 1.25rem;
+  }
+
+  .pain-cards {
+    gap: 0.4rem;
+  }
+
+  .pain-card {
+    padding: 0.6rem 0.85rem;
+    gap: 0.6rem;
+  }
+
+  .pain-emoji {
+    font-size: 1.25rem;
+  }
+
+  .pain-label {
+    font-size: 0.85rem;
   }
   
   /* Сжимаем текст на мобильном */
@@ -2163,33 +2483,56 @@ useSeoMeta({
   
   /* Сжимаем финал */
   .final-icon {
-    font-size: 3rem;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
   }
-  
+
   .final-title {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
   }
-  
+
+  .scores-summary {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
   .score-item {
-    padding: 0.5rem 0;
+    padding: 0.4rem 0;
   }
-  
+
   .score-label {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
   }
-  
+
   .score-value {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
-  
+
   .score-total .score-value {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
   }
-  
+
+  .final-message {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    margin-bottom: 1rem;
+  }
+
   /* Уменьшаем кнопки */
   .btn-start, .btn-next, .btn-cta {
-    padding: 1rem;
-    font-size: 1rem;
+    padding: 0.875rem;
+    font-size: 0.9rem;
+    white-space: normal;
+  }
+
+  .btn-share {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .author-signature {
+    font-size: 0.7rem;
+    margin-top: 1rem;
   }
   
   /* Сжимаем квизы */
@@ -2204,10 +2547,19 @@ useSeoMeta({
   }
   
   /* Чеклист */
+  .channels-select {
+    grid-template-columns: 1fr;
+  }
+
+  .channels-count,
+  .checklist-process .btn-next {
+    grid-column: span 1;
+  }
+
   .channel-option {
     padding: 1rem;
   }
-  
+
   .channel-text {
     font-size: 0.95rem;
   }

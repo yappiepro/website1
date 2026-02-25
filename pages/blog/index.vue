@@ -13,7 +13,7 @@
 
     <main class="pt-24 pb-16 px-4 sm:px-6">
       <div class="max-w-4xl mx-auto">
-        <header class="mb-12">
+        <header class="mb-8">
           <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
             Блог
           </h1>
@@ -22,9 +22,76 @@
           </p>
         </header>
 
+        <!-- Фильтры по кластерам -->
+        <div class="flex flex-wrap gap-2 mb-6">
+          <button
+            @click="selectedCluster = null"
+            :class="[
+              'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
+              selectedCluster === null
+                ? 'bg-violet-600 text-white shadow-md'
+                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+            ]"
+          >
+            Все статьи
+          </button>
+          <button
+            v-for="cluster in clusters"
+            :key="cluster"
+            @click="selectedCluster = cluster"
+            :class="[
+              'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
+              selectedCluster === cluster
+                ? getClusterButtonActiveClass(cluster)
+                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+            ]"
+          >
+            {{ getClusterName(cluster) }}
+          </button>
+        </div>
+
+        <!-- Поиск по статьям -->
+        <div class="mb-6">
+          <div class="relative">
+            <input
+              v-model="searchQuery"
+              type="text"
+              placeholder="Поиск по названию или описанию..."
+              class="w-full px-4 py-3 pl-11 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
+            />
+            <svg
+              class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+            <button
+              v-if="searchQuery"
+              @click="searchQuery = ''"
+              class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Счётчик статей -->
+        <p class="text-sm text-gray-500 mb-6">
+          Найдено статей: {{ filteredArticles.length }}
+        </p>
+
         <div class="space-y-8">
           <article
-            v-for="article in articles"
+            v-for="article in filteredArticles"
             :key="article.slug"
             class="group"
           >
@@ -33,7 +100,10 @@
                 <div class="flex items-center gap-3 mb-4">
                   <span
                     v-if="article.category"
-                    class="px-3 py-1 text-xs font-medium bg-violet-100 text-violet-700 rounded-full"
+                    :class="[
+                      'px-3 py-1 text-xs font-medium rounded-full',
+                      getClusterColorClass(article.cluster)
+                    ]"
                   >
                     {{ article.category }}
                   </span>
@@ -58,6 +128,13 @@
             </a>
           </article>
         </div>
+
+        <!-- Сообщение, если ничего не найдено -->
+        <div v-if="filteredArticles.length === 0" class="text-center py-12">
+          <p class="text-gray-500 text-lg">
+            В этом кластере пока нет статей
+          </p>
+        </div>
       </div>
     </main>
 
@@ -72,10 +149,69 @@
 
 <script setup>
 import { ArrowRight } from 'lucide-vue-next'
-import { articles, formatDate } from '~/data/blog.js'
+import { articles, formatDate, getClusters, getClusterName, getClusterColor, getRandomArticles } from '~/data/blog.js'
 
 const config = useRuntimeConfig()
 const baseURL = config.app.baseURL
+
+// Получаем все уникальные кластеры
+const clusters = getClusters()
+
+// Выбранный кластер (null = все статьи)
+const selectedCluster = ref(null)
+
+// Поисковый запрос
+const searchQuery = ref('')
+
+// Случайный порядок статей
+const shuffledArticles = computed(() => getRandomArticles(articles.length))
+
+// Фильтрованные статьи
+const filteredArticles = computed(() => {
+  let result = shuffledArticles.value
+
+  // Фильтрация по кластеру
+  if (selectedCluster.value !== null) {
+    result = result.filter(a => a.cluster === selectedCluster.value)
+  }
+
+  // Поиск по названию и описанию
+  if (searchQuery.value.trim()) {
+    const query = searchQuery.value.toLowerCase().trim()
+    result = result.filter(a =>
+      a.title.toLowerCase().includes(query) ||
+      a.description.toLowerCase().includes(query)
+    )
+  }
+
+  return result
+})
+
+// Функция для получения класса цвета кластера
+function getClusterColorClass(cluster) {
+  const color = getClusterColor(cluster)
+  const colorMap = {
+    violet: 'bg-violet-100 text-violet-700',
+    blue: 'bg-blue-100 text-blue-700',
+    green: 'bg-green-100 text-green-700',
+    orange: 'bg-orange-100 text-orange-700',
+    pink: 'bg-pink-100 text-pink-700'
+  }
+  return colorMap[color] || colorMap.violet
+}
+
+// Функция для получения цвета активной кнопки кластера
+function getClusterButtonActiveClass(cluster) {
+  const color = getClusterColor(cluster)
+  const colorMap = {
+    violet: 'bg-violet-600 text-white shadow-md',
+    blue: 'bg-blue-600 text-white shadow-md',
+    green: 'bg-green-600 text-white shadow-md',
+    orange: 'bg-orange-600 text-white shadow-md',
+    pink: 'bg-pink-600 text-white shadow-md'
+  }
+  return colorMap[color] || colorMap.violet
+}
 
 useSeoMeta({
   title: 'Блог — Yappie',

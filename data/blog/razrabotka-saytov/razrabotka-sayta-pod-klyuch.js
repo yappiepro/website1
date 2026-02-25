@@ -273,5 +273,9 @@ export default {
 <li><a href="https://schema.org" target="_blank">Schema.org — Разметка данных</a></li>
 <li><a href="https://www.w3.org" target="_blank">W3C — Стандарты веб-разработки</a></li>
 </ul>
+
+<div class="article-nav">
+<p><strong>Читать далее:</strong> <a href="/blog/skolko-stoit-razrabotka-sayta">Сколько стоит разработка сайта в 2025 году →</a></p>
+</div>
 `
 }

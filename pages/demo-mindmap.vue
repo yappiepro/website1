@@ -350,11 +350,11 @@
                           <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
                       </button>
-                      <button v-if="currentStep === 5" class="nav-btn nav-btn-finish" @click="finishUnpack">
+                      <button v-if="currentStep === 5" class="nav-btn nav-btn-copy" @click="copyPrompt" :class="{ 'copied': isCopied }">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
                           <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
-                        Завершить
+                        {{ isCopied ? 'Скопировано!' : 'Скопировать промпт' }}
                       </button>
                     </div>
                   </div>
@@ -378,7 +378,7 @@
                   <a href="https://deepseek.com" target="_blank" rel="noopener" class="network-badge">DeepSeek</a>
                   <a href="https://chat.qwen.ai" target="_blank" rel="noopener" class="network-badge">Qwen</a>
                 </div>
-                <p class="network-instruction">Вставь промпт и нажимай Enter</p>
+                <p class="network-instruction">Заполни 5 блоков и нажми «Скопировать промпт» — он будет в буфере обмена</p>
               </div>
             </div>
 
@@ -427,7 +427,7 @@
         </div>
 
         <div class="problem-grid">
-          <article class="problem-card tall fade-in-up" style="--delay: 0">
+          <article class="problem-card fade-in-up" style="--delay: 0">
             <span class="problem-index">01</span>
             <h4>Контент есть. Заявок нет.</h4>
             <p>Публикации выходят регулярно, но между постом и покупкой — пустота. Нет выстроенного пути, по которому читатель становится клиентом.</p>
@@ -589,6 +589,7 @@
 
 <script setup lang="ts">
 import { Menu, X } from 'lucide-vue-next'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 const config = useRuntimeConfig()
 const baseURL = config.app.baseURL
@@ -674,7 +675,7 @@ function scrollToTop() {
       const offset = 100
       const elementPosition = currentBlock.getBoundingClientRect().top + window.pageYOffset
       const offsetPosition = elementPosition - offset
-      
+
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
@@ -686,7 +687,7 @@ function scrollToTop() {
 function finishUnpack() {
   // Показываем мотивационный блок
   showMotivation.value = true
-  
+
   // Скроллим к мотивационному тексту
   setTimeout(() => {
     const motivationBlock = document.querySelector('.unpack-motivation')
@@ -694,44 +695,37 @@ function finishUnpack() {
       const offset = 100
       const elementPosition = motivationBlock.getBoundingClientRect().top + window.pageYOffset
       const offsetPosition = elementPosition - offset
-      
+
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
       })
     }
-  }, 100)
+  }, 300)
 }
 
 function getPromptText() {
-  return `=== СИСТЕМНАЯ ИНСТРУКЦИЯ ===
+  return `Ты — эксперт по личному бренду и контент-стратегии с 10-летним опытом. Твоя задача — создать чёткий, живой, доверительный образ эксперта в блоге, который:
+– вызывает отклик у целевой аудитории (молодые аналитики, предприниматели, HR, тренеры),
+– подчёркивает опыт и методологию,
+– демонстрирует реальные результаты,
+– мягко ведёт подписчиков к услугам (менторство, консультации, автоматизация).
 
-После получения заполненного брифа — сформируй итоговый документ, который включает:
-
-1. Биография эксперта — 2 версии: короткая (3–4 предложения для шапки профиля) и расширенная (для страницы «О себе»)
-2. Уникальная точка опоры — 1 абзац: что отличает этого человека от всех остальных в нише
-3. Ключевые темы блога — 7–10 тем с пояснением, почему именно эта тема усиливает авторитет и как она ведёт к продукту
-4. Контент-направления — 3–4 рубрики или формата, которые подходят под стиль и цели автора
-5. Тон и стиль — конкретные рекомендации: как писать, каких слов избегать, какой ритм поста, уместны ли юмор/провокация/личное
-6. Архетип эксперта — кто он по сути (1–2 предложения), какой образ транслировать
-7. Стартовый контент-план — 10–15 идей для первых постов, которые сразу работают на позиционирование
-8. Призыв к действию — 2–3 варианта CTA, органично встраиваемых в посты под стиль автора
+Используй ответы на вопросы ниже, чтобы сформировать:
+1. Краткую, но ёмкую «биографию эксперта» (до 3–4 предложений)
+2. Список из 5–7 ключевых тем блога для укрепления авторитета
+3. Уникальную «точку опоры» — то, что отличает от других в нише
+4. Рекомендации по тону и стилю общения в постах
 
 === ЗАПОЛНЕННЫЙ БРИФ ===
 
-Этот бриф — основа для создания твоего экспертного образа в блоге. Чем честнее и конкретнее ты заполнишь каждый пункт, тем точнее и сильнее получится итоговый документ.
+Этот бриф — основа для создания экспертного образа в блоге. Чем честнее и конкретнее заполнен каждый пункт, тем точнее и сильнее получится итоговый документ.
 
 КАК ЗАПОЛНЯТЬ:
-Пиши так, как говоришь — без официоза и «причёсывания». Не думай долго над формулировками, первая мысль часто самая точная. Если какой-то пункт вызывает затруднение — напиши даже приблизительный ответ, это лучше чем пропуск.
+Пиши так, как говоришь — без официоза и «причёсывания». Не думай долго над формулировками, первая мысль часто самая точная. Если какой-то пункт вызывает затруднение — напиши даже приблизительный ответ.
 
 ЧТО ВАЖНО:
-Конкретика бьёт общие слова. «Помог аналитику вырасти с 0 до 1200 подписчиков за 3 месяца» работает в 10 раз лучше, чем «помогаю людям развивать блог». Цифры, детали, живые примеры — всё это превращает шаблонный текст в настоящий документ про тебя.
-
-СКОЛЬКО ВРЕМЕНИ ЗАЙМЁТ:
-30–45 минут, если вдумчиво. Можно разбить на два подхода.
-
-ЧТО ПОЛУЧИШЬ НА ВЫХОДЕ:
-После заполнения отправь бриф в чат — и получишь готовый документ с биографией, темами блога, стилем общения, контент-планом и рекомендациями по позиционированию, который можно сразу использовать в работе.
+Конкретика бьёт общие слова. «Помог аналитику вырасти с 0 до 1200 подписчиков за 3 месяца» работает в 10 раз лучше, чем «помогаю людям развивать блог». Цифры, детали, живые примеры превращают шаблонный текст в настоящий документ.
 
 === ОТВЕТЫ НА ВОПРОСЫ ===
 
@@ -1682,23 +1676,25 @@ main {
 .finish-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: linear-gradient(135deg, #a78bfa, #e879f9);
+  background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 999px;
   font-size: var(--text-sm);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(167, 139, 250, 0.3);
+  box-shadow: none;
   margin-left: 0;
 }
 
 .finish-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(167, 139, 250, 0.4);
 }
 
 /* Prompt Box */
@@ -2152,11 +2148,11 @@ p {
   font-size: clamp(1.8rem, 4vw, 3.8rem);
   line-height: 0.95;
   color: #ffffff;
-  max-width: 60%;
+  max-width: 100%;
 }
 
 .section-head.alt h3 {
-  max-width: 17ch;
+  max-width: 100%;
 }
 
 .eyebrow {
@@ -2185,13 +2181,14 @@ p {
 .problem-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
 .problem-card {
   grid-column: span 4;
-  padding: 1.25rem;
-  border-radius: 20px;
+  padding: 1.5rem;
+  border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.05);
   background: #0a0a0a;
 }
@@ -2207,6 +2204,20 @@ p {
 
 .problem-card.wide {
   grid-column: span 6;
+}
+
+.problem-card h4 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.problem-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
 }
 
 .problem-card.accent {
@@ -2232,10 +2243,11 @@ p {
 
 .problem-index {
   display: inline-block;
-  margin-bottom: 0.6rem;
-  font-size: 0.72rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.75rem;
   letter-spacing: 0.16em;
   color: #a78bfa;
+  font-weight: 700;
 }
 
 .problem-card h4,
@@ -2987,16 +2999,39 @@ p {
 
   .nav-btn-next,
   .nav-btn-finish {
-    background: linear-gradient(135deg, #a78bfa, #e879f9);
+    background: rgba(255, 255, 255, 0.1);
     color: #ffffff;
-    border: none;
-    box-shadow: 0 4px 15px rgba(167, 139, 250, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: none;
   }
 
   .nav-btn-next:hover,
   .nav-btn-finish:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: none;
+  }
+
+  .nav-btn-copy {
+    background: linear-gradient(135deg, #a78bfa, #e879f9);
+    color: #ffffff;
+    border: 1px solid rgba(167, 139, 250, 0.4);
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(167, 139, 250, 0.3);
+  }
+
+  .nav-btn-copy:hover {
+    background: linear-gradient(135deg, #9367f5, #d95fe8);
+    border-color: rgba(167, 139, 250, 0.5);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(167, 139, 250, 0.4);
+  }
+
+  .nav-btn-copy.copied {
+    background: rgba(167, 139, 250, 0.3);
+    border-color: rgba(167, 139, 250, 0.5);
+    color: #c4b5fd;
   }
 
   .nav-btn-back {
@@ -3008,7 +3043,7 @@ p {
   .nav-btn-back:hover {
     background: rgba(255, 255, 255, 0.15);
   }
-  
+
   .nav-btn-next,
   .nav-btn-finish {
     margin-left: 0;

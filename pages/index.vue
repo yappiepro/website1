@@ -17,9 +17,7 @@
           <a href="/website1/blog" class="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-y-[-1px]">Блог</a>
           <a href="#faq" class="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-y-[-1px]">FAQ</a>
           <a href="/website1/demo-mindmap" class="text-sm text-violet-400 hover:text-violet-300 transition-all duration-300 hover:translate-y-[-1px]">Demo</a>
-          <Button as-child class="px-4 py-2 text-xs bg-white text-black hover:bg-gray-100 shadow-lg shadow-white/10 hover:shadow-white/20 transition-all">
-            <a href="https://t.me/artemselifanov" target="_blank">Связаться</a>
-          </Button>
+          <a href="https://t.me/artemselifanov" target="_blank" class="inline-flex items-center justify-center rounded-full font-medium px-4 py-2 text-xs bg-white text-black hover:bg-gray-100 shadow-lg shadow-white/10 hover:shadow-white/20 transition-all">Связаться</a>
         </div>
 
         <!-- Кнопка бургер-меню для мобильных -->
@@ -48,13 +46,7 @@
             {{ item.label }}
           </a>
         </nav>
-        <Button
-          as-child
-          class="mt-12 px-10 py-5 text-xl font-semibold bg-white text-black hover:bg-gray-100 w-full max-w-xs"
-          @click="isMobileMenuOpen = false"
-        >
-          <a href="https://t.me/artemselifanov" target="_blank">Связаться</a>
-        </Button>
+        <a href="https://t.me/artemselifanov" target="_blank" class="inline-flex items-center justify-center rounded-full font-medium px-10 py-5 text-xl font-semibold bg-white text-black hover:bg-gray-100 w-full max-w-xs transition-all">Связаться</a>
       </div>
       <!-- Кнопка закрытия -->
       <button
@@ -102,15 +94,13 @@
 
             <!-- Кнопки -->
             <div class="flex flex-row gap-3 animate-fade-in-up animation-delay-400 flex-wrap">
-              <Button as-child class="px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm bg-white text-black hover:bg-gray-100 shadow-xl shadow-white/10 hover:shadow-white/20 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 whitespace-nowrap flex-1 sm:flex-none">
-                <a href="https://t.me/artemselifanov" target="_blank" class="flex items-center justify-center">
-                  <span class="whitespace-nowrap">Обсудить проект</span>
-                  <ArrowRight class="ml-2 h-3.5 w-3.5 flex-shrink-0" />
-                </a>
-              </Button>
-              <Button as-child variant="outline" class="px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm border-white/20 hover:bg-white/10 hover:border-white/40 backdrop-blur-sm transition-all duration-300 hover:scale-105 whitespace-nowrap flex-1 sm:flex-none">
-                <a href="#portfolio" class="whitespace-nowrap">Смотреть работы</a>
-              </Button>
+              <a href="https://t.me/artemselifanov" target="_blank" class="inline-flex items-center justify-center rounded-full font-medium px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm bg-white text-black hover:bg-gray-100 shadow-xl shadow-white/10 hover:shadow-white/20 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 whitespace-nowrap flex-1 sm:flex-none">
+                <span class="whitespace-nowrap">Обсудить проект</span>
+                <ArrowRight class="ml-2 h-3.5 w-3.5 flex-shrink-0" />
+              </a>
+              <a href="#portfolio" class="inline-flex items-center justify-center rounded-full font-medium px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm border-white/20 hover:bg-white/10 hover:border-white/40 backdrop-blur-sm transition-all duration-300 hover:scale-105 whitespace-nowrap flex-1 sm:flex-none">
+                <span class="whitespace-nowrap">Смотреть работы</span>
+              </a>
             </div>
 
             <!-- Stats -->
@@ -317,7 +307,7 @@
             <div class="absolute inset-0 bg-gradient-to-br from-violet-500/10 to-fuchsia-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
             <!-- Номер проблемы -->
-            <div class="absolute top-4 sm:top-6 right-4 sm:right-6 text-4xl sm:text-5xl lg:text-6xl font-bold text-white/[0.03] group-hover:text-violet-500/10 transition-colors select-none">
+            <div class="absolute top-4 sm:top-6 right-4 sm:right-6 text-4xl sm:text-5xl lg:text-6xl font-bold text-white/[0.08] group-hover:text-violet-400/20 transition-colors select-none">
               {{ String(index + 1).padStart(2, '0') }}
             </div>
 
@@ -558,12 +548,10 @@
                   </div>
                 </div>
 
-                <Button as-child class="w-fit px-5 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm bg-white text-black hover:bg-gray-100 whitespace-nowrap">
-                  <a href="https://t.me/artemselifanov" target="_blank" class="flex items-center">
-                    <span class="whitespace-nowrap">Обсудить внедрение</span>
-                    <ArrowRight class="ml-2 h-3.5 w-3.5 flex-shrink-0" />
-                  </a>
-                </Button>
+                <a href="https://t.me/artemselifanov" target="_blank" class="inline-flex items-center justify-center rounded-full font-medium px-5 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm bg-white text-black hover:bg-gray-100 whitespace-nowrap transition-all">
+                  <span class="whitespace-nowrap">Обсудить внедрение</span>
+                  <ArrowRight class="ml-2 h-3.5 w-3.5 flex-shrink-0" />
+                </a>
               </div>
 
               <!-- Правая часть - референс/картинка -->
@@ -673,13 +661,11 @@
           Расскажите о вашей задаче — мы предложим решение и рассчитаем стоимость бесплатно
         </p>
 
-        <Button as-child class="px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base bg-white text-black hover:bg-gray-100 shadow-2xl shadow-white/15 hover:shadow-white/25 transition-all duration-300 hover:scale-105 whitespace-nowrap">
-          <a href="https://t.me/artemselifanov" target="_blank" class="flex items-center">
-            <Send class="mr-2 sm:mr-3 h-4 sm:h-5 w-4 sm:w-5 flex-shrink-0" />
-            <span class="whitespace-nowrap">Написать в Telegram</span>
-            <ArrowRight class="ml-2 sm:ml-3 h-4 sm:h-5 w-4 sm:w-5 flex-shrink-0" />
-          </a>
-        </Button>
+        <a href="https://t.me/artemselifanov" target="_blank" class="inline-flex items-center justify-center rounded-full font-medium px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base bg-white text-black hover:bg-gray-100 shadow-2xl shadow-white/15 hover:shadow-white/25 transition-all duration-300 hover:scale-105 whitespace-nowrap">
+          <Send class="mr-2 sm:mr-3 h-4 sm:h-5 w-4 sm:w-5 flex-shrink-0" />
+          <span class="whitespace-nowrap">Написать в Telegram</span>
+          <ArrowRight class="ml-2 sm:ml-3 h-4 sm:h-5 w-4 sm:w-5 flex-shrink-0" />
+        </a>
 
         <p class="text-gray-500 mt-6 sm:mt-8 text-xs sm:text-sm sm:px-2">Бесплатная консультация и расчёт стоимости в течение 24 часов</p>
       </div>

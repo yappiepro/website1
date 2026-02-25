@@ -958,24 +958,26 @@ useSeoMeta({
 
           <!-- Результаты -->
           <div v-else class="checklist-result">
-            <div v-for="(channel, index) in channels" :key="index" 
+            <div v-for="(channel, index) in channels" :key="index"
                  class="result-item"
-                 :class="{ 
+                 :class="{
                    'result-good': channel.isGood && selectedChannels.includes(index),
                    'result-bad': !channel.isGood && selectedChannels.includes(index),
                    'result-missed': channel.isGood && !selectedChannels.includes(index)
                  }">
-              <span class="result-icon">{{ channel.isGood ? '✅' : selectedChannels.includes(index) ? '❌' : '⊘' }}</span>
-              <span class="result-text">{{ channel.text }}</span>
+              <div class="result-item-top">
+                <span class="result-icon">{{ channel.isGood ? '✅' : selectedChannels.includes(index) ? '❌' : '⊘' }}</span>
+                <span class="result-text">{{ channel.text }}</span>
+              </div>
               <span class="result-feedback">{{ channel.feedback }}</span>
             </div>
-            
+
             <div class="checklist-verdict">
-              {{ selectedChannels.filter(i => channels[i].isGood).length >= 3 
-                ? '🔥 Отличный выбор! Ты знаешь, где живёт ЦА' 
+              {{ selectedChannels.filter(i => channels[i].isGood).length >= 3
+                ? '🔥 Отличный выбор! Ты знаешь, где живёт ЦА'
                 : '💡 Подумай: где люди пишут свои реальные проблемы?' }}
             </div>
-            
+
             <button class="btn-next" @click="nextAfterChecklistResult">Дальше →</button>
           </div>
         </div>
@@ -1043,12 +1045,15 @@ useSeoMeta({
 
           <!-- Квиз "Найди ошибку" -->
           <div v-else-if="quiz7State === 'playing'" class="quiz7-process">
-            <div class="quiz7-progress">Вопрос {{ quiz7Current + 1 }}/3</div>
+            <h2 class="slide-title-small">Квиз: Найди ошибку</h2>
+            <p class="quiz7-subtitle">В чём ошибка в этом описании ЦА?</p>
             
+            <div class="quiz7-progress">Вопрос {{ quiz7Current + 1 }}/3</div>
+
             <div class="quiz7-description">
               {{ mistakes[quiz7Current].description }}
             </div>
-            
+
             <div class="quiz7-options">
               <button v-for="(option, idx) in mistakes[quiz7Current].options" :key="idx"
                       class="quiz7-option"
@@ -1062,11 +1067,11 @@ useSeoMeta({
                 {{ option.text }}
               </button>
             </div>
-            
+
             <div v-if="quiz7Answered" class="quiz7-explanation" :class="selectedQuiz7Answer === mistakes[quiz7Current].options.find(o => o.correct)?.index ? 'correct' : 'wrong'">
               {{ mistakes[quiz7Current].explanation }}
             </div>
-            
+
             <div class="quiz7-score">Правильно: {{ quiz7Score }}/{{ quiz7Current + (quiz7Answered ? 1 : 0) }}</div>
           </div>
 
@@ -1694,29 +1699,29 @@ useSeoMeta({
 }
 
 .audience-desc {
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   color: #9ca3af;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .audience-actions {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: #d1d5db;
 }
 
 .audience-actions strong {
   color: #ffffff;
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .audience-actions ul {
   margin: 0;
-  padding-left: 1.25rem;
+  padding-left: 1rem;
 }
 
 .audience-actions li {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
 }
 
 /* === КАРТОЧКА 7: ИГРА === */
@@ -1733,16 +1738,18 @@ useSeoMeta({
 
 .btn-temp {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  padding: 1.25rem;
-  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
   border: 2px solid;
   background: rgba(255, 255, 255, 0.05);
   color: #ffffff;
+  white-space: nowrap;
 }
 
 .btn-temp:hover:not(:disabled) {
@@ -1771,11 +1778,12 @@ useSeoMeta({
 .btn-hot.wrong { border-color: #ef4444; }
 
 .temp-icon {
-  font-size: 2rem;
+  font-size: 1.5rem;
+  flex-shrink: 0;
 }
 
 .temp-label {
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   font-weight: 600;
 }
 
@@ -1859,21 +1867,34 @@ useSeoMeta({
 
 .checklist-result .btn-next {
   margin-top: 0.5rem;
-  padding: 1rem 2rem;
-  font-size: 1rem;
+  padding: 0.875rem 1.5rem;
+  font-size: 0.9rem;
   flex-shrink: 0;
+  width: 100%;
 }
 
 .channel-option {
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.25rem;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.875rem;
   background: rgba(255, 255, 255, 0.03);
   border: 2px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+.channel-checkbox {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.channel-text {
+  font-size: 0.875rem;
+  line-height: 1.3;
+  flex: 1;
 }
 
 .channel-option:hover {
@@ -1901,9 +1922,9 @@ useSeoMeta({
 .checklist-result {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
+  gap: 0.6rem;
   padding: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .checklist-result::-webkit-scrollbar {
@@ -1923,14 +1944,25 @@ useSeoMeta({
   background: rgba(255, 255, 255, 0.3);
 }
 
+.checklist-verdict,
+.checklist-result .btn-next {
+  grid-column: span 2;
+}
+
 .result-item {
-  padding: 0.75rem;
+  padding: 0.6rem;
   border-radius: 10px;
   border: 2px solid;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
   min-width: 0;
+}
+
+.result-item-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .checklist-verdict,
@@ -1955,8 +1987,7 @@ useSeoMeta({
 }
 
 .result-icon {
-  font-size: 1rem;
-  margin-right: 0.5rem;
+  font-size: 0.9rem;
   flex-shrink: 0;
 }
 
@@ -1964,24 +1995,25 @@ useSeoMeta({
   display: block;
   font-weight: 600;
   color: #ffffff;
-  margin-bottom: 0.25rem;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
+  line-height: 1.3;
+  flex: 1;
 }
 
 .result-feedback {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: #9ca3af;
-  line-height: 1.3;
+  line-height: 1.2;
 }
 
 .checklist-verdict {
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #c8f060;
   font-weight: 600;
-  margin: 1rem 0;
-  padding: 0.75rem;
+  margin: 0.75rem 0 0.5rem;
+  padding: 0.6rem;
   background: rgba(200, 240, 96, 0.1);
   border-radius: 12px;
   border: 1px solid rgba(200, 240, 96, 0.2);
@@ -2061,6 +2093,13 @@ useSeoMeta({
   width: 100%;
 }
 
+.quiz7-subtitle {
+  font-size: 0.95rem;
+  color: #9ca3af;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
 .quiz7-progress {
   font-size: 0.875rem;
   color: #6b7280;
@@ -2072,10 +2111,10 @@ useSeoMeta({
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
-  padding: 2rem;
-  margin-bottom: 1.5rem;
-  font-size: 1.125rem;
-  line-height: 1.6;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.5;
   color: #ffffff;
 }
 
@@ -2162,30 +2201,30 @@ useSeoMeta({
 }
 
 .final-icon {
-  font-size: 3.5rem;
-  margin-bottom: 0.75rem;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
 }
 
 .final-title {
   font-family: 'Unbounded', sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .scores-summary {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 1rem;
-  margin-bottom: 1.25rem;
+  border-radius: 10px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .score-item {
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem 0;
+  padding: 0.4rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -2196,50 +2235,50 @@ useSeoMeta({
 .score-total {
   display: flex;
   justify-content: space-between;
-  padding: 0.75rem 0 0;
-  margin-top: 0.75rem;
+  padding: 0.5rem 0 0;
+  margin-top: 0.5rem;
   border-top: 2px solid rgba(200, 240, 96, 0.3);
   font-weight: 700;
 }
 
 .score-label {
   color: #9ca3af;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   text-align: left;
 }
 
 .score-value {
   color: #c8f060;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .score-total .score-value {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
 }
 
 .final-message {
   font-family: 'Unbounded', sans-serif;
-  font-size: clamp(1.2rem, 3.5vw, 2rem);
+  font-size: clamp(1.1rem, 3vw, 1.75rem);
   font-weight: 900;
   text-align: center;
   color: #ffffff;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   line-height: 1.4;
 }
 
 .btn-cta {
   width: 100%;
-  padding: 1.25rem;
+  padding: 1rem;
   background: #c8f060;
   color: #0a0a0a;
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.95rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   white-space: nowrap;
 }
 
@@ -2370,6 +2409,21 @@ useSeoMeta({
 
   .answer-buttons, .temp-buttons {
     grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .btn-temp {
+    flex-direction: row;
+    padding: 0.65rem 0.85rem;
+    gap: 0.5rem;
+  }
+
+  .temp-icon {
+    font-size: 1.25rem;
+  }
+
+  .temp-label {
+    font-size: 0.8rem;
   }
   
   /* Аккордеон для карточки 3 на мобильном */
@@ -2399,33 +2453,54 @@ useSeoMeta({
   .slide-title-main {
     font-size: clamp(1.5rem, 4vw, 2.5rem);
   }
-  
+
   .slide-title-small {
-    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
   }
-  
+
   .slide-subtitle {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
-  
-  /* Уменьшаем отступы в аккордеоне */
+
+  /* Аккордеон аудитория */
+  .audience-desc {
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .audience-actions {
+    font-size: 0.8rem;
+  }
+
+  .audience-actions strong {
+    margin-bottom: 0.4rem;
+  }
+
+  .audience-actions ul {
+    padding-left: 1rem;
+  }
+
+  .audience-actions li {
+    margin-bottom: 0.2rem;
+  }
+
   .accordion-header {
     padding: 0.75rem 1rem;
   }
-  
+
   .accordion-item.expanded .accordion-content {
     padding: 0 1rem 1rem;
   }
-  
+
   /* Каналы аккордеон */
   .channel-header {
     padding: 0.75rem 1rem;
   }
-  
+
   .channel-name {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
-  
+
   .channel-content p {
     font-size: 0.85rem;
     padding-bottom: 0.75rem;
@@ -2483,72 +2558,87 @@ useSeoMeta({
   
   /* Сжимаем финал */
   .final-icon {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    margin-bottom: 0.4rem;
   }
 
   .final-title {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
   }
 
   .scores-summary {
-    padding: 0.75rem;
-    margin-bottom: 1rem;
+    padding: 0.6rem;
+    margin-bottom: 0.75rem;
+    border-radius: 8px;
   }
 
   .score-item {
-    padding: 0.4rem 0;
+    padding: 0.3rem 0;
   }
 
   .score-label {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
 
   .score-value {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   .score-total .score-value {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .final-message {
-    font-size: clamp(1rem, 3vw, 1.5rem);
-    margin-bottom: 1rem;
+    font-size: clamp(0.95rem, 3vw, 1.4rem);
+    margin-bottom: 0.75rem;
   }
 
   /* Уменьшаем кнопки */
   .btn-start, .btn-next, .btn-cta {
-    padding: 0.875rem;
-    font-size: 0.9rem;
+    padding: 0.75rem;
+    font-size: 0.85rem;
     white-space: normal;
   }
 
   .btn-share {
-    padding: 0.75rem;
-    font-size: 0.85rem;
+    padding: 0.65rem;
+    font-size: 0.8rem;
   }
 
   .author-signature {
-    font-size: 0.7rem;
-    margin-top: 1rem;
+    font-size: 0.65rem;
+    margin-top: 0.75rem;
   }
   
   /* Сжимаем квизы */
-  .quiz7-description {
-    padding: 1.25rem;
-    font-size: 1rem;
+  .slide-title-small {
+    font-size: 1.1rem;
   }
-  
+
+  .quiz7-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .quiz7-description {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
   .quiz7-option {
     padding: 1rem;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
   
   /* Чеклист */
   .channels-select {
     grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .channels-count {
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
   }
 
   .channels-count,
@@ -2557,23 +2647,67 @@ useSeoMeta({
   }
 
   .channel-option {
-    padding: 1rem;
+    padding: 0.75rem;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .channel-checkbox {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
   }
 
   .channel-text {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    line-height: 1.3;
+    flex: 1;
   }
-  
-  .result-item {
+
+  .checklist-process .btn-next {
     padding: 0.75rem;
+    font-size: 0.85rem;
   }
-  
+
+  /* Чеклист результаты */
+  .checklist-result {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .checklist-verdict,
+  .checklist-result .btn-next {
+    grid-column: span 1;
+  }
+
+  .result-item {
+    padding: 0.5rem;
+  }
+
+  .result-item-top {
+    gap: 0.4rem;
+  }
+
+  .result-icon {
+    display: none;
+  }
+
   .result-text {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
-  
+
   .result-feedback {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+  }
+
+  .checklist-verdict {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+  }
+
+  .checklist-result .btn-next {
+    padding: 0.7rem;
+    font-size: 0.8rem;
   }
 }
 </style>

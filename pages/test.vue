@@ -556,7 +556,7 @@ useSeoMeta({
           <span class="font-bold text-white tracking-wider text-2xl">YAPPIE</span>
         </a>
         <div class="flex gap-4">
-          <a href="/website1/test-swipe" class="text-sm text-gray-400 hover:text-white transition-all">
+          <a href="/website1/test" class="text-sm text-gray-400 hover:text-white transition-all">
             ← Свайпы
           </a>
           <a href="/website1/demo" class="text-sm text-gray-400 hover:text-white transition-all">

@@ -143,6 +143,35 @@ div.prose div.table-wrapper,
 .prose a:hover {
   text-decoration: underline;
 }
+
+/* Code blocks styling */
+.prose pre {
+  background: #1e1e2e;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  position: relative;
+}
+
+.prose pre code {
+  color: #cdd6f4;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  white-space: pre;
+}
+
+/* Inline code */
+.prose :not(pre) > code {
+  background: #f3f4f6;
+  color: #7c3aed;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.85em;
+}
+
 .prose strong {
   color: #111827;
   font-weight: 600;

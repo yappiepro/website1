@@ -59,7 +59,8 @@ export default defineNuxtConfig({
         '/blog/sozdanie-sayta-html-css',
         '/blog/ii-dlya-sozdaniya-sayta',
         '/blog/kak-sozdat-mobilnoe-prilozhenie',
-        '/blog/yazyki-programmirovaniya-mobilnykh-prilozheniy'
+        '/blog/yazyki-programmirovaniya-mobilnykh-prilozheniy',
+        '/blog/dizayn-mobilnogo-prilozheniya'
       ],
       failOnError: false
     }

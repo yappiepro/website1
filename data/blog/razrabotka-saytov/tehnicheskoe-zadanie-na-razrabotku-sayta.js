@@ -252,7 +252,7 @@ export default {
 
 <p>График работ с конкретными датами:</p>
 
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr><th>Этап</th><th>Срок</th><th>Результат</th></tr>
 </thead>
@@ -264,7 +264,7 @@ export default {
 <tr><td>Наполнение контентом</td><td>7 рабочих дней</td><td>Сайт с контентом</td></tr>
 <tr><td>Тестирование и запуск</td><td>3 рабочих дня</td><td>Сайт на боевом сервере</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <p>Фиксируйте не только сроки исполнителя, но и сроки обратной связи от заказчика. Задержка согласования со стороны заказчика — главная причина срыва дедлайнов.</p>
 
@@ -354,8 +354,8 @@ export default {
 </ul>
 
 <div class="article-nav">
-<p><strong>Читать далее:</strong> <a href="/blog/razrabotka-internet-magazina">Разработка интернет-магазина: с чего начать →</a></p>
-<p><strong>Назад:</strong> <a href="/blog/razrabotka-sayta-dlya-biznesa">← Разработка сайта для бизнеса: какой тип выбрать</a></p>
+<p><strong>Читать далее:</strong> <a href="/website1/blog/razrabotka-internet-magazina">Разработка интернет-магазина: с чего начать →</a></p>
+<p><strong>Назад:</strong> <a href="/website1/blog/razrabotka-sayta-dlya-biznesa">← Разработка сайта для бизнеса: какой тип выбрать</a></p>
 </div>
 `
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-white text-gray-900">
+  <div class="min-h-screen bg-white text-gray-900 overflow-x-hidden touch-pan-y">
     <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200">
       <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
         <a :href="baseURL" class="text-xl font-bold text-gray-900 flex items-center gap-2">
@@ -17,7 +17,7 @@
     </nav>
 
     <article class="pt-24 pb-16 px-4 sm:px-6">
-      <div class="max-w-3xl mx-auto">
+      <div class="max-w-3xl mx-auto w-full overflow-x-hidden touch-pan-y">
         <header class="mb-8 sm:mb-12">
           <div class="flex items-center gap-3 mb-4">
             <span
@@ -90,6 +90,22 @@ useSeoMeta({
 </script>
 
 <style>
+/* Global touch actions for article pages */
+.touch-pan-y {
+  touch-action: pan-y;
+  overflow-x: hidden !important;
+}
+
+/* Allow horizontal scroll for table wrappers - high specificity to override global overflow */
+div.prose div.table-wrapper,
+.prose div.table-wrapper,
+.prose .table-wrapper {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x pan-y !important;
+}
+
 .prose h2 {
   font-size: 1.5rem;
   font-weight: 700;
@@ -140,14 +156,76 @@ useSeoMeta({
   color: #374151;
   margin: 1.5rem 0;
 }
-.prose table {
-  width: 100%;
+
+/* Таблицы с горизонтальным скроллом */
+.prose .table-wrapper {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
   margin: 1.5rem 0;
-  border-collapse: collapse;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x pan-y !important;
+  display: block;
+  width: 100%;
+  position: relative;
+  max-width: 100%;
 }
+
+.prose .table-wrapper::-webkit-scrollbar {
+  height: 8px;
+  display: block;
+}
+
+.prose .table-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.prose .table-wrapper::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.prose .table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+.prose table {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  border-collapse: collapse;
+  min-width: 600px;
+  display: table !important;
+}
+
+.prose table thead {
+  display: table-header-group;
+}
+
+.prose table tbody {
+  display: table-row-group;
+}
+
+.prose table tr {
+  display: table-row;
+}
+
 .prose th {
   background: #f3f4f6;
   text-align: left;
+  padding: 0.75rem;
+  font-weight: 600;
+  color: #111827;
+  border: 1px solid #e5e7eb;
+  white-space: nowrap;
+  display: table-cell;
+}
+
+.prose td {
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+  color: #374151;
+  display: table-cell;
 }
 
 /* CTA Block Styles */
@@ -194,21 +272,6 @@ useSeoMeta({
   background: #6d28d9;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
-}
-
-.prose th {
-  background: #f3f4f6;
-  text-align: left;
-  padding: 0.75rem;
-  font-weight: 600;
-  color: #111827;
-  border: 1px solid #e5e7eb;
-}
-
-.prose td {
-  padding: 0.75rem;
-  border: 1px solid #e5e7eb;
-  color: #374151;
 }
 
 /* Article Navigation */

@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+/* Global overflow fix for all pages */
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body {
+  overflow-x: hidden;
+  touch-action: pan-y;
+}
+
 @font-face {
   font-family: 'Syncopate';
   font-style: normal;

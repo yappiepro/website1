@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-page">
+  <div class="demo-page overflow-x-hidden">
     <!-- Навигация как на главной -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-[#030305]/70 backdrop-blur-2xl border-b border-white/[0.08]">
       <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">

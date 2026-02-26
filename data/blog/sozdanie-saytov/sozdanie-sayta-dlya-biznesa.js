@@ -163,7 +163,7 @@ export default {
 
 <h2>Сравнительная таблица: лендинг vs корпоративный vs магазин</h2>
 
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr><th>Параметр</th><th>Лендинг</th><th>Корпоративный</th><th>Интернет-магазин</th></tr>
 </thead>
@@ -176,7 +176,7 @@ export default {
 <tr><td>Сложность поддержки</td><td>Низкая</td><td>Средняя</td><td>Высокая</td></tr>
 <tr><td>Подходит для</td><td>B2C, реклама</td><td>B2B, услуги</td><td>Товарный бизнес</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <h2>Как выбрать правильный тип сайта для своего бизнеса</h2>
 
@@ -228,8 +228,8 @@ export default {
 </ul>
 
 <div class="article-nav">
-<p><strong>Читать далее:</strong> <a href="/blog/platformy-dlya-sozdaniya-saytov">Платформы и конструкторы для создания сайтов →</a></p>
-<p><strong>Назад:</strong> <a href="/blog/skolko-stoit-sozdat-sayt">← Сколько стоит создать сайт в 2025 году</a></p>
+<p><strong>Читать далее:</strong> <a href="/website1/blog/platformy-dlya-sozdaniya-saytov">Платформы и конструкторы для создания сайтов →</a></p>
+<p><strong>Назад:</strong> <a href="/website1/blog/skolko-stoit-sozdat-sayt">← Сколько стоит создать сайт в 2025 году</a></p>
 </div>
 `
 }

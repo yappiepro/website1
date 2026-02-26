@@ -291,7 +291,7 @@ export default {
 </ul>
 
 <div class="article-nav">
-<p><strong>Назад:</strong> <a href="/blog/sozdanie-sayta-html-css">← Создание сайта на HTML и CSS: основы и первые шаги</a></p>
+<p><strong>Назад:</strong> <a href="/website1/blog/sozdanie-sayta-html-css">← Создание сайта на HTML и CSS: основы и первые шаги</a></p>
 </div>
 `
 }

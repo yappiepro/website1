@@ -11,6 +11,7 @@ import sozdanieSaytaDlyaBiznesa from './blog/sozdanie-saytov/sozdanie-sayta-dlya
 import platformyDlyaSozdaniyaSaytov from './blog/sozdanie-saytov/platformy-dlya-sozdaniya-saytov.js'
 import sozdanieSaytaHtmlCss from './blog/sozdanie-saytov/sozdanie-sayta-html-css.js'
 import iiDlyaSozdaniyaSayta from './blog/sozdanie-saytov/ii-dlya-sozdaniya-sayta.js'
+import kakSozdatMobilnoePrilozhenie from './blog/mobilnye-prilozheniya/kak-sozdat-mobilnoe-prilozhenie.js'
 
 // Массив всех статей
 export const articles = [
@@ -26,6 +27,7 @@ export const articles = [
   platformyDlyaSozdaniyaSaytov,
   sozdanieSaytaHtmlCss,
   iiDlyaSozdaniyaSayta,
+  kakSozdatMobilnoePrilozhenie,
   // Сюда добавляйте новые статьи:
   // import nazvanieStatyi from './blog/razrabotka-saytov/nazvanie-statyi.js'
   // nazvanieStatyi,

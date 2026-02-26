@@ -4,7 +4,7 @@
     <!-- Навигация с улучшенным glassmorphism -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-[#030305]/70 backdrop-blur-2xl border-b border-white/[0.08]">
       <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="/website1/" @click.prevent="window.scrollTo({ top: 0, behavior: 'smooth' })" class="text-xl font-semibold text-white flex items-center gap-2 group">
+        <a href="/website1/main" class="text-xl font-semibold text-white flex items-center gap-2 group">
           <span class="font-syncopate font-bold text-white tracking-wider text-2xl">YAPPIE</span>
         </a>
 

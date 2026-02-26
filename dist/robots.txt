@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://yappie.ru/website1/sitemap.xml

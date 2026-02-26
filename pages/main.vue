@@ -47,7 +47,7 @@
           <!-- Фотография -->
           <div class="profile-photo-wrapper">
             <div class="profile-photo">
-              <img src="/website1/reference/main.jpg" alt="Артём Селифанов" class="profile-img" />
+              <img src="/reference/main.jpg" alt="Артём Селифанов" class="profile-img" />
             </div>
           </div>
           

@@ -146,14 +146,13 @@ div.prose div.table-wrapper,
 
 /* Code blocks styling */
 .prose pre {
-  background: #1e1e2e;
+  background: #1e1e2e !important;
   border-radius: 0.75rem;
   padding: 1.25rem;
   margin: 1.5rem 0;
   overflow-x: auto;
   position: relative;
   display: block;
-  min-height: 100px;
 }
 
 .prose pre code {
@@ -164,6 +163,7 @@ div.prose div.table-wrapper,
   white-space: pre-wrap;
   word-wrap: break-word;
   display: block;
+  background: transparent !important;
 }
 
 /* Inline code */

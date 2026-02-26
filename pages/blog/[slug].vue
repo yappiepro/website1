@@ -152,14 +152,18 @@ div.prose div.table-wrapper,
   margin: 1.5rem 0;
   overflow-x: auto;
   position: relative;
+  display: block;
+  min-height: 100px;
 }
 
 .prose pre code {
-  color: #cdd6f4;
+  color: #cdd6f4 !important;
   font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', monospace;
   font-size: 0.875rem;
-  line-height: 1.6;
-  white-space: pre;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  display: block;
 }
 
 /* Inline code */

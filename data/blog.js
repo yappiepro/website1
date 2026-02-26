@@ -14,6 +14,7 @@ import iiDlyaSozdaniyaSayta from './blog/sozdanie-saytov/ii-dlya-sozdaniya-sayta
 import kakSozdatMobilnoePrilozhenie from './blog/mobilnye-prilozheniya/kak-sozdat-mobilnoe-prilozhenie.js'
 import yazykiProgrammirovaniyaMobilnykhPrilozheniy from './blog/mobilnye-prilozheniya/yazyki-programmirovaniya-mobilnykh-prilozheniy.js'
 import dizaynMobilnogoPrilozheniya from './blog/mobilnye-prilozheniya/dizayn-mobilnogo-prilozheniya.js'
+import razrabotkaVebPrilozheniy from './blog/veb-razrabotka/razrabotka-veb-prilozheniy.js'
 
 // Массив всех статей
 export const articles = [
@@ -32,6 +33,7 @@ export const articles = [
   kakSozdatMobilnoePrilozhenie,
   yazykiProgrammirovaniyaMobilnykhPrilozheniy,
   dizaynMobilnogoPrilozheniya,
+  razrabotkaVebPrilozheniy,
   // Сюда добавляйте новые статьи:
   // import nazvanieStatyi from './blog/razrabotka-saytov/nazvanie-statyi.js'
   // nazvanieStatyi,

@@ -60,7 +60,8 @@ export default defineNuxtConfig({
         '/blog/ii-dlya-sozdaniya-sayta',
         '/blog/kak-sozdat-mobilnoe-prilozhenie',
         '/blog/yazyki-programmirovaniya-mobilnykh-prilozheniy',
-        '/blog/dizayn-mobilnogo-prilozheniya'
+        '/blog/dizayn-mobilnogo-prilozheniya',
+        '/blog/razrabotka-veb-prilozheniy'
       ],
       failOnError: false
     }

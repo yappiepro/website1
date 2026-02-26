@@ -5,13 +5,19 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: false },
   css: ['~/assets/css/tailwind.css'],
-  
+
+  // Apply baseURL in dev mode
+  routeRules: {
+    '/website1/**': { appMiddleware: 'global' }
+  },
+
   modules: [
     '@nuxtjs/seo',
     '@nuxt/image'
   ],
-  
+
   vite: {
+    base: '/website1/',
     plugins: [
       tailwindcss()
     ],

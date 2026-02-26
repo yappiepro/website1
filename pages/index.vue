@@ -16,7 +16,7 @@
           <a href="#portfolio" class="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-y-[-1px]">Кейсы</a>
           <a href="/website1/blog" class="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-y-[-1px]">Блог</a>
           <a href="#faq" class="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-y-[-1px]">FAQ</a>
-          <a href="/website1/demo-mindmap" class="text-sm text-violet-400 hover:text-violet-300 transition-all duration-300 hover:translate-y-[-1px]">Demo</a>
+          <a href="/website1/demo" class="text-sm text-violet-400 hover:text-violet-300 transition-all duration-300 hover:translate-y-[-1px]">Demo</a>
           <a href="https://t.me/artemselifanov" target="_blank" class="inline-flex items-center justify-center rounded-full font-medium px-4 py-2 text-xs bg-white text-black hover:bg-gray-100 shadow-lg shadow-white/10 hover:shadow-white/20 transition-all">Связаться</a>
         </div>
 
@@ -784,7 +784,7 @@ const mobileMenuItems = [
   { href: '#portfolio', label: 'Кейсы' },
   { href: '/website1/blog', label: 'Блог' },
   { href: '#faq', label: 'FAQ' },
-  { href: '/website1/demo-mindmap', label: 'Demo' }
+  { href: '/website1/demo', label: 'Demo' }
 ]
 
 // Обработчик скролла для показа кнопки "Наверх"

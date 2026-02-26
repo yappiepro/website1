@@ -606,7 +606,7 @@ const mobileMenuItems = [
   { href: '#portfolio', label: 'Кейсы' },
   { href: '/website1/blog', label: 'Блог' },
   { href: '#faq', label: 'FAQ' },
-  { href: '/website1/demo-mindmap', label: 'Demo' }
+  { href: '/website1/demo', label: 'Demo' }
 ]
 
 // FAQ данные

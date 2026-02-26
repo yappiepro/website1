@@ -559,7 +559,7 @@ useSeoMeta({
           <a href="/website1/test-swipe" class="text-sm text-gray-400 hover:text-white transition-all">
             ← Свайпы
           </a>
-          <a href="/website1/demo-mindmap" class="text-sm text-gray-400 hover:text-white transition-all">
+          <a href="/website1/demo" class="text-sm text-gray-400 hover:text-white transition-all">
             Демо
           </a>
         </div>

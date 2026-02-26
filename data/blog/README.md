@@ -250,15 +250,22 @@ export default {
 ```
 
 ### Ссылки
+
+**Важно:** Все внутренние ссылки должны включать baseURL `/website1/`:
+
 ```html
-<!-- Внутренние ссылки -->
-<a href="/blog/drugaya-statya">Текст ссылки</a>
+<!-- Внутренние ссылки на блог -->
+<a href="/website1/blog">Все статьи</a>
+<a href="/website1/blog/drugaya-statya">Текст ссылки</a>
+
+<!-- Внутренние ссылки на главную -->
+<a href="/website1/">На главную</a>
 
 <!-- Внешние ссылки (обязательно target="_blank") -->
-<a href="https://example.com" target="_blank">Внешняя ссылка</a>
+<a href="https://example.com" target="_blank" rel="noopener noreferrer">Внешняя ссылка</a>
 
 <!-- Ссылки на источники -->
-<a href="https://statista.com" target="_blank">Statista</a>
+<a href="https://statista.com" target="_blank" rel="noopener noreferrer">Statista</a>
 ```
 
 ### Изображения внутри статьи
@@ -324,18 +331,20 @@ CTA блоки — это выделенные блоки с кнопкой, к�
 
 В конце каждой статьи добавляйте блок навигации для перелинковки:
 
+**Важно:** Используйте полный путь с `/website1/blog/`:
+
 **Первая статья в списке:**
 ```html
 <div class="article-nav">
-<p><strong>Читать далее:</strong> <a href="/blog/sleduyushchaya-statya">Название следующей статьи →</a></p>
+<p><strong>Читать далее:</strong> <a href="/website1/blog/sleduyushchaya-statya">Название следующей статьи →</a></p>
 </div>
 ```
 
 **Статьи в середине списка:**
 ```html
 <div class="article-nav">
-<p><strong>Читать далее:</strong> <a href="/blog/sleduyushchaya-statya">Название следующей статьи →</a></p>
-<p><strong>Назад:</strong> <a href="/blog/predydushchaya-statya">← Название предыдущей статьи</a></p>
+<p><strong>Читать далее:</strong> <a href="/website1/blog/sleduyushchaya-statya">Название следующей статьи →</a></p>
+<p><strong>Назад:</strong> <a href="/website1/blog/predydushchaya-statya">← Название предыдущей статьи</a></p>
 </div>
 ```
 
@@ -532,7 +541,10 @@ export default {
 - [ ] content начинается с `<p>` или `<h2>`
 - [ ] Иерархия заголовков соблюдена (h2 → h3)
 - [ ] Все открывающие теги имеют закрывающие
-- [ ] Внешние ссылки с `target="_blank"`
+- [ ] **Таблицы обёрнуты в `<div class="table-wrapper">`**
+- [ ] **Внутренние ссылки с `/website1/` (например: `/website1/blog/statya`)**
+- [ ] Внешние ссылки с `target="_blank" rel="noopener noreferrer"`
+- [ ] Навигация между статьями добавлена (article-nav)
 - [ ] Нет опечаток в ключевых словах
 - [ ] Статья импортирована в `data/blog.js`
 - [ ] Сборка проходит без ошибок (`npm run generate`)
@@ -573,7 +585,7 @@ export default {
 ---
 
 **Последнее обновление:** 2026-02-26
-**Версия:** 1.1
+**Версия:** 2.0
 
 ---
 

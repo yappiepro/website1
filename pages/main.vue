@@ -47,9 +47,7 @@
           <!-- Фотография -->
           <div class="profile-photo-wrapper">
             <div class="profile-photo">
-              <div class="profile-placeholder">
-                <User class="w-32 h-32 text-violet-400" />
-              </div>
+              <img src="/website1/reference/main.jpg" alt="Артём Селифанов" class="profile-img" />
             </div>
           </div>
           
@@ -381,15 +379,6 @@ function getCategoryIcon(cluster) {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.profile-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(139, 92, 246, 0.1));
 }
 
 .verified-badge {

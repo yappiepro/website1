@@ -256,8 +256,8 @@ export default {
     </ol>
 
 <div class="article-nav">
-<p><strong>Читать далее:</strong> <a href="/blog/kak-zakazat-razrabotku-sayta">Как заказать разработку сайта: пошаговое руководство →</a></p>
-<p><strong>Назад:</strong> <a href="/blog/razrabotka-sayta-pod-klyuch">← Разработка сайта под ключ: полное руководство</a></p>
+<p><strong>Читать далее:</strong> <a href="/website1/blog/kak-zakazat-razrabotku-sayta">Как заказать разработку сайта: пошаговое руководство →</a></p>
+<p><strong>Назад:</strong> <a href="/website1/blog/razrabotka-sayta-pod-klyuch">← Разработка сайта под ключ: полное руководство</a></p>
 </div>
   `
 }

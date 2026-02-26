@@ -199,7 +199,7 @@ export default {
 
 <p>Стоимость разработки сайта для бизнеса напрямую зависит от типа и сложности:</p>
 
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr><th>Тип сайта</th><th>Бюджет</th><th>Сроки</th></tr>
 </thead>
@@ -210,7 +210,7 @@ export default {
 <tr><td>Интернет-магазин</td><td>120 000–2 000 000 ₽</td><td>6–20 недель</td></tr>
 <tr><td>Сервис / платформа</td><td>от 500 000 ₽</td><td>от 3 месяцев</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <p>Закладывайте в бюджет не только разработку, но и поддержку (от 5 000 ₽/месяц) и продвижение (от 20 000 ₽/месяц) — без этого сайт не будет приносить результат.</p>
 
@@ -254,8 +254,8 @@ export default {
 </ul>
 
 <div class="article-nav">
-<p><strong>Читать далее:</strong> <a href="/blog/tehnicheskoe-zadanie-na-razrabotku-sayta">Техническое задание на разработку сайта: как составить →</a></p>
-<p><strong>Назад:</strong> <a href="/blog/kak-zakazat-razrabotku-sayta">← Как заказать разработку сайта: пошаговое руководство</a></p>
+<p><strong>Читать далее:</strong> <a href="/website1/blog/tehnicheskoe-zadanie-na-razrabotku-sayta">Техническое задание на разработку сайта: как составить →</a></p>
+<p><strong>Назад:</strong> <a href="/website1/blog/kak-zakazat-razrabotku-sayta">← Как заказать разработку сайта: пошаговое руководство</a></p>
 </div>
 `
 }

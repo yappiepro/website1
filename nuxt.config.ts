@@ -43,7 +43,23 @@ export default defineNuxtConfig({
     },
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/blog', '/blog/skolko-stoit-razrabotka-sayta', '/blog/razrabotka-sayta-pod-klyuch'],
+      routes: [
+        '/',
+        '/blog',
+        '/blog/razrabotka-sayta-pod-klyuch',
+        '/blog/skolko-stoit-razrabotka-sayta',
+        '/blog/kak-zakazat-razrabotku-sayta',
+        '/blog/razrabotka-sayta-dlya-biznesa',
+        '/blog/tehnicheskoe-zadanie-na-razrabotku-sayta',
+        '/blog/razrabotka-internet-magazina',
+        '/blog/sozdanie-sayta-s-nulya',
+        '/blog/skolko-stoit-sozdat-sayt',
+        '/blog/sozdanie-sayta-dlya-biznesa',
+        '/blog/platformy-dlya-sozdaniya-saytov',
+        '/blog/sozdanie-sayta-html-css',
+        '/blog/ii-dlya-sozdaniya-sayta',
+        '/blog/kak-sozdat-mobilnoe-prilozhenie'
+      ],
       failOnError: false
     }
   },
@@ -76,7 +92,7 @@ export default defineNuxtConfig({
       title: 'Разработка сайтов, чат-ботов и приложений — Yappie',
       meta: [
         { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' },
         { name: 'description', content: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса. Автоматизируем процессы, увеличиваем эффективность. Бесплатная консультация.' },
         { name: 'keywords', content: 'разработка сайтов, чат-боты, веб-приложения, AI, автоматизация, CRM, Telegram боты, WhatsApp' },
         { name: 'author', content: 'Yappie' },

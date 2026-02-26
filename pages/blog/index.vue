@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-white text-gray-900">
+  <div class="min-h-screen bg-white text-gray-900 overflow-x-hidden touch-pan-y">
     <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200">
       <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
         <a :href="baseURL" class="text-xl font-bold text-gray-900 flex items-center gap-2">
@@ -12,7 +12,7 @@
     </nav>
 
     <main class="pt-24 pb-16 px-4 sm:px-6">
-      <div class="max-w-4xl mx-auto">
+      <div class="max-w-4xl mx-auto w-full overflow-x-hidden">
         <header class="mb-8">
           <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
             Блог

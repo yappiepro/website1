@@ -204,7 +204,7 @@ export default {
 
 <p>Стоимость разработки сайта интернет-магазина зависит от платформы, количества товаров и набора интеграций.</p>
 
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr><th>Вариант</th><th>Стоимость</th><th>Сроки</th><th>Подходит для</th></tr>
 </thead>
@@ -214,7 +214,7 @@ export default {
 <tr><td>1С-Битрикс</td><td>150 000–1 500 000 ₽</td><td>8–24 недели</td><td>средний и крупный бизнес, 1С</td></tr>
 <tr><td>Индивидуальная разработка</td><td>от 500 000 ₽</td><td>от 4 месяцев</td><td>нестандартные задачи, маркетплейсы</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <p><strong>Скрытые расходы, которые часто забывают:</strong></p>
 
@@ -312,8 +312,8 @@ export default {
 </ul>
 
 <div class="article-nav">
-<p><strong>Читать далее:</strong> <a href="/blog/sozdanie-sayta-s-nulya">Создание сайта с нуля: пошаговое руководство →</a></p>
-<p><strong>Назад:</strong> <a href="/blog/tehnicheskoe-zadanie-na-razrabotku-sayta">← Техническое задание на разработку сайта</a></p>
+<p><strong>Читать далее:</strong> <a href="/website1/blog/sozdanie-sayta-s-nulya">Создание сайта с нуля: пошаговое руководство →</a></p>
+<p><strong>Назад:</strong> <a href="/website1/blog/tehnicheskoe-zadanie-na-razrabotku-sayta">← Техническое задание на разработку сайта</a></p>
 </div>
 `
 }

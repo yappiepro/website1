@@ -67,7 +67,7 @@ export default {
 
 <h3>Тарифы</h3>
 
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr><th>Тариф</th><th>Цена</th><th>Что включено</th></tr>
 </thead>
@@ -76,7 +76,7 @@ export default {
 <tr><td>Personal</td><td>750 ₽/мес</td><td>1 сайт, все блоки, свой домен</td></tr>
 <tr><td>Business</td><td>1 250 ₽/мес</td><td>5 сайтов, магазин, все функции</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <h3>Вывод</h3>
 
@@ -243,7 +243,7 @@ export default {
 
 <h2>Сравнительная таблица платформ</h2>
 
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr><th>Параметр</th><th>Tilda</th><th>Wix</th><th>WordPress</th><th>Битрикс</th></tr>
 </thead>
@@ -258,7 +258,7 @@ export default {
 <tr><td>Интеграция с 1С</td><td>Нет</td><td>Нет</td><td>Через плагин</td><td>Нативная</td></tr>
 <tr><td>Подходит для магазина</td><td>До 500 товаров</td><td>До 1 000 товаров</td><td>До 50 000 товаров</td><td>Без ограничений</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <h2>Как выбрать платформу: матрица решений</h2>
 
@@ -315,8 +315,8 @@ export default {
 </ul>
 
 <div class="article-nav">
-<p><strong>Читать далее:</strong> <a href="/blog/sozdanie-sayta-html-css">Создание сайта на HTML и CSS: основы и первые шаги →</a></p>
-<p><strong>Назад:</strong> <a href="/blog/sozdanie-sayta-dlya-biznesa">← Создание сайта для бизнеса: лендинг, корпоративный или магазин</a></p>
+<p><strong>Читать далее:</strong> <a href="/website1/blog/sozdanie-sayta-html-css">Создание сайта на HTML и CSS: основы и первые шаги →</a></p>
+<p><strong>Назад:</strong> <a href="/website1/blog/sozdanie-sayta-dlya-biznesa">← Создание сайта для бизнеса: лендинг, корпоративный или магазин</a></p>
 </div>
 `
 }

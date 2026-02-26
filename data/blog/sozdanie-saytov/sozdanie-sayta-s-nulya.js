@@ -273,7 +273,7 @@ export default {
 
 <p>Итоговая стоимость зависит от выбранного пути:</p>
 
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr><th>Способ</th><th>Стоимость запуска</th><th>Ежемесячные расходы</th></tr>
 </thead>
@@ -284,7 +284,7 @@ export default {
 <tr><td>WordPress (с разработчиком)</td><td>50 000–300 000 ₽</td><td>500–2 000 ₽</td></tr>
 <tr><td>Разработка под ключ</td><td>от 80 000 ₽</td><td>от 3 000 ₽</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <p>Не забудьте прибавить: домен (500–1 500 ₽/год), SSL (от 0 ₽), продвижение (от 15 000 ₽/месяц при желании получать трафик из поиска).</p>
 
@@ -314,8 +314,8 @@ export default {
 </ul>
 
 <div class="article-nav">
-<p><strong>Читать далее:</strong> <a href="/blog/skolko-stoit-sozdat-sayt">Сколько стоит создать сайт в 2025 году →</a></p>
-<p><strong>Назад:</strong> <a href="/blog/razrabotka-internet-magazina">← Разработка интернет-магазина: с чего начать</a></p>
+<p><strong>Читать далее:</strong> <a href="/website1/blog/skolko-stoit-sozdat-sayt">Сколько стоит создать сайт в 2025 году →</a></p>
+<p><strong>Назад:</strong> <a href="/website1/blog/razrabotka-internet-magazina">← Разработка интернет-магазина: с чего начать</a></p>
 </div>
 `
 }

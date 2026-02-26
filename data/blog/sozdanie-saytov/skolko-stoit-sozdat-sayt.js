@@ -44,7 +44,7 @@ export default {
 
 <h3>Стоимость создания сайта на конструкторе</h3>
 
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr><th>Вариант</th><th>Единовременно</th><th>Ежемесячно</th></tr>
 </thead>
@@ -55,7 +55,7 @@ export default {
 <tr><td>Wix (платный тариф)</td><td>0 ₽</td><td>от 600 ₽</td></tr>
 <tr><td>uKit</td><td>0 ₽</td><td>от 500 ₽</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <p><strong>Если нанять дизайнера</strong> для работы в конструкторе — добавьте 15 000–80 000 ₽ единовременно за дизайн и настройку.</p>
 
@@ -121,7 +121,7 @@ export default {
 
 <p>Цены сильно зависят от опыта и специализации:</p>
 
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr><th>Уровень</th><th>Сайт-визитка</th><th>Лендинг</th><th>Корпоративный</th><th>Магазин</th></tr>
 </thead>
@@ -130,7 +130,7 @@ export default {
 <tr><td>Средний опыт</td><td>15 000–40 000 ₽</td><td>20 000–60 000 ₽</td><td>40 000–120 000 ₽</td><td>70 000–200 000 ₽</td></tr>
 <tr><td>Опытный</td><td>30 000–80 000 ₽</td><td>50 000–150 000 ₽</td><td>80 000–300 000 ₽</td><td>150 000–500 000 ₽</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <h3>Где искать фрилансеров</h3>
 
@@ -151,7 +151,7 @@ export default {
 
 <h3>Сколько стоит создать сайт в студии</h3>
 
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr><th>Тип сайта</th><th>Небольшая студия</th><th>Средняя студия</th><th>Крупное агентство</th></tr>
 </thead>
@@ -160,7 +160,7 @@ export default {
 <tr><td>Корпоративный</td><td>80 000–200 000 ₽</td><td>150 000–500 000 ₽</td><td>300 000–1 500 000 ₽</td></tr>
 <tr><td>Интернет-магазин</td><td>120 000–400 000 ₽</td><td>300 000–1 000 000 ₽</td><td>от 1 000 000 ₽</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <blockquote>Важно: цена крупного агентства — это не только за качество, но и за бренд, офис, менеджмент и маркетинг самого агентства. Небольшая студия с хорошим портфолио часто даёт результат того же уровня за меньшие деньги.</blockquote>
 
@@ -197,7 +197,7 @@ export default {
 
 <h2>Сколько стоит создать разные типы сайтов: сводная таблица</h2>
 
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr><th>Тип сайта</th><th>Самостоятельно</th><th>Фрилансер</th><th>Студия</th></tr>
 </thead>
@@ -208,7 +208,7 @@ export default {
 <tr><td>Интернет-магазин</td><td>5 000–30 000 ₽</td><td>70 000–500 000 ₽</td><td>150 000–2 000 000 ₽</td></tr>
 <tr><td>Портал / платформа</td><td>—</td><td>от 300 000 ₽</td><td>от 1 000 000 ₽</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <h2>Сколько стоит одностраничный сайт</h2>
 
@@ -289,8 +289,8 @@ export default {
 </ul>
 
 <div class="article-nav">
-<p><strong>Читать далее:</strong> <a href="/blog/sozdanie-sayta-dlya-biznesa">Создание сайта для бизнеса: лендинг, корпоративный или магазин →</a></p>
-<p><strong>Назад:</strong> <a href="/blog/sozdanie-sayta-s-nulya">← Создание сайта с нуля: пошаговое руководство</a></p>
+<p><strong>Читать далее:</strong> <a href="/website1/blog/sozdanie-sayta-dlya-biznesa">Создание сайта для бизнеса: лендинг, корпоративный или магазин →</a></p>
+<p><strong>Назад:</strong> <a href="/website1/blog/sozdanie-sayta-s-nulya">← Создание сайта с нуля: пошаговое руководство</a></p>
 </div>
 `
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-[#07070b] text-white">
+  <div class="min-h-screen bg-[#07070b] text-white overflow-x-hidden">
     <header class="sticky top-0 z-20 border-b border-white/10 bg-[#07070b]/85 backdrop-blur-xl">
       <div class="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4">
         <div class="flex items-center gap-3">

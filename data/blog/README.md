@@ -595,5 +595,6 @@ export default {
 
 | Дата | Статья | Кластер |
 |------|---------|---------|
+| 2026-02-26 | [Языки программирования для мобильных приложений](./mobilnye-prilozheniya/yazyki-programmirovaniya-mobilnykh-prilozheniy.js) | mobilnye-prilozheniya |
 | 2026-02-26 | [Как создать мобильное приложение: пошаговое руководство](./mobilnye-prilozheniya/kak-sozdat-mobilnoe-prilozhenie.js) | mobilnye-prilozheniya |
 | 2026-02-20 | [Разработка сайта под ключ](./razrabotka-saytov/razrabotka-sayta-pod-klyuch.js) | razrabotka-saytov |

@@ -595,6 +595,16 @@ export default {
 
 | Дата | Статья | Кластер |
 |------|---------|---------|
+| 2026-02-27 | [Продвижение мобильного приложения: полное руководство по привлечению и удержанию пользователей](./mobilnye-prilozheniya/prodvizhenie-mobilnogo-prilozheniya.js) | mobilnye-prilozheniya |
+| 2026-02-27 | [ChatGPT для бизнеса: как использовать, реальные сценарии и ограничения](./iskusstvennyy-intellekt/chatgpt-dlya-biznesa.js) | iskusstvennyy-intellekt |
+| 2026-02-27 | [ИИ для бизнеса: как компании внедряют искусственный интеллект и что это даёт](./iskusstvennyy-intellekt/ii-dlya-biznesa.js) | iskusstvennyy-intellekt |
+| 2026-02-27 | [Искусственный интеллект в IT: как ИИ меняет разработку программного обеспечения](./iskusstvennyy-intellekt/ii-v-it.js) | iskusstvennyy-intellekt |
+| 2026-02-27 | [Разработка API: что такое API, как создать и задокументировать](./veb-razrabotka/api-razrabotka.js) | veb-razrabotka |
+| 2026-02-27 | [Fullstack-разработка: кто такой fullstack-разработчик и стоит ли им становиться](./veb-razrabotka/fullstack-razrabotka.js) | veb-razrabotka |
+| 2026-02-27 | [Бэкенд-разработка: что это такое, какие технологии используются и как стать специалистом](./veb-razrabotka/backend-razrabotka.js) | veb-razrabotka |
+| 2026-02-27 | [Фронтенд-разработка: что это такое, какие технологии используются и как стать специалистом](./veb-razrabotka/frontend-razrabotka.js) | veb-razrabotka |
+| 2026-02-27 | [Виды мобильных приложений: классификация, примеры и как выбрать нужный тип](./mobilnye-prilozheniya/vidy-mobilnykh-prilozheniy.js) | mobilnye-prilozheniya |
+| 2026-02-27 | [Разработка мобильного приложения: с чего начать, сколько стоит и как не потерять бюджет](./mobilnye-prilozheniya/razrabotka-mobilnogo-prilozheniya.js) | mobilnye-prilozheniya |
 | 2026-02-26 | [Разработка веб-приложений](./veb-razrabotka/razrabotka-veb-prilozheniy.js) | veb-razrabotka |
 | 2026-02-26 | [Дизайн мобильного приложения](./mobilnye-prilozheniya/dizayn-mobilnogo-prilozheniya.js) | mobilnye-prilozheniya |
 | 2026-02-26 | [Языки программирования для мобильных приложений](./mobilnye-prilozheniya/yazyki-programmirovaniya-mobilnykh-prilozheniy.js) | mobilnye-prilozheniya |

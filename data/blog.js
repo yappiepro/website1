@@ -14,7 +14,17 @@ import iiDlyaSozdaniyaSayta from './blog/sozdanie-saytov/ii-dlya-sozdaniya-sayta
 import kakSozdatMobilnoePrilozhenie from './blog/mobilnye-prilozheniya/kak-sozdat-mobilnoe-prilozhenie.js'
 import yazykiProgrammirovaniyaMobilnykhPrilozheniy from './blog/mobilnye-prilozheniya/yazyki-programmirovaniya-mobilnykh-prilozheniy.js'
 import dizaynMobilnogoPrilozheniya from './blog/mobilnye-prilozheniya/dizayn-mobilnogo-prilozheniya.js'
+import razrabotkaMobilnogoPrilozheniya from './blog/mobilnye-prilozheniya/razrabotka-mobilnogo-prilozheniya.js'
+import vidyMobilnykhPrilozheniy from './blog/mobilnye-prilozheniya/vidy-mobilnykh-prilozheniy.js'
+import prodvizhenieMobilnogoPrilozheniya from './blog/mobilnye-prilozheniya/prodvizhenie-mobilnogo-prilozheniya.js'
 import razrabotkaVebPrilozheniy from './blog/veb-razrabotka/razrabotka-veb-prilozheniy.js'
+import frontendRazrabotka from './blog/veb-razrabotka/frontend-razrabotka.js'
+import backendRazrabotka from './blog/veb-razrabotka/backend-razrabotka.js'
+import fullstackRazrabotka from './blog/veb-razrabotka/fullstack-razrabotka.js'
+import apiRazrabotka from './blog/veb-razrabotka/api-razrabotka.js'
+import iiVIt from './blog/iskusstvennyy-intellekt/ii-v-it.js'
+import iiDlyaBiznesa from './blog/iskusstvennyy-intellekt/ii-dlya-biznesa.js'
+import chatgptDlyaBiznesa from './blog/iskusstvennyy-intellekt/chatgpt-dlya-biznesa.js'
 
 // Массив всех статей
 export const articles = [
@@ -33,7 +43,17 @@ export const articles = [
   kakSozdatMobilnoePrilozhenie,
   yazykiProgrammirovaniyaMobilnykhPrilozheniy,
   dizaynMobilnogoPrilozheniya,
+  razrabotkaMobilnogoPrilozheniya,
+  vidyMobilnykhPrilozheniy,
+  prodvizhenieMobilnogoPrilozheniya,
   razrabotkaVebPrilozheniy,
+  frontendRazrabotka,
+  backendRazrabotka,
+  fullstackRazrabotka,
+  apiRazrabotka,
+  iiVIt,
+  iiDlyaBiznesa,
+  chatgptDlyaBiznesa,
   // Сюда добавляйте новые статьи:
   // import nazvanieStatyi from './blog/razrabotka-saytov/nazvanie-statyi.js'
   // nazvanieStatyi,

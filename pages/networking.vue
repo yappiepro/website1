@@ -19,6 +19,8 @@ function handleValueTouchStart(e) {
 function handleValueTouchMove(e) {
   if (!isDragging.value) return
   touchCurrentY.value = e.touches[0].clientY
+  // Блокируем скролл страницы во время свайпа
+  e.preventDefault()
 }
 
 function handleValueTouchEnd() {
@@ -456,7 +458,7 @@ function toggleFaq(index) {
 
         <!-- Мобильная версия - стек как в Tinder -->
         <div 
-          class="md:hidden relative h-[340px] mb-8"
+          class="md:hidden relative h-[340px] mb-8 touch-none"
           @touchstart="handleValueTouchStart"
           @touchmove="handleValueTouchMove"
           @touchend="handleValueTouchEnd"

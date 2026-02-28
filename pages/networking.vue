@@ -308,6 +308,15 @@ function toggleFaq(index) {
 
     <!-- Мобильное меню -->
     <div v-if="isMobileMenuOpen" class="fixed inset-0 z-[100] md:hidden bg-white pt-20 px-6">
+      <!-- Кнопка закрытия -->
+      <button
+        @click="isMobileMenuOpen = false"
+        class="absolute top-6 right-6 text-black p-3 hover:bg-black/10 rounded-lg transition-colors z-[110]"
+        aria-label="Закрыть меню"
+      >
+        <X class="w-8 h-8" />
+      </button>
+      
       <nav class="flex flex-col gap-2">
         <a
           v-for="item in mobileMenuItems"

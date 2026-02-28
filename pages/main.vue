@@ -29,7 +29,7 @@
     <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0f]/50 backdrop-blur-2xl border-b border-white/[0.08]">
       <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         <a href="/website1/main" class="text-xl font-semibold text-white flex items-center gap-2">
-          <span class="font-syncopate font-bold text-white tracking-wider text-2xl">ARTEM SELIFANOV</span>
+          <span class="font-syncopate font-bold text-white tracking-wider text-2xl">АРТЁМ</span>
         </a>
         
         <div class="hidden md:flex items-center gap-8">
@@ -67,131 +67,138 @@
 
     <!-- Hero секция - Профиль -->
     <section id="about" class="pt-32 pb-16 px-6 relative">
-      <div class="max-w-6xl mx-auto">
-        <!-- Фотография -->
-        <div class="hero-photo-container mb-12">
-          <div class="hero-photo-wrapper">
-            <div class="hero-photo">
-              <img src="/reference/main.jpg" alt="Артём Селифанов" class="hero-photo-img" />
+      <div class="max-w-7xl mx-auto">
+        <!-- Bento Grid Layout -->
+        <div class="hero-bento-grid">
+          
+          <!-- Левая колонка: Информация + Соцсети -->
+          <div class="hero-left-column">
+            <!-- Верхний контейнер: Роль + Локация + Заголовок + Описание -->
+            <div class="hero-info-card">
+              <div class="hero-info-header">
+                <p class="hero-role text-sm md:text-base text-violet-400 font-mono">
+                  Личный бренд • Соцсети • Бизнес • Веб-разработка
+                </p>
+                <div class="hero-location flex items-center gap-2 text-gray-400">
+                  <MapPin class="w-4 h-4" />
+                  <span>Петрозаводск, Россия</span>
+                </div>
+              </div>
+              
+              <h1 class="hero-headline text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 leading-tight">
+                Помогаю развить личный бренд через контент-маркетинг
+              </h1>
+              
+              <p class="hero-description text-gray-300 text-base md:text-lg leading-relaxed mb-4">
+                Помогу создать продающий блог и воронку продаж в нём
+              </p>
+              
+              <div class="hero-services-list">
+                <div class="service-item">
+                  <span class="service-bullet">▸</span>
+                  <span>Личный бренд</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-bullet">▸</span>
+                  <span>Обучение</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-bullet">▸</span>
+                  <span>Разработка сайтов</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-bullet">▸</span>
+                  <span>Автоматизация</span>
+                </div>
+              </div>
+
+              <a href="https://t.me/artemselifanov" target="_blank" class="hero-cta-button">
+                <Send class="w-4 h-4" />
+                <span>Обсудить проект</span>
+              </a>
             </div>
-            <!-- Градиентная обводка -->
-            <div class="hero-photo-gradient-border"></div>
+
+            <!-- Нижний контейнер: Соцсети -->
+            <div class="hero-social-card">
+              <button @click="toggleSocials" class="social-title-button">
+                <h2 class="social-title text-sm font-semibold text-gray-400 uppercase tracking-wider">Соцсети</h2>
+                <ChevronDown :class="['w-4 h-4 text-gray-400 transition-transform', isSocialsOpen ? 'rotate-180' : '']" />
+              </button>
+              
+              <!-- Плашки с соцсетями - плитка -->
+              <div v-show="isSocialsOpen" class="social-grid-wrapper" :class="{ 'social-grid-open': isSocialsOpen }">
+                <div class="social-grid">
+                  <a href="https://set.ki/ecaPSPa" target="_blank" class="social-grid-item" title="Сетка" :style="{ '--dock-color': '#8b5cf6' }">
+                    <span class="grid-label">Сетка</span>
+                  </a>
+                  <a href="https://tenchat.ru/artselifanov" target="_blank" class="social-grid-item" title="Тенчат" :style="{ '--dock-color': '#dc2626' }">
+                    <span class="grid-label">Тенчат</span>
+                  </a>
+                  <a href="https://dzen.ru/artselifanov" target="_blank" class="social-grid-item" title="Дзен" :style="{ '--dock-color': '#1a1a1a' }">
+                    <span class="grid-label">Дзен</span>
+                  </a>
+                  <a href="https://t.me/funnetworking" target="_blank" class="social-grid-item" title="Телеграм: Нескучный Нетворкинг" :style="{ '--dock-color': '#ffffff' }">
+                    <span class="grid-label">Нетворкинг</span>
+                  </a>
+                  <a href="https://t.me/bussinessetka" target="_blank" class="social-grid-item" title="Телеграм: Бизнес Сетка" :style="{ '--dock-color': '#a855f7' }">
+                    <span class="grid-label">Бизнес Сетка</span>
+                  </a>
+                  <a href="https://t.me/artselifanov" target="_blank" class="social-grid-item" title="Телеграм: Артем, говорит" :style="{ '--dock-color': '#3b82f6' }">
+                    <span class="grid-label">Артем, говорит</span>
+                  </a>
+                  <a href="https://vkontakte.ru/karelbusiness" target="_blank" class="social-grid-item" title="Вконтакте" :style="{ '--dock-color': '#0077FF' }">
+                    <span class="grid-label">ВК</span>
+                  </a>
+                  <a href="https://www.instagram.com/artselifanov" target="_blank" class="social-grid-item" title="Инстаграм" :style="{ '--dock-color': '#e4405f' }">
+                    <span class="grid-label">Insta</span>
+                  </a>
+                  <a href="https://youtube.com/@artemselifanov?si=H5NozCKrxIhTGmRa" target="_blank" class="social-grid-item" title="Ютуб" :style="{ '--dock-color': '#ff0000' }">
+                    <span class="grid-label">YouTube</span>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <!-- verified badge -->
-        <div class="hero-verified-badge">✓</div>
+          <!-- Правая колонка: Фото + Компетенции -->
+          <div class="hero-right-column">
+            <!-- Фотография -->
+            <div class="hero-photo-container">
+              <div class="hero-photo-wrapper">
+                <div class="hero-photo">
+                  <img src="/reference/main.jpg" alt="Артём Селифанов" class="hero-photo-img" />
+                </div>
+                <!-- Градиентная обводка -->
+                <div class="hero-photo-gradient-border"></div>
+              </div>
+            </div>
 
-        <!-- Имя под кольцами -->
-        <div class="hero-name-section mb-8">
-          <h1 class="hero-name-text" data-parallax="true">Артём Селифанов</h1>
-        </div>
-
-        <!-- Информация -->
-        <div class="hero-info-content text-center max-w-3xl mx-auto">
-        <p class="hero-role text-xl md:text-2xl text-violet-400 mb-4 font-mono">Веб-разработчик • Создатель AI-решений</p>
-
-        <div class="hero-location flex items-center justify-center gap-2 text-gray-400 mb-6">
-          <MapPin class="w-4 h-4" />
-          <span>Москва, Россия</span>
-          <span>•</span>
-          <a href="https://artemselifanov.ru" class="text-violet-400 hover:text-violet-300">artemselifanov.ru</a>
-        </div>
-
-        <p class="text-gray-300 text-lg leading-relaxed mb-6">
-          Разрабатываю сайты, мобильные приложения и AI-решения для бизнеса.
-          Создаю цифровые продукты, которые решают реальные задачи и приносят результат.
-        </p>
-
-        <!-- Компетенции -->
-        <div class="hero-competencies mb-8">
-          <div class="competencies-list">
-            <span class="competency-badge">🌐 Веб-разработка</span>
-            <span class="competency-badge">📱 Мобильные приложения</span>
-            <span class="competency-badge">🤖 AI-интеграции</span>
-            <span class="competency-badge">📊 Контент-маркетинг</span>
+            <!-- Компетенции -->
+            <div class="hero-competencies">
+              <div class="competencies-grid">
+                <div class="competency-card">
+                  <Monitor class="w-5 h-5" />
+                  <span>Веб-разработка</span>
+                </div>
+                <div class="competency-card">
+                  <Smartphone class="w-5 h-5" />
+                  <span>Мобильные приложения</span>
+                </div>
+                <div class="competency-card">
+                  <Bot class="w-5 h-5" />
+                  <span>AI-интеграции</span>
+                </div>
+                <div class="competency-card">
+                  <Megaphone class="w-5 h-5" />
+                  <span>Контент-маркетинг</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <!-- CTA кнопка -->
-        <div class="hero-cta-wrapper mb-8">
-          <a href="#journey" class="hero-cta-button">
-            <Rocket class="w-5 h-5" />
-            <span>Начать проект</span>
-          </a>
-        </div>
-
-        <!-- Заголовок для соцсетей -->
-        <div class="social-title-wrapper mb-6">
-          <h2 class="social-title">Соцсети</h2>
-        </div>
-
-        <!-- Плашки с соцсетями - плитка -->
-        <div class="social-grid-wrapper mb-8">
-          <div class="social-grid">
-            <a href="https://set.ki/ecaPSPa" target="_blank" class="social-grid-item" title="Сетка" data-color="#8b5cf6">
-              <span class="grid-label">Сетка</span>
-            </a>
-            <a href="https://tenchat.ru/artselifanov" target="_blank" class="social-grid-item" title="Тенчат" data-color="#0ea5e9">
-              <span class="grid-label">Тенчат</span>
-            </a>
-            <a href="https://dzen.ru/artselifanov" target="_blank" class="social-grid-item" title="Дзен" data-color="#f43f5e">
-              <span class="grid-label">Дзен</span>
-            </a>
-            <a href="https://t.me/funnetworking" target="_blank" class="social-grid-item" title="Телеграм: Нескучный Нетворкинг" data-color="#22c55e">
-              <span class="grid-label">Нетворкинг</span>
-            </a>
-            <a href="https://t.me/bussinessetka" target="_blank" class="social-grid-item" title="Телеграм: Бизнес Сетка" data-color="#a855f7">
-              <span class="grid-label">Бизнес Сетка</span>
-            </a>
-            <a href="https://t.me/artselifanov" target="_blank" class="social-grid-item" title="Телеграм: Артем, говорит" data-color="#3b82f6">
-              <span class="grid-label">Артем, говорит</span>
-            </a>
-            <a href="https://vkontakte.ru/karelbusiness" target="_blank" class="social-grid-item" title="Вконтакте" data-color="#0077FF">
-              <span class="grid-label">ВК</span>
-            </a>
-            <a href="https://www.instagram.com/artselifanov" target="_blank" class="social-grid-item" title="Инстаграм" data-color="#e4405f">
-              <span class="grid-label">Insta</span>
-            </a>
-            <a href="https://youtube.com/@artemselifanov?si=H5NozCKrxIhTGmRa" target="_blank" class="social-grid-item" title="Ютуб" data-color="#ff0000">
-              <span class="grid-label">YouTube</span>
-            </a>
-            <a href="https://youtube.com/@ " target="_blank" class="social-grid-item" title="Макс YouTube" data-color="#ff6b6b">
-              <span class="grid-label">Макс</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Кнопки действий -->
-        <div class="hero-actions flex flex-wrap justify-center gap-4">
-          <a
-            href="https://t.me/artemselifanov"
-            target="_blank"
-            class="magnetic-btn inline-flex items-center gap-2 px-6 py-3 bg-violet-600 hover:bg-violet-700 text-white font-medium rounded-xl transition-all shadow-lg shadow-violet-600/25 hover:shadow-violet-600/40"
-          >
-            <Send class="w-5 h-5" />
-            Написать в Telegram
-          </a>
-
-          <a
-            href="mailto:artemselifanov23@gmail.com"
-            class="magnetic-btn inline-flex items-center gap-2 px-6 py-3 bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-white font-medium rounded-xl transition-all"
-          >
-            <Mail class="w-5 h-5" />
-            Отправить email
-          </a>
-
-          <a
-            href="https://github.com/artemselifanov"
-            target="_blank"
-            class="magnetic-btn inline-flex items-center gap-2 px-6 py-3 bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-white font-medium rounded-xl transition-all"
-          >
-            <span class="text-lg">GitHub</span>
-          </a>
+          
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
     <!-- Навигационные карточки (Bento Grid) -->
     <section id="projects" class="py-16 px-6">
@@ -568,7 +575,7 @@ import {
   Menu, X, Send, Mail, ArrowRight, FileText, Rocket,
   FlaskConical, User, Monitor, Clock, Smartphone, Code2, Globe, Bot,
   Link, Briefcase, Newspaper, Users, Network, PenTool, BookOpen, Camera, Youtube, Video, MapPin,
-  Megaphone, GraduationCap, Target, Calendar, FolderCheck, Coffee
+  Megaphone, GraduationCap, Target, Calendar, FolderCheck, Coffee, ChevronDown
 } from 'lucide-vue-next'
 
 const config = useRuntimeConfig()
@@ -576,6 +583,11 @@ const baseURL = config.app.baseURL
 
 const isMobileMenuOpen = ref(false)
 const cursorDot = ref(null)
+const isSocialsOpen = ref(false)
+
+function toggleSocials() {
+  isSocialsOpen.value = !isSocialsOpen.value
+}
 
 // Пункты мобильного меню
 const mobileMenuItems = [
@@ -618,30 +630,12 @@ onMounted(() => {
     })
   }
 
-  // Установка цветов для social dock items
-  const dockItems = document.querySelectorAll('.social-dock-item')
-  dockItems.forEach(item => {
-    const color = item.getAttribute('data-color')
-    if (color) {
-      item.style.setProperty('--dock-color', color)
-    }
-  })
-
   // Установка цветов для карточек
   const cards = document.querySelectorAll('.card')
   cards.forEach(card => {
     const color = card.getAttribute('data-card-color')
     if (color) {
       card.style.setProperty('--card-color', color)
-    }
-  })
-
-  // Установка цветов для соцсетей
-  const gridItems = document.querySelectorAll('.social-grid-item')
-  gridItems.forEach(item => {
-    const color = item.getAttribute('data-color')
-    if (color) {
-      item.style.setProperty('--grid-color', color)
     }
   })
 
@@ -860,238 +854,407 @@ function getCategoryIcon(cluster) {
 </style>
 
 <style scoped>
-/* ===== HERO СЕКЦИЯ ===== */
+/* ===== HERO СЕКЦИЯ - BENTO GRID ===== */
+.hero-bento-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 2rem;
+  align-items: start;
+}
 
-/* Фотография */
-.hero-photo-container {
-  position: relative;
-  z-index: 10;
+.hero-left-column {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
 }
 
-.hero-photo-wrapper {
+/* Контейнер информации */
+.hero-info-card {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-photo {
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 4px solid rgba(139, 92, 246, 0.3);
-  box-shadow: 0 0 60px rgba(139, 92, 246, 0.3);
-  transition: all 0.5s ease;
-}
-
-.hero-photo:hover {
-  border-color: rgba(139, 92, 246, 0.6);
-  box-shadow: 0 0 100px rgba(139, 92, 246, 0.5);
-  transform: scale(1.02);
-}
-
-.hero-photo-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-}
-
-.hero-photo-gradient-border {
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #8b5cf6, #ec4899, #06b6d4);
-  z-index: -1;
-  filter: blur(20px);
-  opacity: 0.5;
-  animation: pulse-glow 3s ease-in-out infinite;
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.05); }
-}
-
-/* Имя под кольцами */
-.hero-name-section {
-  text-align: center;
-}
-
-.hero-name-text {
-  font-size: 3rem;
-  font-weight: 900;
-  color: white;
-  text-shadow: 0 0 40px rgba(139, 92, 246, 0.5);
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+  background: rgba(15, 15, 20, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
   transition: all 0.3s ease;
-  display: inline-block;
+  overflow: hidden;
 }
 
-/* Verified badge */
-.hero-verified-badge {
+.hero-info-card::before {
+  content: '';
   position: absolute;
-  bottom: 10px;
-  right: calc(50% - 150px);
-  width: 32px;
-  height: 32px;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-  color: white;
-  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.15), transparent 70%);
+  border-radius: 0 0 100% 0;
+  pointer-events: none;
+}
+
+.hero-info-card:hover {
+  border-color: rgba(139, 92, 246, 0.2);
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.1);
+}
+
+.hero-info-header {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  font-weight: bold;
-  z-index: 20;
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
-  animation: badge-pulse 2s ease-in-out infinite;
-}
-
-@keyframes badge-pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-
-/* ===== КОМПЕТЕНЦИИ ===== */
-.hero-competencies {
-  width: 100%;
-}
-
-.competencies-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
   gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.competency-badge {
-  display: inline-flex;
+.hero-info-card .hero-role {
+  line-height: 1.4;
+}
+
+.hero-info-card .hero-location {
+  font-size: 0.875rem;
+}
+
+.hero-info-card .hero-headline {
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-info-card .hero-description {
+  line-height: 1.6;
+  color: #d4d4d4;
+}
+
+/* Список услуг */
+.hero-services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.service-item {
+  display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.625rem 1rem;
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.2);
-  border-radius: 9999px;
-  color: #c084fc;
+  color: #e5e5e5;
   font-size: 0.875rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
 }
 
-.competency-badge:hover {
-  background: rgba(139, 92, 246, 0.2);
-  border-color: rgba(139, 92, 246, 0.4);
-  transform: translateY(-2px);
+.service-bullet {
+  color: #a78bfa;
+  font-size: 0.75rem;
+  flex-shrink: 0;
 }
 
-/* ===== CTA КНОПКА ===== */
-.hero-cta-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
+/* Кнопка CTA */
 .hero-cta-button {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 2rem;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  padding: 0.625rem 1.25rem;
   background: linear-gradient(135deg, rgba(139, 92, 246, 0.9), rgba(168, 85, 247, 0.9));
   border: none;
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   color: white;
-  font-weight: 700;
-  font-size: 1rem;
+  font-weight: 600;
+  font-size: 0.8125rem;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.3);
+  width: auto;
 }
 
 .hero-cta-button:hover {
   background: linear-gradient(135deg, rgba(139, 92, 246, 1), rgba(168, 85, 247, 1));
-  box-shadow: 0 12px 32px rgba(139, 92, 246, 0.5);
-  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
+  transform: translateY(-2px);
 }
 
 .hero-cta-button svg {
+  width: 1rem;
+  height: 1rem;
   transition: transform 0.3s ease;
 }
 
 .hero-cta-button:hover svg {
-  transform: rotate(15deg) scale(1.1);
+  transform: translateX(3px);
 }
 
-/* ===== СОЦ СЕТИ ===== */
-.social-title-wrapper {
-  text-align: center;
+/* Контейнер соцсетей */
+.hero-social-card {
+  position: relative;
+  background: rgba(15, 15, 20, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  overflow: hidden;
 }
 
-.social-title {
-  font-size: 1.25rem;
+.hero-social-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.12), transparent 70%);
+  border-radius: 0 0 0 100%;
+  pointer-events: none;
+}
+
+.hero-social-card:hover {
+  border-color: rgba(139, 92, 246, 0.2);
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.1);
+}
+
+/* Кнопка заголовка соцсетей */
+.social-title-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem 0;
+  margin-bottom: 0.75rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.social-title-button:hover {
+  opacity: 0.8;
+}
+
+.social-title-button h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 0.875rem;
   font-weight: 600;
   color: #9ca3af;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
-.social-grid-wrapper {
+.hero-right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Фотография */
+.hero-photo-container {
+  width: 100%;
+  position: relative;
+}
+
+.hero-photo-wrapper {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
+  padding: 3px;
+}
+
+.hero-photo {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: rgba(15, 15, 20, 0.8);
+}
+
+.hero-photo-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+}
+
+.hero-photo-gradient-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  box-shadow: 
+    inset 0 0 60px rgba(139, 92, 246, 0.3),
+    0 0 40px rgba(139, 92, 246, 0.2);
+  pointer-events: none;
+}
+
+/* Компетенции */
+.hero-competencies {
   width: 100%;
 }
 
-.social-grid {
+.competencies-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 0.75rem;
-  max-width: 800px;
-  margin: 0 auto;
 }
 
-.social-grid-item {
+.competency-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 0.5rem;
-  padding: 1rem 1.25rem;
-  background: rgba(255, 255, 255, 0.03);
+  padding: 1rem;
+  background: rgba(15, 15, 20, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 1rem;
-  color: #d1d5db;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.competency-card:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.1);
+  transform: translateY(-2px);
+}
+
+.competency-card svg {
+  color: #a78bfa;
+  transition: all 0.3s ease;
+}
+
+.competency-card:hover svg {
+  color: #c084fc;
+  transform: scale(1.1);
+}
+
+.competency-card span {
+  color: #e5e5e5;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Правая колонка - стили текста */
+.hero-role {
+  line-height: 1.4;
+}
+
+.hero-location {
+  font-size: 0.875rem;
+}
+
+.hero-headline {
+  line-height: 1.2;
+}
+
+.hero-description {
+  line-height: 1.6;
+}
+
+/* Соцсети */
+.social-title-wrapper {
+  margin-top: 1rem;
+}
+
+.social-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.social-grid-wrapper {
+  width: 100%;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  max-height: 0;
+  opacity: 0;
+}
+
+.social-grid-wrapper.social-grid-open {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.social-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  justify-content: flex-start;
+}
+
+.social-grid-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.75rem;
+  background: rgba(15, 15, 20, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.375rem;
+  transition: all 0.3s ease;
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  min-height: 38px;
+  width: auto;
+  cursor: pointer;
 }
 
 .social-grid-item::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--grid-color, #8b5cf6), transparent);
+  background: linear-gradient(135deg, var(--dock-color, rgba(139, 92, 246, 0.15)), transparent);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.social-grid-item:hover {
-  transform: translateY(-6px);
-  border-color: var(--grid-color, rgba(139, 92, 246, 0.5));
-  box-shadow: 0 12px 24px var(--grid-color, rgba(139, 92, 246, 0.3));
+.social-grid-item:hover::before {
+  opacity: 1;
 }
 
-.social-grid-item:hover::before {
-  opacity: 0.15;
+.social-grid-item:hover {
+  border-color: var(--dock-color, rgba(139, 92, 246, 0.5));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px var(--dock-color, rgba(139, 92, 246, 0.2));
+}
+
+/* Дзен - чёрный */
+.social-grid-item[style*="--dock-color: #1a1a1a"] {
+  background: rgba(30, 30, 30, 0.8);
+}
+.social-grid-item[style*="--dock-color: #1a1a1a"]:hover {
+  border-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  background: rgba(10, 10, 10, 0.9);
+}
+.social-grid-item[style*="--dock-color: #1a1a1a"] .grid-label {
+  color: #9ca3af;
+}
+.social-grid-item[style*="--dock-color: #1a1a1a"]:hover .grid-label {
+  color: #ffffff;
+}
+
+/* Нетворкинг - белый */
+.social-grid-item[style*="--dock-color: #ffffff"]:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+}
+.social-grid-item[style*="--dock-color: #ffffff"]:hover .grid-label {
+  color: #ffffff;
 }
 
 .grid-label {
   position: relative;
   z-index: 1;
-  font-size: 0.8rem;
+  color: #e5e5e5;
+  font-size: 0.65rem;
   font-weight: 600;
   text-align: center;
+  white-space: nowrap;
 }
 
 /* ===== КНОПКИ ДЕЙСТВИЙ ===== */
@@ -1394,6 +1557,35 @@ function getCategoryIcon(cluster) {
 }
 
 /* Адаптив */
+@media (max-width: 1024px) {
+  .hero-bento-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-right-column {
+    max-width: 400px;
+    margin: 0 auto;
+    order: -1; /* Фото сверху на планшетах */
+  }
+
+  .hero-photo-container {
+    margin-bottom: 0;
+  }
+
+  .hero-photo-img {
+    aspect-ratio: 4/5;
+  }
+
+  .hero-info-card {
+    padding: 1.5rem;
+  }
+
+  .hero-social-card {
+    padding: 1.25rem;
+  }
+}
+
 @media (max-width: 768px) {
   /* Скрываем кастомный курсор на мобильных */
   .cursor-dot {
@@ -1401,83 +1593,89 @@ function getCategoryIcon(cluster) {
   }
 
   /* Hero секция */
-  .hero-photo-container {
-    margin-bottom: 2rem;
+  .hero-bento-grid {
+    gap: 1.5rem;
   }
 
-  .hero-photo {
-    width: 180px;
-    height: 180px;
+  .hero-left-column {
+    max-width: 100%;
   }
 
-  .hero-name-section {
-    margin-bottom: 1.5rem;
+  .hero-right-column {
+    max-width: 100%;
   }
 
-  .hero-name-text {
-    font-size: 1.75rem;
+  .hero-photo-img {
+    aspect-ratio: 4/5;
   }
 
-  .hero-verified-badge {
-    right: calc(50% - 110px);
-    bottom: 5px;
-    width: 24px;
-    height: 24px;
-    font-size: 14px;
+  .hero-info-card {
+    padding: 1.25rem;
   }
 
-  .hero-role {
-    font-size: 1rem !important;
+  .hero-info-header {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
   }
 
-  /* Компетенции */
-  .competencies-list {
-    gap: 0.5rem;
+  .hero-info-card .hero-headline {
+    font-size: 1.25rem;
   }
 
-  .competency-badge {
-    font-size: 0.8rem;
-    padding: 0.5rem 0.75rem;
-  }
-
-  /* CTA кнопка */
-  .hero-cta-button {
-    padding: 0.875rem 1.5rem;
+  .hero-info-card .hero-description {
     font-size: 0.9rem;
   }
 
-  /* Соц сети - плитка */
-  .social-title {
-    font-size: 1rem;
+  .hero-info-card .hero-role {
+    font-size: 0.875rem !important;
   }
 
-  .social-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
+  .hero-services-list {
+    gap: 0.375rem;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
   }
 
-  .social-grid-item {
-    padding: 0.875rem 0.5rem;
+  .service-item {
+    font-size: 0.8rem;
   }
 
-  .grid-label {
+  .service-bullet {
     font-size: 0.7rem;
   }
 
-  /* Компетенции */
-  .competencies-list {
-    gap: 0.5rem;
+  .hero-social-card {
+    padding: 1rem;
   }
 
-  .competency-badge {
-    font-size: 0.8rem;
-    padding: 0.5rem 0.75rem;
-  }
-
-  /* CTA кнопка */
   .hero-cta-button {
-    padding: 0.875rem 1.5rem;
-    font-size: 0.9rem;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.8125rem;
+  }
+
+  .social-title-button {
+    margin-bottom: 0.5rem;
+  }
+
+  .social-title-button h2 {
+    font-size: 0.8125rem;
+  }
+
+  .social-grid-wrapper.social-grid-open {
+    max-height: 500px;
+  }
+
+  .social-grid {
+    gap: 0.25rem;
+  }
+
+  .social-grid-item {
+    padding: 0.375rem 0.625rem;
+    min-height: 34px;
+  }
+
+  .grid-label {
+    font-size: 0.6rem;
   }
 
   /* Карточки */
@@ -1500,12 +1698,8 @@ function getCategoryIcon(cluster) {
 
 /* Очень маленькие экраны */
 @media (max-width: 480px) {
-  .social-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .hero-name-text {
-    font-size: 1.5rem;
+  .hero-headline {
+    font-size: 1.125rem;
   }
 }
 

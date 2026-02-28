@@ -4,48 +4,43 @@ import { ArrowRight, Mail, MapPin, Calendar, Users, TrendingUp, Target, Zap, Boo
 
 const isMobileMenuOpen = ref(false)
 
-// Для свайпов в секции Ценность (вертикальные)
+// Для свайпов в секции Ценность (вертикальные как в Tinder)
 const activeValueCardIndex = ref(0)
 const touchStartY = ref(0)
-const touchEndY = ref(0)
-const isAnimating = ref(false)
+const touchCurrentY = ref(0)
+const isDragging = ref(false)
 
 function handleValueTouchStart(e) {
   touchStartY.value = e.touches[0].clientY
-  isAnimating.value = false
+  touchCurrentY.value = touchStartY.value
+  isDragging.value = true
 }
 
 function handleValueTouchMove(e) {
-  touchEndY.value = e.touches[0].clientY
+  if (!isDragging.value) return
+  touchCurrentY.value = e.touches[0].clientY
 }
 
 function handleValueTouchEnd() {
-  if (isAnimating.value) return
+  if (!isDragging.value) return
+  isDragging.value = false
   
-  const diff = touchStartY.value - touchEndY.value
-  if (Math.abs(diff) > 50) {
-    isAnimating.value = true
-    if (diff > 0 && activeValueCardIndex.value < valueItems.length - 1) {
-      // Свайп вверх - следующая карточка
+  const diff = touchStartY.value - touchCurrentY.value
+  if (Math.abs(diff) > 100 && diff > 0) {
+    // Свайп вверх - следующая карточка
+    if (activeValueCardIndex.value < valueItems.length - 1) {
       activeValueCardIndex.value++
-    } else if (diff < 0 && activeValueCardIndex.value > 0) {
-      // Свайп вниз - предыдущая карточка
-      activeValueCardIndex.value--
     }
-    setTimeout(() => { isAnimating.value = false }, 300)
   }
+  // Сбрасываем позицию
+  touchStartY.value = 0
+  touchCurrentY.value = 0
 }
 
-function nextValueCard() {
-  if (activeValueCardIndex.value < valueItems.length - 1) {
-    activeValueCardIndex.value++
-  }
-}
-
-function prevValueCard() {
-  if (activeValueCardIndex.value > 0) {
-    activeValueCardIndex.value--
-  }
+function resetSwipe() {
+  touchStartY.value = 0
+  touchCurrentY.value = 0
+  isDragging.value = false
 }
 
 // Анимация появления при скролле
@@ -459,29 +454,29 @@ function toggleFaq(index) {
           ЦЕННОСТЬ
         </h2>
 
-        <!-- Мобильная версия - стек с вертикальным свайпом -->
+        <!-- Мобильная версия - стек как в Tinder -->
         <div 
-          class="md:hidden relative h-[320px] mb-8 overflow-visible"
+          class="md:hidden relative h-[340px] mb-8"
           @touchstart="handleValueTouchStart"
           @touchmove="handleValueTouchMove"
           @touchend="handleValueTouchEnd"
         >
-          <!-- Карточки -->
           <div class="relative w-full h-full">
             <div
               v-for="(item, index) in valueItems"
               :key="index"
               :class="[
-                'absolute inset-0 border-2 border-black p-6 bg-white transition-all duration-500 ease-out origin-bottom',
-                index === activeValueCardIndex ? 'z-30' : index < activeValueCardIndex ? 'z-10' : 'z-20'
+                'absolute inset-0 border-2 border-black p-6 bg-white transition-all duration-300 ease-out',
+                index === activeValueCardIndex ? 'z-30' : 'z-20'
               ]"
               :style="{
                 transform: index < activeValueCardIndex 
-                  ? `translateY(-100%) rotate(-5deg) scale(0.9)` 
+                  ? `translateY(-100%)` 
                   : index === activeValueCardIndex 
-                    ? 'translateY(0) rotate(0) scale(1)' 
-                    : `translateY(${(index - activeValueCardIndex) * 15}px) rotate(${(index - activeValueCardIndex) * 2}deg) scale(${1 - (index - activeValueCardIndex) * 0.05})`,
-                opacity: 1
+                    ? `translateY(${isDragging ? touchCurrentY.value - touchStartY.value : 0}px)`
+                    : `translateY(${Math.min((index - activeValueCardIndex) * 12, 20)}px) scale(${1 - (index - activeValueCardIndex) * 0.08})`,
+                opacity: index === activeValueCardIndex ? 1 : index < activeValueCardIndex ? 0 : 1,
+                pointerEvents: index === activeValueCardIndex ? 'auto' : 'none'
               }"
             >
               <div class="w-14 h-14 border-2 border-black flex items-center justify-center mb-4">
@@ -489,14 +484,6 @@ function toggleFaq(index) {
               </div>
               <h3 class="text-xl font-bold uppercase tracking-wider mb-2">{{ item.title }}</h3>
               <p class="text-sm text-gray-700 leading-relaxed">{{ item.description }}</p>
-              
-              <!-- Индикатор прогресса -->
-              <div class="absolute bottom-4 left-4 right-4 h-0.5 bg-gray-200 rounded-full overflow-hidden">
-                <div 
-                  class="h-full bg-[#EA6D3A] transition-all duration-300"
-                  :style="{ width: index === activeValueCardIndex ? '100%' : index < activeValueCardIndex ? '100%' : '0%' }"
-                ></div>
-              </div>
             </div>
           </div>
 

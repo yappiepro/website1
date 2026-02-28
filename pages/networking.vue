@@ -288,7 +288,7 @@ function toggleFaq(index) {
           <a href="#content" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Контент</a>
           <a href="#author" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Автор</a>
           <a href="#faq" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">FAQ</a>
-          <a href="https://t.me/+dL4aVzBkems0MTMy" target="_blank" class="inline-flex items-center justify-center font-medium px-4 py-2 text-xs bg-[#EA6D3A] text-white hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200 uppercase tracking-wider">
+          <a href="https://t.me/+dL4aVzBkems0MTMy" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center font-medium px-4 py-2 text-xs bg-[#EA6D3A] text-white hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200 uppercase tracking-wider">
             В сообщество
             <ArrowRight class="ml-2 h-3 w-3" />
           </a>
@@ -322,6 +322,7 @@ function toggleFaq(index) {
           v-for="item in mobileMenuItems"
           :key="item.label"
           :href="item.href"
+          target="_self"
           class="text-base uppercase tracking-wider py-4 border-b-2 border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200"
           @click="isMobileMenuOpen = false"
         >
@@ -377,7 +378,7 @@ function toggleFaq(index) {
               </div>
             </div>
 
-            <a href="https://t.me/+dL4aVzBkems0MTMy" target="_blank" class="inline-flex items-center justify-center w-full mt-6 font-medium px-6 py-4 bg-[#EA6D3A] text-white hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] transition-all duration-200 uppercase tracking-wider text-sm">
+            <a href="https://t.me/+dL4aVzBkems0MTMy" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full mt-6 font-medium px-6 py-4 bg-[#EA6D3A] text-white hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] transition-all duration-200 uppercase tracking-wider text-sm">
               Вступить в сообщество
               <ArrowRight class="ml-2 h-4 w-4" />
             </a>
@@ -651,6 +652,7 @@ function toggleFaq(index) {
             <a
               :href="service.link || 'https://t.me/m/56BWSMKAMjQ6'"
               target="_blank"
+              rel="noopener noreferrer"
               :class="[
                 'inline-flex items-center justify-center font-medium px-6 py-3 uppercase tracking-wider text-sm w-full transition-all duration-200 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-3px] hover:translate-y-[-3px]',
                 service.highlighted
@@ -710,15 +712,15 @@ function toggleFaq(index) {
               Присоединяйтесь к проекту и начните развивать свой личный бренд уже сегодня
             </p>
             <div class="flex flex-wrap gap-3">
-              <a href="https://t.me/+dL4aVzBkems0MTMy" target="_blank" class="inline-flex items-center justify-center font-medium px-5 py-3 bg-[#EA6D3A] text-white hover:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] transition-all duration-200 uppercase tracking-wider text-sm">
+              <a href="https://t.me/+dL4aVzBkems0MTMy" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center font-medium px-5 py-3 bg-[#EA6D3A] text-white hover:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] transition-all duration-200 uppercase tracking-wider text-sm">
                 Вступить в сообщество
                 <ArrowRight class="ml-2 h-4 w-4" />
               </a>
-              <a href="https://t.me/artemselifanov" target="_blank" class="inline-flex items-center justify-center font-medium px-5 py-3 border-2 border-white hover:bg-white hover:text-black hover:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] transition-all duration-200 uppercase tracking-wider text-sm">
+              <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center font-medium px-5 py-3 border-2 border-white hover:bg-white hover:text-black hover:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] transition-all duration-200 uppercase tracking-wider text-sm">
                 На диагностику
                 <ExternalLink class="ml-2 h-4 w-4" />
               </a>
-              <a href="https://t.me/artemselifanov" target="_blank" class="inline-flex items-center justify-center font-medium px-5 py-3 bg-white text-black hover:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] transition-all duration-200 uppercase tracking-wider text-sm">
+              <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center font-medium px-5 py-3 bg-white text-black hover:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] transition-all duration-200 uppercase tracking-wider text-sm">
                 В чат
                 <ExternalLink class="ml-2 h-4 w-4" />
               </a>

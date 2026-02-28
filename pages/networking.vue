@@ -429,8 +429,8 @@ function toggleFaq(index) {
         <!-- Статистика -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-12 md:mt-16 pt-8 md:pt-12 border-t-2 border-black">
           <div>
-            <div class="text-3xl md:text-4xl font-bold">45 000+</div>
-            <div class="text-xs uppercase tracking-wider mt-1 text-gray-600">В 5 соцсетях</div>
+            <div class="text-3xl md:text-4xl font-bold">750</div>
+            <div class="text-xs uppercase tracking-wider mt-1 text-gray-600">В Telegram</div>
           </div>
           <div>
             <div class="text-3xl md:text-4xl font-bold">130+</div>

@@ -4,6 +4,50 @@ import { ArrowRight, Mail, MapPin, Calendar, Users, TrendingUp, Target, Zap, Boo
 
 const isMobileMenuOpen = ref(false)
 
+// Для свайпов в секции Ценность (вертикальные)
+const activeValueCardIndex = ref(0)
+const touchStartY = ref(0)
+const touchEndY = ref(0)
+const isAnimating = ref(false)
+
+function handleValueTouchStart(e) {
+  touchStartY.value = e.touches[0].clientY
+  isAnimating.value = false
+}
+
+function handleValueTouchMove(e) {
+  touchEndY.value = e.touches[0].clientY
+}
+
+function handleValueTouchEnd() {
+  if (isAnimating.value) return
+  
+  const diff = touchStartY.value - touchEndY.value
+  if (Math.abs(diff) > 50) {
+    isAnimating.value = true
+    if (diff > 0 && activeValueCardIndex.value < valueItems.length - 1) {
+      // Свайп вверх - следующая карточка
+      activeValueCardIndex.value++
+    } else if (diff < 0 && activeValueCardIndex.value > 0) {
+      // Свайп вниз - предыдущая карточка
+      activeValueCardIndex.value--
+    }
+    setTimeout(() => { isAnimating.value = false }, 300)
+  }
+}
+
+function nextValueCard() {
+  if (activeValueCardIndex.value < valueItems.length - 1) {
+    activeValueCardIndex.value++
+  }
+}
+
+function prevValueCard() {
+  if (activeValueCardIndex.value > 0) {
+    activeValueCardIndex.value--
+  }
+}
+
 // Анимация появления при скролле
 onMounted(() => {
   const observerOptions = {
@@ -415,13 +459,68 @@ function toggleFaq(index) {
           ЦЕННОСТЬ
         </h2>
 
-        <div class="grid md:grid-cols-2 gap-4">
+        <!-- Мобильная версия - стек с вертикальным свайпом -->
+        <div 
+          class="md:hidden relative h-[320px] mb-8 overflow-visible"
+          @touchstart="handleValueTouchStart"
+          @touchmove="handleValueTouchMove"
+          @touchend="handleValueTouchEnd"
+        >
+          <!-- Карточки -->
+          <div class="relative w-full h-full">
+            <div
+              v-for="(item, index) in valueItems"
+              :key="index"
+              :class="[
+                'absolute inset-0 border-2 border-black p-6 bg-white transition-all duration-500 ease-out origin-bottom',
+                index === activeValueCardIndex ? 'z-30' : index < activeValueCardIndex ? 'z-10' : 'z-20'
+              ]"
+              :style="{
+                transform: index < activeValueCardIndex 
+                  ? `translateY(-100%) rotate(-5deg) scale(0.9)` 
+                  : index === activeValueCardIndex 
+                    ? 'translateY(0) rotate(0) scale(1)' 
+                    : `translateY(${(index - activeValueCardIndex) * 15}px) rotate(${(index - activeValueCardIndex) * 2}deg) scale(${1 - (index - activeValueCardIndex) * 0.05})`,
+                opacity: 1
+              }"
+            >
+              <div class="w-14 h-14 border-2 border-black flex items-center justify-center mb-4">
+                <component :is="item.icon" class="w-7 h-7 text-[#EA6D3A]" />
+              </div>
+              <h3 class="text-xl font-bold uppercase tracking-wider mb-2">{{ item.title }}</h3>
+              <p class="text-sm text-gray-700 leading-relaxed">{{ item.description }}</p>
+              
+              <!-- Индикатор прогресса -->
+              <div class="absolute bottom-4 left-4 right-4 h-0.5 bg-gray-200 rounded-full overflow-hidden">
+                <div 
+                  class="h-full bg-[#EA6D3A] transition-all duration-300"
+                  :style="{ width: index === activeValueCardIndex ? '100%' : index < activeValueCardIndex ? '100%' : '0%' }"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Индикаторы -->
+          <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+            <div 
+              v-for="(_, index) in valueItems" 
+              :key="index"
+              :class="[
+                'w-2 h-2 rounded-full transition-all duration-300',
+                index === activeValueCardIndex ? 'bg-[#EA6D3A] w-6' : 'bg-gray-300'
+              ]"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Десктопная версия - Bento сетка -->
+        <div class="hidden md:grid md:grid-cols-2 gap-4">
           <!-- Большая карточка слева -->
           <div class="row-span-2 border-2 border-black p-8 bg-white hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] transition-all duration-200">
             <div class="w-16 h-16 border-2 border-black flex items-center justify-center mb-6">
               <component :is="valueItems[0].icon" class="w-8 h-8 text-[#EA6D3A]" />
             </div>
-            <h3 class="text-2xl font-bold uppercase tracking-wider mb-3 group-hover:text-[#EA6D3A]">{{ valueItems[0].title }}</h3>
+            <h3 class="text-2xl font-bold uppercase tracking-wider mb-3">{{ valueItems[0].title }}</h3>
             <p class="text-base text-gray-700 leading-relaxed">{{ valueItems[0].description }}</p>
           </div>
 
@@ -484,7 +583,10 @@ function toggleFaq(index) {
           <div
             v-for="(item, index) in philosophyItems"
             :key="index"
-            class="border-2 border-black p-6 md:p-8 bg-white hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] transition-all duration-200"
+            :class="[
+              'border-2 border-black p-6 md:p-8 bg-white hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] transition-all duration-200',
+              index % 2 === 0 ? 'rotate-[-2deg]' : 'rotate-[2deg]'
+            ]"
           >
             <p class="text-base md:text-lg leading-relaxed font-medium">{{ item.quote }}</p>
           </div>

@@ -155,7 +155,7 @@ useHead({
 }
 
 .body.theme-training {
-  background-color: var(--color-accent-training);
+  background-color: #D0EE75;
 }
 .body.theme-training .nav-item {
   color: #000;
@@ -169,11 +169,23 @@ useHead({
 }
 
 .body.theme-yappie {
-  background: linear-gradient(135deg, var(--color-accent-yappie-1), var(--color-accent-yappie-2));
+  background: linear-gradient(135deg, #38178F, #C363A2);
+}
+.body.theme-yappie .nav-item {
+  color: #fff;
+}
+.body.theme-yappie .background-branding {
+  -webkit-text-stroke: 2px rgba(255,255,255,0.15);
 }
 
 .body.theme-business {
-  background-color: var(--color-accent-business);
+  background-color: #7501FF;
+}
+.body.theme-business .nav-item {
+  color: #fff;
+}
+.body.theme-business .background-branding {
+  -webkit-text-stroke: 2px rgba(255,255,255,0.15);
 }
 
 .body.theme-brand {

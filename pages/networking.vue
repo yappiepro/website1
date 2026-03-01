@@ -4,21 +4,24 @@ import { ArrowRight, Mail, MapPin, Calendar, Users, TrendingUp, Target, Zap, Boo
 
 const isMobileMenuOpen = ref(false)
 
-// Для свайпов в секции Ценность (вертикальные как в Tinder)
+// Для свайпов в секции Ценность (циклическое переключение)
 const activeValueCardIndex = ref(0)
 const touchStartY = ref(0)
 const touchCurrentY = ref(0)
 const isDragging = ref(false)
+const swipeProgress = ref(0)
 
 function handleValueTouchStart(e) {
   touchStartY.value = e.touches[0].clientY
   touchCurrentY.value = touchStartY.value
   isDragging.value = true
+  swipeProgress.value = 0
 }
 
 function handleValueTouchMove(e) {
   if (!isDragging.value) return
   touchCurrentY.value = e.touches[0].clientY
+  swipeProgress.value = (touchCurrentY.value - touchStartY.value) / 100
   // Блокируем скролл страницы во время свайпа
   e.preventDefault()
 }
@@ -28,21 +31,19 @@ function handleValueTouchEnd() {
   isDragging.value = false
   
   const diff = touchStartY.value - touchCurrentY.value
-  if (Math.abs(diff) > 100 && diff > 0) {
-    // Свайп вверх - следующая карточка
-    if (activeValueCardIndex.value < valueItems.length - 1) {
-      activeValueCardIndex.value++
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) {
+      // Свайп вверх - следующая карточка
+      activeValueCardIndex.value = (activeValueCardIndex.value + 1) % valueItems.length
+    } else {
+      // Свайп вниз - предыдущая карточка
+      activeValueCardIndex.value = (activeValueCardIndex.value - 1 + valueItems.length) % valueItems.length
     }
   }
   // Сбрасываем позицию
   touchStartY.value = 0
   touchCurrentY.value = 0
-}
-
-function resetSwipe() {
-  touchStartY.value = 0
-  touchCurrentY.value = 0
-  isDragging.value = false
+  swipeProgress.value = 0
 }
 
 // Анимация появления при скролле
@@ -456,7 +457,7 @@ function toggleFaq(index) {
           ЦЕННОСТЬ
         </h2>
 
-        <!-- Мобильная версия - стек как в Tinder -->
+        <!-- Мобильная версия - циклическое переключение -->
         <div 
           class="md:hidden relative h-[340px] mb-8 touch-none"
           @touchstart="handleValueTouchStart"
@@ -464,28 +465,35 @@ function toggleFaq(index) {
           @touchend="handleValueTouchEnd"
         >
           <div class="relative w-full h-full">
+            <!-- Текущая карточка -->
             <div
-              v-for="(item, index) in valueItems"
-              :key="index"
-              :class="[
-                'absolute inset-0 border-2 border-black p-6 bg-white transition-all duration-300 ease-out',
-                index === activeValueCardIndex ? 'z-30' : 'z-20'
-              ]"
+              class="absolute inset-0 border-2 border-black p-6 bg-white transition-all duration-300 ease-out"
               :style="{
-                transform: index < activeValueCardIndex 
-                  ? `translateY(-100%)` 
-                  : index === activeValueCardIndex 
-                    ? `translateY(${isDragging ? touchCurrentY.value - touchStartY.value : 0}px)`
-                    : `translateY(${Math.min((index - activeValueCardIndex) * 12, 20)}px) scale(${1 - (index - activeValueCardIndex) * 0.08})`,
-                opacity: index === activeValueCardIndex ? 1 : index < activeValueCardIndex ? 0 : 1,
-                pointerEvents: index === activeValueCardIndex ? 'auto' : 'none'
+                transform: `translateY(${isDragging ? swipeProgress * 100 : 0}px)`,
+                opacity: isDragging ? 1 - Math.abs(swipeProgress) : 1
               }"
             >
               <div class="w-14 h-14 border-2 border-black flex items-center justify-center mb-4">
-                <component :is="item.icon" class="w-7 h-7 text-[#EA6D3A]" />
+                <component :is="valueItems[activeValueCardIndex].icon" class="w-7 h-7 text-[#EA6D3A]" />
               </div>
-              <h3 class="text-xl font-bold uppercase tracking-wider mb-2">{{ item.title }}</h3>
-              <p class="text-sm text-gray-700 leading-relaxed">{{ item.description }}</p>
+              <h3 class="text-xl font-bold uppercase tracking-wider mb-2">{{ valueItems[activeValueCardIndex].title }}</h3>
+              <p class="text-sm text-gray-700 leading-relaxed">{{ valueItems[activeValueCardIndex].description }}</p>
+            </div>
+
+            <!-- Следующая карточка (снизу) -->
+            <div
+              class="absolute inset-0 border-2 border-black p-6 bg-white transition-all duration-300 ease-out"
+              :style="{
+                transform: `translateY(${isDragging ? swipeProgress * 100 + 100 : 100}px)`,
+                opacity: isDragging ? Math.abs(swipeProgress) : 0,
+                pointerEvents: 'none'
+              }"
+            >
+              <div class="w-14 h-14 border-2 border-black flex items-center justify-center mb-4">
+                <component :is="valueItems[(activeValueCardIndex + 1) % valueItems.length].icon" class="w-7 h-7 text-[#EA6D3A]" />
+              </div>
+              <h3 class="text-xl font-bold uppercase tracking-wider mb-2">{{ valueItems[(activeValueCardIndex + 1) % valueItems.length].title }}</h3>
+              <p class="text-sm text-gray-700 leading-relaxed">{{ valueItems[(activeValueCardIndex + 1) % valueItems.length].description }}</p>
             </div>
           </div>
 
@@ -660,7 +668,8 @@ function toggleFaq(index) {
                   <img
                     :src="author.image"
                     :alt="author.name"
-                    class="w-full h-full object-cover"
+                    class="w-full h-full object-cover object-center"
+                    style="object-position: center 10%"
                     @error="$event.target.style.display='none'"
                   />
                 </div>

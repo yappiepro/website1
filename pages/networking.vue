@@ -10,8 +10,11 @@ const touchStartY = ref(0)
 const touchCurrentY = ref(0)
 const isDragging = ref(false)
 const swipeProgress = ref(0)
+const nextIndex = ref(0)
+const isTransitioning = ref(false)
 
 function handleValueTouchStart(e) {
+  if (isTransitioning.value) return
   touchStartY.value = e.touches[0].clientY
   touchCurrentY.value = touchStartY.value
   isDragging.value = true
@@ -19,31 +22,36 @@ function handleValueTouchStart(e) {
 }
 
 function handleValueTouchMove(e) {
-  if (!isDragging.value) return
+  if (!isDragging.value || isTransitioning.value) return
   touchCurrentY.value = e.touches[0].clientY
-  swipeProgress.value = (touchCurrentY.value - touchStartY.value) / 100
-  // Блокируем скролл страницы во время свайпа
+  swipeProgress.value = (touchCurrentY.value - touchStartY.value) / 150
   e.preventDefault()
 }
 
 function handleValueTouchEnd() {
-  if (!isDragging.value) return
+  if (!isDragging.value || isTransitioning.value) return
   isDragging.value = false
   
   const diff = touchStartY.value - touchCurrentY.value
   if (Math.abs(diff) > 50) {
     if (diff > 0) {
       // Свайп вверх - следующая карточка
-      activeValueCardIndex.value = (activeValueCardIndex.value + 1) % valueItems.length
+      nextIndex.value = (activeValueCardIndex.value + 1) % valueItems.length
     } else {
       // Свайп вниз - предыдущая карточка
-      activeValueCardIndex.value = (activeValueCardIndex.value - 1 + valueItems.length) % valueItems.length
+      nextIndex.value = (activeValueCardIndex.value - 1 + valueItems.length) % valueItems.length
     }
+    isTransitioning.value = true
+    setTimeout(() => {
+      activeValueCardIndex.value = nextIndex.value
+      isTransitioning.value = false
+      swipeProgress.value = 0
+    }, 150)
+  } else {
+    swipeProgress.value = 0
   }
-  // Сбрасываем позицию
   touchStartY.value = 0
   touchCurrentY.value = 0
-  swipeProgress.value = 0
 }
 
 // Анимация появления при скролле
@@ -154,9 +162,9 @@ const statLabels = {
 // Данные для секции «Ценность»
 const valueItems = [
   {
-    icon: 'Target',
-    title: 'Системный подход',
-    description: 'Блог рассматривается как бизнес-инструмент для продаж и влияния, а не просто дневник'
+    icon: 'MessageCircle',
+    title: 'Сила сообщества',
+    description: 'Обмен опытом с другими участниками, разбор реальных кейсов и поддержка от тех, кто уже прошёл этот путь'
   },
   {
     icon: 'Check',
@@ -169,9 +177,14 @@ const valueItems = [
     description: 'Анализ трендов 2025–2026 годов: ИИ, алгоритмы соцсетей, маркировка рекламы'
   },
   {
-    icon: 'Users',
-    title: 'Поддержка',
-    description: 'Комьюнити, где принято помогать друг другу (принцип «Ценность выше просьб»)'
+    icon: 'Target',
+    title: 'Системный подход',
+    description: 'Блог рассматривается как бизнес-инструмент для продаж и влияния, а не просто дневник'
+  },
+  {
+    icon: 'Zap',
+    title: 'Результат',
+    description: 'Рост аудитории, вовлечённости и продаж благодаря контент-маркетингу'
   }
 ]
 
@@ -285,7 +298,7 @@ const faqs = [
   },
   {
     question: 'Какие социальные сети мы будем использовать?',
-    answer: 'Основной фокус — Telegram и Instagram*. Также рассмотрим возможности VK и других платформ в зависимости от вашей целевой аудитории.'
+    answer: 'Основной фокус — Telegram, Сетка и TenChat. Также рассмотрим возможности других платформ в зависимости от вашей целевой аудитории.'
   },
   {
     question: 'Что такое нетворкинг и как он поможет?',
@@ -316,7 +329,7 @@ function toggleFaq(index) {
       <div class="max-w-[1400px] mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
         <!-- Логотип НН -->
         <a href="/website1/networking" class="flex items-center gap-3 group">
-          <img src="/reference/Vector.svg" alt="Нескучный Нетворкинг" class="h-12 w-auto" />
+          <img src="/reference/Vector.svg" alt="Нескучный Нетворкинг" class="h-10 w-auto" />
         </a>
 
         <!-- Десктопное меню -->
@@ -464,49 +477,38 @@ function toggleFaq(index) {
           @touchmove="handleValueTouchMove"
           @touchend="handleValueTouchEnd"
         >
-          <div class="relative w-full h-full">
-            <!-- Текущая карточка -->
-            <div
-              class="absolute inset-0 border-2 border-black p-6 bg-white transition-all duration-300 ease-out"
-              :style="{
-                transform: `translateY(${isDragging ? swipeProgress * 100 : 0}px)`,
-                opacity: isDragging ? 1 - Math.abs(swipeProgress) : 1
-              }"
-            >
-              <div class="w-14 h-14 border-2 border-black flex items-center justify-center mb-4">
-                <component :is="valueItems[activeValueCardIndex].icon" class="w-7 h-7 text-[#EA6D3A]" />
-              </div>
-              <h3 class="text-xl font-bold uppercase tracking-wider mb-2">{{ valueItems[activeValueCardIndex].title }}</h3>
-              <p class="text-sm text-gray-700 leading-relaxed">{{ valueItems[activeValueCardIndex].description }}</p>
-            </div>
-
-            <!-- Следующая карточка (снизу) -->
-            <div
-              class="absolute inset-0 border-2 border-black p-6 bg-white transition-all duration-300 ease-out"
-              :style="{
-                transform: `translateY(${isDragging ? swipeProgress * 100 + 100 : 100}px)`,
-                opacity: isDragging ? Math.abs(swipeProgress) : 0,
-                pointerEvents: 'none'
-              }"
-            >
-              <div class="w-14 h-14 border-2 border-black flex items-center justify-center mb-4">
-                <component :is="valueItems[(activeValueCardIndex + 1) % valueItems.length].icon" class="w-7 h-7 text-[#EA6D3A]" />
-              </div>
-              <h3 class="text-xl font-bold uppercase tracking-wider mb-2">{{ valueItems[(activeValueCardIndex + 1) % valueItems.length].title }}</h3>
-              <p class="text-sm text-gray-700 leading-relaxed">{{ valueItems[(activeValueCardIndex + 1) % valueItems.length].description }}</p>
-            </div>
-          </div>
-
-          <!-- Индикаторы -->
-          <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+          <!-- Вертикальные индикаторы справа -->
+          <div class="absolute right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-2">
             <div 
               v-for="(_, index) in valueItems" 
               :key="index"
               :class="[
-                'w-2 h-2 rounded-full transition-all duration-300',
-                index === activeValueCardIndex ? 'bg-[#EA6D3A] w-6' : 'bg-gray-300'
+                'h-2 w-2 rounded-full transition-all duration-300',
+                index === activeValueCardIndex ? 'bg-[#EA6D3A] h-6' : 'bg-gray-300'
               ]"
             ></div>
+          </div>
+          
+          <div class="relative w-full h-full">
+            <!-- Карточки с fade переходом -->
+            <div
+              v-for="(item, index) in valueItems"
+              :key="index"
+              class="absolute inset-0 border-2 border-black p-6 bg-white transition-opacity duration-300 ease-in-out"
+              :class="[
+                index === activeValueCardIndex ? 'opacity-100 z-20' : 'opacity-0 z-10'
+              ]"
+            >
+              <div class="w-14 h-14 border-2 border-black flex items-center justify-center mb-4">
+                <MessageCircle v-if="item.icon === 'MessageCircle'" class="w-7 h-7 text-[#EA6D3A]" />
+                <Check v-else-if="item.icon === 'Check'" class="w-7 h-7 text-[#EA6D3A]" />
+                <TrendingUp v-else-if="item.icon === 'TrendingUp'" class="w-7 h-7 text-[#EA6D3A]" />
+                <Target v-else-if="item.icon === 'Target'" class="w-7 h-7 text-[#EA6D3A]" />
+                <Zap v-else-if="item.icon === 'Zap'" class="w-7 h-7 text-[#EA6D3A]" />
+              </div>
+              <h3 class="text-xl font-bold uppercase tracking-wider mb-2">{{ item.title }}</h3>
+              <p class="text-sm text-gray-700 leading-relaxed">{{ item.description }}</p>
+            </div>
           </div>
         </div>
 
@@ -515,7 +517,7 @@ function toggleFaq(index) {
           <!-- Большая карточка слева -->
           <div class="row-span-2 border-2 border-black p-8 bg-white hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] transition-all duration-200">
             <div class="w-16 h-16 border-2 border-black flex items-center justify-center mb-6">
-              <component :is="valueItems[0].icon" class="w-8 h-8 text-[#EA6D3A]" />
+              <MessageCircle class="w-8 h-8 text-[#EA6D3A]" />
             </div>
             <h3 class="text-2xl font-bold uppercase tracking-wider mb-3">{{ valueItems[0].title }}</h3>
             <p class="text-base text-gray-700 leading-relaxed">{{ valueItems[0].description }}</p>
@@ -528,7 +530,10 @@ function toggleFaq(index) {
             class="border-2 border-black p-6 bg-white hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] transition-all duration-200"
           >
             <div class="w-12 h-12 border-2 border-black flex items-center justify-center mb-4">
-              <component :is="item.icon" class="w-6 h-6 text-[#EA6D3A]" />
+              <Check v-if="item.icon === 'Check'" class="w-6 h-6 text-[#EA6D3A]" />
+              <TrendingUp v-else-if="item.icon === 'TrendingUp'" class="w-6 h-6 text-[#EA6D3A]" />
+              <Target v-else-if="item.icon === 'Target'" class="w-6 h-6 text-[#EA6D3A]" />
+              <Zap v-else-if="item.icon === 'Zap'" class="w-6 h-6 text-[#EA6D3A]" />
             </div>
             <h3 class="text-xl font-bold uppercase tracking-wider mb-2">{{ item.title }}</h3>
             <p class="text-sm text-gray-700 leading-relaxed">{{ item.description }}</p>
@@ -604,15 +609,12 @@ function toggleFaq(index) {
             v-for="(item, index) in formatItems"
             :key="index"
             :class="[
-              'p-6 text-center transition-all duration-200 hover:translate-y-[-8px]',
+              'p-4 text-center flex flex-col items-center justify-center transition-all duration-200 hover:translate-y-[-8px]',
               index % 2 === 0 ? 'bg-white border-2 border-black' : 'bg-black text-white'
             ]"
           >
-            <div class="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
-              <component :is="item.icon" :class="['w-12 h-12', index % 2 === 0 ? 'text-[#EA6D3A]' : 'text-white']" />
-            </div>
-            <h3 :class="['text-lg font-bold uppercase tracking-wider mb-2', index % 2 === 0 ? 'text-black' : 'text-white']">{{ item.title }}</h3>
-            <p :class="['text-sm leading-relaxed', index % 2 === 0 ? 'text-gray-700' : 'text-gray-300']">{{ item.description }}</p>
+            <h3 :class="['text-sm font-bold uppercase tracking-wider mb-1', index % 2 === 0 ? 'text-black' : 'text-white']">{{ item.title }}</h3>
+            <p :class="['text-xs leading-relaxed', index % 2 === 0 ? 'text-gray-700' : 'text-gray-300']">{{ item.description }}</p>
           </div>
         </div>
       </div>

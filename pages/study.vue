@@ -3,12 +3,13 @@
     <!-- Навигация как на главной -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-[#030305]/70 backdrop-blur-2xl border-b border-white/[0.08]">
       <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="/website1/main" class="text-xl font-semibold text-white flex items-center gap-2">
+        <a href="/website1/demo" class="text-xl font-semibold text-white flex items-center gap-2">
           <span class="font-bold text-white tracking-wider text-2xl">YAPPIE</span>
         </a>
 
         <!-- Десктопное меню -->
         <div class="hidden md:flex items-center gap-8">
+          <a href="/website1/" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Главная</a>
           <a href="#problems" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Проблемы</a>
           <a href="#services" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Услуги</a>
           <a href="#why-us" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Почему мы</a>
@@ -600,6 +601,7 @@ const scrambleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 const isMobileMenuOpen = ref(false)
 
 const mobileMenuItems = [
+  { href: '/website1/', label: 'Главная' },
   { href: '#problems', label: 'Проблемы' },
   { href: '#services', label: 'Услуги' },
   { href: '#why-us', label: 'Почему мы' },

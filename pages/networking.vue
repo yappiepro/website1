@@ -79,6 +79,7 @@ onMounted(() => {
 const accentColor = '#EA6D3A'
 
 const mobileMenuItems = [
+  { label: 'Главная', href: '/website1/' },
   { label: 'О проекте', href: '#about' },
   { label: 'Ценность', href: '#value' },
   { label: 'Для кого', href: '#audience' },
@@ -327,13 +328,14 @@ function toggleFaq(index) {
     <!-- Навигация -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b-2 border-black">
       <div class="max-w-[1400px] mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
-        <!-- Логотип НН -->
+        <!-- Логотип -->
         <a href="/website1/networking" class="flex items-center gap-3 group">
           <img src="/reference/Vector.svg" alt="Нескучный Нетворкинг" class="h-10 w-auto" />
         </a>
 
         <!-- Десктопное меню -->
         <div class="hidden md:flex items-center gap-4">
+          <a href="/website1/" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Главная</a>
           <a href="#about" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">О проекте</a>
           <a href="#value" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Ценность</a>
           <a href="#audience" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Для кого</a>
@@ -343,6 +345,7 @@ function toggleFaq(index) {
           <a href="#content" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Контент</a>
           <a href="#author" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Автор</a>
           <a href="#faq" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">FAQ</a>
+          <a href="/website1/main3" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5 text-violet-400">Цифровая визитка</a>
           <a href="https://t.me/+dL4aVzBkems0MTMy" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center font-medium px-4 py-2 text-xs bg-[#EA6D3A] text-white hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200 uppercase tracking-wider">
             В сообщество
             <ArrowRight class="ml-2 h-3 w-3" />

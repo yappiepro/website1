@@ -23,3 +23,6 @@ yappie-website-ready.zip
 .env
 .env.*
 !.env.example
+
+# Ignore external project folders
+main Selifanov

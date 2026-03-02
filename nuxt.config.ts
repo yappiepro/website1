@@ -68,7 +68,9 @@ export default defineNuxtConfig({
         '/blog/yazyki-programmirovaniya-mobilnykh-prilozheniy',
         '/blog/dizayn-mobilnogo-prilozheniya',
         '/blog/razrabotka-veb-prilozheniy',
-        '/networking'
+        '/networking',
+        '/yappie',
+        '/study'
       ],
       failOnError: false
     }

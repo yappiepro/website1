@@ -6,18 +6,14 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ['~/assets/css/tailwind.css'],
 
-  // Apply baseURL in dev mode
-  routeRules: {
-    '/website1/**': { appMiddleware: 'global' }
-  },
-
   modules: [
     '@nuxtjs/seo',
-    '@nuxt/image'
+    '@nuxt/image',
+    '@nuxt/icon'
   ],
 
   vite: {
-    base: '/website1/',
+    base: import.meta.env.DEV ? '/' : '/website1/',
     plugins: [
       tailwindcss()
     ],
@@ -28,16 +24,20 @@ export default defineNuxtConfig({
       include: ['lucide-vue-next']
     }
   },
-  
+
+  app: {
+    baseURL: import.meta.env.DEV ? '/' : '/website1/',
+  },
+
   alias: {
     '@': '.'
   },
-  
+
   // SEO Site Configuration
   site: {
     url: 'https://yappiepro.github.io',
-    name: 'Yappie - Разработка сайтов, чат-ботов и приложений',
-    description: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса. Автоматизируем процессы, увеличиваем эффективность.',
+    name: 'Артем Селифанов — Личный бренд для предпринимателей и экспертов',
+    description: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт. Стратегия, упаковка, контент и дистрибуция в Telegram и соцсетях.',
     defaultLocale: 'ru'
   },
   
@@ -51,6 +51,7 @@ export default defineNuxtConfig({
       crawlLinks: true,
       routes: [
         '/',
+        '/compare',
         '/blog',
         '/blog/razrabotka-sayta-pod-klyuch',
         '/blog/skolko-stoit-razrabotka-sayta',
@@ -69,6 +70,7 @@ export default defineNuxtConfig({
         '/blog/dizayn-mobilnogo-prilozheniya',
         '/blog/razrabotka-veb-prilozheniy',
         '/networking',
+        '/business',
         '/yappie',
         '/study'
       ],
@@ -101,26 +103,26 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/website1/',
     head: {
-      title: 'Разработка сайтов, чат-ботов и приложений — Yappie',
+      title: 'Артем Селифанов — Личный бренд для предпринимателей и экспертов',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' },
-        { name: 'description', content: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса. Автоматизируем процессы, увеличиваем эффективность. Бесплатная консультация.' },
-        { name: 'keywords', content: 'разработка сайтов, чат-боты, веб-приложения, AI, автоматизация, CRM, Telegram боты, WhatsApp' },
-        { name: 'author', content: 'Yappie' },
+        { name: 'description', content: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт. Стратегия, упаковка, контент и дистрибуция в Telegram. Бесплатный аудит позиционирования.' },
+        { name: 'keywords', content: 'личный бренд, позиционирование, Telegram, контент-стратегия, предприниматели, эксперты, консультации, наставничество, упаковка профиля' },
+        { name: 'author', content: 'Артем Селифанов' },
         { name: 'robots', content: 'index, follow' },
         { name: 'yandex-verification', content: '5dd84e7965966e23' },
         // Open Graph
-        { property: 'og:title', content: 'Разработка сайтов, чат-ботов и приложений — Yappie' },
-        { property: 'og:description', content: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса' },
+        { property: 'og:title', content: 'Артем Селифанов — Личный бренд для предпринимателей и экспертов' },
+        { property: 'og:description', content: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт' },
         { property: 'og:type', content: 'website' },
         { property: 'og:locale', content: 'ru_RU' },
-        { property: 'og:url', content: 'https://yappie.ru' },
-        { property: 'og:site_name', content: 'Yappie' },
+        { property: 'og:url', content: 'https://yappiepro.github.io/website1' },
+        { property: 'og:site_name', content: 'Артем Селифанов' },
         // Twitter Card
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: 'Разработка сайтов, чат-ботов и приложений — Yappie' },
-        { name: 'twitter:description', content: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса' }
+        { name: 'twitter:title', content: 'Артем Селифанов — Личный бренд для предпринимателей и экспертов' },
+        { name: 'twitter:description', content: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт' }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/website1/favicon.ico' },
@@ -133,46 +135,43 @@ export default defineNuxtConfig({
             '@context': 'https://schema.org',
             '@graph': [
               {
-                '@type': 'Organization',
-                '@id': 'https://yappiepro.github.io/website1/#organization',
-                name: 'Yappie',
+                '@type': 'Person',
+                '@id': 'https://yappiepro.github.io/website1/#person',
+                name: 'Артем Селифанов',
                 url: 'https://yappiepro.github.io/website1',
-                logo: {
+                image: {
                   '@type': 'ImageObject',
-                  url: 'https://yappiepro.github.io/website1/logo.png'
+                  url: 'https://yappiepro.github.io/website1/photo.jpg'
                 },
                 sameAs: [
                   'https://t.me/artemselifanov'
                 ],
-                contactPoint: {
-                  '@type': 'ContactPoint',
-                  contactType: 'customer service',
-                  availableLanguage: ['Russian']
-                }
+                jobTitle: 'Специалист по личному бренду',
+                description: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт'
               },
               {
                 '@type': 'WebSite',
                 '@id': 'https://yappiepro.github.io/website1/#website',
                 url: 'https://yappiepro.github.io/website1',
-                name: 'Yappie - Разработка сайтов, чат-ботов и приложений',
-                description: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса',
+                name: 'Артем Селифанов — Личный бренд для предпринимателей и экспертов',
+                description: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт. Стратегия, упаковка, контент и дистрибуция в Telegram.',
                 inLanguage: 'ru-RU',
                 publisher: {
-                  '@id': 'https://yappiepro.github.io/website1/#organization'
+                  '@id': 'https://yappiepro.github.io/website1/#person'
                 }
               },
               {
                 '@type': 'WebPage',
                 '@id': 'https://yappiepro.github.io/website1/#webpage',
                 url: 'https://yappiepro.github.io/website1',
-                name: 'Разработка сайтов, чат-ботов и приложений — Yappie',
-                description: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса. Автоматизируем процессы, увеличиваем эффективность.',
+                name: 'Артем Селифанов — Личный бренд для предпринимателей и экспертов',
+                description: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт. Стратегия, упаковка, контент и дистрибуция в Telegram и соцсетях.',
                 inLanguage: 'ru-RU',
                 isPartOf: {
                   '@id': 'https://yappiepro.github.io/website1/#website'
                 },
                 about: {
-                  '@id': 'https://yappiepro.github.io/website1/#organization'
+                  '@id': 'https://yappiepro.github.io/website1/#person'
                 }
               }
             ]

@@ -3,18 +3,18 @@
     <!-- Навигация как на главной -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-[#030305]/70 backdrop-blur-2xl border-b border-white/[0.08]">
       <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="/website1/demo" class="text-xl font-semibold text-white flex items-center gap-2">
-          <span class="font-bold text-white tracking-wider text-2xl">YAPPIE</span>
+        <a href="/study" class="text-xl font-semibold text-white flex items-center gap-2">
+          <span class="font-bold text-white tracking-wider text-2xl">Фокус</span>
         </a>
 
         <!-- Десктопное меню -->
         <div class="hidden md:flex items-center gap-8">
-          <a href="/website1/" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Главная</a>
+          <a href="/" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Главная</a>
           <a href="#problems" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Проблемы</a>
           <a href="#services" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Услуги</a>
           <a href="#why-us" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Почему мы</a>
           <a href="#portfolio" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Кейсы</a>
-          <a href="/website1/blog" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Блог</a>
+          <a href="/blog" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Блог</a>
           <a href="#faq" class="text-sm text-gray-400 hover:text-white transition-all duration-300">FAQ</a>
           <a href="https://t.me/artemselifanov" target="_blank" class="px-4 py-2 text-xs bg-white text-black hover:bg-gray-100 shadow-lg shadow-white/10 hover:shadow-white/20 transition-all rounded-md font-medium">Связаться</a>
         </div>
@@ -69,7 +69,7 @@
         <a href="#services" class="nav-link">Услуги</a>
         <a href="#why-us" class="nav-link">Почему мы</a>
         <a href="#portfolio" class="nav-link">Кейсы</a>
-        <a href="/website1/blog" class="nav-link">Блог</a>
+        <a href="/blog" class="nav-link">Блог</a>
         <a href="#faq" class="nav-link">FAQ</a>
         <a href="https://t.me/artemselifanov" target="_blank" class="nav-btn">Связаться</a>
       </nav>
@@ -601,14 +601,14 @@ const scrambleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 const isMobileMenuOpen = ref(false)
 
 const mobileMenuItems = [
-  { href: '/website1/', label: 'Главная' },
+  { href: '/', label: 'Главная' },
   { href: '#problems', label: 'Проблемы' },
   { href: '#services', label: 'Услуги' },
   { href: '#why-us', label: 'Почему мы' },
   { href: '#portfolio', label: 'Кейсы' },
-  { href: '/website1/blog', label: 'Блог' },
+  { href: '/blog', label: 'Блог' },
   { href: '#faq', label: 'FAQ' },
-  { href: '/website1/demo', label: 'Demo' }
+  { href: '/yappie', label: 'Yappie' }
 ]
 
 // FAQ данные
@@ -1209,7 +1209,9 @@ main {
 
 /* Печатная машинка - стилизация под поисковую строку */
 .typewriter-container {
-  width: min(900px, 92vw);
+  width: 800px;
+  max-width: 800px;
+  min-width: 800px;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -1219,7 +1221,7 @@ main {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
-  padding: 1.25rem 1.5rem;
+  padding: 1.25rem 2rem;
   box-sizing: border-box;
   backdrop-filter: blur(10px);
   margin: 0 auto;
@@ -1253,11 +1255,14 @@ main {
   align-items: center;
   justify-content: flex-start;
   min-width: 0;
+  overflow: hidden;
 }
 
 .typing-text {
   white-space: pre-wrap;
   display: inline;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .typing-cursor {
@@ -2666,8 +2671,11 @@ p {
   }
 
   .typewriter-container {
-    width: 95vw;
-    padding: 0.75rem 1rem;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    margin: 0;
+    padding: 0.75rem 24px;
     height: 60px;
     box-sizing: border-box;
   }
@@ -2693,11 +2701,14 @@ p {
   .typewriter-content {
     max-width: none;
     width: 100%;
+    overflow: hidden;
   }
 
   .typing-line {
     width: 100%;
     max-width: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .problem-card,

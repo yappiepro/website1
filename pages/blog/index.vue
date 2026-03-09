@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-white text-gray-900 overflow-x-hidden touch-pan-y">
     <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200">
       <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="/website1/main" class="text-xl font-bold text-gray-900 flex items-center gap-2">
+        <a href="/" class="text-xl font-bold text-gray-900 flex items-center gap-2">
           <span class="font-syncopate font-bold tracking-wider text-2xl">YAPPIE</span>
         </a>
         <a :href="baseURL" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">
@@ -152,7 +152,7 @@ import { ArrowRight } from 'lucide-vue-next'
 import { articles, formatDate, getClusters, getClusterName, getClusterColor, getRandomArticles } from '~/data/blog.js'
 
 const config = useRuntimeConfig()
-const baseURL = config.app.baseURL
+const baseURL = import.meta.env.DEV ? '/' : config.app.baseURL
 
 // Получаем все уникальные кластеры
 const clusters = getClusters()

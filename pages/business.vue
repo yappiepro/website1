@@ -218,16 +218,16 @@ function toggleFaq(index) {
 
           <nav class="hidden md:flex items-center gap-8">
             <a href="/" class="text-xs font-semibold tracking-wider text-gray-600 hover:text-gray-900 transition-colors">Главная</a>
-            <a href="#membership" class="text-xs font-semibold tracking-wider text-gray-600 hover:text-gray-900 transition-colors">УЧАСТИЕ</a>
-            <a href="#events" class="text-xs font-semibold tracking-wider text-gray-600 hover:text-gray-900 transition-colors">СОБЫТИЯ</a>
-            <a href="#ventures" class="text-xs font-semibold tracking-wider text-gray-600 hover:text-gray-900 transition-colors">ПРОЕКТЫ</a>
+            <a href="#membership" class="text-xs font-semibold tracking-wider text-gray-600 hover:text-gray-900 transition-colors">Участие</a>
+            <a href="#events" class="text-xs font-semibold tracking-wider text-gray-600 hover:text-gray-900 transition-colors">События</a>
+            <a href="#ventures" class="text-xs font-semibold tracking-wider text-gray-600 hover:text-gray-900 transition-colors">Проекты</a>
             <a href="/blog" class="text-xs font-semibold tracking-wider text-gray-600 hover:text-gray-900 transition-colors">Блог</a>
-            <a href="/networking" class="text-xs font-semibold tracking-wider text-gray-600 hover:text-gray-900 transition-colors">Нескучный Нетворкинг</a>
+            <a href="/networking" class="text-xs font-semibold tracking-wider text-gray-600 hover:text-gray-900 transition-colors">Нескучный нетворкинг</a>
             <a href="/yappie" class="text-xs font-semibold tracking-wider text-violet-600 hover:text-violet-700 transition-colors">Веб-разработка</a>
           </nav>
 
           <a href="https://t.me/+mFUh7ye6U6NjNzli" target="_blank" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-white bg-purple-600 hover:bg-purple-700 rounded-xl transition-all">
-            <span>ВСТУПИТЬ</span>
+            <span>Вступить</span>
             <ArrowRight class="w-4 h-4" />
           </a>
 
@@ -260,15 +260,20 @@ function toggleFaq(index) {
           <a href="/" @click="isMenuOpen = false" class="p-5 bg-gray-50 hover:bg-purple-50 rounded-2xl transition-all border border-gray-100">
             <span class="text-lg font-bold text-gray-900">Главная</span>
           </a>
-          <a v-for="item in ['УЧАСТИЕ', 'СОБЫТИЯ', 'ПРОЕКТЫ']" :key="item" :href="'#' + item.toLowerCase()" @click="isMenuOpen = false"
-             class="p-5 bg-gray-50 hover:bg-purple-50 rounded-2xl transition-all border border-gray-100">
-            <span class="text-lg font-bold text-gray-900">{{ item }}</span>
+          <a href="#membership" @click="isMenuOpen = false" class="p-5 bg-gray-50 hover:bg-purple-50 rounded-2xl transition-all border border-gray-100">
+            <span class="text-lg font-bold text-gray-900">Участие</span>
+          </a>
+          <a href="#events" @click="isMenuOpen = false" class="p-5 bg-gray-50 hover:bg-purple-50 rounded-2xl transition-all border border-gray-100">
+            <span class="text-lg font-bold text-gray-900">События</span>
+          </a>
+          <a href="#ventures" @click="isMenuOpen = false" class="p-5 bg-gray-50 hover:bg-purple-50 rounded-2xl transition-all border border-gray-100">
+            <span class="text-lg font-bold text-gray-900">Проекты</span>
           </a>
           <a href="/blog" @click="isMenuOpen = false" class="p-5 bg-gray-50 hover:bg-purple-50 rounded-2xl transition-all border border-gray-100">
             <span class="text-lg font-bold text-gray-900">Блог</span>
           </a>
           <a href="/networking" @click="isMenuOpen = false" class="p-5 bg-gray-50 hover:bg-purple-50 rounded-2xl transition-all border border-gray-100">
-            <span class="text-lg font-bold text-gray-900">Нескучный Нетворкинг</span>
+            <span class="text-lg font-bold text-gray-900">Нескучный нетворкинг</span>
           </a>
           <a href="/yappie" @click="isMenuOpen = false" class="p-5 bg-gray-50 hover:bg-purple-50 rounded-2xl transition-all border border-gray-100">
             <span class="text-lg font-bold text-gray-900">Веб-разработка</span>
@@ -276,7 +281,7 @@ function toggleFaq(index) {
           <a href="https://t.me/+mFUh7ye6U6NjNzli" target="_blank"
              class="mt-6 p-5 bg-purple-600 hover:bg-purple-500 rounded-2xl transition-all shadow-lg shadow-purple-600/30">
             <div class="flex items-center justify-center gap-3">
-              <span class="text-base font-bold text-white">ВСТУПИТЬ</span>
+              <span class="text-base font-bold text-white">Вступить</span>
               <ArrowRight class="w-5 h-5 text-white" />
             </div>
           </a>

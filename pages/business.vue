@@ -4,7 +4,6 @@ import { ArrowRight, Users, Target, Lightbulb, Calendar, MessageCircle, Trending
 import gsap from 'gsap'
 
 const isMenuOpen = ref(false)
-const scrolled = ref(false)
 
 // Прогресс-бар скролла
 const scrollProgress = ref(0)
@@ -216,19 +215,18 @@ function toggleFaq(index) {
             <span class="text-sm font-bold tracking-tight text-gray-900">БИЗНЕС СЕТКА</span>
           </a>
 
-          <nav class="hidden md:flex items-center gap-8">
-            <a href="/" class="text-xs font-semibold tracking-wider text-gray-600 hover:text-gray-900 transition-colors">Главная</a>
-            <a href="#membership" class="text-xs font-semibold tracking-wider text-gray-600 hover:text-gray-900 transition-colors">Участие</a>
-            <a href="#events" class="text-xs font-semibold tracking-wider text-gray-600 hover:text-gray-900 transition-colors">События</a>
-            <a href="#ventures" class="text-xs font-semibold tracking-wider text-gray-600 hover:text-gray-900 transition-colors">Проекты</a>
-            <a href="/blog" class="text-xs font-semibold tracking-wider text-gray-600 hover:text-gray-900 transition-colors">Блог</a>
-            <a href="/networking" class="text-xs font-semibold tracking-wider text-gray-600 hover:text-gray-900 transition-colors">Нескучный нетворкинг</a>
-            <a href="/yappie" class="text-xs font-semibold tracking-wider text-violet-600 hover:text-violet-700 transition-colors">Веб-разработка</a>
+          <nav class="hidden md:flex items-center gap-1 transition-all duration-300">
+            <a href="/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Главная</a>
+            <a href="#membership" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Участие</a>
+            <a href="#events" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">События</a>
+            <a href="#ventures" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Проекты</a>
+            <a href="/blog" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Блог</a>
+            <a href="/networking" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Нескучный нетворкинг</a>
+            <a href="/yappie" class="px-4 py-2 text-sm text-violet-600 hover:text-violet-700 rounded-lg transition-all">Веб-разработка</a>
           </nav>
 
-          <a href="https://t.me/+mFUh7ye6U6NjNzli" target="_blank" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-white bg-purple-600 hover:bg-purple-700 rounded-xl transition-all">
-            <span>Вступить</span>
-            <ArrowRight class="w-4 h-4" />
+          <a href="https://t.me/+mFUh7ye6U6NjNzli" target="_blank" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-gray-900/90 hover:bg-gray-900 rounded-xl transition-all backdrop-blur-sm">
+            <span>Связаться</span>
           </a>
 
           <!-- Бургер для мобильных -->
@@ -249,43 +247,88 @@ function toggleFaq(index) {
       leave-from-class="opacity-100 scale-95"
       leave-to-class="opacity-0 scale-95"
     >
-      <div v-if="isMenuOpen" class="fixed inset-0 z-[100] bg-white pt-20 px-6">
+      <div v-if="isMenuOpen" class="fixed inset-0 z-[100] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 pt-20 px-6">
         <div class="flex justify-between items-center mb-8">
-          <span class="text-gray-500 text-sm font-medium">Навигация</span>
-          <button @click="isMenuOpen = false" class="p-3 bg-gray-100 hover:bg-gray-200 rounded-2xl transition-all">
-            <X class="w-6 h-6 text-gray-700" />
+          <span class="text-white/60 text-sm font-medium">Навигация</span>
+          <button @click="isMenuOpen = false" class="group p-3 bg-white hover:bg-gray-100 rounded-2xl transition-all backdrop-blur-sm shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style="width: 24px; height: 24px;" fill="currentColor" class="text-gray-900">
+              <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+            </svg>
           </button>
         </div>
-        <nav class="flex flex-col gap-3 max-w-md mx-auto mt-8">
-          <a href="/" @click="isMenuOpen = false" class="p-5 bg-gray-50 hover:bg-purple-50 rounded-2xl transition-all border border-gray-100">
-            <span class="text-lg font-bold text-gray-900">Главная</span>
+
+        <nav class="flex flex-col gap-3 max-w-md mx-auto">
+          <a href="/" @click="isMenuOpen = false"
+             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
+            <div class="relative flex items-center justify-between">
+              <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Главная</span>
+              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+            </div>
           </a>
-          <a href="#membership" @click="isMenuOpen = false" class="p-5 bg-gray-50 hover:bg-purple-50 rounded-2xl transition-all border border-gray-100">
-            <span class="text-lg font-bold text-gray-900">Участие</span>
+          <a href="#membership" @click="isMenuOpen = false"
+             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
+            <div class="relative flex items-center justify-between">
+              <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Участие</span>
+              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+            </div>
           </a>
-          <a href="#events" @click="isMenuOpen = false" class="p-5 bg-gray-50 hover:bg-purple-50 rounded-2xl transition-all border border-gray-100">
-            <span class="text-lg font-bold text-gray-900">События</span>
+          <a href="#events" @click="isMenuOpen = false"
+             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
+            <div class="relative flex items-center justify-between">
+              <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">События</span>
+              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+            </div>
           </a>
-          <a href="#ventures" @click="isMenuOpen = false" class="p-5 bg-gray-50 hover:bg-purple-50 rounded-2xl transition-all border border-gray-100">
-            <span class="text-lg font-bold text-gray-900">Проекты</span>
+          <a href="#ventures" @click="isMenuOpen = false"
+             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
+            <div class="relative flex items-center justify-between">
+              <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Проекты</span>
+              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+            </div>
           </a>
-          <a href="/blog" @click="isMenuOpen = false" class="p-5 bg-gray-50 hover:bg-purple-50 rounded-2xl transition-all border border-gray-100">
-            <span class="text-lg font-bold text-gray-900">Блог</span>
+          <a href="/blog" @click="isMenuOpen = false"
+             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
+            <div class="relative flex items-center justify-between">
+              <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Блог</span>
+              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+            </div>
           </a>
-          <a href="/networking" @click="isMenuOpen = false" class="p-5 bg-gray-50 hover:bg-purple-50 rounded-2xl transition-all border border-gray-100">
-            <span class="text-lg font-bold text-gray-900">Нескучный нетворкинг</span>
+          <a href="/networking" @click="isMenuOpen = false"
+             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
+            <div class="relative flex items-center justify-between">
+              <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Нескучный нетворкинг</span>
+              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+            </div>
           </a>
-          <a href="/yappie" @click="isMenuOpen = false" class="p-5 bg-gray-50 hover:bg-purple-50 rounded-2xl transition-all border border-gray-100">
-            <span class="text-lg font-bold text-gray-900">Веб-разработка</span>
+          <a href="/yappie" @click="isMenuOpen = false"
+             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
+            <div class="relative flex items-center justify-between">
+              <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Веб-разработка</span>
+              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+            </div>
           </a>
-          <a href="https://t.me/+mFUh7ye6U6NjNzli" target="_blank"
-             class="mt-6 p-5 bg-purple-600 hover:bg-purple-500 rounded-2xl transition-all shadow-lg shadow-purple-600/30">
+
+          <a href="https://t.me/artemselifanov" target="_blank"
+             class="mt-6 group relative overflow-hidden p-5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-2xl transition-all shadow-lg shadow-blue-600/30">
             <div class="flex items-center justify-center gap-3">
-              <span class="text-base font-bold text-white">Вступить</span>
-              <ArrowRight class="w-5 h-5 text-white" />
+              <Icon name="fa-brands:telegram" class="w-5 h-5 text-white" />
+              <span class="text-base font-bold text-white">Связаться в Telegram</span>
             </div>
           </a>
         </nav>
+
+        <!-- Декоративные элементы -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl"></div>
+          <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl"></div>
+        </div>
       </div>
     </Transition>
 

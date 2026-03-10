@@ -89,6 +89,7 @@ const mobileMenuItems = [
   { label: 'Контент', href: '#content' },
   { label: 'Автор', href: '#author' },
   { label: 'FAQ', href: '#faq' },
+  { label: 'Блог', href: '/blog' },
 ]
 
 // Данные для секции услуг
@@ -345,6 +346,7 @@ function toggleFaq(index) {
           <a href="#content" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Контент</a>
           <a href="#author" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Автор</a>
           <a href="#faq" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">FAQ</a>
+          <a href="/blog" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Блог</a>
           <a href="/business" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Бизнес Сетка</a>
           <a href="/yappie" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5 text-violet-400">Цифровая визитка</a>
           <a href="https://t.me/+dL4aVzBkems0MTMy" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center font-medium px-4 py-2 text-xs bg-[#EA6D3A] text-white hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200 uppercase tracking-wider">

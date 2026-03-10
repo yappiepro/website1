@@ -27,6 +27,7 @@
             <a href="/networking" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Нескучный Нетворкинг</a>
             <a href="/business" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Бизнес Сетка</a>
             <a href="/yappie" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Веб-разработка</a>
+            <a href="/blog" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Блог</a>
             <a href="#services" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Создать свой блог</a>
           </nav>
 
@@ -949,6 +950,7 @@ const menuItems = [
   { href: '/networking', label: 'Нескучный Нетворкинг' },
   { href: '/business', label: 'Бизнес Сетка' },
   { href: '/yappie', label: 'Веб-разработка' },
+  { href: '/blog', label: 'Блог' },
   { href: '#services', label: 'Создать свой блог' }
 ]
 

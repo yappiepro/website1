@@ -612,16 +612,16 @@
             </NuxtLink>
 
             <NuxtLink
-              to="/study"
+              to="/blog"
               class="card-animate delay-200 group p-8 bg-white border-2 border-gray-200 rounded-[2rem] hover:border-blue-300 hover:shadow-xl transition-all hover:-translate-y-2"
             >
               <div class="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mb-6">
-                <Icon name="fa-solid:bolt" class="w-8 h-8 text-gray-700" />
+                <Icon name="fa-solid:newspaper" class="w-8 h-8 text-gray-700" />
               </div>
-              <h3 class="text-2xl font-bold mb-3">Автоматизация</h3>
-              <p class="text-sm text-gray-600 leading-relaxed mb-6">Внедрение CRM и скриптов для лидов</p>
+              <h3 class="text-2xl font-bold mb-3">Блог</h3>
+              <p class="text-sm text-gray-600 leading-relaxed mb-6">Статьи о разработке, автоматизации и AI для бизнеса</p>
               <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide">
-                <span>Узнать как внедрить</span>
+                <span>Читать статьи</span>
                 <Icon name="fa-solid:arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-2" />
               </div>
             </NuxtLink>

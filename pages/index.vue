@@ -642,80 +642,57 @@
 
             <!-- Квадратная схема цикла -->
             <div class="relative max-w-2xl mx-auto animate-on-scroll delay-400">
-              <!-- Сетка 3x3 для цикла -->
-              <div class="grid grid-cols-3 gap-4 md:gap-6">
+              <!-- Сетка 2x2 для мобильных, 3x3 для десктопа -->
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-6">
                 <!-- Верхний левый угол: Привлек -->
-                <div class="flex justify-center">
-                  <div class="p-4 md:p-5 bg-white border-2 border-blue-200 rounded-2xl text-center shadow-lg w-full">
-                    <div class="w-10 h-10 md:w-12 md:h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-2">
-                      <Icon name="fa-solid:bullhorn" class="w-5 h-5 md:w-6 md:h-6 text-blue-600" />
+                <div class="col-span-1">
+                  <div class="p-2 md:p-5 bg-white border-2 border-blue-200 rounded-2xl text-center shadow-lg w-full">
+                    <div class="w-8 h-8 md:w-12 md:h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-1 md:mb-2">
+                      <Icon name="fa-solid:bullhorn" class="w-4 h-4 md:w-6 md:h-6 text-blue-600" />
                     </div>
-                    <div class="text-sm md:text-base font-bold text-gray-900">Привлек</div>
-                    <div class="text-xs text-gray-500">Контент</div>
+                    <div class="text-[10px] md:text-base font-bold text-gray-900">Привлек</div>
+                    <div class="text-[9px] md:text-xs text-gray-500">Контент</div>
                   </div>
-                </div>
-
-                <!-- Верхний центр: стрелка вправо -->
-                <div class="flex items-center justify-center">
-                  <Icon name="fa-solid:arrow-right" class="w-5 h-5 md:w-6 md:h-6 text-gray-400" />
                 </div>
 
                 <!-- Верхний правый угол: Обогрел -->
-                <div class="flex justify-center">
-                  <div class="p-4 md:p-5 bg-white border-2 border-purple-200 rounded-2xl text-center shadow-lg w-full">
-                    <div class="w-10 h-10 md:w-12 md:h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-2">
-                      <Icon name="fa-solid:heart" class="w-5 h-5 md:w-6 md:h-6 text-purple-600" />
+                <div class="col-span-1">
+                  <div class="p-2 md:p-5 bg-white border-2 border-purple-200 rounded-2xl text-center shadow-lg w-full">
+                    <div class="w-8 h-8 md:w-12 md:h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-1 md:mb-2">
+                      <Icon name="fa-solid:heart" class="w-4 h-4 md:w-6 md:h-6 text-purple-600" />
                     </div>
-                    <div class="text-sm md:text-base font-bold text-gray-900">Обогрел</div>
-                    <div class="text-xs text-gray-500">Сообщество</div>
+                    <div class="text-[10px] md:text-base font-bold text-gray-900">Обогрел</div>
+                    <div class="text-[9px] md:text-xs text-gray-500">Сообщество</div>
                   </div>
-                </div>
-
-                <!-- Средний левый: стрелка вверх -->
-                <div class="flex items-center justify-center">
-                  <Icon name="fa-solid:arrow-up" class="w-5 h-5 md:w-6 md:h-6 text-gray-400" />
-                </div>
-
-                <!-- Средний центр: пусто -->
-                <div></div>
-
-                <!-- Средний правый: стрелка вниз -->
-                <div class="flex items-center justify-center">
-                  <Icon name="fa-solid:arrow-down" class="w-5 h-5 md:w-6 md:h-6 text-gray-400" />
                 </div>
 
                 <!-- Нижний левый угол: Обработал -->
-                <div class="flex justify-center">
-                  <div class="p-4 md:p-5 bg-white border-2 border-orange-200 rounded-2xl text-center shadow-lg w-full">
-                    <div class="w-10 h-10 md:w-12 md:h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-2">
-                      <Icon name="fa-solid:cog" class="w-5 h-5 md:w-6 md:h-6 text-orange-600" />
+                <div class="col-span-1">
+                  <div class="p-2 md:p-5 bg-white border-2 border-orange-200 rounded-2xl text-center shadow-lg w-full">
+                    <div class="w-8 h-8 md:w-12 md:h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-1 md:mb-2">
+                      <Icon name="fa-solid:cog" class="w-4 h-4 md:w-6 md:h-6 text-orange-600" />
                     </div>
-                    <div class="text-sm md:text-base font-bold text-gray-900">Обработал</div>
-                    <div class="text-xs text-gray-500">Автоматизация</div>
+                    <div class="text-[10px] md:text-base font-bold text-gray-900">Обработал</div>
+                    <div class="text-[9px] md:text-xs text-gray-500">Автоматизация</div>
                   </div>
                 </div>
 
-                <!-- Нижний центр: стрелка влево -->
-                <div class="flex items-center justify-center">
-                  <Icon name="fa-solid:arrow-left" class="w-5 h-5 md:w-6 md:h-6 text-gray-400" />
-                </div>
-
                 <!-- Нижний правый угол: Упаковал -->
-                <div class="flex justify-center">
-                  <div class="p-4 md:p-5 bg-white border-2 border-green-200 rounded-2xl text-center shadow-lg w-full">
-                    <div class="w-10 h-10 md:w-12 md:h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-2">
-                      <Icon name="fa-solid:laptop-code" class="w-5 h-5 md:w-6 md:h-6 text-green-600" />
+                <div class="col-span-1">
+                  <div class="p-2 md:p-5 bg-white border-2 border-green-200 rounded-2xl text-center shadow-lg w-full">
+                    <div class="w-8 h-8 md:w-12 md:h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-1 md:mb-2">
+                      <Icon name="fa-solid:laptop-code" class="w-4 h-4 md:w-6 md:h-6 text-green-600" />
                     </div>
-                    <div class="text-sm md:text-base font-bold text-gray-900">Упаковал</div>
-                    <div class="text-xs text-gray-500">Сайт</div>
+                    <div class="text-[10px] md:text-base font-bold text-gray-900">Упаковал</div>
+                    <div class="text-[9px] md:text-xs text-gray-500">Сайт</div>
                   </div>
                 </div>
               </div>
 
               <!-- Подпись цикла -->
-              <div class="flex justify-center items-center gap-2 text-gray-500 mt-8 md:mt-10">
-                <Icon name="fa-solid:rotate" class="w-5 h-5" />
-                <span class="text-sm font-medium">цикл замыкается → клиент возвращается</span>
+              <div class="flex justify-center items-center gap-2 text-gray-500 mt-4 md:mt-10">
+                <Icon name="fa-solid:rotate" class="w-4 h-4 md:w-5 md:h-5" />
+                <span class="text-[10px] md:text-sm font-medium">цикл замыкается → клиент возвращается</span>
               </div>
             </div>
           </div>

@@ -81,13 +81,7 @@ const accentColor = '#EA6D3A'
 const mobileMenuItems = [
   { label: 'Главная', href: '/' },
   { label: 'О проекте', href: '#about' },
-  { label: 'Ценность', href: '#value' },
-  { label: 'Для кого', href: '#audience' },
-  { label: 'Философия', href: '#philosophy' },
   { label: 'Услуги', href: '#services' },
-  { label: 'Формат', href: '#format' },
-  { label: 'Контент', href: '#content' },
-  { label: 'Автор', href: '#author' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Блог', href: '/blog' },
 ]
@@ -338,17 +332,10 @@ function toggleFaq(index) {
         <div class="hidden md:flex items-center gap-4">
           <a href="/" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Главная</a>
           <a href="#about" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">О проекте</a>
-          <a href="#value" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Ценность</a>
-          <a href="#audience" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Для кого</a>
-          <a href="#philosophy" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Философия</a>
           <a href="#services" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Услуги</a>
-          <a href="#format" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Формат</a>
-          <a href="#content" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Контент</a>
-          <a href="#author" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Автор</a>
           <a href="#faq" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">FAQ</a>
           <a href="/blog" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Блог</a>
           <a href="/business" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Бизнес Сетка</a>
-          <a href="/yappie" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5 text-violet-400">Цифровая визитка</a>
           <a href="https://t.me/+dL4aVzBkems0MTMy" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center font-medium px-4 py-2 text-xs bg-[#EA6D3A] text-white hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200 uppercase tracking-wider">
             В сообщество
             <ArrowRight class="ml-2 h-3 w-3" />

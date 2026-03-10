@@ -13,22 +13,22 @@
     ]">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <div class="h-14 md:h-16 flex justify-between items-center">
-          <a href="/" :class="[
+          <NuxtLink to="/" :class="[
             'group text-sm font-semibold tracking-tight text-gray-900 transition-all duration-300',
             scrolled ? 'opacity-0 pointer-events-none md:opacity-100' : 'opacity-100'
           ]">
             Артем Селифанов
-          </a>
+          </NuxtLink>
 
           <nav :class="[
             'hidden md:flex items-center gap-1 transition-all duration-300',
             scrolled ? 'opacity-0 pointer-events-none md:opacity-100' : 'opacity-100'
           ]">
-            <a href="/networking" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Нескучный Нетворкинг</a>
-            <a href="/business" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Бизнес Сетка</a>
-            <a href="/yappie" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Веб-разработка</a>
-            <a href="/blog" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Блог</a>
-            <a href="#services" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Создать свой блог</a>
+            <NuxtLink to="/networking" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Нескучный Нетворкинг</NuxtLink>
+            <NuxtLink to="/business" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Бизнес Сетка</NuxtLink>
+            <NuxtLink to="/yappie" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Веб-разработка</NuxtLink>
+            <NuxtLink to="/blog" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Блог</NuxtLink>
+            <NuxtLink to="#services" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Создать свой блог</NuxtLink>
           </nav>
 
           <a href="https://t.me/artemselifanov" target="_blank" :class="[
@@ -70,16 +70,16 @@
         </div>
         
         <nav class="flex flex-col gap-3 max-w-md mx-auto">
-          <a v-for="(item, i) in menuItems" :key="i" :href="item.href" @click="isMenuOpen = false" 
+          <NuxtLink v-for="(item, i) in menuItems" :key="i" :to="item.href" @click="isMenuOpen = false"
              class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
             <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
             <div class="relative flex items-center justify-between">
               <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">{{ item.label }}</span>
               <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
             </div>
-          </a>
-          
-          <a href="https://t.me/artemselifanov" target="_blank" 
+          </NuxtLink>
+
+          <a href="https://t.me/artemselifanov" target="_blank"
              class="mt-6 group relative overflow-hidden p-5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-2xl transition-all shadow-lg shadow-blue-600/30">
             <div class="flex items-center justify-center gap-3">
               <Icon name="fa-brands:telegram" class="w-5 h-5 text-white" />
@@ -489,7 +489,7 @@
         <div class="mt-12 text-center">
           <p class="text-sm text-gray-500">
             Также предлагаю услуги по разработке:
-            <a href="/yappie" class="text-blue-600 hover:text-blue-700 font-medium underline decoration-blue-600/30 hover:decoration-blue-700 underline-offset-4 transition-all">веб- и мобильная разработка</a>
+            <NuxtLink to="/yappie" class="text-blue-600 hover:text-blue-700 font-medium underline decoration-blue-600/30 hover:decoration-blue-700 underline-offset-4 transition-all">веб- и мобильная разработка</NuxtLink>
           </p>
         </div>
       </div>
@@ -863,8 +863,8 @@
             <div>
               <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Сообщества</h4>
               <ul class="space-y-3 text-sm">
-                <li><a href="/networking" class="text-gray-400 hover:text-white transition-colors">Нескучный Нетворкинг</a></li>
-                <li><a href="/networking" class="text-gray-400 hover:text-white transition-colors">Бизнес Сетка</a></li>
+                <li><NuxtLink to="/networking" class="text-gray-400 hover:text-white transition-colors">Нескучный Нетворкинг</NuxtLink></li>
+                <li><NuxtLink to="/business" class="text-gray-400 hover:text-white transition-colors">Бизнес Сетка</NuxtLink></li>
               </ul>
             </div>
 
@@ -892,8 +892,8 @@
           <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="text-xs text-gray-500">© 2025 Артем Селифанов. Все права защищены.</div>
             <div class="flex gap-6">
-              <a href="/yappie" class="text-xs text-gray-500 hover:text-white transition-colors">Политика конфиденциальности</a>
-              <a href="/yappie" class="text-xs text-gray-500 hover:text-white transition-colors">Договор оферты</a>
+              <NuxtLink to="/yappie" class="text-xs text-gray-500 hover:text-white transition-colors">Политика конфиденциальности</NuxtLink>
+              <NuxtLink to="/yappie" class="text-xs text-gray-500 hover:text-white transition-colors">Договор оферты</NuxtLink>
             </div>
           </div>
         </div>

@@ -678,17 +678,27 @@
 
     <!-- Footer с улучшенным стилем -->
     <footer class="py-8 sm:py-12 px-4 sm:px-6 border-t border-white/[0.08]">
-      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
-        <div class="flex items-center gap-2">
-          <span class="font-syncopate font-bold text-white tracking-wider text-lg sm:text-xl">YAPPIE</span>
+      <div class="max-w-7xl mx-auto">
+        <!-- Контакты -->
+        <div class="flex flex-wrap justify-center gap-4 sm:gap-6 mb-6 text-sm">
+          <a href="tel:+79535487323" class="text-gray-400 hover:text-white transition-colors">+7 (953) 548-73-23</a>
+          <span class="text-gray-600">|</span>
+          <a href="mailto:a9535487323@yandex.ru" class="text-gray-400 hover:text-white transition-colors">a9535487323@yandex.ru</a>
+          <span class="text-gray-600">|</span>
+          <a href="https://t.me/artemselifanov" target="_blank" class="text-gray-400 hover:text-white transition-colors">Telegram</a>
         </div>
-        <div class="flex flex-wrap justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-gray-500">
-          <a href="#services" class="hover:text-white transition-colors hover:text-violet-300">Услуги</a>
-          <a href="#portfolio" class="hover:text-white transition-colors hover:text-violet-300">Кейсы</a>
-          <a href="#faq" class="hover:text-white transition-colors hover:text-violet-300">FAQ</a>
-          <a href="#contact" class="hover:text-white transition-colors hover:text-violet-300">Контакты</a>
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
+          <div class="flex items-center gap-2">
+            <span class="font-syncopate font-bold text-white tracking-wider text-lg sm:text-xl">YAPPIE</span>
+          </div>
+          <div class="flex flex-wrap justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-gray-500">
+            <a href="#services" class="hover:text-white transition-colors hover:text-violet-300">Услуги</a>
+            <a href="#portfolio" class="hover:text-white transition-colors hover:text-violet-300">Кейсы</a>
+            <a href="#faq" class="hover:text-white transition-colors hover:text-violet-300">FAQ</a>
+            <a href="#contact" class="hover:text-white transition-colors hover:text-violet-300">Контакты</a>
+          </div>
+          <div class="text-gray-600 text-xs sm:text-sm">© 2026 Yappie</div>
         </div>
-        <div class="text-gray-600 text-xs sm:text-sm">© 2026 Yappie</div>
       </div>
     </footer>
 

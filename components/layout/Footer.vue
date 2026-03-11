@@ -144,9 +144,9 @@ const props = defineProps({
   contacts: {
     type: Array,
     default: () => [
+      { href: 'tel:+79535487323', label: '+7 (953) 548-73-23', external: false },
       { href: 'https://t.me/artemselifanov', label: 'Telegram', external: true },
-      { href: 'https://wa.me/79991234567', label: 'WhatsApp', external: true },
-      { href: 'mailto:email@example.com', label: 'Email', external: false }
+      { href: 'mailto:a9535487323@yandex.ru', label: 'a9535487323@yandex.ru', external: false }
     ]
   },
   // Заголовок секции контактов
@@ -159,9 +159,9 @@ const props = defineProps({
     type: Array,
     default: () => [
       { icon: 'telegram', link: 'https://t.me/artemselifanov' },
-      { icon: 'whatsapp', link: 'https://wa.me/79991234567' },
       { icon: 'vk', link: 'https://vk.com' },
-      { icon: 'youtube', link: 'https://youtube.com' }
+      { icon: 'youtube', link: 'https://youtube.com' },
+      { icon: 'whatsapp', link: 'https://wa.me/79535487323' }
     ]
   },
   // Заголовок секции соцсетей

@@ -870,6 +870,16 @@ function toggleFaq(index) {
     <!-- Footer -->
     <footer class="py-8 px-4 md:px-6 bg-white border-t-2 border-black">
       <div class="max-w-[1400px] mx-auto">
+        <div class="flex flex-col gap-6 mb-6">
+          <!-- Контакты -->
+          <div class="flex flex-wrap justify-center gap-4 text-sm">
+            <a href="tel:+79535487323" class="text-gray-700 hover:text-black transition-colors">+7 (953) 548-73-23</a>
+            <span class="text-gray-300">|</span>
+            <a href="mailto:a9535487323@yandex.ru" class="text-gray-700 hover:text-black transition-colors">a9535487323@yandex.ru</a>
+            <span class="text-gray-300">|</span>
+            <a href="https://t.me/artemselifanov" target="_blank" class="text-gray-700 hover:text-black transition-colors">Telegram</a>
+          </div>
+        </div>
         <div class="flex flex-col md:flex-row justify-between items-center gap-4">
           <div class="flex items-center gap-3">
             <img src="/reference/Vector.svg" alt="Нескучный Нетворкинг" class="h-8 w-auto" />

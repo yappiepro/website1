@@ -117,10 +117,10 @@ const bentoItems = [
     title: 'КОНТАКТЫ',
     socials: [
       { name: 'Telegram', href: 'https://t.me/artemselifanov', icon: 'fa-brands:telegram' },
-      { name: 'WhatsApp', href: 'https://wa.me/79991234567', icon: 'fa-brands:whatsapp' },
+      { name: 'WhatsApp', href: 'https://wa.me/79535487323', icon: 'fa-brands:whatsapp' },
       { name: 'VK', href: 'https://vk.com', icon: 'fa-brands:vk' }
     ],
-    email: 'hello@businessgrid.io'
+    email: 'a9535487323@yandex.ru'
   },
   {
     type: 'access',
@@ -448,10 +448,10 @@ function toggleFaq(index) {
             <span class="text-[10px] font-semibold tracking-wider text-gray-400">КОНТАКТЫ</span>
             <div class="flex flex-wrap gap-2 mt-4">
               <a href="https://t.me/+mFUh7ye6U6NjNzli" target="_blank" class="px-3 py-1.5 text-xs font-semibold text-gray-700 bg-gray-100 hover:bg-purple-100 hover:text-purple-700 rounded-full transition-all border border-gray-200">Telegram</a>
-              <a href="https://wa.me/79991234567" target="_blank" class="px-3 py-1.5 text-xs font-semibold text-gray-700 bg-gray-100 hover:bg-green-100 hover:text-green-700 rounded-full transition-all border border-gray-200">WhatsApp</a>
+              <a href="https://wa.me/79535487323" target="_blank" class="px-3 py-1.5 text-xs font-semibold text-gray-700 bg-gray-100 hover:bg-green-100 hover:text-green-700 rounded-full transition-all border border-gray-200">WhatsApp</a>
               <a href="https://vk.com" target="_blank" class="px-3 py-1.5 text-xs font-semibold text-gray-700 bg-gray-100 hover:bg-blue-100 hover:text-blue-700 rounded-full transition-all border border-gray-200">VK</a>
             </div>
-            <a href="mailto:hello@businessgrid.io" class="mt-4 block text-sm text-gray-500 hover:text-purple-600 transition-colors">hello@businessgrid.io</a>
+            <a href="mailto:a9535487323@yandex.ru" class="mt-4 block text-sm text-gray-500 hover:text-purple-600 transition-colors">a9535487323@yandex.ru</a>
           </div>
 
           <!-- Purple spacer -->

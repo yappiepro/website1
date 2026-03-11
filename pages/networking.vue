@@ -2,6 +2,34 @@
 import { ref, onMounted } from 'vue'
 import { ArrowRight, Mail, MapPin, Calendar, Users, TrendingUp, Target, Zap, BookOpen, MessageCircle, Check, ExternalLink, Menu, X, Video } from 'lucide-vue-next'
 
+// SEO для страницы
+useHead({
+  title: 'Нескучный Нетворкинг — Сообщество предпринимателей и экспертов | Артём Селифанов',
+  meta: [
+    {
+      name: 'description',
+      content: 'Закрытое сообщество предпринимателей и экспертов. Нетворкинг, обмен опытом, мастермайнд-группы. 750+ участников, регулярные встречи, поддержка единомышленников.'
+    },
+    {
+      name: 'keywords',
+      content: 'нетворкинг, сообщество предпринимателей, бизнес-клуб, мастермайнд, обмен опытом, нетворкинг мероприятия, бизнес-сообщество, предприниматели'
+    },
+    { name: 'robots', content: 'index, follow' },
+    // Open Graph
+    { property: 'og:title', content: 'Нескучный Нетворкинг — Сообщество предпринимателей и экспертов' },
+    { property: 'og:description', content: 'Закрытое сообщество для предпринимателей и экспертов, где вы найдёте полезные связи и окружение для роста' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://artemselifanov.ru/networking' },
+    // Twitter Card
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Нескучный Нетворкинг — Сообщество предпринимателей и экспертов' },
+    { name: 'twitter:description', content: 'Закрытое сообщество для предпринимателей и экспертов, где вы найдёте полезные связи и окружение для роста' }
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://artemselifanov.ru/networking' }
+  ]
+})
+
 const isMobileMenuOpen = ref(false)
 
 // Для свайпов в секции Ценность (циклическое переключение)

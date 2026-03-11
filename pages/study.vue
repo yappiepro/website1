@@ -1,5 +1,19 @@
 <template>
   <div class="demo-page overflow-x-hidden">
+    <Head>
+      <Title>Фокус — Тест на позиционирование личного бренда | Артём Селифанов</Title>
+      <Meta name="description" content="Пройдите бесплатный тест на позиционирование личного бренда. Узнайте свои сильные стороны, определите целевую аудиторию и получите персональные рекомендации по развитию." />
+      <Meta name="keywords" content="тест позиционирования, личный бренд тест, позиционирование эксперта, аудит личного бренда, бесплатная диагностика" />
+      <Meta name="robots" content="index, follow" />
+      <Meta property="og:title" content="Фокус — Тест на позиционирование личного бренда" />
+      <Meta property="og:description" content="Пройдите бесплатный тест на позиционирование личного бренда и получите персональные рекомендации" />
+      <Meta property="og:type" content="website" />
+      <Meta property="og:url" content="https://artemselifanov.ru/study" />
+      <Meta name="twitter:card" content="summary_large_image" />
+      <Meta name="twitter:title" content="Фокус — Тест на позиционирование личного бренда" />
+      <Meta name="twitter:description" content="Пройдите бесплатный тест на позиционирование личного бренда и получите персональные рекомендации" />
+      <Link rel="canonical" href="https://artemselifanov.ru/study" />
+    </Head>
     <!-- Навигация как на главной -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-[#030305]/70 backdrop-blur-2xl border-b border-white/[0.08]">
       <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">

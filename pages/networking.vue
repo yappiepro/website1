@@ -189,7 +189,7 @@ const author = {
   role: 'Маркетолог, блогер, нетворкер',
   bio: 'Без личного бренда сейчас фактически не реально продвигать себя как эксперта. Единственный источник трафика — это контент-маркетинг. И если его освоить, вы всегда будете с клиентами.',
   stats: { audience: '45 000+', experience: '5+ лет', events: '10+' },
-  image: '/reference/networking.jpg',
+  image: '/images/artem.jpg',
   platforms: ['Сетка', 'TenChat', 'Telegram', 'Дзен', 'Threads']
 }
 

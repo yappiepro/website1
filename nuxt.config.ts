@@ -80,6 +80,11 @@ export default defineNuxtConfig({
         '/',
         '/demo',
         '/blog',
+        '/blog/cluster/razrabotka-saytov',
+        '/blog/cluster/sozdanie-saytov',
+        '/blog/cluster/mobilnye-prilozheniya',
+        '/blog/cluster/veb-razrabotka',
+        '/blog/cluster/iskusstvennyy-intellekt',
         '/blog/razrabotka-sayta-pod-klyuch',
         '/blog/skolko-stoit-razrabotka-sayta',
         '/blog/kak-zakazat-razrabotku-sayta',
@@ -130,11 +135,48 @@ export default defineNuxtConfig({
   
   // SEO Modules Configuration
   sitemap: {
-    enabled: false, // Using static sitemap.xml
+    enabled: true,
+    urls: [
+      '/',
+      '/demo',
+      '/networking',
+      '/business',
+      '/yappie',
+      '/study',
+      '/blog',
+      '/blog/cluster/razrabotka-saytov',
+      '/blog/cluster/sozdanie-saytov',
+      '/blog/cluster/mobilnye-prilozheniya',
+      '/blog/cluster/veb-razrabotka',
+      '/blog/cluster/iskusstvennyy-intellekt'
+    ],
+    sitemaps: {
+      pages: {
+        include: [
+          '/',
+          '/demo',
+          '/networking',
+          '/business',
+          '/yappie',
+          '/study',
+          '/blog',
+          '/blog/cluster/*'
+        ]
+      },
+      blog: {
+        include: ['/blog/**'],
+        exclude: ['/blog/cluster/*']
+      }
+    }
   },
-  
+
   robots: {
-    enabled: false, // Using static robots.txt
+    enabled: true,
+    sitemap: [
+      '/sitemap.xml',
+      '/sitemap-pages.xml',
+      '/sitemap-blog.xml'
+    ]
   },
   
   ogImage: {

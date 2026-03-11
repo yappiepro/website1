@@ -730,26 +730,33 @@ import Button from '~/components/ui/button/Button.vue'
 // SEO Meta Tags with useSeoMeta
 useSeoMeta({
   title: 'Разработка сайтов, чат-ботов и приложений — Yappie | artemselifanov.ru',
-  ogTitle: 'Разработка сайтов, чат-ботов и приложений — Yappie',
   description: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса. Автоматизируем процессы, увеличиваем эффективность. Бесплатная консультация.',
+  keywords: 'разработка сайтов, чат-боты, веб-приложения, AI, автоматизация, CRM, Telegram боты, WhatsApp, Nuxt, Vue.js, React',
+  author: 'Артём Селифанов',
+  robots: 'index, follow',
+  ogTitle: 'Разработка сайтов, чат-ботов и приложений — Yappie',
   ogDescription: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса. Автоматизируем процессы, увеличиваем эффективность.',
   ogImage: 'https://artemselifanov.ru/og-image.jpg',
   ogUrl: 'https://artemselifanov.ru/yappie',
+  ogType: 'website',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Разработка сайтов, чат-ботов и приложений — Yappie',
   twitterDescription: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса',
-  twitterImage: 'https://artemselifanov.ru/og-image.jpg',
-  keywords: 'разработка сайтов, чат-боты, веб-приложения, AI, автоматизация, CRM, Telegram боты, WhatsApp, Nuxt, Vue.js, React',
-  author: 'Артём Селифанов',
-  robots: 'index, follow'
+  twitterImage: 'https://artemselifanov.ru/og-image.jpg'
+})
+
+useHead({
+  link: [
+    { rel: 'canonical', href: 'https://artemselifanov.ru/yappie' }
+  ]
 })
 
 // Schema.org Organization markup
 useSchemaOrg([
   defineOrganization({
     name: 'Yappie',
-    url: 'https://yappie.ru',
-    logo: 'https://yappie.ru/logo.png',
+    url: 'https://artemselifanov.ru/yappie',
+    description: 'Разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса',
     sameAs: [
       'https://t.me/artemselifanov'
     ],
@@ -761,7 +768,7 @@ useSchemaOrg([
   }),
   defineWebSite({
     name: 'Yappie - Разработка сайтов, чат-ботов и приложений',
-    url: 'https://yappie.ru',
+    url: 'https://artemselifanov.ru/yappie',
     description: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса',
     inLanguage: 'ru-RU'
   }),
@@ -769,7 +776,7 @@ useSchemaOrg([
     '@type': 'WebPage',
     name: 'Разработка сайтов, чат-ботов и приложений — Yappie',
     description: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса',
-    url: 'https://yappie.ru'
+    url: 'https://artemselifanov.ru/yappie'
   })
 ])
 import Accordion from '~/components/ui/accordion/Accordion.vue'

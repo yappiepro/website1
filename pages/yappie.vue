@@ -993,7 +993,7 @@ const benefits = ref([
 ])
 
 const portfolio = ref([
-  { image: '/reference/Lost.png', title: 'Сервис по поиску пропавших животных', description: 'Платформа для быстрого поиска потерянных питомцев', tags: ['Bubble', 'JS', 'Figma', 'API Яндекс Карт'], hasImage: true },
+  { image: '/reference/lost.png', title: 'Сервис по поиску пропавших животных', description: 'Платформа для быстрого поиска потерянных питомцев', tags: ['Bubble', 'JS', 'Figma', 'API Яндекс Карт'], hasImage: true },
   { image: '/reference/chatbot.png', title: 'Бот для управляющих компаний', description: 'Telegram-бот для приёма и обработки обращений граждан, оповещения о стадиях ремонтных/гарантийных работ, взаимодействия с базой данных сервисной компании', tags: ['n8n', 'JS', 'Telegram API', 'Postgres', 'Веб-приложения', 'Telegram miniapp'], hasImage: true },
   { image: '/reference/gromish.png', title: 'Интернет-магазин для Instagram-блогера', description: 'Онлайн-магазин изделий из янтаря с интеграцией WhatsApp для связи с клиентами', tags: ['Bubble', 'AWS', 'WhatsApp', 'Веб-приложения'], hasImage: true },
   { image: '/reference/carusel.png', title: 'Генератор каруселей для Instagram', description: 'Инструмент для быстрой генерации каруселей и обложек для соцсетей с использованием AI', tags: ['HTML', 'JS', 'CSS', 'Веб-приложения'], hasImage: true },

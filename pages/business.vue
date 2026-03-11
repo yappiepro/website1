@@ -239,7 +239,7 @@ function toggleFaq(index) {
       <div class="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8">
         <div class="h-14 md:h-16 flex justify-between items-center">
           <a href="/" class="group flex items-center gap-3">
-            <NuxtImg src="/reference/Frame 697.jpg" format="webp" quality="60" sizes="40 md:64" alt="Бизнес Сетка" class="w-10 h-10 rounded-lg" />
+            <NuxtImg src="/reference/Frame 697.jpg" format="webp" quality="60" sizes="24 sm:32 md:40 lg:64" alt="Бизнес Сетка" class="w-10 h-10 rounded-lg" />
             <span class="text-sm font-bold tracking-tight text-gray-900">БИЗНЕС СЕТКА</span>
           </a>
 

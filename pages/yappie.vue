@@ -719,17 +719,18 @@ import Button from '~/components/ui/button/Button.vue'
 
 // SEO Meta Tags with useSeoMeta
 useSeoMeta({
-  title: 'Разработка сайтов, чат-ботов и приложений — Yappie',
+  title: 'Разработка сайтов, чат-ботов и приложений — Yappie | artemselifanov.ru',
   ogTitle: 'Разработка сайтов, чат-ботов и приложений — Yappie',
   description: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса. Автоматизируем процессы, увеличиваем эффективность. Бесплатная консультация.',
   ogDescription: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса. Автоматизируем процессы, увеличиваем эффективность.',
-  ogImage: 'https://yappie.ru/og-image.jpg',
+  ogImage: 'https://artemselifanov.ru/og-image.jpg',
+  ogUrl: 'https://artemselifanov.ru/yappie',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Разработка сайтов, чат-ботов и приложений — Yappie',
   twitterDescription: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса',
-  twitterImage: 'https://yappie.ru/og-image.jpg',
+  twitterImage: 'https://artemselifanov.ru/og-image.jpg',
   keywords: 'разработка сайтов, чат-боты, веб-приложения, AI, автоматизация, CRM, Telegram боты, WhatsApp, Nuxt, Vue.js, React',
-  author: 'Yappie',
+  author: 'Артём Селифанов',
   robots: 'index, follow'
 })
 

@@ -801,6 +801,37 @@ import Header from '~/components/layout/Header.vue'
 import MobileMenu from '~/components/layout/MobileMenu.vue'
 import Footer from '~/components/layout/Footer.vue'
 
+// SEO для главной страницы
+useHead({
+  title: 'Артём Селифанов — Личный бренд для предпринимателей и экспертов | Стратегия и упаковка',
+  meta: [
+    {
+      name: 'description',
+      content: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт. Стратегия, упаковка, контент и дистрибуция в Telegram. Бесплатный аудит позиционирования.'
+    },
+    {
+      name: 'keywords',
+      content: 'личный бренд, позиционирование, Telegram, контент-стратегия, предприниматели, эксперты, консультации, наставничество, упаковка профиля, нетворкинг, личный бренд телеграм'
+    },
+    { name: 'robots', content: 'index, follow' },
+    { name: 'author', content: 'Артём Селифанов' },
+    // Open Graph
+    { property: 'og:title', content: 'Артём Селифанов — Личный бренд для предпринимателей и экспертов' },
+    { property: 'og:description', content: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт. Стратегия, упаковка, контент и дистрибуция в Telegram' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:locale', content: 'ru_RU' },
+    { property: 'og:url', content: 'https://artemselifanov.ru' },
+    // Twitter Card
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Артём Селифанов — Личный бренд для предпринимателей и экспертов' },
+    { name: 'twitter:description', content: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт' },
+    { name: 'twitter:url', content: 'https://artemselifanov.ru' }
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://artemselifanov.ru' }
+  ]
+})
+
 const scrolled = ref(false)
 
 // Меню для хедера (без пункта "Создать свой блог")

@@ -3,6 +3,34 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { ArrowRight, Users, Target, Lightbulb, Calendar, MessageCircle, TrendingUp, CheckCircle, Mail, Linkedin, Twitter, Instagram, ExternalLink, Menu, X, ChevronDown } from 'lucide-vue-next'
 import gsap from 'gsap'
 
+// SEO для страницы
+useHead({
+  title: 'Бизнес Сетка — Закрытый клуб предпринимателей | Мастермайнд группа',
+  meta: [
+    {
+      name: 'description',
+      content: 'Закрытое сообщество предпринимателей для обмена опытом и роста. Мастермайнд-группы, бизнес-разборы, нетворкинг. 240+ участников, практические инструменты масштабирования.'
+    },
+    {
+      name: 'keywords',
+      content: 'бизнес сообщество, закрытый клуб, мастермайнд группа, бизнес-разборы, нетворкинг для предпринимателей, обмен опытом, масштабирование бизнеса'
+    },
+    { name: 'robots', content: 'index, follow' },
+    // Open Graph
+    { property: 'og:title', content: 'Бизнес Сетка — Закрытый клуб предпринимателей' },
+    { property: 'og:description', content: 'Сообщество предпринимателей и экспертов, где участники обмениваются опытом, получают поддержку и совместно решают бизнес-задачи' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://artemselifanov.ru/business' },
+    // Twitter Card
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Бизнес Сетка — Закрытый клуб предпринимателей' },
+    { name: 'twitter:description', content: 'Сообщество предпринимателей и экспертов, где участники обмениваются опытом, получают поддержку и совместно решают бизнес-задачи' }
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://artemselifanov.ru/business' }
+  ]
+})
+
 const isMenuOpen = ref(false)
 
 // Прогресс-бар скролла

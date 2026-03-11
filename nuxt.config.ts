@@ -26,7 +26,7 @@ export default defineNuxtConfig({
   },
 
   vite: {
-    base: import.meta.env.DEV ? '/' : '/website1/',
+    base: import.meta.env.DEV ? '/' : '/',
     plugins: [
       tailwindcss()
     ],
@@ -39,7 +39,7 @@ export default defineNuxtConfig({
   },
 
   app: {
-    baseURL: import.meta.env.DEV ? '/' : '/website1/',
+    baseURL: import.meta.env.DEV ? '/' : '/',
   },
 
   alias: {
@@ -48,8 +48,8 @@ export default defineNuxtConfig({
 
   // SEO Site Configuration
   site: {
-    url: 'https://yappiepro.github.io',
-    name: 'Артем Селифанов — Личный бренд для предпринимателей и экспертов',
+    url: 'https://artemselifanov.ru',
+    name: 'Артём Селифанов — Личный бренд для предпринимателей и экспертов',
     description: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт. Стратегия, упаковка, контент и дистрибуция в Telegram и соцсетях.',
     defaultLocale: 'ru'
   },
@@ -108,88 +108,23 @@ export default defineNuxtConfig({
     enabled: true,
     identity: {
       type: 'Organization',
-      name: 'Yappie',
-      url: 'https://yappie.ru',
-      logo: 'https://yappie.ru/logo.png'
+      name: 'Артём Селифанов',
+      url: 'https://artemselifanov.ru',
+      logo: 'https://artemselifanov.ru/logo.png'
     }
   },
   app: {
-    baseURL: '/website1/',
+    baseURL: '/',
     head: {
-      title: 'Артем Селифанов — Личный бренд для предпринимателей и экспертов',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' },
-        { name: 'description', content: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт. Стратегия, упаковка, контент и дистрибуция в Telegram. Бесплатный аудит позиционирования.' },
-        { name: 'keywords', content: 'личный бренд, позиционирование, Telegram, контент-стратегия, предприниматели, эксперты, консультации, наставничество, упаковка профиля' },
-        { name: 'author', content: 'Артем Селифанов' },
-        { name: 'robots', content: 'index, follow' },
-        { name: 'yandex-verification', content: '5dd84e7965966e23' },
-        // Open Graph
-        { property: 'og:title', content: 'Артем Селифанов — Личный бренд для предпринимателей и экспертов' },
-        { property: 'og:description', content: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт' },
-        { property: 'og:type', content: 'website' },
-        { property: 'og:locale', content: 'ru_RU' },
-        { property: 'og:url', content: 'https://yappiepro.github.io/website1' },
-        { property: 'og:site_name', content: 'Артем Селифанов' },
-        // Twitter Card
-        { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: 'Артем Селифанов — Личный бренд для предпринимателей и экспертов' },
-        { name: 'twitter:description', content: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт' }
+        { name: 'author', content: 'Артём Селифанов' },
+        { name: 'yandex-verification', content: '5dd84e7965966e23' }
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/website1/favicon.ico' },
-        { rel: 'canonical', href: 'https://yappiepro.github.io/website1' },
-      ],
-      script: [
-        {
-          type: 'application/ld+json',
-          innerHTML: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@graph': [
-              {
-                '@type': 'Person',
-                '@id': 'https://yappiepro.github.io/website1/#person',
-                name: 'Артем Селифанов',
-                url: 'https://yappiepro.github.io/website1',
-                image: {
-                  '@type': 'ImageObject',
-                  url: 'https://yappiepro.github.io/website1/photo.jpg'
-                },
-                sameAs: [
-                  'https://t.me/artemselifanov'
-                ],
-                jobTitle: 'Специалист по личному бренду',
-                description: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт'
-              },
-              {
-                '@type': 'WebSite',
-                '@id': 'https://yappiepro.github.io/website1/#website',
-                url: 'https://yappiepro.github.io/website1',
-                name: 'Артем Селифанов — Личный бренд для предпринимателей и экспертов',
-                description: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт. Стратегия, упаковка, контент и дистрибуция в Telegram.',
-                inLanguage: 'ru-RU',
-                publisher: {
-                  '@id': 'https://yappiepro.github.io/website1/#person'
-                }
-              },
-              {
-                '@type': 'WebPage',
-                '@id': 'https://yappiepro.github.io/website1/#webpage',
-                url: 'https://yappiepro.github.io/website1',
-                name: 'Артем Селифанов — Личный бренд для предпринимателей и экспертов',
-                description: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт. Стратегия, упаковка, контент и дистрибуция в Telegram и соцсетях.',
-                inLanguage: 'ru-RU',
-                isPartOf: {
-                  '@id': 'https://yappiepro.github.io/website1/#website'
-                },
-                about: {
-                  '@id': 'https://yappiepro.github.io/website1/#person'
-                }
-              }
-            ]
-          })
-        }
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'canonical', href: 'https://artemselifanov.ru' }
       ],
       htmlAttrs: {
         lang: 'ru'

@@ -4,6 +4,8 @@
 </template>
 
 <script setup>
+import CookieBanner from '~/components/layout/CookieBanner.vue'
+
 // Яндекс.Метрика
 useHead({
   script: [

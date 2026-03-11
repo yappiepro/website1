@@ -608,9 +608,13 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           <div v-for="(project, index) in portfolio" :key="index"
                class="group relative rounded-2xl overflow-hidden border border-white/[0.08] hover:border-violet-500/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-violet-500/20 bg-white/[0.02] backdrop-blur-xl">
-            <div class="aspect-video bg-gradient-to-br from-violet-600/20 to-fuchsia-600/20 flex items-center justify-center relative overflow-hidden">
-              <div class="absolute inset-0 bg-gradient-to-t from-[#030305] via-transparent to-transparent opacity-60"></div>
-              <component :is="project.icon" class="h-16 w-16 sm:h-20 sm:w-20 text-white/30 group-hover:scale-110 group-hover:text-white/50 transition-all duration-500" />
+            <div class="aspect-video flex items-center justify-center relative overflow-hidden"
+                 :class="project.hasImage ? 'p-0' : 'bg-gradient-to-br from-violet-600/20 to-fuchsia-600/20'">
+              <NuxtImg v-if="project.hasImage" :src="project.image" :alt="project.title" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" format="webp" quality="80" />
+              <template v-else>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#030305] via-transparent to-transparent opacity-60"></div>
+                <component :is="project.icon" class="h-16 w-16 sm:h-20 sm:w-20 text-white/30 group-hover:scale-110 group-hover:text-white/50 transition-all duration-500" />
+              </template>
             </div>
             <div class="p-4 sm:p-6">
               <h3 class="text-lg sm:text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-2">{{ project.title }}</h3>
@@ -978,12 +982,12 @@ const benefits = ref([
 ])
 
 const portfolio = ref([
-  { icon: MessageSquare, title: 'AI-бот для e-commerce', description: 'Автоматизировал 85% обращений в поддержку', tags: ['Telegram', 'GPT-4', 'E-commerce'] },
-  { icon: Monitor, title: 'CRM для логистики', description: 'Сократили время обработки заказов на 60%', tags: ['Vue.js', 'Node.js', 'AI'] },
-  { icon: Globe, title: 'Маркетплейс услуг', description: 'Платформа с AI-подбором исполнителей', tags: ['Nuxt', 'Python', 'ML'] },
-  { icon: Bot, title: 'Бот для онлайн-школы', description: 'Увеличил конверсию в покупку на 40%', tags: ['Telegram', 'Payments', 'CRM'] },
-  { icon: Code2, title: 'Портал для клиники', description: 'Запись пациентов + AI-консультант', tags: ['React', 'AI', 'Healthcare'] },
-  { icon: Smartphone, title: 'PWA для доставки', description: 'Рост мобильных заказов на 120%', tags: ['PWA', 'Mobile', 'API'] },
+  { image: '/reference/Lost.png', title: 'Сервис по поиску пропавших животных', description: 'Платформа для быстрого поиска потерянных питомцев', tags: ['Bubble', 'JS', 'Figma', 'API Яндекс Карт'], hasImage: true },
+  { image: '/reference/chatbot.png', title: 'Бот для управляющих компаний', description: 'Telegram-бот для приёма и обработки обращений граждан, оповещения о стадиях ремонтных/гарантийных работ, взаимодействия с базой данных сервисной компании', tags: ['n8n', 'JS', 'Telegram API', 'Postgres', 'Веб-приложения', 'Telegram miniapp'], hasImage: true },
+  { image: '/reference/gromish.png', title: 'Интернет-магазин для Instagram-блогера', description: 'Онлайн-магазин изделий из янтаря с интеграцией WhatsApp для связи с клиентами', tags: ['Bubble', 'AWS', 'WhatsApp', 'Веб-приложения'], hasImage: true },
+  { image: '/reference/carusel.png', title: 'Генератор каруселей для Instagram', description: 'Инструмент для быстрой генерации каруселей и обложек для соцсетей с использованием AI', tags: ['HTML', 'JS', 'CSS', 'Веб-приложения'], hasImage: true },
+  { icon: Bot, title: 'AI-транскрибация аудио', description: 'Python-скрипт для транскрибации аудио любой продолжительности в текст с использованием AI', tags: ['Python', 'AI', 'Transcription', 'Веб-приложения'], hasImage: false },
+  { icon: Globe, title: 'Веб-парсер для Яндекс.Поиска', description: 'Анализ сайтов в поисковой выдаче: подбор ключей, определение позиций, анализ текста, извлечение адресов сайтов, проверка на контактные данные, выгрузка в CSV', tags: ['Python', 'Parsing', 'SEO', 'Веб-приложения'], hasImage: false },
 ])
 
 const faqs = ref([

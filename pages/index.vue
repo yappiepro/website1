@@ -1,100 +1,21 @@
 <template>
   <div class="min-h-screen bg-white text-gray-900 antialiased overflow-x-hidden">
-    <!-- Прогресс-бар -->
-    <div class="fixed top-0 left-0 w-full h-1 z-[60] bg-gray-100">
-      <div class="h-full bg-blue-600 transition-all duration-150 ease-out" :style="{ width: scrollProgress + '%' }"></div>
-    </div>
+    <!-- Прогресс-бар скролла -->
+    <ScrollProgress />
 
     <!-- Хедер -->
-    <header :class="[
-      'fixed left-4 right-4 z-40 transition-all duration-300 rounded-2xl',
-      scrolled ? 'bg-transparent backdrop-blur-none shadow-none md:bg-white/60 md:backdrop-blur-xl md:shadow-lg' : 'bg-white/20 backdrop-blur-md shadow-sm',
-      'md:top-0 top-4'
-    ]">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-        <div class="h-14 md:h-16 flex justify-between items-center">
-          <NuxtLink to="/" :class="[
-            'group text-sm font-semibold tracking-tight text-gray-900 transition-all duration-300',
-            scrolled ? 'opacity-0 pointer-events-none md:opacity-100' : 'opacity-100'
-          ]">
-            Артем Селифанов
-          </NuxtLink>
-
-          <nav :class="[
-            'hidden md:flex items-center gap-1 transition-all duration-300',
-            scrolled ? 'opacity-0 pointer-events-none md:opacity-100' : 'opacity-100'
-          ]">
-            <NuxtLink to="/networking" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Нескучный Нетворкинг</NuxtLink>
-            <NuxtLink to="/business" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Бизнес Сетка</NuxtLink>
-            <NuxtLink to="/yappie" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Веб-разработка</NuxtLink>
-            <NuxtLink to="/blog" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Блог</NuxtLink>
-            <NuxtLink to="#services" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Создать свой блог</NuxtLink>
-          </nav>
-
-          <a href="https://t.me/artemselifanov" target="_blank" :class="[
-            'hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-gray-900/90 hover:bg-gray-900 rounded-xl transition-all backdrop-blur-sm',
-            scrolled ? 'opacity-0 pointer-events-none md:opacity-100' : 'opacity-100'
-          ]">
-            <span>Связаться</span>
-          </a>
-
-          <!-- Пустой блок для мобильных чтобы сохранить структуру -->
-          <div class="md:hidden w-10"></div>
-        </div>
-      </div>
-    </header>
-
-    <!-- Кнопка бургера для мобильных (фиксированная, всегда видна) -->
-    <button @click="isMenuOpen = !isMenuOpen" 
-            class="md:hidden fixed top-[28px] right-4 z-50 p-2 bg-white/80 hover:bg-white rounded-xl transition-all backdrop-blur-sm">
-      <Icon name="fa-solid:bars" class="w-6 h-6 text-gray-700" />
-    </button>
+    <Header
+      :menu-items="headerMenuItems"
+      cta-link="https://t.me/artemselifanov"
+      cta-text="Связаться"
+    />
 
     <!-- Мобильное меню -->
-    <Transition
-      enter-active-class="transition duration-300 ease-out"
-      enter-from-class="opacity-0 scale-95"
-      enter-to-class="opacity-100 scale-100"
-      leave-active-class="transition duration-200 ease-in"
-      leave-from-class="opacity-100 scale-95"
-      leave-to-class="opacity-0 scale-95"
-    >
-      <div v-if="isMenuOpen" class="fixed inset-0 z-[100] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 pt-20 px-6">
-        <div class="flex justify-between items-center mb-8">
-          <span class="text-white/60 text-sm font-medium">Навигация</span>
-          <button @click="isMenuOpen = false" class="group p-3 bg-white hover:bg-gray-100 rounded-2xl transition-all backdrop-blur-sm shadow-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style="width: 24px; height: 24px;" fill="currentColor" class="text-gray-900">
-              <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
-            </svg>
-          </button>
-        </div>
-        
-        <nav class="flex flex-col gap-3 max-w-md mx-auto">
-          <NuxtLink v-for="(item, i) in menuItems" :key="i" :to="item.href" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
-            <div class="relative flex items-center justify-between">
-              <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">{{ item.label }}</span>
-              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
-            </div>
-          </NuxtLink>
-
-          <a href="https://t.me/artemselifanov" target="_blank"
-             class="mt-6 group relative overflow-hidden p-5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-2xl transition-all shadow-lg shadow-blue-600/30">
-            <div class="flex items-center justify-center gap-3">
-              <Icon name="fa-brands:telegram" class="w-5 h-5 text-white" />
-              <span class="text-base font-bold text-white">Связаться в Telegram</span>
-            </div>
-          </a>
-        </nav>
-        
-        <!-- Декоративные элементы -->
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl"></div>
-          <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl"></div>
-        </div>
-      </div>
-    </Transition>
+    <MobileMenu
+      :menu-items="mobileMenuItems"
+      cta-link="https://t.me/artemselifanov"
+      cta-text="Связаться в Telegram"
+    />
 
     <!-- 1. HERO SECTION -->
     <section class="relative min-h-screen flex items-center pt-20 px-4 sm:px-6 overflow-hidden bg-gray-50">
@@ -137,22 +58,32 @@
 
           <div class="lg:col-span-4 flex justify-center lg:justify-end image-animate">
             <div class="relative">
-              <!-- Три скриншота рядом -->
-              <div class="relative w-full max-w-xs mx-auto">
-                <div class="flex items-end justify-center gap-1 sm:gap-2">
-                  <!-- Левое фото (Дзен) -->
-                  <div class="w-[70px] sm:w-[100px] md:w-[132px] aspect-[9/19] rounded-[12px] overflow-hidden transform -translate-y-4 shadow-xl">
+              <!-- Пять скриншотов рядом -->
+              <div class="relative w-full max-w-sm mx-auto">
+                <div class="flex items-end justify-center gap-[6.5px]">
+                  <!-- Левое фото 2 (Дзен) -->
+                  <div class="w-[50px] sm:w-[70px] md:w-[90px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl phone-animate" data-position="left-2">
                     <img src="/reference/IMG_7084.jpg" alt="Дзен" class="w-full h-full object-cover" />
                   </div>
 
-                  <!-- Центральное фото (TenChat) -->
-                  <div class="w-[84px] sm:w-[120px] md:w-[154px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl">
+                  <!-- Левое фото 1 (Сетка) -->
+                  <div class="w-[55px] sm:w-[75px] md:w-[100px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl phone-animate" data-position="left-1">
+                    <img src="/reference/IMG_7082.jpg" alt="Сетка" class="w-full h-full object-cover" />
+                  </div>
+
+                  <!-- Центральное фото (IMG_7089) -->
+                  <div class="w-[60px] sm:w-[85px] md:w-[110px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl phone-animate" data-position="center">
+                    <img src="/reference/IMG_7089.jpg" alt="Площадка" class="w-full h-full object-cover" />
+                  </div>
+
+                  <!-- Правое фото 1 (TenChat) -->
+                  <div class="w-[55px] sm:w-[75px] md:w-[100px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl phone-animate" data-position="right-1">
                     <img src="/reference/IMG_7083.jpg" alt="TenChat" class="w-full h-full object-cover" />
                   </div>
 
-                  <!-- Правое фото (Сетка) -->
-                  <div class="w-[70px] sm:w-[100px] md:w-[132px] aspect-[9/19] rounded-[12px] overflow-hidden transform -translate-y-4 shadow-xl">
-                    <img src="/reference/IMG_7082.jpg" alt="Сетка" class="w-full h-full object-cover" />
+                  <!-- Правое фото 2 (IMG_7090) -->
+                  <div class="w-[50px] sm:w-[70px] md:w-[90px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl phone-animate" data-position="right-2">
+                    <img src="/reference/IMG_7090.jpg" alt="Площадка" class="w-full h-full object-cover" />
                   </div>
                 </div>
               </div>
@@ -381,6 +312,69 @@
             </div>
           </div>
         </div>
+
+        <!-- Раздел: Сообщества -->
+        <div class="mt-20 py-12 border-t border-gray-100 animate-on-scroll">
+          <div class="text-center mb-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 border border-blue-100 rounded-xl mb-4 animate-on-scroll delay-100">
+              <Icon name="fa-brands:telegram" class="w-4 h-4 text-blue-600" />
+              <span class="text-xs font-bold text-blue-700 uppercase tracking-wider">Сообщества</span>
+            </div>
+            <h3 class="text-2xl md:text-3xl font-black text-gray-900 mb-3 animate-on-scroll delay-200">Сообщества в Telegram</h3>
+            <p class="text-gray-600 max-w-xl mx-auto animate-on-scroll delay-300">Закрытые сообщества для предпринимателей и экспертов, где вы найдёте полезные связи и окружение для роста</p>
+          </div>
+
+          <div class="flex justify-center gap-6 md:gap-8 animate-on-scroll delay-400">
+            <NuxtLink
+              to="/networking"
+              class="group flex flex-col items-center relative"
+            >
+              <!-- Карточка с цифрами справа сверху -->
+              <div class="absolute -top-2 -right-2 md:-top-3 md:-right-3 z-10">
+                <div class="inline-flex flex-col items-start gap-0 px-2 py-1 bg-green-50 border border-green-200 rounded-lg shadow-sm">
+                  <div class="flex items-center gap-1 leading-none">
+                    <svg class="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z"/>
+                    </svg>
+                    <span class="text-xs font-bold text-green-700">750</span>
+                  </div>
+                  <span class="text-[9px] text-green-600 leading-none mt-0.5">за 6 мес</span>
+                </div>
+              </div>
+              <div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-gray-200 hover:border-gray-400 transition-all hover:shadow-xl hover:-translate-y-1">
+                <NuxtImg src="/reference/networking.jpg" alt="Нескучный Нетворкинг" class="absolute inset-0 w-full h-full object-cover" />
+              </div>
+              <div class="text-center mt-3">
+                <div class="text-sm font-bold text-gray-900">Нескучный Нетворкинг</div>
+                <div class="text-xs text-gray-500">Полезные связи</div>
+              </div>
+            </NuxtLink>
+            <NuxtLink
+              to="/business"
+              class="group flex flex-col items-center relative"
+            >
+              <!-- Карточка с цифрами справа сверху -->
+              <div class="absolute -top-2 -right-2 md:-top-3 md:-right-3 z-10">
+                <div class="inline-flex flex-col items-start gap-0 px-2 py-1 bg-blue-50 border border-blue-200 rounded-lg shadow-sm">
+                  <div class="flex items-center gap-1 leading-none">
+                    <svg class="w-3 h-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z"/>
+                    </svg>
+                    <span class="text-xs font-bold text-blue-700">240</span>
+                  </div>
+                  <span class="text-[9px] text-blue-600 leading-none mt-0.5">за 1,5 мес</span>
+                </div>
+              </div>
+              <div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-gray-200 hover:border-gray-400 transition-all hover:shadow-xl hover:-translate-y-1">
+                <NuxtImg src="/reference/Frame 697.jpg" alt="Бизнес Сетка" class="absolute inset-0 w-full h-full object-cover" />
+              </div>
+              <div class="text-center mt-3">
+                <div class="text-sm font-bold text-gray-900">Бизнес Сетка</div>
+                <div class="text-xs text-gray-500">Закрытый клуб</div>
+              </div>
+            </NuxtLink>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -538,94 +532,44 @@
             <span class="text-xs font-bold text-gray-700 uppercase tracking-wider">Инфраструктура</span>
           </div>
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4">
-            Больше, чем просто маркетинг
+            Экосистема проектов
           </h2>
           <p class="text-xl text-gray-600 max-w-3xl mx-auto">
             Для комплексного роста бизнеса я создал инфраструктуру, которая помогает моим клиентам масштабироваться
           </p>
         </div>
 
-        <!-- Секция 1: Telegram сообщества -->
-        <div class="py-12 border-t border-gray-100 animate-on-scroll">
-          <div class="text-center mb-10">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 border border-blue-100 rounded-xl mb-4 animate-on-scroll delay-100">
-              <Icon name="fa-brands:telegram" class="w-4 h-4 text-blue-600" />
-              <span class="text-xs font-bold text-blue-700 uppercase tracking-wider">Сообщества</span>
+        <!-- Секция: Веб-разработка и Блог -->
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
+          <NuxtLink
+            to="/yappie"
+            class="card-animate group p-8 bg-white border-2 border-gray-200 rounded-[2rem] hover:border-blue-300 hover:shadow-xl transition-all hover:-translate-y-2"
+          >
+            <div class="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mb-6">
+              <Icon name="fa-solid:code" class="w-8 h-8 text-gray-700" />
             </div>
-            <h3 class="text-2xl md:text-3xl font-black text-gray-900 mb-3 animate-on-scroll delay-200">Сообщества в Telegram</h3>
-            <p class="text-gray-600 max-w-xl mx-auto animate-on-scroll delay-300">Закрытые сообщества для предпринимателей и экспертов, где вы найдёте полезные связи и окружение для роста</p>
-          </div>
-
-          <div class="flex justify-center gap-6 md:gap-8 animate-on-scroll delay-400">
-            <NuxtLink
-              to="/networking"
-              class="group flex flex-col items-center"
-            >
-              <div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-gray-200 hover:border-gray-400 transition-all hover:shadow-xl hover:-translate-y-1">
-                <img src="/reference/networking.jpg" alt="Нескучный Нетворкинг" class="absolute inset-0 w-full h-full object-cover" />
-              </div>
-              <div class="text-center mt-3">
-                <div class="text-sm font-bold text-gray-900">Нескучный Нетворкинг</div>
-                <div class="text-xs text-gray-500">Полезные связи</div>
-              </div>
-            </NuxtLink>
-            <NuxtLink
-              to="/networking"
-              class="group flex flex-col items-center"
-            >
-              <div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-gray-200 hover:border-gray-400 transition-all hover:shadow-xl hover:-translate-y-1">
-                <img src="/reference/Frame 697.jpg" alt="Бизнес Сетка" class="absolute inset-0 w-full h-full object-cover" />
-              </div>
-              <div class="text-center mt-3">
-                <div class="text-sm font-bold text-gray-900">Бизнес Сетка</div>
-                <div class="text-xs text-gray-500">Закрытый клуб</div>
-              </div>
-            </NuxtLink>
-          </div>
-        </div>
-
-        <!-- Секция 2: Услуги -->
-        <div class="py-12 border-t border-gray-100 animate-on-scroll">
-          <div class="text-center mb-10">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-purple-50 border border-purple-100 rounded-xl mb-4 animate-on-scroll delay-100">
-              <Icon name="fa-solid:code" class="w-4 h-4 text-purple-600" />
-              <span class="text-xs font-bold text-purple-700 uppercase tracking-wider">Услуги</span>
+            <h3 class="text-2xl font-bold mb-3">Веб-разработка</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-6">Сайты, которые продают, а не просто висят</p>
+            <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide">
+              <span>Посмотреть услуги</span>
+              <Icon name="fa-solid:arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-2" />
             </div>
-            <h3 class="text-2xl md:text-3xl font-black text-gray-900 mb-3 animate-on-scroll delay-200">Услуги для роста вашего бизнеса</h3>
-            <p class="text-gray-600 max-w-xl mx-auto animate-on-scroll delay-300">Разработка и автоматизация для масштабирования вашего бизнеса</p>
-          </div>
+          </NuxtLink>
 
-          <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <NuxtLink
-              to="/yappie"
-              class="card-animate group p-8 bg-white border-2 border-gray-200 rounded-[2rem] hover:border-blue-300 hover:shadow-xl transition-all hover:-translate-y-2"
-            >
-              <div class="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mb-6">
-                <Icon name="fa-solid:code" class="w-8 h-8 text-gray-700" />
-              </div>
-              <h3 class="text-2xl font-bold mb-3">Веб-разработка</h3>
-              <p class="text-sm text-gray-600 leading-relaxed mb-6">Сайты, которые продают, а не просто висят</p>
-              <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide">
-                <span>Посмотреть услуги</span>
-                <Icon name="fa-solid:arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-2" />
-              </div>
-            </NuxtLink>
-
-            <NuxtLink
-              to="/blog"
-              class="card-animate delay-200 group p-8 bg-white border-2 border-gray-200 rounded-[2rem] hover:border-blue-300 hover:shadow-xl transition-all hover:-translate-y-2"
-            >
-              <div class="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mb-6">
-                <Icon name="fa-solid:newspaper" class="w-8 h-8 text-gray-700" />
-              </div>
-              <h3 class="text-2xl font-bold mb-3">Блог</h3>
-              <p class="text-sm text-gray-600 leading-relaxed mb-6">Статьи о разработке, автоматизации и AI для бизнеса</p>
-              <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide">
-                <span>Читать статьи</span>
-                <Icon name="fa-solid:arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-2" />
-              </div>
-            </NuxtLink>
-          </div>
+          <NuxtLink
+            to="/blog"
+            class="card-animate delay-200 group p-8 bg-white border-2 border-gray-200 rounded-[2rem] hover:border-blue-300 hover:shadow-xl transition-all hover:-translate-y-2"
+          >
+            <div class="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mb-6">
+              <Icon name="fa-solid:newspaper" class="w-8 h-8 text-gray-700" />
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Блог</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-6">Статьи о разработке, автоматизации и AI для бизнеса</p>
+            <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide">
+              <span>Читать статьи</span>
+              <Icon name="fa-solid:arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-2" />
+            </div>
+          </NuxtLink>
         </div>
 
         <!-- Секция 3: Полный цикл -->
@@ -642,10 +586,10 @@
 
             <!-- Квадратная схема цикла -->
             <div class="relative max-w-2xl mx-auto animate-on-scroll delay-400">
-              <!-- Сетка 2x2 для мобильных, 3x3 для десктопа -->
-              <div class="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-6">
+              <!-- Сетка 2x2 -->
+              <div class="grid grid-cols-2 gap-2 md:gap-6">
                 <!-- Верхний левый угол: Привлек -->
-                <div class="col-span-1">
+                <div class="col-span-1 relative">
                   <div class="p-2 md:p-5 bg-white border-2 border-blue-200 rounded-2xl text-center shadow-lg w-full">
                     <div class="w-8 h-8 md:w-12 md:h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-1 md:mb-2">
                       <Icon name="fa-solid:bullhorn" class="w-4 h-4 md:w-6 md:h-6 text-blue-600" />
@@ -653,10 +597,14 @@
                     <div class="text-[10px] md:text-base font-bold text-gray-900">Привлек</div>
                     <div class="text-[9px] md:text-xs text-gray-500">Контент</div>
                   </div>
+                  <!-- Стрелка вправо (на Обогрел) -->
+                  <div class="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
+                    <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400" />
+                  </div>
                 </div>
 
                 <!-- Верхний правый угол: Обогрел -->
-                <div class="col-span-1">
+                <div class="col-span-1 relative">
                   <div class="p-2 md:p-5 bg-white border-2 border-purple-200 rounded-2xl text-center shadow-lg w-full">
                     <div class="w-8 h-8 md:w-12 md:h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-1 md:mb-2">
                       <Icon name="fa-solid:heart" class="w-4 h-4 md:w-6 md:h-6 text-purple-600" />
@@ -664,10 +612,14 @@
                     <div class="text-[10px] md:text-base font-bold text-gray-900">Обогрел</div>
                     <div class="text-[9px] md:text-xs text-gray-500">Сообщество</div>
                   </div>
+                  <!-- Стрелка вниз (на Упаковал) -->
+                  <div class="hidden md:block absolute -bottom-3 left-1/2 transform -translate-x-1/2 z-10 rotate-90">
+                    <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400" />
+                  </div>
                 </div>
 
                 <!-- Нижний левый угол: Обработал -->
-                <div class="col-span-1">
+                <div class="col-span-1 relative">
                   <div class="p-2 md:p-5 bg-white border-2 border-orange-200 rounded-2xl text-center shadow-lg w-full">
                     <div class="w-8 h-8 md:w-12 md:h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-1 md:mb-2">
                       <Icon name="fa-solid:cog" class="w-4 h-4 md:w-6 md:h-6 text-orange-600" />
@@ -675,10 +627,14 @@
                     <div class="text-[10px] md:text-base font-bold text-gray-900">Обработал</div>
                     <div class="text-[9px] md:text-xs text-gray-500">Автоматизация</div>
                   </div>
+                  <!-- Стрелка вверх (на Привлек) -->
+                  <div class="hidden md:block absolute -top-3 left-1/2 transform -translate-x-1/2 z-10 -rotate-90">
+                    <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400" />
+                  </div>
                 </div>
 
                 <!-- Нижний правый угол: Упаковал -->
-                <div class="col-span-1">
+                <div class="col-span-1 relative">
                   <div class="p-2 md:p-5 bg-white border-2 border-green-200 rounded-2xl text-center shadow-lg w-full">
                     <div class="w-8 h-8 md:w-12 md:h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-1 md:mb-2">
                       <Icon name="fa-solid:laptop-code" class="w-4 h-4 md:w-6 md:h-6 text-green-600" />
@@ -686,13 +642,16 @@
                     <div class="text-[10px] md:text-base font-bold text-gray-900">Упаковал</div>
                     <div class="text-[9px] md:text-xs text-gray-500">Сайт</div>
                   </div>
+                  <!-- Стрелка влево (на Обработал) -->
+                  <div class="hidden md:block absolute top-1/2 -left-3 transform -translate-y-1/2 z-10 rotate-180">
+                    <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400" />
+                  </div>
                 </div>
               </div>
 
               <!-- Подпись цикла -->
               <div class="flex justify-center items-center gap-2 text-gray-500 mt-4 md:mt-10">
                 <Icon name="fa-solid:rotate" class="w-4 h-4 md:w-5 md:h-5" />
-                <span class="text-[10px] md:text-sm font-medium">цикл замыкается → клиент возвращается</span>
               </div>
             </div>
           </div>
@@ -713,7 +672,7 @@
           </h2>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           <div v-for="(caseItem, index) in cases" :key="index"
                :class="[
                  'card-animate group p-6 md:p-8 bg-white border border-gray-200 rounded-[2rem] hover:border-blue-300 hover:shadow-xl transition-all hover:-translate-y-2',
@@ -817,65 +776,10 @@
     </section>
 
     <!-- 9. FOOTER + CTA -->
-    <footer id="contact" class="py-16 md:py-24 px-4 sm:px-6 border-t border-gray-100 bg-gray-900">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-16 animate-on-scroll">
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-6 animate-on-scroll delay-100">
-            Готовы сделать имя активом?
-          </h2>
-          <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 animate-on-scroll delay-200">
-            Запишитесь на установочную встречу. Разберем вашу ситуацию и наметим план выхода на новый доход.
-          </p>
-          <a href="https://t.me/artemselifanov" target="_blank" class="group inline-flex items-center gap-3 px-10 py-5 text-base font-semibold text-gray-900 bg-white hover:bg-gray-100 rounded-2xl transition-all hover:-translate-y-1 animate-on-scroll delay-300">
-            Записаться на консультацию
-          </a>
-        </div>
-
-        <div class="pt-12 border-t border-gray-800">
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
-            <div class="col-span-2 md:col-span-1">
-              <div class="text-sm font-bold text-white mb-4">Артем Селифанов</div>
-            </div>
-
-            <div>
-              <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Сообщества</h4>
-              <ul class="space-y-3 text-sm">
-                <li><NuxtLink to="/networking" class="text-gray-400 hover:text-white transition-colors">Нескучный Нетворкинг</NuxtLink></li>
-                <li><NuxtLink to="/business" class="text-gray-400 hover:text-white transition-colors">Бизнес Сетка</NuxtLink></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Контакты</h4>
-              <ul class="space-y-3 text-sm">
-                <li><a href="https://t.me/artemselifanov" target="_blank" class="text-gray-400 hover:text-white transition-colors">Telegram</a></li>
-                <li><a href="https://wa.me/79991234567" target="_blank" class="text-gray-400 hover:text-white transition-colors">WhatsApp</a></li>
-                <li><a href="mailto:email@example.com" class="text-gray-400 hover:text-white transition-colors">Email</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Соцсети</h4>
-              <div class="flex gap-3">
-                <a v-for="(network, index) in socialNetworks.slice(0, 4)" :key="index"
-                   :href="network.link" target="_blank"
-                   class="w-11 h-11 bg-gray-800 hover:bg-gray-700 rounded-xl flex items-center justify-center transition-all">
-                  <Icon :name="`fa-brands:${network.icon}`" class="w-5 h-5 text-gray-400" />
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="text-xs text-gray-500">© 2025 Артем Селифанов. Все права защищены.</div>
-            <div class="flex gap-6">
-              <NuxtLink to="/yappie" class="text-xs text-gray-500 hover:text-white transition-colors">Политика конфиденциальности</NuxtLink>
-              <NuxtLink to="/yappie" class="text-xs text-gray-500 hover:text-white transition-colors">Договор оферты</NuxtLink>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <Footer
+      :social-networks="socialNetworks"
+      cta-link="https://t.me/artemselifanov"
+    />
 
     <!-- Кнопка наверх (фиксированная, видна при скролле) -->
     <button @click="scrollToTop"
@@ -892,10 +796,39 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import ScrollProgress from '~/components/layout/ScrollProgress.vue'
+import Header from '~/components/layout/Header.vue'
+import MobileMenu from '~/components/layout/MobileMenu.vue'
+import Footer from '~/components/layout/Footer.vue'
 
-const isMenuOpen = ref(false)
 const scrolled = ref(false)
-const scrollProgress = ref(0)
+
+// Меню для хедера (без пункта "Создать свой блог")
+const headerMenuItems = [
+  { href: '/networking', label: 'Нескучный Нетворкинг' },
+  { href: '/business', label: 'Бизнес Сетка' },
+  { href: '/yappie', label: 'Веб-разработка' },
+  { href: '/blog', label: 'Блог' },
+  { href: '/study', label: 'Создать свой блог' }
+]
+
+// Меню для мобильного меню (без пункта "Создать свой блог")
+const mobileMenuItems = [
+  { href: '/', label: 'Главная' },
+  { href: '/networking', label: 'Нескучный Нетворкинг' },
+  { href: '/business', label: 'Бизнес Сетка' },
+  { href: '/yappie', label: 'Веб-разработка' },
+  { href: '/blog', label: 'Блог' },
+  { href: '/study', label: 'Создать свой блог' }
+]
+
+const socialNetworks = [
+  { name: 'Telegram', icon: 'telegram', link: 'https://t.me/artemselifanov' },
+  { name: 'YouTube', icon: 'youtube', link: 'https://youtube.com' },
+  { name: 'ВК', icon: 'vk', link: 'https://vk.com' },
+  { name: 'Instagram', icon: 'instagram', link: 'https://instagram.com' },
+  { name: 'TenChat', icon: 'linkedin', link: 'https://tenchat.ru' }
+]
 
 // Intersection Observer для анимаций
 const animatedElements = ref([])
@@ -922,22 +855,6 @@ function initScrollAnimations() {
     animatedElements.value.push(el)
   })
 }
-
-const menuItems = [
-  { href: '/networking', label: 'Нескучный Нетворкинг' },
-  { href: '/business', label: 'Бизнес Сетка' },
-  { href: '/yappie', label: 'Веб-разработка' },
-  { href: '/blog', label: 'Блог' },
-  { href: '#services', label: 'Создать свой блог' }
-]
-
-const socialNetworks = [
-  { name: 'Telegram', icon: 'telegram', link: 'https://t.me/artemselifanov' },
-  { name: 'YouTube', icon: 'youtube', link: 'https://youtube.com' },
-  { name: 'ВК', icon: 'vk', link: 'https://vk.com' },
-  { name: 'Instagram', icon: 'instagram', link: 'https://instagram.com' },
-  { name: 'TenChat', icon: 'linkedin', link: 'https://tenchat.ru' }
-]
 
 const trafficSources = [
   { name: 'ТенЧат' },
@@ -1091,9 +1008,6 @@ const workSteps = [
 
 function handleScroll() {
   scrolled.value = window.scrollY > 20
-  const scrollTop = window.scrollY
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight
-  scrollProgress.value = (scrollTop / docHeight) * 100
 }
 
 function scrollToTop() {
@@ -1258,4 +1172,95 @@ html {
   opacity: 1;
   transform: scale(1);
 }
+
+/* Анимация появления телефонов из одной точки */
+.phone-animate {
+  opacity: 0;
+  transform-origin: center bottom;
+  animation: phoneExpand 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Центр - без смещения */
+.phone-animate[data-position="center"] {
+  animation-name: phoneExpandCenter;
+  animation-delay: 0.3s;
+}
+
+/* Левые - смещение влево и вверх */
+.phone-animate[data-position="left-1"] {
+  animation-name: phoneExpandLeft1;
+  animation-delay: 0.2s;
+}
+
+.phone-animate[data-position="left-2"] {
+  animation-name: phoneExpandLeft2;
+  animation-delay: 0.1s;
+}
+
+/* Правые - смещение вправо и вверх */
+.phone-animate[data-position="right-1"] {
+  animation-name: phoneExpandRight1;
+  animation-delay: 0.4s;
+}
+
+.phone-animate[data-position="right-2"] {
+  animation-name: phoneExpandRight2;
+  animation-delay: 0.5s;
+}
+
+@keyframes phoneExpandCenter {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes phoneExpandLeft1 {
+  0% {
+    opacity: 0;
+    transform: translateX(3.5px) scale(0.3);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(-12px) scale(1);
+  }
+}
+
+@keyframes phoneExpandLeft2 {
+  0% {
+    opacity: 0;
+    transform: translateX(6.5px) scale(0.3);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(-24px) scale(1);
+  }
+}
+
+@keyframes phoneExpandRight1 {
+  0% {
+    opacity: 0;
+    transform: translateX(-3.5px) scale(0.3);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(-12px) scale(1);
+  }
+}
+
+@keyframes phoneExpandRight2 {
+  0% {
+    opacity: 0;
+    transform: translateX(-6.5px) scale(0.3);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(-24px) scale(1);
+  }
+}
+
 </style>

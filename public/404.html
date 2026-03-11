@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Страница не найдена — 404 | Артём Селифанов</title>
+  <meta name="description" content="Упс! Эта страница решила уйти в свободное плавание. Но у нас есть блог с полезными статьями!">
+  <meta name="robots" content="noindex, follow">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Страница не найдена — 404">
+  <meta property="og:description" content="Эта страница ушла в закат. Но в блоге вас ждут 26+ статей о разработке и AI!">
+  <meta property="og:type" content="error_page">
+  <meta property="og:url" content="https://artemselifanov.ru/404">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Страница не найдена — 404">
+  <meta name="twitter:description" content="Эта страница ушла в закат. Но в блоге вас ждут 26+ статей!">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://artemselifanov.ru/404">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: #ffffff;
+      color: #111827;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e5e7eb;
+      z-index: 50;
+    }
+    
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'Syncopate', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #111827;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .logo-icon {
+      width: 2rem;
+      height: 2rem;
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      border-radius: 0.5rem;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    
+    .nav-links a {
+      color: #4b5563;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    
+    .nav-links a:hover {
+      color: #111827;
+    }
+    
+    .nav-cta {
+      background: #111827;
+      color: #ffffff !important;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    
+    .nav-cta:hover {
+      background: #1f2937;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      padding: 0.5rem;
+      color: #374151;
+      cursor: pointer;
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+    }
+    
+    /* Main content */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8rem 1.5rem 3rem;
+    }
+    
+    .container {
+      max-width: 768px;
+      text-align: center;
+    }
+    
+    .error-code {
+      font-size: 8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+    
+    @media (min-width: 640px) {
+      .error-code {
+        font-size: 10rem;
+      }
+    }
+    
+    .error-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    
+    @media (min-width: 640px) {
+      .error-title {
+        font-size: 1.875rem;
+      }
+    }
+    
+    .error-description {
+      color: #4b5563;
+      font-size: 1rem;
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+    
+    @media (min-width: 640px) {
+      .error-description {
+        font-size: 1.125rem;
+      }
+    }
+    
+    .blog-highlight {
+      background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 100%);
+      border: 2px solid #a78bfa;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .blog-highlight-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 0.5rem;
+    }
+    
+    .blog-highlight-text {
+      color: #4b5563;
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+    
+    .blog-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    
+    .stat {
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .stat-label {
+      font-size: 0.75rem;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 0.25rem;
+    }
+    
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    
+    @media (min-width: 640px) {
+      .actions {
+        flex-direction: row;
+      }
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.5rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      font-size: 0.875rem;
+    }
+    
+    @media (min-width: 640px) {
+      .btn {
+        font-size: 1rem;
+        padding: 1rem 2rem;
+      }
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      color: #ffffff;
+      box-shadow: 0 10px 15px -3px rgba(124, 58, 237, 0.3);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 25px -5px rgba(124, 58, 237, 0.4);
+    }
+    
+    .btn-secondary {
+      background: #f3f4f6;
+      color: #374151;
+    }
+    
+    .btn-secondary:hover {
+      background: #e5e7eb;
+      transform: translateY(-2px);
+    }
+    
+    .popular-articles {
+      max-width: 768px;
+      margin: 3rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid #e5e7eb;
+    }
+    
+    .popular-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    .articles-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    
+    @media (min-width: 640px) {
+      .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    .article-card {
+      padding: 1rem;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.75rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    
+    .article-card:hover {
+      border-color: #a78bfa;
+      background: #f5f3ff;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(124, 58, 237, 0.1);
+    }
+    
+    .article-category {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #7c3aed;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    
+    .article-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #111827;
+      line-height: 1.4;
+    }
+    
+    .footer-note {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      color: #6b7280;
+      font-size: 0.875rem;
+    }
+    
+    .footer-note a {
+      color: #7c3aed;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    .footer-note a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="/" class="logo">
+        <div class="logo-icon"></div>
+        Артём Селифанов
+      </a>
+      
+      <div class="nav-links">
+        <a href="/">Главная</a>
+        <a href="/networking">Нескучный Нетворкинг</a>
+        <a href="/business">Бизнес Сетка</a>
+        <a href="/yappie">Веб-разработка</a>
+        <a href="/blog">Блог</a>
+        <a href="https://t.me/artemselifanov" target="_blank" class="nav-cta">Связаться</a>
+      </div>
+      
+      <button class="mobile-menu-btn" aria-label="Открыть меню">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <div class="error-code">404</div>
+      <h1 class="error-title">
+        Упс! Эта страница решила уйти в свободное плавание 🏴‍☠️
+      </h1>
+      <p class="error-description">
+        Похоже, вы забрели не туда. Страница, которую вы искали, не существует или была перемещена. 
+        Но не переживайте — у нас есть кое-что получше!
+      </p>
+
+      <div class="blog-highlight">
+        <h2 class="blog-highlight-title">📚 Добро пожаловать в блог!</h2>
+        <p class="blog-highlight-text">
+          Пока вы тут блуждаете, в блоге вас ждут <strong>26+ статей</strong> о разработке сайтов, 
+          веб-приложений, мобильной разработке и искусственном интеллекте для бизнеса.
+        </p>
+        <div class="blog-stats">
+          <div class="stat">
+            <div class="stat-number">26+</div>
+            <div class="stat-label">Статей</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">5</div>
+            <div class="stat-label">Кластеров</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Пользы</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a href="/blog" class="btn btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+          </svg>
+          Перейти в блог
+        </a>
+        <a href="/" class="btn btn-secondary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          На главную
+        </a>
+      </div>
+
+      <div class="popular-articles">
+        <h2 class="popular-title">Популярные статьи</h2>
+        <div class="articles-grid">
+          <a href="/blog/razrabotka-sayta-pod-klyuch" class="article-card">
+            <div class="article-category">Разработка сайтов</div>
+            <div class="article-title">Разработка сайта под ключ: полное руководство по этапам, срокам и стоимости</div>
+          </a>
+          <a href="/blog/skolko-stoit-razrabotka-sayta" class="article-card">
+            <div class="article-category">Разработка сайтов</div>
+            <div class="article-title">Сколько стоит разработка сайта в 2025 году</div>
+          </a>
+          <a href="/blog/kak-sozdat-mobilnoe-prilozhenie" class="article-card">
+            <div class="article-category">Мобильные приложения</div>
+            <div class="article-title">Как создать мобильное приложение: полное руководство</div>
+          </a>
+          <a href="/blog/ii-dlya-biznesa" class="article-card">
+            <div class="article-category">Искусственный интеллект</div>
+            <div class="article-title">Искусственный интеллект для бизнеса: возможности и перспективы</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="footer-note">
+    Остались вопросы? <a href="https://t.me/artemselifanov" target="_blank">Напишите в Telegram</a>
+  </div>
+</body>
+</html>

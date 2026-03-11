@@ -120,7 +120,32 @@
           <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
             Блог
           </h1>
+          <p class="text-lg text-gray-600">
+            Статьи о разработке сайтов, создании веб-приложений, мобильной разработке и AI для бизнеса
+          </p>
         </header>
+
+        <!-- Ссылки на кластеры -->
+        <div class="mb-8">
+          <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">
+            Разделы блога
+          </h2>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <NuxtLink
+              v-for="cluster in clusters"
+              :key="cluster"
+              :href="`/blog/cluster/${cluster}`"
+              class="group p-4 bg-white rounded-xl border border-gray-200 hover:border-violet-300 hover:shadow-md transition-all"
+            >
+              <span :class="`text-xs font-semibold mb-1 block ${getClusterName(cluster) === 'Разработка сайтов' ? 'text-violet-600' : getClusterName(cluster) === 'Создание сайтов' ? 'text-blue-600' : getClusterName(cluster) === 'Мобильные приложения' ? 'text-green-600' : getClusterName(cluster) === 'Веб-разработка' ? 'text-orange-600' : 'text-pink-600'}`">
+                {{ getClusterName(cluster) }}
+              </span>
+              <span class="text-xs text-gray-500">
+                {{ getArticlesByCluster(cluster).length }} статей
+              </span>
+            </NuxtLink>
+          </div>
+        </div>
 
         <!-- Фильтры по кластерам -->
         <div class="flex flex-wrap gap-2 mb-6">
@@ -266,7 +291,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { ArrowRight } from 'lucide-vue-next'
-import { articles, formatDate, getClusters, getClusterName, getClusterColor, getRandomArticles } from '~/data/blog.js'
+import { articles, formatDate, getClusters, getClusterName, getClusterColor, getRandomArticles, getArticlesByCluster } from '~/data/blog.js'
 
 const config = useRuntimeConfig()
 const baseURL = import.meta.env.DEV ? '/' : config.app.baseURL

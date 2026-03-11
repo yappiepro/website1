@@ -805,35 +805,58 @@ import MobileMenu from '~/components/layout/MobileMenu.vue'
 import Footer from '~/components/layout/Footer.vue'
 
 // SEO для главной страницы
-useHead({
+useSeoMeta({
   title: 'Артём Селифанов — Личный бренд для предпринимателей и экспертов | Стратегия и упаковка',
-  meta: [
-    {
-      name: 'description',
-      content: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт. Стратегия, упаковка, контент и дистрибуция в Telegram. Бесплатный аудит позиционирования.'
-    },
-    {
-      name: 'keywords',
-      content: 'личный бренд, позиционирование, Telegram, контент-стратегия, предприниматели, эксперты, консультации, наставничество, упаковка профиля, нетворкинг, личный бренд телеграм'
-    },
-    { name: 'robots', content: 'index, follow' },
-    { name: 'author', content: 'Артём Селифанов' },
-    // Open Graph
-    { property: 'og:title', content: 'Артём Селифанов — Личный бренд для предпринимателей и экспертов' },
-    { property: 'og:description', content: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт. Стратегия, упаковка, контент и дистрибуция в Telegram' },
-    { property: 'og:type', content: 'website' },
-    { property: 'og:locale', content: 'ru_RU' },
-    { property: 'og:url', content: 'https://artemselifanov.ru' },
-    // Twitter Card
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Артём Селифанов — Личный бренд для предпринимателей и экспертов' },
-    { name: 'twitter:description', content: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт' },
-    { name: 'twitter:url', content: 'https://artemselifanov.ru' }
-  ],
+  description: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт. Стратегия, упаковка, контент и дистрибуция в Telegram. Бесплатный аудит позиционирования.',
+  keywords: 'личный бренд, позиционирование, Telegram, контент-стратегия, предприниматели, эксперты, консультации, наставничество, упаковка профиля, нетворкинг, личный бренд телеграм',
+  author: 'Артём Селифанов',
+  robots: 'index, follow',
+  ogTitle: 'Артём Селифанов — Личный бренд для предпринимателей и экспертов',
+  ogDescription: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт. Стратегия, упаковка, контент и дистрибуция в Telegram',
+  ogType: 'website',
+  ogLocale: 'ru_RU',
+  ogUrl: 'https://artemselifanov.ru',
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Артём Селифанов — Личный бренд для предпринимателей и экспертов',
+  twitterDescription: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт',
+  twitterUrl: 'https://artemselifanov.ru'
+})
+
+useHead({
   link: [
     { rel: 'canonical', href: 'https://artemselifanov.ru' }
   ]
 })
+
+// Schema.org разметка
+useSchemaOrg([
+  defineOrganization({
+    name: 'Артём Селифанов',
+    url: 'https://artemselifanov.ru',
+    logo: 'https://artemselifanov.ru/logo.png',
+    sameAs: ['https://t.me/artemselifanov'],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+7-953-548-73-23',
+      contactType: 'customer service',
+      areaServed: 'RU',
+      availableLanguage: ['Russian']
+    },
+    email: 'a9535487323@yandex.ru'
+  }),
+  defineWebSite({
+    name: 'Артём Селифанов — Личный бренд для предпринимателей и экспертов',
+    url: 'https://artemselifanov.ru',
+    description: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт',
+    inLanguage: 'ru-RU'
+  }),
+  defineWebPage({
+    '@type': 'WebPage',
+    name: 'Артём Селифанов — Личный бренд для предпринимателей и экспертов',
+    description: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт. Стратегия, упаковка, контент и дистрибуция в Telegram',
+    url: 'https://artemselifanov.ru'
+  })
+])
 
 const scrolled = ref(false)
 

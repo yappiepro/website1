@@ -125,3 +125,15 @@ export function getRandomArticles(count = 10) {
   const shuffled = [...articles].sort(() => Math.random() - 0.5)
   return shuffled.slice(0, count)
 }
+
+// Функция для получения связанных статей (по тому же кластеру)
+export function getRelatedArticles(currentSlug, cluster, limit = 3) {
+  return articles
+    .filter(a => a.slug !== currentSlug && a.cluster === cluster)
+    .slice(0, limit)
+}
+
+// Функция для получения статей по категории
+export function getArticlesByCategory(category) {
+  return articles.filter(a => a.category === category)
+}

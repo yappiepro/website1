@@ -103,6 +103,18 @@
     <article class="pt-24 pb-16 px-4 sm:px-6">
       <div class="max-w-3xl mx-auto w-full overflow-x-hidden touch-pan-y">
         <header class="mb-8 sm:mb-12">
+          <!-- Хлебные крошки -->
+          <div class="mb-6">
+            <Breadcrumbs
+              :items="[
+                { label: 'Главная', href: '/' },
+                { label: 'Блог', href: '/blog' },
+                { label: article?.category || 'Статья', href: article?.cluster ? `/blog#${article.cluster}` : undefined },
+                { label: article?.title || '' }
+              ]"
+            />
+          </div>
+
           <div class="flex items-center gap-3 mb-4">
             <span
               v-if="article?.category"
@@ -132,6 +144,29 @@
         />
 
         <div class="prose prose-lg prose-violet max-w-none" v-html="article?.content"></div>
+
+        <!-- Блок «Читать также» -->
+        <div v-if="relatedArticles.length > 0" class="mt-12 pt-8 border-t border-gray-200">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Читать также</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <NuxtLink
+              v-for="related in relatedArticles"
+              :key="related.slug"
+              :href="`/blog/${related.slug}`"
+              class="group p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-all border border-gray-200 hover:border-violet-300"
+            >
+              <span class="text-xs font-medium text-violet-600 mb-2 block">
+                {{ related.category }}
+              </span>
+              <h3 class="text-base font-semibold text-gray-900 group-hover:text-violet-700 line-clamp-2">
+                {{ related.title }}
+              </h3>
+              <p class="text-sm text-gray-500 mt-2 line-clamp-2">
+                {{ related.description }}
+              </p>
+            </NuxtLink>
+          </div>
+        </div>
       </div>
     </article>
 
@@ -161,8 +196,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { getArticleBySlug, formatDate } from '~/data/blog.js'
+import { ref, computed } from 'vue'
+import { getArticleBySlug, formatDate, getRelatedArticles } from '~/data/blog.js'
 
 const config = useRuntimeConfig()
 const baseURL = config.app.baseURL
@@ -171,6 +206,12 @@ const route = useRoute()
 const slug = route.params.slug
 const article = getArticleBySlug(Array.isArray(slug) ? slug[0] : slug)
 
+// Связанные статьи
+const relatedArticles = computed(() => {
+  if (!article) return []
+  return getRelatedArticles(article.slug, article.cluster, 3)
+})
+
 if (!article) {
   throw createError({
     statusCode: 404,
@@ -178,14 +219,58 @@ if (!article) {
   })
 }
 
+// SEO для статьи
 useSeoMeta({
   title: article.title ? `${article.title} — Yappie` : 'Статья — Yappie',
   description: article.description || '',
+  keywords: article.category ? `${article.category}, ${article.cluster}` : '',
+  author: 'Артём Селифанов',
+  robots: 'index, follow',
   ogTitle: article.title || '',
   ogDescription: article.description || '',
-  ogImage: article.image || '',
-  articlePublishedTime: article.date || ''
+  ogType: 'article',
+  ogImage: article.image || 'https://artemselifanov.ru/og-image.jpg',
+  articlePublishedTime: article.date || '',
+  articleSection: article.category || '',
+  twitterCard: 'summary_large_image',
+  twitterTitle: article.title || '',
+  twitterDescription: article.description || ''
 })
+
+useHead({
+  link: [
+    { rel: 'canonical', href: `https://artemselifanov.ru/blog/${article.slug}` }
+  ]
+})
+
+// Schema.org для статьи
+useSchemaOrg([
+  defineArticle({
+    '@type': 'Article',
+    headline: article.title,
+    description: article.description,
+    datePublished: article.date,
+    dateModified: article.date,
+    author: {
+      '@type': 'Person',
+      name: 'Артём Селифанов',
+      url: 'https://artemselifanov.ru'
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Yappie',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://artemselifanov.ru/logo.png'
+      }
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://artemselifanov.ru/blog/${article.slug}`
+    },
+    articleBody: article.content?.replace(/<[^>]*>/g, '').slice(0, 500) || ''
+  })
+])
 </script>
 
 <style>

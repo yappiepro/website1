@@ -4,32 +4,40 @@ import { ArrowRight, Users, Target, Lightbulb, Calendar, MessageCircle, Trending
 import gsap from 'gsap'
 
 // SEO для страницы
-useHead({
+useSeoMeta({
   title: 'Бизнес Сетка — Закрытый клуб предпринимателей | Мастермайнд группа',
-  meta: [
-    {
-      name: 'description',
-      content: 'Закрытое сообщество предпринимателей для обмена опытом и роста. Мастермайнд-группы, бизнес-разборы, нетворкинг. 240+ участников, практические инструменты масштабирования.'
-    },
-    {
-      name: 'keywords',
-      content: 'бизнес сообщество, закрытый клуб, мастермайнд группа, бизнес-разборы, нетворкинг для предпринимателей, обмен опытом, масштабирование бизнеса'
-    },
-    { name: 'robots', content: 'index, follow' },
-    // Open Graph
-    { property: 'og:title', content: 'Бизнес Сетка — Закрытый клуб предпринимателей' },
-    { property: 'og:description', content: 'Сообщество предпринимателей и экспертов, где участники обмениваются опытом, получают поддержку и совместно решают бизнес-задачи' },
-    { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: 'https://artemselifanov.ru/business' },
-    // Twitter Card
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Бизнес Сетка — Закрытый клуб предпринимателей' },
-    { name: 'twitter:description', content: 'Сообщество предпринимателей и экспертов, где участники обмениваются опытом, получают поддержку и совместно решают бизнес-задачи' }
-  ],
+  description: 'Закрытое сообщество предпринимателей для обмена опытом и роста. Мастермайнд-группы, бизнес-разборы, нетворкинг. 240+ участников, практические инструменты масштабирования.',
+  keywords: 'бизнес сообщество, закрытый клуб, мастермайнд группа, бизнес-разборы, нетворкинг для предпринимателей, обмен опытом, масштабирование бизнеса',
+  robots: 'index, follow',
+  ogTitle: 'Бизнес Сетка — Закрытый клуб предпринимателей',
+  ogDescription: 'Сообщество предпринимателей и экспертов, где участники обмениваются опытом, получают поддержку и совместно решают бизнес-задачи',
+  ogType: 'website',
+  ogUrl: 'https://artemselifanov.ru/business',
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Бизнес Сетка — Закрытый клуб предпринимателей',
+  twitterDescription: 'Сообщество предпринимателей и экспертов, где участники обмениваются опытом, получают поддержку и совместно решают бизнес-задачи'
+})
+
+useHead({
   link: [
     { rel: 'canonical', href: 'https://artemselifanov.ru/business' }
   ]
 })
+
+// Schema.org разметка
+useSchemaOrg([
+  defineOrganization({
+    name: 'Бизнес Сетка',
+    url: 'https://artemselifanov.ru/business',
+    description: 'Закрытый клуб предпринимателей для обмена опытом и роста'
+  }),
+  defineWebPage({
+    '@type': 'WebPage',
+    name: 'Бизнес Сетка — Закрытый клуб предпринимателей',
+    description: 'Закрытое сообщество предпринимателей для обмена опытом и роста. Мастермайнд-группы, бизнес-разборы, нетворкинг.',
+    url: 'https://artemselifanov.ru/business'
+  })
+])
 
 const isMenuOpen = ref(false)
 

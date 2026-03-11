@@ -3,32 +3,40 @@ import { ref, onMounted } from 'vue'
 import { ArrowRight, Mail, MapPin, Calendar, Users, TrendingUp, Target, Zap, BookOpen, MessageCircle, Check, ExternalLink, Menu, X, Video } from 'lucide-vue-next'
 
 // SEO для страницы
-useHead({
+useSeoMeta({
   title: 'Нескучный Нетворкинг — Сообщество предпринимателей и экспертов | Артём Селифанов',
-  meta: [
-    {
-      name: 'description',
-      content: 'Закрытое сообщество предпринимателей и экспертов. Нетворкинг, обмен опытом, мастермайнд-группы. 750+ участников, регулярные встречи, поддержка единомышленников.'
-    },
-    {
-      name: 'keywords',
-      content: 'нетворкинг, сообщество предпринимателей, бизнес-клуб, мастермайнд, обмен опытом, нетворкинг мероприятия, бизнес-сообщество, предприниматели'
-    },
-    { name: 'robots', content: 'index, follow' },
-    // Open Graph
-    { property: 'og:title', content: 'Нескучный Нетворкинг — Сообщество предпринимателей и экспертов' },
-    { property: 'og:description', content: 'Закрытое сообщество для предпринимателей и экспертов, где вы найдёте полезные связи и окружение для роста' },
-    { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: 'https://artemselifanov.ru/networking' },
-    // Twitter Card
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Нескучный Нетворкинг — Сообщество предпринимателей и экспертов' },
-    { name: 'twitter:description', content: 'Закрытое сообщество для предпринимателей и экспертов, где вы найдёте полезные связи и окружение для роста' }
-  ],
+  description: 'Закрытое сообщество предпринимателей и экспертов. Нетворкинг, обмен опытом, мастермайнд-группы. 750+ участников, регулярные встречи, поддержка единомышленников.',
+  keywords: 'нетворкинг, сообщество предпринимателей, бизнес-клуб, мастермайнд, обмен опытом, нетворкинг мероприятия, бизнес-сообщество, предприниматели',
+  robots: 'index, follow',
+  ogTitle: 'Нескучный Нетворкинг — Сообщество предпринимателей и экспертов',
+  ogDescription: 'Закрытое сообщество для предпринимателей и экспертов, где вы найдёте полезные связи и окружение для роста',
+  ogType: 'website',
+  ogUrl: 'https://artemselifanov.ru/networking',
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Нескучный Нетворкинг — Сообщество предпринимателей и экспертов',
+  twitterDescription: 'Закрытое сообщество для предпринимателей и экспертов, где вы найдёте полезные связи и окружение для роста'
+})
+
+useHead({
   link: [
     { rel: 'canonical', href: 'https://artemselifanov.ru/networking' }
   ]
 })
+
+// Schema.org разметка
+useSchemaOrg([
+  defineOrganization({
+    name: 'Нескучный Нетворкинг',
+    url: 'https://artemselifanov.ru/networking',
+    description: 'Закрытое сообщество предпринимателей и экспертов для нетворкинга и обмена опытом'
+  }),
+  defineWebPage({
+    '@type': 'WebPage',
+    name: 'Нескучный Нетворкинг — Сообщество предпринимателей и экспертов',
+    description: 'Закрытое сообщество предпринимателей и экспертов. Нетворкинг, обмен опытом, мастермайнд-группы.',
+    url: 'https://artemselifanov.ru/networking'
+  })
+])
 
 const isMobileMenuOpen = ref(false)
 

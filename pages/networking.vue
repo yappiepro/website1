@@ -189,7 +189,7 @@ const author = {
   role: 'Маркетолог, блогер, нетворкер',
   bio: 'Без личного бренда сейчас фактически не реально продвигать себя как эксперта. Единственный источник трафика — это контент-маркетинг. И если его освоить, вы всегда будете с клиентами.',
   stats: { audience: '45 000+', experience: '5+ лет', events: '10+' },
-  image: '/reference/artem.jpg',
+  image: '/reference/networking.jpg',
   platforms: ['Сетка', 'TenChat', 'Telegram', 'Дзен', 'Threads']
 }
 
@@ -464,12 +464,11 @@ function toggleFaq(index) {
         <div class="grid md:grid-cols-[2fr_1fr] gap-8 md:gap-12 items-start">
           <div>
             <div class="text-xs uppercase tracking-wider mb-2">КЕЙС // 01</div>
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.85] tracking-tighter mb-6">
-              НЕСКУЧНЫЙ<br/>
-              НЕТВОРКИНГ — сообщество для личного бренда<br/>
-              предпринимателей и экспертов
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-black leading-[1.2] tracking-tight mb-6">
+              НЕСКУЧНЫЙ НЕТВОРКИНГ —<br/>
+              сообщество для личного бренда
             </h1>
-            <p class="text-lg md:text-xl text-gray-700 max-w-xl leading-relaxed">
+            <p class="text-base md:text-lg text-gray-700 max-w-xl leading-relaxed">
               Сообщество для развития личного бренда через контент-маркетинг в социальных сетях
             </p>
           </div>
@@ -760,12 +759,13 @@ function toggleFaq(index) {
               <!-- Фото -->
               <div class="flex-shrink-0">
                 <div class="w-32 h-32 md:w-40 md:h-40 border-2 border-black bg-gray-100 overflow-hidden">
-                  <img
+                  <NuxtImg
                     :src="author.image"
+                    format="webp"
+                    quality="70"
                     alt="Артём Селифанов — маркетолог, блогер, нетворкер, автор сообщества Нескучный Нетворкинг"
                     class="w-full h-full object-cover object-center"
                     style="object-position: center 10%"
-                    @error="$event.target.style.display='none'"
                   />
                 </div>
               </div>

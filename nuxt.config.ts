@@ -172,6 +172,22 @@ export default defineNuxtConfig({
         { rel: 'preconnect', href: 'https://code.jquery.com', crossorigin: true },
         { rel: 'dns-prefetch', href: 'https://api.iconify.design' }
       ],
+      script: [
+        // Google Analytics 4
+        {
+          src: 'https://www.googletagmanager.com/gtag/js?id=G-G4T213B4HD',
+          async: true
+        },
+        {
+          innerHTML: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-G4T213B4HD');
+          `,
+          type: 'text/javascript'
+        }
+      ],
       htmlAttrs: {
         lang: 'ru'
       }

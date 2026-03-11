@@ -13,6 +13,7 @@
     </nav>
 
     <!-- Контент -->
+    <main role="main">
     <article class="pt-32 pb-20 px-4 sm:px-6">
       <div class="max-w-4xl mx-auto">
         <!-- Секция 1: Согласие на обработку ПД -->
@@ -165,6 +166,7 @@
         </section>
       </div>
     </article>
+    </main>
 
     <!-- Footer -->
     <footer class="py-8 px-4 sm:px-6 border-t border-gray-200">

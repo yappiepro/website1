@@ -407,6 +407,8 @@ function toggleFaq(index) {
       </nav>
     </div>
 
+    <!-- Основной контент -->
+    <main role="main">
     <!-- Hero секция -->
     <section id="about" class="pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6 border-b-2 border-black animate-on-scroll">
       <div class="max-w-[1400px] mx-auto">
@@ -866,6 +868,7 @@ function toggleFaq(index) {
         </div>
       </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="py-8 px-4 md:px-6 bg-white border-t-2 border-black">

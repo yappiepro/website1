@@ -239,7 +239,7 @@ function toggleFaq(index) {
       <div class="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8">
         <div class="h-14 md:h-16 flex justify-between items-center">
           <a href="/" class="group flex items-center gap-3">
-            <NuxtImg src="/reference/Frame 697.jpg" format="webp" quality="80" alt="Бизнес Сетка" class="w-10 h-10 rounded-lg" />
+            <NuxtImg src="/reference/Frame 697.jpg" format="webp" quality="60" sizes="40 md:64" alt="Бизнес Сетка" class="w-10 h-10 rounded-lg" />
             <span class="text-sm font-bold tracking-tight text-gray-900">БИЗНЕС СЕТКА</span>
           </a>
 
@@ -609,7 +609,7 @@ function toggleFaq(index) {
       <div class="max-w-[1600px] mx-auto">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <div class="flex items-center gap-3">
-            <NuxtImg src="/reference/Frame 697.jpg" format="webp" quality="80" alt="Бизнес Сетка" class="w-6 h-6 rounded-md" />
+            <NuxtImg src="/reference/Frame 697.jpg" format="webp" quality="60" sizes="24 md:32" alt="Бизнес Сетка" class="w-6 h-6 rounded-md" />
             <span class="text-sm font-bold text-white">БИЗНЕС СЕТКА</span>
           </div>
           <div class="flex items-center gap-6">

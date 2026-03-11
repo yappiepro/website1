@@ -32,9 +32,9 @@
 
           <!-- Сообщества -->
           <div v-if="communities && communities.length">
-            <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">
+            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">
               {{ communitiesTitle }}
-            </h4>
+            </h3>
             <ul class="space-y-3 text-sm">
               <li v-for="community in communities" :key="community.href">
                 <NuxtLink :to="community.href" class="text-gray-400 hover:text-white transition-colors">
@@ -46,9 +46,9 @@
 
           <!-- Контакты -->
           <div v-if="contacts && contacts.length">
-            <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">
+            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">
               {{ contactsTitle }}
-            </h4>
+            </h3>
             <ul class="space-y-3 text-sm">
               <li v-for="contact in contacts" :key="contact.href">
                 <a
@@ -64,15 +64,16 @@
 
           <!-- Соцсети -->
           <div v-if="socialNetworks && socialNetworks.length">
-            <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">
+            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">
               {{ socialTitle }}
-            </h4>
+            </h3>
             <div class="flex gap-3">
               <a
                 v-for="(network, index) in socialNetworks.slice(0, 4)"
                 :key="index"
                 :href="network.link"
                 target="_blank"
+                :aria-label="getSocialLabel(network.icon)"
                 class="w-11 h-11 bg-gray-800 hover:bg-gray-700 rounded-xl flex items-center justify-center transition-all"
               >
                 <Icon :name="`fa-brands:${network.icon}`" class="w-5 h-5 text-gray-400" />
@@ -199,4 +200,15 @@ const props = defineProps({
     default: 'border-t border-gray-800'
   }
 })
+
+function getSocialLabel(icon) {
+  const labels = {
+    telegram: 'Telegram',
+    whatsapp: 'WhatsApp',
+    vk: 'ВКонтакте',
+    youtube: 'YouTube',
+    instagram: 'Instagram'
+  }
+  return `Мы в ${labels[icon] || icon}`
+}
 </script>

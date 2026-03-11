@@ -115,7 +115,14 @@ export default defineNuxtConfig({
       '/fonts/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
       // HTML страницы - проверка при каждом посещении
       '/**': { headers: { 'cache-control': 'public, max-age=0, must-revalidate' } }
-    }
+    },
+    // Копирование _headers в dist
+    publicAssets: [
+      {
+        dir: 'public',
+        maxAge: 31536000
+      }
+    ]
   },
   
   // SEO Modules Configuration

@@ -17,7 +17,6 @@
           <a href="#portfolio" class="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-y-[-1px]">Кейсы</a>
           <a href="/blog" class="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-y-[-1px]">Блог</a>
           <a href="#faq" class="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-y-[-1px]">FAQ</a>
-          <a href="/study" class="text-sm text-violet-400 hover:text-violet-300 transition-all duration-300 hover:translate-y-[-1px]">Study</a>
           <a href="https://t.me/artemselifanov" target="_blank" class="inline-flex items-center justify-center rounded-full font-medium px-4 py-2 text-xs bg-white text-black hover:bg-gray-100 shadow-lg shadow-white/10 hover:shadow-white/20 transition-all">Связаться</a>
         </div>
 
@@ -81,11 +80,11 @@
 
             <!-- Заголовок с улучшенным градиентом -->
             <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-[1.2] animate-fade-in-up">
-              <span class="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">Разработка сайтов</span>
+              <span class="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">Разработка сайтов,</span>
               <br />
-              <span class="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent">веб приложений</span>
+              <span class="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent">веб-приложений</span>
               <br />
-              <span class="bg-gradient-to-r from-fuchsia-400 via-violet-400 to-purple-400 bg-clip-text text-transparent">и чат-ботов</span>
+              <span class="bg-gradient-to-r from-fuchsia-400 via-violet-400 to-purple-400 bg-clip-text text-transparent">и чат-ботов с AI для бизнеса</span>
             </h1>
 
             <p class="text-base sm:text-lg text-gray-400 max-w-xl mb-6 sm:mb-10 leading-relaxed animate-fade-in-up animation-delay-200">
@@ -376,6 +375,7 @@
                 От лендингов до корпоративных порталов. Современный дизайн, адаптивность,
                 SEO-оптимизация и высокая конверсия
               </p>
+              <p class="text-violet-300 text-sm sm:text-base">от <strong>30 000 ₽</strong> · срок от 5 дней</p>
             </div>
           </div>
 
@@ -390,6 +390,7 @@
               <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
                 Умные боты для Telegram, VK и MAX с интеграцией AI. Автоматизация продаж и поддержки
               </p>
+              <p class="text-fuchsia-300 text-sm sm:text-base mt-2">от <strong>50 000 ₽</strong> · срок от 7 дней</p>
               <div class="mt-3 sm:mt-4 flex gap-2 flex-wrap">
                 <span class="px-2.5 sm:px-3 py-1 rounded-full bg-fuchsia-500/10 border border-fuchsia-500/30 text-[10px] sm:text-xs text-fuchsia-300">Telegram</span>
                 <span class="px-2.5 sm:px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/30 text-[10px] sm:text-xs text-violet-300">VK</span>
@@ -409,6 +410,7 @@
               <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
                 CRM, личные кабинеты, сервисы с AI-функционалом
               </p>
+              <p class="text-violet-300 text-sm sm:text-base mt-2">от <strong>150 000 ₽</strong> · срок от 4 недель</p>
             </div>
           </div>
 
@@ -425,6 +427,7 @@
                   Интеграция систем, автоматические воронки, триггерные рассылки.
                   Освободим время для важных задач
                 </p>
+                <p class="text-violet-300 text-sm sm:text-base">от <strong>40 000 ₽</strong> · индивидуально</p>
                 <div class="flex gap-2 flex-wrap">
                   <span class="px-3 sm:px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/30 text-xs text-violet-300">API</span>
                   <span class="px-3 sm:px-4 py-1.5 rounded-full bg-fuchsia-500/10 border border-fuchsia-500/30 text-xs text-fuchsia-300">CRM</span>
@@ -729,19 +732,19 @@ import Button from '~/components/ui/button/Button.vue'
 
 // SEO Meta Tags with useSeoMeta
 useSeoMeta({
-  title: 'Разработка сайтов, чат-ботов и приложений — Yappie | artemselifanov.ru',
-  description: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса. Автоматизируем процессы, увеличиваем эффективность. Бесплатная консультация.',
-  keywords: 'разработка сайтов, чат-боты, веб-приложения, AI, автоматизация, CRM, Telegram боты, WhatsApp, Nuxt, Vue.js, React',
+  title: 'Yappie — разработка сайтов, чат-ботов и AI-автоматизация для бизнеса',
+  description: 'Разрабатываем сайты, Telegram-боты, CRM и веб-приложения с AI. Автоматизация бизнес-процессов под ключ. 50+ проектов, поддержка 24/7. Yappie — Артём Селифанов.',
+  keywords: 'разработка сайтов, чат-бот Telegram, AI автоматизация, веб-приложение, CRM разработка, разработка бота для бизнеса, Yappie',
   author: 'Артём Селифанов',
   robots: 'index, follow',
-  ogTitle: 'Разработка сайтов, чат-ботов и приложений — Yappie',
-  ogDescription: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса. Автоматизируем процессы, увеличиваем эффективность.',
+  ogTitle: 'Yappie — разработка сайтов, чат-ботов и AI-автоматизация для бизнеса',
+  ogDescription: 'Разрабатываем сайты, Telegram-боты, CRM и веб-приложения с AI. Автоматизация бизнес-процессов под ключ.',
   ogImage: 'https://artemselifanov.ru/og-image.jpg',
   ogUrl: 'https://artemselifanov.ru/yappie',
   ogType: 'website',
   twitterCard: 'summary_large_image',
-  twitterTitle: 'Разработка сайтов, чат-ботов и приложений — Yappie',
-  twitterDescription: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса',
+  twitterTitle: 'Yappie — разработка сайтов, чат-ботов и AI-автоматизация для бизнеса',
+  twitterDescription: 'Разрабатываем сайты, Telegram-боты, CRM и веб-приложения с AI. Автоматизация бизнес-процессов под ключ.',
   twitterImage: 'https://artemselifanov.ru/og-image.jpg'
 })
 
@@ -763,13 +766,21 @@ useSchemaOrg([
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
-      availableLanguage: ['Russian']
+      availableLanguage: ['Russian'],
+      url: 'https://t.me/artemselifanov',
+      telephone: '+79535487323',
+      email: 'a9535487323@yandex.ru'
+    },
+    founder: {
+      '@type': 'Person',
+      name: 'Артём Селифанов',
+      url: 'https://artemselifanov.ru'
     }
   }),
   defineWebSite({
     name: 'Yappie - Разработка сайтов, чат-ботов и приложений',
     url: 'https://artemselifanov.ru/yappie',
-    description: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса',
+    description: 'Разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса',
     inLanguage: 'ru-RU'
   }),
   defineWebPage({
@@ -1000,21 +1011,24 @@ const benefits = ref([
 ])
 
 const portfolio = ref([
-  { image: '/reference/lost.png', title: 'Сервис по поиску пропавших животных', description: 'Платформа для быстрого поиска потерянных питомцев', tags: ['Bubble', 'JS', 'Figma', 'API Яндекс Карт'], hasImage: true },
-  { image: '/reference/chatbot.png', title: 'Бот для управляющих компаний', description: 'Telegram-бот для приёма и обработки обращений граждан, оповещения о стадиях ремонтных/гарантийных работ, взаимодействия с базой данных сервисной компании', tags: ['n8n', 'JS', 'Telegram API', 'Postgres', 'Веб-приложения', 'Telegram miniapp'], hasImage: true },
-  { image: '/reference/gromish.png', title: 'Интернет-магазин для Instagram-блогера', description: 'Онлайн-магазин изделий из янтаря с интеграцией WhatsApp для связи с клиентами', tags: ['Bubble', 'AWS', 'WhatsApp', 'Веб-приложения'], hasImage: true },
-  { image: '/reference/carusel.png', title: 'Генератор каруселей для Instagram', description: 'Инструмент для быстрой генерации каруселей и обложек для соцсетей с использованием AI', tags: ['HTML', 'JS', 'CSS', 'Веб-приложения'], hasImage: true },
-  { icon: Bot, title: 'AI-транскрибация аудио', description: 'Python-скрипт для транскрибации аудио любой продолжительности в текст с использованием AI', tags: ['Python', 'AI', 'Transcription', 'Веб-приложения'], hasImage: false },
-  { icon: Globe, title: 'Веб-парсер для Яндекс.Поиска', description: 'Анализ сайтов в поисковой выдаче: подбор ключей, определение позиций, анализ текста, извлечение адресов сайтов, проверка на контактные данные, выгрузка в CSV', tags: ['Python', 'Parsing', 'SEO', 'Веб-приложения'], hasImage: false },
+  { image: '/reference/lost.png', title: 'Сервис по поиску пропавших животных', description: 'Платформа для быстрого поиска потерянных питомцев', tags: ['Bubble', 'JS', 'Figma', 'API Яндекс Карт'], hasImage: true, alt: 'Сервис по поиску пропавших животных — веб-платформа на Bubble с интеграцией Яндекс Карт' },
+  { image: '/reference/chatbot.png', title: 'Бот для управляющих компаний', description: 'Telegram-бот для приёма и обработки обращений граждан, оповещения о стадиях ремонтных/гарантийных работ, взаимодействия с базой данных сервисной компании', tags: ['n8n', 'JS', 'Telegram API', 'Postgres', 'Веб-приложения', 'Telegram miniapp'], hasImage: true, alt: 'Telegram-бот для управляющих компаний — приём обращений граждан, интеграция с PostgreSQL' },
+  { image: '/reference/gromish.png', title: 'Интернет-магазин для Instagram-блогера', description: 'Онлайн-магазин изделий из янтаря с интеграцией WhatsApp для связи с клиентами', tags: ['Bubble', 'AWS', 'WhatsApp', 'Веб-приложения'], hasImage: true, alt: 'Интернет-магазин янтарных изделий для Instagram-блогера — Bubble, AWS, WhatsApp интеграция' },
+  { image: '/reference/carusel.png', title: 'Генератор каруселей для Instagram', description: 'Инструмент для быстрой генерации каруселей и обложек для соцсетей с использованием AI', tags: ['HTML', 'JS', 'CSS', 'Веб-приложения'], hasImage: true, alt: 'Генератор каруселей для Instagram с AI — HTML, JS, CSS инструмент для соцсетей' },
+  { icon: Bot, title: 'AI-транскрибация аудио', description: 'Python-скрипт для транскрибации аудио любой продолжительности в текст с использованием Whisper AI. Поддержка русского языка, автоматическая разбивка на абзацы.', tags: ['Python', 'AI', 'Whisper', 'Transcription'], hasImage: false },
+  { icon: Globe, title: 'Веб-парсер для Яндекс.Поиска', description: 'Инструмент для SEO-аналитиков: парсинг выдачи Яндекса, подбор ключей, определение позиций, анализ текста конкурентов, проверка на контактные данные, выгрузка в CSV.', tags: ['Python', 'Parsing', 'SEO'], hasImage: false },
 ])
 
 const faqs = ref([
-  { question: 'Сколько стоит разработка?', answer: 'Стоимость зависит от сложности проекта. Лендинг — от 50 000₽, чат-бот — от 30 000₽, веб-приложение — от 100 000₽. Точную сумму назовём после обсуждения задачи.' },
-  { question: 'Какие сроки разработки?', answer: 'Лендинг — 5-10 дней, чат-бот — 3-7 дней, веб-приложение — 2-6 недель. Срочные проекты обсуждаются индивидуально.' },
-  { question: 'Работаете по договору?', answer: 'Да, работаем официально по договору с ИП или ООО. Предоставляем все закрывающие документы для бухгалтерии.' },
-  { question: 'Что если мне не понравится результат?', answer: 'Вносим правки в рамках ТЗ бесплатно. Если результат не устроит после всех правок — вернём деньги за вычетом фактических затрат.' },
-  { question: 'Предоставляете поддержку после запуска?', answer: 'Да, первый месяц поддержки бесплатно. Далее — от 5 000₽/месяц в зависимости от объёма работ.' },
-  { question: 'Можно ли оплатить в рассрочку?', answer: 'Да, возможна рассрочка до 6 месяцев без процентов для проектов от 100 000₽.' },
+  { question: 'Сколько стоит разработка?', answer: 'Стоимость зависит от сложности задачи. Ориентиры: лендинг — от 30 000 ₽, корпоративный сайт — от 80 000 ₽, Telegram-бот с AI — от 50 000 ₽, CRM под ключ — от 150 000 ₽. Точную смету рассчитываем бесплатно после знакомства с задачей — напишите нам.' },
+  { question: 'Какие сроки разработки?', answer: 'Лендинг — 5–10 рабочих дней. Корпоративный сайт — 2–4 недели. Telegram-бот — 1–3 недели. Веб-приложение или CRM — от 4 до 12 недель в зависимости от функционала. Сроки фиксируются в договоре.' },
+  { question: 'Работаете по договору?', answer: 'Да. Заключаем договор оказания услуг с фиксированной сметой, этапами работ и дедлайнами. Работаем как с физическими лицами, так и с юридическими (ИП, ООО). Закрывающие документы предоставляем.' },
+  { question: 'Что если мне не понравится результат?', answer: 'На каждом этапе проводим согласование с клиентом — вы видите промежуточный результат и утверждаете его до перехода к следующему этапу. Правки в рамках ТЗ — бесплатно. Если расхождений с согласованным ТЗ нет, дорабатываем по договорённости.' },
+  { question: 'Предоставляете поддержку после запуска?', answer: 'Да. Включаем 1 месяц бесплатной технической поддержки после сдачи проекта. Дальнейшее сопровождение — по отдельному договору. Всегда на связи в мессенджерах для оперативного решения вопросов.' },
+  { question: 'Можно ли оплатить в рассрочку?', answer: 'Да. Стандартная схема оплаты: 50% предоплата при старте, 50% после сдачи проекта. Для крупных проектов (от 100 000 ₽) возможна поэтапная оплата по вехам. Обсудим удобный вариант при знакомстве.' },
+  { question: 'С какими технологиями вы работаете?', answer: 'Фронтенд: Nuxt, Vue, React. Боты: Telegram API, n8n, Make. AI: GPT-4, Claude, Whisper. БД: PostgreSQL, Supabase. No-code: Bubble, Webflow. Выбираем стек под задачу, а не используем один инструмент для всего.' },
+  { question: 'Берётесь ли вы за доработку чужих проектов?', answer: 'Да, если проект на технологиях, с которыми мы работаем. Сначала проводим аудит кода и задачи — это бесплатно. По итогам аудита даём честную оценку: стоит ли дорабатывать или дешевле переделать.' },
+  { question: 'Разрабатываете ли вы мобильные приложения для App Store и Google Play?', answer: 'Разрабатываем PWA (прогрессивные веб-приложения) — они работают как нативные: устанавливаются на главный экран, получают push-уведомления, работают офлайн. Полноценные нативные приложения для сторов — по запросу, обсудим индивидуально.' },
 ])
 </script>
 

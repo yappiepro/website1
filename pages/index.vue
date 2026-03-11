@@ -917,17 +917,6 @@ useSchemaOrg([
     name: 'Артём Селифанов — Личный бренд для предпринимателей и экспертов',
     description: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт. Стратегия, упаковка, контент и дистрибуция в Telegram',
     url: 'https://artemselifanov.ru'
-  }),
-  defineFaq({
-    '@type': 'FAQPage',
-    mainEntity: faqs.value.map(faq => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer.replace(/<[^>]*>/g, '')
-      }
-    }))
   })
 ])
 

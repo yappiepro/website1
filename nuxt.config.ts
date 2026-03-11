@@ -85,7 +85,10 @@ export default defineNuxtConfig({
         '/networking',
         '/business',
         '/yappie',
-        '/study'
+        '/study',
+        '/offer',
+        '/privacy',
+        '/cookie'
       ],
       failOnError: false
     }

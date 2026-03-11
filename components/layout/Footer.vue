@@ -178,8 +178,9 @@ const props = defineProps({
   legalDocs: {
     type: Array,
     default: () => [
-      { href: '/yappie', label: 'Политика конфиденциальности' },
-      { href: '/yappie', label: 'Договор оферты' }
+      { href: '/privacy', label: 'Политика конфиденциальности' },
+      { href: '/offer', label: 'Договор оферты' },
+      { href: '/cookie', label: 'Cookie политика' }
     ]
   },
   // Цвет фона (Tailwind класс)

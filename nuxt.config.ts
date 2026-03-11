@@ -110,7 +110,15 @@ export default defineNuxtConfig({
       type: 'Organization',
       name: 'Артём Селифанов',
       url: 'https://artemselifanov.ru',
-      logo: 'https://artemselifanov.ru/logo.png'
+      logo: 'https://artemselifanov.ru/logo.png',
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+7-953-548-73-23',
+        contactType: 'customer service',
+        areaServed: 'RU',
+        availableLanguage: ['Russian']
+      },
+      email: 'a9535487323@yandex.ru'
     }
   },
   app: {

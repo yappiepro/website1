@@ -203,8 +203,8 @@ export default {
     </ul>
 
     <div class="article-nav">
-      <p><strong>Читать далее:</strong> <a href="/website1/blog/chatgpt-dlya-biznesa">ChatGPT для бизнеса: как использовать, реальные сценарии и ограничения →</a></p>
-      <p><strong>Назад:</strong> <a href="/website1/blog/prodvizhenie-mobilnogo-prilozheniya">← Продвижение мобильного приложения: полное руководство по привлечению и удержанию пользователей</a></p>
+      <p><strong>Читать далее:</strong> <a href="/blog/chatgpt-dlya-biznesa">ChatGPT для бизнеса: как использовать, реальные сценарии и ограничения →</a></p>
+      <p><strong>Назад:</strong> <a href="/blog/prodvizhenie-mobilnogo-prilozheniya">← Продвижение мобильного приложения: полное руководство по привлечению и удержанию пользователей</a></p>
     </div>
   `
 }

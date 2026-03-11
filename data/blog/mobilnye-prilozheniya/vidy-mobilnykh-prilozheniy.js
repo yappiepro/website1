@@ -220,8 +220,8 @@ export default {
     </ul>
 
     <div class="article-nav">
-      <p><strong>Читать далее:</strong> <a href="/website1/blog/yazyki-programmirovaniya-mobilnykh-prilozheniy">Языки программирования для мобильных приложений →</a></p>
-      <p><strong>Назад:</strong> <a href="/website1/blog/razrabotka-mobilnogo-prilozheniya">← Разработка мобильного приложения: с чего начать, сколько стоит и как не потерять бюджет</a></p>
+      <p><strong>Читать далее:</strong> <a href="/blog/yazyki-programmirovaniya-mobilnykh-prilozheniy">Языки программирования для мобильных приложений →</a></p>
+      <p><strong>Назад:</strong> <a href="/blog/razrabotka-mobilnogo-prilozheniya">← Разработка мобильного приложения: с чего начать, сколько стоит и как не потерять бюджет</a></p>
     </div>
   `
 }

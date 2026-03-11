@@ -312,8 +312,8 @@ export default {
 </ul>
 
 <div class="article-nav">
-<p><strong>Читать далее:</strong> <a href="/website1/blog/sozdanie-sayta-s-nulya">Создание сайта с нуля: пошаговое руководство →</a></p>
-<p><strong>Назад:</strong> <a href="/website1/blog/tehnicheskoe-zadanie-na-razrabotku-sayta">← Техническое задание на разработку сайта</a></p>
+<p><strong>Читать далее:</strong> <a href="/blog/sozdanie-sayta-s-nulya">Создание сайта с нуля: пошаговое руководство →</a></p>
+<p><strong>Назад:</strong> <a href="/blog/tehnicheskoe-zadanie-na-razrabotku-sayta">← Техническое задание на разработку сайта</a></p>
 </div>
 `
 }

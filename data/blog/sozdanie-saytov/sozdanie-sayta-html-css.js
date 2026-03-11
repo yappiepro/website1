@@ -511,8 +511,8 @@ nav {
 </ul>
 
 <div class="article-nav">
-<p><strong>Читать далее:</strong> <a href="/website1/blog/ii-dlya-sozdaniya-sayta">ИИ для создания сайта: обзор инструментов 2025 года →</a></p>
-<p><strong>Назад:</strong> <a href="/website1/blog/platformy-dlya-sozdaniya-saytov">← Платформы и конструкторы для создания сайтов</a></p>
+<p><strong>Читать далее:</strong> <a href="/blog/ii-dlya-sozdaniya-sayta">ИИ для создания сайта: обзор инструментов 2025 года →</a></p>
+<p><strong>Назад:</strong> <a href="/blog/platformy-dlya-sozdaniya-saytov">← Платформы и конструкторы для создания сайтов</a></p>
 </div>
 `
 }

@@ -226,8 +226,8 @@ export default {
 </ol>
 
 <div class="article-nav">
-<p><strong>Читать далее:</strong> <a href="/website1/blog/yazyki-programmirovaniya-mobilnykh-prilozheniy">Языки программирования для мобильных приложений →</a></p>
-<p><strong>Назад:</strong> <a href="/website1/blog/kak-sozdat-mobilnoe-prilozhenie">← Как создать мобильное приложение: пошаговое руководство</a></p>
+<p><strong>Читать далее:</strong> <a href="/blog/yazyki-programmirovaniya-mobilnykh-prilozheniy">Языки программирования для мобильных приложений →</a></p>
+<p><strong>Назад:</strong> <a href="/blog/kak-sozdat-mobilnoe-prilozhenie">← Как создать мобильное приложение: пошаговое руководство</a></p>
 </div>
 `
 }

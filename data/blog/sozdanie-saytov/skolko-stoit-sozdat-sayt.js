@@ -289,8 +289,8 @@ export default {
 </ul>
 
 <div class="article-nav">
-<p><strong>Читать далее:</strong> <a href="/website1/blog/sozdanie-sayta-dlya-biznesa">Создание сайта для бизнеса: лендинг, корпоративный или магазин →</a></p>
-<p><strong>Назад:</strong> <a href="/website1/blog/sozdanie-sayta-s-nulya">← Создание сайта с нуля: пошаговое руководство</a></p>
+<p><strong>Читать далее:</strong> <a href="/blog/sozdanie-sayta-dlya-biznesa">Создание сайта для бизнеса: лендинг, корпоративный или магазин →</a></p>
+<p><strong>Назад:</strong> <a href="/blog/sozdanie-sayta-s-nulya">← Создание сайта с нуля: пошаговое руководство</a></p>
 </div>
 `
 }

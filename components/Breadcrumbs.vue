@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+
 export interface BreadcrumbItem {
   label: string
   href?: string
@@ -7,6 +9,19 @@ export interface BreadcrumbItem {
 const props = defineProps<{
   items: BreadcrumbItem[]
 }>()
+
+// Schema.org BreadcrumbList
+const breadcrumbSchema = computed(() => ({
+  '@type': 'BreadcrumbList',
+  itemListElement: props.items.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    item: item.href ? `https://artemselifanov.ru${item.href}` : undefined
+  }))
+}))
+
+useSchemaOrg([breadcrumbSchema])
 </script>
 
 <template>

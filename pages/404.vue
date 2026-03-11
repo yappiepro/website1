@@ -82,7 +82,7 @@
         К сожалению, страница, которую вы ищете, не существует или была перемещена.
       </p>
 
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
         <a
           href="/"
           class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-violet-600 text-white font-medium rounded-xl hover:bg-violet-700 transition-all duration-200 shadow-lg shadow-violet-600/25"
@@ -103,9 +103,54 @@
         </a>
       </div>
 
-      <div class="mt-12 pt-8 border-t border-gray-200">
-        <p class="text-sm text-gray-500">
-          Ошиблись в адресе? <a href="/" class="text-violet-600 hover:text-violet-700 font-medium">Вернуться на главную</a>
+      <!-- Популярные статьи -->
+      <div class="max-w-4xl mx-auto">
+        <h3 class="text-lg font-semibold text-gray-900 mb-6 text-center">
+          Популярные статьи
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a
+            href="/blog/razrabotka-sayta-pod-klyuch"
+            class="p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-all border border-gray-200 hover:border-violet-300"
+          >
+            <span class="text-xs font-medium text-violet-600 mb-2 block">Разработка сайтов</span>
+            <h4 class="text-base font-semibold text-gray-900 line-clamp-2">
+              Разработка сайта под ключ: полное руководство по этапам, срокам и стоимости
+            </h4>
+          </a>
+          <a
+            href="/blog/skolko-stoit-razrabotka-sayta"
+            class="p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-all border border-gray-200 hover:border-violet-300"
+          >
+            <span class="text-xs font-medium text-violet-600 mb-2 block">Разработка сайтов</span>
+            <h4 class="text-base font-semibold text-gray-900 line-clamp-2">
+              Сколько стоит разработка сайта в 2025 году
+            </h4>
+          </a>
+          <a
+            href="/blog/kak-sozdat-mobilnoe-prilozhenie"
+            class="p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-all border border-gray-200 hover:border-violet-300"
+          >
+            <span class="text-xs font-medium text-violet-600 mb-2 block">Мобильные приложения</span>
+            <h4 class="text-base font-semibold text-gray-900 line-clamp-2">
+              Как создать мобильное приложение: полное руководство
+            </h4>
+          </a>
+          <a
+            href="/blog/ii-dlya-biznesa"
+            class="p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-all border border-gray-200 hover:border-violet-300"
+          >
+            <span class="text-xs font-medium text-violet-600 mb-2 block">Искусственный интеллект</span>
+            <h4 class="text-base font-semibold text-gray-900 line-clamp-2">
+              Искусственный интеллект для бизнеса: возможности и перспективы
+            </h4>
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-gray-200 text-center">
+        <p class="text-sm text-gray-500 mb-2">
+          Остались вопросы? <a href="https://t.me/artemselifanov" target="_blank" class="text-violet-600 hover:text-violet-700 font-medium">Напишите в Telegram</a>
         </p>
       </div>
     </div>
@@ -119,7 +164,21 @@ import { Menu, X } from 'lucide-vue-next'
 const isMobileMenuOpen = ref(false)
 
 useSeoMeta({
-  title: 'Страница не найдена — 404',
-  description: 'Страница, которую вы ищете, не существует'
+  title: 'Страница не найдена — 404 | Артём Селифанов',
+  description: 'Страница, которую вы ищете, не существует. Вернитесь на главную или посмотрите популярные статьи блога.',
+  robots: 'noindex, follow',
+  ogTitle: 'Страница не найдена — 404',
+  ogDescription: 'Страница не найдена. Вернитесь на главную или посмотрите популярные статьи.',
+  ogType: 'error_page',
+  ogUrl: 'https://artemselifanov.ru/404',
+  twitterCard: 'summary',
+  twitterTitle: 'Страница не найдена — 404',
+  twitterDescription: 'Страница, которую вы ищете, не существует'
+})
+
+useHead({
+  link: [
+    { rel: 'canonical', href: 'https://artemselifanov.ru/404' }
+  ]
 })
 </script>

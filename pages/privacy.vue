@@ -198,12 +198,33 @@
 </template>
 
 <script setup>
-useHead({
+useSeoMeta({
   title: 'Политика конфиденциальности — Артём Селифанов',
-  meta: [
-    { name: 'description', content: 'Политика обработки персональных данных на сайте artemselifanov.ru. Соответствует 152-ФЗ.' }
+  description: 'Политика обработки персональных данных на сайте artemselifanov.ru. Соответствует 152-ФЗ.',
+  robots: 'noindex, follow',
+  ogTitle: 'Политика конфиденциальности',
+  ogDescription: 'Политика обработки персональных данных на сайте artemselifanov.ru',
+  ogType: 'article',
+  ogUrl: 'https://artemselifanov.ru/privacy',
+  twitterCard: 'summary',
+  twitterTitle: 'Политика конфиденциальности',
+  twitterDescription: 'Политика обработки персональных данных'
+})
+
+useHead({
+  link: [
+    { rel: 'canonical', href: 'https://artemselifanov.ru/privacy' }
   ]
 })
+
+useSchemaOrg([
+  defineWebPage({
+    '@type': 'WebPage',
+    name: 'Политика конфиденциальности',
+    description: 'Политика обработки персональных данных на сайте artemselifanov.ru',
+    url: 'https://artemselifanov.ru/privacy'
+  })
+])
 </script>
 
 <style scoped>

@@ -193,12 +193,33 @@
 </template>
 
 <script setup>
-useHead({
+useSeoMeta({
   title: 'Согласие на обработку ПД и Cookie политика — Артём Селифанов',
-  meta: [
-    { name: 'description', content: 'Согласие на обработку персональных данных и политика использования cookies на сайте artemselifanov.ru.' }
+  description: 'Согласие на обработку персональных данных и политика использования cookies на сайте artemselifanov.ru.',
+  robots: 'noindex, follow',
+  ogTitle: 'Согласие на обработку ПД и Cookie политика',
+  ogDescription: 'Политика использования cookies и обработка персональных данных',
+  ogType: 'article',
+  ogUrl: 'https://artemselifanov.ru/cookie',
+  twitterCard: 'summary',
+  twitterTitle: 'Согласие на обработку ПД и Cookie политика',
+  twitterDescription: 'Политика использования cookies и обработка персональных данных'
+})
+
+useHead({
+  link: [
+    { rel: 'canonical', href: 'https://artemselifanov.ru/cookie' }
   ]
 })
+
+useSchemaOrg([
+  defineWebPage({
+    '@type': 'WebPage',
+    name: 'Согласие на обработку ПД и Cookie политика',
+    description: 'Согласие на обработку персональных данных и политика использования cookies',
+    url: 'https://artemselifanov.ru/cookie'
+  })
+])
 </script>
 
 <style scoped>

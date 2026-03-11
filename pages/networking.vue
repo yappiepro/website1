@@ -12,9 +12,11 @@ useSeoMeta({
   ogDescription: 'Закрытое сообщество для предпринимателей и экспертов, где вы найдёте полезные связи и окружение для роста',
   ogType: 'website',
   ogUrl: 'https://artemselifanov.ru/networking',
+  ogImage: 'https://artemselifanov.ru/og-image.jpg',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Нескучный Нетворкинг — Сообщество предпринимателей и экспертов',
-  twitterDescription: 'Закрытое сообщество для предпринимателей и экспертов, где вы найдёте полезные связи и окружение для роста'
+  twitterDescription: 'Закрытое сообщество для предпринимателей и экспертов, где вы найдёте полезные связи и окружение для роста',
+  twitterImage: 'https://artemselifanov.ru/og-image.jpg'
 })
 
 useHead({

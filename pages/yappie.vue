@@ -777,6 +777,17 @@ useSchemaOrg([
     name: 'Разработка сайтов, чат-ботов и приложений — Yappie',
     description: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса',
     url: 'https://artemselifanov.ru/yappie'
+  }),
+  defineFaq({
+    '@type': 'FAQPage',
+    mainEntity: faqs.value.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer
+      }
+    }))
   })
 ])
 import Accordion from '~/components/ui/accordion/Accordion.vue'

@@ -212,6 +212,12 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'canonical', href: 'https://artemselifanov.ru' },
+        // Favicon для разных устройств
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicons/apple-touch-icon.png' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicons/favicon-32x32.png' },
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicons/favicon-16x16.png' },
+        // Manifest для PWA
+        { rel: 'manifest', href: '/site.webmanifest' },
         // Preconnect для важных ресурсов
         { rel: 'preconnect', href: 'https://api.iconify.design', crossorigin: true },
         { rel: 'preconnect', href: 'https://code.jquery.com', crossorigin: true },
@@ -231,6 +237,41 @@ export default defineNuxtConfig({
             gtag('config', 'G-G4T213B4HD');
           `,
           type: 'text/javascript'
+        },
+        // Яндекс.Метрика
+        {
+          innerHTML: `
+            (function(m,e,t,r,i,k,a){
+              m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+              m[i].l=1*new Date();
+              for(var j=0;j<n.length;j++)if(n[j].length){
+                var s=n[j],d=s[0],f=d+'_',l=s[1];
+                if(!/^\\d+$/.test(l)){
+                  k=m[d]=m[d]||[];
+                  k.push(function(){this[l]?this[l](a):r.push(a)})
+                }
+              }
+              n=[['click',true],['submit',true],['change',true],['input',true],['focusin',true],['focusout',true]];
+              k=m[d]=m[d]||[];
+              k.push(function(){this[l]?this[l](a):r.push(a)});
+              t=e.createElement(t);t.async=!0;t.src=r;
+              a=e.getElementsByTagName(d)[0];a.parentNode.insertBefore(t,a);
+              window.addEventListener('load',function(){
+                try{
+                  var a=window['ym'],b=a&&a.getInstance&&a.getInstance(window['ym_counter']||98667447);
+                  b&&b.params({user_params:{}});
+                }catch(e){}
+              });
+            })(window,document,'script','https://mc.yandex.ru/metrika/tag.js','ym');
+            ym(98667447,'init',{
+              clickmap:true,
+              trackLinks:true,
+              accurateTrackBounce:true,
+              webvisor:true
+            });
+          `,
+          type: 'text/javascript',
+          tagPosition: 'head'
         }
       ],
       htmlAttrs: {

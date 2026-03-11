@@ -816,10 +816,12 @@ useSeoMeta({
   ogType: 'website',
   ogLocale: 'ru_RU',
   ogUrl: 'https://artemselifanov.ru',
+  ogImage: 'https://artemselifanov.ru/og-image.jpg',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Артём Селифанов — Личный бренд для предпринимателей и экспертов',
   twitterDescription: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт',
-  twitterUrl: 'https://artemselifanov.ru'
+  twitterUrl: 'https://artemselifanov.ru',
+  twitterImage: 'https://artemselifanov.ru/og-image.jpg'
 })
 
 useHead({

@@ -13,9 +13,11 @@ useSeoMeta({
   ogDescription: 'Сообщество предпринимателей и экспертов, где участники обмениваются опытом, получают поддержку и совместно решают бизнес-задачи',
   ogType: 'website',
   ogUrl: 'https://artemselifanov.ru/business',
+  ogImage: 'https://artemselifanov.ru/og-image.jpg',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Бизнес Сетка — Закрытый клуб предпринимателей',
-  twitterDescription: 'Сообщество предпринимателей и экспертов, где участники обмениваются опытом, получают поддержку и совместно решают бизнес-задачи'
+  twitterDescription: 'Сообщество предпринимателей и экспертов, где участники обмениваются опытом, получают поддержку и совместно решают бизнес-задачи',
+  twitterImage: 'https://artemselifanov.ru/og-image.jpg'
 })
 
 useHead({

@@ -228,12 +228,33 @@
 </template>
 
 <script setup>
-useHead({
+useSeoMeta({
   title: 'Публичная оферта — Артём Селифанов',
-  meta: [
-    { name: 'description', content: 'Публичная оферта на оказание услуг по продвижению личного бренда. ИП Селифанов Артем Викторович.' }
+  description: 'Публичная оферта на оказание услуг по продвижению личного бренда. ИП Селифанов Артем Викторович.',
+  robots: 'noindex, follow',
+  ogTitle: 'Публичная оферта',
+  ogDescription: 'Публичная оферта на оказание услуг по продвижению личного бренда',
+  ogType: 'article',
+  ogUrl: 'https://artemselifanov.ru/offer',
+  twitterCard: 'summary',
+  twitterTitle: 'Публичная оферта',
+  twitterDescription: 'Публичная оферта на оказание услуг по продвижению личного бренда'
+})
+
+useHead({
+  link: [
+    { rel: 'canonical', href: 'https://artemselifanov.ru/offer' }
   ]
 })
+
+useSchemaOrg([
+  defineWebPage({
+    '@type': 'WebPage',
+    name: 'Публичная оферта',
+    description: 'Публичная оферта на оказание услуг по продвижению личного бренда',
+    url: 'https://artemselifanov.ru/offer'
+  })
+])
 </script>
 
 <style scoped>

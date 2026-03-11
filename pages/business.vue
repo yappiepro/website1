@@ -5,18 +5,18 @@ import gsap from 'gsap'
 
 // SEO для страницы
 useSeoMeta({
-  title: 'Бизнес Сетка — Закрытый клуб предпринимателей | Мастермайнд группа',
-  description: 'Закрытое сообщество предпринимателей для обмена опытом и роста. Мастермайнд-группы, бизнес-разборы, нетворкинг. 240+ участников, практические инструменты масштабирования.',
-  keywords: 'бизнес сообщество, закрытый клуб, мастермайнд группа, бизнес-разборы, нетворкинг для предпринимателей, обмен опытом, масштабирование бизнеса',
+  title: 'Бизнес Сетка — закрытый клуб и мастермайнд для предпринимателей | Артём Селифанов',
+  description: 'Закрытый клуб предпринимателей и экспертов. Мастермайнд-группы, бизнес-разборы, нетворкинг. 238 участников. Артём Селифанов — Бизнес Сетка.',
+  keywords: 'мастермайнд для предпринимателей, закрытый клуб бизнес, бизнес-разбор, нетворкинг предпринимателей, бизнес сообщество, Артём Селифанов',
   robots: 'index, follow',
-  ogTitle: 'Бизнес Сетка — Закрытый клуб предпринимателей',
-  ogDescription: 'Сообщество предпринимателей и экспертов, где участники обмениваются опытом, получают поддержку и совместно решают бизнес-задачи',
+  ogTitle: 'Бизнес Сетка — закрытый клуб и мастермайнд для предпринимателей',
+  ogDescription: 'Закрытый клуб предпринимателей и экспертов. Мастермайнд-группы, бизнес-разборы, нетворкинг.',
   ogType: 'website',
   ogUrl: 'https://artemselifanov.ru/business',
   ogImage: 'https://artemselifanov.ru/og-image.jpg',
   twitterCard: 'summary_large_image',
-  twitterTitle: 'Бизнес Сетка — Закрытый клуб предпринимателей',
-  twitterDescription: 'Сообщество предпринимателей и экспертов, где участники обмениваются опытом, получают поддержку и совместно решают бизнес-задачи',
+  twitterTitle: 'Бизнес Сетка — закрытый клуб и мастермайнд для предпринимателей',
+  twitterDescription: 'Закрытый клуб предпринимателей и экспертов. Мастермайнд-группы, бизнес-разборы, нетворкинг.',
   twitterImage: 'https://artemselifanov.ru/og-image.jpg'
 })
 
@@ -31,12 +31,31 @@ useSchemaOrg([
   defineOrganization({
     name: 'Бизнес Сетка',
     url: 'https://artemselifanov.ru/business',
-    description: 'Закрытый клуб предпринимателей для обмена опытом и роста'
+    description: 'Закрытый клуб предпринимателей и экспертов. Мастермайнд-группы, бизнес-разборы, нетворкинг.',
+    founder: {
+      '@type': 'Person',
+      name: 'Артём Селифанов',
+      url: 'https://artemselifanov.ru'
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      url: 'https://t.me/artemselifanov',
+      email: 'a9535487323@yandex.ru'
+    },
+    offers: {
+      '@type': 'Offer',
+      name: 'Мастермайнд группа',
+      price: '35000',
+      priceCurrency: 'RUB',
+      description: 'Интенсивная работа в мини-группе предпринимателей. 8 сессий по 2 часа за 2 месяца.',
+      url: 'https://artemselifanov.ru/business/#membership'
+    }
   }),
   defineWebPage({
     '@type': 'WebPage',
-    name: 'Бизнес Сетка — Закрытый клуб предпринимателей',
-    description: 'Закрытое сообщество предпринимателей для обмена опытом и роста. Мастермайнд-группы, бизнес-разборы, нетворкинг.',
+    name: 'Бизнес Сетка — закрытый клуб и мастермайнд для предпринимателей',
+    description: 'Закрытый клуб предпринимателей и экспертов. Мастермайнд-группы, бизнес-разборы, нетворкинг.',
     url: 'https://artemselifanov.ru/business'
   })
 ])
@@ -210,7 +229,7 @@ const faqs = [
   },
   {
     question: 'Как проходит участие в мастермайнде?',
-    answer: 'Мастермайнд длится 2 месяца. Встречи проходят 4 раза в неделю по 2 часа в формате онлайн. Каждый участник получает персональный разбор своего бизнеса, обратную связь от группы и рекомендации по развитию.'
+    answer: 'Мастермайнд длится 2 месяца. Встречи проходят раз в неделю по 2 часа в формате онлайн (8 встреч за 2 месяца). Каждый участник получает персональный разбор своего бизнеса, обратную связь от группы и рекомендации по развитию.'
   },
   {
     question: 'Кто может присоединиться к сообществу?',
@@ -222,7 +241,23 @@ const faqs = [
   },
   {
     question: 'Как записаться на мастермайнд?',
-    answer: 'Напишите в Telegram или заполните форму на странице. Мы свяжемся с вами для уточнения деталей и подтверждения участия.'
+    answer: 'Напишите в Telegram @artemselifanov или заполните форму на странице. Мы свяжемся с вами для уточнения деталей и подтверждения участия.'
+  },
+  {
+    question: 'Сколько участников в одной группе мастермайнда?',
+    answer: 'Группа формируется из 4–8 участников. Это оптимальный размер: достаточно разнообразия опыта и при этом каждый получает глубокую проработку своего проекта.'
+  },
+  {
+    question: 'Что входит в бесплатное участие в сообществе?',
+    answer: 'Бесплатное участие включает: доступ в закрытый Telegram-чат, нетворкинг с участниками, анонсы событий и часть открытых материалов сообщества.'
+  },
+  {
+    question: 'Возможен ли возврат, если формат не подошёл?',
+    answer: 'Да. Если после первой встречи вы понимаете, что формат не для вас — напишите напрямую в Telegram @artemselifanov. Возврат рассматривается индивидуально.'
+  },
+  {
+    question: 'Чем мастермайнд отличается от коучинга или курса?',
+    answer: 'Коучинг — работа с одним специалистом. Курс — обучение по готовой программе. Мастермайнд — это коллективный интеллект: группа предпринимателей разбирает задачи каждого и предлагает решения из своего опыта. Часто это эффективнее обоих форматов.'
   }
 ]
 
@@ -249,7 +284,7 @@ function toggleFaq(index) {
       <div class="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8">
         <div class="h-14 md:h-16 flex justify-between items-center">
           <a href="/" class="group flex items-center gap-3">
-            <NuxtImg src="/reference/Frame 697.jpg" format="webp" quality="50" sizes="20 sm:28 md:40 lg:64" alt="Бизнес Сетка" class="w-10 h-10 rounded-lg" />
+            <NuxtImg src="/reference/Frame 697.jpg" format="webp" quality="50" sizes="20 sm:28 md:40 lg:64" alt="Бизнес Сетка — логотип закрытого клуба предпринимателей" class="w-10 h-10 rounded-lg" />
             <span class="text-sm font-bold tracking-tight text-gray-900">БИЗНЕС СЕТКА</span>
           </a>
 
@@ -263,7 +298,7 @@ function toggleFaq(index) {
             <a href="/yappie" class="px-4 py-2 text-sm text-violet-600 hover:text-violet-700 rounded-lg transition-all">Веб-разработка</a>
           </nav>
 
-          <a href="https://t.me/+mFUh7ye6U6NjNzli" target="_blank" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-gray-900/90 hover:bg-gray-900 rounded-xl transition-all backdrop-blur-sm">
+          <a href="https://t.me/artemselifanov" target="_blank" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-gray-900/90 hover:bg-gray-900 rounded-xl transition-all backdrop-blur-sm">
             <span>Связаться</span>
           </a>
 
@@ -382,7 +417,7 @@ function toggleFaq(index) {
             <div class="flex items-center gap-2 mb-4">
               <span class="text-[10px] font-semibold tracking-wider text-gray-400">БРЕНД</span>
             </div>
-            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">БИЗНЕС СЕТКА</h1>
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">БИЗНЕС СЕТКА — закрытый клуб и мастермайнд для предпринимателей</h1>
             <div class="relative w-full h-8 mb-3">
               <div class="absolute inset-0 bg-gray-100 rounded-full overflow-hidden">
                 <div class="absolute left-0 top-0 h-full w-0 bg-gradient-to-r from-purple-600 to-purple-400 rounded-full progress-bar"></div>
@@ -556,6 +591,42 @@ function toggleFaq(index) {
       </div>
     </section>
 
+    <!-- Как это работает -->
+    <section class="py-16 md:py-24 px-4 sm:px-6 bg-white">
+      <div class="max-w-[1600px] mx-auto">
+        <div class="text-center mb-12">
+          <span class="text-xs font-semibold tracking-wider text-purple-600">КАК ЭТО РАБОТАЕТ</span>
+          <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mt-3">ПУТЬ УЧАСТНИКА</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="p-6 md:p-8 bg-white rounded-3xl border-2 border-gray-200 hover:border-purple-300 hover:shadow-lg transition-all duration-300">
+            <span class="text-5xl md:text-6xl font-black text-purple-600 block mb-4">01</span>
+            <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2">Подаёшь заявку</h3>
+            <p class="text-gray-600 text-sm">Пишешь в Telegram — коротко о себе и своём проекте. Мы отвечаем в течение 24 часов.</p>
+          </div>
+
+          <div class="p-6 md:p-8 bg-white rounded-3xl border-2 border-gray-200 hover:border-purple-300 hover:shadow-lg transition-all duration-300">
+            <span class="text-5xl md:text-6xl font-black text-purple-600 block mb-4">02</span>
+            <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2">Короткий созвон</h3>
+            <p class="text-gray-600 text-sm">15-минутный разговор для знакомства и проверки того, что формат подходит под твои задачи.</p>
+          </div>
+
+          <div class="p-6 md:p-8 bg-white rounded-3xl border-2 border-gray-200 hover:border-purple-300 hover:shadow-lg transition-all duration-300">
+            <span class="text-5xl md:text-6xl font-black text-purple-600 block mb-4">03</span>
+            <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2">Вступаешь в группу</h3>
+            <p class="text-gray-600 text-sm">Оплата → доступ в закрытый чат → стартовая встреча группы.</p>
+          </div>
+
+          <div class="p-6 md:p-8 bg-white rounded-3xl border-2 border-gray-200 hover:border-purple-300 hover:shadow-lg transition-all duration-300">
+            <span class="text-5xl md:text-6xl font-black text-purple-600 block mb-4">04</span>
+            <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2">Работаешь 2 месяца</h3>
+            <p class="text-gray-600 text-sm">8 сессий по 2 часа. Каждую неделю — разбор участника, обратная связь от группы, конкретные шаги.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Для кого -->
     <section class="py-16 md:py-24 px-4 sm:px-6 bg-gray-50">
       <div class="max-w-[1600px] mx-auto">
@@ -572,6 +643,44 @@ function toggleFaq(index) {
             <p class="text-gray-600 text-sm">{{ item.description }}</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section class="py-16 md:py-24 px-4 sm:px-6 bg-gray-50">
+      <div class="max-w-[1600px] mx-auto">
+        <div class="text-center mb-12">
+          <span class="text-xs font-semibold tracking-wider text-purple-600">ОТЗЫВЫ УЧАСТНИКОВ</span>
+          <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mt-3">ЧТО ГОВОРЯТ В СООБЩЕСТВЕ</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="p-6 md:p-8 bg-white rounded-3xl border-2 border-gray-200 hover:border-purple-300 hover:shadow-lg transition-all duration-300">
+            <p class="text-gray-700 text-sm md:text-base leading-relaxed mb-4 italic">«За 2 месяца мастермайнда я пересмотрел юнит-экономику своего продукта и нашёл узкое место, которое тормозило масштабирование. Группа дала взгляд со стороны, который я не мог получить внутри команды»</p>
+            <div class="border-t-2 border-gray-200 pt-4">
+              <strong class="text-base font-bold text-gray-900">Дмитрий В.</strong>
+              <p class="text-xs text-gray-600 mt-1">Владелец производства, Екатеринбург</p>
+            </div>
+          </div>
+
+          <div class="p-6 md:p-8 bg-white rounded-3xl border-2 border-gray-200 hover:border-purple-300 hover:shadow-lg transition-all duration-300">
+            <p class="text-gray-700 text-sm md:text-base leading-relaxed mb-4 italic">«Ожидал полезных знакомств — получил партнёра по бизнесу. Нетворкинг здесь работает иначе: не визитки, а реальные совместные проекты»</p>
+            <div class="border-t-2 border-gray-200 pt-4">
+              <strong class="text-base font-bold text-gray-900">Алексей М.</strong>
+              <p class="text-xs text-gray-600 mt-1">IT-предприниматель, Москва</p>
+            </div>
+          </div>
+
+          <div class="p-6 md:p-8 bg-white rounded-3xl border-2 border-gray-200 hover:border-purple-300 hover:shadow-lg transition-all duration-300">
+            <p class="text-gray-700 text-sm md:text-base leading-relaxed mb-4 italic">«Групповая динамика мастермайнда — это мощно. Когда 6 предпринимателей смотрят на твою задачу, находятся решения, до которых ты бы сам не дошёл ещё год»</p>
+            <div class="border-t-2 border-gray-200 pt-4">
+              <strong class="text-base font-bold text-gray-900">Ольга Р.</strong>
+              <p class="text-xs text-gray-600 mt-1">Консультант по управлению, Санкт-Петербург</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xs text-gray-500 mt-6 text-center">⚠️ Примеры отзывов. Замените на реальные отзывы участников сообщества.</p>
       </div>
     </section>
 
@@ -607,7 +716,7 @@ function toggleFaq(index) {
         <p class="text-purple-100 text-base md:text-lg mb-8 max-w-xl mx-auto">
           Оставьте заявку и мы свяжемся с вами для обсуждения деталей участия в сообществе
         </p>
-        <a href="https://t.me/+mFUh7ye6U6NjNzli"
+        <a href="https://t.me/artemselifanov"
            target="_blank"
            class="inline-flex items-center gap-3 px-8 py-4 bg-white text-purple-600 hover:bg-purple-50 rounded-2xl font-bold text-lg transition-all shadow-xl shadow-purple-900/20 hover:shadow-2xl hover:shadow-purple-900/30 hover:scale-105">
           <span>Связаться в Telegram</span>
@@ -622,7 +731,7 @@ function toggleFaq(index) {
       <div class="max-w-[1600px] mx-auto">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <div class="flex items-center gap-3">
-            <NuxtImg src="/reference/Frame 697.jpg" format="webp" quality="50" sizes="24 md:32" alt="Бизнес Сетка" class="w-6 h-6 rounded-md" />
+            <NuxtImg src="/reference/Frame 697.jpg" format="webp" quality="50" sizes="24 md:32" alt="Бизнес Сетка — логотип" class="w-6 h-6 rounded-md" />
             <span class="text-sm font-bold text-white">БИЗНЕС СЕТКА</span>
           </div>
           <div class="flex items-center gap-6">

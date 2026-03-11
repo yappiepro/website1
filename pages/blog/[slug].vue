@@ -136,9 +136,11 @@
           </p>
         </header>
 
-        <img
+        <NuxtImg
           v-if="article?.image"
           :src="article.image"
+          format="webp"
+          quality="70"
           :alt="article.title"
           class="w-full rounded-2xl mb-8 sm:mb-12"
         />

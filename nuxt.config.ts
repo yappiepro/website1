@@ -145,7 +145,11 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'canonical', href: 'https://artemselifanov.ru' }
+        { rel: 'canonical', href: 'https://artemselifanov.ru' },
+        // Preconnect для важных ресурсов
+        { rel: 'preconnect', href: 'https://api.iconify.design', crossorigin: true },
+        { rel: 'preconnect', href: 'https://code.jquery.com', crossorigin: true },
+        { rel: 'dns-prefetch', href: 'https://api.iconify.design' }
       ],
       htmlAttrs: {
         lang: 'ru'

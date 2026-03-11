@@ -331,8 +331,8 @@ function Counter() {
     </ul>
 
     <div class="article-nav">
-      <p><strong>Читать далее:</strong> <a href="/website1/blog/razrabotka-veb-prilozheniy">Разработка веб-приложений →</a></p>
-      <p><strong>Назад:</strong> <a href="/website1/blog/vidy-mobilnykh-prilozheniy">← Виды мобильных приложений: классификация, примеры и как выбрать нужный тип</a></p>
+      <p><strong>Читать далее:</strong> <a href="/blog/razrabotka-veb-prilozheniy">Разработка веб-приложений →</a></p>
+      <p><strong>Назад:</strong> <a href="/blog/vidy-mobilnykh-prilozheniy">← Виды мобильных приложений: классификация, примеры и как выбрать нужный тип</a></p>
     </div>
   `
 }

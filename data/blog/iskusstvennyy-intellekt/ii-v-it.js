@@ -207,8 +207,8 @@ export default {
     </ul>
 
     <div class="article-nav">
-      <p><strong>Читать далее:</strong> <a href="/website1/blog/backend-razrabotka">Бэкенд-разработка: что это такое, какие технологии используются и как стать специалистом →</a></p>
-      <p><strong>Назад:</strong> <a href="/website1/blog/api-razrabotka">← Разработка API: что такое API, как создать и задокументировать</a></p>
+      <p><strong>Читать далее:</strong> <a href="/blog/backend-razrabotka">Бэкенд-разработка: что это такое, какие технологии используются и как стать специалистом →</a></p>
+      <p><strong>Назад:</strong> <a href="/blog/api-razrabotka">← Разработка API: что такое API, как создать и задокументировать</a></p>
     </div>
   `
 }

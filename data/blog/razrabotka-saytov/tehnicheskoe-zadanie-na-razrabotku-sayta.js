@@ -354,8 +354,8 @@ export default {
 </ul>
 
 <div class="article-nav">
-<p><strong>Читать далее:</strong> <a href="/website1/blog/razrabotka-internet-magazina">Разработка интернет-магазина: с чего начать →</a></p>
-<p><strong>Назад:</strong> <a href="/website1/blog/razrabotka-sayta-dlya-biznesa">← Разработка сайта для бизнеса: какой тип выбрать</a></p>
+<p><strong>Читать далее:</strong> <a href="/blog/razrabotka-internet-magazina">Разработка интернет-магазина: с чего начать →</a></p>
+<p><strong>Назад:</strong> <a href="/blog/razrabotka-sayta-dlya-biznesa">← Разработка сайта для бизнеса: какой тип выбрать</a></p>
 </div>
 `
 }

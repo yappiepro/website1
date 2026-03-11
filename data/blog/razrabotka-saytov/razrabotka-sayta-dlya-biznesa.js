@@ -254,8 +254,8 @@ export default {
 </ul>
 
 <div class="article-nav">
-<p><strong>Читать далее:</strong> <a href="/website1/blog/tehnicheskoe-zadanie-na-razrabotku-sayta">Техническое задание на разработку сайта: как составить →</a></p>
-<p><strong>Назад:</strong> <a href="/website1/blog/kak-zakazat-razrabotku-sayta">← Как заказать разработку сайта: пошаговое руководство</a></p>
+<p><strong>Читать далее:</strong> <a href="/blog/tehnicheskoe-zadanie-na-razrabotku-sayta">Техническое задание на разработку сайта: как составить →</a></p>
+<p><strong>Назад:</strong> <a href="/blog/kak-zakazat-razrabotku-sayta">← Как заказать разработку сайта: пошаговое руководство</a></p>
 </div>
 `
 }

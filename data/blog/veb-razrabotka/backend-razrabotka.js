@@ -297,7 +297,7 @@ export default {
     </ul>
 
     <div class="article-nav">
-      <p><strong>Читать далее:</strong> <a href="/website1/blog/frontend-razrabotka">Фронтенд-разработка: что это такое, какие технологии используются и как стать специалистом →</a></p>
+      <p><strong>Читать далее:</strong> <a href="/blog/frontend-razrabotka">Фронтенд-разработка: что это такое, какие технологии используются и как стать специалистом →</a></p>
     </div>
   `
 }

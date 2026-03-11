@@ -395,8 +395,8 @@ export default {
 </ol>
 
 <div class="article-nav">
-<p><strong>Читать далее:</strong> <a href="/website1/blog/ii-dlya-sozdaniya-sayta">ИИ для создания сайта: обзор инструментов 2025 года →</a></p>
-<p><strong>Назад:</strong> <a href="/website1/blog/sozdanie-sayta-html-css">← Создание сайта на HTML и CSS: основы и первые шаги</a></p>
+<p><strong>Читать далее:</strong> <a href="/blog/ii-dlya-sozdaniya-sayta">ИИ для создания сайта: обзор инструментов 2025 года →</a></p>
+<p><strong>Назад:</strong> <a href="/blog/sozdanie-sayta-html-css">← Создание сайта на HTML и CSS: основы и первые шаги</a></p>
 </div>
 `
 }

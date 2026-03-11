@@ -411,8 +411,8 @@ async def test_get_nonexistent_user():
     </ul>
 
     <div class="article-nav">
-      <p><strong>Читать далее:</strong> <a href="/website1/blog/ii-v-it">Искусственный интеллект в IT: как ИИ меняет разработку программного обеспечения →</a></p>
-      <p><strong>Назад:</strong> <a href="/website1/blog/fullstack-razrabotka">← Fullstack-разработка: кто такой fullstack-разработчик и стоит ли им становиться</a></p>
+      <p><strong>Читать далее:</strong> <a href="/blog/ii-v-it">Искусственный интеллект в IT: как ИИ меняет разработку программного обеспечения →</a></p>
+      <p><strong>Назад:</strong> <a href="/blog/fullstack-razrabotka">← Fullstack-разработка: кто такой fullstack-разработчик и стоит ли им становиться</a></p>
     </div>
   `
 }

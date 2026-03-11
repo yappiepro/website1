@@ -228,8 +228,8 @@ export default {
 </ul>
 
 <div class="article-nav">
-<p><strong>Читать далее:</strong> <a href="/website1/blog/platformy-dlya-sozdaniya-saytov">Платформы и конструкторы для создания сайтов →</a></p>
-<p><strong>Назад:</strong> <a href="/website1/blog/skolko-stoit-sozdat-sayt">← Сколько стоит создать сайт в 2025 году</a></p>
+<p><strong>Читать далее:</strong> <a href="/blog/platformy-dlya-sozdaniya-saytov">Платформы и конструкторы для создания сайтов →</a></p>
+<p><strong>Назад:</strong> <a href="/blog/skolko-stoit-sozdat-sayt">← Сколько стоит создать сайт в 2025 году</a></p>
 </div>
 `
 }

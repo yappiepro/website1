@@ -30,7 +30,7 @@ defineProps({
   <div class="tg-post">
     <div class="tg-post-header">
       <div class="tg-post-avatar">
-        <img :src="channelImage" :alt="channelName" />
+        <NuxtImg :src="channelImage" format="webp" quality="80" :alt="channelName" />
       </div>
       <div class="tg-post-author">
         <span class="tg-post-name">{{ channelName }}</span>

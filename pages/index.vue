@@ -63,27 +63,27 @@
                 <div class="flex items-end justify-center gap-[6.5px]">
                   <!-- Левое фото 2 (Дзен) -->
                   <div class="w-[50px] sm:w-[70px] md:w-[90px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl phone-animate" data-position="left-2">
-                    <img src="/reference/IMG_7084.jpg" alt="Дзен" class="w-full h-full object-cover" />
+                    <NuxtImg src="/reference/IMG_7084.jpg" format="webp" quality="80" alt="Дзен" class="w-full h-full object-cover" />
                   </div>
 
                   <!-- Левое фото 1 (Сетка) -->
                   <div class="w-[55px] sm:w-[75px] md:w-[100px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl phone-animate" data-position="left-1">
-                    <img src="/reference/IMG_7082.jpg" alt="Сетка" class="w-full h-full object-cover" />
+                    <NuxtImg src="/reference/IMG_7082.jpg" format="webp" quality="80" alt="Сетка" class="w-full h-full object-cover" />
                   </div>
 
                   <!-- Центральное фото (IMG_7089) -->
                   <div class="w-[60px] sm:w-[85px] md:w-[110px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl phone-animate" data-position="center">
-                    <img src="/reference/IMG_7089.jpg" alt="Площадка" class="w-full h-full object-cover" />
+                    <NuxtImg src="/reference/IMG_7089.jpg" format="webp" quality="80" alt="Площадка" class="w-full h-full object-cover" />
                   </div>
 
                   <!-- Правое фото 1 (TenChat) -->
                   <div class="w-[55px] sm:w-[75px] md:w-[100px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl phone-animate" data-position="right-1">
-                    <img src="/reference/IMG_7083.jpg" alt="TenChat" class="w-full h-full object-cover" />
+                    <NuxtImg src="/reference/IMG_7083.jpg" format="webp" quality="80" alt="TenChat" class="w-full h-full object-cover" />
                   </div>
 
                   <!-- Правое фото 2 (IMG_7090) -->
                   <div class="w-[50px] sm:w-[70px] md:w-[90px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl phone-animate" data-position="right-2">
-                    <img src="/reference/IMG_7090.jpg" alt="Площадка" class="w-full h-full object-cover" />
+                    <NuxtImg src="/reference/IMG_7090.jpg" format="webp" quality="80" alt="Площадка" class="w-full h-full object-cover" />
                   </div>
                 </div>
               </div>

@@ -91,6 +91,16 @@ export default defineNuxtConfig({
         '/cookie'
       ],
       failOnError: false
+    },
+    // Настройка заголовков для кэширования
+    routeRules: {
+      // Статические ресурсы - кэш 1 год
+      '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+      '/images/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+      '/reference/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+      '/fonts/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+      // HTML страницы - проверка при каждом посещении
+      '/**': { headers: { 'cache-control': 'public, max-age=0, must-revalidate' } }
     }
   },
   

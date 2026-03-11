@@ -360,6 +360,8 @@ function toggleFaq(index) {
       </div>
     </Transition>
 
+    <!-- Основной контент -->
+    <main role="main">
     <!-- Hero: Bento Grid -->
     <section class="pt-24 md:pt-32 pb-16 px-4 sm:px-6 bg-gradient-to-br from-gray-50 to-white relative" id="bento-section">
       <div class="max-w-[1600px] mx-auto">
@@ -603,6 +605,7 @@ function toggleFaq(index) {
         </a>
       </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="py-8 px-4 sm:px-6 bg-gray-900 border-t border-gray-800">

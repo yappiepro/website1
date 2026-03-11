@@ -17,6 +17,8 @@
       cta-text="Связаться в Telegram"
     />
 
+    <!-- Основной контент -->
+    <main role="main">
     <!-- 1. HERO SECTION -->
     <section class="relative min-h-screen flex items-center pt-20 px-4 sm:px-6 overflow-hidden bg-gray-50">
       <div class="max-w-7xl mx-auto w-full relative z-10">
@@ -780,6 +782,7 @@
       :social-networks="socialNetworks"
       cta-link="https://t.me/artemselifanov"
     />
+    </main>
 
     <!-- Кнопка наверх (фиксированная, видна при скролле) -->
     <button @click="scrollToTop"

@@ -4,18 +4,18 @@ import { ArrowRight, Mail, MapPin, Calendar, Users, TrendingUp, Target, Zap, Boo
 
 // SEO для страницы
 useSeoMeta({
-  title: 'Нескучный Нетворкинг — Сообщество предпринимателей и экспертов | Артём Селифанов',
-  description: 'Закрытое сообщество предпринимателей и экспертов. Нетворкинг, обмен опытом, мастермайнд-группы. 750+ участников, регулярные встречи, поддержка единомышленников.',
-  keywords: 'нетворкинг, сообщество предпринимателей, бизнес-клуб, мастермайнд, обмен опытом, нетворкинг мероприятия, бизнес-сообщество, предприниматели',
+  title: 'Нескучный Нетворкинг — личный бренд и контент-маркетинг для экспертов | Артём Селифанов',
+  description: 'Сообщество предпринимателей и экспертов для роста личного бренда. Продвижение в Telegram, Сетке и TenChat. Консультации, менторство, мастермайнд. Артём Селифанов.',
+  keywords: 'личный бренд, контент-маркетинг, нетворкинг, продвижение в Telegram, продвижение в TenChat, Сетка, блог эксперта, сообщество предпринимателей',
   robots: 'index, follow',
-  ogTitle: 'Нескучный Нетворкинг — Сообщество предпринимателей и экспертов',
-  ogDescription: 'Закрытое сообщество для предпринимателей и экспертов, где вы найдёте полезные связи и окружение для роста',
+  ogTitle: 'Нескучный Нетворкинг — личный бренд и контент-маркетинг для экспертов',
+  ogDescription: 'Сообщество предпринимателей и экспертов для роста личного бренда. Продвижение в Telegram, Сетке и TenChat.',
   ogType: 'website',
   ogUrl: 'https://artemselifanov.ru/networking',
   ogImage: 'https://artemselifanov.ru/og-image.jpg',
   twitterCard: 'summary_large_image',
-  twitterTitle: 'Нескучный Нетворкинг — Сообщество предпринимателей и экспертов',
-  twitterDescription: 'Закрытое сообщество для предпринимателей и экспертов, где вы найдёте полезные связи и окружение для роста',
+  twitterTitle: 'Нескучный Нетворкинг — личный бренд и контент-маркетинг для экспертов',
+  twitterDescription: 'Сообщество предпринимателей и экспертов для роста личного бренда',
   twitterImage: 'https://artemselifanov.ru/og-image.jpg'
 })
 
@@ -34,9 +34,16 @@ useSchemaOrg([
   }),
   defineWebPage({
     '@type': 'WebPage',
-    name: 'Нескучный Нетворкинг — Сообщество предпринимателей и экспертов',
-    description: 'Закрытое сообщество предпринимателей и экспертов. Нетворкинг, обмен опытом, мастермайнд-группы.',
+    name: 'Нескучный Нетворкинг — личный бренд и контент-маркетинг для экспертов',
+    description: 'Сообщество предпринимателей и экспертов для роста личного бренда. Продвижение в Telegram, Сетке и TenChat.',
     url: 'https://artemselifanov.ru/networking'
+  }),
+  definePerson({
+    name: 'Артём Селифанов',
+    url: 'https://artemselifanov.ru',
+    sameAs: ['https://t.me/artemselifanov'],
+    jobTitle: 'Маркетолог, эксперт по личному бренду',
+    description: 'Помогаю предпринимателям и экспертам развивать личный бренд через контент-маркетинг в социальных сетях'
   })
 ])
 
@@ -341,6 +348,22 @@ const faqs = [
   {
     question: 'Как попасть в комьюнити?',
     answer: 'Подпишитесь на сообщество и вступите в чат. Там вы познакомитесь с участниками, найдёте единомышленников и потенциальных партнёров. Принцип «Ценность выше просьб» помогает создавать качественные связи.'
+  },
+  {
+    question: 'Чем это отличается от обычных SMM-курсов?',
+    answer: 'Курсы дают теорию. Здесь — практика в сообществе: разборы реальных блогов, живые встречи, нетворкинг с коллегами. Вы не учитесь «в вакууме», а растёте вместе с людьми схожего уровня.'
+  },
+  {
+    question: 'Есть ли гарантия результата?',
+    answer: 'Гарантия зависит от вашей регулярности. Участники, которые внедряют систему и публикуют контент 3–4 раза в неделю, стабильно видят рост. Если вы пришли за «волшебной кнопкой» — это не тот проект.'
+  },
+  {
+    question: 'Как проходит оплата и возможен ли возврат?',
+    answer: 'Оплата — через Telegram при записи. Возврат возможен в течение 24 часов после первой встречи, если формат не подошёл. Напишите напрямую: @artemselifanov.'
+  },
+  {
+    question: 'Что будет, если я пропущу встречи?',
+    answer: 'Все встречи записываются. Запись будет доступна участникам в течение 7 дней после эфира. Пропустить можно — главное, не пропускать публикации в своём блоге.'
   }
 ]
 
@@ -363,7 +386,7 @@ function toggleFaq(index) {
       <div class="max-w-[1400px] mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
         <!-- Логотип -->
         <a href="/networking" class="flex items-center gap-3 group">
-          <img src="/reference/Vector.svg" alt="Нескучный Нетворкинг" class="h-10 w-auto" />
+          <img src="/reference/Vector.svg" alt="Нескучный Нетворкинг — логотип сообщества" class="h-10 w-auto" />
         </a>
 
         <!-- Десктопное меню -->
@@ -443,7 +466,8 @@ function toggleFaq(index) {
             <div class="text-xs uppercase tracking-wider mb-2">КЕЙС // 01</div>
             <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.85] tracking-tighter mb-6">
               НЕСКУЧНЫЙ<br/>
-              НЕТВОРКИНГ
+              НЕТВОРКИНГ — сообщество для личного бренда<br/>
+              предпринимателей и экспертов
             </h1>
             <p class="text-lg md:text-xl text-gray-700 max-w-xl leading-relaxed">
               Сообщество для развития личного бренда через контент-маркетинг в социальных сетях
@@ -570,6 +594,42 @@ function toggleFaq(index) {
             </div>
             <h3 class="text-xl font-bold uppercase tracking-wider mb-2">{{ item.title }}</h3>
             <p class="text-sm text-gray-700 leading-relaxed">{{ item.description }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция "Как это работает" -->
+    <section id="how-it-works" class="py-12 md:py-20 px-4 md:px-6 border-b-2 border-black animate-on-scroll">
+      <div class="max-w-[1400px] mx-auto">
+        <div class="text-xs uppercase tracking-wider mb-6">ПУТЬ: /КАК_НАЧАТЬ</div>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter mb-8 md:mb-12">
+          КАК ЭТО РАБОТАЕТ
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div class="border-2 border-black bg-white p-6 hover:shadow-[6px_6px_0px_0px_rgba(234,109,58,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200">
+            <span class="text-5xl md:text-6xl font-black text-[#EA6D3A] block mb-4">01</span>
+            <h3 class="text-lg md:text-xl font-bold uppercase tracking-wider mb-2">Вступаешь в сообщество</h3>
+            <p class="text-sm text-gray-700 leading-relaxed">Нажимаешь кнопку → попадаешь в Telegram-чат с 130+ участниками</p>
+          </div>
+
+          <div class="border-2 border-black bg-white p-6 hover:shadow-[6px_6px_0px_0px_rgba(234,109,58,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200">
+            <span class="text-5xl md:text-6xl font-black text-[#EA6D3A] block mb-4">02</span>
+            <h3 class="text-lg md:text-xl font-bold uppercase tracking-wider mb-2">Знакомишься и включаешься</h3>
+            <p class="text-sm text-gray-700 leading-relaxed">Представляешься в чате, читаешь базу знаний, знакомишься с участниками</p>
+          </div>
+
+          <div class="border-2 border-black bg-white p-6 hover:shadow-[6px_6px_0px_0px_rgba(234,109,58,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200">
+            <span class="text-5xl md:text-6xl font-black text-[#EA6D3A] block mb-4">03</span>
+            <h3 class="text-lg md:text-xl font-bold uppercase tracking-wider mb-2">Выбираешь свой формат</h3>
+            <p class="text-sm text-gray-700 leading-relaxed">Бесплатное комьюнити, консультация, менторство или мастермайнд — в зависимости от твоих задач</p>
+          </div>
+
+          <div class="border-2 border-black bg-white p-6 hover:shadow-[6px_6px_0px_0px_rgba(234,109,58,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200">
+            <span class="text-5xl md:text-6xl font-black text-[#EA6D3A] block mb-4">04</span>
+            <h3 class="text-lg md:text-xl font-bold uppercase tracking-wider mb-2">Растёшь системно</h3>
+            <p class="text-sm text-gray-700 leading-relaxed">Публикуешь контент, получаешь обратную связь, масштабируешь аудиторию и продажи</p>
           </div>
         </div>
       </div>
@@ -702,7 +762,7 @@ function toggleFaq(index) {
                 <div class="w-32 h-32 md:w-40 md:h-40 border-2 border-black bg-gray-100 overflow-hidden">
                   <img
                     :src="author.image"
-                    :alt="author.name"
+                    alt="Артём Селифанов — маркетолог, блогер, нетворкер, автор сообщества Нескучный Нетворкинг"
                     class="w-full h-full object-cover object-center"
                     style="object-position: center 10%"
                     @error="$event.target.style.display='none'"
@@ -743,6 +803,44 @@ function toggleFaq(index) {
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Секция "Отзывы" -->
+    <section id="testimonials" class="py-12 md:py-20 px-4 md:px-6 border-b-2 border-black animate-on-scroll">
+      <div class="max-w-[1400px] mx-auto">
+        <div class="text-xs uppercase tracking-wider mb-6">ПУТЬ: /ОТЗЫВЫ</div>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter mb-8 md:mb-12">
+          ЧТО ГОВОРЯТ УЧАСТНИКИ
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div class="border-2 border-black bg-white p-6 hover:shadow-[6px_6px_0px_0px_rgba(234,109,58,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200">
+            <p class="text-sm text-gray-700 leading-relaxed mb-4 italic">«За 6 недель вырос с 200 до 780 подписчиков в Telegram. Главное — появилась система: теперь я знаю, что и когда публиковать»</p>
+            <div class="border-t-2 border-black pt-4">
+              <strong class="text-base font-bold uppercase tracking-wider">Иван К.</strong>
+              <p class="text-xs text-gray-600 mt-1">IT-консультант, Москва</p>
+            </div>
+          </div>
+
+          <div class="border-2 border-black bg-white p-6 hover:shadow-[6px_6px_0px_0px_rgba(234,109,58,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200">
+            <p class="text-sm text-gray-700 leading-relaxed mb-4 italic">«Менторство с Артёмом — это не лекции, а живая работа над моим конкретным проектом. Первые платные клиенты через блог пришли на 2-м месяце»</p>
+            <div class="border-t-2 border-black pt-4">
+              <strong class="text-base font-bold uppercase tracking-wider">Мария Л.</strong>
+              <p class="text-xs text-gray-600 mt-1">Коуч, Санкт-Петербург</p>
+            </div>
+          </div>
+
+          <div class="border-2 border-black bg-white p-6 hover:shadow-[6px_6px_0px_0px_rgba(234,109,58,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200">
+            <p class="text-sm text-gray-700 leading-relaxed mb-4 italic">«Думала, что для ведения блога нужен большой опыт. Оказалось — нужна только система. Сейчас пишу 4 раза в неделю и не испытываю стресса»</p>
+            <div class="border-t-2 border-black pt-4">
+              <strong class="text-base font-bold uppercase tracking-wider">Анна Ф.</strong>
+              <p class="text-xs text-gray-600 mt-1">Дизайнер, удалённо</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xs text-gray-500 mt-6 text-center">⚠️ Примеры отзывов. Замените на реальные отзывы из Telegram-чата сообщества.</p>
       </div>
     </section>
 
@@ -855,10 +953,10 @@ function toggleFaq(index) {
                 На диагностику
                 <ExternalLink class="ml-2 h-4 w-4" />
               </a>
-              <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center font-medium px-5 py-3 bg-white text-black hover:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] transition-all duration-200 uppercase tracking-wider text-sm">
-                В чат
+              <NuxtLink to="/blog" class="inline-flex items-center justify-center font-medium px-5 py-3 bg-white text-black hover:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] transition-all duration-200 uppercase tracking-wider text-sm">
+                Читать блог
                 <ExternalLink class="ml-2 h-4 w-4" />
-              </a>
+              </NuxtLink>
             </div>
           </div>
 
@@ -895,7 +993,7 @@ function toggleFaq(index) {
         </div>
         <div class="flex flex-col md:flex-row justify-between items-center gap-4">
           <div class="flex items-center gap-3">
-            <img src="/reference/Vector.svg" alt="Нескучный Нетворкинг" class="h-8 w-auto" />
+            <img src="/reference/Vector.svg" alt="Нескучный Нетворкинг — логотип сообщества" class="h-8 w-auto" />
             <span class="font-bold text-xs uppercase tracking-wider">Нескучный Нетворкинг © 2026</span>
           </div>
           <div class="text-xs text-gray-600 uppercase tracking-wider">

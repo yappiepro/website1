@@ -31,11 +31,25 @@ export default defineNuxtConfig({
       tailwindcss()
     ],
     build: {
-      sourcemap: false
+      sourcemap: false,
+      cssCodeSplit: true,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ['vue', 'vue-router']
+          }
+        }
+      }
     },
     optimizeDeps: {
       include: ['lucide-vue-next']
     }
+  },
+
+  // Оптимизация CSS
+  experimental: {
+    inlineSSRStyles: true,
+    appManifest: false
   },
 
   app: {
@@ -158,5 +172,19 @@ export default defineNuxtConfig({
   },
   typescript: {
     strict: false
+  },
+
+  // Оптимизация загрузки CSS
+  nitro: {
+    routeRules: {
+      '/': {
+        prerender: true
+      },
+      '/**': {
+        headers: {
+          'Critical-CH': 'Sec-CH-Prefers-Color-Scheme'
+        }
+      }
+    }
   }
 })

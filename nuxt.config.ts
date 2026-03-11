@@ -131,7 +131,7 @@ export default defineNuxtConfig({
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' },
         { name: 'author', content: 'Артём Селифанов' },
-        { name: 'yandex-verification', content: '5dd84e7965966e23' }
+        { name: 'yandex-verification', content: '27bf0858465d6882' }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

@@ -344,7 +344,7 @@
                 </div>
               </div>
               <div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-gray-200 hover:border-gray-400 transition-all hover:shadow-xl hover:-translate-y-1">
-                <NuxtImg src="/reference/networking.jpg" format="webp" quality="80" alt="Нескучный Нетворкинг" class="absolute inset-0 w-full h-full object-cover" />
+                <NuxtImg src="/reference/networking.jpg" format="webp" quality="60" sizes="128px sm:160px md:200px lg:256px" alt="Нескучный Нетворкинг" class="absolute inset-0 w-full h-full object-cover" />
               </div>
               <div class="text-center mt-3">
                 <div class="text-sm font-bold text-gray-900">Нескучный Нетворкинг</div>
@@ -368,7 +368,7 @@
                 </div>
               </div>
               <div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-gray-200 hover:border-gray-400 transition-all hover:shadow-xl hover:-translate-y-1">
-                <NuxtImg src="/reference/Frame 697.jpg" format="webp" quality="80" alt="Бизнес Сетка" class="absolute inset-0 w-full h-full object-cover" />
+                <NuxtImg src="/reference/Frame 697.jpg" format="webp" quality="60" sizes="128px sm:160px md:200px lg:256px" alt="Бизнес Сетка" class="absolute inset-0 w-full h-full object-cover" />
               </div>
               <div class="text-center mt-3">
                 <div class="text-sm font-bold text-gray-900">Бизнес Сетка</div>

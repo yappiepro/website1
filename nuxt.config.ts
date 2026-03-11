@@ -14,7 +14,7 @@ export default defineNuxtConfig({
 
   image: {
     format: ['webp', 'avif', 'png'],
-    quality: 80,
+    quality: 75,
     screens: {
       xs: 320,
       sm: 640,
@@ -78,7 +78,7 @@ export default defineNuxtConfig({
       crawlLinks: true,
       routes: [
         '/',
-        '/compare',
+        '/demo',
         '/blog',
         '/blog/razrabotka-sayta-pod-klyuch',
         '/blog/skolko-stoit-razrabotka-sayta',
@@ -95,14 +95,17 @@ export default defineNuxtConfig({
         '/blog/kak-sozdat-mobilnoe-prilozhenie',
         '/blog/yazyki-programmirovaniya-mobilnykh-prilozheniy',
         '/blog/dizayn-mobilnogo-prilozheniya',
+        '/blog/razrabotka-mobilnogo-prilozheniya',
+        '/blog/vidy-mobilnykh-prilozheniy',
+        '/blog/prodvizhenie-mobilnogo-prilozheniya',
         '/blog/razrabotka-veb-prilozheniy',
-        '/networking',
-        '/business',
-        '/yappie',
-        '/study',
-        '/offer',
-        '/privacy',
-        '/cookie'
+        '/blog/frontend-razrabotka',
+        '/blog/backend-razrabotka',
+        '/blog/fullstack-razrabotka',
+        '/blog/api-razrabotka',
+        '/blog/ii-v-it',
+        '/blog/ii-dlya-biznesa',
+        '/blog/chatgpt-dlya-biznesa'
       ],
       failOnError: false
     },

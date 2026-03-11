@@ -239,7 +239,7 @@ function toggleFaq(index) {
       <div class="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8">
         <div class="h-14 md:h-16 flex justify-between items-center">
           <a href="/" class="group flex items-center gap-3">
-            <NuxtImg src="/reference/Frame 697.jpg" format="webp" quality="60" sizes="24 sm:32 md:40 lg:64" alt="Бизнес Сетка" class="w-10 h-10 rounded-lg" />
+            <NuxtImg src="/reference/Frame 697.jpg" format="webp" quality="50" sizes="20 sm:28 md:40 lg:64" alt="Бизнес Сетка" class="w-10 h-10 rounded-lg" />
             <span class="text-sm font-bold tracking-tight text-gray-900">БИЗНЕС СЕТКА</span>
           </a>
 
@@ -612,16 +612,16 @@ function toggleFaq(index) {
       <div class="max-w-[1600px] mx-auto">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <div class="flex items-center gap-3">
-            <NuxtImg src="/reference/Frame 697.jpg" format="webp" quality="60" sizes="24 md:32" alt="Бизнес Сетка" class="w-6 h-6 rounded-md" />
+            <NuxtImg src="/reference/Frame 697.jpg" format="webp" quality="50" sizes="24 md:32" alt="Бизнес Сетка" class="w-6 h-6 rounded-md" />
             <span class="text-sm font-bold text-white">БИЗНЕС СЕТКА</span>
           </div>
           <div class="flex items-center gap-6">
-            <a href="/" class="text-xs text-gray-400 hover:text-white transition-colors">Главная</a>
-            <a href="#membership" class="text-xs text-gray-400 hover:text-white transition-colors">Участие</a>
-            <a href="#events" class="text-xs text-gray-400 hover:text-white transition-colors">События</a>
-            <a href="https://t.me/+mFUh7ye6U6NjNzli" target="_blank" class="text-xs text-gray-400 hover:text-white transition-colors">Контакты</a>
+            <a href="/" class="text-xs text-gray-300 hover:text-white transition-colors">Главная</a>
+            <a href="#membership" class="text-xs text-gray-300 hover:text-white transition-colors">Участие</a>
+            <a href="#events" class="text-xs text-gray-300 hover:text-white transition-colors">События</a>
+            <a href="https://t.me/+mFUh7ye6U6NjNzli" target="_blank" class="text-xs text-gray-300 hover:text-white transition-colors">Контакты</a>
           </div>
-          <span class="text-xs text-gray-500">© 2026 Бизнес Сетка. Все права защищены.</span>
+          <span class="text-xs text-gray-300">© 2026 Бизнес Сетка. Все права защищены.</span>
         </div>
       </div>
     </footer>

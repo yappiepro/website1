@@ -1,5 +1,5 @@
 <template>
-  <footer class="py-16 md:py-24 px-4 sm:px-6 border-t border-gray-100" :class="bgClass">
+  <footer class="py-16 md:py-24 px-4 sm:px-6 border-t border-gray-200" :class="bgClass">
     <div class="max-w-7xl mx-auto">
       <!-- CTA секция -->
       <div v-if="showCta" class="text-center mb-16 animate-on-scroll">
@@ -32,12 +32,12 @@
 
           <!-- Сообщества -->
           <div v-if="communities && communities.length">
-            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">
+            <h3 class="text-xs font-bold uppercase tracking-wider mb-4" :class="headingColor">
               {{ communitiesTitle }}
             </h3>
             <ul class="space-y-3 text-sm">
               <li v-for="community in communities" :key="community.href">
-                <NuxtLink :to="community.href" class="text-gray-400 hover:text-white transition-colors">
+                <NuxtLink :to="community.href" class="transition-colors" :class="linkColor">
                   {{ community.label }}
                 </NuxtLink>
               </li>
@@ -46,7 +46,7 @@
 
           <!-- Контакты -->
           <div v-if="contacts && contacts.length">
-            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">
+            <h3 class="text-xs font-bold uppercase tracking-wider mb-4" :class="headingColor">
               {{ contactsTitle }}
             </h3>
             <ul class="space-y-3 text-sm">
@@ -54,7 +54,8 @@
                 <a
                   :href="contact.href"
                   :target="contact.external ? '_blank' : undefined"
-                  class="text-gray-400 hover:text-white transition-colors"
+                  class="transition-colors"
+                  :class="linkColor"
                 >
                   {{ contact.label }}
                 </a>
@@ -64,7 +65,7 @@
 
           <!-- Соцсети -->
           <div v-if="socialNetworks && socialNetworks.length">
-            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">
+            <h3 class="text-xs font-bold uppercase tracking-wider mb-4" :class="headingColor">
               {{ socialTitle }}
             </h3>
             <div class="flex gap-3">
@@ -76,7 +77,7 @@
                 :aria-label="getSocialLabel(network.icon)"
                 class="w-11 h-11 bg-gray-800 hover:bg-gray-700 rounded-xl flex items-center justify-center transition-all"
               >
-                <Icon :name="`fa-brands:${network.icon}`" class="w-5 h-5 text-gray-400" />
+                <Icon :name="`fa-brands:${network.icon}`" class="w-5 h-5" :class="iconColor" />
               </a>
             </div>
           </div>
@@ -84,13 +85,14 @@
 
         <!-- Копирайт и документы -->
         <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div class="text-xs text-gray-500">{{ copyright }}</div>
+          <div class="text-xs" :class="copyrightColor">{{ copyright }}</div>
           <div class="flex gap-6">
             <NuxtLink
               v-for="doc in legalDocs"
               :key="doc.href"
               :to="doc.href"
-              class="text-xs text-gray-500 hover:text-white transition-colors"
+              class="transition-colors"
+              :class="docColor"
             >
               {{ doc.label }}
             </NuxtLink>
@@ -102,6 +104,8 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+
 const props = defineProps({
   // Показывать CTA секцию
   showCta: {
@@ -200,6 +204,18 @@ const props = defineProps({
     default: 'border-t border-gray-800'
   }
 })
+
+// Вычисляем, тёмный ли фон
+const isDarkBg = computed(() => {
+  return props.bgClass && props.bgClass.includes('gray-900')
+})
+
+// Цвета для текста в зависимости от фона
+const headingColor = computed(() => isDarkBg.value ? 'text-gray-200' : 'text-gray-700')
+const linkColor = computed(() => isDarkBg.value ? 'text-gray-300' : 'text-gray-600')
+const iconColor = computed(() => isDarkBg.value ? 'text-gray-300' : 'text-gray-600')
+const copyrightColor = computed(() => isDarkBg.value ? 'text-gray-300' : 'text-gray-500')
+const docColor = computed(() => isDarkBg.value ? 'text-gray-300' : 'text-gray-500')
 
 function getSocialLabel(icon) {
   const labels = {

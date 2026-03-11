@@ -610,7 +610,7 @@
                class="group relative rounded-2xl overflow-hidden border border-white/[0.08] hover:border-violet-500/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-violet-500/20 bg-white/[0.02] backdrop-blur-xl">
             <div class="aspect-video flex items-center justify-center relative overflow-hidden"
                  :class="project.hasImage ? 'p-0' : 'bg-gradient-to-br from-violet-600/20 to-fuchsia-600/20'">
-              <NuxtImg v-if="project.hasImage" :src="project.image" :alt="project.title" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" format="webp" quality="80" />
+              <NuxtImg v-if="project.hasImage" :src="project.image" :alt="project.title" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" format="webp" quality="70" sizes="320px sm:640px md:768px lg:1024px" />
               <template v-else>
                 <div class="absolute inset-0 bg-gradient-to-t from-[#030305] via-transparent to-transparent opacity-60"></div>
                 <component :is="project.icon" class="h-16 w-16 sm:h-20 sm:w-20 text-white/30 group-hover:scale-110 group-hover:text-white/50 transition-all duration-500" />

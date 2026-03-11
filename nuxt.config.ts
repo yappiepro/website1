@@ -78,6 +78,7 @@ export default defineNuxtConfig({
       crawlLinks: true,
       routes: [
         '/',
+        '/404',
         '/demo',
         '/blog',
         '/blog/cluster/razrabotka-saytov',

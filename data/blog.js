@@ -70,7 +70,7 @@ export function formatDate(date) {
   const d = new Date(date)
   return d.toLocaleDateString('ru-RU', {
     day: 'numeric',
-    month: 'long',
+    month: 'short',
     year: 'numeric'
   })
 }

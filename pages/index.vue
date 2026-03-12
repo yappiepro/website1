@@ -1,5 +1,16 @@
 <template>
   <div class="min-h-screen bg-white text-gray-900 antialiased overflow-x-hidden">
+    <!-- Preload критических ресурсов для LCP -->
+    <Head>
+      <link rel="preload" as="image" href="/reference/IMG_7089.webp" imagesrcset="/reference/IMG_7089.webp 110w, /reference/IMG_7089.webp 85w, /reference/IMG_7089.webp 60w" imagesizes="110px" fetchpriority="high" />
+      <link rel="preload" as="image" href="/reference/IMG_7082.webp" imagesrcset="/reference/IMG_7082.webp 100w, /reference/IMG_7082.webp 75w, /reference/IMG_7082.webp 55w" imagesizes="100px" />
+      <link rel="preload" as="image" href="/reference/IMG_7084.webp" imagesrcset="/reference/IMG_7084.webp 90w, /reference/IMG_7084.webp 70w, /reference/IMG_7084.webp 50w" imagesizes="90px" />
+      <link rel="preload" as="image" href="/reference/IMG_7083.webp" imagesrcset="/reference/IMG_7083.webp 100w, /reference/IMG_7083.webp 75w, /reference/IMG_7083.webp 55w" imagesizes="100px" />
+      <link rel="preload" as="image" href="/reference/IMG_7090.webp" imagesrcset="/reference/IMG_7090.webp 90w, /reference/IMG_7090.webp 70w, /reference/IMG_7090.webp 50w" imagesizes="90px" />
+      <link rel="preload" as="font" href="/fonts/Syncopate-Regular.woff2" type="font/woff2" crossorigin />
+      <link rel="preload" as="font" href="/fonts/Syncopate-Bold.woff2" type="font/woff2" crossorigin />
+    </Head>
+    
     <!-- Прогресс-бар скролла -->
     <ScrollProgress />
 
@@ -60,33 +71,33 @@
             </div>
           </div>
 
-          <div class="lg:col-span-4 flex justify-center lg:justify-end image-animate">
+          <div class="lg:col-span-4 flex justify-center lg:justify-end">
             <div class="relative">
               <!-- Пять скриншотов рядом -->
               <div class="relative w-full max-w-sm mx-auto">
                 <div class="flex items-end justify-center gap-[6.5px]">
                   <!-- Левое фото 2 (Дзен) -->
-                  <div class="w-[50px] sm:w-[70px] md:w-[90px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl phone-animate" data-position="left-2">
+                  <div class="w-[50px] sm:w-[70px] md:w-[90px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl" data-position="left-2">
                     <NuxtImg src="/reference/IMG_7084.webp" quality="75" sizes="50 sm:70 md:90" alt="Дзен" class="w-full h-full object-cover" loading="eager" fetchpriority="low" preload />
                   </div>
 
                   <!-- Левое фото 1 (Сетка) -->
-                  <div class="w-[55px] sm:w-[75px] md:w-[100px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl phone-animate" data-position="left-1">
+                  <div class="w-[55px] sm:w-[75px] md:w-[100px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl" data-position="left-1">
                     <NuxtImg src="/reference/IMG_7082.webp" quality="75" sizes="55 sm:75 md:100" alt="Сетка" class="w-full h-full object-cover" loading="eager" fetchpriority="low" preload />
                   </div>
 
                   <!-- Центральное фото (IMG_7089) - LCP кандидат -->
-                  <div class="w-[60px] sm:w-[85px] md:w-[110px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl phone-animate" data-position="center">
+                  <div class="w-[60px] sm:w-[85px] md:w-[110px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl" data-position="center">
                     <NuxtImg src="/reference/IMG_7089.webp" quality="75" sizes="60 sm:85 md:110" alt="Площадка" class="w-full h-full object-cover" loading="eager" fetchpriority="high" preload />
                   </div>
 
                   <!-- Правое фото 1 (TenChat) -->
-                  <div class="w-[55px] sm:w-[75px] md:w-[100px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl phone-animate" data-position="right-1">
+                  <div class="w-[55px] sm:w-[75px] md:w-[100px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl" data-position="right-1">
                     <NuxtImg src="/reference/IMG_7083.webp" quality="75" sizes="55 sm:75 md:100" alt="TenChat" class="w-full h-full object-cover" loading="eager" fetchpriority="low" preload />
                   </div>
 
                   <!-- Правое фото 2 (IMG_7090) -->
-                  <div class="w-[50px] sm:w-[70px] md:w-[90px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl phone-animate" data-position="right-2">
+                  <div class="w-[50px] sm:w-[70px] md:w-[90px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl" data-position="right-2">
                     <NuxtImg src="/reference/IMG_7090.webp" quality="75" sizes="50 sm:70 md:90" alt="Площадка" class="w-full h-full object-cover" loading="eager" fetchpriority="low" preload />
                   </div>
                 </div>
@@ -888,15 +899,14 @@ useHead({
   link: [
     { rel: 'canonical', href: 'https://artemselifanov.ru' }
   ],
-  // Критический CSS для hero-секции - ускоряет FCP
+  // Критический CSS для hero-секции - ускоряет FCP и LCP
   style: [
     {
       children: `
         .hero-critical{min-height:100vh;display:flex;align-items:center}
-        .hero-animate{animation:fadeInUp .6s ease-out}
-        @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-        .phone-animate{transition:transform .3s ease}
-        .image-animate img{max-width:100%;height:auto}
+        @media(max-width:1024px){.lg\\:grid-cols-12{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:2rem}}
+        @media(min-width:1024px){.lg\\:col-span-8{grid-column:span 8/span 8}}
+        @media(min-width:1024px){.lg\\:col-span-4{grid-column:span 4/span 4}}
       `,
       tagPosition: 'head'
     }

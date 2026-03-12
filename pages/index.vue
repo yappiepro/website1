@@ -11,10 +11,12 @@
     />
 
     <!-- Мобильное меню -->
-    <MobileMenu
+    <BaseMobileMenu
+      v-model="isMobileMenuOpen"
       :menu-items="mobileMenuItems"
       cta-link="https://t.me/artemselifanov"
       cta-text="Связаться в Telegram"
+      theme="light"
     />
 
     <!-- Основной контент -->
@@ -867,7 +869,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import ScrollProgress from '~/components/layout/ScrollProgress.vue'
 import Header from '~/components/layout/Header.vue'
-import MobileMenu from '~/components/layout/MobileMenu.vue'
+import BaseMobileMenu from '~/components/layout/BaseMobileMenu.vue'
 import Footer from '~/components/layout/Footer.vue'
 
 // SEO для главной страницы
@@ -998,6 +1000,22 @@ const faqs = ref([
   }
 ])
 
+// Состояние мобильного меню
+const isMobileMenuOpen = ref(false)
+
+// Обработчик открытия меню из хедера
+function handleToggleMenu() {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value
+}
+
+onMounted(() => {
+  window.addEventListener('toggle-mobile-menu', handleToggleMenu)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('toggle-mobile-menu', handleToggleMenu)
+})
+
 // Меню для хедера (без пункта "Создать свой блог")
 const headerMenuItems = [
   { href: '/networking', label: 'Нескучный Нетворкинг' },
@@ -1009,7 +1027,6 @@ const headerMenuItems = [
 
 // Меню для мобильного меню (без пункта "Создать свой блог")
 const mobileMenuItems = [
-  { href: '/', label: 'Главная' },
   { href: '/networking', label: 'Нескучный Нетворкинг' },
   { href: '/business', label: 'Бизнес Сетка' },
   { href: '/yappie', label: 'Веб-разработка' },

@@ -146,7 +146,7 @@ const services = [
       'Ответы на вопросы',
       'Запись встречи'
     ],
-    link: 'https://t.me/m/56BWSMKAMjQ6'
+    link: '/consultation'
   },
   {
     number: '02',
@@ -893,7 +893,20 @@ function toggleFaq(index) {
               </li>
             </ul>
 
+            <NuxtLink
+              v-if="service.link && service.link.startsWith('/')"
+              :to="service.link"
+              :class="[
+                'inline-flex items-center justify-center font-medium px-6 py-3 uppercase tracking-wider text-sm w-full transition-all duration-200 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-3px] hover:translate-y-[-3px]',
+                service.highlighted
+                  ? 'bg-[#EA6D3A] text-white'
+                  : 'bg-black text-white'
+              ]"
+            >
+              Записаться
+            </NuxtLink>
             <a
+              v-else
               :href="service.link || 'https://t.me/m/56BWSMKAMjQ6'"
               target="_blank"
               rel="noopener noreferrer"

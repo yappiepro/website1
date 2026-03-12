@@ -1,7 +1,7 @@
 <template>
   <div class="md:hidden fixed bottom-[6px] left-[12px] right-[12px] z-50">
     <!-- Контейнер навигации -->
-    <nav 
+    <nav
       class="flex items-center justify-around pb-safe rounded-2xl py-0 shadow-lg"
       :class="[
         themeClasses,
@@ -13,7 +13,7 @@
         :key="item.href"
         :href="item.href"
         @click="handleClick(item, $event)"
-        class="relative flex flex-col items-center justify-center py-2 px-1 flex-1 transition-all duration-200"
+        class="relative flex flex-col items-center justify-center py-2 px-1 flex-1"
         :class="[
           isActive(item.href)
             ? activeTextClass
@@ -23,8 +23,7 @@
         <!-- Цветная подложка для активного пункта -->
         <div
           v-if="isActive(item.href)"
-          class="absolute inset-0 rounded-xl -z-10"
-          :class="activeBgClass"
+          class="absolute inset-0 m-1 rounded-xl bg-gray-200 -z-20"
         ></div>
         <!-- Иконка или изображение или текст -->
         <div class="relative w-10 h-10 mb-1 overflow-hidden rounded-[6px] flex items-center justify-center">
@@ -102,21 +101,15 @@ function handleClick(item, event) {
 // Вычисляемые классы в зависимости от темы
 const themeClasses = computed(() => {
   if (props.theme === 'black') {
-    return 'bg-black'
+    return 'bg-black/70 backdrop-blur-xl'
   }
   if (props.theme === 'dark') {
-    return 'bg-gray-900'
+    return 'bg-gray-900/70 backdrop-blur-xl'
   }
-  return 'bg-white'
+  return 'bg-white/70 backdrop-blur-xl'
 })
 
 const activeBgClass = computed(() => {
-  if (props.theme === 'black') {
-    return 'bg-gray-800'
-  }
-  if (props.theme === 'dark') {
-    return 'bg-gray-700'
-  }
   return 'bg-gray-200'
 })
 

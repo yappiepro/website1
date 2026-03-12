@@ -1,18 +1,23 @@
 <template>
   <header :class="[
     'fixed left-4 right-4 z-40 transition-all duration-300 rounded-2xl',
-    scrolled ? 'bg-white/60 backdrop-blur-xl shadow-lg md:bg-white/60 md:backdrop-blur-xl md:shadow-lg' : 'bg-white/20 backdrop-blur-md shadow-sm',
+    scrolled ? 'bg-transparent md:bg-white/60 md:backdrop-blur-xl md:shadow-lg' : 'bg-white/20 backdrop-blur-md shadow-sm',
     'md:top-0 top-4'
   ]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-      <div class="h-14 md:h-16 flex justify-between items-center">
-        <!-- Логотип -->
-        <NuxtLink to="/" class="group text-sm font-semibold tracking-tight text-gray-900 transition-all duration-300">
-          {{ logoText }}
-        </NuxtLink>
+      <div class="h-14 md:h-16 flex items-center">
+        <!-- Левая зона: Логотип (виден на мобильных только без скролла) -->
+        <div :class="[
+          'transition-all duration-300 shrink-0',
+          scrolled ? 'hidden md:block' : 'block'
+        ]">
+          <NuxtLink to="/" class="group text-sm font-semibold tracking-tight text-gray-900 transition-all duration-300">
+            {{ logoText }}
+          </NuxtLink>
+        </div>
 
-        <!-- Десктопное меню -->
-        <nav class="hidden md:flex items-center gap-1 transition-all duration-300">
+        <!-- Центральная зона: Десктопное меню -->
+        <nav class="hidden md:flex items-center gap-1 flex-1 justify-center transition-all duration-300">
           <a
             v-for="item in menuItems"
             :key="item.href"
@@ -24,19 +29,21 @@
           </a>
         </nav>
 
-        <!-- CTA кнопка -->
-        <a
-          :href="ctaLink"
-          target="_blank"
-          class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white rounded-xl transition-all backdrop-blur-sm bg-gray-900/90 hover:bg-gray-900"
-        >
-          <span>{{ ctaText }}</span>
-        </a>
+        <!-- Правая зона: CTA кнопка -->
+        <div class="hidden md:block shrink-0">
+          <a
+            :href="ctaLink"
+            target="_blank"
+            class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white rounded-xl transition-all backdrop-blur-sm bg-gray-900/90 hover:bg-gray-900"
+          >
+            <span>{{ ctaText }}</span>
+          </a>
+        </div>
 
         <!-- Кнопка бургера для мобильных -->
         <button
           @click="toggleMenu"
-          class="md:hidden p-2 bg-white/80 hover:bg-white rounded-xl transition-all backdrop-blur-sm"
+          class="md:hidden p-2 bg-white/80 hover:bg-white rounded-xl transition-all backdrop-blur-sm absolute right-4"
           aria-label="Открыть меню"
         >
           <Icon name="fa-solid:bars" class="w-6 h-6 text-gray-700" />

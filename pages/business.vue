@@ -290,17 +290,24 @@ function toggleFaq(index) {
     <!-- Хедер -->
     <header :class="[
       'fixed left-4 right-4 z-40 transition-all duration-300 rounded-2xl',
-      scrolled ? 'bg-white/80 backdrop-blur-xl shadow-lg' : 'bg-transparent backdrop-blur-none shadow-none',
+      scrolled ? 'bg-transparent md:bg-white/80 md:backdrop-blur-xl md:shadow-lg' : 'bg-white/20 backdrop-blur-md shadow-sm',
       'md:top-0 top-4'
     ]">
       <div class="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8">
-        <div class="h-14 md:h-16 flex justify-between items-center">
-          <a href="/" class="group flex items-center gap-3">
-            <NuxtImg src="/reference/Frame 697.jpg" format="webp" quality="50" sizes="20 sm:28 md:40 lg:64" alt="Бизнес Сетка — логотип закрытого клуба предпринимателей" class="w-10 h-10 rounded-lg" />
-            <span class="text-sm font-bold tracking-tight text-gray-900">БИЗНЕС СЕТКА</span>
-          </a>
+        <div class="h-14 md:h-16 flex items-center">
+          <!-- Левая зона: Логотип (виден на мобильных только без скролла) -->
+          <div :class="[
+            'transition-all duration-300 shrink-0',
+            scrolled ? 'hidden md:block' : 'block'
+          ]">
+            <a href="/" class="group flex items-center gap-3">
+              <NuxtImg src="/reference/Frame 697.jpg" format="webp" quality="50" sizes="20 sm:28 md:40 lg:64" alt="Бизнес Сетка — логотип закрытого клуба предпринимателей" class="w-10 h-10 rounded-lg" />
+              <span class="text-sm font-bold tracking-tight text-gray-900">БИЗНЕС СЕТКА</span>
+            </a>
+          </div>
 
-          <nav class="hidden md:flex items-center gap-1 transition-all duration-300">
+          <!-- Центральная зона: Десктопное меню -->
+          <nav class="hidden md:flex items-center gap-1 flex-1 justify-center transition-all duration-300">
             <a href="/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Главная</a>
             <a href="#membership" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Участие</a>
             <a href="#events" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">События</a>
@@ -310,12 +317,15 @@ function toggleFaq(index) {
             <a href="/yappie" class="px-4 py-2 text-sm text-violet-600 hover:text-violet-700 rounded-lg transition-all">Веб-разработка</a>
           </nav>
 
-          <a href="https://t.me/artemselifanov" target="_blank" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-gray-900/90 hover:bg-gray-900 rounded-xl transition-all backdrop-blur-sm">
-            <span>Связаться</span>
-          </a>
+          <!-- Правая зона: CTA кнопка -->
+          <div class="hidden md:block shrink-0">
+            <a href="https://t.me/artemselifanov" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-gray-900/90 hover:bg-gray-900 rounded-xl transition-all backdrop-blur-sm">
+              <span>Связаться</span>
+            </a>
+          </div>
 
           <!-- Бургер для мобильных -->
-          <button @click="isMenuOpen = !isMenuOpen" class="md:hidden p-2 hover:bg-gray-100 rounded-xl transition-all">
+          <button @click="isMenuOpen = !isMenuOpen" class="md:hidden p-2 hover:bg-gray-100 rounded-xl transition-all absolute right-4">
             <Menu v-if="!isMenuOpen" class="w-6 h-6 text-gray-700" />
             <X v-else class="w-6 h-6 text-gray-700" />
           </button>

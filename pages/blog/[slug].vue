@@ -3,33 +3,36 @@
     <!-- Хедер -->
     <header class="fixed left-4 right-4 z-40 transition-all duration-300 rounded-2xl bg-white/20 backdrop-blur-md shadow-sm md:top-0 top-4">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-        <div class="h-14 md:h-16 flex justify-between items-center">
-          <NuxtLink to="/blog" class="group text-sm font-semibold tracking-tight text-gray-900 transition-all duration-300">
+        <div class="h-14 md:h-16 flex items-center">
+          <!-- Левая зона: Логотип -->
+          <NuxtLink to="/blog" class="group text-sm font-semibold tracking-tight text-gray-900 transition-all duration-300 shrink-0">
             Блог
           </NuxtLink>
 
-          <nav class="hidden md:flex items-center gap-1 transition-all duration-300">
+          <!-- Центральная зона: Десктопное меню -->
+          <nav class="hidden md:flex items-center gap-1 flex-1 justify-center transition-all duration-300">
             <NuxtLink to="/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Главная</NuxtLink>
             <NuxtLink to="/networking" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Нескучный Нетворкинг</NuxtLink>
             <NuxtLink to="/business" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Бизнес Сетка</NuxtLink>
             <NuxtLink to="/yappie" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Веб-разработка</NuxtLink>
           </nav>
 
-          <a href="https://t.me/artemselifanov" target="_blank" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-gray-900/90 hover:bg-gray-900 rounded-xl transition-all backdrop-blur-sm">
-            <span>Связаться</span>
-          </a>
+          <!-- Правая зона: CTA кнопка -->
+          <div class="hidden md:block shrink-0">
+            <a href="https://t.me/artemselifanov" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-gray-900/90 hover:bg-gray-900 rounded-xl transition-all backdrop-blur-sm">
+              <span>Связаться</span>
+            </a>
+          </div>
 
-          <!-- Пустой блок для мобильных чтобы сохранить структуру -->
-          <div class="md:hidden w-10"></div>
+          <!-- Кнопка бургера для мобильных -->
+          <button @click="isMenuOpen = !isMenuOpen"
+                  class="md:hidden p-2 bg-white/80 hover:bg-white rounded-xl transition-all backdrop-blur-sm absolute right-4"
+                  aria-label="Открыть меню">
+            <Icon name="fa-solid:bars" class="w-6 h-6 text-gray-700" />
+          </button>
         </div>
       </div>
     </header>
-
-    <!-- Кнопка бургера для мобильных (фиксированная, всегда видна) -->
-    <button @click="isMenuOpen = !isMenuOpen"
-            class="md:hidden fixed top-[28px] right-4 z-50 p-2 bg-white/80 hover:bg-white rounded-xl transition-all backdrop-blur-sm">
-      <Icon name="fa-solid:bars" class="w-6 h-6 text-gray-700" />
-    </button>
 
     <!-- Мобильное меню -->
     <Transition

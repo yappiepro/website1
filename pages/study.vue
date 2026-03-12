@@ -14,15 +14,16 @@
       <Meta name="twitter:description" content="Пройдите бесплатный тест на позиционирование личного бренда и получите персональные рекомендации" />
       <Link rel="canonical" href="https://artemselifanov.ru/study" />
     </Head>
-    <!-- Навигация как на главной -->
+    <!-- Навигация -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-[#030305]/70 backdrop-blur-2xl border-b border-white/[0.08]">
-      <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="/study" class="text-xl font-semibold text-white flex items-center gap-2">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center">
+        <!-- Левая зона: Логотип -->
+        <a href="/study" class="text-xl font-semibold text-white flex items-center gap-2 shrink-0">
           <span class="font-bold text-white tracking-wider text-2xl">Фокус</span>
         </a>
 
-        <!-- Десктопное меню -->
-        <div class="hidden md:flex items-center gap-8">
+        <!-- Центральная зона: Десктопное меню -->
+        <div class="hidden md:flex items-center gap-8 flex-1 justify-center">
           <a href="/" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Главная</a>
           <a href="#problems" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Проблемы</a>
           <a href="#services" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Услуги</a>
@@ -30,13 +31,16 @@
           <a href="#portfolio" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Кейсы</a>
           <a href="/blog" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Блог</a>
           <a href="#faq" class="text-sm text-gray-400 hover:text-white transition-all duration-300">FAQ</a>
-          <a href="https://t.me/artemselifanov" target="_blank" class="px-4 py-2 text-xs bg-white text-black hover:bg-gray-100 shadow-lg shadow-white/10 hover:shadow-white/20 transition-all rounded-md font-medium">Связаться</a>
+          <a href="https://t.me/artemselifanov" target="_blank" class="px-4 py-2 text-xs bg-white text-black hover:bg-gray-100 shadow-lg shadow-white/10 hover:shadow-white/20 transition-all rounded-md font-medium shrink-0">Связаться</a>
         </div>
+
+        <!-- Правая зона: пустая для баланса -->
+        <div class="hidden md:block w-[100px] shrink-0"></div>
 
         <!-- Кнопка бургер-меню для мобильных -->
         <button
           @click="isMobileMenuOpen = !isMobileMenuOpen"
-          class="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
+          class="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors absolute right-4"
           aria-label="Открыть меню"
         >
           <Menu v-if="!isMobileMenuOpen" class="w-6 h-6" />

@@ -238,12 +238,12 @@ export default defineNuxtConfig({
         // Preload шрифтов Syncopate для ускорения LCP
         { rel: 'preload', href: '/fonts/Syncopate-Regular.woff2', as: 'font', type: 'font/woff2', crossorigin: true },
         { rel: 'preload', href: '/fonts/Syncopate-Bold.woff2', as: 'font', type: 'font/woff2', crossorigin: true },
-        // Preload изображений hero-секции для LCP
-        { rel: 'preload', href: '/reference/IMG_7084.jpg', as: 'image', type: 'image/jpeg', imagesizes: '90px', imagesrcset: '/reference/IMG_7084.jpg 90w, /reference/IMG_7084.jpg 70w, /reference/IMG_7084.jpg 50w' },
-        { rel: 'preload', href: '/reference/IMG_7082.jpg', as: 'image', type: 'image/jpeg', imagesizes: '100px', imagesrcset: '/reference/IMG_7082.jpg 100w, /reference/IMG_7082.jpg 75w, /reference/IMG_7082.jpg 55w' },
-        { rel: 'preload', href: '/reference/IMG_7089.jpg', as: 'image', type: 'image/jpeg', imagesizes: '110px', imagesrcset: '/reference/IMG_7089.jpg 110w, /reference/IMG_7089.jpg 85w, /reference/IMG_7089.jpg 60w', fetchpriority: 'high' },
-        { rel: 'preload', href: '/reference/IMG_7083.jpg', as: 'image', type: 'image/jpeg', imagesizes: '100px', imagesrcset: '/reference/IMG_7083.jpg 100w, /reference/IMG_7083.jpg 75w, /reference/IMG_7083.jpg 55w' },
-        { rel: 'preload', href: '/reference/IMG_7090.jpg', as: 'image', type: 'image/jpeg', imagesizes: '90px', imagesrcset: '/reference/IMG_7090.jpg 90w, /reference/IMG_7090.jpg 70w, /reference/IMG_7090.jpg 50w' }
+        // Preload изображений hero-секции для LCP (WebP)
+        { rel: 'preload', href: '/reference/IMG_7084.webp', as: 'image', type: 'image/webp', imagesizes: '90px', imagesrcset: '/reference/IMG_7084.webp 90w, /reference/IMG_7084.webp 70w, /reference/IMG_7084.webp 50w' },
+        { rel: 'preload', href: '/reference/IMG_7082.webp', as: 'image', type: 'image/webp', imagesizes: '100px', imagesrcset: '/reference/IMG_7082.webp 100w, /reference/IMG_7082.webp 75w, /reference/IMG_7082.webp 55w' },
+        { rel: 'preload', href: '/reference/IMG_7089.webp', as: 'image', type: 'image/webp', imagesizes: '110px', imagesrcset: '/reference/IMG_7089.webp 110w, /reference/IMG_7089.webp 85w, /reference/IMG_7089.webp 60w', fetchpriority: 'high' },
+        { rel: 'preload', href: '/reference/IMG_7083.webp', as: 'image', type: 'image/webp', imagesizes: '100px', imagesrcset: '/reference/IMG_7083.webp 100w, /reference/IMG_7083.webp 75w, /reference/IMG_7083.webp 55w' },
+        { rel: 'preload', href: '/reference/IMG_7090.webp', as: 'image', type: 'image/webp', imagesizes: '90px', imagesrcset: '/reference/IMG_7090.webp 90w, /reference/IMG_7090.webp 70w, /reference/IMG_7090.webp 50w' }
       ],
       script: [
         // Google Analytics 4

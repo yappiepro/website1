@@ -2,6 +2,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { ArrowRight, Users, Target, Lightbulb, Calendar, MessageCircle, TrendingUp, CheckCircle, Mail, Linkedin, Twitter, Instagram, ExternalLink, Menu, X, ChevronDown } from 'lucide-vue-next'
 import gsap from 'gsap'
+import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
 
 // SEO для страницы
 useSeoMeta({
@@ -766,6 +767,19 @@ function toggleFaq(index) {
         </div>
       </div>
     </footer>
+
+    <!-- Нижняя навигация для мобильных (тёмная тема) -->
+    <MobileBottomNav
+      theme="dark"
+      :items="[
+        { href: '/', label: 'Главная', icon: 'lucide:home' },
+        { href: '/networking', label: 'Нетворкинг', image: '/reference/networking.jpg' },
+        { href: '/business', label: 'Бизнес', image: '/reference/business.jpg' },
+        { href: '/yappie', label: 'Веб', text: 'веб' },
+        { href: '/blog', label: 'Блог', text: 'блог' },
+        { href: '#top', label: 'Наверх', icon: 'lucide:arrow-up', action: 'scrollToTop' }
+      ]"
+    />
   </div>
 </template>
 

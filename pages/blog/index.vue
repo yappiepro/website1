@@ -288,6 +288,9 @@
         </div>
       </div>
     </footer>
+
+    <!-- Нижняя навигация для мобильных -->
+    <MobileBottomNav theme="light" />
   </div>
 </template>
 
@@ -295,6 +298,7 @@
 import { ref, computed } from 'vue'
 import { ArrowRight } from 'lucide-vue-next'
 import { articles, formatDate, getClusters, getClusterName, getClusterColor, getRandomArticles, getArticlesByCluster } from '~/data/blog.js'
+import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
 
 const config = useRuntimeConfig()
 const baseURL = import.meta.env.DEV ? '/' : config.app.baseURL

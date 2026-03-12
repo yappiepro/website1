@@ -4,7 +4,7 @@
     <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200">
       <div class="max-w-7xl mx-auto px-6 py-4 flex items-center">
         <!-- Левая зона: Логотип -->
-        <a href="/" class="text-xl font-bold text-gray-900 shrink-0">Артём Селифанов</a>
+        <a href="/" class="text-sm font-semibold text-gray-900 shrink-0">Артём Селифанов</a>
         
         <!-- Центральная зона: меню -->
         <div class="hidden md:flex items-center gap-6 flex-1 justify-center">
@@ -65,7 +65,7 @@
     <!-- Основной контент -->
     <main role="main" class="pt-20">
       <!-- Hero секция -->
-      <section class="relative min-h-[80vh] flex items-center px-4 sm:px-6 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-violet-50">
+      <section class="relative min-h-[80vh] flex items-center px-4 sm:px-6 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100">
         <div class="max-w-7xl mx-auto w-full relative z-10">
           <div class="max-w-4xl mx-auto text-center">
             <div class="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-blue-200 rounded-2xl mb-8">
@@ -142,7 +142,7 @@
           <div class="max-w-3xl mx-auto">
             <div class="relative">
               <!-- Линия -->
-              <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 via-violet-600 to-blue-600 hidden md:block"></div>
+              <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 to-blue-800 hidden md:block"></div>
 
               <div v-for="(step, index) in processSteps" :key="index" class="relative flex gap-6 mb-12 last:mb-0">
                 <!-- Номер -->
@@ -166,9 +166,9 @@
         <div class="max-w-7xl mx-auto">
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div class="inline-flex items-center gap-2 px-4 py-2 bg-violet-50 rounded-xl mb-6">
-                <Icon name="fa-solid:lightbulb" class="w-5 h-5 text-violet-600" />
-                <span class="text-sm font-bold text-violet-700 uppercase tracking-wider">Преимущества</span>
+              <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-xl mb-6">
+                <Icon name="fa-solid:lightbulb" class="w-5 h-5 text-blue-600" />
+                <span class="text-sm font-bold text-blue-700 uppercase tracking-wider">Преимущества</span>
               </div>
 
               <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-8">
@@ -195,7 +195,7 @@
             </div>
 
             <div class="relative">
-              <div class="relative p-8 bg-gradient-to-br from-blue-600 to-violet-600 rounded-3xl shadow-2xl text-white">
+              <div class="relative p-8 bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl shadow-2xl text-white">
                 <div class="text-center">
                   <div class="inline-flex items-center justify-center w-20 h-20 bg-white/20 rounded-full mb-6">
                     <Icon name="fa-solid:rocket" class="w-10 h-10 text-white" />
@@ -257,7 +257,7 @@
                   </div>
 
                   <div class="flex items-start gap-4">
-                    <div class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-lg flex items-center justify-center">
+                    <div class="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
                       <Icon name="fa-solid:chart-line" class="w-5 h-5 text-white" />
                     </div>
                     <div>
@@ -301,7 +301,7 @@
       </section>
 
       <!-- CTA секция -->
-      <section class="py-20 md:py-28 px-4 sm:px-6 bg-gradient-to-br from-blue-600 via-violet-600 to-blue-700 text-white">
+      <section class="py-20 md:py-28 px-4 sm:px-6 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white">
         <div class="max-w-4xl mx-auto text-center">
           <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/20 rounded-xl mb-6">
             <Icon name="fa-solid:fire" class="w-5 h-5 text-yellow-300" />

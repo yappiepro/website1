@@ -4,7 +4,7 @@
     <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200">
       <div class="max-w-7xl mx-auto px-6 py-4 flex items-center">
         <!-- Левая зона: Логотип -->
-        <a href="/" class="text-xl font-bold text-gray-900 shrink-0">Артём Селифанов</a>
+        <a href="/" class="text-sm font-semibold text-gray-900 shrink-0">Артём Селифанов</a>
         
         <!-- Центральная зона: меню -->
         <div class="hidden md:flex items-center gap-6 flex-1 justify-center">
@@ -40,14 +40,14 @@
             :key="item.href"
             :href="item.href"
             @click="isMobileMenuOpen = false"
-            class="text-3xl font-bold text-gray-900 text-center py-4 hover:text-violet-600 transition-colors"
+            class="text-3xl font-bold text-gray-900 text-center py-4 hover:text-blue-600 transition-colors"
           >
             {{ item.label }}
           </a>
         </nav>
         <button
           @click="isMobileMenuOpen = false"
-          class="mt-12 px-10 py-5 text-xl font-semibold bg-violet-600 text-white hover:bg-violet-700 w-full max-w-xs rounded-md"
+          class="mt-12 px-10 py-5 text-xl font-semibold bg-blue-600 text-white hover:bg-blue-700 w-full max-w-xs rounded-md"
         >
           <a href="https://t.me/artemselifanov" target="_blank">Связаться</a>
         </button>
@@ -65,17 +65,17 @@
     <!-- Основной контент -->
     <main role="main" class="pt-20">
       <!-- Hero секция -->
-      <section class="relative min-h-[80vh] flex items-center px-4 sm:px-6 overflow-hidden bg-gradient-to-br from-violet-50 via-white to-purple-50">
+      <section class="relative min-h-[80vh] flex items-center px-4 sm:px-6 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100">
         <div class="max-w-7xl mx-auto w-full relative z-10">
           <div class="max-w-4xl mx-auto text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-violet-200 rounded-2xl mb-8">
-              <span class="w-2.5 h-2.5 bg-violet-500 rounded-full animate-pulse"></span>
-              <span class="text-sm font-medium text-violet-700">Персональная работа 1-на-1</span>
+            <div class="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-blue-200 rounded-2xl mb-8">
+              <span class="w-2.5 h-2.5 bg-blue-500 rounded-full animate-pulse"></span>
+              <span class="text-sm font-medium text-blue-700">Персональная работа 1-на-1</span>
             </div>
 
             <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] mb-6">
               Менторская программа<br />
-              <span class="text-violet-600">по запуску блога</span>
+              <span class="text-blue-600">по запуску блога</span>
             </h1>
 
             <p class="text-xl text-gray-600 leading-relaxed mb-8 max-w-2xl mx-auto">
@@ -93,7 +93,7 @@
               </div>
             </div>
 
-            <a href="https://t.me/artemselifanov" target="_blank" class="group inline-flex items-center gap-3 px-10 py-5 text-lg font-semibold text-white bg-violet-600 hover:bg-violet-700 rounded-2xl transition-all hover:-translate-y-1 shadow-lg shadow-violet-600/30">
+            <a href="https://t.me/artemselifanov" target="_blank" class="group inline-flex items-center gap-3 px-10 py-5 text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-2xl transition-all hover:-translate-y-1 shadow-lg shadow-blue-600/30">
               <Icon name="fa-brands:telegram" class="w-6 h-6" />
               Написать «ментор»
             </a>
@@ -109,9 +109,9 @@
       <section class="py-20 md:py-28 px-4 sm:px-6 border-t border-gray-100">
         <div class="max-w-7xl mx-auto">
           <div class="text-center mb-16">
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-violet-50 rounded-xl mb-6">
-              <Icon name="fa-solid:rocket" class="w-5 h-5 text-violet-600" />
-              <span class="text-sm font-bold text-violet-700 uppercase tracking-wider">Результат</span>
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-xl mb-6">
+              <Icon name="fa-solid:rocket" class="w-5 h-5 text-blue-600" />
+              <span class="text-sm font-bold text-blue-700 uppercase tracking-wider">Результат</span>
             </div>
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4">
               Что мы сделаем за 5 сессий
@@ -119,9 +119,9 @@
           </div>
 
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            <div v-for="(item, index) in benefits" :key="index" class="group p-8 bg-white border border-gray-200 rounded-3xl hover:border-violet-300 transition-all hover:-translate-y-1">
-              <div class="w-14 h-14 bg-violet-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-violet-600 transition-colors">
-                <Icon :name="item.icon" class="w-7 h-7 text-violet-600 group-hover:text-white transition-colors" />
+            <div v-for="(item, index) in benefits" :key="index" class="group p-8 bg-white border border-gray-200 rounded-3xl hover:border-blue-300 transition-all hover:-translate-y-1">
+              <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+                <Icon :name="item.icon" class="w-7 h-7 text-blue-600 group-hover:text-white transition-colors" />
               </div>
               <h3 class="text-xl font-bold mb-3">{{ item.title }}</h3>
               <p class="text-gray-600 leading-relaxed">{{ item.description }}</p>
@@ -129,7 +129,7 @@
           </div>
 
           <div class="mt-12 max-w-3xl mx-auto">
-            <blockquote class="p-8 bg-gradient-to-r from-violet-50 to-purple-50 rounded-2xl border-l-4 border-violet-600">
+            <blockquote class="p-8 bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl border-l-4 border-blue-600">
               <p class="text-lg font-medium text-gray-900 italic">
                 Вы получите не просто план — а готовую систему, которую можно внедрять сразу после первой сессии.
               </p>
@@ -154,8 +154,8 @@
           <div class="max-w-4xl mx-auto">
             <div class="grid sm:grid-cols-2 gap-6">
               <div v-for="(item, index) in formatItems" :key="index" class="p-8 bg-white rounded-2xl border border-gray-200">
-                <div class="w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center mb-4">
-                  <Icon :name="item.icon" class="w-6 h-6 text-violet-600" />
+                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                  <Icon :name="item.icon" class="w-6 h-6 text-blue-600" />
                 </div>
                 <h3 class="text-lg font-bold mb-2">{{ item.title }}</h3>
                 <p class="text-gray-600">{{ item.description }}</p>
@@ -169,9 +169,9 @@
       <section class="py-20 md:py-28 px-4 sm:px-6">
         <div class="max-w-7xl mx-auto">
           <div class="text-center mb-16">
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-violet-50 rounded-xl mb-6">
-              <Icon name="fa-solid:door-open" class="w-5 h-5 text-violet-600" />
-              <span class="text-sm font-bold text-violet-700 uppercase tracking-wider">Процесс</span>
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-xl mb-6">
+              <Icon name="fa-solid:door-open" class="w-5 h-5 text-blue-600" />
+              <span class="text-sm font-bold text-blue-700 uppercase tracking-wider">Процесс</span>
             </div>
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4">
               Как попасть в программу
@@ -181,12 +181,12 @@
           <div class="max-w-3xl mx-auto">
             <div class="relative">
               <!-- Линия -->
-              <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-violet-600 via-purple-600 to-violet-600 hidden md:block"></div>
+              <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 to-blue-800 hidden md:block"></div>
 
               <div v-for="(step, index) in processSteps" :key="index" class="relative flex gap-6 mb-12 last:mb-0">
                 <!-- Номер -->
-                <div class="flex-shrink-0 w-16 h-16 bg-white border-4 border-violet-600 rounded-full flex items-center justify-center z-10 shadow-lg">
-                  <span class="text-xl font-black text-violet-600">{{ index + 1 }}</span>
+                <div class="flex-shrink-0 w-16 h-16 bg-white border-4 border-blue-600 rounded-full flex items-center justify-center z-10 shadow-lg">
+                  <span class="text-xl font-black text-blue-600">{{ index + 1 }}</span>
                 </div>
 
                 <!-- Контент -->
@@ -201,7 +201,7 @@
       </section>
 
       <!-- Результат -->
-      <section class="py-20 md:py-28 px-4 sm:px-6 bg-gradient-to-br from-violet-600 via-purple-600 to-violet-700 text-white">
+      <section class="py-20 md:py-28 px-4 sm:px-6 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white">
         <div class="max-w-7xl mx-auto">
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -273,7 +273,7 @@
             Если хотите попасть в ближайший поток — напишите сейчас.
           </p>
 
-          <a href="https://t.me/artemselifanov" target="_blank" class="group inline-flex items-center gap-3 px-10 py-5 text-lg font-semibold text-violet-600 bg-white hover:bg-gray-100 rounded-2xl transition-all hover:-translate-y-1 shadow-xl">
+          <a href="https://t.me/artemselifanov" target="_blank" class="group inline-flex items-center gap-3 px-10 py-5 text-lg font-semibold text-blue-600 bg-white hover:bg-gray-100 rounded-2xl transition-all hover:-translate-y-1 shadow-xl">
             <Icon name="fa-brands:telegram" class="w-6 h-6" />
             Написать «ментор» в Telegram
           </a>

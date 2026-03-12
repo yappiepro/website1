@@ -370,7 +370,7 @@
                 </div>
               </div>
               <div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-gray-200 hover:border-gray-400 transition-all hover:shadow-xl hover:-translate-y-1">
-                <NuxtImg src="/reference/Frame 697.jpg" format="webp" quality="60" sizes="128px sm:160px md:200px lg:256px" alt="Бизнес Сетка" class="absolute inset-0 w-full h-full object-cover" />
+                <NuxtImg src="/reference/business.jpg" format="webp" quality="60" sizes="128px sm:160px md:200px lg:256px" alt="Бизнес Сетка" class="absolute inset-0 w-full h-full object-cover" />
               </div>
               <div class="text-center mt-3">
                 <div class="text-sm font-bold text-gray-900">Бизнес Сетка</div>
@@ -852,11 +852,14 @@
     />
     </main>
 
-    <!-- Кнопка наверх (фиксированная, видна при скролле) -->
+    <!-- Нижняя навигация для мобильных -->
+    <MobileBottomNav theme="light" />
+
+    <!-- Кнопка наверх (фиксированная, видна при скролле) - только для десктопа -->
     <button @click="scrollToTop"
             v-show="scrolled"
-            :style="{ position: 'fixed', bottom: '16px', right: '16px', zIndex: '9999' }"
-            class="p-3 bg-gray-900/90 hover:bg-gray-900 rounded-2xl transition-all shadow-lg backdrop-blur-sm">
+            class="hidden md:block p-3 bg-gray-900/90 hover:bg-gray-900 rounded-2xl transition-all shadow-lg backdrop-blur-sm"
+            :style="{ position: 'fixed', bottom: '16px', right: '16px', zIndex: '9999' }">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style="width: 20px; height: 20px;" fill="currentColor" class="text-white">
         <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/>
       </svg>
@@ -871,6 +874,7 @@ import ScrollProgress from '~/components/layout/ScrollProgress.vue'
 import Header from '~/components/layout/Header.vue'
 import BaseMobileMenu from '~/components/layout/BaseMobileMenu.vue'
 import Footer from '~/components/layout/Footer.vue'
+import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
 
 // SEO для главной страницы
 useSeoMeta({

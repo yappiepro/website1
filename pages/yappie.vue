@@ -735,8 +735,8 @@
         { href: '/', label: 'Главная', icon: 'lucide:home' },
         { href: '/networking', label: 'Нетворкинг', image: '/reference/networking.jpg' },
         { href: '/business', label: 'Бизнес', image: '/reference/business.jpg' },
-        { href: '/yappie', label: 'Веб', text: 'веб' },
-        { href: '/blog', label: 'Блог', text: 'блог' },
+        { href: '/yappie', label: 'Веб', text: 'веб', textClass: 'text-black' },
+        { href: '/blog', label: 'Блог', text: 'блог', textClass: 'text-white' },
         { href: '#top', label: 'Наверх', icon: 'lucide:arrow-up', action: 'scrollToTop' }
       ]"
     />

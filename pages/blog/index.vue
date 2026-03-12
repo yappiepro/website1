@@ -128,28 +128,6 @@
           </p>
         </header>
 
-        <!-- Ссылки на кластеры -->
-        <div class="mb-8">
-          <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">
-            Разделы блога
-          </h2>
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            <NuxtLink
-              v-for="cluster in clusters"
-              :key="cluster"
-              :href="`/blog/cluster/${cluster}`"
-              class="group p-4 bg-white rounded-xl border border-gray-200 hover:border-violet-300 hover:shadow-md transition-all"
-            >
-              <span :class="`text-xs font-semibold mb-1 block ${getClusterName(cluster) === 'Разработка сайтов' ? 'text-violet-600' : getClusterName(cluster) === 'Создание сайтов' ? 'text-blue-600' : getClusterName(cluster) === 'Мобильные приложения' ? 'text-green-600' : getClusterName(cluster) === 'Веб-разработка' ? 'text-orange-600' : 'text-pink-600'}`">
-                {{ getClusterName(cluster) }}
-              </span>
-              <span class="text-xs text-gray-500">
-                {{ getArticlesByCluster(cluster).length }} статей
-              </span>
-            </NuxtLink>
-          </div>
-        </div>
-
         <!-- Фильтры по кластерам -->
         <div class="flex flex-wrap gap-2 mb-6">
           <button
@@ -174,7 +152,7 @@
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
             ]"
           >
-            {{ getClusterName(cluster) }}
+            {{ getClusterName(cluster) }} ({{ getArticlesByCluster(cluster).length }})
           </button>
         </div>
 

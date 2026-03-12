@@ -337,93 +337,99 @@ function toggleFaq(index) {
     <!-- Мобильное меню -->
     <Transition
       enter-active-class="transition duration-300 ease-out"
-      enter-from-class="opacity-0 scale-95"
-      enter-to-class="opacity-100 scale-100"
+      enter-from-class="opacity-0 translate-x-full"
+      enter-to-class="opacity-100 translate-x-0"
       leave-active-class="transition duration-200 ease-in"
-      leave-from-class="opacity-100 scale-95"
-      leave-to-class="opacity-0 scale-95"
+      leave-from-class="opacity-100 translate-x-0"
+      leave-to-class="opacity-0 translate-x-full"
     >
-      <div v-if="isMenuOpen" class="fixed inset-0 z-[100] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 pt-20 px-6">
+      <div v-if="isMenuOpen" class="fixed inset-0 z-[100] bg-gradient-to-br from-white via-gray-50 to-white pt-20 px-6">
         <div class="flex justify-between items-center mb-8">
-          <span class="text-white/60 text-sm font-medium">Навигация</span>
-          <button @click="isMenuOpen = false" class="group p-3 bg-white hover:bg-gray-100 rounded-2xl transition-all backdrop-blur-sm shadow-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style="width: 24px; height: 24px;" fill="currentColor" class="text-gray-900">
-              <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
-            </svg>
+          <span class="text-gray-400 text-sm font-medium">Навигация</span>
+          <button @click="isMenuOpen = false" class="group p-3 bg-white hover:bg-gray-100 rounded-2xl transition-all backdrop-blur-sm shadow-lg border border-gray-200">
+            <X class="w-6 h-6 text-gray-900" />
           </button>
         </div>
 
         <nav class="flex flex-col gap-3 max-w-md mx-auto">
           <a href="/" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
+             class="animate-menu-item group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-purple-200"
+             :style="{ animationDelay: '100ms' }">
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/0 to-purple-600/0 group-hover:via-purple-600/10 group-hover:to-purple-600/10 transition-all"></div>
             <div class="relative flex items-center justify-between">
-              <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Главная</span>
-              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+              <span class="text-base font-bold text-gray-900 group-hover:text-purple-600 transition-colors">Главная</span>
+              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
             </div>
           </a>
           <a href="#membership" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
+             class="animate-menu-item group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-purple-200"
+             :style="{ animationDelay: '150ms' }">
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/0 to-purple-600/0 group-hover:via-purple-600/10 group-hover:to-purple-600/10 transition-all"></div>
             <div class="relative flex items-center justify-between">
-              <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Участие</span>
-              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+              <span class="text-base font-bold text-gray-900 group-hover:text-purple-600 transition-colors">Участие</span>
+              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
             </div>
           </a>
           <a href="#events" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
+             class="animate-menu-item group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-purple-200"
+             :style="{ animationDelay: '200ms' }">
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/0 to-purple-600/0 group-hover:via-purple-600/10 group-hover:to-purple-600/10 transition-all"></div>
             <div class="relative flex items-center justify-between">
-              <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">События</span>
-              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+              <span class="text-base font-bold text-gray-900 group-hover:text-purple-600 transition-colors">События</span>
+              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
             </div>
           </a>
           <a href="#ventures" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
+             class="animate-menu-item group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-purple-200"
+             :style="{ animationDelay: '250ms' }">
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/0 to-purple-600/0 group-hover:via-purple-600/10 group-hover:to-purple-600/10 transition-all"></div>
             <div class="relative flex items-center justify-between">
-              <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Проекты</span>
-              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+              <span class="text-base font-bold text-gray-900 group-hover:text-purple-600 transition-colors">Проекты</span>
+              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
             </div>
           </a>
           <a href="/blog" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
+             class="animate-menu-item group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-purple-200"
+             :style="{ animationDelay: '300ms' }">
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/0 to-purple-600/0 group-hover:via-purple-600/10 group-hover:to-purple-600/10 transition-all"></div>
             <div class="relative flex items-center justify-between">
-              <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Блог</span>
-              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+              <span class="text-base font-bold text-gray-900 group-hover:text-purple-600 transition-colors">Блог</span>
+              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
             </div>
           </a>
           <a href="/networking" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
+             class="animate-menu-item group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-purple-200"
+             :style="{ animationDelay: '350ms' }">
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/0 to-purple-600/0 group-hover:via-purple-600/10 group-hover:to-purple-600/10 transition-all"></div>
             <div class="relative flex items-center justify-between">
-              <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Нескучный нетворкинг</span>
-              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+              <span class="text-base font-bold text-gray-900 group-hover:text-purple-600 transition-colors">Нескучный нетворкинг</span>
+              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
             </div>
           </a>
           <a href="/yappie" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
+             class="animate-menu-item group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-purple-200"
+             :style="{ animationDelay: '400ms' }">
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/0 to-purple-600/0 group-hover:via-purple-600/10 group-hover:to-purple-600/10 transition-all"></div>
             <div class="relative flex items-center justify-between">
-              <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Веб-разработка</span>
-              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+              <span class="text-base font-bold text-gray-900 group-hover:text-purple-600 transition-colors">Веб-разработка</span>
+              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
             </div>
           </a>
 
-          <a href="https://t.me/artemselifanov" target="_blank"
-             class="mt-6 group relative overflow-hidden p-5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-2xl transition-all shadow-lg shadow-blue-600/30">
-            <div class="flex items-center justify-center gap-3">
-              <Icon name="fa-brands:telegram" class="w-5 h-5 text-white" />
-              <span class="text-base font-bold text-white">Связаться в Telegram</span>
+          <a href="https://t.me/+mFUh7ye6U6NjNzli" target="_blank"
+             class="animate-menu-item mt-4 group relative overflow-hidden p-3 sm:p-4 bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 rounded-xl transition-all shadow-lg shadow-purple-600/30"
+             :style="{ animationDelay: '500ms' }">
+            <div class="flex items-center justify-center gap-2">
+              <Icon name="fa-brands:telegram" class="w-4 h-4 text-white" />
+              <span class="text-sm font-bold text-white">Вступить в клуб</span>
             </div>
           </a>
         </nav>
 
         <!-- Декоративные элементы -->
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl"></div>
-          <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl"></div>
+          <div class="absolute -top-40 -right-40 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl"></div>
+          <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl"></div>
         </div>
       </div>
     </Transition>
@@ -702,8 +708,6 @@ function toggleFaq(index) {
             </div>
           </div>
         </div>
-
-        <p class="text-xs text-gray-500 mt-6 text-center">⚠️ Примеры отзывов. Замените на реальные отзывы участников сообщества.</p>
       </div>
     </section>
 

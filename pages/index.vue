@@ -1029,13 +1029,14 @@ const headerMenuItems = [
   { href: '/study', label: 'Создать свой блог' }
 ]
 
-// Меню для мобильного меню (без пункта "Создать свой блог")
+// Меню для мобильного меню (якорные ссылки на разделы страницы)
 const mobileMenuItems = [
-  { href: '/networking', label: 'Нескучный Нетворкинг' },
-  { href: '/business', label: 'Бизнес Сетка' },
-  { href: '/yappie', label: 'Веб-разработка' },
-  { href: '/blog', label: 'Блог' },
-  { href: '/study', label: 'Создать свой блог' }
+  { href: '#about', label: 'Обо мне' },
+  { href: '#approach', label: 'Система' },
+  { href: '#services', label: 'Услуги' },
+  { href: '#ecosystem', label: 'Экосистема' },
+  { href: '#cases', label: 'Кейсы' },
+  { href: '#faq', label: 'FAQ' }
 ]
 
 const socialNetworks = [

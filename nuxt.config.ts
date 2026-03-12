@@ -52,10 +52,6 @@ export default defineNuxtConfig({
     appManifest: false
   },
 
-  app: {
-    baseURL: import.meta.env.DEV ? '/' : '/',
-  },
-
   alias: {
     '@': '.'
   },

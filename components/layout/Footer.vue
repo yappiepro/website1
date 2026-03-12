@@ -23,7 +23,7 @@
           <!-- Логотип / Название + ИП -->
           <div class="col-span-2 md:col-span-1">
             <div class="text-sm font-bold text-white mb-4">{{ siteName }}</div>
-            <div class="text-xs text-gray-500 space-y-1">
+            <div class="text-xs text-gray-300 space-y-1">
               <p>ИП Селифанов А.В.</p>
               <p>ОГРНИП: 323100000003767</p>
               <p>ИНН: 100123594893</p>
@@ -169,8 +169,8 @@ const props = defineProps({
     type: Array,
     default: () => [
       { icon: 'telegram', link: 'https://t.me/artemselifanov' },
-      { icon: 'vk', link: 'https://vk.com' },
-      { icon: 'youtube', link: 'https://youtube.com' },
+      { icon: 'vk', link: 'https://vk.com/karelbusiness' },
+      { icon: 'youtube', link: 'https://www.youtube.com/@artemselifanov' },
       { icon: 'whatsapp', link: 'https://wa.me/79535487323' }
     ]
   },
@@ -182,7 +182,7 @@ const props = defineProps({
   // Копирайт
   copyright: {
     type: String,
-    default: '© 2025 Артем Селифанов. Все права защищены.'
+    default: '© 2026 Артем Селифанов. Все права защищены.'
   },
   // Документы
   legalDocs: {

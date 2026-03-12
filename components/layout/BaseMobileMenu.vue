@@ -1,11 +1,11 @@
 <template>
   <Transition
     enter-active-class="transition duration-300 ease-out"
-    enter-from-class="opacity-0 scale-95"
-    enter-to-class="opacity-100 scale-100"
+    enter-from-class="opacity-0 translate-x-full"
+    enter-to-class="opacity-100 translate-x-0"
     leave-active-class="transition duration-200 ease-in"
-    leave-from-class="opacity-100 scale-95"
-    leave-to-class="opacity-0 scale-95"
+    leave-from-class="opacity-100 translate-x-0"
+    leave-to-class="opacity-0 translate-x-full"
   >
     <div v-if="modelValue" class="fixed inset-0 z-[100] md:hidden" :class="bgClass">
       <!-- Кнопка закрытия -->
@@ -28,20 +28,21 @@
             :key="i"
             :href="item.href"
             @click="handleClick(item.href)"
-            class="group relative overflow-hidden p-5 rounded-2xl transition-all backdrop-blur-sm border"
+            class="group relative overflow-hidden p-3 sm:p-4 rounded-xl transition-all backdrop-blur-sm border animate-menu-item"
             :class="itemClass"
+            :style="{ animationDelay: `${i * 50 + 150}ms` }"
           >
             <div class="absolute inset-0" :class="hoverClass"></div>
-            <div class="relative flex items-center gap-4">
+            <div class="relative flex items-center gap-3">
               <!-- Кружок с фото для первых двух пунктов -->
-              <div v-if="i < 2 && isFeaturedItem(item.href)" class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-white/20 group-hover:border-white/40 transition-colors">
+              <div v-if="i < 2 && isFeaturedItem(item.href)" class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border-2 border-white/20 group-hover:border-white/40 transition-colors">
                 <img :src="getFeaturedImage(item.href)" :alt="item.label" class="w-full h-full object-cover" loading="lazy" />
               </div>
               <!-- Квадратная иконка для остальных пунктов -->
-              <div v-else class="w-12 h-12 rounded-xl bg-gray-200/50 flex items-center justify-center flex-shrink-0">
-                <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-gray-500 group-hover:text-blue-600 transition-colors" />
+              <div v-else class="w-10 h-10 rounded-lg bg-gray-200/50 flex items-center justify-center flex-shrink-0">
+                <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-500 group-hover:text-blue-600 transition-colors" />
               </div>
-              <span class="text-lg font-bold" :class="textClass">{{ item.label }}</span>
+              <span class="text-base font-bold" :class="textClass">{{ item.label }}</span>
             </div>
           </a>
 
@@ -50,12 +51,13 @@
             v-if="ctaLink"
             :href="ctaLink"
             target="_blank"
-            class="mt-6 group relative overflow-hidden p-5 rounded-2xl transition-all shadow-lg"
+            class="mt-4 group relative overflow-hidden p-3 sm:p-4 rounded-xl transition-all shadow-lg animate-menu-item"
             :class="ctaClass"
+            :style="{ animationDelay: `${menuItems.length * 50 + 200}ms` }"
           >
-            <div class="flex items-center justify-center gap-3">
-              <Icon name="fa-brands:telegram" class="w-5 h-5 text-white" />
-              <span class="text-base font-bold text-white">{{ ctaText }}</span>
+            <div class="flex items-center justify-center gap-2">
+              <Icon name="fa-brands:telegram" class="w-4 h-4 text-white" />
+              <span class="text-sm font-bold text-white">{{ ctaText }}</span>
             </div>
           </a>
         </nav>

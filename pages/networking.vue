@@ -132,6 +132,24 @@ const mobileMenuItems = [
   { label: 'Блог', href: '/blog' },
 ]
 
+// Анимация для пунктов мобильного меню
+const menuAnimationClass = `
+  @keyframes menuSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-menu-item {
+    opacity: 0;
+    animation: menuSlideUp 0.4s ease-out forwards;
+  }
+`
+
 // Данные для секции услуг
 const services = [
   {
@@ -428,29 +446,49 @@ function toggleFaq(index) {
     </nav>
 
     <!-- Мобильное меню -->
-    <div v-if="isMobileMenuOpen" class="fixed inset-0 z-[100] md:hidden bg-white pt-20 px-6">
-      <!-- Кнопка закрытия -->
-      <button
-        @click="isMobileMenuOpen = false"
-        class="absolute top-6 right-6 text-black p-3 hover:bg-black/10 rounded-lg transition-colors z-[110]"
-        aria-label="Закрыть меню"
-      >
-        <X class="w-8 h-8" />
-      </button>
-      
-      <nav class="flex flex-col gap-2">
-        <a
-          v-for="item in mobileMenuItems"
-          :key="item.label"
-          :href="item.href"
-          target="_self"
-          class="text-base uppercase tracking-wider py-4 border-b-2 border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200"
+    <Transition
+      enter-active-class="transition duration-300 ease-out"
+      enter-from-class="opacity-0 translate-x-full"
+      enter-to-class="opacity-100 translate-x-0"
+      leave-active-class="transition duration-200 ease-in"
+      leave-from-class="opacity-100 translate-x-0"
+      leave-to-class="opacity-0 translate-x-full"
+    >
+      <div v-if="isMobileMenuOpen" class="fixed inset-0 z-[100] md:hidden bg-white pt-20 px-6">
+        <!-- Кнопка закрытия -->
+        <button
           @click="isMobileMenuOpen = false"
+          class="absolute top-6 right-6 text-black p-3 hover:bg-black/10 rounded-lg transition-colors z-[110]"
+          aria-label="Закрыть меню"
         >
-          {{ item.label }}
-        </a>
-      </nav>
-    </div>
+          <X class="w-8 h-8" />
+        </button>
+
+        <nav class="flex flex-col gap-2 mt-8">
+          <a
+            v-for="(item, i) in mobileMenuItems"
+            :key="item.label"
+            :href="item.href"
+            target="_self"
+            class="animate-menu-item text-base uppercase tracking-wider py-3 px-4 border-2 border-black hover:bg-black hover:text-white hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200"
+            :style="{ animationDelay: `${i * 50 + 100}ms` }"
+            @click="isMobileMenuOpen = false"
+          >
+            {{ item.label }}
+          </a>
+          
+          <!-- CTA кнопка Telegram -->
+          <a
+            href="https://t.me/artemselifanov"
+            target="_blank"
+            class="animate-menu-item mt-4 text-base uppercase tracking-wider py-3 px-4 border-2 border-black bg-[#EA6D3A] text-white hover:bg-[#EA6D3A]/90 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200"
+            :style="{ animationDelay: `${mobileMenuItems.length * 50 + 150}ms` }"
+          >
+            Сообщество в Telegram
+          </a>
+        </nav>
+      </div>
+    </Transition>
 
     <!-- Основной контент -->
     <main role="main">
@@ -851,8 +889,6 @@ function toggleFaq(index) {
             </div>
           </div>
         </div>
-
-        <p class="text-xs text-gray-500 mt-6 text-center">⚠️ Примеры отзывов. Замените на реальные отзывы из Telegram-чата сообщества.</p>
       </div>
     </section>
 

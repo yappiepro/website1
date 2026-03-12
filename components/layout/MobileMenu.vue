@@ -3,11 +3,11 @@
     <!-- Мобильное меню -->
     <Transition
       enter-active-class="transition duration-300 ease-out"
-      enter-from-class="opacity-0 scale-95"
-      enter-to-class="opacity-100 scale-100"
+      enter-from-class="opacity-0 translate-x-full"
+      enter-to-class="opacity-100 translate-x-0"
       leave-active-class="transition duration-200 ease-in"
-      leave-from-class="opacity-100 scale-95"
-      leave-to-class="opacity-0 scale-95"
+      leave-from-class="opacity-100 translate-x-0"
+      leave-to-class="opacity-0 translate-x-full"
     >
       <div v-if="isOpen" class="fixed inset-0 z-[100] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 pt-20 px-6">
         <div class="flex justify-between items-center mb-8">
@@ -34,8 +34,9 @@
             v-for="(item, i) in menuItems"
             :key="i"
             :href="item.href"
-            @click="handleClick(item.href)"
-            class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20"
+            @click.prevent="handleClick(item.href)"
+            class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20 animate-menu-item"
+            :style="{ animationDelay: `${i * 50 + 150}ms` }"
           >
             <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
             <div class="relative flex items-center justify-between">
@@ -47,7 +48,8 @@
           <a
             :href="ctaLink"
             target="_blank"
-            class="mt-6 group relative overflow-hidden p-5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-2xl transition-all shadow-lg shadow-blue-600/30"
+            class="mt-6 group relative overflow-hidden p-5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-2xl transition-all shadow-lg shadow-blue-600/30 animate-menu-item"
+            :style="{ animationDelay: `${menuItems.length * 50 + 200}ms` }"
           >
             <div class="flex items-center justify-center gap-3">
               <Icon name="fa-brands:telegram" class="w-5 h-5 text-white" />

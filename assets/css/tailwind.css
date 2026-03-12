@@ -84,3 +84,20 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Анимация для пунктов мобильного меню */
+@keyframes menuSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-menu-item {
+  opacity: 0;
+  animation: menuSlideUp 0.4s ease-out forwards;
+}

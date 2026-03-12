@@ -95,6 +95,9 @@
     -->
 
     <main>
+      <!-- Статичный H1 для SEO (видим только поисковым ботам) -->
+      <h1 class="sr-only">Фокус — Тест на позиционирование личного бренда | Узнайте, как правильно выстроить личный бренд</h1>
+      
       <section class="hero-stage">
         <div class="typewriter-container">
           <svg class="typewriter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

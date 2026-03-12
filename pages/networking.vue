@@ -515,11 +515,10 @@ function toggleFaq(index) {
           <div>
             <div class="text-xs uppercase tracking-wider mb-2">КЕЙС // 01</div>
             <h1 class="text-3xl md:text-4xl lg:text-5xl font-black leading-[1.2] tracking-tight mb-6">
-              НЕСКУЧНЫЙ НЕТВОРКИНГ —<br/>
-              сообщество для личного бренда
+              Нескучный нетворкинг — для тех, кто хочет быть заметным
             </h1>
             <p class="text-base md:text-lg text-gray-700 max-w-xl leading-relaxed">
-              Сообщество для развития личного бренда через контент-маркетинг в социальных сетях
+              Личный бренд через контент и полезные знакомства в социальных сетях
             </p>
           </div>
 

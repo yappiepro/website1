@@ -1,5 +1,19 @@
 <template>
   <div class="min-h-screen bg-white text-gray-900 antialiased overflow-x-hidden">
+    <Head>
+      <Title>Менторство для предпринимателей — личный бренд и рост бизнеса | Артём Селифанов</Title>
+      <Meta name="description" content="Индивидуальное менторство от Артёма Селифанова. Выстраиваю систему личного бренда, помогаю масштабировать экспертный бизнес. Записаться на встречу." />
+      <Meta name="keywords" content="менторство для предпринимателей, наставничество личный бренд, ментор эксперт, Артём Селифанов менторство" />
+      <Meta name="robots" content="index, follow" />
+      <Meta property="og:title" content="Менторство для предпринимателей — личный бренд и рост бизнеса | Артём Селифанов" />
+      <Meta property="og:description" content="Индивидуальное менторство от Артёма Селифанова. Выстраиваю систему личного бренда, помогаю масштабировать экспертный бизнес." />
+      <Meta property="og:type" content="website" />
+      <Meta property="og:url" content="https://artemselifanov.ru/mentorship" />
+      <Meta name="twitter:card" content="summary_large_image" />
+      <Meta name="twitter:title" content="Менторство для предпринимателей — личный бренд и рост бизнеса | Артём Селифанов" />
+      <Meta name="twitter:description" content="Индивидуальное менторство от Артёма Селифанова. Выстраиваю систему личного бренда." />
+      <Link rel="canonical" href="https://artemselifanov.ru/mentorship" />
+    </Head>
     <!-- Навигация -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200">
       <div class="max-w-7xl mx-auto px-6 py-4 flex items-center">

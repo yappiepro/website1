@@ -36,23 +36,23 @@
     <section class="relative min-h-screen flex items-center pt-20 px-4 sm:px-6 overflow-hidden bg-gray-50">
       <div class="max-w-7xl mx-auto w-full relative z-10">
         <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          <div class="lg:col-span-8 animate-on-scroll">
-            <div class="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-gray-200 rounded-2xl mb-8 animate-on-scroll delay-100">
+          <div class="lg:col-span-8">
+            <div class="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-gray-200 rounded-2xl mb-8">
               <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></span>
               <span class="text-sm font-medium text-gray-700">Открыт для новых проектов</span>
             </div>
 
-            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] mb-6 animate-on-scroll delay-200">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] mb-6">
               <span class="block">Личный бренд —</span>
               <span class="block">ваш главный инструмент</span>
               <span class="block text-blue-600">продаж</span>
             </h1>
 
-            <p class="text-base md:text-lg text-gray-600 leading-relaxed mb-8 max-w-2xl animate-on-scroll delay-300">
+            <p class="text-base md:text-lg text-gray-600 leading-relaxed mb-8 max-w-2xl">
               Я помогаю его создать. Для предпринимателей и экспертов, которые продают свои услуги. Готовлю площадки. Работаю со смыслами. Не пишу посты — выстраиваю систему.
             </p>
 
-            <div class="flex flex-wrap gap-4 mb-10 animate-on-scroll delay-400">
+            <div class="flex flex-wrap gap-4 mb-10">
               <a href="https://t.me/artemselifanov" target="_blank" class="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold text-white bg-gray-900 hover:bg-gray-800 rounded-2xl transition-all hover:-translate-y-1">
                 <Icon name="fa-brands:telegram" class="w-5 h-5" />
                 Обсудить стратегию

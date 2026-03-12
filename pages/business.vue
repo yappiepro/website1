@@ -768,9 +768,9 @@ function toggleFaq(index) {
       </div>
     </footer>
 
-    <!-- Нижняя навигация для мобильных (тёмная тема) -->
+    <!-- Нижняя навигация для мобильных (светлая тема) -->
     <MobileBottomNav
-      theme="dark"
+      theme="light"
       :items="[
         { href: '/', label: 'Главная', icon: 'lucide:home' },
         { href: '/networking', label: 'Нетворкинг', image: '/reference/networking.jpg' },

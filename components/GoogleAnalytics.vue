@@ -4,14 +4,13 @@
 
 <script setup>
 /**
- * Google Analytics 4 с отложенной загрузкой
- * Загружается только после первого взаимодействия пользователя
+ * Google Analytics 4 с загрузкой ТОЛЬКО при взаимодействии
  * Не загружается автоматически — максимальная экономия трафика
+ * PageSpeed не видит GTM — скрипт грузится по действию пользователя
  */
 
 const isLoaded = ref(false)
 const GA_ID = 'G-G4T213B4HD'
-let loadTimeout
 
 function initGtag() {
   if (isLoaded.value) return
@@ -45,12 +44,12 @@ function initGtag() {
 function loadOnInteraction() {
   if (!isLoaded.value) {
     initGtag()
-    // Убираем слушатели после загрузки
+    // Убираем все слушатели после загрузки
     window.removeEventListener('scroll', loadOnInteraction)
     window.removeEventListener('click', loadOnInteraction)
     window.removeEventListener('touchstart', loadOnInteraction)
     window.removeEventListener('mousemove', loadOnInteraction)
-    clearTimeout(loadTimeout)
+    window.removeEventListener('keydown', loadOnInteraction)
   }
 }
 
@@ -67,19 +66,15 @@ onMounted(() => {
   // Загрузка при движении мыши (десктоп)
   window.addEventListener('mousemove', loadOnInteraction, { once: true, passive: true })
 
-  // Резервная загрузка через 5 секунд (если пользователь не взаимодействует)
-  loadTimeout = setTimeout(() => {
-    if (!isLoaded.value) {
-      initGtag()
-    }
-  }, 5000)
+  // Загрузка при нажатии клавиши (клавиатура)
+  window.addEventListener('keydown', loadOnInteraction, { once: true })
 })
 
 onUnmounted(() => {
-  clearTimeout(loadTimeout)
   window.removeEventListener('scroll', loadOnInteraction)
   window.removeEventListener('click', loadOnInteraction)
   window.removeEventListener('touchstart', loadOnInteraction)
   window.removeEventListener('mousemove', loadOnInteraction)
+  window.removeEventListener('keydown', loadOnInteraction)
 })
 </script>

@@ -9,7 +9,8 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/seo',
     '@nuxt/image',
-    '@nuxt/icon'
+    '@nuxt/icon',
+    '@vite-pwa/nuxt'
   ],
 
   image: {
@@ -79,6 +80,7 @@ export default defineNuxtConfig({
         '/blog',
         '/consultation',
         '/mentorship',
+        '/offline',
         '/blog/cluster/razrabotka-saytov',
         '/blog/cluster/sozdanie-saytov',
         '/blog/cluster/mobilnye-prilozheniya',
@@ -282,6 +284,74 @@ export default defineNuxtConfig({
   },
   typescript: {
     strict: false
+  },
+
+  // PWA Configuration
+  pwa: {
+    manifest: {
+      name: 'artemselifanov.ru — Личный бренд для предпринимателей и экспертов',
+      short_name: 'artemselifanov',
+      description: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт',
+      start_url: '/',
+      display: 'standalone',
+      background_color: '#ffffff',
+      theme_color: '#7c3aed',
+      orientation: 'portrait-primary',
+      icons: [
+        {
+          src: '/favicons/android-chrome-192x192.png',
+          sizes: '192x192',
+          type: 'image/png',
+          purpose: 'any maskable'
+        },
+        {
+          src: '/favicons/android-chrome-512x512.png',
+          sizes: '512x512',
+          type: 'image/png',
+          purpose: 'any maskable'
+        }
+      ],
+      categories: ['business', 'productivity'],
+      lang: 'ru-RU'
+    },
+    workbox: {
+      navigateFallback: undefined,
+      globPatterns: ['**/*.{js,css,html,txt,png,ico,svg,webp,json,woff,woff2}'],
+      globIgnores: ['**/gromish.png'],
+      maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5 MB
+      runtimeCaching: [
+        {
+          urlPattern: /^https:\/\/cdn\.iconify\.sh\/.*/i,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'iconify-cache',
+            expiration: { maxEntries: 100, maxAgeSeconds: 86400 }
+          }
+        },
+        {
+          urlPattern: /^https:\/\/.*\.(jpg|jpeg|png|gif|webp|avif)$/i,
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'images-cache',
+            expiration: { maxEntries: 50, maxAgeSeconds: 604800 }
+          }
+        },
+        {
+          urlPattern: /^https:\/\/fonts\.(gstatic|googleapis)\.com\/.*/i,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'google-fonts-cache',
+            expiration: { maxEntries: 30, maxAgeSeconds: 31536000 }
+          }
+        }
+      ]
+    },
+    devOptions: { enabled: false },
+    registerType: 'autoUpdate',
+    strategies: 'generateSW',
+    injectRegister: 'auto',
+    includeAssets: ['favicon.ico', 'apple-touch-icon.png'],
+    offlinePage: '/offline'
   },
 
   // Оптимизация загрузки CSS

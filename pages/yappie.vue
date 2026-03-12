@@ -721,18 +721,32 @@
       <button
         v-show="showScrollTop"
         @click="scrollToTop"
-        class="fixed bottom-6 right-6 z-50 w-12 h-12 bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white rounded-full shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 hover:scale-110 transition-all duration-300 flex items-center justify-center"
+        class="hidden md:block fixed bottom-6 right-6 z-50 w-12 h-12 bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white rounded-full shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 hover:scale-110 transition-all duration-300 flex items-center justify-center"
         aria-label="Наверх"
       >
         <ChevronUp class="w-6 h-6" />
       </button>
     </Transition>
+
+    <!-- Нижняя навигация для мобильных (тёмная тема) -->
+    <MobileBottomNav
+      theme="dark"
+      :items="[
+        { href: '/', label: 'Главная', icon: 'lucide:home' },
+        { href: '/networking', label: 'Нетворкинг', image: '/reference/networking.jpg' },
+        { href: '/business', label: 'Бизнес', image: '/reference/business.jpg' },
+        { href: '/yappie', label: 'Веб', text: 'веб' },
+        { href: '/blog', label: 'Блог', text: 'блог' },
+        { href: '#top', label: 'Наверх', icon: 'lucide:arrow-up', action: 'scrollToTop' }
+      ]"
+    />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import Button from '~/components/ui/button/Button.vue'
+import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
 
 // SEO Meta Tags with useSeoMeta
 useSeoMeta({

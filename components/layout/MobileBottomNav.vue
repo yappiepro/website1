@@ -1,12 +1,9 @@
 <template>
-  <div class="md:hidden fixed bottom-[6px] left-[12px] right-[12px] z-50">
+  <div class="md:hidden fixed bottom-[12px] left-[12px] right-[12px] z-50">
     <!-- Контейнер навигации -->
     <nav
       class="flex items-center justify-around pb-safe rounded-2xl py-0 shadow-lg"
-      :class="[
-        themeClasses,
-        theme === 'dark' || theme === 'black' ? 'text-white' : 'text-gray-900'
-      ]"
+      :class="navClasses"
     >
       <a
         v-for="item in items"
@@ -36,13 +33,16 @@
           <span
             v-else-if="item.text"
             class="text-sm font-bold"
-            :class="item.textClass || (theme === 'black' || theme === 'dark' ? 'text-gray-300' : 'text-gray-700')"
+            :class="item.textClass || 'text-gray-700'"
           >{{ item.text }}</span>
           <Icon
             v-else
             :name="item.icon"
-            class="w-6 h-6 transition-all duration-200"
-            :class="isActive(item.href) ? 'scale-110' : 'scale-100'"
+            class="transition-all duration-200"
+            :class="[
+              isActive(item.href) ? 'scale-110' : 'scale-100',
+              item.icon === 'lucide:home' ? 'w-12 h-12' : 'w-6 h-6'
+            ]"
           />
           <!-- Индикатор активной страницы -->
           <div
@@ -99,18 +99,18 @@ function handleClick(item, event) {
 }
 
 // Вычисляемые классы в зависимости от темы
-const themeClasses = computed(() => {
+const navClasses = computed(() => {
   if (props.theme === 'black') {
-    return 'bg-black/70 backdrop-blur-xl'
+    return 'bg-black/80 backdrop-blur-xl text-white'
   }
   if (props.theme === 'dark') {
-    return 'bg-gray-900/70 backdrop-blur-xl'
+    return 'bg-gray-900/80 backdrop-blur-xl text-white'
   }
-  return 'bg-white/70 backdrop-blur-xl'
+  return 'bg-white/80 backdrop-blur-xl text-gray-900'
 })
 
 const activeBgClass = computed(() => {
-  return 'bg-gray-200'
+  return 'bg-gray-700'
 })
 
 const activeTextClass = computed(() => {

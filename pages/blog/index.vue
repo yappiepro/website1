@@ -128,7 +128,7 @@
       <div class="max-w-4xl mx-auto w-full overflow-x-hidden">
         <header class="mb-8">
           <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-            Блог
+            Блог о личном бренде, веб-разработке и AI для бизнеса
           </h1>
           <p class="text-lg text-gray-600">
             Статьи о разработке сайтов, создании веб-приложений, мобильной разработке и AI для бизнеса

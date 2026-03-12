@@ -302,7 +302,7 @@ function toggleFaq(index) {
             scrolled ? 'hidden md:block' : 'block'
           ]">
             <a href="/" class="group flex items-center gap-3">
-              <NuxtImg src="/reference/business.webp" format="webp" quality="75" sizes="20px sm:28px md:40px" alt="Бизнес Сетка — логотип закрытого клуба предпринимателей" class="w-10 h-10 rounded-lg" />
+              <NuxtImg src="/reference/business.webp" quality="75" sizes="20px sm:28px md:40px" alt="Бизнес Сетка — логотип закрытого клуба предпринимателей" class="w-10 h-10 rounded-lg" />
               <span class="text-sm font-bold tracking-tight text-gray-900">БИЗНЕС СЕТКА</span>
             </a>
           </div>
@@ -731,7 +731,7 @@ function toggleFaq(index) {
       <div class="max-w-[1600px] mx-auto">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <div class="flex items-center gap-3">
-            <NuxtImg src="/reference/business.webp" format="webp" quality="75" sizes="24px md:32px" alt="Бизнес Сетка — логотип" class="w-6 h-6 rounded-md" />
+            <NuxtImg src="/reference/business.webp" quality="75" sizes="24px md:32px" alt="Бизнес Сетка — логотип" class="w-6 h-6 rounded-md" />
             <span class="text-sm font-bold text-white">БИЗНЕС СЕТКА</span>
           </div>
           <div class="flex items-center gap-6">

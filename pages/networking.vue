@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { ArrowRight, Mail, MapPin, Calendar, Users, TrendingUp, Target, Zap, BookOpen, MessageCircle, Check, ExternalLink, Menu, X, Video } from 'lucide-vue-next'
+import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
 
 // SEO для страницы
 useSeoMeta({
@@ -1026,6 +1027,9 @@ function toggleFaq(index) {
         </div>
       </div>
     </footer>
+
+    <!-- Нижняя навигация для мобильных -->
+    <MobileBottomNav theme="light" />
   </div>
 </template>
 

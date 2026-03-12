@@ -648,12 +648,16 @@
         </div>
       </div>
     </footer>
+
+    <!-- Нижняя навигация для мобильных -->
+    <MobileBottomNav theme="light" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { Menu, X } from 'lucide-vue-next'
 import { ref, computed, onMounted, onUnmounted } from 'vue'
+import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
 
 const config = useRuntimeConfig()
 const baseURL = config.app.baseURL

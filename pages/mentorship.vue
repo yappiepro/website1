@@ -287,6 +287,9 @@
 
     <!-- Футер -->
     <Footer :show-cta="false" />
+
+    <!-- Нижняя навигация для мобильных -->
+    <MobileBottomNav theme="light" />
   </div>
 </template>
 
@@ -294,6 +297,7 @@
 import { ref } from 'vue'
 import { Menu, X } from 'lucide-vue-next'
 import Footer from '~/components/layout/Footer.vue'
+import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
 
 const isMobileMenuOpen = ref(false)
 

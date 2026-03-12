@@ -391,30 +391,33 @@ function toggleFaq(index) {
 
     <!-- Навигация -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b-2 border-black">
-      <div class="max-w-[1400px] mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
-        <!-- Логотип -->
-        <a href="/networking" class="flex items-center gap-3 group">
+      <div class="max-w-[1400px] mx-auto px-4 md:px-6 py-3 flex items-center">
+        <!-- Левая зона: Логотип -->
+        <a href="/networking" class="flex items-center gap-3 group shrink-0">
           <img src="/reference/Vector.svg" alt="Нескучный Нетворкинг — логотип сообщества" class="h-10 w-auto" />
         </a>
 
-        <!-- Десктопное меню -->
-        <div class="hidden md:flex items-center gap-4">
+        <!-- Центральная зона: Десктопное меню -->
+        <div class="hidden md:flex items-center gap-4 flex-1 justify-center">
           <a href="/" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Главная</a>
           <a href="#about" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">О проекте</a>
           <a href="#services" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Услуги</a>
           <a href="#faq" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">FAQ</a>
           <a href="/blog" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Блог</a>
           <a href="/business" class="text-xs uppercase tracking-wider hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 px-3 py-1.5">Бизнес Сетка</a>
-          <a href="https://t.me/+dL4aVzBkems0MTMy" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center font-medium px-4 py-2 text-xs bg-[#EA6D3A] text-white hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200 uppercase tracking-wider">
+          <a href="https://t.me/+dL4aVzBkems0MTMy" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center font-medium px-4 py-2 text-xs bg-[#EA6D3A] text-white hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200 uppercase tracking-wider shrink-0">
             В сообщество
             <ArrowRight class="ml-2 h-3 w-3" />
           </a>
         </div>
 
-        <!-- Кнопка бургер-меню -->
+        <!-- Правая зона: пустая для баланса -->
+        <div class="hidden md:block w-[120px] shrink-0"></div>
+
+        <!-- Кнопка бургер-меню для мобильных -->
         <button
           @click="isMobileMenuOpen = !isMobileMenuOpen"
-          class="md:hidden text-black p-2 hover:bg-black/10 transition-colors"
+          class="md:hidden text-black p-2 hover:bg-black/10 transition-colors absolute right-4"
           aria-label="Открыть меню"
         >
           <Menu v-if="!isMobileMenuOpen" class="w-6 h-6" />

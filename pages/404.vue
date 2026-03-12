@@ -2,13 +2,14 @@
   <div class="min-h-screen bg-white text-gray-900 flex items-center justify-center px-4 overflow-x-hidden">
     <!-- Навигация -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200">
-      <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="/" class="text-xl font-bold text-gray-900 flex items-center gap-2">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center">
+        <!-- Левая зона: Логотип -->
+        <a href="/" class="text-xl font-bold text-gray-900 flex items-center gap-2 shrink-0">
           <span class="font-syncopate font-bold tracking-wider text-2xl">YAPPIE</span>
         </a>
 
-        <!-- Десктопное меню -->
-        <div class="hidden md:flex items-center gap-8">
+        <!-- Центральная зона: Десктопное меню -->
+        <div class="hidden md:flex items-center gap-8 flex-1 justify-center">
           <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Главная</a>
           <a href="/#problems" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Проблемы</a>
           <a href="/#services" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Услуги</a>
@@ -16,13 +17,16 @@
           <a href="/#portfolio" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Кейсы</a>
           <a href="/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Блог</a>
           <a href="/#faq" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">FAQ</a>
-          <a href="https://t.me/artemselifanov" target="_blank" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 rounded-lg transition-colors">Связаться</a>
+          <a href="https://t.me/artemselifanov" target="_blank" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 rounded-lg transition-colors shrink-0">Связаться</a>
         </div>
+
+        <!-- Правая зона: пустая для баланса -->
+        <div class="hidden md:block w-[100px] shrink-0"></div>
 
         <!-- Кнопка бургер-меню для мобильных -->
         <button
           @click="isMobileMenuOpen = !isMobileMenuOpen"
-          class="md:hidden text-gray-700 p-2 hover:bg-gray-100 rounded-lg transition-colors"
+          class="md:hidden text-gray-700 p-2 hover:bg-gray-100 rounded-lg transition-colors absolute right-4"
           aria-label="Открыть меню"
         >
           <Menu v-if="!isMobileMenuOpen" class="w-6 h-6" />

@@ -782,7 +782,7 @@
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-12 animate-on-scroll">
           <div class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-2xl mb-6 animate-on-scroll delay-100">
-            <Icon name="fa-solid:circle-question" class="w-4 h-4 text-gray-700" />
+            <Icon name="fa-solid:question" class="w-4 h-4 text-gray-700" />
             <span class="text-xs font-bold text-gray-700 uppercase tracking-wider">FAQ</span>
           </div>
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4 animate-on-scroll delay-200">

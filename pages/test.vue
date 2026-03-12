@@ -551,11 +551,14 @@ useSeoMeta({
   <div class="tiktok-page" :class="{ locked: isLocked }">
     <!-- Навигация -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/70 backdrop-blur-2xl border-b border-white/[0.08]">
-      <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="/" class="text-xl font-semibold text-white flex items-center gap-2">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center">
+        <!-- Левая зона: Логотип -->
+        <a href="/" class="text-xl font-semibold text-white flex items-center gap-2 shrink-0">
           <span class="font-bold text-white tracking-wider text-2xl">YAPPIE</span>
         </a>
-        <div class="flex gap-4">
+        
+        <!-- Центральная зона: меню -->
+        <div class="hidden md:flex items-center gap-4 flex-1 justify-center">
           <a href="/test" class="text-sm text-gray-400 hover:text-white transition-all">
             ← Свайпы
           </a>
@@ -563,6 +566,19 @@ useSeoMeta({
             Демо
           </a>
         </div>
+        
+        <!-- Правая зона: пустая для баланса -->
+        <div class="hidden md:block w-[100px] shrink-0"></div>
+
+        <!-- Кнопка бургер-меню для мобильных -->
+        <button
+          @click="isMobileMenuOpen = !isMobileMenuOpen"
+          class="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors absolute right-4"
+          aria-label="Открыть меню"
+        >
+          <Menu v-if="!isMobileMenuOpen" class="w-6 h-6" />
+          <X v-else class="w-6 h-6" />
+        </button>
       </div>
     </nav>
 

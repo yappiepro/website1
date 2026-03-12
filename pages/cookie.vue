@@ -2,13 +2,19 @@
   <div class="min-h-screen bg-white text-gray-900">
     <!-- Навигация -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
-        <a href="/" class="text-xl font-bold text-gray-900">Артём Селифанов</a>
-        <div class="hidden md:flex items-center gap-6">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center">
+        <!-- Левая зона: Логотип -->
+        <a href="/" class="text-xl font-bold text-gray-900 shrink-0">Артём Селифанов</a>
+        
+        <!-- Центральная зона: меню -->
+        <div class="hidden md:flex items-center gap-6 flex-1 justify-center">
           <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Главная</a>
           <a href="/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Блог</a>
           <a href="https://t.me/artemselifanov" target="_blank" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Связаться</a>
         </div>
+        
+        <!-- Правая зона: пустая для баланса -->
+        <div class="hidden md:block w-[100px] shrink-0"></div>
       </div>
     </nav>
 

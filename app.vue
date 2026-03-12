@@ -1,10 +1,12 @@
 <template>
   <NuxtPage />
   <CookieBanner />
+  <GoogleAnalytics />
 </template>
 
 <script setup>
 import CookieBanner from '~/components/layout/CookieBanner.vue'
+import GoogleAnalytics from '~/components/GoogleAnalytics.vue'
 
 // Яндекс.Метрика
 useHead({

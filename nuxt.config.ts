@@ -246,20 +246,6 @@ export default defineNuxtConfig({
         { rel: 'preload', href: '/reference/IMG_7090.webp', as: 'image', type: 'image/webp', imagesizes: '90px', imagesrcset: '/reference/IMG_7090.webp 90w, /reference/IMG_7090.webp 70w, /reference/IMG_7090.webp 50w' }
       ],
       script: [
-        // Google Analytics 4
-        {
-          src: 'https://www.googletagmanager.com/gtag/js?id=G-G4T213B4HD',
-          async: true
-        },
-        {
-          innerHTML: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-G4T213B4HD');
-          `,
-          type: 'text/javascript'
-        },
         // Яндекс.Метрика
         {
           innerHTML: `

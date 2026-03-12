@@ -33,7 +33,7 @@ export default defineNuxtConfig({
     ],
     build: {
       sourcemap: false,
-      cssCodeSplit: true,
+      cssCodeSplit: false,
       rollupOptions: {
         output: {
           manualChunks: {
@@ -244,6 +244,13 @@ export default defineNuxtConfig({
         { rel: 'preload', href: '/reference/IMG_7089.webp', as: 'image', type: 'image/webp', imagesizes: '110px', imagesrcset: '/reference/IMG_7089.webp 110w, /reference/IMG_7089.webp 85w, /reference/IMG_7089.webp 60w', fetchpriority: 'high' },
         { rel: 'preload', href: '/reference/IMG_7083.webp', as: 'image', type: 'image/webp', imagesizes: '100px', imagesrcset: '/reference/IMG_7083.webp 100w, /reference/IMG_7083.webp 75w, /reference/IMG_7083.webp 55w' },
         { rel: 'preload', href: '/reference/IMG_7090.webp', as: 'image', type: 'image/webp', imagesizes: '90px', imagesrcset: '/reference/IMG_7090.webp 90w, /reference/IMG_7090.webp 70w, /reference/IMG_7090.webp 50w' }
+      ],
+      // Критический CSS инлайн - убирает блокировку рендеринга
+      style: [
+        {
+          children: `html{scroll-behavior:smooth}::-webkit-scrollbar{height:6px;width:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:#ffffff4d;border-radius:10px}::-webkit-scrollbar-thumb:hover{background:#ffffff80}`,
+          tagPosition: 'head'
+        }
       ],
       script: [
         // Яндекс.Метрика

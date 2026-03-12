@@ -5,31 +5,33 @@
 <script setup>
 /**
  * Google Analytics 4 с отложенной загрузкой
- * Загружается после первого взаимодействия пользователя или через 3 секунды
+ * Загружается только после первого взаимодействия пользователя
+ * Не загружается автоматически — максимальная экономия трафика
  */
 
 const isLoaded = ref(false)
 const GA_ID = 'G-G4T213B4HD'
+let loadTimeout
 
 function initGtag() {
   if (isLoaded.value) return
-  
+
   isLoaded.value = true
-  
+
   // Создаём dataLayer если нет
   window.dataLayer = window.dataLayer || []
-  
+
   // Создаём gtag функцию
   function gtag() {
     window.dataLayer.push(arguments)
   }
-  
+
   // Загружаем скрипт GTM
   const script = document.createElement('script')
   script.async = true
   script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
   document.head.appendChild(script)
-  
+
   // Инициализируем после загрузки скрипта
   script.onload = () => {
     gtag('js', new Date())
@@ -47,29 +49,30 @@ function loadOnInteraction() {
     window.removeEventListener('scroll', loadOnInteraction)
     window.removeEventListener('click', loadOnInteraction)
     window.removeEventListener('touchstart', loadOnInteraction)
+    window.removeEventListener('mousemove', loadOnInteraction)
     clearTimeout(loadTimeout)
   }
 }
 
-// Таймер для загрузки через 3 секунды
-let loadTimeout
-
 onMounted(() => {
-  // Загрузка по таймеру (3 секунды)
+  // Загрузка при первом скролле
+  window.addEventListener('scroll', loadOnInteraction, { once: true, passive: true })
+
+  // Загрузка при первом клике
+  window.addEventListener('click', loadOnInteraction, { once: true })
+
+  // Загрузка при первом таче (мобильные)
+  window.addEventListener('touchstart', loadOnInteraction, { once: true, passive: true })
+
+  // Загрузка при движении мыши (десктоп)
+  window.addEventListener('mousemove', loadOnInteraction, { once: true, passive: true })
+
+  // Резервная загрузка через 5 секунд (если пользователь не взаимодействует)
   loadTimeout = setTimeout(() => {
     if (!isLoaded.value) {
       initGtag()
     }
-  }, 3000)
-  
-  // Загрузка при первом скролле
-  window.addEventListener('scroll', loadOnInteraction, { once: true, passive: true })
-  
-  // Загрузка при первом клике
-  window.addEventListener('click', loadOnInteraction, { once: true })
-  
-  // Загрузка при первом таче (мобильные)
-  window.addEventListener('touchstart', loadOnInteraction, { once: true, passive: true })
+  }, 5000)
 })
 
 onUnmounted(() => {
@@ -77,5 +80,6 @@ onUnmounted(() => {
   window.removeEventListener('scroll', loadOnInteraction)
   window.removeEventListener('click', loadOnInteraction)
   window.removeEventListener('touchstart', loadOnInteraction)
+  window.removeEventListener('mousemove', loadOnInteraction)
 })
 </script>

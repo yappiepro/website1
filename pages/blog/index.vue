@@ -51,68 +51,75 @@
     <!-- Мобильное меню -->
     <Transition
       enter-active-class="transition duration-300 ease-out"
-      enter-from-class="opacity-0 scale-95"
-      enter-to-class="opacity-100 scale-100"
+      enter-from-class="opacity-0 translate-x-full"
+      enter-to-class="opacity-100 translate-x-0"
       leave-active-class="transition duration-200 ease-in"
-      leave-from-class="opacity-100 scale-95"
+      leave-from-class="opacity-100 translate-x-0"
+      leave-to-class="opacity-0 translate-x-full"
     >
-      <div v-if="isMenuOpen" class="fixed inset-0 z-[100] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 pt-20 px-6">
+      <div v-if="isMenuOpen" class="fixed inset-0 z-[100] bg-gradient-to-br from-white via-gray-50 to-white pt-20 px-6">
         <div class="flex justify-between items-center mb-8">
-          <span class="text-white/60 text-sm font-medium">Навигация</span>
-          <button @click="isMenuOpen = false" class="group p-3 bg-white hover:bg-gray-100 rounded-2xl transition-all backdrop-blur-sm shadow-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style="width: 24px; height: 24px;" fill="currentColor" class="text-gray-900">
-              <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
-            </svg>
+          <span class="text-gray-400 text-sm font-medium">Навигация</span>
+          <button @click="isMenuOpen = false" class="group p-3 bg-white hover:bg-gray-100 rounded-2xl transition-all backdrop-blur-sm shadow-lg border border-gray-200">
+            <X class="w-6 h-6 text-gray-900" />
           </button>
         </div>
 
         <nav class="flex flex-col gap-3 max-w-md mx-auto">
           <NuxtLink to="/" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
+             class="group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-violet-200">
+            <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/10 group-hover:to-violet-600/10 transition-all"></div>
             <div class="relative flex items-center justify-between">
-              <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Главная</span>
-              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+              <span class="text-base font-bold text-gray-900 group-hover:text-violet-600 transition-colors">Главная</span>
+              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-violet-600 group-hover:translate-x-1 transition-all" />
             </div>
           </NuxtLink>
           <NuxtLink to="/networking" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
+             class="group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-violet-200">
+            <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/10 group-hover:to-violet-600/10 transition-all"></div>
             <div class="relative flex items-center justify-between">
-              <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Нескучный Нетворкинг</span>
-              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+              <span class="text-base font-bold text-gray-900 group-hover:text-violet-600 transition-colors">Нескучный Нетворкинг</span>
+              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-violet-600 group-hover:translate-x-1 transition-all" />
             </div>
           </NuxtLink>
           <NuxtLink to="/business" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
+             class="group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-violet-200">
+            <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/10 group-hover:to-violet-600/10 transition-all"></div>
             <div class="relative flex items-center justify-between">
-              <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Бизнес Сетка</span>
-              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+              <span class="text-base font-bold text-gray-900 group-hover:text-violet-600 transition-colors">Бизнес Сетка</span>
+              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-violet-600 group-hover:translate-x-1 transition-all" />
             </div>
           </NuxtLink>
           <NuxtLink to="/yappie" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
+             class="group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-violet-200">
+            <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/10 group-hover:to-violet-600/10 transition-all"></div>
             <div class="relative flex items-center justify-between">
-              <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Веб-разработка</span>
-              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+              <span class="text-base font-bold text-gray-900 group-hover:text-violet-600 transition-colors">Веб-разработка</span>
+              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-violet-600 group-hover:translate-x-1 transition-all" />
+            </div>
+          </NuxtLink>
+          <NuxtLink to="/blog" @click="isMenuOpen = false"
+             class="group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-violet-200">
+            <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/10 group-hover:to-violet-600/10 transition-all"></div>
+            <div class="relative flex items-center justify-between">
+              <span class="text-base font-bold text-gray-900 group-hover:text-violet-600 transition-colors">Блог</span>
+              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-violet-600 group-hover:translate-x-1 transition-all" />
             </div>
           </NuxtLink>
 
           <a href="https://t.me/artemselifanov" target="_blank"
-             class="mt-6 group relative overflow-hidden p-5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-2xl transition-all shadow-lg shadow-blue-600/30">
-            <div class="flex items-center justify-center gap-3">
-              <Icon name="fa-brands:telegram" class="w-5 h-5 text-white" />
-              <span class="text-base font-bold text-white">Связаться в Telegram</span>
+             class="mt-4 group relative overflow-hidden p-3 sm:p-4 bg-gradient-to-r from-violet-600 to-violet-500 hover:from-violet-500 hover:to-violet-400 rounded-xl transition-all shadow-lg shadow-violet-600/30">
+            <div class="flex items-center justify-center gap-2">
+              <Icon name="fa-brands:telegram" class="w-4 h-4 text-white" />
+              <span class="text-sm font-bold text-white">Связаться в Telegram</span>
             </div>
           </a>
         </nav>
 
         <!-- Декоративные элементы -->
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl"></div>
-          <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl"></div>
+          <div class="absolute -top-40 -right-40 w-80 h-80 bg-violet-600/10 rounded-full blur-3xl"></div>
+          <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-violet-600/10 rounded-full blur-3xl"></div>
         </div>
       </div>
     </Transition>
@@ -129,11 +136,11 @@
         </header>
 
         <!-- Фильтры по кластерам -->
-        <div class="flex flex-wrap gap-2 mb-6">
+        <div class="flex flex-wrap gap-2 mb-6 px-2">
           <button
             @click="selectedCluster = null"
             :class="[
-              'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
+              'px-3 py-2 rounded-full text-xs font-medium transition-all duration-200',
               selectedCluster === null
                 ? 'bg-violet-600 text-white shadow-md'
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -146,24 +153,24 @@
             :key="cluster"
             @click="selectedCluster = cluster"
             :class="[
-              'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
+              'px-3 py-2 rounded-full text-xs font-medium transition-all duration-200',
               selectedCluster === cluster
                 ? getClusterButtonActiveClass(cluster)
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
             ]"
           >
-            {{ getClusterName(cluster) }} ({{ getArticlesByCluster(cluster).length }})
+            <span class="leading-tight">{{ getClusterName(cluster) }} ({{ getArticlesByCluster(cluster).length }})</span>
           </button>
         </div>
 
         <!-- Поиск по статьям -->
-        <div class="mb-6">
+        <div class="mb-6 px-2">
           <div class="relative">
             <input
               v-model="searchQuery"
               type="text"
               placeholder="Поиск по названию или описанию..."
-              class="w-full px-4 py-3 pl-11 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
+              class="w-full px-4 py-3 pl-11 border border-gray-300 rounded-xl text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
             />
             <svg
               class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
@@ -202,7 +209,7 @@
             class="group"
           >
             <a :href="baseURL + 'blog/' + article.slug" class="block">
-              <div class="border border-gray-200 rounded-2xl p-6 sm:p-8 hover:border-violet-300 hover:shadow-lg transition-all duration-300">
+              <div class="border border-gray-200 rounded-2xl p-4 sm:p-5 hover:border-violet-300 hover:shadow-lg transition-all duration-300">
                 <div class="flex items-center gap-3 mb-4">
                   <span
                     v-if="article.category"
@@ -213,7 +220,7 @@
                   >
                     {{ article.category }}
                   </span>
-                  <span class="text-sm text-gray-500">
+                  <span class="text-xs text-gray-500">
                     {{ formatDate(article.date) }}
                   </span>
                 </div>
@@ -274,7 +281,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { ArrowRight } from 'lucide-vue-next'
+import { ArrowRight, X } from 'lucide-vue-next'
 import { articles, formatDate, getClusters, getClusterName, getClusterColor, getRandomArticles, getArticlesByCluster } from '~/data/blog.js'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
 
@@ -289,6 +296,9 @@ const selectedCluster = ref(null)
 
 // Поисковый запрос
 const searchQuery = ref('')
+
+// Мобильное меню
+const isMenuOpen = ref(false)
 
 // Случайный порядок статей
 const shuffledArticles = computed(() => getRandomArticles(articles.length))

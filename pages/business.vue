@@ -352,7 +352,7 @@ function toggleFaq(index) {
         </div>
 
         <nav class="flex flex-col gap-3 max-w-md mx-auto">
-          <a href="/" @click="isMenuOpen = false"
+          <a href="#bento-section" @click="isMenuOpen = false"
              class="animate-menu-item group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-purple-200"
              :style="{ animationDelay: '100ms' }">
             <div class="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/0 to-purple-600/0 group-hover:via-purple-600/10 group-hover:to-purple-600/10 transition-all"></div>
@@ -388,37 +388,10 @@ function toggleFaq(index) {
               <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
             </div>
           </a>
-          <a href="/blog" @click="isMenuOpen = false"
-             class="animate-menu-item group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-purple-200"
-             :style="{ animationDelay: '300ms' }">
-            <div class="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/0 to-purple-600/0 group-hover:via-purple-600/10 group-hover:to-purple-600/10 transition-all"></div>
-            <div class="relative flex items-center justify-between">
-              <span class="text-base font-bold text-gray-900 group-hover:text-purple-600 transition-colors">Блог</span>
-              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
-            </div>
-          </a>
-          <a href="/networking" @click="isMenuOpen = false"
-             class="animate-menu-item group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-purple-200"
-             :style="{ animationDelay: '350ms' }">
-            <div class="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/0 to-purple-600/0 group-hover:via-purple-600/10 group-hover:to-purple-600/10 transition-all"></div>
-            <div class="relative flex items-center justify-between">
-              <span class="text-base font-bold text-gray-900 group-hover:text-purple-600 transition-colors">Нескучный нетворкинг</span>
-              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
-            </div>
-          </a>
-          <a href="/yappie" @click="isMenuOpen = false"
-             class="animate-menu-item group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-purple-200"
-             :style="{ animationDelay: '400ms' }">
-            <div class="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/0 to-purple-600/0 group-hover:via-purple-600/10 group-hover:to-purple-600/10 transition-all"></div>
-            <div class="relative flex items-center justify-between">
-              <span class="text-base font-bold text-gray-900 group-hover:text-purple-600 transition-colors">Веб-разработка</span>
-              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
-            </div>
-          </a>
 
           <a href="https://t.me/+mFUh7ye6U6NjNzli" target="_blank"
              class="animate-menu-item mt-4 group relative overflow-hidden p-3 sm:p-4 bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 rounded-xl transition-all shadow-lg shadow-purple-600/30"
-             :style="{ animationDelay: '500ms' }">
+             :style="{ animationDelay: '300ms' }">
             <div class="flex items-center justify-center gap-2">
               <Icon name="fa-brands:telegram" class="w-4 h-4 text-white" />
               <span class="text-sm font-bold text-white">Вступить в клуб</span>

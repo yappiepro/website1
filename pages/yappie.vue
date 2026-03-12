@@ -728,9 +728,9 @@
       </button>
     </Transition>
 
-    <!-- Нижняя навигация для мобильных (тёмная тема) -->
+    <!-- Нижняя навигация для мобильных (чёрная тема) -->
     <MobileBottomNav
-      theme="dark"
+      theme="black"
       :items="[
         { href: '/', label: 'Главная', icon: 'lucide:home' },
         { href: '/networking', label: 'Нетворкинг', image: '/reference/networking.jpg' },

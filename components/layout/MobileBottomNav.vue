@@ -1,11 +1,13 @@
 <template>
   <div class="md:hidden fixed bottom-[6px] left-[12px] right-[12px] z-50">
-    <!-- Верхняя граница с тенью -->
-    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
-
     <!-- Контейнер навигации -->
-    <nav class="flex items-center justify-around bg-white/95 backdrop-blur-xl border-t border-gray-200 pb-safe rounded-2xl py-0"
-         :class="themeClasses">
+    <nav 
+      class="flex items-center justify-around pb-safe rounded-2xl py-0 shadow-lg"
+      :class="[
+        themeClasses,
+        theme === 'dark' || theme === 'black' ? 'text-white' : 'text-gray-900'
+      ]"
+    >
       <a
         v-for="item in items"
         :key="item.href"
@@ -35,7 +37,7 @@
           <span
             v-else-if="item.text"
             class="text-sm font-bold"
-            :class="item.textClass || 'text-gray-700'"
+            :class="item.textClass || (theme === 'black' || theme === 'dark' ? 'text-gray-300' : 'text-gray-700')"
           >{{ item.text }}</span>
           <Icon
             v-else
@@ -73,7 +75,7 @@ const props = defineProps({
   theme: {
     type: String,
     default: 'light',
-    validator: (value) => ['light', 'dark'].includes(value)
+    validator: (value) => ['light', 'dark', 'black'].includes(value)
   }
 })
 
@@ -99,33 +101,53 @@ function handleClick(item, event) {
 
 // Вычисляемые классы в зависимости от темы
 const themeClasses = computed(() => {
-  return props.theme === 'dark'
-    ? 'bg-gray-900/95 border-gray-800'
-    : 'bg-white/95 border-gray-200'
+  if (props.theme === 'black') {
+    return 'bg-black'
+  }
+  if (props.theme === 'dark') {
+    return 'bg-gray-900'
+  }
+  return 'bg-white'
 })
 
 const activeBgClass = computed(() => {
-  return props.theme === 'dark'
-    ? 'bg-purple-600/30'
-    : 'bg-blue-100'
+  if (props.theme === 'black') {
+    return 'bg-gray-800'
+  }
+  if (props.theme === 'dark') {
+    return 'bg-gray-700'
+  }
+  return 'bg-gray-200'
 })
 
 const activeTextClass = computed(() => {
-  return props.theme === 'dark'
-    ? 'text-purple-400'
-    : 'text-blue-600'
+  if (props.theme === 'black') {
+    return 'text-white'
+  }
+  if (props.theme === 'dark') {
+    return 'text-white'
+  }
+  return 'text-gray-900'
 })
 
 const inactiveTextClass = computed(() => {
-  return props.theme === 'dark'
-    ? 'text-gray-400 hover:text-gray-200'
-    : 'text-gray-500 hover:text-gray-700'
+  if (props.theme === 'black') {
+    return 'text-gray-400 hover:text-gray-200'
+  }
+  if (props.theme === 'dark') {
+    return 'text-gray-400 hover:text-white'
+  }
+  return 'text-gray-500 hover:text-gray-700'
 })
 
 const indicatorClass = computed(() => {
-  return props.theme === 'dark'
-    ? 'bg-purple-400'
-    : 'bg-blue-600'
+  if (props.theme === 'black') {
+    return 'bg-white'
+  }
+  if (props.theme === 'dark') {
+    return 'bg-gray-400'
+  }
+  return 'bg-gray-600'
 })
 
 onMounted(() => {

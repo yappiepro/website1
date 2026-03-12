@@ -50,7 +50,8 @@ export default defineNuxtConfig({
   // Оптимизация CSS
   experimental: {
     inlineSSRStyles: true,
-    appManifest: false
+    appManifest: false,
+    renderJsonPayloads: true
   },
 
   alias: {
@@ -233,7 +234,16 @@ export default defineNuxtConfig({
         // Preconnect для важных ресурсов
         { rel: 'preconnect', href: 'https://api.iconify.design', crossorigin: true },
         { rel: 'preconnect', href: 'https://code.jquery.com', crossorigin: true },
-        { rel: 'dns-prefetch', href: 'https://api.iconify.design' }
+        { rel: 'dns-prefetch', href: 'https://api.iconify.design' },
+        // Preload шрифтов Syncopate для ускорения LCP
+        { rel: 'preload', href: '/fonts/Syncopate-Regular.woff2', as: 'font', type: 'font/woff2', crossorigin: true },
+        { rel: 'preload', href: '/fonts/Syncopate-Bold.woff2', as: 'font', type: 'font/woff2', crossorigin: true },
+        // Preload изображений hero-секции для LCP
+        { rel: 'preload', href: '/reference/IMG_7084.jpg', as: 'image', type: 'image/jpeg', imagesizes: '90px', imagesrcset: '/reference/IMG_7084.jpg 90w, /reference/IMG_7084.jpg 70w, /reference/IMG_7084.jpg 50w' },
+        { rel: 'preload', href: '/reference/IMG_7082.jpg', as: 'image', type: 'image/jpeg', imagesizes: '100px', imagesrcset: '/reference/IMG_7082.jpg 100w, /reference/IMG_7082.jpg 75w, /reference/IMG_7082.jpg 55w' },
+        { rel: 'preload', href: '/reference/IMG_7089.jpg', as: 'image', type: 'image/jpeg', imagesizes: '110px', imagesrcset: '/reference/IMG_7089.jpg 110w, /reference/IMG_7089.jpg 85w, /reference/IMG_7089.jpg 60w', fetchpriority: 'high' },
+        { rel: 'preload', href: '/reference/IMG_7083.jpg', as: 'image', type: 'image/jpeg', imagesizes: '100px', imagesrcset: '/reference/IMG_7083.jpg 100w, /reference/IMG_7083.jpg 75w, /reference/IMG_7083.jpg 55w' },
+        { rel: 'preload', href: '/reference/IMG_7090.jpg', as: 'image', type: 'image/jpeg', imagesizes: '90px', imagesrcset: '/reference/IMG_7090.jpg 90w, /reference/IMG_7090.jpg 70w, /reference/IMG_7090.jpg 50w' }
       ],
       script: [
         // Google Analytics 4

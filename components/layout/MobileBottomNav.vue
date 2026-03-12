@@ -24,11 +24,15 @@
         ></div>
         <!-- Иконка или изображение или текст -->
         <div class="relative w-10 h-10 mb-1 overflow-hidden rounded-[6px] flex items-center justify-center">
-          <img
+          <NuxtImg
             v-if="item.image"
             :src="item.image"
             :alt="item.label"
+            format="webp"
+            quality="50"
+            sizes="40px"
             class="w-full h-full object-cover rounded-[6px]"
+            loading="lazy"
           />
           <span
             v-else-if="item.text"

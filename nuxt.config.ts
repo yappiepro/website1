@@ -137,7 +137,7 @@ export default defineNuxtConfig({
   // SEO Modules Configuration
   sitemap: {
     enabled: true,
-    urls: [
+    routes: [
       '/',
       '/demo',
       '/networking',
@@ -146,31 +146,40 @@ export default defineNuxtConfig({
       '/study',
       '/consultation',
       '/mentorship',
+      '/offline',
       '/blog',
       '/blog/cluster/razrabotka-saytov',
       '/blog/cluster/sozdanie-saytov',
       '/blog/cluster/mobilnye-prilozheniya',
       '/blog/cluster/veb-razrabotka',
-      '/blog/cluster/iskusstvennyy-intellekt'
-    ],
-    sitemaps: {
-      pages: {
-        include: [
-          '/',
-          '/demo',
-          '/networking',
-          '/business',
-          '/yappie',
-          '/study',
-          '/blog',
-          '/blog/cluster/*'
-        ]
-      },
-      blog: {
-        include: ['/blog/**'],
-        exclude: ['/blog/cluster/*']
-      }
-    }
+      '/blog/cluster/iskusstvennyy-intellekt',
+      '/blog/razrabotka-sayta-pod-klyuch',
+      '/blog/skolko-stoit-razrabotka-sayta',
+      '/blog/kak-zakazat-razrabotku-sayta',
+      '/blog/razrabotka-sayta-dlya-biznesa',
+      '/blog/tehnicheskoe-zadanie-na-razrabotku-sayta',
+      '/blog/razrabotka-internet-magazina',
+      '/blog/sozdanie-sayta-s-nulya',
+      '/blog/skolko-stoit-sozdat-sayt',
+      '/blog/sozdanie-sayta-dlya-biznesa',
+      '/blog/platformy-dlya-sozdaniya-saytov',
+      '/blog/sozdanie-sayta-html-css',
+      '/blog/ii-dlya-sozdaniya-sayta',
+      '/blog/kak-sozdat-mobilnoe-prilozhenie',
+      '/blog/yazyki-programmirovaniya-mobilnykh-prilozheniy',
+      '/blog/dizayn-mobilnogo-prilozheniya',
+      '/blog/razrabotka-mobilnogo-prilozheniya',
+      '/blog/vidy-mobilnykh-prilozheniy',
+      '/blog/prodvizhenie-mobilnogo-prilozheniya',
+      '/blog/razrabotka-veb-prilozheniy',
+      '/blog/frontend-razrabotka',
+      '/blog/backend-razrabotka',
+      '/blog/fullstack-razrabotka',
+      '/blog/api-razrabotka',
+      '/blog/ii-v-it',
+      '/blog/ii-dlya-biznesa',
+      '/blog/chatgpt-dlya-biznesa'
+    ]
   },
 
   robots: {

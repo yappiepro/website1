@@ -36,7 +36,7 @@
             <div class="relative flex items-center gap-3">
               <!-- Кружок с фото для первых двух пунктов -->
               <div v-if="i < 2 && isFeaturedItem(item.href)" class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border-2 border-white/20 group-hover:border-white/40 transition-colors">
-                <NuxtImg :src="getFeaturedImage(item.href)" format="webp" quality="50" sizes="40px" :alt="item.label" class="w-full h-full object-cover" loading="lazy" />
+                <NuxtImg :src="getFeaturedImage(item.href)" quality="75" sizes="40px" :alt="item.label" class="w-full h-full object-cover" loading="lazy" />
               </div>
               <!-- Квадратная иконка для остальных пунктов -->
               <div v-else class="w-10 h-10 rounded-lg bg-gray-200/50 flex items-center justify-center flex-shrink-0">

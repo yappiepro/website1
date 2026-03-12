@@ -67,27 +67,27 @@
                 <div class="flex items-end justify-center gap-[6.5px]">
                   <!-- Левое фото 2 (Дзен) -->
                   <div class="w-[50px] sm:w-[70px] md:w-[90px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl phone-animate" data-position="left-2">
-                    <NuxtImg src="/reference/IMG_7084.webp" format="webp" quality="75" sizes="50 sm:70 md:90" alt="Дзен" class="w-full h-full object-cover" loading="eager" fetchpriority="low" preload />
+                    <NuxtImg src="/reference/IMG_7084.webp" quality="75" sizes="50 sm:70 md:90" alt="Дзен" class="w-full h-full object-cover" loading="eager" fetchpriority="low" preload />
                   </div>
 
                   <!-- Левое фото 1 (Сетка) -->
                   <div class="w-[55px] sm:w-[75px] md:w-[100px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl phone-animate" data-position="left-1">
-                    <NuxtImg src="/reference/IMG_7082.webp" format="webp" quality="75" sizes="55 sm:75 md:100" alt="Сетка" class="w-full h-full object-cover" loading="eager" fetchpriority="low" preload />
+                    <NuxtImg src="/reference/IMG_7082.webp" quality="75" sizes="55 sm:75 md:100" alt="Сетка" class="w-full h-full object-cover" loading="eager" fetchpriority="low" preload />
                   </div>
 
                   <!-- Центральное фото (IMG_7089) - LCP кандидат -->
                   <div class="w-[60px] sm:w-[85px] md:w-[110px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl phone-animate" data-position="center">
-                    <NuxtImg src="/reference/IMG_7089.webp" format="webp" quality="75" sizes="60 sm:85 md:110" alt="Площадка" class="w-full h-full object-cover" loading="eager" fetchpriority="high" preload />
+                    <NuxtImg src="/reference/IMG_7089.webp" quality="75" sizes="60 sm:85 md:110" alt="Площадка" class="w-full h-full object-cover" loading="eager" fetchpriority="high" preload />
                   </div>
 
                   <!-- Правое фото 1 (TenChat) -->
                   <div class="w-[55px] sm:w-[75px] md:w-[100px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl phone-animate" data-position="right-1">
-                    <NuxtImg src="/reference/IMG_7083.webp" format="webp" quality="75" sizes="55 sm:75 md:100" alt="TenChat" class="w-full h-full object-cover" loading="eager" fetchpriority="low" preload />
+                    <NuxtImg src="/reference/IMG_7083.webp" quality="75" sizes="55 sm:75 md:100" alt="TenChat" class="w-full h-full object-cover" loading="eager" fetchpriority="low" preload />
                   </div>
 
                   <!-- Правое фото 2 (IMG_7090) -->
                   <div class="w-[50px] sm:w-[70px] md:w-[90px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl phone-animate" data-position="right-2">
-                    <NuxtImg src="/reference/IMG_7090.webp" format="webp" quality="75" sizes="50 sm:70 md:90" alt="Площадка" class="w-full h-full object-cover" loading="eager" fetchpriority="low" preload />
+                    <NuxtImg src="/reference/IMG_7090.webp" quality="75" sizes="50 sm:70 md:90" alt="Площадка" class="w-full h-full object-cover" loading="eager" fetchpriority="low" preload />
                   </div>
                 </div>
               </div>
@@ -346,7 +346,7 @@
                 </div>
               </div>
               <div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-gray-200 hover:border-gray-400 transition-all hover:shadow-xl hover:-translate-y-1">
-                <NuxtImg src="/reference/networking.webp" format="webp" quality="75" sizes="128px md:160px lg:200px" alt="Нескучный Нетворкинг" class="absolute inset-0 w-full h-full object-cover" preload />
+                <NuxtImg src="/reference/networking.webp" quality="75" sizes="128px md:160px lg:200px" alt="Нескучный Нетворкинг" class="absolute inset-0 w-full h-full object-cover" preload />
               </div>
               <div class="text-center mt-3">
                 <div class="text-sm font-bold text-gray-900">Нескучный Нетворкинг</div>
@@ -370,7 +370,7 @@
                 </div>
               </div>
               <div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-gray-200 hover:border-gray-400 transition-all hover:shadow-xl hover:-translate-y-1">
-                <NuxtImg src="/reference/business.webp" format="webp" quality="75" sizes="128px md:160px lg:200px" alt="Бизнес Сетка" class="absolute inset-0 w-full h-full object-cover" preload />
+                <NuxtImg src="/reference/business.webp" quality="75" sizes="128px md:160px lg:200px" alt="Бизнес Сетка" class="absolute inset-0 w-full h-full object-cover" preload />
               </div>
               <div class="text-center mt-3">
                 <div class="text-sm font-bold text-gray-900">Бизнес Сетка</div>

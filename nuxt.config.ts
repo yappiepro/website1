@@ -295,7 +295,7 @@ export default defineNuxtConfig({
       start_url: '/',
       display: 'standalone',
       background_color: '#ffffff',
-      theme_color: '#7c3aed',
+      theme_color: '#ffffff',
       orientation: 'portrait-primary',
       icons: [
         {
@@ -315,7 +315,7 @@ export default defineNuxtConfig({
       lang: 'ru-RU'
     },
     workbox: {
-      navigateFallback: undefined,
+      navigateFallback: '/offline',
       globPatterns: ['**/*.{js,css,html,txt,png,ico,svg,webp,json,woff,woff2}'],
       globIgnores: ['**/gromish.png'],
       maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5 MB

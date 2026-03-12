@@ -8,6 +8,11 @@ import CookieBanner from '~/components/layout/CookieBanner.vue'
 
 // Яндекс.Метрика
 useHead({
+  meta: [
+    // Theme color для PWA - адаптируется под тему устройства
+    { name: 'theme-color', content: '#ffffff', media: '(prefers-color-scheme: light)' },
+    { name: 'theme-color', content: '#1a1a1a', media: '(prefers-color-scheme: dark)' }
+  ],
   script: [
     {
       innerHTML: `(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};

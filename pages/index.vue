@@ -346,7 +346,7 @@
                 </div>
               </div>
               <div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-gray-200 hover:border-gray-400 transition-all hover:shadow-xl hover:-translate-y-1">
-                <NuxtImg src="/reference/networking.jpg" format="webp" quality="50" sizes="128px md:160px lg:200px" alt="Нескучный Нетворкинг" class="absolute inset-0 w-full h-full object-cover" preload />
+                <NuxtImg src="/reference/networking.webp" format="webp" quality="75" sizes="128px md:160px lg:200px" alt="Нескучный Нетворкинг" class="absolute inset-0 w-full h-full object-cover" preload />
               </div>
               <div class="text-center mt-3">
                 <div class="text-sm font-bold text-gray-900">Нескучный Нетворкинг</div>
@@ -370,7 +370,7 @@
                 </div>
               </div>
               <div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-gray-200 hover:border-gray-400 transition-all hover:shadow-xl hover:-translate-y-1">
-                <NuxtImg src="/reference/business.jpg" format="webp" quality="50" sizes="128px md:160px lg:200px" alt="Бизнес Сетка" class="absolute inset-0 w-full h-full object-cover" preload />
+                <NuxtImg src="/reference/business.webp" format="webp" quality="75" sizes="128px md:160px lg:200px" alt="Бизнес Сетка" class="absolute inset-0 w-full h-full object-cover" preload />
               </div>
               <div class="text-center mt-3">
                 <div class="text-sm font-bold text-gray-900">Бизнес Сетка</div>
@@ -876,12 +876,12 @@ useSeoMeta({
   ogType: 'website',
   ogLocale: 'ru_RU',
   ogUrl: 'https://artemselifanov.ru',
-  ogImage: '/reference/opengraph_index.png',
+  ogImage: '/reference/opengraph_index.webp',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Артём Селифанов — Личный бренд для предпринимателей и экспертов',
   twitterDescription: 'Артём Селифанов — эксперт по личному бренду. Помогаю выстроить систему продвижения и привлекать клиентов из Telegram',
   twitterUrl: 'https://artemselifanov.ru',
-  twitterImage: '/reference/opengraph_index.png'
+  twitterImage: '/reference/opengraph_index.webp'
 })
 
 useHead({

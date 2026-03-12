@@ -447,7 +447,10 @@
               </li>
             </ul>
 
-            <a href="https://t.me/artemselifanov" target="_blank" class="group inline-flex items-center justify-center gap-2 w-full px-6 py-4 text-sm font-semibold text-gray-900 bg-gray-100 hover:bg-gray-200 rounded-2xl transition-all">
+            <NuxtLink to="/consultation" class="group inline-flex items-center justify-center gap-2 w-full px-6 py-4 text-sm font-semibold text-gray-900 bg-gray-100 hover:bg-gray-200 rounded-2xl transition-all mb-3">
+              Подробнее
+            </NuxtLink>
+            <a href="https://t.me/artemselifanov" target="_blank" class="group inline-flex items-center justify-center gap-2 w-full px-6 py-4 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-2xl transition-all">
               Записаться
             </a>
           </div>

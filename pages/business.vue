@@ -148,7 +148,7 @@ const bentoItems = [
     socials: [
       { name: 'Telegram', href: 'https://t.me/artemselifanov', icon: 'fa-brands:telegram' },
       { name: 'WhatsApp', href: 'https://wa.me/79535487323', icon: 'fa-brands:whatsapp' },
-      { name: 'VK', href: 'https://vk.com', icon: 'fa-brands:vk' }
+      { name: 'VK', href: 'https://vk.com/karelbusiness', icon: 'fa-brands:vk' }
     ],
     email: 'a9535487323@yandex.ru'
   },
@@ -498,7 +498,7 @@ function toggleFaq(index) {
             <div class="flex flex-wrap gap-2 mt-4">
               <a href="https://t.me/+mFUh7ye6U6NjNzli" target="_blank" class="px-3 py-1.5 text-xs font-semibold text-gray-700 bg-gray-100 hover:bg-purple-100 hover:text-purple-700 rounded-full transition-all border border-gray-200">Telegram</a>
               <a href="https://wa.me/79535487323" target="_blank" class="px-3 py-1.5 text-xs font-semibold text-gray-700 bg-gray-100 hover:bg-green-100 hover:text-green-700 rounded-full transition-all border border-gray-200">WhatsApp</a>
-              <a href="https://vk.com" target="_blank" class="px-3 py-1.5 text-xs font-semibold text-gray-700 bg-gray-100 hover:bg-blue-100 hover:text-blue-700 rounded-full transition-all border border-gray-200">VK</a>
+              <a href="https://vk.com/karelbusiness" target="_blank" class="px-3 py-1.5 text-xs font-semibold text-gray-700 bg-gray-100 hover:bg-blue-100 hover:text-blue-700 rounded-full transition-all border border-gray-200">VK</a>
             </div>
             <a href="mailto:a9535487323@yandex.ru" class="mt-4 block text-sm text-gray-500 hover:text-purple-600 transition-colors">a9535487323@yandex.ru</a>
           </div>

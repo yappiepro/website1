@@ -480,10 +480,10 @@
               </li>
             </ul>
 
-            <NuxtLink to="/mentorship" class="group inline-flex items-center justify-center gap-2 w-full px-6 py-4 text-sm font-semibold text-gray-900 bg-white hover:bg-gray-100 rounded-2xl transition-all mb-3">
+            <NuxtLink to="/mentorship" class="group inline-flex items-center justify-center gap-2 w-full px-6 py-4 text-sm font-semibold text-white bg-gray-800 hover:bg-gray-900 rounded-2xl transition-all mb-3">
               Подробнее
             </NuxtLink>
-            <a href="https://t.me/artemselifanov" target="_blank" class="group inline-flex items-center justify-center gap-2 w-full px-6 py-4 text-sm font-semibold text-white bg-violet-600 hover:bg-violet-700 rounded-2xl transition-all">
+            <a href="https://t.me/artemselifanov" target="_blank" class="group inline-flex items-center justify-center gap-2 w-full px-6 py-4 text-sm font-semibold text-gray-900 bg-white hover:bg-gray-100 rounded-2xl transition-all">
               Начать работу
             </a>
           </div>
@@ -830,18 +830,6 @@
             ></div>
           </div>
         </div>
-
-        <div class="mt-12 text-center">
-          <p class="text-gray-600 mb-4">Остались вопросы?</p>
-          <a
-            href="https://t.me/artemselifanov"
-            target="_blank"
-            class="inline-flex items-center gap-2 px-6 py-3 bg-violet-600 text-white font-semibold rounded-xl hover:bg-violet-700 transition-all shadow-lg shadow-violet-600/25"
-          >
-            <Icon name="fa-brands:telegram" class="w-5 h-5" />
-            Написать в Telegram
-          </a>
-        </div>
       </div>
     </section>
 
@@ -888,12 +876,12 @@ useSeoMeta({
   ogType: 'website',
   ogLocale: 'ru_RU',
   ogUrl: 'https://artemselifanov.ru',
-  ogImage: 'https://artemselifanov.ru/og-image.jpg',
+  ogImage: '/reference/opengraph_index.png',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Артём Селифанов — Личный бренд для предпринимателей и экспертов',
   twitterDescription: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт',
   twitterUrl: 'https://artemselifanov.ru',
-  twitterImage: 'https://artemselifanov.ru/og-image.jpg'
+  twitterImage: '/reference/opengraph_index.png'
 })
 
 useHead({
@@ -1041,9 +1029,9 @@ const mobileMenuItems = [
 
 const socialNetworks = [
   { name: 'Telegram', icon: 'telegram', link: 'https://t.me/artemselifanov' },
-  { name: 'YouTube', icon: 'youtube', link: 'https://youtube.com' },
-  { name: 'ВК', icon: 'vk', link: 'https://vk.com' },
-  { name: 'Instagram', icon: 'instagram', link: 'https://instagram.com' },
+  { name: 'YouTube', icon: 'youtube', link: 'https://www.youtube.com/@artemselifanov' },
+  { name: 'ВК', icon: 'vk', link: 'https://vk.com/karelbusiness' },
+  { name: 'Instagram', icon: 'instagram', link: 'https://www.instagram.com/artselifanov/' },
   { name: 'TenChat', icon: 'linkedin', link: 'https://tenchat.ru' }
 ]
 

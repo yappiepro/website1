@@ -34,6 +34,7 @@ export default defineNuxtConfig({
     build: {
       sourcemap: false,
       cssCodeSplit: false,
+      treeshake: true,
       rollupOptions: {
         output: {
           manualChunks: {

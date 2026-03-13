@@ -313,6 +313,26 @@
         </div>
       </section>
 
+      <!-- Форма заявки -->
+      <section class="py-20 md:py-28 px-4 sm:px-6 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-xl mb-6">
+              <Icon name="fa-solid:envelope" class="w-5 h-5 text-blue-600" />
+              <span class="text-sm font-bold text-blue-700 uppercase tracking-wider">Заявка</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4">
+              Оставить заявку на консультацию
+            </h2>
+            <p class="text-xl text-gray-600">
+              Заполните форму ниже, и я свяжусь с вами в ближайшее время
+            </p>
+          </div>
+
+          <ContactForm />
+        </div>
+      </section>
+
       <!-- CTA секция -->
       <section class="py-20 md:py-28 px-4 sm:px-6 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white">
         <div class="max-w-4xl mx-auto text-center">
@@ -322,7 +342,7 @@
           </div>
 
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-6">
-            Записаться на консультацию
+            Или напишите напрямую
           </h2>
 
           <p class="text-xl text-white/90 leading-relaxed mb-8">
@@ -355,6 +375,7 @@ import { ref } from 'vue'
 import { Menu, X } from 'lucide-vue-next'
 import Footer from '~/components/layout/Footer.vue'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
+import ContactForm from '~/components/ContactForm.vue'
 
 const isMobileMenuOpen = ref(false)
 

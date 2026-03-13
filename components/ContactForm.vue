@@ -73,21 +73,27 @@ async function submitForm() {
   success.value = false
 
   try {
+    // Отправляем как form data (не JSON)
+    const formData = new FormData()
+    formData.append('name', form.value.name)
+    formData.append('email', form.value.email)
+    formData.append('message', form.value.message)
+
     const response = await fetch(FORMSPARK_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form.value)
+      body: formData
     })
 
     const result = await response.json()
 
-    if (response.ok || result.success) {
+    if (response.ok || result.success !== undefined) {
       success.value = true
       form.value = { name: '', email: '', message: '' }
     } else {
       error.value = result.message || 'Ошибка отправки'
     }
   } catch (e) {
+    console.error('Formspark error:', e)
     error.value = 'Ошибка соединения с сервером'
   } finally {
     isSubmitting.value = false

@@ -1,5 +1,5 @@
 <template>
-  <div class="md:hidden fixed bottom-[12px] left-[12px] right-[12px] z-50">
+  <div class="md:hidden fixed bottom-[12px] left-[12px] right-[12px] z-50 transition-all duration-300 ease-in-out" :class="menuClasses">
     <!-- Контейнер навигации -->
     <nav
       class="flex items-center justify-around pb-safe rounded-2xl py-0 shadow-lg"
@@ -82,6 +82,23 @@ const props = defineProps({
 })
 
 const currentPath = ref('/')
+const lastScrollY = ref(0)
+const isVisible = ref(true)
+
+function handleScroll() {
+  const currentScrollY = window.scrollY || window.pageYOffset
+  
+  // Скрываем при скролле вниз, показываем при скролле вверх
+  if (currentScrollY > lastScrollY.value && currentScrollY > 100) {
+    // Скролл вниз - скрываем
+    isVisible.value = false
+  } else if (currentScrollY < lastScrollY.value) {
+    // Скролл вверх - показываем
+    isVisible.value = true
+  }
+  
+  lastScrollY.value = currentScrollY
+}
 
 function isActive(href) {
   if (href === '/') {
@@ -110,6 +127,13 @@ const navClasses = computed(() => {
     return 'bg-gray-900/80 backdrop-blur-xl text-white'
   }
   return 'bg-white/80 backdrop-blur-xl text-gray-900'
+})
+
+const menuClasses = computed(() => {
+  if (isVisible.value) {
+    return 'translate-y-0 opacity-100'
+  }
+  return 'translate-y-full opacity-0 pointer-events-none'
 })
 
 const activeBgClass = computed(() => {
@@ -151,12 +175,14 @@ onMounted(() => {
   window.addEventListener('popstate', updatePath)
   window.addEventListener('pushstate', updatePath)
   window.addEventListener('replacestate', updatePath)
+  window.addEventListener('scroll', handleScroll, { passive: true })
 })
 
 onUnmounted(() => {
   window.removeEventListener('popstate', updatePath)
   window.removeEventListener('pushstate', updatePath)
   window.removeEventListener('replacestate', updatePath)
+  window.removeEventListener('scroll', handleScroll)
 })
 </script>
 

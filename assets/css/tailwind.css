@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "./typography.css";
 
+/* Подключаем шрифт Manrope из Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
 /* Screen reader only class for SEO */
 .sr-only {
   position: absolute;
@@ -25,24 +28,9 @@ body {
   touch-action: pan-y;
 }
 
-@font-face {
-  font-family: 'Syncopate';
-  font-style: normal;
-  font-weight: 400;
-  font-display: optional;
-  src: url('/fonts/Syncopate-Regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Syncopate';
-  font-style: normal;
-  font-weight: 700;
-  font-display: optional;
-  src: url('/fonts/Syncopate-Bold.woff2') format('woff2');
-}
-
-.font-syncopate {
-  font-family: 'Syncopate', sans-serif;
+/* Manrope — основной шрифт */
+.font-manrope {
+  font-family: 'Manrope', sans-serif;
 }
 
 :root {

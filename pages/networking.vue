@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue'
 import { ArrowRight, Mail, MapPin, Calendar, Users, TrendingUp, Target, Zap, BookOpen, MessageCircle, Check, ExternalLink, Menu, X, Video } from 'lucide-vue-next'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
+import BaseMobileMenu from '~/components/layout/BaseMobileMenu.vue'
 
 // SEO для страницы
 useSeoMeta({
@@ -49,6 +50,18 @@ useSchemaOrg([
 ])
 
 const isMobileMenuOpen = ref(false)
+
+// Скролл для хедера
+const isScrolled = ref(false)
+
+onMounted(() => {
+  const handleScroll = () => {
+    isScrolled.value = window.scrollY > 50
+  }
+  
+  window.addEventListener('scroll', handleScroll)
+  return () => window.removeEventListener('scroll', handleScroll)
+})
 
 // Для свайпов в секции Ценность (циклическое переключение)
 const activeValueCardIndex = ref(0)
@@ -409,10 +422,13 @@ function toggleFaq(index) {
     </div>
 
     <!-- Навигация -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b-2 border-black">
+    <nav :class="[
+      'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+      isScrolled ? 'bg-white/90 backdrop-blur-sm border-b-2 border-black' : 'bg-transparent'
+    ]">
       <div class="max-w-[1400px] mx-auto px-4 md:px-6 py-3 flex items-center">
-        <!-- Левая зона: Логотип -->
-        <a href="/networking" class="flex items-center gap-3 group shrink-0">
+        <!-- Левая зона: Логотип (пропадает при скролле) -->
+        <a v-if="!isScrolled" href="/networking" class="flex items-center gap-3 group shrink-0">
           <img src="/reference/Vector.svg" alt="Нескучный Нетворкинг — логотип сообщества" class="h-10 w-auto" />
         </a>
 
@@ -446,49 +462,15 @@ function toggleFaq(index) {
     </nav>
 
     <!-- Мобильное меню -->
-    <Transition
-      enter-active-class="transition duration-300 ease-out"
-      enter-from-class="opacity-0 translate-x-full"
-      enter-to-class="opacity-100 translate-x-0"
-      leave-active-class="transition duration-200 ease-in"
-      leave-from-class="opacity-100 translate-x-0"
-      leave-to-class="opacity-0 translate-x-full"
-    >
-      <div v-if="isMobileMenuOpen" class="fixed inset-0 z-[100] md:hidden bg-white pt-20 px-6">
-        <!-- Кнопка закрытия -->
-        <button
-          @click="isMobileMenuOpen = false"
-          class="absolute top-6 right-6 text-black p-3 hover:bg-black/10 rounded-lg transition-colors z-[110]"
-          aria-label="Закрыть меню"
-        >
-          <X class="w-8 h-8" />
-        </button>
-
-        <nav class="flex flex-col gap-2 mt-8">
-          <a
-            v-for="(item, i) in mobileMenuItems"
-            :key="item.label"
-            :href="item.href"
-            target="_self"
-            class="animate-menu-item text-base uppercase tracking-wider py-3 px-4 border-2 border-black hover:bg-black hover:text-white hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200"
-            :style="{ animationDelay: `${i * 50 + 100}ms` }"
-            @click="isMobileMenuOpen = false"
-          >
-            {{ item.label }}
-          </a>
-          
-          <!-- CTA кнопка Telegram -->
-          <a
-            href="https://t.me/artemselifanov"
-            target="_blank"
-            class="animate-menu-item mt-4 text-base uppercase tracking-wider py-3 px-4 border-2 border-black bg-[#EA6D3A] text-white hover:bg-[#EA6D3A]/90 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200"
-            :style="{ animationDelay: `${mobileMenuItems.length * 50 + 150}ms` }"
-          >
-            Сообщество в Telegram
-          </a>
-        </nav>
-      </div>
-    </Transition>
+    <BaseMobileMenu
+      v-model="isMobileMenuOpen"
+      :menu-items="mobileMenuItems"
+      cta-link="https://t.me/artemselifanov"
+      cta-text="Сообщество в Telegram"
+      theme="brutal"
+      :show-label="false"
+      :show-arrows="false"
+    />
 
     <!-- Основной контент -->
     <main role="main">

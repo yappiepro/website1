@@ -1083,6 +1083,13 @@ function toggleFaq(index) {
   transform: translateY(0);
 }
 
+/* Дочерние элементы первого экрана тоже видны сразу */
+#about.animate-on-scroll .grid > div,
+#about.animate-on-scroll .space-y-4 > div {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .animate-on-scroll.animate-in {
   opacity: 1;
   transform: translateY(0);

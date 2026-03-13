@@ -95,7 +95,6 @@ export default defineNuxtConfig({
       routes: [
         '/',
         '/404',
-        '/demo',
         '/blog',
         '/consultation',
         '/mentorship',
@@ -158,7 +157,6 @@ export default defineNuxtConfig({
     enabled: true,
     routes: [
       '/',
-      '/demo',
       '/networking',
       '/business',
       '/yappie',

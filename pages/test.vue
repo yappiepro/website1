@@ -35,7 +35,7 @@ onMounted(() => {
   let touchStartY = 0
 
   const container = document.querySelector('.slides-container')
-  
+
   const handleTouchStart = (e: TouchEvent) => {
     touchStartX = e.touches[0].clientX
     touchStartY = e.touches[0].clientY
@@ -549,6 +549,9 @@ useSeoMeta({
 
 <template>
   <div class="tiktok-page" :class="{ locked: isLocked }">
+    <Head>
+      <Meta name="robots" content="noindex, nofollow" />
+    </Head>
     <!-- Навигация -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/70 backdrop-blur-2xl border-b border-white/[0.08]">
       <div class="max-w-7xl mx-auto px-6 py-4 flex items-center">

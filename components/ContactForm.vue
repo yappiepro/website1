@@ -7,6 +7,7 @@
         v-model="form.name" 
         type="text" 
         placeholder="Ваше имя"
+        name="name"
         required
       />
     </div>
@@ -18,6 +19,7 @@
         v-model="form.email" 
         type="email" 
         placeholder="example@mail.ru"
+        name="email"
         required
       />
     </div>
@@ -29,6 +31,7 @@
         v-model="form.message" 
         rows="5"
         placeholder="Ваше сообщение..."
+        name="message"
         required
       ></textarea>
     </div>
@@ -60,13 +63,17 @@ const isSubmitting = ref(false)
 const success = ref(false)
 const error = ref('')
 
+// Formspark Form ID
+const FORMSPARK_ID = 'fKhtz7o3v'
+const FORMSPARK_URL = `https://submit.formspark.io/${FORMSPARK_ID}`
+
 async function submitForm() {
   isSubmitting.value = true
   error.value = ''
   success.value = false
 
   try {
-    const response = await fetch('https://api.artemselifanov.ru/telegram.php', {
+    const response = await fetch(FORMSPARK_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form.value)
@@ -74,11 +81,11 @@ async function submitForm() {
 
     const result = await response.json()
 
-    if (response.ok) {
+    if (response.ok || result.success) {
       success.value = true
       form.value = { name: '', email: '', message: '' }
     } else {
-      error.value = result.error || 'Ошибка отправки'
+      error.value = result.message || 'Ошибка отправки'
     }
   } catch (e) {
     error.value = 'Ошибка соединения с сервером'

@@ -1389,7 +1389,7 @@ main {
   letter-spacing: 0.02em;
   font-weight: 800;
   white-space: pre-wrap;
-  color: #d1d5db;
+  color: #374151;
   text-align: left;
 }
 
@@ -1427,7 +1427,7 @@ main {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 1.8rem 0;
-  background: #0a0a0a;
+  background: #ffffff;
 }
 
 /* ==================================
@@ -1436,7 +1436,7 @@ main {
 
 .cta-blog-wrap {
   padding: 3rem 2rem;
-  background: #0a0a0a;
+  background: #ffffff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   animation: fade-in-up 0.8s ease-out forwards;
 }
@@ -1448,11 +1448,11 @@ main {
   gap: 0.5rem;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 600;
-  color: #d1d5db;
+  color: #374151;
 }
 
 .cta-text {
-  color: #9ca3af;
+  color: #6b7280;
 }
 
 .cta-blog-word {
@@ -1478,7 +1478,7 @@ main {
 
 .unpack-section {
   padding: 4rem 2rem;
-  background: #0a0a0a;
+  background: #ffffff;
   border: none;
   border-radius: 30px;
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.5);
@@ -1578,7 +1578,7 @@ main {
 
 .unpack-subtitle {
   font-size: var(--text-lg);
-  color: #9ca3af;
+  color: #6b7280;
   margin: 0 0 1.5rem;
   line-height: var(--leading-relaxed);
 }
@@ -1631,7 +1631,7 @@ main {
 }
 
 .toggle-text {
-  color: #9ca3af;
+  color: #6b7280;
   font-size: var(--text-sm);
   font-weight: 500;
   transition: color 0.3s ease;
@@ -1745,7 +1745,7 @@ main {
 }
 
 .badge-note {
-  color: #9ca3af;
+  color: #6b7280;
   font-size: 0.7rem;
   margin-left: 0.25rem;
 }
@@ -1982,7 +1982,7 @@ main {
 }
 
 .question-hint {
-  color: #d1d5db;
+  color: #374151;
   font-size: 0.75rem;
   line-height: var(--leading-relaxed);
   margin: 0 0 0.75rem;
@@ -2100,7 +2100,7 @@ main {
 
 .nav-btn-back {
   background: rgba(0, 0, 0, 0.05);
-  color: #9ca3af;
+  color: #6b7280;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -2158,7 +2158,7 @@ main {
   letter-spacing: 0.02em;
   font-weight: 800;
   white-space: pre-wrap;
-  color: #d1d5db;
+  color: #374151;
   text-align: left;
 }
 
@@ -2244,7 +2244,7 @@ p {
   font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: #9ca3af;
+  color: #6b7280;
   font-weight: var(--font-medium);
 }
 
@@ -2256,7 +2256,7 @@ p {
 .work-cta {
   border: none;
   border-radius: 30px;
-  background: #0a0a0a;
+  background: #ffffff;
   padding: clamp(1.4rem, 3vw, 2.3rem);
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(0, 0, 0, 0.05);
@@ -2274,7 +2274,7 @@ p {
   padding: 1.5rem;
   border-radius: 16px;
   border: 1px solid rgba(0, 0, 0, 0.05);
-  background: #0a0a0a;
+  background: #ffffff;
 }
 
 .problem-card.visible {
@@ -2397,7 +2397,7 @@ p {
 .service-item {
   padding: 1.5rem;
   border-radius: 16px;
-  background: #0a0a0a;
+  background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
@@ -2468,7 +2468,7 @@ p {
 .photo-caption {
   margin-top: 0.7rem;
   font-size: 0.82rem;
-  color: #9ca3af;
+  color: #6b7280;
 }
 
 .why-content {
@@ -2535,7 +2535,7 @@ p {
   border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.05);
   padding: 1.2rem;
-  background: #0a0a0a;
+  background: #ffffff;
 }
 
 .case-card.shifted {
@@ -2576,7 +2576,7 @@ p {
 .faq-item {
   border-radius: 18px;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  background: #0a0a0a;
+  background: #ffffff;
   overflow: hidden;
 }
 
@@ -2610,7 +2610,7 @@ p {
   flex-shrink: 0;
   margin-left: 1rem;
   transition: transform 0.3s ease;
-  color: #9ca3af;
+  color: #6b7280;
 }
 
 .faq-icon.rotated {
@@ -2984,7 +2984,7 @@ p {
 
   .brief-info-content p {
     font-size: 0.8rem;
-    color: #d1d5db;
+    color: #374151;
     line-height: 1.4;
     margin: 0;
   }
@@ -3062,7 +3062,7 @@ p {
   .question-hint {
     font-size: 0.75rem;
     margin-bottom: 0.75rem;
-    color: #9ca3af;
+    color: #6b7280;
     line-height: 1.4;
   }
 

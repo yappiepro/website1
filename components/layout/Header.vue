@@ -43,7 +43,7 @@
         <!-- Кнопка бургера для мобильных -->
         <button
           @click="toggleMenu"
-          class="md:hidden p-2 bg-white/80 hover:bg-white rounded-xl transition-all backdrop-blur-sm absolute right-4"
+          class="md:hidden p-2 hover:bg-white/50 rounded-xl transition-all absolute right-4"
           aria-label="Открыть меню"
         >
           <Icon name="fa-solid:bars" class="w-6 h-6 text-gray-700" />

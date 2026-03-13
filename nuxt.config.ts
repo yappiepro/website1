@@ -60,9 +60,9 @@ export default defineNuxtConfig({
 
   // Fontaine - оптимизация шрифтов без CLS
   fontaine: {
-    fonts: ['Syncopate'],
+    fonts: ['Manrope'],
     fallbacks: {
-      'Syncopate': ['Arial', 'sans-serif']
+      'Manrope': ['Arial', 'sans-serif']
     }
   },
 

@@ -6,7 +6,7 @@
       <div class="max-w-7xl mx-auto px-6 py-4 flex items-center">
         <!-- Левая зона: Логотип -->
         <a href="/yappie" class="text-xl font-semibold text-white flex items-center gap-2 group shrink-0">
-          <span class="font-manrope font-bold text-white tracking-wider text-2xl">YAPPIE</span>
+          <img src="/reference/YAPPIE.svg" alt="YAPPIE логотип" class="h-4 w-auto" />
         </a>
 
         <!-- Центральная зона: Десктопное меню -->
@@ -464,7 +464,9 @@
         <div class="text-center mb-12 sm:mb-16 lg:mb-20">
           <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
             <span class="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">Почему выбирают</span>
-            <span class="font-manrope font-bold text-white tracking-wider text-xl sm:text-2xl md:text-3xl lg:text-4xl"> YAPPIE</span>
+            <span class="inline-flex items-center align-middle ml-3">
+              <img src="/reference/YAPPIE.svg" alt="YAPPIE" class="h-5 sm:h-6 md:h-7 lg:h-8 w-auto" />
+            </span>
           </h2>
           <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg leading-relaxed px-2">Решения, которые экономят время и деньги вашего бизнеса</p>
         </div>
@@ -696,7 +698,7 @@
         </div>
         <div class="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
           <div class="flex items-center gap-2">
-            <span class="font-manrope font-bold text-white tracking-wider text-lg sm:text-xl">YAPPIE</span>
+            <img src="/reference/YAPPIE.svg" alt="YAPPIE логотип" class="h-4 sm:h-5 w-auto" />
           </div>
           <div class="flex flex-wrap justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-gray-500">
             <a href="#services" class="hover:text-white transition-colors hover:text-violet-300">Услуги</a>

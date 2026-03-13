@@ -5,7 +5,7 @@
       <div class="max-w-7xl mx-auto px-6 py-4 flex items-center">
         <!-- Левая зона: Логотип -->
         <a href="/" class="text-xl font-bold text-gray-900 flex items-center gap-2 shrink-0">
-          <span class="font-manrope font-bold tracking-wider text-2xl">YAPPIE</span>
+          <img src="/reference/YAPPIE.svg" alt="YAPPIE логотип" class="h-4 w-auto" />
         </a>
 
         <!-- Центральная зона: Десктопное меню -->

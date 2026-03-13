@@ -125,12 +125,17 @@ onMounted(() => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate-in')
+        observer.unobserve(entry.target)
       }
     })
   }, observerOptions)
 
+  // Наблюдаем за всеми секциями
   document.querySelectorAll('.animate-on-scroll').forEach(el => {
-    observer.observe(el)
+    // Пропускаем первый экран - он виден сразу через CSS
+    if (el.id !== 'about') {
+      observer.observe(el)
+    }
   })
 })
 
@@ -1070,6 +1075,12 @@ function toggleFaq(index) {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Первый экран виден сразу */
+#about.animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .animate-on-scroll.animate-in {

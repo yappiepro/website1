@@ -449,41 +449,31 @@
         </div>
 
         <div class="problem-grid">
-          <main role="main">
-    <article class="problem-card fade-in-up" style="--delay: 0">
+          <article class="problem-card fade-in-up" style="--delay: 0">
             <span class="problem-index">01</span>
             <h4>Контент есть. Заявок нет.</h4>
             <p>Публикации выходят регулярно, но между постом и покупкой — пустота. Нет выстроенного пути, по которому читатель становится клиентом.</p>
           </article>
-    </main>
-          <main role="main">
-    <article class="problem-card wide fade-in-up" style="--delay: 1">
+          <article class="problem-card wide fade-in-up" style="--delay: 1">
             <span class="problem-index">02</span>
             <h4>Непонятно, кто ты и чем можешь помочь</h4>
             <p>Человек заходит в профиль, читает несколько постов — и уходит. Не потому что неинтересно. Потому что непонятно, к кому он попал и что делать дальше.</p>
           </article>
-    </main>
-          <main role="main">
-    <article class="problem-card fade-in-up" style="--delay: 2">
+          <article class="problem-card fade-in-up" style="--delay: 2">
             <span class="problem-index">03</span>
             <h4>Площадок много — стратегии нет</h4>
             <p>Telegram, TenChat, Threads, Дзен — у каждой своя логика и аудитория. Без понимания этого блог превращается в хаотичный постинг, который утомляет, а не масштабирует.</p>
           </article>
-    </main>
-          <main role="main">
-    <article class="problem-card fade-in-up" style="--delay: 3">
+          <article class="problem-card fade-in-up" style="--delay: 3">
             <span class="problem-index">04</span>
             <h4>Личный бренд работает на узнаваемость, но не на доход</h4>
             <p>Тебя читают, сохраняют, советуют другим. Но до сделки не доходит — потому что экспертность не упакована в понятное предложение.</p>
           </article>
-    </main>
-          <main role="main">
-    <article class="problem-card accent fade-in-up" style="--delay: 4">
+          <article class="problem-card accent fade-in-up" style="--delay: 4">
             <span class="problem-index">05</span>
             <h4>Время уходит на создание контента, а не на рост</h4>
             <p>Часы на написание, редактуру, публикацию. А отдача не соответствует вложениям. Потому что без системы даже хороший контент не работает как инструмент.</p>
           </article>
-    </main>
         </div>
         
         <div class="problem-bridge">
@@ -498,34 +488,26 @@
         </div>
 
         <div class="service-grid">
-          <main role="main">
-    <article class="service-item fade-in-up" style="--delay: 0">
+          <article class="service-item fade-in-up" style="--delay: 0">
             <span class="service-number">01</span>
             <h4>Личный бренд</h4>
             <p>Сначала разбираемся, кто ты, для кого и чем отличаешься от других экспертов в своей нише. Без этого любой контент — это шум. С этим — каждый пост работает на тебя, даже когда ты не в сети.</p>
           </article>
-    </main>
-          <main role="main">
-    <article class="service-item fade-in-up" style="--delay: 1">
+          <article class="service-item fade-in-up" style="--delay: 1">
             <span class="service-number">02</span>
             <h4>Блог и контент</h4>
             <p>Когда есть позиционирование, выстраиваем присутствие на площадках. Telegram, TenChat, Threads, Дзен — не везде сразу, а там, где живёт твоя аудитория. Контент со смыслом, который ведёт читателя к решению работать именно с тобой.</p>
           </article>
-    </main>
-          <main role="main">
-    <article class="service-item fade-in-up" style="--delay: 2">
+          <article class="service-item fade-in-up" style="--delay: 2">
             <span class="service-number">03</span>
             <h4>Веб-разработка</h4>
             <p>Сайт, который продолжает логику блога. Не визитка — а точка входа с понятным следующим шагом для каждого, кто зашёл: эксперт, предприниматель или фрилансер.</p>
           </article>
-    </main>
-          <main role="main">
-    <article class="service-item fade-in-up" style="--delay: 3">
+          <article class="service-item fade-in-up" style="--delay: 3">
             <span class="service-number">04</span>
             <h4>Сопровождение</h4>
             <p>Мастермайнды, бизнес-разборы, консультации по блогу. Работаем вместе, пока система не начнёт приводить клиентов без твоего постоянного участия.</p>
           </article>
-    </main>
         </div>
         
         <div class="service-bridge">
@@ -576,27 +558,21 @@
           <h3>Формат: запуск, измерение, масштабирование</h3>
         </div>
         <div class="case-track">
-          <main role="main">
-    <article class="case-card">
+          <article class="case-card">
             <p class="case-meta">Fintech · 11 недель</p>
             <h4>Новый сайт + контент-воронка</h4>
             <p class="case-result">+43% квалифицированных заявок</p>
           </article>
-    </main>
-          <main role="main">
-    <article class="case-card shifted">
+          <article class="case-card shifted">
             <p class="case-meta">EdTech · 8 недель</p>
             <h4>Пересборка личного бренда founder</h4>
             <p class="case-result">x2.1 рост входящих запросов</p>
           </article>
-    </main>
-          <main role="main">
-    <article class="case-card">
+          <article class="case-card">
             <p class="case-meta">B2B SaaS · 13 недель</p>
             <h4>Система контента + блоговая структура</h4>
             <p class="case-result">-37% стоимость лида</p>
           </article>
-    </main>
         </div>
       </section>
 

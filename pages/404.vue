@@ -2,14 +2,9 @@
   <div class="min-h-screen bg-white text-gray-900 flex items-center justify-center px-4 overflow-x-hidden">
     <!-- Навигация -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200">
-      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center">
-        <!-- Левая зона: Логотип -->
-        <a href="/" class="text-xl font-bold text-gray-900 flex items-center gap-2 shrink-0">
-          <img src="/reference/YAPPIE.svg" alt="YAPPIE логотип" class="h-4 w-auto" />
-        </a>
-
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-center">
         <!-- Центральная зона: Десктопное меню -->
-        <div class="hidden md:flex items-center gap-8 flex-1 justify-center">
+        <div class="flex items-center gap-8 flex-1 justify-center">
           <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Главная</a>
           <a href="/#problems" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Проблемы</a>
           <a href="/#services" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Услуги</a>

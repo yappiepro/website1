@@ -10,7 +10,9 @@ export default defineNuxtConfig({
     '@nuxtjs/seo',
     '@nuxt/image',
     '@nuxt/icon',
-    '@vite-pwa/nuxt'
+    '@vite-pwa/nuxt',
+    '@nuxtjs/fontaine',
+    'nuxt-delay-hydration'
   ],
 
   image: {
@@ -52,7 +54,22 @@ export default defineNuxtConfig({
   experimental: {
     inlineSSRStyles: true,
     appManifest: false,
-    renderJsonPayloads: true
+    renderJsonPayloads: true,
+    islands: true
+  },
+
+  // Fontaine - оптимизация шрифтов без CLS
+  fontaine: {
+    fonts: ['Syncopate'],
+    fallbacks: {
+      'Syncopate': ['Arial', 'sans-serif']
+    }
+  },
+
+  // Delay Hydration - отложенная гидратация
+  delayHydration: {
+    mode: 'mount',
+    delay: 2000
   },
 
   alias: {

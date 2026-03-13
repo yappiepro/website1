@@ -49,80 +49,14 @@
     </header>
 
     <!-- Мобильное меню -->
-    <Transition
-      enter-active-class="transition duration-300 ease-out"
-      enter-from-class="opacity-0 translate-x-full"
-      enter-to-class="opacity-100 translate-x-0"
-      leave-active-class="transition duration-200 ease-in"
-      leave-from-class="opacity-100 translate-x-0"
-      leave-to-class="opacity-0 translate-x-full"
-    >
-      <div v-if="isMenuOpen" class="fixed inset-0 z-[100] bg-gradient-to-br from-white via-gray-50 to-white pt-20 px-6">
-        <div class="flex justify-between items-center mb-8">
-          <span class="text-gray-400 text-sm font-medium">Навигация</span>
-          <button @click="isMenuOpen = false" class="group p-3 bg-white hover:bg-gray-100 rounded-2xl transition-all backdrop-blur-sm shadow-lg border border-gray-200">
-            <X class="w-6 h-6 text-gray-900" />
-          </button>
-        </div>
-
-        <nav class="flex flex-col gap-3 max-w-md mx-auto">
-          <NuxtLink to="/" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-violet-200">
-            <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/10 group-hover:to-violet-600/10 transition-all"></div>
-            <div class="relative flex items-center justify-between">
-              <span class="text-base font-bold text-gray-900 group-hover:text-violet-600 transition-colors">Главная</span>
-              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-violet-600 group-hover:translate-x-1 transition-all" />
-            </div>
-          </NuxtLink>
-          <NuxtLink to="/networking" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-violet-200">
-            <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/10 group-hover:to-violet-600/10 transition-all"></div>
-            <div class="relative flex items-center justify-between">
-              <span class="text-base font-bold text-gray-900 group-hover:text-violet-600 transition-colors">Нескучный Нетворкинг</span>
-              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-violet-600 group-hover:translate-x-1 transition-all" />
-            </div>
-          </NuxtLink>
-          <NuxtLink to="/business" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-violet-200">
-            <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/10 group-hover:to-violet-600/10 transition-all"></div>
-            <div class="relative flex items-center justify-between">
-              <span class="text-base font-bold text-gray-900 group-hover:text-violet-600 transition-colors">Бизнес Сетка</span>
-              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-violet-600 group-hover:translate-x-1 transition-all" />
-            </div>
-          </NuxtLink>
-          <NuxtLink to="/yappie" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-violet-200">
-            <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/10 group-hover:to-violet-600/10 transition-all"></div>
-            <div class="relative flex items-center justify-between">
-              <span class="text-base font-bold text-gray-900 group-hover:text-violet-600 transition-colors">Веб-разработка</span>
-              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-violet-600 group-hover:translate-x-1 transition-all" />
-            </div>
-          </NuxtLink>
-          <NuxtLink to="/blog" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-violet-200">
-            <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/10 group-hover:to-violet-600/10 transition-all"></div>
-            <div class="relative flex items-center justify-between">
-              <span class="text-base font-bold text-gray-900 group-hover:text-violet-600 transition-colors">Блог</span>
-              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-violet-600 group-hover:translate-x-1 transition-all" />
-            </div>
-          </NuxtLink>
-
-          <a href="https://t.me/artemselifanov" target="_blank"
-             class="mt-4 group relative overflow-hidden p-3 sm:p-4 bg-gradient-to-r from-violet-600 to-violet-500 hover:from-violet-500 hover:to-violet-400 rounded-xl transition-all shadow-lg shadow-violet-600/30">
-            <div class="flex items-center justify-center gap-2">
-              <Icon name="fa-brands:telegram" class="w-4 h-4 text-white" />
-              <span class="text-sm font-bold text-white">Связаться в Telegram</span>
-            </div>
-          </a>
-        </nav>
-
-        <!-- Декоративные элементы -->
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div class="absolute -top-40 -right-40 w-80 h-80 bg-violet-600/10 rounded-full blur-3xl"></div>
-          <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-violet-600/10 rounded-full blur-3xl"></div>
-        </div>
-      </div>
-    </Transition>
+    <BaseMobileMenu
+      v-model="isMenuOpen"
+      :menu-items="mobileMenuItems"
+      cta-link="https://t.me/artemselifanov"
+      cta-text="Связаться в Telegram"
+      theme="light"
+      accent-color="violet"
+    />
 
     <main class="pt-24 pb-16 px-4 sm:px-6">
       <div class="max-w-4xl mx-auto w-full overflow-x-hidden">
@@ -284,6 +218,7 @@ import { ref, computed } from 'vue'
 import { ArrowRight, X } from 'lucide-vue-next'
 import { articles, formatDate, getClusters, getClusterName, getClusterColor, getRandomArticles, getArticlesByCluster } from '~/data/blog.js'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
+import BaseMobileMenu from '~/components/layout/BaseMobileMenu.vue'
 
 const config = useRuntimeConfig()
 const baseURL = import.meta.env.DEV ? '/' : config.app.baseURL

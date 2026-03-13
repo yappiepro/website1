@@ -36,31 +36,15 @@
       </div>
     </nav>
 
-    <!-- Мобильное меню на весь экран -->
-    <div v-if="isMobileMenuOpen" class="fixed inset-0 z-[100] md:hidden bg-black flex flex-col">
-      <div class="flex-1 flex flex-col justify-center items-center px-6">
-        <nav class="flex flex-col gap-8 w-full max-w-xs">
-          <a
-            v-for="item in mobileMenuItems"
-            :key="item.href"
-            :href="item.href"
-            @click="isMobileMenuOpen = false"
-            class="text-3xl font-bold text-white text-center py-4 hover:text-violet-400 transition-colors"
-          >
-            {{ item.label }}
-          </a>
-        </nav>
-        <a href="https://t.me/artemselifanov" target="_blank" class="inline-flex items-center justify-center rounded-full font-medium px-10 py-5 text-xl font-semibold bg-white text-black hover:bg-gray-100 w-full max-w-xs transition-all">Связаться</a>
-      </div>
-      <!-- Кнопка закрытия -->
-      <button
-        @click="isMobileMenuOpen = false"
-        class="absolute top-6 right-6 text-white p-3 hover:bg-white/10 rounded-lg transition-colors"
-        aria-label="Закрыть меню"
-      >
-        <X class="w-8 h-8" />
-      </button>
-    </div>
+    <!-- Мобильное меню -->
+    <BaseMobileMenu
+      v-model="isMobileMenuOpen"
+      :menu-items="mobileMenuItems"
+      cta-link="https://t.me/artemselifanov"
+      cta-text="Связаться"
+      theme="dark"
+      :show-label="false"
+    />
 
     <!-- Hero секция с улучшенными анимациями -->
     <section class="min-h-screen flex items-center relative pt-24 px-4 sm:px-6 overflow-hidden">
@@ -749,6 +733,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import Button from '~/components/ui/button/Button.vue'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
+import BaseMobileMenu from '~/components/layout/BaseMobileMenu.vue'
 
 // SEO Meta Tags with useSeoMeta
 useSeoMeta({

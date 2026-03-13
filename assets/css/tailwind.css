@@ -26,6 +26,7 @@ html {
 body {
   overflow-x: hidden;
   touch-action: pan-y;
+  font-family: 'Manrope', sans-serif;
 }
 
 /* Manrope — основной шрифт */

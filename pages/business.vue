@@ -3,6 +3,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { ArrowRight, Users, Target, Lightbulb, Calendar, MessageCircle, TrendingUp, CheckCircle, Mail, Linkedin, Twitter, Instagram, ExternalLink, Menu, X, ChevronDown } from 'lucide-vue-next'
 import gsap from 'gsap'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
+import BaseMobileMenu from '~/components/layout/BaseMobileMenu.vue'
 
 // SEO для страницы
 useSeoMeta({
@@ -335,77 +336,14 @@ function toggleFaq(index) {
     </header>
 
     <!-- Мобильное меню -->
-    <Transition
-      enter-active-class="transition duration-300 ease-out"
-      enter-from-class="opacity-0 translate-x-full"
-      enter-to-class="opacity-100 translate-x-0"
-      leave-active-class="transition duration-200 ease-in"
-      leave-from-class="opacity-100 translate-x-0"
-      leave-to-class="opacity-0 translate-x-full"
-    >
-      <div v-if="isMenuOpen" class="fixed inset-0 z-[100] bg-gradient-to-br from-white via-gray-50 to-white pt-20 px-6">
-        <div class="flex justify-between items-center mb-8">
-          <span class="text-gray-400 text-sm font-medium">Навигация</span>
-          <button @click="isMenuOpen = false" class="group p-3 bg-white hover:bg-gray-100 rounded-2xl transition-all backdrop-blur-sm shadow-lg border border-gray-200">
-            <X class="w-6 h-6 text-gray-900" />
-          </button>
-        </div>
-
-        <nav class="flex flex-col gap-3 max-w-md mx-auto">
-          <a href="#bento-section" @click="isMenuOpen = false"
-             class="animate-menu-item group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-purple-200"
-             :style="{ animationDelay: '100ms' }">
-            <div class="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/0 to-purple-600/0 group-hover:via-purple-600/10 group-hover:to-purple-600/10 transition-all"></div>
-            <div class="relative flex items-center justify-between">
-              <span class="text-base font-bold text-gray-900 group-hover:text-purple-600 transition-colors">Главная</span>
-              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
-            </div>
-          </a>
-          <a href="#membership" @click="isMenuOpen = false"
-             class="animate-menu-item group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-purple-200"
-             :style="{ animationDelay: '150ms' }">
-            <div class="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/0 to-purple-600/0 group-hover:via-purple-600/10 group-hover:to-purple-600/10 transition-all"></div>
-            <div class="relative flex items-center justify-between">
-              <span class="text-base font-bold text-gray-900 group-hover:text-purple-600 transition-colors">Участие</span>
-              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
-            </div>
-          </a>
-          <a href="#events" @click="isMenuOpen = false"
-             class="animate-menu-item group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-purple-200"
-             :style="{ animationDelay: '200ms' }">
-            <div class="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/0 to-purple-600/0 group-hover:via-purple-600/10 group-hover:to-purple-600/10 transition-all"></div>
-            <div class="relative flex items-center justify-between">
-              <span class="text-base font-bold text-gray-900 group-hover:text-purple-600 transition-colors">События</span>
-              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
-            </div>
-          </a>
-          <a href="#ventures" @click="isMenuOpen = false"
-             class="animate-menu-item group relative overflow-hidden p-3 sm:p-4 bg-white hover:bg-gray-50 rounded-xl transition-all border border-gray-200 hover:border-purple-200"
-             :style="{ animationDelay: '250ms' }">
-            <div class="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/0 to-purple-600/0 group-hover:via-purple-600/10 group-hover:to-purple-600/10 transition-all"></div>
-            <div class="relative flex items-center justify-between">
-              <span class="text-base font-bold text-gray-900 group-hover:text-purple-600 transition-colors">Проекты</span>
-              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
-            </div>
-          </a>
-
-          <a href="https://t.me/+mFUh7ye6U6NjNzli" target="_blank"
-             class="animate-menu-item mt-4 group relative overflow-hidden p-3 sm:p-4 bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 rounded-xl transition-all shadow-lg shadow-purple-600/30"
-             :style="{ animationDelay: '300ms' }">
-            <div class="flex items-center justify-center gap-2">
-              <Icon name="fa-brands:telegram" class="w-4 h-4 text-white" />
-              <span class="text-sm font-bold text-white">Вступить в клуб</span>
-            </div>
-          </a>
-        </nav>
-
-        <!-- Декоративные элементы -->
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div class="absolute -top-40 -right-40 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl"></div>
-          <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl"></div>
-        </div>
-      </div>
-    </Transition>
+    <BaseMobileMenu
+      v-model="isMenuOpen"
+      :menu-items="mobileMenuItems"
+      cta-link="https://t.me/+mFUh7ye6U6NjNzli"
+      cta-text="Вступить в клуб"
+      theme="light"
+      accent-color="purple"
+    />
 
     <!-- Основной контент -->
     <main role="main">

@@ -49,36 +49,16 @@
       </div>
     </nav>
 
-    <!-- Мобильное меню на весь экран -->
-    <div v-if="isMobileMenuOpen" class="fixed inset-0 z-[100] md:hidden bg-white flex flex-col">
-      <div class="flex-1 flex flex-col justify-center items-center px-6">
-        <nav class="flex flex-col gap-8 w-full max-w-xs">
-          <a
-            v-for="item in mobileMenuItems"
-            :key="item.href"
-            :href="item.href"
-            @click="isMobileMenuOpen = false"
-            class="text-3xl font-bold text-gray-900 text-center py-4 hover:text-violet-600 transition-colors"
-          >
-            {{ item.label }}
-          </a>
-        </nav>
-        <button
-          @click="isMobileMenuOpen = false"
-          class="mt-12 px-10 py-5 text-xl font-semibold bg-gray-900 text-white hover:bg-gray-800 w-full max-w-xs rounded-md"
-        >
-          <a href="https://t.me/artemselifanov" target="_blank">Связаться</a>
-        </button>
-      </div>
-      <!-- Кнопка закрытия -->
-      <button
-        @click="isMobileMenuOpen = false"
-        class="absolute top-6 right-6 text-gray-900 p-3 hover:bg-gray-100 rounded-lg transition-colors"
-        aria-label="Закрыть меню"
-      >
-        <X class="w-8 h-8" />
-      </button>
-    </div>
+    <!-- Мобильное меню -->
+    <BaseMobileMenu
+      v-model="isMobileMenuOpen"
+      :menu-items="mobileMenuItems"
+      cta-link="https://t.me/artemselifanov"
+      cta-text="Связаться"
+      theme="light"
+      :show-label="false"
+      accent-color="violet"
+    />
 
     <!-- Старый header скрыт
     <header class="demo-header" v-if="isUnlocked">
@@ -638,6 +618,7 @@
 import { Menu, X } from 'lucide-vue-next'
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
+import BaseMobileMenu from '~/components/layout/BaseMobileMenu.vue'
 
 const config = useRuntimeConfig()
 const baseURL = config.app.baseURL

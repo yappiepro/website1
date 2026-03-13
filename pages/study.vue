@@ -15,23 +15,23 @@
       <Link rel="canonical" href="https://artemselifanov.ru/study" />
     </Head>
     <!-- Навигация -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#030305]/70 backdrop-blur-2xl border-b border-white/[0.08]">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-2xl border-b border-gray-200">
       <div class="max-w-7xl mx-auto px-6 py-4 flex items-center">
         <!-- Левая зона: Логотип -->
-        <a href="/study" class="text-xl font-semibold text-white flex items-center gap-2 shrink-0">
-          <span class="font-bold text-white tracking-wider text-2xl">Фокус</span>
+        <a href="/study" class="text-xl font-semibold text-gray-900 flex items-center gap-2 shrink-0">
+          <span class="font-bold text-gray-900 tracking-wider text-2xl">Фокус</span>
         </a>
 
         <!-- Центральная зона: Десктопное меню -->
         <div class="hidden md:flex items-center gap-8 flex-1 justify-center">
-          <a href="/" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Главная</a>
-          <a href="#problems" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Проблемы</a>
-          <a href="#services" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Услуги</a>
-          <a href="#why-us" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Почему мы</a>
-          <a href="#portfolio" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Кейсы</a>
-          <a href="/blog" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Блог</a>
-          <a href="#faq" class="text-sm text-gray-400 hover:text-white transition-all duration-300">FAQ</a>
-          <a href="https://t.me/artemselifanov" target="_blank" class="px-4 py-2 text-xs bg-white text-black hover:bg-gray-100 shadow-lg shadow-white/10 hover:shadow-white/20 transition-all rounded-md font-medium shrink-0">Связаться</a>
+          <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-all duration-300">Главная</a>
+          <a href="#problems" class="text-sm text-gray-600 hover:text-gray-900 transition-all duration-300">Проблемы</a>
+          <a href="#services" class="text-sm text-gray-600 hover:text-gray-900 transition-all duration-300">Услуги</a>
+          <a href="#why-us" class="text-sm text-gray-600 hover:text-gray-900 transition-all duration-300">Почему мы</a>
+          <a href="#portfolio" class="text-sm text-gray-600 hover:text-gray-900 transition-all duration-300">Кейсы</a>
+          <a href="/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-all duration-300">Блог</a>
+          <a href="#faq" class="text-sm text-gray-600 hover:text-gray-900 transition-all duration-300">FAQ</a>
+          <a href="https://t.me/artemselifanov" target="_blank" class="px-4 py-2 text-xs bg-gray-900 text-white hover:bg-gray-800 shadow-lg shadow-gray-900/20 hover:shadow-gray-900/30 transition-all rounded-md font-medium shrink-0">Связаться</a>
         </div>
 
         <!-- Правая зона: пустая для баланса -->
@@ -50,7 +50,7 @@
     </nav>
 
     <!-- Мобильное меню на весь экран -->
-    <div v-if="isMobileMenuOpen" class="fixed inset-0 z-[100] md:hidden bg-black flex flex-col">
+    <div v-if="isMobileMenuOpen" class="fixed inset-0 z-[100] md:hidden bg-white flex flex-col">
       <div class="flex-1 flex flex-col justify-center items-center px-6">
         <nav class="flex flex-col gap-8 w-full max-w-xs">
           <a
@@ -58,14 +58,14 @@
             :key="item.href"
             :href="item.href"
             @click="isMobileMenuOpen = false"
-            class="text-3xl font-bold text-white text-center py-4 hover:text-violet-400 transition-colors"
+            class="text-3xl font-bold text-gray-900 text-center py-4 hover:text-violet-600 transition-colors"
           >
             {{ item.label }}
           </a>
         </nav>
         <button
           @click="isMobileMenuOpen = false"
-          class="mt-12 px-10 py-5 text-xl font-semibold bg-white text-black hover:bg-gray-100 w-full max-w-xs rounded-md"
+          class="mt-12 px-10 py-5 text-xl font-semibold bg-gray-900 text-white hover:bg-gray-800 w-full max-w-xs rounded-md"
         >
           <a href="https://t.me/artemselifanov" target="_blank">Связаться</a>
         </button>
@@ -73,7 +73,7 @@
       <!-- Кнопка закрытия -->
       <button
         @click="isMobileMenuOpen = false"
-        class="absolute top-6 right-6 text-white p-3 hover:bg-white/10 rounded-lg transition-colors"
+        class="absolute top-6 right-6 text-gray-900 p-3 hover:bg-gray-100 rounded-lg transition-colors"
         aria-label="Закрыть меню"
       >
         <X class="w-8 h-8" />
@@ -1213,14 +1213,14 @@ useSeoMeta({
 }
 
 .demo-page {
-  --bg: #030305;
-  --paper: #0a0a0a;
-  --ink: #ffffff;
-  --muted: #9ca3af;
-  --line: rgba(255, 255, 255, 0.08);
-  --card: #111111;
-  --accent-a: #a78bfa;
-  --accent-b: #e879f9;
+  --bg: #ffffff;
+  --paper: #ffffff;
+  --ink: #111827;
+  --muted: #6b7280;
+  --line: rgba(0, 0, 0, 0.12);
+  --card: #ffffff;
+  --accent-a: #7c3aed;
+  --accent-b: #db2777;
   min-height: 100vh;
   color: var(--ink);
   background: var(--bg);
@@ -1238,7 +1238,7 @@ main {
   padding: 0 2rem 8rem;
   display: grid;
   gap: 150px;
-  background: #0a0a0a;
+  background: #ffffff;
 }
 
 .hero-stage {
@@ -1250,8 +1250,8 @@ main {
   height: 100vh;
   padding: 2rem;
   overflow: hidden;
-  background: #0a0a0a;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .hero-stage::before {
@@ -1273,8 +1273,8 @@ main {
   justify-content: space-between;
   z-index: 2;
   position: relative;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 24px;
   padding: 1.25rem 2rem;
   box-sizing: border-box;
@@ -1286,7 +1286,7 @@ main {
   flex-shrink: 0;
   width: 24px;
   height: 24px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 /* Печатная машинка 1 - стили для текста */
@@ -1296,7 +1296,7 @@ main {
   font-size: clamp(1.25rem, 2.5vw, 1.75rem);
   font-weight: 400;
   line-height: 1.4;
-  color: #ffffff;
+  color: #111827;
   padding: 0;
   min-height: auto;
   text-align: left;
@@ -1348,8 +1348,8 @@ main {
   flex-shrink: 0;
   padding: 0.75rem 1.5rem;
   background: transparent;
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #111827;
+  border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   font-size: 0.9rem;
   font-weight: 600;
@@ -1400,7 +1400,7 @@ main {
   background: #ffffff;
   font-weight: 300;
   animation: blink-system 2s infinite;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   margin-left: 2px;
   vertical-align: text-bottom;
 }
@@ -1424,8 +1424,8 @@ main {
 }
 
 .system-title-wrap {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 1.8rem 0;
   background: #0a0a0a;
 }
@@ -1437,7 +1437,7 @@ main {
 .cta-blog-wrap {
   padding: 3rem 2rem;
   background: #0a0a0a;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   animation: fade-in-up 0.8s ease-out forwards;
 }
 
@@ -1456,7 +1456,7 @@ main {
 }
 
 .cta-blog-word {
-  color: #ffffff;
+  color: #111827;
   font-weight: 700;
   text-shadow: 0 0 20px rgba(167, 139, 250, 0.5);
   display: inline-block;
@@ -1465,7 +1465,7 @@ main {
 
 .cta-blog-word::before {
   content: 'блог';
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(0, 0, 0, 0.3);
 }
 
 .cta-blog-word:not(:empty)::before {
@@ -1482,7 +1482,7 @@ main {
   border: none;
   border-radius: 30px;
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .unpack-container {
@@ -1495,23 +1495,23 @@ main {
   margin-top: 2rem;
   padding-top: 24px;
   padding-bottom: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .unpack-container-wip {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(0, 0, 0, 0.03);
   border-radius: 16px;
   padding: 32px 24px 24px;
   position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .wip-badge {
   position: absolute;
   top: 16px;
   right: 24px;
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.5);
   font-size: 12px;
   font-weight: 500;
   padding: 4px 12px;
@@ -1554,7 +1554,7 @@ main {
 }
 
 .motivation-text {
-  color: #ffffff;
+  color: #111827;
 }
 
 .motivation-highlight {
@@ -1566,7 +1566,7 @@ main {
 .unpack-title {
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 800;
-  color: #ffffff;
+  color: #111827;
   margin: 0 0 0.5rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -1603,7 +1603,7 @@ main {
   position: relative;
   width: 51px;
   height: 31px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.1);
   border-radius: 31px;
   transition: background 0.3s ease;
   flex-shrink: 0;
@@ -1660,8 +1660,8 @@ main {
   gap: 1.5rem;
   align-items: center;
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 16px;
 }
 
@@ -1671,7 +1671,7 @@ main {
 }
 
 .unpack-step:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(0, 0, 0, 0.03);
   border-color: rgba(167, 139, 250, 0.2);
 }
 
@@ -1698,19 +1698,19 @@ main {
   margin: 0 0 1rem;
   font-size: var(--text-lg);
   font-weight: 700;
-  color: #ffffff;
+  color: #111827;
 }
 
 .step-content h3 {
   margin: 0 0 0.5rem;
   font-size: var(--text-lg);
   font-weight: 600;
-  color: #ffffff;
+  color: #111827;
 }
 
 .step-content p {
   margin: 0;
-  color: #ffffff;
+  color: #111827;
   font-size: var(--text-base);
   line-height: var(--leading-relaxed);
 }
@@ -1727,11 +1727,11 @@ main {
   display: inline-flex;
   align-items: center;
   padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(0, 0, 0, 0.03);
   border: 1px solid rgba(167, 139, 250, 0.3);
   border-radius: 999px;
   font-size: var(--text-sm);
-  color: #ffffff;
+  color: #111827;
   white-space: nowrap;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -1751,7 +1751,7 @@ main {
 }
 
 .network-instruction {
-  color: #ffffff;
+  color: #111827;
   font-size: 0.8rem;
   margin-top: 1rem;
   font-style: italic;
@@ -1763,9 +1763,9 @@ main {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.1);
+  color: #111827;
+  border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 999px;
   font-size: var(--text-sm);
   font-weight: 600;
@@ -1776,8 +1776,8 @@ main {
 }
 
 .finish-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
 }
 
@@ -1807,7 +1807,7 @@ main {
 }
 
 .brief-intro-text {
-  color: #ffffff;
+  color: #111827;
   font-size: var(--text-sm);
   line-height: var(--leading-relaxed);
   margin: 0 0 3rem;
@@ -1846,14 +1846,14 @@ main {
 
 .brief-info-content strong {
   display: block;
-  color: #ffffff;
+  color: #111827;
   font-size: 0.75rem;
   font-weight: 600;
   margin-bottom: 0.25rem;
 }
 
 .brief-info-content p {
-  color: #ffffff;
+  color: #111827;
   font-size: 0.7rem;
   line-height: 1.4;
   margin: 0;
@@ -1916,19 +1916,19 @@ main {
 }
 
 .prompt-intro {
-  color: #ffffff;
+  color: #111827;
   font-size: var(--text-sm);
   line-height: var(--leading-relaxed);
   margin: 2rem 0;
   padding: 0.75rem 0.5rem;
   font-weight: 500;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(0, 0, 0, 0.03);
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .prompt-goal {
-  color: #ffffff;
+  color: #111827;
   font-size: var(--text-sm);
   line-height: var(--leading-relaxed);
   margin: 0 0 1rem !important;
@@ -1939,7 +1939,7 @@ main {
 }
 
 .prompt-task {
-  color: #ffffff;
+  color: #111827;
   font-size: var(--text-sm);
   font-weight: 600;
   margin: 0 0 0.75rem;
@@ -1948,14 +1948,14 @@ main {
 .prompt-list {
   margin: 1rem 0 !important;
   padding-left: 0.75rem !important;
-  color: #ffffff;
+  color: #111827;
   font-size: var(--text-sm);
   line-height: var(--leading-relaxed);
 }
 
 .prompt-list li {
   margin-bottom: 0.5rem;
-  color: #ffffff;
+  color: #111827;
   line-height: 1.5;
 }
 
@@ -1967,8 +1967,8 @@ main {
 
 .question-item {
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 12px;
   margin-bottom: 1rem;
 }
@@ -1995,7 +1995,7 @@ main {
   border: 1px solid rgba(167, 139, 250, 0.2);
   border-radius: 8px;
   padding: 0.875rem;
-  color: #ffffff;
+  color: #111827;
   font-size: 1rem;
   font-family: inherit;
   resize: vertical;
@@ -2025,7 +2025,7 @@ main {
   color: #a78bfa;
   margin-bottom: 1.25rem;
   padding: 0 0.5rem 0.75rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Quiz Progress */
@@ -2035,7 +2035,7 @@ main {
 
 .progress-bar {
   height: 4px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.1);
   border-radius: 2px;
   overflow: hidden;
   margin-bottom: 1rem;
@@ -2058,8 +2058,8 @@ main {
   min-width: 50px;
   height: 36px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2082,7 +2082,7 @@ main {
   justify-content: space-between;
   margin-top: 2rem;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .nav-btn {
@@ -2099,14 +2099,14 @@ main {
 }
 
 .nav-btn-back {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.05);
   color: #9ca3af;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .nav-btn-back:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
+  background: rgba(0, 0, 0, 0.1);
+  color: #111827;
   transform: translateX(-2px);
 }
 
@@ -2126,7 +2126,7 @@ main {
 
 .nav-btn-finish {
   background: linear-gradient(135deg, #22c55e, #16a34a);
-  color: #ffffff;
+  color: #111827;
   border: none;
   margin-left: auto;
   box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
@@ -2169,7 +2169,7 @@ main {
   background: #ffffff;
   font-weight: 300;
   animation: blink 2s infinite;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   margin-left: 2px;
   vertical-align: text-bottom;
 }
@@ -2231,7 +2231,7 @@ p {
   margin: 0;
   font-size: clamp(1.8rem, 4vw, 3.8rem);
   line-height: 0.95;
-  color: #ffffff;
+  color: #111827;
   max-width: 100%;
 }
 
@@ -2259,7 +2259,7 @@ p {
   background: #0a0a0a;
   padding: clamp(1.4rem, 3vw, 2.3rem);
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .problem-grid {
@@ -2273,7 +2273,7 @@ p {
   grid-column: span 4;
   padding: 1.5rem;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   background: #0a0a0a;
 }
 
@@ -2313,7 +2313,7 @@ p {
   padding: 1.5rem 2rem;
   background: linear-gradient(135deg, rgba(167, 139, 250, 0.08), rgba(232, 121, 249, 0.06));
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
@@ -2321,7 +2321,7 @@ p {
   margin: 0;
   font-size: clamp(1rem, 2vw, 1.2rem);
   line-height: 1.6;
-  color: #ffffff;
+  color: #111827;
   font-weight: 500;
 }
 
@@ -2398,7 +2398,7 @@ p {
   padding: 1.5rem;
   border-radius: 16px;
   background: #0a0a0a;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .service-item.visible {
@@ -2434,7 +2434,7 @@ p {
   padding: 1.5rem 2rem;
   background: linear-gradient(135deg, rgba(167, 139, 250, 0.08), rgba(232, 121, 249, 0.06));
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
@@ -2442,7 +2442,7 @@ p {
   margin: 0;
   font-size: clamp(1rem, 2vw, 1.2rem);
   line-height: 1.6;
-  color: #ffffff;
+  color: #111827;
   font-weight: 500;
 }
 
@@ -2507,15 +2507,15 @@ p {
 .principle-item {
   padding: 1.25rem;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .principle-item h4 {
   margin: 0 0 0.5rem;
   font-size: var(--text-base);
   font-weight: var(--font-semibold);
-  color: #ffffff;
+  color: #111827;
 }
 
 .principle-item p {
@@ -2533,7 +2533,7 @@ p {
 
 .case-card {
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   padding: 1.2rem;
   background: #0a0a0a;
 }
@@ -2575,7 +2575,7 @@ p {
 
 .faq-item {
   border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   background: #0a0a0a;
   overflow: hidden;
 }
@@ -2588,7 +2588,7 @@ p {
   padding: 1.25rem 1.5rem;
   background: transparent;
   border: none;
-  color: #ffffff;
+  color: #111827;
   font-size: var(--text-base);
   font-weight: var(--font-medium);
   text-align: left;
@@ -2597,7 +2597,7 @@ p {
 }
 
 .faq-trigger:hover {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(0, 0, 0, 0.02);
 }
 
 .faq-trigger.active {
@@ -2643,7 +2643,7 @@ p {
   padding-top: clamp(2rem, 4vw, 3rem);
   padding-bottom: clamp(2rem, 4vw, 3rem);
   background: radial-gradient(circle at 50% 0%, rgba(167, 139, 250, 0.12), #030305 60%);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .work-cta h3 {
@@ -2938,7 +2938,7 @@ p {
   .step-content h3.step-title {
     font-size: 1.1rem;
     margin-bottom: 1rem;
-    color: #ffffff;
+    color: #111827;
     font-weight: 700;
   }
 
@@ -2963,9 +2963,9 @@ p {
   .brief-info-item {
     gap: 0.75rem;
     padding: 0.75rem;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(0, 0, 0, 0.03);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
   }
 
   .brief-info-icon {
@@ -2977,7 +2977,7 @@ p {
 
   .brief-info-content strong {
     font-size: 0.85rem;
-    color: #ffffff;
+    color: #111827;
     display: block;
     margin-bottom: 0.25rem;
   }
@@ -3036,7 +3036,7 @@ p {
     font-size: 0.75rem;
     margin-bottom: 1rem;
     padding-bottom: 0.75rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     color: #a78bfa;
     font-weight: 600;
     text-transform: uppercase;
@@ -3046,16 +3046,16 @@ p {
   .question-item {
     margin-bottom: 1.25rem;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(0, 0, 0, 0.02);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
   }
 
   .question-item strong {
     font-size: 0.85rem;
     display: block;
     margin-bottom: 0.5rem;
-    color: #ffffff;
+    color: #111827;
     font-weight: 600;
   }
 
@@ -3070,15 +3070,15 @@ p {
     font-size: 16px;
     padding: 0.875rem;
     width: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    color: #ffffff;
+    color: #111827;
     resize: vertical;
   }
 
   .question-input::placeholder {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(0, 0, 0, 0.4);
   }
 
   .quiz-navigation {
@@ -3100,23 +3100,23 @@ p {
 
   .nav-btn-next,
   .nav-btn-finish {
-    background: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.1);
+    color: #111827;
+    border: 1px solid rgba(0, 0, 0, 0.15);
     box-shadow: none;
   }
 
   .nav-btn-next:hover,
   .nav-btn-finish:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.15);
+    border-color: rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
     box-shadow: none;
   }
 
   .nav-btn-copy {
     background: linear-gradient(135deg, #a78bfa, #e879f9);
-    color: #ffffff;
+    color: #111827;
     border: 1px solid rgba(167, 139, 250, 0.4);
     font-weight: 600;
     box-shadow: 0 4px 15px rgba(167, 139, 250, 0.3);
@@ -3136,13 +3136,13 @@ p {
   }
 
   .nav-btn-back {
-    background: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.1);
+    color: #111827;
+    border: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   .nav-btn-back:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.15);
   }
 
   .nav-btn-next,

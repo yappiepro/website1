@@ -1364,7 +1364,7 @@ main {
 .search-btn:hover {
   background: linear-gradient(135deg, rgba(167, 139, 250, 0.8), rgba(232, 121, 249, 0.8));
   border-color: transparent;
-  box-shadow: 0 0 20px rgba(167, 139, 250, 0.4);
+  box-shadow: none;
 }
 
 .search-btn:active {
@@ -1481,8 +1481,8 @@ main {
   background: #ffffff;
   border: none;
   border-radius: 30px;
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .unpack-container {
@@ -1522,8 +1522,8 @@ main {
 
 .unpack-motivation {
   padding: 0 2rem;
-  background: linear-gradient(135deg, rgba(167, 139, 250, 0.08), rgba(232, 121, 249, 0.05));
-  border: 1px solid rgba(167, 139, 250, 0.15);
+  background: linear-gradient(135deg, rgba(167, 139, 250, 0.05), rgba(232, 121, 249, 0.03));
+  border: 1px solid rgba(167, 139, 250, 0.2);
   border-radius: 16px;
   margin: 0;
   opacity: 0;
@@ -1531,6 +1531,7 @@ main {
   max-height: 0;
   overflow: hidden;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: none;
 }
 
 .unpack-motivation.animate-show {
@@ -2273,8 +2274,9 @@ p {
   grid-column: span 4;
   padding: 1.5rem;
   border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   background: #ffffff;
+  box-shadow: none;
 }
 
 .problem-card.visible {
@@ -2305,16 +2307,18 @@ p {
 }
 
 .problem-card.accent {
-  background: linear-gradient(140deg, rgba(167, 139, 250, 0.15), rgba(232, 121, 249, 0.1));
+  background: linear-gradient(140deg, rgba(167, 139, 250, 0.08), rgba(232, 121, 249, 0.05));
+  box-shadow: none;
 }
 
 .problem-bridge {
   margin-top: 2rem;
   padding: 1.5rem 2rem;
-  background: linear-gradient(135deg, rgba(167, 139, 250, 0.08), rgba(232, 121, 249, 0.06));
+  background: linear-gradient(135deg, rgba(167, 139, 250, 0.05), rgba(232, 121, 249, 0.03));
   border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   text-align: center;
+  box-shadow: none;
 }
 
 .problem-bridge p {
@@ -2398,7 +2402,8 @@ p {
   padding: 1.5rem;
   border-radius: 16px;
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: none;
 }
 
 .service-item.visible {
@@ -2432,10 +2437,11 @@ p {
 .service-bridge {
   margin-top: 2rem;
   padding: 1.5rem 2rem;
-  background: linear-gradient(135deg, rgba(167, 139, 250, 0.08), rgba(232, 121, 249, 0.06));
+  background: linear-gradient(135deg, rgba(167, 139, 250, 0.05), rgba(232, 121, 249, 0.03));
   border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   text-align: center;
+  box-shadow: none;
 }
 
 .service-bridge p {
@@ -2533,14 +2539,15 @@ p {
 
 .case-card {
   border-radius: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   padding: 1.2rem;
   background: #ffffff;
+  box-shadow: none;
 }
 
 .case-card.shifted {
   transform: translateY(22px);
-  background: linear-gradient(160deg, rgba(167, 139, 250, 0.15), #0a0a0a);
+  background: linear-gradient(160deg, rgba(167, 139, 250, 0.1), rgba(232, 121, 249, 0.05));
 }
 
 .case-meta {
@@ -2669,13 +2676,14 @@ p {
   color: #0f1220;
   font-weight: 700;
   background: linear-gradient(115deg, #a78bfa, #e879f9);
-  box-shadow: 0 12px 28px rgba(167, 139, 250, 0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .work-cta a:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 36px rgba(167, 139, 250, 0.4);
+  border-color: rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 1080px) {
@@ -3119,14 +3127,14 @@ p {
     color: #111827;
     border: 1px solid rgba(167, 139, 250, 0.4);
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(167, 139, 250, 0.3);
+    box-shadow: none;
   }
 
   .nav-btn-copy:hover {
     background: linear-gradient(135deg, #9367f5, #d95fe8);
     border-color: rgba(167, 139, 250, 0.5);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(167, 139, 250, 0.4);
+    box-shadow: none;
   }
 
   .nav-btn-copy.copied {

@@ -1324,7 +1324,7 @@ main {
   display: inline-block;
   width: 2px;
   height: 1.2em;
-  background: #ffffff;
+  background: #111827;
   animation: blink 1s infinite;
   opacity: 0.8;
   vertical-align: text-bottom;
@@ -1397,10 +1397,10 @@ main {
   display: inline-block;
   width: 3px;
   height: 1em;
-  background: #ffffff;
+  background: #111827;
   font-weight: 300;
   animation: blink-system 2s infinite;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-left: 2px;
   vertical-align: text-bottom;
 }
@@ -2166,10 +2166,10 @@ main {
   display: inline-block;
   width: 3px;
   height: 1em;
-  background: #ffffff;
+  background: #111827;
   font-weight: 300;
   animation: blink 2s infinite;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-left: 2px;
   vertical-align: text-bottom;
 }

@@ -424,15 +424,16 @@
         </div>
 
         <!-- Анализ целевой аудитории -->
-        <div class="unpack-container unpack-container-secondary">
+        <div class="unpack-container unpack-container-secondary unpack-container-wip">
+          <div class="wip-badge">В разработке</div>
           <h2 class="unpack-title">АНАЛИЗ ЦЕЛЕВОЙ АУДИТОРИИ</h2>
           <p class="unpack-subtitle">Пойми, для кого ты создаёшь контент</p>
-          
+
           <div class="unpack-toggle-wrapper">
             <label class="unpack-toggle">
-              <input type="checkbox" v-model="isTargetExpanded" />
+              <input type="checkbox" v-model="isTargetExpanded" disabled />
               <span class="toggle-slider"></span>
-              <span class="toggle-text">{{ isTargetExpanded ? 'Свернуть' : 'Развернуть' }}</span>
+              <span class="toggle-text">В разработке</span>
             </label>
           </div>
 
@@ -1495,6 +1496,28 @@ main {
   padding-top: 24px;
   padding-bottom: 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.unpack-container-wip {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 32px 24px 24px;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.wip-badge {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .unpack-motivation {
@@ -2812,7 +2835,18 @@ p {
     margin-top: 1.5rem;
     padding-top: 1.5rem;
   }
-  
+
+  .unpack-container-wip {
+    padding: 24px 16px 16px;
+  }
+
+  .wip-badge {
+    top: 12px;
+    right: 16px;
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+
   .unpack-motivation {
     padding: 1.5rem;
     margin: 1.5rem 0;

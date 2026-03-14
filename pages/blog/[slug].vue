@@ -126,8 +126,7 @@
               :items="[
                 { label: 'Главная', href: '/' },
                 { label: 'Блог', href: '/blog' },
-                { label: article?.category || 'Статья', href: article?.cluster ? `/blog#${article.cluster}` : undefined },
-                { label: article?.title || '' }
+                { label: article?.category || 'Статья', href: article?.cluster ? `/blog#${article.cluster}` : undefined }
               ]"
             />
           </div>

@@ -37,26 +37,9 @@
               <span>Связаться</span>
             </a>
           </div>
-
-          <!-- Кнопка бургера для мобильных -->
-          <button @click="isMenuOpen = !isMenuOpen"
-                  class="md:hidden p-2 bg-white/80 hover:bg-white rounded-xl transition-all backdrop-blur-sm absolute right-4"
-                  aria-label="Открыть меню">
-            <Icon name="fa-solid:bars" class="w-6 h-6 text-gray-700" />
-          </button>
         </div>
       </div>
     </header>
-
-    <!-- Мобильное меню -->
-    <BaseMobileMenu
-      v-model="isMenuOpen"
-      :menu-items="mobileMenuItems"
-      cta-link="https://t.me/artemselifanov"
-      cta-text="Связаться в Telegram"
-      theme="light"
-      accent-color="violet"
-    />
 
     <main class="pt-24 pb-16 px-4 sm:px-6">
       <div class="max-w-4xl mx-auto w-full overflow-x-hidden">
@@ -218,7 +201,6 @@ import { ref, computed } from 'vue'
 import { ArrowRight, X } from 'lucide-vue-next'
 import { articles, formatDate, getClusters, getClusterName, getClusterColor, getRandomArticles, getArticlesByCluster } from '~/data/blog.js'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
-import BaseMobileMenu from '~/components/layout/BaseMobileMenu.vue'
 
 const config = useRuntimeConfig()
 const baseURL = import.meta.env.DEV ? '/' : config.app.baseURL
@@ -231,9 +213,6 @@ const selectedCluster = ref(null)
 
 // Поисковый запрос
 const searchQuery = ref('')
-
-// Мобильное меню
-const isMenuOpen = ref(false)
 
 // Случайный порядок статей
 const shuffledArticles = computed(() => getRandomArticles(articles.length))

@@ -48,15 +48,85 @@
       </div>
     </header>
 
-    <!-- Мобильное меню -->
-    <BaseMobileMenu
-      v-model="isMenuOpen"
-      :menu-items="mobileMenuItems"
-      cta-link="https://t.me/artemselifanov"
-      cta-text="Связаться в Telegram"
-      theme="light"
-      accent-color="violet"
-    />
+    <!-- Мобильное меню с фильтрами -->
+    <Transition
+      enter-active-class="transition duration-300 ease-out"
+      enter-from-class="opacity-0 translate-x-full"
+      enter-to-class="opacity-100 translate-x-0"
+      leave-active-class="transition duration-200 ease-in"
+      leave-to-class="opacity-0 translate-x-full"
+    >
+      <div v-if="isMenuOpen" class="fixed inset-0 z-[100] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 md:hidden pt-20 px-6">
+        <div class="flex justify-between items-center mb-8">
+          <span class="text-white/60 text-sm font-medium">Разделы блога</span>
+          <button @click="isMenuOpen = false" class="group p-3 bg-white hover:bg-gray-100 rounded-2xl transition-all backdrop-blur-sm shadow-lg">
+            <X class="w-6 h-6 text-gray-900" />
+          </button>
+        </div>
+
+        <nav class="flex flex-col gap-3 max-w-md mx-auto">
+          <button
+            @click="selectCluster('razrabotka-saytov')"
+            class="group relative overflow-hidden p-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
+            <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/20 group-hover:to-violet-600/20 transition-all"></div>
+            <div class="relative flex items-center justify-between">
+              <span class="text-base font-medium text-white group-hover:text-violet-400 transition-colors">Разработка сайтов</span>
+              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-white/30 group-hover:text-violet-400 group-hover:translate-x-1 transition-all" />
+            </div>
+          </button>
+          <button
+            @click="selectCluster('sozdanie-saytov')"
+            class="group relative overflow-hidden p-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
+            <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/20 group-hover:to-violet-600/20 transition-all"></div>
+            <div class="relative flex items-center justify-between">
+              <span class="text-base font-medium text-white group-hover:text-violet-400 transition-colors">Создание сайтов</span>
+              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-white/30 group-hover:text-violet-400 group-hover:translate-x-1 transition-all" />
+            </div>
+          </button>
+          <button
+            @click="selectCluster('mobilnye-prilozheniya')"
+            class="group relative overflow-hidden p-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
+            <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/20 group-hover:to-violet-600/20 transition-all"></div>
+            <div class="relative flex items-center justify-between">
+              <span class="text-base font-medium text-white group-hover:text-violet-400 transition-colors">Мобильные приложения</span>
+              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-white/30 group-hover:text-violet-400 group-hover:translate-x-1 transition-all" />
+            </div>
+          </button>
+          <button
+            @click="selectCluster('veb-razrabotka')"
+            class="group relative overflow-hidden p-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
+            <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/20 group-hover:to-violet-600/20 transition-all"></div>
+            <div class="relative flex items-center justify-between">
+              <span class="text-base font-medium text-white group-hover:text-violet-400 transition-colors">Веб-разработка</span>
+              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-white/30 group-hover:text-violet-400 group-hover:translate-x-1 transition-all" />
+            </div>
+          </button>
+          <button
+            @click="selectCluster('iskusstvennyy-intellekt')"
+            class="group relative overflow-hidden p-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
+            <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/20 group-hover:to-violet-600/20 transition-all"></div>
+            <div class="relative flex items-center justify-between">
+              <span class="text-base font-medium text-white group-hover:text-violet-400 transition-colors">Искусственный интеллект</span>
+              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-white/30 group-hover:text-violet-400 group-hover:translate-x-1 transition-all" />
+            </div>
+          </button>
+
+          <a href="https://t.me/artemselifanov" target="_blank"
+             class="mt-6 group relative overflow-hidden p-5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-2xl transition-all shadow-lg shadow-blue-600/30">
+            <div class="flex items-center justify-center gap-3">
+              <Icon name="fa-brands:telegram" class="w-5 h-5 text-white" />
+              <span class="text-base font-bold text-white">Связаться в Telegram</span>
+            </div>
+          </a>
+        </nav>
+
+        <!-- Декоративные элементы -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl"></div>
+          <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl"></div>
+        </div>
+      </div>
+    </Transition>
 
     <main class="pt-24 pb-16 px-4 sm:px-6">
       <div class="max-w-4xl mx-auto w-full overflow-x-hidden">
@@ -218,33 +288,44 @@ import { ref, computed } from 'vue'
 import { ArrowRight, X } from 'lucide-vue-next'
 import { articles, formatDate, getClusters, getClusterName, getClusterColor, getRandomArticles, getArticlesByCluster } from '~/data/blog.js'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
-import BaseMobileMenu from '~/components/layout/BaseMobileMenu.vue'
 
 const config = useRuntimeConfig()
 const baseURL = import.meta.env.DEV ? '/' : config.app.baseURL
+const route = useRoute()
 
 // Получаем все уникальные кластеры
 const clusters = getClusters()
 
+// Выбранный кластер из query параметра или hash
+const getClusterFromHash = () => {
+  const hash = route.hash.replace('#', '')
+  if (hash && clusters.includes(hash)) {
+    return hash
+  }
+  return null
+}
+
 // Выбранный кластер (null = все статьи)
-const selectedCluster = ref(null)
+const selectedCluster = ref(getClusterFromHash())
 
 // Поисковый запрос
 const searchQuery = ref('')
 
 // Мобильное меню
 const isMenuOpen = ref(false)
-const mobileMenuItems = [
-  { href: '/', label: 'Главная' },
-  { href: '/networking', label: 'Нескучный Нетворкинг' },
-  { href: '/business', label: 'Бизнес Сетка' },
-  { href: '/yappie', label: 'Веб-разработка' },
-  { href: '/blog#razrabotka-saytov', label: 'Разработка сайтов' },
-  { href: '/blog#sozdanie-saytov', label: 'Создание сайтов' },
-  { href: '/blog#mobilnye-prilozheniya', label: 'Мобильные приложения' },
-  { href: '/blog#veb-razrabotka', label: 'Веб-разработка' },
-  { href: '/blog#iskusstvennyy-intellekt', label: 'Искусственный интеллект' }
-]
+
+// Функция для выбора кластера
+function selectCluster(cluster) {
+  selectedCluster.value = cluster
+  // Обновляем hash в URL
+  if (cluster) {
+    window.location.hash = cluster
+  } else {
+    window.history.pushState({}, '', window.location.pathname)
+  }
+  // Закрываем меню
+  isMenuOpen.value = false
+}
 
 // Случайный порядок статей
 const shuffledArticles = computed(() => getRandomArticles(articles.length))

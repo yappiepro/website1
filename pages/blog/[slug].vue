@@ -53,42 +53,10 @@
         </div>
 
         <nav class="flex flex-col gap-3 max-w-md mx-auto">
-          <NuxtLink to="/" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
-            <div class="relative flex items-center justify-between">
-              <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Главная</span>
-              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
-            </div>
-          </NuxtLink>
-          <NuxtLink to="/networking" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
-            <div class="relative flex items-center justify-between">
-              <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Нескучный Нетворкинг</span>
-              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
-            </div>
-          </NuxtLink>
-          <NuxtLink to="/business" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
-            <div class="relative flex items-center justify-between">
-              <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Бизнес Сетка</span>
-              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
-            </div>
-          </NuxtLink>
-          <NuxtLink to="/yappie" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:via-blue-600/20 group-hover:to-blue-600/20 transition-all"></div>
-            <div class="relative flex items-center justify-between">
-              <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Веб-разработка</span>
-              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
-            </div>
-          </NuxtLink>
-          
-          <!-- Разделитель -->
-          <div class="h-px bg-white/10 my-2"></div>
-          <span class="text-xs font-semibold text-white/40 uppercase tracking-wider px-2">Разделы блога</span>
+          <!-- Заголовок меню -->
+          <div class="mb-2">
+            <span class="text-xs font-semibold text-white/40 uppercase tracking-wider px-2">Разделы блога</span>
+          </div>
           
           <!-- Фильтры блога -->
           <NuxtLink to="/blog#razrabotka-saytov" @click="isMenuOpen = false"

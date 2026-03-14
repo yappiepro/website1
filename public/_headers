@@ -9,6 +9,13 @@
 /site.webmanifest
   Cache-Control: public, max-age=86400
 
+# Favicon files - cache for 1 year
+/favicon.ico
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicons/*
+  Cache-Control: public, max-age=31536000, immutable
+
 # Images, fonts - cache for 1 year
 /images/*
   Cache-Control: public, max-age=31536000, immutable

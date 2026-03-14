@@ -104,6 +104,8 @@ export default defineNuxtConfig({
         '/blog/cluster/mobilnye-prilozheniya',
         '/blog/cluster/veb-razrabotka',
         '/blog/cluster/iskusstvennyy-intellekt',
+        '/blog/cluster/lichnyy-brend',
+        '/blog/cluster/kontent-marketing',
         '/blog/razrabotka-sayta-pod-klyuch',
         '/blog/skolko-stoit-razrabotka-sayta',
         '/blog/kak-zakazat-razrabotku-sayta',
@@ -129,7 +131,17 @@ export default defineNuxtConfig({
         '/blog/api-razrabotka',
         '/blog/ii-v-it',
         '/blog/ii-dlya-biznesa',
-        '/blog/chatgpt-dlya-biznesa'
+        '/blog/chatgpt-dlya-biznesa',
+        '/blog/neyroseti-dlya-generatsii-izobrazheniy',
+        '/blog/ii-agenty-dlya-biznesa',
+        '/blog/prompt-inzhiniring',
+        '/blog/avtomatizatsiya-biznesa-ii',
+        '/blog/chto-takoe-lichnyy-brend',
+        '/blog/kak-sozdat-lichnyy-brend',
+        '/blog/upakovka-lichnogo-brenda',
+        '/blog/chto-takoe-kontent-marketing',
+        '/blog/strategiya-kontent-marketinga',
+        '/blog/kontent-marketing-dlya-privlecheniya-klientov'
       ],
       failOnError: false
     },
@@ -170,6 +182,8 @@ export default defineNuxtConfig({
       '/blog/cluster/mobilnye-prilozheniya',
       '/blog/cluster/veb-razrabotka',
       '/blog/cluster/iskusstvennyy-intellekt',
+      '/blog/cluster/lichnyy-brend',
+      '/blog/cluster/kontent-marketing',
       '/blog/razrabotka-sayta-pod-klyuch',
       '/blog/skolko-stoit-razrabotka-sayta',
       '/blog/kak-zakazat-razrabotku-sayta',
@@ -195,7 +209,17 @@ export default defineNuxtConfig({
       '/blog/api-razrabotka',
       '/blog/ii-v-it',
       '/blog/ii-dlya-biznesa',
-      '/blog/chatgpt-dlya-biznesa'
+      '/blog/chatgpt-dlya-biznesa',
+      '/blog/neyroseti-dlya-generatsii-izobrazheniy',
+      '/blog/ii-agenty-dlya-biznesa',
+      '/blog/prompt-inzhiniring',
+      '/blog/avtomatizatsiya-biznesa-ii',
+      '/blog/chto-takoe-lichnyy-brend',
+      '/blog/kak-sozdat-lichnyy-brend',
+      '/blog/upakovka-lichnogo-brenda',
+      '/blog/chto-takoe-kontent-marketing',
+      '/blog/strategiya-kontent-marketinga',
+      '/blog/kontent-marketing-dlya-privlecheniya-klientov'
     ]
   },
 

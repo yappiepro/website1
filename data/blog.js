@@ -25,6 +25,16 @@ import apiRazrabotka from './blog/veb-razrabotka/api-razrabotka.js'
 import iiVIt from './blog/iskusstvennyy-intellekt/ii-v-it.js'
 import iiDlyaBiznesa from './blog/iskusstvennyy-intellekt/ii-dlya-biznesa.js'
 import chatgptDlyaBiznesa from './blog/iskusstvennyy-intellekt/chatgpt-dlya-biznesa.js'
+import neyrosetiDlyaGeneratsiiIzobrazheniy from './blog/iskusstvennyy-intellekt/neyroseti-dlya-generatsii-izobrazheniy.js'
+import iiAgentyDlyaBiznesa from './blog/iskusstvennyy-intellekt/ii-agenty-dlya-biznesa.js'
+import promptInzhiniring from './blog/iskusstvennyy-intellekt/prompt-inzhiniring.js'
+import avtomatizatsiyaBiznesaIi from './blog/iskusstvennyy-intellekt/avtomatizatsiya-biznesa-ii.js'
+import chtoTakoeLichnyyBrend from './blog/lichnyy-brend/chto-takoe-lichnyy-brend.js'
+import kakSozdatLichnyyBrend from './blog/lichnyy-brend/kak-sozdat-lichnyy-brend.js'
+import upakovkaLichnogoBrenda from './blog/lichnyy-brend/upakovka-lichnogo-brenda.js'
+import chtoTakoeKontentMarketing from './blog/kontent-marketing/chto-takoe-kontent-marketing.js'
+import strategiyaKontentMarketinga from './blog/kontent-marketing/strategiya-kontent-marketinga.js'
+import kontentMarketingDlyaPrivlecheniyaKlientov from './blog/kontent-marketing/kontent-marketing-dlya-privlecheniya-klientov.js'
 
 // Массив всех статей
 export const articles = [
@@ -54,6 +64,16 @@ export const articles = [
   iiVIt,
   iiDlyaBiznesa,
   chatgptDlyaBiznesa,
+  neyrosetiDlyaGeneratsiiIzobrazheniy,
+  iiAgentyDlyaBiznesa,
+  promptInzhiniring,
+  avtomatizatsiyaBiznesaIi,
+  chtoTakoeLichnyyBrend,
+  kakSozdatLichnyyBrend,
+  upakovkaLichnogoBrenda,
+  chtoTakoeKontentMarketing,
+  strategiyaKontentMarketinga,
+  kontentMarketingDlyaPrivlecheniyaKlientov,
   // Сюда добавляйте новые статьи:
   // import nazvanieStatyi from './blog/razrabotka-saytov/nazvanie-statyi.js'
   // nazvanieStatyi,
@@ -98,7 +118,9 @@ export const clusterNames = {
   'sozdanie-saytov': 'Создание сайтов',
   'mobilnye-prilozheniya': 'Мобильные приложения',
   'veb-razrabotka': 'Веб-разработка',
-  'iskusstvennyy-intellekt': 'Искусственный интеллект'
+  'iskusstvennyy-intellekt': 'Искусственный интеллект',
+  'lichnyy-brend': 'Личный бренд',
+  'kontent-marketing': 'Контент-маркетинг'
 }
 
 // Цвета для кластеров
@@ -107,7 +129,9 @@ export const clusterColors = {
   'sozdanie-saytov': 'blue',
   'mobilnye-prilozheniya': 'green',
   'veb-razrabotka': 'orange',
-  'iskusstvennyy-intellekt': 'pink'
+  'iskusstvennyy-intellekt': 'pink',
+  'lichnyy-brend': 'purple',
+  'kontent-marketing': 'red'
 }
 
 // Функция для получения названия кластера

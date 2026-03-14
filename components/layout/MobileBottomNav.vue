@@ -10,20 +10,15 @@
         :key="item.href"
         :href="item.href"
         @click="handleClick(item, $event)"
-        class="relative flex flex-col items-center justify-center py-2 px-1 flex-1"
+        class="relative flex flex-col items-center justify-center py-3 flex-1"
         :class="[
           isActive(item.href)
             ? activeTextClass
             : inactiveTextClass
         ]"
       >
-        <!-- Цветная подложка для активного пункта -->
-        <div
-          v-if="isActive(item.href)"
-          class="absolute inset-0 m-1 rounded-xl bg-gray-200 -z-20"
-        ></div>
         <!-- Иконка или изображение или текст -->
-        <div class="relative w-10 h-10 mb-1 overflow-hidden rounded-[6px] flex items-center justify-center">
+        <div class="relative z-10 w-10 h-10 mb-1 overflow-hidden rounded-[6px] flex items-center justify-center">
           <NuxtImg
             v-if="item.image"
             :src="item.image"
@@ -42,10 +37,8 @@
             v-else
             :name="item.icon"
             class="transition-all duration-200"
-            :class="[
-              isActive(item.href) ? 'scale-110' : 'scale-100',
-              item.icon === 'lucide:home' ? 'w-12 h-12' : 'w-6 h-6'
-            ]"
+            :class="[isActive(item.href) ? 'scale-110' : 'scale-100']"
+            style="width: 20px; height: 20px;"
           />
           <!-- Индикатор активной страницы -->
           <div
@@ -54,6 +47,16 @@
             :class="indicatorClass"
           ></div>
         </div>
+        <!-- Цветная подложка для активного пункта с анимацией -->
+        <Transition name="fade">
+          <div
+            v-if="isActive(item.href)"
+            class="absolute inset-0 bg-gray-200 -z-10"
+            :class="[
+              item.href === '/' ? 'rounded-l-xl rounded-r-none' : 'rounded-none'
+            ]"
+          ></div>
+        </Transition>
       </a>
     </nav>
   </div>
@@ -61,6 +64,9 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
 
 const props = defineProps({
   items: {
@@ -81,13 +87,12 @@ const props = defineProps({
   }
 })
 
-const currentPath = ref('/')
 const lastScrollY = ref(0)
 const isVisible = ref(true)
 
 function handleScroll() {
   const currentScrollY = window.scrollY || window.pageYOffset
-  
+
   // Скрываем при скролле вниз, показываем при скролле вверх
   if (currentScrollY > lastScrollY.value && currentScrollY > 100) {
     // Скролл вниз - скрываем
@@ -96,19 +101,15 @@ function handleScroll() {
     // Скролл вверх - показываем
     isVisible.value = true
   }
-  
+
   lastScrollY.value = currentScrollY
 }
 
 function isActive(href) {
   if (href === '/') {
-    return currentPath.value === '/'
+    return route.path === '/'
   }
-  return currentPath.value.startsWith(href)
-}
-
-function updatePath() {
-  currentPath.value = window.location.pathname
+  return route.path.startsWith(href)
 }
 
 function handleClick(item, event) {
@@ -171,17 +172,10 @@ const indicatorClass = computed(() => {
 })
 
 onMounted(() => {
-  updatePath()
-  window.addEventListener('popstate', updatePath)
-  window.addEventListener('pushstate', updatePath)
-  window.addEventListener('replacestate', updatePath)
   window.addEventListener('scroll', handleScroll, { passive: true })
 })
 
 onUnmounted(() => {
-  window.removeEventListener('popstate', updatePath)
-  window.removeEventListener('pushstate', updatePath)
-  window.removeEventListener('replacestate', updatePath)
   window.removeEventListener('scroll', handleScroll)
 })
 </script>
@@ -189,5 +183,15 @@ onUnmounted(() => {
 <style scoped>
 .pb-safe {
   padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

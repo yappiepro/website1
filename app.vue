@@ -2,11 +2,13 @@
   <NuxtPage />
   <CookieBanner />
   <GoogleAnalytics />
+  <YandexMetrica />
 </template>
 
 <script setup>
 import CookieBanner from '~/components/layout/CookieBanner.vue'
 import GoogleAnalytics from '~/components/GoogleAnalytics.vue'
+import YandexMetrica from '~/components/YandexMetrica.vue'
 
 // Яндекс.Метрика
 useHead({
@@ -23,13 +25,15 @@ useHead({
           m[i].l=1*new Date();
           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return m[i].a=m[i].a[m[i].a.length-1];};}
           k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-          (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+          (window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=107703484", "ym");
 
-        ym(98667447, "init", {
-          clickmap:true,
-          trackLinks:true,
-          accurateTrackBounce:true,
-          webvisor:true
+        ym(107703484, "init", {
+          ssr: true,
+          webvisor: true,
+          clickmap: true,
+          ecommerce: "dataLayer",
+          accurateTrackBounce: true,
+          trackLinks: true
         });
       `,
       type: 'text/javascript',

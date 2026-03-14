@@ -2,37 +2,53 @@
   <div class="min-h-screen bg-[#030305] text-white overflow-x-hidden">
 
     <!-- Навигация -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#030305]/70 backdrop-blur-2xl border-b border-white/[0.08]">
-      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center">
-        <!-- Левая зона: Логотип -->
-        <a href="/yappie" class="text-xl font-semibold text-white flex items-center gap-2 group shrink-0">
-          <img src="/reference/YAPPIE.svg" alt="YAPPIE логотип" class="h-4 w-auto" />
-        </a>
+    <nav :class="[
+      'fixed left-4 right-4 z-40 transition-all duration-300 md:backdrop-blur-2xl md:rounded-2xl',
+      scrolled ? 'bg-transparent md:bg-[#030305]/70 md:border-b md:border-white/[0.08]' : 'bg-[#030305]/70 md:border-b md:border-white/[0.08]',
+      'md:top-0 top-4'
+    ]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div class="h-14 md:h-16 flex items-center">
+          <!-- Левая зона: Логотип (виден на мобильных только без скролла) -->
+          <div :class="[
+            'transition-all duration-300',
+            scrolled ? 'hidden' : 'block md:block'
+          ]">
+            <a href="/yappie" class="text-xl font-semibold text-white flex items-center gap-2 group shrink-0">
+              <img src="/reference/YAPPIE.svg" alt="YAPPIE логотип" class="h-4 w-auto" />
+            </a>
+          </div>
 
-        <!-- Центральная зона: Десктопное меню -->
-        <div class="hidden md:flex items-center gap-8 flex-1 justify-center">
-          <a href="/" class="text-sm text-gray-400 hover:text-white transition-all duration-300">Главная</a>
-          <a href="#problems" class="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-y-[-1px]">Проблемы</a>
-          <a href="#services" class="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-y-[-1px]">Услуги</a>
-          <a href="#why-us" class="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-y-[-1px]">Почему мы</a>
-          <a href="#portfolio" class="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-y-[-1px]">Кейсы</a>
-          <a href="/blog" class="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-y-[-1px]">Блог</a>
-          <a href="#faq" class="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-y-[-1px]">FAQ</a>
-          <a href="https://t.me/artemselifanov" target="_blank" class="inline-flex items-center justify-center rounded-full font-medium px-4 py-2 text-xs bg-white text-black hover:bg-gray-100 shadow-lg shadow-white/10 hover:shadow-white/20 transition-all shrink-0">Связаться</a>
+          <!-- Центральная зона: Десктопное меню -->
+          <div class="hidden md:flex items-center gap-1 flex-1 justify-center">
+            <a href="/" class="px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-all">Главная</a>
+            <a href="#problems" class="px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-all">Проблемы</a>
+            <a href="#services" class="px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-all">Услуги</a>
+            <a href="#why-us" class="px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-all">Почему мы</a>
+            <a href="#portfolio" class="px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-all">Кейсы</a>
+            <a href="/blog" class="px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-all">Блог</a>
+            <a href="#faq" class="px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-all">FAQ</a>
+            <a href="https://t.me/artemselifanov" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-black bg-white hover:bg-gray-100 rounded-xl transition-all">
+              <span>Связаться</span>
+            </a>
+          </div>
+
+          <!-- Правая зона: пустая для баланса -->
+          <div class="hidden md:block w-[100px] shrink-0"></div>
+
+          <!-- Кнопка бургер-меню для мобильных -->
+          <button
+            @click="isMobileMenuOpen = !isMobileMenuOpen"
+            :class="[
+              'md:hidden p-2 rounded-xl transition-all absolute right-4 z-50',
+              scrolled ? 'bg-[#030305]/80 hover:bg-[#030305]/90' : 'hover:bg-white/10'
+            ]"
+            aria-label="Открыть меню"
+          >
+            <Menu v-if="!isMobileMenuOpen" class="w-6 h-6 text-white" />
+            <X v-else class="w-6 h-6 text-white" />
+          </button>
         </div>
-
-        <!-- Правая зона: пустая для баланса -->
-        <div class="hidden md:block w-[100px] shrink-0"></div>
-
-        <!-- Кнопка бургер-меню для мобильных -->
-        <button
-          @click="isMobileMenuOpen = !isMobileMenuOpen"
-          class="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors absolute right-4"
-          aria-label="Открыть меню"
-        >
-          <Menu v-if="!isMobileMenuOpen" class="w-6 h-6" />
-          <X v-else class="w-6 h-6" />
-        </button>
       </div>
     </nav>
 
@@ -809,6 +825,7 @@ import {
 
 const activeSlide = ref(0)
 const isMobileMenuOpen = ref(false)
+const scrolled = ref(false)
 const showScrollTop = ref(false)
 
 // Refs для отслеживания видимости элементов
@@ -829,6 +846,7 @@ const mobileMenuItems = [
 
 // Обработчик скролла для показа кнопки "Наверх"
 const handleScroll = () => {
+  scrolled.value = window.scrollY > 50
   showScrollTop.value = window.scrollY > window.innerHeight
 }
 

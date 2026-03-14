@@ -8,7 +8,7 @@ import BaseMobileMenu from '~/components/layout/BaseMobileMenu.vue'
 // SEO для страницы
 useSeoMeta({
   title: 'Бизнес Сетка — закрытый клуб и мастермайнд для предпринимателей | Артём Селифанов',
-  description: 'Закрытый клуб предпринимателей и экспертов. Мастермайнд-группы, бизнес-разборы, нетворкинг. 238 участников. Артём Селифанов — Бизнес Сетка.',
+  description: 'Закрытый клуб предпринимателей и экспертов. Мастермайнд-группы, бизнес-разборы, нетворкинг. 250 участников. Артём Селифанов — Бизнес Сетка.',
   keywords: 'мастермайнд для предпринимателей, закрытый клуб бизнес, бизнес-разбор, нетворкинг предпринимателей, бизнес сообщество, Артём Селифанов',
   robots: 'index, follow',
   ogTitle: 'Бизнес Сетка — закрытый клуб и мастермайнд для предпринимателей',
@@ -63,6 +63,18 @@ useSchemaOrg([
 ])
 
 const isMenuOpen = ref(false)
+const scrolled = ref(false)
+
+// Меню для мобильных
+const mobileMenuItems = [
+  { href: '/', label: 'Главная' },
+  { href: '#membership', label: 'Участие' },
+  { href: '#events', label: 'События' },
+  { href: '#ventures', label: 'Проекты' },
+  { href: '/blog', label: 'Блог' },
+  { href: '/networking', label: 'Нескучный нетворкинг' },
+  { href: '/yappie', label: 'Веб-разработка' }
+]
 
 // Прогресс-бар скролла
 const scrollProgress = ref(0)
@@ -190,11 +202,10 @@ const directions = [
     icon: Lightbulb,
     title: 'Мастермайнд группа',
     description: 'Интенсивная работа в мини-группе предпринимателей',
-    price: '35 000 ₽',
-    period: '2 месяца',
+    price: '37 500 ₽',
     highlighted: true,
     features: [
-      '8 групповых сессий по 2 часа',
+      '4 групповые встречи по 2+ часа',
       'Разбор стратегии каждого участника',
       'Групповая динамика и поддержка',
       'Доступ к базе знаний',
@@ -227,7 +238,7 @@ const audience = [
 const faqs = [
   {
     question: 'Что такое «Бизнес Сетка» и для кого она создана?',
-    answer: '«Бизнес Сетка» — это закрытый клуб предпринимателей и экспертов, объединяющий 238 участников. Сообщество создано для тех, кто хочет масштабировать бизнес через нетворкинг, разборы реальных кейсов и мастермайнд-группы. В отличие от открытых бизнес-конференций, здесь нет случайных людей — каждый участник проходит отбор и приходит с конкретными задачами роста.'
+    answer: '«Бизнес Сетка» — это закрытый клуб предпринимателей и экспертов, объединяющий 250 участников. Сообщество создано для тех, кто хочет масштабировать бизнес через нетворкинг, разборы реальных кейсов и мастермайнд-группы. В отличие от открытых бизнес-конференций, здесь нет случайных людей — каждый участник проходит отбор и приходит с конкретными задачами роста.'
   },
   {
     question: 'Что такое мастермайнд и чем он полезен для предпринимателя?',
@@ -235,11 +246,11 @@ const faqs = [
   },
   {
     question: 'Как проходит мастермайнд в «Бизнес Сетке»? Формат и расписание?',
-    answer: 'Мастермайнд длится 2 месяца, включает 8 онлайн-сессий по 2 часа — одна встреча в неделю. На каждой сессии разбирается бизнес-задача одного из участников: текущая ситуация → ключевые ограничения → решения от группы → конкретные шаги. Каждый участник получает персональный разбор своего проекта минимум дважды за программу плюс постоянную обратную связь в групповом чате.'
+    answer: 'Мастермайнд включает 4 онлайн-встречи по 2+ часа. На каждой сессии разбирается бизнес-задача одного из участников: текущая ситуация → ключевые ограничения → решения от группы → конкретные шаги. Каждый участник получает персональный разбор своего проекта плюс постоянную обратную связь в групповом чате.'
   },
   {
     question: 'Сколько стоит участие в мастермайнде и что в него входит?',
-    answer: 'Стоимость участия — 35 000 ₽ за 2 месяца. В программу входит: 8 групповых онлайн-сессий по 2 часа, персональный разбор вашего бизнеса и стратегии, доступ в закрытый чат участников на весь период, база знаний сообщества и рекомендации по развитию. Количество мест в группе ограничено — для фиксации места напишите в Telegram.'
+    answer: 'Стоимость участия — 37 500 ₽. В программу входит: 4 групповые онлайн-встречи по 2+ часа, персональный разбор вашего бизнеса и стратегии, доступ в закрытый чат участников, база знаний сообщества и рекомендации по развитию. Количество мест в группе ограничено — для фиксации места напишите в Telegram.'
   },
   {
     question: 'Кто участвует в мастермайнде — какие бизнесы и ниши?',
@@ -259,11 +270,11 @@ const faqs = [
   },
   {
     question: 'Когда стартует следующая мастермайнд-группа?',
-    answer: 'Группы стартуют раз в 2 месяца по мере набора участников. Ближайший старт — уточняйте в Telegram. Рекомендуем подавать заявку заранее: количество мест ограничено 8 участниками в группе. Ранним участникам — приоритет при формировании группы и фиксация текущей цены.'
+    answer: 'Группы стартуют по мере набора участников. Ближайший старт — уточняйте в Telegram. Рекомендуем подавать заявку заранее: количество мест ограничено 8 участниками в группе. Ранним участникам — приоритет при формировании группы и фиксация текущей цены.'
   },
   {
     question: 'Какой результат можно ожидать от участия в мастермайнде?',
-    answer: 'Участники отмечают три ключевых эффекта: (1) решение застрявших задач — за 2 месяца разбирается 4–8 конкретных бизнес-проблем каждого участника; (2) расширение круга — партнёры и клиенты из числа участников сообщества; (3) фокус и темп — групповая динамика не даёт откладывать важные решения. Конкретные цифры зависят от вашего бизнеса и вовлечённости.'
+    answer: 'Участники отмечают три ключевых эффекта: (1) решение застрявших задач — за 4 встречи разбирается 2–4 конкретных бизнес-проблем каждого участника; (2) расширение круга — партнёры и клиенты из числа участников сообщества; (3) фокус и темп — групповая динамика не даёт откладывать важные решения. Конкретные цифры зависят от вашего бизнеса и вовлечённости.'
   },
   {
     question: 'Возможен ли возврат, если формат не подошёл?',
@@ -291,16 +302,16 @@ function toggleFaq(index) {
 
     <!-- Хедер -->
     <header :class="[
-      'fixed left-4 right-4 z-40 transition-all duration-300 rounded-2xl',
-      scrolled ? 'bg-transparent md:bg-white/80 md:backdrop-blur-xl md:shadow-lg' : 'bg-white/20 backdrop-blur-md shadow-sm',
+      'fixed left-4 right-4 z-40 transition-all duration-300 md:backdrop-blur-xl md:rounded-2xl',
+      scrolled ? 'bg-transparent md:bg-white/80 md:shadow-lg' : 'bg-white/20',
       'md:top-0 top-4'
     ]">
       <div class="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8">
         <div class="h-14 md:h-16 flex items-center">
           <!-- Левая зона: Логотип (виден на мобильных только без скролла) -->
           <div :class="[
-            'transition-all duration-300 shrink-0',
-            scrolled ? 'hidden md:block' : 'block'
+            'transition-all duration-300',
+            scrolled ? 'hidden' : 'block md:block'
           ]">
             <a href="/" class="group flex items-center gap-3">
               <NuxtImg src="/reference/business.webp" quality="75" sizes="20px sm:28px md:40px" alt="Бизнес Сетка — логотип закрытого клуба предпринимателей" class="w-10 h-10 rounded-lg" />
@@ -327,7 +338,11 @@ function toggleFaq(index) {
           </div>
 
           <!-- Бургер для мобильных -->
-          <button @click="isMenuOpen = !isMenuOpen" class="md:hidden p-2 hover:bg-gray-100 rounded-xl transition-all absolute right-4">
+          <button @click="isMenuOpen = !isMenuOpen"
+            :class="[
+              'md:hidden p-2 rounded-xl transition-all absolute right-4 z-50',
+              scrolled ? 'bg-white/90 hover:bg-white' : 'hover:bg-gray-100'
+            ]">
             <Menu v-if="!isMenuOpen" class="w-6 h-6 text-gray-700" />
             <X v-else class="w-6 h-6 text-gray-700" />
           </button>
@@ -402,7 +417,7 @@ function toggleFaq(index) {
           <div class="md:col-span-1 lg:col-span-1 p-6 md:p-8 bg-gradient-to-br from-purple-600 via-purple-500 to-purple-400 rounded-3xl text-white hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300">
             <span class="text-[10px] font-semibold tracking-wider text-purple-200">МЕТРИКА</span>
             <div class="mt-4">
-              <div class="text-5xl md:text-6xl font-bold">238</div>
+              <div class="text-5xl md:text-6xl font-bold">250</div>
               <p class="text-purple-100 mt-2 text-sm md:text-base">участников</p>
             </div>
             <div class="mt-6 pt-4 border-t border-white/20">
@@ -434,8 +449,8 @@ function toggleFaq(index) {
           <div class="md:col-span-1 lg:col-span-1 p-6 md:p-8 bg-white rounded-3xl border border-gray-200 hover:border-purple-200 hover:shadow-lg transition-all duration-300">
             <span class="text-[10px] font-semibold tracking-wider text-gray-400">КОНТАКТЫ</span>
             <div class="flex flex-wrap gap-2 mt-4">
-              <a href="https://t.me/+mFUh7ye6U6NjNzli" target="_blank" class="px-3 py-1.5 text-xs font-semibold text-gray-700 bg-gray-100 hover:bg-purple-100 hover:text-purple-700 rounded-full transition-all border border-gray-200">Telegram</a>
-              <a href="https://wa.me/79535487323" target="_blank" class="px-3 py-1.5 text-xs font-semibold text-gray-700 bg-gray-100 hover:bg-green-100 hover:text-green-700 rounded-full transition-all border border-gray-200">WhatsApp</a>
+              <a href="https://t.me/artemselifanov" target="_blank" class="px-3 py-1.5 text-xs font-semibold text-gray-700 bg-gray-100 hover:bg-purple-100 hover:text-purple-700 rounded-full transition-all border border-gray-200">Telegram</a>
+              <a href="https://max.ru/join/SFsv9-wXr61buZwRkTSUm74ablM_yss3RXWimOOmJtU" target="_blank" class="px-3 py-1.5 text-xs font-semibold text-gray-700 bg-gray-100 hover:bg-green-100 hover:text-green-700 rounded-full transition-all border border-gray-200">Max</a>
               <a href="https://vk.com/karelbusiness" target="_blank" class="px-3 py-1.5 text-xs font-semibold text-gray-700 bg-gray-100 hover:bg-blue-100 hover:text-blue-700 rounded-full transition-all border border-gray-200">VK</a>
             </div>
             <a href="mailto:a9535487323@yandex.ru" class="mt-4 block text-sm text-gray-500 hover:text-purple-600 transition-colors">a9535487323@yandex.ru</a>
@@ -560,8 +575,8 @@ function toggleFaq(index) {
 
           <div class="p-6 md:p-8 bg-white rounded-3xl border-2 border-gray-200 hover:border-purple-300 hover:shadow-lg transition-all duration-300">
             <span class="text-5xl md:text-6xl font-black text-purple-600 block mb-4">04</span>
-            <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2">Работаешь 2 месяца</h3>
-            <p class="text-gray-600 text-sm">8 сессий по 2 часа. Каждую неделю — разбор участника, обратная связь от группы, конкретные шаги.</p>
+            <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2">Проходишь 4 встречи</h3>
+            <p class="text-gray-600 text-sm">4 сессии по 2+ часа. Разбор участника, обратная связь от группы, конкретные шаги.</p>
           </div>
         </div>
       </div>

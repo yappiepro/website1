@@ -141,7 +141,15 @@ export default defineNuxtConfig({
         '/blog/upakovka-lichnogo-brenda',
         '/blog/chto-takoe-kontent-marketing',
         '/blog/strategiya-kontent-marketinga',
-        '/blog/kontent-marketing-dlya-privlecheniya-klientov'
+        '/blog/kontent-marketing-dlya-privlecheniya-klientov',
+        '/blog/chto-takoe-networking',
+        '/blog/kak-razvit-set-kontaktov',
+        '/blog/networking-dlya-biznesa',
+        '/blog/chto-takoe-chat-bot',
+        '/blog/chat-bot-dlya-biznesa',
+        '/blog/chat-bot-v-telegram',
+        '/blog/chat-bot-vkontakte',
+        '/blog/chat-bot-v-max'
       ],
       failOnError: false
     },
@@ -219,7 +227,15 @@ export default defineNuxtConfig({
       '/blog/upakovka-lichnogo-brenda',
       '/blog/chto-takoe-kontent-marketing',
       '/blog/strategiya-kontent-marketinga',
-      '/blog/kontent-marketing-dlya-privlecheniya-klientov'
+      '/blog/kontent-marketing-dlya-privlecheniya-klientov',
+      '/blog/chto-takoe-networking',
+      '/blog/kak-razvit-set-kontaktov',
+      '/blog/networking-dlya-biznesa',
+      '/blog/chto-takoe-chat-bot',
+      '/blog/chat-bot-dlya-biznesa',
+      '/blog/chat-bot-v-telegram',
+      '/blog/chat-bot-vkontakte',
+      '/blog/chat-bot-v-max'
     ]
   },
 

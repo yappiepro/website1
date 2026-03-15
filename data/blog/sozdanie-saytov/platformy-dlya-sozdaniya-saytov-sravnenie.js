@@ -339,7 +339,7 @@ export default {
 
 <div class="article-nav">
   <p><strong>Читать далее:</strong> <a href="/blog/sozdanie-sayta-html-css">Создание сайта на HTML и CSS: руководство для начинающих →</a></p>
-  <p><strong>Назад:</strong> <a href="/blog/skolko-stoit-sozdat-sajt-2026">← Сколько стоит создать сайт в 2026 году</a></p>
+  <p><strong>Назад:</strong> <a href="/blog/skolko-stoit-sozdat-sajt">← Сколько стоит создать сайт в 2026 году</a></p>
 </div>
   `
 }

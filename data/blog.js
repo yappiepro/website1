@@ -35,6 +35,14 @@ import upakovkaLichnogoBrenda from './blog/lichnyy-brend/upakovka-lichnogo-brend
 import chtoTakoeKontentMarketing from './blog/kontent-marketing/chto-takoe-kontent-marketing.js'
 import strategiyaKontentMarketinga from './blog/kontent-marketing/strategiya-kontent-marketinga.js'
 import kontentMarketingDlyaPrivlecheniyaKlientov from './blog/kontent-marketing/kontent-marketing-dlya-privlecheniya-klientov.js'
+import chtoTakoeNetworking from './blog/networking/chto-takoe-networking.js'
+import kakRazvitSetKontaktov from './blog/networking/kak-razvit-set-kontaktov.js'
+import networkingDlyaBiznesa from './blog/networking/networking-dlya-biznesa.js'
+import chtoTakoeChatBot from './blog/chat-boty/chto-takoe-chat-bot.js'
+import chatBotDlyaBiznesa from './blog/chat-boty/chat-bot-dlya-biznesa.js'
+import chatBotVTelegram from './blog/chat-boty/chat-bot-v-telegram.js'
+import chatBotVkontakte from './blog/chat-boty/chat-bot-vkontakte.js'
+import chatBotVMax from './blog/chat-boty/chat-bot-v-max.js'
 
 // Массив всех статей
 export const articles = [
@@ -77,6 +85,14 @@ export const articles = [
   // Сюда добавляйте новые статьи:
   // import nazvanieStatyi from './blog/razrabotka-saytov/nazvanie-statyi.js'
   // nazvanieStatyi,
+  chtoTakoeNetworking,
+  kakRazvitSetKontaktov,
+  networkingDlyaBiznesa,
+  chtoTakoeChatBot,
+  chatBotDlyaBiznesa,
+  chatBotVTelegram,
+  chatBotVkontakte,
+  chatBotVMax,
 ]
 
 // Функция для получения статьи по slug
@@ -120,7 +136,9 @@ export const clusterNames = {
   'veb-razrabotka': 'Веб-разработка',
   'iskusstvennyy-intellekt': 'Искусственный интеллект',
   'lichnyy-brend': 'Личный бренд',
-  'kontent-marketing': 'Контент-маркетинг'
+  'kontent-marketing': 'Контент-маркетинг',
+  'networking': 'Нетворкинг',
+  'chat-boty': 'Чат-боты'
 }
 
 // Цвета для кластеров
@@ -131,7 +149,9 @@ export const clusterColors = {
   'veb-razrabotka': 'orange',
   'iskusstvennyy-intellekt': 'pink',
   'lichnyy-brend': 'purple',
-  'kontent-marketing': 'red'
+  'kontent-marketing': 'red',
+  'networking': 'teal',
+  'chat-boty': 'cyan'
 }
 
 // Функция для получения названия кластера

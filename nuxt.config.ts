@@ -157,7 +157,8 @@ export default defineNuxtConfig({
         '/blog/skolko-stoit-sozdat-sajt-2026',
         '/blog/platformy-dlya-sozdaniya-saytov-sravnenie',
         '/blog/kak-vesti-telegram-kanal',
-        '/blog/prodvizhenie-v-telegram'
+        '/blog/prodvizhenie-v-telegram',
+        '/blog/telegram-kanal-dlya-biznesa'
       ],
       failOnError: false
     },
@@ -250,7 +251,8 @@ export default defineNuxtConfig({
       '/blog/skolko-stoit-sozdat-sajt-2026',
       '/blog/platformy-dlya-sozdaniya-saytov-sravnenie',
       '/blog/kak-vesti-telegram-kanal',
-      '/blog/prodvizhenie-v-telegram'
+      '/blog/prodvizhenie-v-telegram',
+      '/blog/telegram-kanal-dlya-biznesa'
     ]
   },
 

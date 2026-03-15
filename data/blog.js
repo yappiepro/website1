@@ -48,6 +48,7 @@ import skolkoStoitSozdatSajt2026 from './blog/sozdanie-saytov/skolko-stoit-sozda
 import platformyDlyaSozdaniyaSaytovSravnenie from './blog/sozdanie-saytov/platformy-dlya-sozdaniya-saytov-sravnenie.js'
 import kakVestiTelegramKanal from './blog/telegram-marketing/kak-vesti-telegram-kanal.js'
 import prodvizhenieVTelegram from './blog/telegram-marketing/prodvizhenie-v-telegram.js'
+import telegramKanalDlyaBiznesa from './blog/telegram-marketing/telegram-kanal-dlya-biznesa.js'
 
 // Массив всех статей
 export const articles = [
@@ -103,6 +104,7 @@ export const articles = [
   platformyDlyaSozdaniyaSaytovSravnenie,
   kakVestiTelegramKanal,
   prodvizhenieVTelegram,
+  telegramKanalDlyaBiznesa,
 ]
 
 // Функция для получения статьи по slug

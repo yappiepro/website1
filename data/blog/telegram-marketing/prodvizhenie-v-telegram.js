@@ -166,7 +166,7 @@ export default {
 </ul>
 
 <div class="article-nav">
-  <p><strong>Читать далее:</strong> <a href="/blog/kak-vesti-telegram-kanal">Как вести Telegram-канал: контент, регулярность и аналитика →</a></p>
+  <p><strong>Читать далее:</strong> <a href="/blog/telegram-kanal-dlya-biznesa">Telegram-канал для бизнеса: зачем нужен и как запустить →</a></p>
   <p><strong>Назад:</strong> <a href="/blog/kak-vesti-telegram-kanal">← Как вести Telegram-канал: контент, регулярность и аналитика</a></p>
 </div>
   `

@@ -170,7 +170,7 @@
             <NuxtLink
               v-for="related in relatedArticles"
               :key="related.slug"
-              :href="`/blog/${related.slug}`"
+              :to="`/blog/${related.slug}`"
               class="group p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-all border border-gray-200 hover:border-violet-300"
             >
               <span class="text-xs font-medium text-violet-600 mb-2 block">
@@ -217,8 +217,6 @@
 import { ref, computed } from 'vue'
 import { getArticleBySlug, formatDate, getRelatedArticles } from '~/data/blog.js'
 
-const config = useRuntimeConfig()
-const baseURL = config.app.baseURL
 const route = useRoute()
 
 const slug = route.params.slug

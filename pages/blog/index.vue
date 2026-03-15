@@ -212,7 +212,7 @@
             :key="article.slug"
             class="group"
           >
-            <a :href="baseURL + 'blog/' + article.slug" class="block">
+            <NuxtLink :to="`/blog/${article.slug}`" class="block">
               <div class="border border-gray-200 rounded-2xl p-4 sm:p-5 hover:border-violet-300 hover:shadow-lg transition-all duration-300">
                 <div class="flex items-center gap-3 mb-4">
                   <span
@@ -242,7 +242,7 @@
                   <ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
-            </a>
+            </NuxtLink>
           </article>
         </div>
 
@@ -289,8 +289,6 @@ import { ArrowRight, X } from 'lucide-vue-next'
 import { articles, formatDate, getClusters, getClusterName, getClusterColor, getRandomArticles, getArticlesByCluster } from '~/data/blog.js'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
 
-const config = useRuntimeConfig()
-const baseURL = import.meta.env.DEV ? '/' : config.app.baseURL
 const route = useRoute()
 
 // Получаем все уникальные кластеры

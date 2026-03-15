@@ -151,7 +151,10 @@ export default defineNuxtConfig({
         '/blog/chat-bot-dlya-biznesa',
         '/blog/chat-bot-v-telegram',
         '/blog/chat-bot-vkontakte',
-        '/blog/chat-bot-v-max'
+        '/blog/chat-bot-v-max',
+        '/blog/kak-sozdat-sajt-samostoyatelno',
+        '/blog/skolko-stoit-sozdat-sajt-2026',
+        '/blog/platformy-dlya-sozdaniya-saytov-sravnenie'
       ],
       failOnError: false
     },
@@ -239,7 +242,10 @@ export default defineNuxtConfig({
       '/blog/chat-bot-dlya-biznesa',
       '/blog/chat-bot-v-telegram',
       '/blog/chat-bot-vkontakte',
-      '/blog/chat-bot-v-max'
+      '/blog/chat-bot-v-max',
+      '/blog/kak-sozdat-sajt-samostoyatelno',
+      '/blog/skolko-stoit-sozdat-sajt-2026',
+      '/blog/platformy-dlya-sozdaniya-saytov-sravnenie'
     ]
   },
 

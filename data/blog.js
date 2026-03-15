@@ -43,6 +43,9 @@ import chatBotDlyaBiznesa from './blog/chat-boty/chat-bot-dlya-biznesa.js'
 import chatBotVTelegram from './blog/chat-boty/chat-bot-v-telegram.js'
 import chatBotVkontakte from './blog/chat-boty/chat-bot-vkontakte.js'
 import chatBotVMax from './blog/chat-boty/chat-bot-v-max.js'
+import kakSozdatSajtSamostoyatelno from './blog/sozdanie-saytov/kak-sozdat-sajt-samostoyatelno.js'
+import skolkoStoitSozdatSajt2026 from './blog/sozdanie-saytov/skolko-stoit-sozdat-sajt-2026.js'
+import platformyDlyaSozdaniyaSaytovSravnenie from './blog/sozdanie-saytov/platformy-dlya-sozdaniya-saytov-sravnenie.js'
 
 // Массив всех статей
 export const articles = [
@@ -93,6 +96,9 @@ export const articles = [
   chatBotVTelegram,
   chatBotVkontakte,
   chatBotVMax,
+  kakSozdatSajtSamostoyatelno,
+  skolkoStoitSozdatSajt2026,
+  platformyDlyaSozdaniyaSaytovSravnenie,
 ]
 
 // Функция для получения статьи по slug

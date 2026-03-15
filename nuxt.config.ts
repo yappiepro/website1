@@ -108,6 +108,7 @@ export default defineNuxtConfig({
         '/blog/cluster/kontent-marketing',
         '/blog/cluster/networking',
         '/blog/cluster/chat-boty',
+        '/blog/cluster/telegram-marketing',
         '/blog/razrabotka-sayta-pod-klyuch',
         '/blog/skolko-stoit-razrabotka-sayta',
         '/blog/kak-zakazat-razrabotku-sayta',
@@ -154,7 +155,9 @@ export default defineNuxtConfig({
         '/blog/chat-bot-v-max',
         '/blog/kak-sozdat-sajt-samostoyatelno',
         '/blog/skolko-stoit-sozdat-sajt-2026',
-        '/blog/platformy-dlya-sozdaniya-saytov-sravnenie'
+        '/blog/platformy-dlya-sozdaniya-saytov-sravnenie',
+        '/blog/kak-vesti-telegram-kanal',
+        '/blog/prodvizhenie-v-telegram'
       ],
       failOnError: false
     },
@@ -245,7 +248,9 @@ export default defineNuxtConfig({
       '/blog/chat-bot-v-max',
       '/blog/kak-sozdat-sajt-samostoyatelno',
       '/blog/skolko-stoit-sozdat-sajt-2026',
-      '/blog/platformy-dlya-sozdaniya-saytov-sravnenie'
+      '/blog/platformy-dlya-sozdaniya-saytov-sravnenie',
+      '/blog/kak-vesti-telegram-kanal',
+      '/blog/prodvizhenie-v-telegram'
     ]
   },
 

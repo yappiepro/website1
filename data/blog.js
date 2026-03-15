@@ -46,6 +46,8 @@ import chatBotVMax from './blog/chat-boty/chat-bot-v-max.js'
 import kakSozdatSajtSamostoyatelno from './blog/sozdanie-saytov/kak-sozdat-sajt-samostoyatelno.js'
 import skolkoStoitSozdatSajt2026 from './blog/sozdanie-saytov/skolko-stoit-sozdat-sajt-2026.js'
 import platformyDlyaSozdaniyaSaytovSravnenie from './blog/sozdanie-saytov/platformy-dlya-sozdaniya-saytov-sravnenie.js'
+import kakVestiTelegramKanal from './blog/telegram-marketing/kak-vesti-telegram-kanal.js'
+import prodvizhenieVTelegram from './blog/telegram-marketing/prodvizhenie-v-telegram.js'
 
 // Массив всех статей
 export const articles = [
@@ -99,6 +101,8 @@ export const articles = [
   kakSozdatSajtSamostoyatelno,
   skolkoStoitSozdatSajt2026,
   platformyDlyaSozdaniyaSaytovSravnenie,
+  kakVestiTelegramKanal,
+  prodvizhenieVTelegram,
 ]
 
 // Функция для получения статьи по slug
@@ -144,7 +148,8 @@ export const clusterNames = {
   'lichnyy-brend': 'Личный бренд',
   'kontent-marketing': 'Контент-маркетинг',
   'networking': 'Нетворкинг',
-  'chat-boty': 'Чат-боты'
+  'chat-boty': 'Чат-боты',
+  'telegram-marketing': 'Telegram-маркетинг'
 }
 
 // Цвета для кластеров
@@ -157,7 +162,8 @@ export const clusterColors = {
   'lichnyy-brend': 'purple',
   'kontent-marketing': 'red',
   'networking': 'teal',
-  'chat-boty': 'cyan'
+  'chat-boty': 'cyan',
+  'telegram-marketing': 'blue'
 }
 
 // Функция для получения названия кластера

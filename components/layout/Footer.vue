@@ -70,12 +70,12 @@
             </h3>
             <div class="flex flex-wrap gap-3">
               <a
-                v-for="(network, index) in socialNetworks.slice(0, 6)"
+                v-for="(network, index) in socialNetworks.slice(0, 7)"
                 :key="index"
                 :href="network.link"
                 target="_blank"
                 :aria-label="network.name || getSocialLabel(network.icon)"
-                class="w-11 h-11 bg-gray-800 hover:bg-gray-700 rounded-xl flex items-center justify-center transition-all"
+                class="inline-flex items-center justify-center px-4 py-2.5 bg-gray-800 hover:bg-gray-700 rounded-xl transition-all whitespace-nowrap"
                 :class="iconColor"
               >
                 <span v-if="network.name" class="text-xs font-bold">{{ network.name }}</span>
@@ -175,7 +175,8 @@ const props = defineProps({
       { icon: 'youtube', link: 'https://www.youtube.com/@artemselifanov' },
       { icon: 'whatsapp', link: 'https://wa.me/79535487323' },
       { name: 'TenChat', link: 'https://tenchat.ru/artselifanov' },
-      { name: 'Сетка', link: 'https://set.ki/ecaPSPa' }
+      { name: 'Сетка', link: 'https://set.ki/ecaPSPa' },
+      { name: 'Max', link: 'https://max.ru/u/f9LHodD0cOKopHkIgQpYisJTEJU83loTzixkc45wVgsAFzhMaxRj5LG6_tY' }
     ]
   },
   // Заголовок секции соцсетей

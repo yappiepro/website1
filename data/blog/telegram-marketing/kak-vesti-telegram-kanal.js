@@ -164,7 +164,7 @@ export default {
 
 <div class="article-nav">
   <p><strong>Читать далее:</strong> <a href="/blog/prodvizhenie-v-telegram">Продвижение в Telegram: как набрать аудиторию и монетизировать канал →</a></p>
-  <p><strong>Назад:</strong> <a href="/blog">← Все статьи блога</a></p>
+  <p><strong>Назад:</strong> <a href="/blog/telegram-kanal-dlya-biznesa">← Telegram-канал для бизнеса: зачем нужен и как запустить</a></p>
 </div>
   `
 }

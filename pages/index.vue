@@ -253,11 +253,11 @@
           <div class="relative z-10 flex justify-center">
             <div class="relative">
               <div class="absolute -inset-4 md:-inset-8 bg-blue-400/20 rounded-full blur-2xl"></div>
-              <div class="relative w-24 h-24 md:w-40 md:h-40 bg-blue-600 rounded-full flex items-center justify-center shadow-lg">
+              <a href="https://t.me/bussinessetka" target="_blank" rel="noopener noreferrer" class="relative w-24 h-24 md:w-40 md:h-40 bg-blue-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
                 <svg class="w-12 h-12 md:w-20 md:h-20 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
                 </svg>
-              </div>
+              </a>
               <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 px-4 py-1.5 md:px-5 md:py-2 bg-white border border-gray-200 rounded-full shadow-lg whitespace-nowrap">
                 <span class="text-[10px] md:text-xs font-bold text-gray-700">Целевая аудитория</span>
               </div>
@@ -1055,7 +1055,9 @@ const socialNetworks = [
   { name: 'YouTube', icon: 'youtube', link: 'https://www.youtube.com/@artemselifanov' },
   { name: 'ВК', icon: 'vk', link: 'https://vk.com/karelbusiness' },
   { name: 'Instagram', icon: 'instagram', link: 'https://www.instagram.com/artselifanov/' },
-  { name: 'TenChat', icon: 'linkedin', link: 'https://tenchat.ru' }
+  { name: 'TenChat', icon: 'linkedin', link: 'https://tenchat.ru/artselifanov' },
+  { name: 'Сетка', link: 'https://set.ki/ecaPSPa' },
+  { name: 'Max', link: 'https://max.ru/u/f9LHodD0cOKopHkIgQpYisJTEJU83loTzixkc45wVgsAFzhMaxRj5LG6_tY' }
 ]
 
 // Intersection Observer для анимаций

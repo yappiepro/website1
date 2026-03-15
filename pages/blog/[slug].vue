@@ -117,8 +117,14 @@
       </div>
     </Transition>
 
-    <article class="pt-24 pb-16 px-4 sm:px-6">
-      <div class="max-w-3xl mx-auto w-full overflow-x-hidden touch-pan-y">
+    <article class="pt-24 pb-16 px-4 sm:px-6 lg:pl-[180px] lg:pr-8">
+      <!-- Оглавление слева (только для десктопа) -->
+      <ArticleTableOfContents
+        v-if="tableOfContents.length > 0"
+        :items="tableOfContents"
+      />
+
+      <div class="max-w-3xl mx-auto w-full overflow-x-hidden touch-pan-y article-content">
         <header class="mb-8 sm:mb-12">
           <!-- Хлебные крошки -->
           <div class="mb-6">
@@ -161,7 +167,7 @@
           class="w-full rounded-2xl mb-8 sm:mb-12"
         />
 
-        <div class="prose prose-lg prose-violet max-w-none" v-html="article?.content"></div>
+        <div class="prose prose-lg prose-violet max-w-none article-content-body" v-html="processedContent"></div>
 
         <!-- Блок «Читать также» -->
         <div v-if="relatedArticles.length > 0" class="mt-12 pt-8 border-t border-gray-200">
@@ -214,8 +220,9 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { getArticleBySlug, formatDate, getRelatedArticles } from '~/data/blog.js'
+import ArticleTableOfContents from '~/components/blog/ArticleTableOfContents.vue'
 
 const route = useRoute()
 
@@ -224,6 +231,128 @@ const article = getArticleBySlug(Array.isArray(slug) ? slug[0] : slug)
 
 // Мобильное меню
 const isMenuOpen = ref(false)
+
+// Парсинг заголовков из HTML-контента для оглавления
+const tableOfContents = computed(() => {
+  if (!article?.content) return []
+  
+  const content = article.content
+  const headings = []
+  
+  // Регулярка для поиска h2 и h3
+  const h2Regex = /<h2>([^<]+)<\/h2>/g
+  const h3Regex = /<h3>([^<]+)<\/h3>/g
+  
+  let match
+  
+  // Собираем h2
+  while ((match = h2Regex.exec(content)) !== null) {
+    const text = match[1].trim()
+    const id = generateId(text)
+    headings.push({
+      id,
+      text,
+      level: 'h2',
+      children: []
+    })
+  }
+  
+  // Собираем h3 и привязываем к последнему h2
+  const h3Headings = []
+  while ((match = h3Regex.exec(content)) !== null) {
+    const text = match[1].trim()
+    const id = generateId(text)
+    h3Headings.push({ id, text, level: 'h3' })
+  }
+  
+  // Распределяем h3 по h2 (упрощённо - все h3 идут после h2)
+  // Для более точного распределения нужно парсить порядок
+  if (headings.length > 0 && h3Headings.length > 0) {
+    // Находим позицию каждого h2 и h3 в контенте
+    const headingPositions = []
+    
+    const h2All = [...content.matchAll(/<h2>([^<]+)<\/h2>/g)]
+    const h3All = [...content.matchAll(/<h3>([^<]+)<\/h3>/g)]
+    
+    h2All.forEach(m => {
+      headingPositions.push({
+        index: m.index,
+        type: 'h2',
+        text: m[1].trim(),
+        id: generateId(m[1].trim())
+      })
+    })
+    
+    h3All.forEach(m => {
+      headingPositions.push({
+        index: m.index,
+        type: 'h3',
+        text: m[1].trim(),
+        id: generateId(m[1].trim())
+      })
+    })
+    
+    // Сортируем по позиции
+    headingPositions.sort((a, b) => a.index - b.index)
+    
+    // Строим иерархию
+    const result = []
+    let currentH2 = null
+    
+    headingPositions.forEach(item => {
+      if (item.type === 'h2') {
+        currentH2 = {
+          id: item.id,
+          text: item.text,
+          level: 'h2',
+          children: []
+        }
+        result.push(currentH2)
+      } else if (item.type === 'h3' && currentH2) {
+        currentH2.children.push({
+          id: item.id,
+          text: item.text,
+          level: 'h3'
+        })
+      }
+    })
+    
+    return result
+  }
+  
+  return headings
+})
+
+// Обработанный контент с добавленными ID к заголовкам
+const processedContent = computed(() => {
+  if (!article?.content) return ''
+  
+  let content = article.content
+  
+  // Добавляем ID к h2
+  content = content.replace(/<h2>([^<]+)<\/h2>/g, (match, text) => {
+    const id = generateId(text.trim())
+    return `<h2 id="${id}">${text}</h2>`
+  })
+  
+  // Добавляем ID к h3
+  content = content.replace(/<h3>([^<]+)<\/h3>/g, (match, text) => {
+    const id = generateId(text.trim())
+    return `<h3 id="${id}">${text}</h3>`
+  })
+  
+  return content
+})
+
+// Генерация ID из текста
+const generateId = (text) => {
+  return text
+    .toLowerCase()
+    .replace(/[^а-яa-z0-9\s-]/gi, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .trim()
+}
 
 // Связанные статьи
 const relatedArticles = computed(() => {
@@ -309,7 +438,36 @@ div.prose div.table-wrapper,
   touch-action: pan-x pan-y !important;
 }
 
-.prose h2 {
+/* Anchor links on headings */
+.prose h2,
+.prose h3 {
+  scroll-margin-top: 100px;
+  position: relative;
+}
+
+.prose h2:hover .anchor-link,
+.prose h3:hover .anchor-link {
+  opacity: 1;
+}
+
+.anchor-link {
+  position: absolute;
+  left: -1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7c3aed;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  font-size: 0.875rem;
+}
+
+.anchor-link:hover {
+  color: #6d28d9;
+}
+
+/* Article content body styles */
+.article-content-body h2 {
   font-size: 1.5rem;
   font-weight: 700;
   color: #111827;
@@ -318,7 +476,8 @@ div.prose div.table-wrapper,
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #e5e7eb;
 }
-.prose h3 {
+
+.article-content-body h3 {
   font-size: 1.25rem;
   font-weight: 700;
   color: #111827;

@@ -68,16 +68,18 @@
             <h3 class="text-xs font-bold uppercase tracking-wider mb-4" :class="headingColor">
               {{ socialTitle }}
             </h3>
-            <div class="flex gap-3">
+            <div class="flex flex-wrap gap-3">
               <a
-                v-for="(network, index) in socialNetworks.slice(0, 4)"
+                v-for="(network, index) in socialNetworks.slice(0, 6)"
                 :key="index"
                 :href="network.link"
                 target="_blank"
-                :aria-label="getSocialLabel(network.icon)"
+                :aria-label="network.name || getSocialLabel(network.icon)"
                 class="w-11 h-11 bg-gray-800 hover:bg-gray-700 rounded-xl flex items-center justify-center transition-all"
+                :class="iconColor"
               >
-                <Icon :name="`fa-brands:${network.icon}`" class="w-5 h-5" :class="iconColor" />
+                <span v-if="network.name" class="text-xs font-bold">{{ network.name }}</span>
+                <Icon v-else :name="`fa-brands:${network.icon}`" class="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -171,7 +173,9 @@ const props = defineProps({
       { icon: 'telegram', link: 'https://t.me/artemselifanov' },
       { icon: 'vk', link: 'https://vk.com/karelbusiness' },
       { icon: 'youtube', link: 'https://www.youtube.com/@artemselifanov' },
-      { icon: 'whatsapp', link: 'https://wa.me/79535487323' }
+      { icon: 'whatsapp', link: 'https://wa.me/79535487323' },
+      { name: 'TenChat', link: 'https://tenchat.ru/artselifanov' },
+      { name: 'Сетка', link: 'https://set.ki/ecaPSPa' }
     ]
   },
   // Заголовок секции соцсетей

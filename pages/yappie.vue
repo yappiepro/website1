@@ -734,12 +734,12 @@
     <MobileBottomNav
       theme="black"
       :items="[
-        { href: '/', label: 'Главная', icon: 'lucide:home' },
+        { href: '/', label: 'Главная', iconComponent: Home },
         { href: '/networking', label: 'Нетворкинг', image: '/reference/networking.jpg' },
         { href: '/business', label: 'Бизнес', image: '/reference/business.jpg' },
         { href: '/yappie', label: 'Веб', text: 'веб', textClass: 'text-black' },
         { href: '/blog', label: 'Блог', text: 'блог', textClass: 'text-white' },
-        { href: '#top', label: 'Наверх', icon: 'lucide:arrow-up', action: 'scrollToTop' }
+        { href: '#top', label: 'Наверх', iconComponent: ArrowUp, action: 'scrollToTop' }
       ]"
     />
   </div>
@@ -820,7 +820,7 @@ import {
   TrendingDown, Users, AlertCircle, Clock, Database, Smartphone,
   CheckCircle2, Shield, Headphones, Rocket, Sparkles,
   MessageSquare, Globe, TrendingUp, Mail, Calendar, ShoppingCart, FileText,
-  LayoutDashboard, Menu, X, ChevronUp
+  LayoutDashboard, Menu, X, ChevronUp, Home, ArrowUp
 } from 'lucide-vue-next'
 
 const activeSlide = ref(0)

@@ -727,7 +727,7 @@
         class="hidden md:flex fixed bottom-6 right-6 z-50 w-12 h-12 bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white rounded-full shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 hover:scale-110 transition-all duration-300 items-center justify-center"
         aria-label="Наверх"
       >
-        <ChevronUp class="w-6 h-6" />
+        <ArrowUp class="w-5 h-5 flex-shrink-0" :stroke-width="2.5" />
       </button>
     </Transition>
 
@@ -821,7 +821,7 @@ import {
   TrendingDown, Users, AlertCircle, Clock, Database, Smartphone,
   CheckCircle2, Shield, Headphones, Rocket, Sparkles,
   MessageSquare, Globe, TrendingUp, Mail, Calendar, ShoppingCart, FileText,
-  LayoutDashboard, Menu, X, ChevronUp, Home, ArrowUp
+  LayoutDashboard, Menu, X, Home, ArrowUp
 } from 'lucide-vue-next'
 
 const activeSlide = ref(0)

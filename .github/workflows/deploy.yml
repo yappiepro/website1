@@ -35,8 +35,15 @@ jobs:
 
       - name: Copy build output to dist
         run: |
-          rm -rf dist
-          cp -r .output/public dist
+          if [ -d .output/public ]; then
+            rm -rf dist
+            cp -r .output/public dist
+          elif [ -d dist ]; then
+            echo "Using existing dist output"
+          else
+            echo "No build output found"
+            exit 1
+          fi
 
       - name: Add _headers for caching
         run: |

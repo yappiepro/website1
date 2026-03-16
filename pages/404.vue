@@ -12,7 +12,7 @@
           <a href="/#portfolio" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Кейсы</a>
           <a href="/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Блог</a>
           <a href="/#faq" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">FAQ</a>
-          <a href="https://t.me/artemselifanov" target="_blank" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 rounded-lg transition-colors shrink-0">Связаться</a>
+          <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 rounded-lg transition-colors shrink-0">Связаться</a>
         </div>
 
         <!-- Правая зона: пустая для баланса -->
@@ -63,7 +63,7 @@
         <a href="/#faq" @click="isMobileMenuOpen = false" class="p-5 bg-gray-50 hover:bg-gray-100 rounded-2xl transition-all border border-gray-100">
           <span class="text-lg font-bold text-gray-900">FAQ</span>
         </a>
-        <a href="https://t.me/artemselifanov" target="_blank"
+        <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer"
            class="mt-6 p-5 bg-gray-900 hover:bg-gray-800 rounded-2xl transition-all shadow-lg">
           <div class="flex items-center justify-center gap-3">
             <span class="text-base font-bold text-white">Связаться</span>
@@ -149,7 +149,7 @@
 
       <div class="mt-12 pt-8 border-t border-gray-200 text-center">
         <p class="text-sm text-gray-500 mb-2">
-          Остались вопросы? <a href="https://t.me/artemselifanov" target="_blank" class="text-violet-600 hover:text-violet-700 font-medium">Напишите в Telegram</a>
+          Остались вопросы? <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="text-violet-600 hover:text-violet-700 font-medium">Напишите в Telegram</a>
         </p>
       </div>
     </div>

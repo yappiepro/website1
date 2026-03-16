@@ -29,6 +29,12 @@ export default defineNuxtConfig({
     '@nuxtjs/fontaine',
     'nuxt-delay-hydration'
   ],
+  icon: {
+    provider: 'server',
+    serverBundle: {
+      collections: ['fa-solid', 'fa-brands']
+    }
+  },
 
   image: {
     format: ['webp', 'avif', 'png'],
@@ -131,7 +137,19 @@ export default defineNuxtConfig({
       '/reference/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
       '/fonts/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
       // HTML страницы - проверка при каждом посещении
-      '/**': { headers: { 'cache-control': 'public, max-age=0, must-revalidate' } }
+      '/': {
+        prerender: true,
+        headers: {
+          'cache-control': 'public, max-age=0, must-revalidate',
+          'Critical-CH': 'Sec-CH-Prefers-Color-Scheme'
+        }
+      },
+      '/**': {
+        headers: {
+          'cache-control': 'public, max-age=0, must-revalidate',
+          'Critical-CH': 'Sec-CH-Prefers-Color-Scheme'
+        }
+      }
     },
     // Копирование _headers в dist
     publicAssets: [
@@ -201,7 +219,6 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'canonical', href: 'https://artemselifanov.ru' },
         // Favicon для разных устройств
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicons/apple-touch-icon.png' },
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicons/favicon-32x32.png' },
@@ -210,20 +227,11 @@ export default defineNuxtConfig({
         { rel: 'manifest', href: '/site.webmanifest' },
         // Preconnect для важных ресурсов
         { rel: 'preconnect', href: 'https://api.iconify.design', crossorigin: true },
-        { rel: 'preconnect', href: 'https://code.jquery.com', crossorigin: true },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap' },
         { rel: 'dns-prefetch', href: 'https://api.iconify.design' },
-        // Preload шрифтов Syncopate для ускорения LCP
-        { rel: 'preload', href: '/fonts/Syncopate-Regular.woff2', as: 'font', type: 'font/woff2', crossorigin: true },
-        { rel: 'preload', href: '/fonts/Syncopate-Bold.woff2', as: 'font', type: 'font/woff2', crossorigin: true },
-        // Preload изображений hero-секции для LCP (WebP)
-        { rel: 'preload', href: '/reference/IMG_7084.webp', as: 'image', type: 'image/webp', imagesizes: '90px', imagesrcset: '/reference/IMG_7084.webp 90w, /reference/IMG_7084.webp 70w, /reference/IMG_7084.webp 50w' },
-        { rel: 'preload', href: '/reference/IMG_7082.webp', as: 'image', type: 'image/webp', imagesizes: '100px', imagesrcset: '/reference/IMG_7082.webp 100w, /reference/IMG_7082.webp 75w, /reference/IMG_7082.webp 55w' },
-        { rel: 'preload', href: '/reference/IMG_7089.webp', as: 'image', type: 'image/webp', imagesizes: '110px', imagesrcset: '/reference/IMG_7089.webp 110w, /reference/IMG_7089.webp 85w, /reference/IMG_7089.webp 60w', fetchpriority: 'high' },
-        { rel: 'preload', href: '/reference/IMG_7083.webp', as: 'image', type: 'image/webp', imagesizes: '100px', imagesrcset: '/reference/IMG_7083.webp 100w, /reference/IMG_7083.webp 75w, /reference/IMG_7083.webp 55w' },
-        { rel: 'preload', href: '/reference/IMG_7090.webp', as: 'image', type: 'image/webp', imagesizes: '90px', imagesrcset: '/reference/IMG_7090.webp 90w, /reference/IMG_7090.webp 70w, /reference/IMG_7090.webp 50w' }
+        // Preload изображений hero-секции для LCP задаются на уровне страницы
       ],
       // Критический CSS инлайн - убирает блокировку рендеринга
       style: [
@@ -235,6 +243,11 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'ru'
       }
+    }
+  },
+  runtimeConfig: {
+    public: {
+      siteUrl: 'https://artemselifanov.ru'
     }
   },
   typescript: {
@@ -327,17 +340,5 @@ export default defineNuxtConfig({
     offlinePage: '/offline'
   },
 
-  // Оптимизация загрузки CSS
-  nitro: {
-    routeRules: {
-      '/': {
-        prerender: true
-      },
-      '/**': {
-        headers: {
-          'Critical-CH': 'Sec-CH-Prefers-Color-Scheme'
-        }
-      }
-    }
-  }
+  // Оптимизация загрузки CSS перенесена в единый блок nitro
 })

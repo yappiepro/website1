@@ -19,7 +19,7 @@
       </div>
 
       <div class="pt-12" :class="borderClass">
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-10 mb-12">
+        <div class="grid grid-cols-2 md:grid-cols-6 gap-10 mb-12">
           <!-- Логотип / Название + ИП -->
           <div class="col-span-2 md:col-span-1">
             <div class="text-sm font-bold text-white mb-4">{{ siteName }}</div>
@@ -64,7 +64,7 @@
           </div>
 
           <!-- Соцсети -->
-          <div v-if="socialNetworks && socialNetworks.length" class="md:col-span-2">
+          <div v-if="socialNetworks && socialNetworks.length" class="md:col-span-3">
             <h3 class="text-xs font-bold uppercase tracking-wider mb-4" :class="headingColor">
               {{ socialTitle }}
             </h3>

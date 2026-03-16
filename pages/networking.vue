@@ -441,7 +441,7 @@ function toggleFaq(index) {
             'transition-all duration-300',
             isScrolled ? 'hidden' : 'block md:block'
           ]">
-            <a href="/" class="group flex items-center gap-3">
+            <a href="/" class="group flex items-center gap-3" aria-label="Главная" title="Главная">
               <img src="/reference/Vector.svg" alt="Нескучный Нетворкинг — логотип сообщества" class="h-10 w-auto" />
             </a>
           </div>
@@ -1047,7 +1047,7 @@ function toggleFaq(index) {
             <span class="text-gray-300">|</span>
             <a href="mailto:a9535487323@yandex.ru" class="text-gray-700 hover:text-black transition-colors">a9535487323@yandex.ru</a>
             <span class="text-gray-300">|</span>
-            <a href="https://t.me/artemselifanov" target="_blank" class="text-gray-700 hover:text-black transition-colors">Telegram</a>
+            <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-black transition-colors">Telegram</a>
           </div>
         </div>
         <div class="flex flex-col md:flex-row justify-between items-center gap-4">

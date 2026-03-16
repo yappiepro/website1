@@ -19,7 +19,7 @@
 
           <!-- Правая зона: CTA кнопка -->
           <div class="hidden md:block shrink-0">
-            <a href="https://t.me/artemselifanov" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-gray-900/90 hover:bg-gray-900 rounded-xl transition-all backdrop-blur-sm">
+            <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-gray-900/90 hover:bg-gray-900 rounded-xl transition-all backdrop-blur-sm">
               <span>Связаться</span>
             </a>
           </div>
@@ -97,7 +97,7 @@
             </div>
           </button>
 
-          <a href="https://t.me/artemselifanov" target="_blank"
+          <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer"
              class="mt-6 group relative overflow-hidden p-5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-2xl transition-all shadow-lg shadow-blue-600/30">
             <div class="flex items-center justify-center gap-3">
               <Icon name="fa-brands:telegram" class="w-5 h-5 text-white" />
@@ -249,7 +249,7 @@
           <span class="text-gray-300">|</span>
           <a href="mailto:a9535487323@yandex.ru" class="text-gray-600 hover:text-gray-900 transition-colors">a9535487323@yandex.ru</a>
           <span class="text-gray-300">|</span>
-          <a href="https://t.me/artemselifanov" target="_blank" class="text-gray-600 hover:text-gray-900 transition-colors">Telegram</a>
+          <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 transition-colors">Telegram</a>
         </div>
         <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
           <NuxtLink to="/blog" class="text-xl font-bold text-gray-900">
@@ -257,7 +257,7 @@
           </NuxtLink>
           <div class="flex items-center gap-6">
             <NuxtLink to="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Главная</NuxtLink>
-            <a href="https://t.me/artemselifanov" target="_blank" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Связаться</a>
+            <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Связаться</a>
           </div>
           <span class="text-gray-500 text-sm">© 2026 Блог</span>
         </div>
@@ -272,7 +272,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { ArrowRight, X } from 'lucide-vue-next'
-import { articles, formatDate, getClusters, getClusterName, getClusterColor, getRandomArticles, getArticlesByCluster } from '~/data/blog.js'
+import { articles, formatDate, getClusters, getClusterName, getClusterColor, getRandomArticles, getArticlesByCluster } from '~/data/blog-meta.js'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
 
 const route = useRoute()

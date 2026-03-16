@@ -10,6 +10,19 @@ import CookieBanner from '~/components/layout/CookieBanner.vue'
 import GoogleAnalytics from '~/components/GoogleAnalytics.vue'
 import YandexMetrica from '~/components/YandexMetrica.vue'
 
+const route = useRoute()
+const config = useRuntimeConfig()
+const siteUrl = computed(() => (config.public.siteUrl || '').replace(/\/+$/, ''))
+const canonicalUrl = computed(() => {
+  if (!siteUrl.value) return null
+  const path = route.path || '/'
+  return `${siteUrl.value}${path === '/' ? '' : path}`
+})
+
+useHead(() => ({
+  link: canonicalUrl.value ? [{ rel: 'canonical', href: canonicalUrl.value }] : []
+}))
+
 // Яндекс.Метрика
 useHead({
   meta: [

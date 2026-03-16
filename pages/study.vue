@@ -17,7 +17,7 @@
           <a href="#portfolio" class="text-sm text-gray-600 hover:text-gray-900 transition-all duration-300">Кейсы</a>
           <a href="/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-all duration-300">Блог</a>
           <a href="#faq" class="text-sm text-gray-600 hover:text-gray-900 transition-all duration-300">FAQ</a>
-          <a href="https://t.me/artemselifanov" target="_blank" class="px-4 py-2 text-xs bg-gray-900 text-white hover:bg-gray-800 shadow-lg shadow-gray-900/20 hover:shadow-gray-900/30 transition-all rounded-md font-medium shrink-0">Связаться</a>
+          <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="px-4 py-2 text-xs bg-gray-900 text-white hover:bg-gray-800 shadow-lg shadow-gray-900/20 hover:shadow-gray-900/30 transition-all rounded-md font-medium shrink-0">Связаться</a>
         </div>
 
         <!-- Правая зона: пустая для баланса -->
@@ -55,7 +55,7 @@
         <a href="#portfolio" class="nav-link">Кейсы</a>
         <a href="/blog" class="nav-link">Блог</a>
         <a href="#faq" class="nav-link">FAQ</a>
-        <a href="https://t.me/artemselifanov" target="_blank" class="nav-btn">Связаться</a>
+        <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="nav-btn">Связаться</a>
       </nav>
     </header>
     -->
@@ -583,7 +583,7 @@
           <span class="text-gray-600">|</span>
           <a href="mailto:a9535487323@yandex.ru" class="text-gray-400 hover:text-white transition-colors">a9535487323@yandex.ru</a>
           <span class="text-gray-600">|</span>
-          <a href="https://t.me/artemselifanov" target="_blank" class="text-gray-400 hover:text-white transition-colors">Telegram</a>
+          <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">Telegram</a>
         </div>
         <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
           <span>© 2026 Фокус. Все права защищены.</span>

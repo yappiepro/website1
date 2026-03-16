@@ -23,7 +23,7 @@
         @click="reloadPage"
         class="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold text-white bg-violet-600 hover:bg-violet-700 rounded-2xl transition-all hover:-translate-y-1 shadow-lg shadow-violet-600/30"
       >
-        <Icon name="fa-solid:rotate" class="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" />
+        <Icon name="fa-solid:sync" class="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" />
         Попробовать снова
       </button>
 

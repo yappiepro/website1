@@ -10,7 +10,7 @@
         <div class="hidden md:flex items-center gap-6 flex-1 justify-center">
           <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Главная</a>
           <a href="/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Блог</a>
-          <a href="https://t.me/artemselifanov" target="_blank" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Связаться</a>
+          <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Связаться</a>
         </div>
         
         <!-- Правая зона: пустая для баланса -->
@@ -187,7 +187,7 @@
           <span class="text-gray-300">|</span>
           <a href="mailto:a9535487323@yandex.ru" class="text-gray-600 hover:text-gray-900 transition-colors">a9535487323@yandex.ru</a>
           <span class="text-gray-300">|</span>
-          <a href="https://t.me/artemselifanov" target="_blank" class="text-gray-600 hover:text-gray-900 transition-colors">Telegram</a>
+          <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 transition-colors">Telegram</a>
         </div>
         <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
           <a href="/" class="text-xl font-bold text-gray-900">Артём Селифанов</a>

@@ -1,19 +1,5 @@
 <template>
   <div class="min-h-screen bg-white text-gray-900 overflow-x-hidden touch-pan-y">
-    <Head>
-      <Title>Блог о разработке сайтов, веб-приложений и AI для бизнеса | Артём Селифанов</Title>
-      <Meta name="description" content="Статьи о разработке сайтов, создании веб-приложений, мобильной разработке, веб-разработке и искусственном интеллекте для бизнеса. Практические руководства и кейсы." />
-      <Meta name="keywords" content="блог о разработке, создание сайтов, веб-разработка, мобильные приложения, искусственный интеллект, AI для бизнеса, программирование" />
-      <Meta name="robots" content="index, follow" />
-      <Meta property="og:title" content="Блог о разработке сайтов и AI для бизнеса" />
-      <Meta property="og:description" content="Статьи о разработке сайтов, создании веб-приложений, мобильной разработке и искусственном интеллекте для бизнеса" />
-      <Meta property="og:type" content="website" />
-      <Meta property="og:url" content="https://artemselifanov.ru/blog" />
-      <Meta name="twitter:card" content="summary_large_image" />
-      <Meta name="twitter:title" content="Блог о разработке сайтов и AI для бизнеса" />
-      <Meta name="twitter:description" content="Статьи о разработке сайтов, создании веб-приложений, мобильной разработке и искусственном интеллекте для бизнеса" />
-      <Link rel="canonical" href="https://artemselifanov.ru/blog" />
-    </Head>
     <!-- Хедер -->
     <header class="fixed left-4 right-4 z-40 transition-all duration-300 rounded-2xl bg-white/20 backdrop-blur-md shadow-sm md:top-0 top-4">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
@@ -381,10 +367,25 @@ function getClusterButtonActiveClass(cluster) {
   return colorMap[color] || colorMap.violet
 }
 
+useHead({
+  link: [
+    { rel: 'canonical', href: 'https://artemselifanov.ru/blog' }
+  ]
+})
+
 useSeoMeta({
-  title: 'Блог — Yappie',
-  description: 'Статьи о разработке сайтов, чат-ботов, веб-приложений и AI для бизнеса',
-  ogTitle: 'Блог — Yappie',
-  ogDescription: 'Статьи о разработке сайтов, чат-ботов, веб-приложений и AI для бизнеса'
+  title: 'Блог о разработке сайтов, веб-приложений и AI для бизнеса | Артём Селифанов',
+  description: 'Статьи о разработке сайтов, создании веб-приложений, мобильной разработке, веб-разработке и искусственном интеллекте для бизнеса. Практические руководства и кейсы.',
+  keywords: 'блог о разработке, создание сайтов, веб-разработка, мобильные приложения, искусственный интеллект, AI для бизнеса, программирование',
+  robots: 'index, follow',
+  ogTitle: 'Блог о разработке сайтов и AI для бизнеса',
+  ogDescription: 'Статьи о разработке сайтов, создании веб-приложений, мобильной разработке и искусственном интеллекте для бизнеса',
+  ogType: 'website',
+  ogUrl: 'https://artemselifanov.ru/blog',
+  ogImage: 'https://artemselifanov.ru/reference/openGraph/blog.webp',
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Блог о разработке сайтов и AI для бизнеса',
+  twitterDescription: 'Статьи о разработке сайтов, создании веб-приложений, мобильной разработке и искусственном интеллекте для бизнеса',
+  twitterImage: 'https://artemselifanov.ru/reference/opengraph_index.png'
 })
 </script>

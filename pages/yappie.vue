@@ -760,13 +760,13 @@ useSeoMeta({
   robots: 'index, follow',
   ogTitle: 'Разработка сайтов и AI-решений для бизнеса — YAPPIE | Артём Селифанов',
   ogDescription: 'Разрабатываем сайты, Telegram-боты, CRM и веб-приложения с AI. Автоматизация бизнес-процессов под ключ.',
-  ogImage: 'https://artemselifanov.ru/og-image.jpg',
+  ogImage: 'https://artemselifanov.ru/reference/openGraph/yappie.webp',
   ogUrl: 'https://artemselifanov.ru/yappie',
   ogType: 'website',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Разработка сайтов и AI-решений для бизнеса — YAPPIE | Артём Селифанов',
   twitterDescription: 'Разрабатываем сайты, Telegram-боты, CRM и веб-приложения с AI. Автоматизация бизнес-процессов под ключ.',
-  twitterImage: 'https://artemselifanov.ru/og-image.jpg'
+  twitterImage: 'https://artemselifanov.ru/reference/opengraph_index.png'
 })
 
 useHead({

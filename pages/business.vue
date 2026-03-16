@@ -15,11 +15,11 @@ useSeoMeta({
   ogDescription: 'Закрытый клуб предпринимателей и экспертов. Мастермайнд-группы, бизнес-разборы, нетворкинг.',
   ogType: 'website',
   ogUrl: 'https://artemselifanov.ru/business',
-  ogImage: 'https://artemselifanov.ru/og-image.jpg',
+  ogImage: 'https://artemselifanov.ru/reference/openGraph/business.webp',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Бизнес Сетка — закрытый клуб и мастермайнд для предпринимателей',
   twitterDescription: 'Закрытый клуб предпринимателей и экспертов. Мастермайнд-группы, бизнес-разборы, нетворкинг.',
-  twitterImage: 'https://artemselifanov.ru/og-image.jpg'
+  twitterImage: 'https://artemselifanov.ru/reference/opengraph_index.png'
 })
 
 useHead({

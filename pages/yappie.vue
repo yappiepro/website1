@@ -14,7 +14,7 @@
             'transition-all duration-300',
             scrolled ? 'hidden' : 'block md:block'
           ]">
-            <a href="/yappie" class="text-xl font-semibold text-white flex items-center gap-2 group shrink-0">
+            <a href="/yappie" class="text-xl font-semibold text-white flex items-center gap-2 group shrink-0" aria-label="YAPPIE" title="YAPPIE">
               <img src="/reference/YAPPIE.svg" alt="YAPPIE логотип" class="h-4 w-auto" />
             </a>
           </div>
@@ -28,13 +28,14 @@
             <a href="#portfolio" class="px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-all">Кейсы</a>
             <a href="/blog" class="px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-all">Блог</a>
             <a href="#faq" class="px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-all">FAQ</a>
-            <a href="https://t.me/artemselifanov" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-black bg-white hover:bg-gray-100 rounded-xl transition-all">
+          </div>
+
+          <!-- Правая зона: Кнопка Связаться -->
+          <div class="hidden md:flex items-center shrink-0">
+            <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-black bg-white hover:bg-gray-100 rounded-xl transition-all">
               <span>Связаться</span>
             </a>
           </div>
-
-          <!-- Правая зона: пустая для баланса -->
-          <div class="hidden md:block w-[100px] shrink-0"></div>
 
           <!-- Кнопка бургер-меню для мобильных -->
           <button
@@ -98,7 +99,7 @@
 
             <!-- Кнопки -->
             <div class="flex flex-row gap-3 animate-fade-in-up animation-delay-400 flex-wrap">
-              <a href="https://t.me/artemselifanov" target="_blank" class="inline-flex items-center justify-center rounded-full font-medium px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm bg-white text-black hover:bg-gray-100 shadow-xl shadow-white/10 hover:shadow-white/20 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 whitespace-nowrap flex-1 sm:flex-none">
+              <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full font-medium px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm bg-white text-black hover:bg-gray-100 shadow-xl shadow-white/10 hover:shadow-white/20 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 whitespace-nowrap flex-1 sm:flex-none">
                 <span class="whitespace-nowrap">Обсудить проект</span>
                 <ArrowRight class="ml-2 h-3.5 w-3.5 flex-shrink-0" />
               </a>
@@ -558,7 +559,7 @@
                   </div>
                 </div>
 
-                <a href="https://t.me/artemselifanov" target="_blank" class="inline-flex items-center justify-center rounded-full font-medium px-5 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm bg-white text-black hover:bg-gray-100 whitespace-nowrap transition-all">
+                <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full font-medium px-5 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm bg-white text-black hover:bg-gray-100 whitespace-nowrap transition-all">
                   <span class="whitespace-nowrap">Обсудить внедрение</span>
                   <ArrowRight class="ml-2 h-3.5 w-3.5 flex-shrink-0" />
                 </a>
@@ -675,7 +676,7 @@
           Расскажите о вашей задаче — мы предложим решение и рассчитаем стоимость бесплатно
         </p>
 
-        <a href="https://t.me/artemselifanov" target="_blank" class="inline-flex items-center justify-center rounded-full font-medium px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base bg-white text-black hover:bg-gray-100 shadow-2xl shadow-white/15 hover:shadow-white/25 transition-all duration-300 hover:scale-105 whitespace-nowrap">
+        <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full font-medium px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base bg-white text-black hover:bg-gray-100 shadow-2xl shadow-white/15 hover:shadow-white/25 transition-all duration-300 hover:scale-105 whitespace-nowrap">
           <Send class="mr-2 sm:mr-3 h-4 sm:h-5 w-4 sm:w-5 flex-shrink-0" />
           <span class="whitespace-nowrap">Написать в Telegram</span>
           <ArrowRight class="ml-2 sm:ml-3 h-4 sm:h-5 w-4 sm:w-5 flex-shrink-0" />
@@ -694,7 +695,7 @@
           <span class="text-gray-600">|</span>
           <a href="mailto:a9535487323@yandex.ru" class="text-gray-400 hover:text-white transition-colors">a9535487323@yandex.ru</a>
           <span class="text-gray-600">|</span>
-          <a href="https://t.me/artemselifanov" target="_blank" class="text-gray-400 hover:text-white transition-colors">Telegram</a>
+          <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">Telegram</a>
         </div>
         <div class="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
           <div class="flex items-center gap-2">
@@ -723,7 +724,7 @@
       <button
         v-show="showScrollTop"
         @click="scrollToTop"
-        class="hidden md:block fixed bottom-6 right-6 z-50 w-12 h-12 bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white rounded-full shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 hover:scale-110 transition-all duration-300 flex items-center justify-center"
+        class="hidden md:flex fixed bottom-6 right-6 z-50 w-12 h-12 bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white rounded-full shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 hover:scale-110 transition-all duration-300 items-center justify-center"
         aria-label="Наверх"
       >
         <ChevronUp class="w-6 h-6" />

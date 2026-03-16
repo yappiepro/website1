@@ -13,7 +13,7 @@
           <a href="/business" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Бизнес Сетка</a>
           <a href="/yappie" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Веб-разработка</a>
           <a href="/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Блог</a>
-          <a href="https://t.me/artemselifanov" target="_blank" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Связаться</a>
+          <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Связаться</a>
         </div>
         
         <!-- Правая зона: пустая для баланса -->
@@ -49,7 +49,7 @@
           @click="isMobileMenuOpen = false"
           class="mt-12 px-10 py-5 text-xl font-semibold bg-blue-600 text-white hover:bg-blue-700 w-full max-w-xs rounded-md"
         >
-          <a href="https://t.me/artemselifanov" target="_blank">Связаться</a>
+          <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer">Связаться</a>
         </button>
       </div>
       <!-- Кнопка закрытия -->
@@ -93,7 +93,7 @@
               </div>
             </div>
 
-            <a href="https://t.me/artemselifanov" target="_blank" class="group inline-flex items-center gap-3 px-10 py-5 text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-2xl transition-all hover:-translate-y-1 shadow-lg shadow-blue-600/30">
+            <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-3 px-10 py-5 text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-2xl transition-all hover:-translate-y-1 shadow-lg shadow-blue-600/30">
               <Icon name="fa-brands:telegram" class="w-6 h-6" />
               Написать «ментор»
             </a>
@@ -273,7 +273,7 @@
             Если хотите попасть в ближайший поток — напишите сейчас.
           </p>
 
-          <a href="https://t.me/artemselifanov" target="_blank" class="group inline-flex items-center gap-3 px-10 py-5 text-lg font-semibold text-blue-600 bg-white hover:bg-gray-100 rounded-2xl transition-all hover:-translate-y-1 shadow-xl">
+          <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-3 px-10 py-5 text-lg font-semibold text-blue-600 bg-white hover:bg-gray-100 rounded-2xl transition-all hover:-translate-y-1 shadow-xl">
             <Icon name="fa-brands:telegram" class="w-6 h-6" />
             Написать «ментор» в Telegram
           </a>

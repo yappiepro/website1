@@ -9,6 +9,8 @@
         v-for="item in items"
         :key="item.href"
         :href="item.href"
+        :aria-label="item.label"
+        :title="item.label"
         @click="handleClick(item, $event)"
         class="relative flex flex-col items-center justify-center py-3 flex-1"
         :class="[

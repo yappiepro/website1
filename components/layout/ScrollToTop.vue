@@ -2,14 +2,13 @@
   <button
     @click="scrollToTop"
     v-show="visible"
-    class="fixed bottom-4 right-4 z-[9999] p-3 rounded-2xl transition-all shadow-lg backdrop-blur-sm"
-    :class="buttonClass"
+    :class="[buttonClass, 'fixed bottom-4 right-4 z-[9999] p-3 rounded-2xl transition-all shadow-lg backdrop-blur-sm flex items-center justify-center']"
     aria-label="Наверх"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 384 512"
-      style="width: 20px; height: 20px;"
+      class="w-5 h-5 block"
       fill="currentColor"
       :class="iconClass"
     >

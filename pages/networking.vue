@@ -14,11 +14,11 @@ useSeoMeta({
   ogDescription: 'Сообщество предпринимателей и экспертов для роста личного бренда. Продвижение в Telegram, Сетке и TenChat.',
   ogType: 'website',
   ogUrl: 'https://artemselifanov.ru/networking',
-  ogImage: 'https://artemselifanov.ru/og-image.jpg',
+  ogImage: 'https://artemselifanov.ru/reference/openGraph/networking.webp',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Нескучный Нетворкинг — личный бренд и контент-маркетинг для экспертов',
   twitterDescription: 'Сообщество предпринимателей и экспертов для роста личного бренда',
-  twitterImage: 'https://artemselifanov.ru/og-image.jpg'
+  twitterImage: 'https://artemselifanov.ru/reference/opengraph_index.png'
 })
 
 useHead({

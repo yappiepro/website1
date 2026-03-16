@@ -887,12 +887,12 @@ useSeoMeta({
   ogType: 'website',
   ogLocale: 'ru_RU',
   ogUrl: 'https://artemselifanov.ru',
-  ogImage: '/reference/opengraph_index.webp',
+  ogImage: 'https://artemselifanov.ru/reference/openGraph/opengraph_index.webp',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Артём Селифанов — Личный бренд для предпринимателей и экспертов',
   twitterDescription: 'Артём Селифанов — эксперт по личному бренду. Помогаю выстроить систему продвижения и привлекать клиентов из Telegram',
   twitterUrl: 'https://artemselifanov.ru',
-  twitterImage: '/reference/opengraph_index.webp'
+  twitterImage: 'https://artemselifanov.ru/reference/openGraph/opengraph_index.webp'
 })
 
 useHead({

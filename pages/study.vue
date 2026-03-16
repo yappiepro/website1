@@ -1,19 +1,5 @@
 <template>
   <div class="demo-page overflow-x-hidden">
-    <Head>
-      <Title>Фокус — Тест на позиционирование личного бренда | Артём Селифанов</Title>
-      <Meta name="description" content="Пройдите бесплатный тест на позиционирование личного бренда. Узнайте свои сильные стороны, определите целевую аудиторию и получите персональные рекомендации по развитию." />
-      <Meta name="keywords" content="тест позиционирования, личный бренд тест, позиционирование эксперта, аудит личного бренда, бесплатная диагностика" />
-      <Meta name="robots" content="index, follow" />
-      <Meta property="og:title" content="Фокус — Тест на позиционирование личного бренда" />
-      <Meta property="og:description" content="Пройдите бесплатный тест на позиционирование личного бренда и получите персональные рекомендации" />
-      <Meta property="og:type" content="website" />
-      <Meta property="og:url" content="https://artemselifanov.ru/study" />
-      <Meta name="twitter:card" content="summary_large_image" />
-      <Meta name="twitter:title" content="Фокус — Тест на позиционирование личного бренда" />
-      <Meta name="twitter:description" content="Пройдите бесплатный тест на позиционирование личного бренда и получите персональные рекомендации" />
-      <Link rel="canonical" href="https://artemselifanov.ru/study" />
-    </Head>
     <!-- Навигация -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-2xl border-b border-gray-200">
       <div class="max-w-7xl mx-auto px-6 py-4 flex items-center">
@@ -1122,9 +1108,25 @@ onUnmounted(() => {
   }
 })
 
+useHead({
+  link: [
+    { rel: 'canonical', href: 'https://artemselifanov.ru/study' }
+  ]
+})
+
 useSeoMeta({
-  title: 'Demo: Mind Карта Артема Селифанова',
-  description: 'Нестандартная демо-страница о системности в бизнесе: стратегия, бренд, сайт, контент.'
+  title: 'Фокус — Тест на позиционирование личного бренда | Артём Селифанов',
+  description: 'Пройдите бесплатный тест на позиционирование личного бренда. Узнайте свои сильные стороны, определите целевую аудиторию и получите персональные рекомендации по развитию.',
+  keywords: 'тест позиционирования, личный бренд тест, позиционирование эксперта, аудит личного бренда, бесплатная диагностика',
+  robots: 'index, follow',
+  ogTitle: 'Фокус — Тест на позиционирование личного бренда',
+  ogDescription: 'Пройдите бесплатный тест на позиционирование личного бренда и получите персональные рекомендации',
+  ogType: 'website',
+  ogUrl: 'https://artemselifanov.ru/study',
+  ogImage: 'https://artemselifanov.ru/reference/openGraph/study.webp',
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Фокус — Тест на позиционирование личного бренда',
+  twitterDescription: 'Пройдите бесплатный тест на позиционирование личного бренда и получите персональные рекомендации'
 })
 </script>
 

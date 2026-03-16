@@ -1,19 +1,5 @@
 <template>
   <div class="min-h-screen bg-white text-gray-900 antialiased overflow-x-hidden">
-    <Head>
-      <Title>Консультация по личному бренду и позиционированию | Артём Селифанов</Title>
-      <Meta name="description" content="Разберём ваш личный бренд, найдём точки роста и выстроим стратегию продвижения. Запишитесь на консультацию к Артёму Селифанову." />
-      <Meta name="keywords" content="консультация по личному бренду, позиционирование эксперта, стратегия продвижения, Артём Селифанов консультация" />
-      <Meta name="robots" content="index, follow" />
-      <Meta property="og:title" content="Консультация по личному бренду и позиционированию | Артём Селифанов" />
-      <Meta property="og:description" content="Разберём ваш личный бренд, найдём точки роста и выстроим стратегию продвижения." />
-      <Meta property="og:type" content="website" />
-      <Meta property="og:url" content="https://artemselifanov.ru/consultation" />
-      <Meta name="twitter:card" content="summary_large_image" />
-      <Meta name="twitter:title" content="Консультация по личному бренду и позиционированию | Артём Селифанов" />
-      <Meta name="twitter:description" content="Разберём ваш личный бренд, найдём точки роста и выстроим стратегию продвижения." />
-      <Link rel="canonical" href="https://artemselifanov.ru/consultation" />
-    </Head>
     <!-- Навигация -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200">
       <div class="max-w-7xl mx-auto px-6 py-4 flex items-center">

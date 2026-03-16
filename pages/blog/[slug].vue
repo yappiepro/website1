@@ -377,7 +377,7 @@ useSeoMeta({
   ogTitle: article.title || '',
   ogDescription: article.description || '',
   ogType: 'article',
-  ogImage: article.image || 'https://artemselifanov.ru/og-image.jpg',
+  ogImage: article.image || 'https://artemselifanov.ru/reference/openGraph/blog.webp',
   articlePublishedTime: article.date || '',
   articleSection: article.category || '',
   twitterCard: 'summary_large_image',

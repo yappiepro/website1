@@ -1,5 +1,4 @@
 User-Agent: *
 Allow: /
 
-Sitemap: https://artemselifanov.ru/sitemap-pages.xml
-Sitemap: https://artemselifanov.ru/sitemap-blog.xml
+Sitemap: https://artemselifanov.ru/sitemap.xml

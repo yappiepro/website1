@@ -64,7 +64,7 @@
           </div>
 
           <!-- Соцсети -->
-          <div v-if="socialNetworks && socialNetworks.length">
+          <div v-if="socialNetworks && socialNetworks.length" class="md:col-span-2">
             <h3 class="text-xs font-bold uppercase tracking-wider mb-4" :class="headingColor">
               {{ socialTitle }}
             </h3>

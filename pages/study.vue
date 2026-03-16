@@ -575,25 +575,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="py-8 px-6 border-t border-white/10">
-      <div class="max-w-7xl mx-auto">
-        <!-- Контакты -->
-        <div class="flex flex-wrap justify-center gap-4 sm:gap-6 mb-6 text-sm">
-          <a href="tel:+79535487323" class="text-gray-400 hover:text-white transition-colors">+7 (953) 548-73-23</a>
-          <span class="text-gray-600">|</span>
-          <a href="mailto:a9535487323@yandex.ru" class="text-gray-400 hover:text-white transition-colors">a9535487323@yandex.ru</a>
-          <span class="text-gray-600">|</span>
-          <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">Telegram</a>
-        </div>
-        <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-          <span>© 2026 Фокус. Все права защищены.</span>
-          <div class="flex gap-6">
-            <a href="/" class="hover:text-white transition-colors">Главная</a>
-            <a href="/blog" class="hover:text-white transition-colors">Блог</a>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <Footer :show-cta="false" bg-class="bg-[#030305]" border-class="border-white/10" />
 
     <!-- Нижняя навигация для мобильных -->
     <MobileBottomNav theme="light" />
@@ -605,6 +587,7 @@ import { Menu, X } from 'lucide-vue-next'
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
 import BaseMobileMenu from '~/components/layout/BaseMobileMenu.vue'
+import Footer from '~/components/layout/Footer.vue'
 
 const config = useRuntimeConfig()
 const baseURL = config.app.baseURL

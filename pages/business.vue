@@ -4,6 +4,7 @@ import { ArrowRight, Users, Target, Lightbulb, Calendar, MessageCircle, Trending
 import gsap from 'gsap'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
 import BaseMobileMenu from '~/components/layout/BaseMobileMenu.vue'
+import Footer from '~/components/layout/Footer.vue'
 
 // SEO для страницы
 useSeoMeta({
@@ -680,23 +681,7 @@ function toggleFaq(index) {
     </main>
 
     <!-- Footer -->
-    <footer class="py-8 px-4 sm:px-6 bg-gray-900 border-t border-gray-800">
-      <div class="max-w-[1600px] mx-auto">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div class="flex items-center gap-3">
-            <NuxtImg src="/reference/business.webp" quality="75" sizes="24px md:32px" alt="Бизнес Сетка — логотип" class="w-6 h-6 rounded-md" />
-            <span class="text-sm font-bold text-white">БИЗНЕС СЕТКА</span>
-          </div>
-          <div class="flex items-center gap-6">
-            <a href="/" class="text-xs text-gray-300 hover:text-white transition-colors">Главная</a>
-            <a href="#membership" class="text-xs text-gray-300 hover:text-white transition-colors">Участие</a>
-            <a href="#events" class="text-xs text-gray-300 hover:text-white transition-colors">События</a>
-            <a href="https://t.me/+mFUh7ye6U6NjNzli" target="_blank" rel="noopener noreferrer" class="text-xs text-gray-300 hover:text-white transition-colors">Контакты</a>
-          </div>
-          <span class="text-xs text-gray-300">© 2026 Бизнес Сетка. Все права защищены.</span>
-        </div>
-      </div>
-    </footer>
+    <Footer :show-cta="false" bg-class="bg-gray-900" />
 
     <!-- Нижняя навигация для мобильных (светлая тема) -->
     <MobileBottomNav

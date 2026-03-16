@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue'
 import { ArrowRight, Mail, MapPin, Calendar, Users, TrendingUp, Target, Zap, BookOpen, MessageCircle, Check, ExternalLink, Menu, X, Video } from 'lucide-vue-next'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
 import BaseMobileMenu from '~/components/layout/BaseMobileMenu.vue'
+import Footer from '~/components/layout/Footer.vue'
 
 // SEO для страницы
 useSeoMeta({
@@ -500,12 +501,6 @@ function toggleFaq(index) {
             <span class="uppercase tracking-wider">ID ПРОЕКТА: НН-2026</span>
             <span class="mx-3">//</span>
             <span class="uppercase tracking-wider">ИНСТРУМЕНТЫ: СЕТКА, TENCHAT, TELEGRAM, КОНТЕНТ</span>
-          </div>
-          <div class="text-xs text-right flex items-center gap-2">
-            <div class="w-2 h-2 rounded-full bg-[#EA6D3A] animate-pulse"></div>
-            <span class="uppercase tracking-wider">СТАТУС: АКТИВЕН</span>
-            <span class="mx-3">//</span>
-            <span class="uppercase tracking-wider">ГОД: 2026</span>
           </div>
         </div>
 
@@ -1038,29 +1033,7 @@ function toggleFaq(index) {
     </main>
 
     <!-- Footer -->
-    <footer class="py-8 px-4 md:px-6 bg-white border-t-2 border-black">
-      <div class="max-w-[1400px] mx-auto">
-        <div class="flex flex-col gap-6 mb-6">
-          <!-- Контакты -->
-          <div class="flex flex-wrap justify-center gap-4 text-sm">
-            <a href="tel:+79535487323" class="text-gray-700 hover:text-black transition-colors">+7 (953) 548-73-23</a>
-            <span class="text-gray-300">|</span>
-            <a href="mailto:a9535487323@yandex.ru" class="text-gray-700 hover:text-black transition-colors">a9535487323@yandex.ru</a>
-            <span class="text-gray-300">|</span>
-            <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-black transition-colors">Telegram</a>
-          </div>
-        </div>
-        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div class="flex items-center gap-3">
-            <img src="/reference/Vector.svg" alt="Нескучный Нетворкинг — логотип сообщества" class="h-8 w-auto" />
-            <span class="font-bold text-xs uppercase tracking-wider">Нескучный Нетворкинг © 2026</span>
-          </div>
-          <div class="text-xs text-gray-600 uppercase tracking-wider">
-            ID ПРОЕКТА: НН-2026 // ИНСТРУМЕНТЫ: СЕТКА, TENCHAT, TELEGRAM, КОНТЕНТ
-          </div>
-        </div>
-      </div>
-    </footer>
+    <Footer :show-cta="false" bg-class="bg-white" border-class="border-t-2 border-black" />
 
     <!-- Нижняя навигация для мобильных -->
     <MobileBottomNav theme="light" />

@@ -241,28 +241,7 @@
       </div>
     </main>
 
-    <footer class="py-8 px-4 sm:px-6 border-t border-gray-200">
-      <div class="max-w-7xl mx-auto">
-        <!-- Контакты -->
-        <div class="flex flex-wrap justify-center gap-4 sm:gap-6 mb-4 text-sm">
-          <a href="tel:+79535487323" class="text-gray-600 hover:text-gray-900 transition-colors">+7 (953) 548-73-23</a>
-          <span class="text-gray-300">|</span>
-          <a href="mailto:a9535487323@yandex.ru" class="text-gray-600 hover:text-gray-900 transition-colors">a9535487323@yandex.ru</a>
-          <span class="text-gray-300">|</span>
-          <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 transition-colors">Telegram</a>
-        </div>
-        <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
-          <NuxtLink to="/blog" class="text-xl font-bold text-gray-900">
-            Блог
-          </NuxtLink>
-          <div class="flex items-center gap-6">
-            <NuxtLink to="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Главная</NuxtLink>
-            <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Связаться</a>
-          </div>
-          <span class="text-gray-500 text-sm">© 2026 Блог</span>
-        </div>
-      </div>
-    </footer>
+    <Footer bg-class="bg-gray-900" border-class="border-gray-800" />
 
     <!-- Нижняя навигация для мобильных -->
     <MobileBottomNav theme="light" />
@@ -274,6 +253,7 @@ import { ref, computed } from 'vue'
 import { ArrowRight, X } from 'lucide-vue-next'
 import { articles, formatDate, getClusters, getClusterName, getClusterColor, getRandomArticles, getArticlesByCluster } from '~/data/blog-meta.js'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
+import Footer from '~/components/layout/Footer.vue'
 
 const route = useRoute()
 

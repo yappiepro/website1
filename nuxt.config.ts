@@ -109,6 +109,8 @@ export default defineNuxtConfig({
         '/blog/cluster/networking',
         '/blog/cluster/chat-boty',
         '/blog/cluster/telegram-marketing',
+        '/blog/cluster/seo',
+        '/blog/cluster/monetizatsiya-ekspertnosti',
         '/blog/razrabotka-sayta-pod-klyuch',
         '/blog/skolko-stoit-razrabotka-sayta',
         '/blog/kak-zakazat-razrabotku-sayta',
@@ -161,7 +163,10 @@ export default defineNuxtConfig({
         '/blog/telegram-kanal-dlya-biznesa',
         '/blog/chto-takoe-seo',
         '/blog/seo-dlya-biznesa',
-        '/blog/prodvizhenie-sayta-v-yandex'
+        '/blog/prodvizhenie-sayta-v-yandex',
+        '/blog/kak-prodat-svoi-uslugi',
+        '/blog/kak-sozdat-onlayn-kurs',
+        '/blog/konsalting-s-nulya'
       ],
       failOnError: false
     },
@@ -206,6 +211,9 @@ export default defineNuxtConfig({
       '/blog/cluster/kontent-marketing',
       '/blog/cluster/networking',
       '/blog/cluster/chat-boty',
+      '/blog/cluster/telegram-marketing',
+      '/blog/cluster/seo',
+      '/blog/cluster/monetizatsiya-ekspertnosti',
       '/blog/razrabotka-sayta-pod-klyuch',
       '/blog/skolko-stoit-razrabotka-sayta',
       '/blog/kak-zakazat-razrabotku-sayta',
@@ -258,7 +266,10 @@ export default defineNuxtConfig({
       '/blog/telegram-kanal-dlya-biznesa',
       '/blog/chto-takoe-seo',
       '/blog/seo-dlya-biznesa',
-      '/blog/prodvizhenie-sayta-v-yandex'
+      '/blog/prodvizhenie-sayta-v-yandex',
+      '/blog/kak-prodat-svoi-uslugi',
+      '/blog/kak-sozdat-onlayn-kurs',
+      '/blog/konsalting-s-nulya'
     ]
   },
 
@@ -317,6 +328,9 @@ export default defineNuxtConfig({
         // Preconnect для важных ресурсов
         { rel: 'preconnect', href: 'https://api.iconify.design', crossorigin: true },
         { rel: 'preconnect', href: 'https://code.jquery.com', crossorigin: true },
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap' },
         { rel: 'dns-prefetch', href: 'https://api.iconify.design' },
         // Preload шрифтов Syncopate для ускорения LCP
         { rel: 'preload', href: '/fonts/Syncopate-Regular.woff2', as: 'font', type: 'font/woff2', crossorigin: true },

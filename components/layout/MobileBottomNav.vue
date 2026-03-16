@@ -33,6 +33,13 @@
             class="text-sm font-bold"
             :class="item.textClass || 'text-gray-700'"
           >{{ item.text }}</span>
+          <component
+            v-else-if="item.iconComponent"
+            :is="item.iconComponent"
+            class="transition-all duration-200"
+            :class="[isActive(item.href) ? 'scale-110' : 'scale-100']"
+            style="width: 20px; height: 20px;"
+          />
           <Icon
             v-else
             :name="item.icon"
@@ -65,6 +72,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { Home, ArrowUp } from 'lucide-vue-next'
 
 const route = useRoute()
 
@@ -72,12 +80,12 @@ const props = defineProps({
   items: {
     type: Array,
     default: () => [
-      { href: '/', label: 'Главная', icon: 'lucide:home' },
+      { href: '/', label: 'Главная', iconComponent: Home },
       { href: '/networking', label: 'Нетворкинг', image: '/reference/networking.jpg' },
       { href: '/business', label: 'Бизнес', image: '/reference/business.jpg' },
       { href: '/yappie', label: 'Веб', text: 'веб' },
       { href: '/blog', label: 'Блог', text: 'блог' },
-      { href: '#top', label: 'Наверх', icon: 'lucide:arrow-up', action: 'scrollToTop' }
+      { href: '#top', label: 'Наверх', iconComponent: ArrowUp, action: 'scrollToTop' }
     ]
   },
   theme: {

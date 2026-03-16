@@ -6,6 +6,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
+    "favicons": "node scripts/gen-favicons.mjs",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
@@ -43,6 +44,8 @@
     "@nuxtjs/tailwindcss": "^6.14.0",
     "@tailwindcss/vite": "^4.2.0",
     "nuxt-delay-hydration": "^1.3.8",
+    "png-to-ico": "^3.0.1",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.2.0"
   }
 }

@@ -52,6 +52,9 @@ import telegramKanalDlyaBiznesa from './blog/telegram-marketing/telegram-kanal-d
 import chtoTakoeSeo from './blog/seo/chto-takoe-seo.js'
 import seoDlyaBiznesa from './blog/seo/seo-dlya-biznesa.js'
 import prodvizhenieSaytaVYandex from './blog/seo/prodvizhenie-sayta-v-yandex.js'
+import kakProdatSvoiUslugi from './blog/monetizatsiya-ekspertnosti/kak-prodat-svoi-uslugi.js'
+import kakSozdatOnlaynKurs from './blog/monetizatsiya-ekspertnosti/kak-sozdat-onlayn-kurs.js'
+import konsaltingSNulya from './blog/monetizatsiya-ekspertnosti/konsalting-s-nulya.js'
 
 // Массив всех статей
 export const articles = [
@@ -111,6 +114,9 @@ export const articles = [
   chtoTakoeSeo,
   seoDlyaBiznesa,
   prodvizhenieSaytaVYandex,
+  kakProdatSvoiUslugi,
+  kakSozdatOnlaynKurs,
+  konsaltingSNulya,
 ]
 
 // Функция для получения статьи по slug
@@ -158,7 +164,8 @@ export const clusterNames = {
   'networking': 'Нетворкинг',
   'chat-boty': 'Чат-боты',
   'telegram-marketing': 'Telegram-маркетинг',
-  'seo': 'SEO'
+  'seo': 'SEO',
+  'monetizatsiya-ekspertnosti': 'Монетизация экспертности'
 }
 
 // Цвета для кластеров
@@ -173,7 +180,8 @@ export const clusterColors = {
   'networking': 'teal',
   'chat-boty': 'cyan',
   'telegram-marketing': 'blue',
-  'seo': 'indigo'
+  'seo': 'indigo',
+  'monetizatsiya-ekspertnosti': 'amber'
 }
 
 // Функция для получения названия кластера

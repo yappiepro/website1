@@ -158,7 +158,10 @@ export default defineNuxtConfig({
         '/blog/platformy-dlya-sozdaniya-saytov-sravnenie',
         '/blog/kak-vesti-telegram-kanal',
         '/blog/prodvizhenie-v-telegram',
-        '/blog/telegram-kanal-dlya-biznesa'
+        '/blog/telegram-kanal-dlya-biznesa',
+        '/blog/chto-takoe-seo',
+        '/blog/seo-dlya-biznesa',
+        '/blog/prodvizhenie-sayta-v-yandex'
       ],
       failOnError: false
     },
@@ -252,7 +255,10 @@ export default defineNuxtConfig({
       '/blog/platformy-dlya-sozdaniya-saytov-sravnenie',
       '/blog/kak-vesti-telegram-kanal',
       '/blog/prodvizhenie-v-telegram',
-      '/blog/telegram-kanal-dlya-biznesa'
+      '/blog/telegram-kanal-dlya-biznesa',
+      '/blog/chto-takoe-seo',
+      '/blog/seo-dlya-biznesa',
+      '/blog/prodvizhenie-sayta-v-yandex'
     ]
   },
 

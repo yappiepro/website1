@@ -4,15 +4,15 @@
     <!-- Навигация -->
     <nav :class="[
       'fixed left-4 right-4 z-40 transition-all duration-300 md:backdrop-blur-2xl md:rounded-2xl',
-      scrolled ? 'bg-transparent md:bg-[#030305]/70 md:border-b md:border-white/[0.08]' : 'bg-[#030305]/70 md:border-b md:border-white/[0.08]',
+      scrolled ? 'bg-[#030305] md:bg-[#030305] md:border-b md:border-white/[0.08]' : 'bg-[#030305]/70 md:border-b md:border-white/[0.08]',
       'md:top-0 top-4'
     ]">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <div class="h-14 md:h-16 flex items-center">
-          <!-- Левая зона: Логотип (виден на мобильных только без скролла) -->
+          <!-- Левая зона: Логотип (виден на мобильных только без скролла, на десктопе всегда) -->
           <div :class="[
             'transition-all duration-300',
-            scrolled ? 'hidden' : 'block md:block'
+            scrolled ? 'hidden md:block' : 'block md:block'
           ]">
             <a href="/yappie" class="text-xl font-semibold text-white flex items-center gap-2 group shrink-0" aria-label="YAPPIE" title="YAPPIE">
               <img src="/reference/YAPPIE.svg" alt="YAPPIE логотип" class="h-4 w-auto" />
@@ -77,7 +77,7 @@
           <!-- Левая часть - текст и кнопки -->
           <div class="text-left">
             <!-- Badge с glow -->
-            <div class="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-white/[0.05] border border-white/15 text-xs sm:text-sm text-gray-200 mb-6 sm:mb-8 animate-fade-in shadow-lg shadow-violet-500/10 backdrop-blur-sm">
+            <div class="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#030305]/80 border border-white/15 text-xs sm:text-sm text-gray-200 mb-6 sm:mb-8 animate-fade-in shadow-lg shadow-violet-500/10 backdrop-blur-sm">
               <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse shadow-[0_0_10px_rgba(74,222,128,0.5)]"></div>
               <span class="hidden sm:inline">Доступны для новых проектов</span>
               <span class="sm:hidden">Доступны для проектов</span>
@@ -132,7 +132,7 @@
             <div class="flex flex-col gap-2 sm:gap-3 flex-[2] w-full lg:flex-[2]">
 
               <!-- Dashboard (верхний) -->
-              <div class="w-full flex-1 rounded-lg sm:rounded-xl border border-white/15 p-3 sm:p-4 backdrop-blur-xl bg-gradient-to-br from-white/[0.06] to-white/[0.03] shadow-2xl overflow-hidden">
+              <div class="w-full flex-1 rounded-lg sm:rounded-xl border border-white/15 p-3 sm:p-4 backdrop-blur-xl bg-[#0a0a0f]/90 shadow-2xl overflow-hidden">
                   <!-- Header -->
                   <div class="mb-2 sm:mb-3">
                     <div class="flex gap-1.5 sm:gap-2 mb-2">
@@ -146,7 +146,7 @@
 
                   <!-- Stats Row -->
                   <div class="grid grid-cols-3 gap-2 sm:gap-2.5 mb-2 sm:mb-3">
-                    <div class="p-2 sm:p-2.5 rounded bg-white/[0.03] border border-white/5">
+                    <div class="p-2 sm:p-2.5 rounded bg-[#0a0a0f]/60 border border-white/5">
                       <div class="text-sm sm:text-base font-bold text-white">1.3K</div>
                       <div class="text-[8px] sm:text-[9px] text-gray-500">Клиентов</div>
                       <div class="flex items-center gap-1 mt-1">
@@ -154,7 +154,7 @@
                         <span class="text-[7px] sm:text-[8px] text-green-400">+12%</span>
                       </div>
                     </div>
-                    <div class="p-2 sm:p-2.5 rounded bg-white/[0.03] border border-white/5">
+                    <div class="p-2 sm:p-2.5 rounded bg-[#0a0a0f]/60 border border-white/5">
                       <div class="text-sm sm:text-base font-bold text-white">856</div>
                       <div class="text-[8px] sm:text-[9px] text-gray-500">Сделок</div>
                       <div class="flex items-center gap-1 mt-1">
@@ -204,7 +204,7 @@
                     </div>
                   </div>
                   <div class="grid grid-cols-3 gap-2 sm:gap-3">
-                    <div class="flex flex-col gap-1.5 sm:gap-2 p-2 sm:p-3 rounded-lg bg-white/[0.02] border border-white/5">
+                    <div class="flex flex-col gap-1.5 sm:gap-2 p-2 sm:p-3 rounded-lg bg-[#0a0a0f]/60 border border-white/5">
                       <div class="flex items-center gap-1.5">
                         <div class="w-5 h-5 sm:w-6 sm:h-6 rounded bg-violet-500/20 border border-violet-500/30 flex items-center justify-center flex-shrink-0">
                           <div class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-violet-400"></div>
@@ -218,7 +218,7 @@
                         <div class="h-full w-[75%] bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full"></div>
                       </div>
                     </div>
-                    <div class="flex flex-col gap-1.5 sm:gap-2 p-2 sm:p-3 rounded-lg bg-white/[0.02] border border-white/5">
+                    <div class="flex flex-col gap-1.5 sm:gap-2 p-2 sm:p-3 rounded-lg bg-[#0a0a0f]/60 border border-white/5">
                       <div class="flex items-center gap-1.5">
                         <div class="w-5 h-5 sm:w-6 sm:h-6 rounded bg-fuchsia-500/20 border border-fuchsia-500/30 flex items-center justify-center flex-shrink-0">
                           <div class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-fuchsia-400"></div>
@@ -232,7 +232,7 @@
                         <div class="h-full w-[45%] bg-gradient-to-r from-fuchsia-500 to-purple-500 rounded-full"></div>
                       </div>
                     </div>
-                    <div class="flex flex-col gap-1.5 sm:gap-2 p-2 sm:p-3 rounded-lg bg-white/[0.02] border border-white/5">
+                    <div class="flex flex-col gap-1.5 sm:gap-2 p-2 sm:p-3 rounded-lg bg-[#0a0a0f]/60 border border-white/5">
                       <div class="flex items-center gap-1.5">
                         <div class="w-5 h-5 sm:w-6 sm:h-6 rounded bg-purple-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
                           <div class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-purple-400"></div>
@@ -307,7 +307,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           <div v-for="(problem, index) in problems" :key="index"
                :ref="(el) => problemRefs[index] = el"
-               class="group relative rounded-2xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] p-5 sm:p-6 lg:p-8 hover:border-violet-500/30 hover:bg-white/[0.04] transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-violet-500/10 overflow-hidden">
+               class="group relative rounded-2xl bg-[#0a0a0f]/80 backdrop-blur-xl border border-white/[0.08] p-5 sm:p-6 lg:p-8 hover:border-violet-500/30 hover:bg-[#0a0a0f]/90 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-violet-500/10 overflow-hidden">
             <!-- Градиентный фон при наведении -->
             <div class="absolute inset-0 bg-gradient-to-br from-violet-500/10 to-fuchsia-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -362,7 +362,7 @@
         <!-- Bento Grid с улучшенным дизайном -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           <!-- Большая карточка -->
-          <div class="md:col-span-2 rounded-2xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] p-6 sm:p-8 hover:border-violet-500/40 hover:bg-white/[0.04] transition-all duration-500 group overflow-hidden relative hover:-translate-y-1 hover:shadow-xl hover:shadow-violet-500/10">
+          <div class="md:col-span-2 rounded-2xl bg-[#0a0a0f]/80 backdrop-blur-xl border border-white/[0.08] p-6 sm:p-8 hover:border-violet-500/40 hover:bg-[#0a0a0f]/90 transition-all duration-500 group overflow-hidden relative hover:-translate-y-1 hover:shadow-xl hover:shadow-violet-500/10">
             <div class="absolute top-0 right-0 w-60 h-60 sm:w-80 sm:h-80 bg-gradient-to-br from-violet-600/30 to-fuchsia-600/30 rounded-full blur-[80px] sm:blur-[100px] group-hover:scale-110 transition-all duration-700"></div>
             <div class="relative z-10">
               <div class="flex items-start justify-between flex-wrap gap-4">
@@ -385,7 +385,7 @@
           </div>
 
           <!-- Маленькая карточка чат-боты -->
-          <div class="rounded-2xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] p-6 sm:p-8 hover:border-fuchsia-500/40 hover:bg-white/[0.04] transition-all duration-500 group overflow-hidden relative hover:-translate-y-1 hover:shadow-xl hover:shadow-fuchsia-500/10">
+          <div class="rounded-2xl bg-[#0a0a0f]/80 backdrop-blur-xl border border-white/[0.08] p-6 sm:p-8 hover:border-fuchsia-500/40 hover:bg-[#0a0a0f]/90 transition-all duration-500 group overflow-hidden relative hover:-translate-y-1 hover:shadow-xl hover:shadow-fuchsia-500/10">
             <div class="absolute top-0 right-0 w-40 h-40 sm:w-60 sm:h-60 bg-gradient-to-br from-fuchsia-600/30 to-violet-600/30 rounded-full blur-[60px] sm:blur-[80px] group-hover:scale-110 transition-all duration-700"></div>
             <div class="relative z-10">
               <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-fuchsia-500 via-violet-500 to-purple-600 flex items-center justify-center shadow-lg shadow-fuchsia-500/30 mb-4 sm:mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
@@ -405,7 +405,7 @@
           </div>
 
           <!-- Маленькая карточка веб-приложения -->
-          <div class="rounded-2xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] p-6 sm:p-8 hover:border-violet-500/40 hover:bg-white/[0.04] transition-all duration-500 group overflow-hidden relative hover:-translate-y-1 hover:shadow-xl hover:shadow-violet-500/10">
+          <div class="rounded-2xl bg-[#0a0a0f]/80 backdrop-blur-xl border border-white/[0.08] p-6 sm:p-8 hover:border-violet-500/40 hover:bg-[#0a0a0f]/90 transition-all duration-500 group overflow-hidden relative hover:-translate-y-1 hover:shadow-xl hover:shadow-violet-500/10">
             <div class="absolute top-0 right-0 w-40 h-40 sm:w-60 sm:h-60 bg-gradient-to-br from-violet-600/30 to-indigo-600/30 rounded-full blur-[60px] sm:blur-[80px] group-hover:scale-110 transition-all duration-700"></div>
             <div class="relative z-10">
               <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-violet-500 via-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-violet-500/30 mb-4 sm:mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
@@ -420,7 +420,7 @@
           </div>
 
           <!-- Большая карточка автоматизация -->
-          <div class="md:col-span-2 rounded-2xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] p-6 sm:p-8 hover:border-violet-500/40 hover:bg-white/[0.04] transition-all duration-500 group overflow-hidden relative hover:-translate-y-1 hover:shadow-xl hover:shadow-violet-500/10">
+          <div class="md:col-span-2 rounded-2xl bg-[#0a0a0f]/80 backdrop-blur-xl border border-white/[0.08] p-6 sm:p-8 hover:border-violet-500/40 hover:bg-[#0a0a0f]/90 transition-all duration-500 group overflow-hidden relative hover:-translate-y-1 hover:shadow-xl hover:shadow-violet-500/10">
             <div class="absolute top-0 right-0 w-60 h-60 sm:w-80 sm:h-80 bg-gradient-to-br from-violet-600/30 to-fuchsia-600/30 rounded-full blur-[80px] sm:blur-[100px] group-hover:scale-110 transition-all duration-700"></div>
             <div class="relative z-10 flex flex-col md:flex-row gap-6 sm:gap-8 items-start">
               <div class="flex-1">
@@ -474,7 +474,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           <div v-for="(benefit, index) in benefits" :key="index"
-               class="group flex flex-col sm:flex-row gap-4 sm:gap-6 p-5 sm:p-6 lg:p-8 rounded-2xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] hover:border-white/30 hover:bg-white/[0.04] transition-all duration-500 hover:-translate-y-1">
+               class="group flex flex-col sm:flex-row gap-4 sm:gap-6 p-5 sm:p-6 lg:p-8 rounded-2xl bg-[#0a0a0f]/80 backdrop-blur-xl border border-white/[0.08] hover:border-white/30 hover:bg-[#0a0a0f]/90 transition-all duration-500 hover:-translate-y-1">
             <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl border border-white/30 bg-transparent flex items-center justify-center flex-shrink-0 group-hover:border-white/50 group-hover:scale-110 transition-all duration-500">
               <component :is="benefit.icon" class="h-7 w-7 sm:h-8 sm:w-8 text-white" />
             </div>
@@ -517,7 +517,7 @@
         </div>
 
         <!-- Слайдер -->
-        <div class="relative min-h-[450px] sm:min-h-[500px] overflow-hidden rounded-2xl sm:rounded-3xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08]">
+        <div class="relative min-h-[450px] sm:min-h-[500px] overflow-hidden rounded-2xl sm:rounded-3xl bg-[#0a0a0f]/80 backdrop-blur-xl border border-white/[0.08]">
           <div
             class="flex transition-transform duration-500 ease-out h-full"
             :style="{ transform: `translateX(-${activeSlide * 100}%)` }"
@@ -617,7 +617,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           <div v-for="(project, index) in portfolio" :key="index"
-               class="group relative rounded-2xl overflow-hidden border border-white/[0.08] hover:border-violet-500/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-violet-500/20 bg-white/[0.02] backdrop-blur-xl">
+               class="group relative rounded-2xl overflow-hidden border border-white/[0.08] hover:border-violet-500/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-violet-500/20 bg-[#0a0a0f]/80 backdrop-blur-xl">
             <div class="aspect-video flex items-center justify-center relative overflow-hidden"
                  :class="project.hasImage ? 'p-0' : 'bg-gradient-to-br from-violet-600/20 to-fuchsia-600/20'">
               <NuxtImg v-if="project.hasImage" :src="project.image" :alt="project.title" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" format="webp" quality="70" sizes="320px sm:640px md:768px lg:1024px" />
@@ -653,7 +653,7 @@
 
         <Accordion type="single" collapsible class="space-y-3 sm:space-y-4">
           <AccordionItem v-for="(faq, index) in faqs" :key="index" :value="`item-${index}`"
-                        class="rounded-xl sm:rounded-2xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] px-4 sm:px-6 hover:border-violet-500/30 data-[state=open]:border-violet-500/40 data-[state=open]:bg-white/[0.04] transition-all duration-300">
+                        class="rounded-xl sm:rounded-2xl bg-[#0a0a0f]/80 backdrop-blur-xl border border-white/[0.08] px-4 sm:px-6 hover:border-violet-500/30 data-[state=open]:border-violet-500/40 data-[state=open]:bg-[#0a0a0f]/90 transition-all duration-300">
             <AccordionTrigger class="text-left text-white hover:text-violet-300 py-4 sm:py-6 text-sm sm:text-lg font-medium">
               {{ faq.question }}
             </AccordionTrigger>
@@ -727,7 +727,7 @@
         class="hidden md:flex fixed bottom-6 right-6 z-50 w-12 h-12 bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white rounded-full shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 hover:scale-110 transition-all duration-300 items-center justify-center"
         aria-label="Наверх"
       >
-        <ArrowUp class="w-5 h-5 flex-shrink-0" :stroke-width="2.5" />
+        <ChevronUp class="w-5 h-5 flex-shrink-0 align-middle" :stroke-width="3" />
       </button>
     </Transition>
 
@@ -821,7 +821,7 @@ import {
   TrendingDown, Users, AlertCircle, Clock, Database, Smartphone,
   CheckCircle2, Shield, Headphones, Rocket, Sparkles,
   MessageSquare, Globe, TrendingUp, Mail, Calendar, ShoppingCart, FileText,
-  LayoutDashboard, Menu, X, Home, ArrowUp
+  LayoutDashboard, Menu, X, Home, ArrowUp, ChevronUp
 } from 'lucide-vue-next'
 
 const activeSlide = ref(0)

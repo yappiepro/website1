@@ -215,7 +215,7 @@ const mobileMenuItems = [
             <div class="flex items-start gap-4 mb-6">
               <span class="text-5xl">{{ topic?.icon }}</span>
               <div>
-                <h1 class="text-3xl md:text-4xl lg:text-5xl font-black leading-[1.2] tracking-tight mb-4">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-black leading-[1.2] tracking-tight mb-4 text-black">
                   {{ topic?.title }}
                 </h1>
               </div>

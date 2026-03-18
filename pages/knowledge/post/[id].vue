@@ -253,24 +253,24 @@ const mobileMenuItems = [
     <!-- Хлебные крошки -->
     <nav class="pt-24 pb-6 px-4 md:px-6">
       <div class="max-w-[1400px] mx-auto">
-        <ol class="flex items-center gap-2 text-xs uppercase tracking-wider">
+        <ol class="flex items-center justify-center gap-2 text-xs uppercase tracking-wider text-black">
           <li>
-            <NuxtLink to="/" class="hover:underline">Главная</NuxtLink>
+            <NuxtLink to="/" class="text-black hover:underline font-bold">Главная</NuxtLink>
           </li>
-          <li class="mx-2">/</li>
+          <li class="mx-2 text-black">/</li>
           <li>
-            <NuxtLink to="/knowledge" class="hover:underline">База знаний</NuxtLink>
+            <NuxtLink to="/knowledge" class="text-black hover:underline font-bold">База знаний</NuxtLink>
           </li>
           <template v-if="mainTopic">
-            <li class="mx-2">/</li>
+            <li class="mx-2 text-black">/</li>
             <li>
-              <NuxtLink :to="`/knowledge/${mainTopic.slug}`" class="hover:underline">
+              <NuxtLink :to="`/knowledge/${mainTopic.slug}`" class="text-black hover:underline font-bold">
                 {{ mainTopic.title }}
               </NuxtLink>
             </li>
           </template>
-          <li class="mx-2">/</li>
-          <li class="font-bold truncate max-w-[200px] sm:max-w-none">
+          <li class="mx-2 text-black">/</li>
+          <li class="font-bold text-black truncate max-w-[200px] sm:max-w-none">
             {{ post?.title }}
           </li>
         </ol>
@@ -290,7 +290,7 @@ const mobileMenuItems = [
           </h1>
 
           <div class="flex flex-wrap items-center gap-4">
-            <div class="flex items-center gap-2 text-sm">
+            <div class="flex items-center gap-2 text-sm text-gray-900">
               <Calendar class="w-4 h-4" />
               <span>{{ new Date(post.date).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' }) }}</span>
             </div>
@@ -301,7 +301,7 @@ const mobileMenuItems = [
                 v-for="topicSlug in post.topics"
                 :key="topicSlug"
                 :to="`/knowledge/${topicSlug}`"
-                class="inline-flex items-center gap-1.5 px-3 py-1 border border-black rounded-full text-xs font-semibold hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200"
+                class="inline-flex items-center gap-1.5 px-3 py-1 border border-black rounded-full text-xs font-semibold text-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200"
               >
                 <Tag class="w-3 h-3" />
                 {{ getTopicName(topicSlug) }}

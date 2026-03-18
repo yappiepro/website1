@@ -285,7 +285,7 @@ const mobileMenuItems = [
           <div class="text-xs uppercase tracking-wider mb-4">
             МАТЕРИАЛ // {{ String(currentIndexInTopic + 1).padStart(2, '0') }}
           </div>
-          <h1 class="text-3xl md:text-4xl lg:text-5xl font-black leading-[1.2] tracking-tight mb-6">
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-black leading-[1.2] tracking-tight mb-6 text-black">
             {{ post?.title }}
           </h1>
 
@@ -327,8 +327,8 @@ const mobileMenuItems = [
           >
             <ArrowLeft class="w-5 h-5 flex-shrink-0" />
             <div class="min-w-0">
-              <div class="text-xs uppercase mb-1">← Предыдущий</div>
-              <div class="font-bold truncate">
+              <div class="text-xs uppercase mb-1 text-gray-900">← Предыдущий</div>
+              <div class="font-bold text-black truncate">
                 {{ prevPostInTopic.title }}
               </div>
             </div>
@@ -340,8 +340,8 @@ const mobileMenuItems = [
             class="group flex items-center gap-4 p-6 border-2 border-black hover:bg-black hover:text-white transition-all flex-1"
           >
             <div class="min-w-0 text-right flex-1">
-              <div class="text-xs uppercase mb-1">Следующий →</div>
-              <div class="font-bold truncate">
+              <div class="text-xs uppercase mb-1 text-gray-900">Следующий →</div>
+              <div class="font-bold text-black truncate">
                 {{ nextPostInTopic.title }}
               </div>
             </div>
@@ -367,10 +367,10 @@ const mobileMenuItems = [
                   <span>{{ new Date(relatedPost.date).toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' }) }}</span>
                 </div>
               </div>
-              <h3 class="text-base font-bold line-clamp-2">
+              <h3 class="text-base font-bold text-black line-clamp-2">
                 {{ relatedPost.title }}
               </h3>
-              <div class="flex items-center gap-1 mt-3 text-sm font-semibold">
+              <div class="flex items-center gap-1 mt-3 text-sm font-semibold text-black">
                 <span>ЧИТАТЬ</span>
                 <ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>

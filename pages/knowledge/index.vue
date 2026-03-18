@@ -221,11 +221,11 @@ const mobileMenuItems = [
             <div class="flex items-start gap-4 mb-4">
               <span class="text-4xl">{{ topic.icon }}</span>
               <div class="flex-1">
-                <h3 class="text-lg font-bold mb-2">
+                <h3 class="text-lg font-bold mb-2 text-black">
                   {{ topic.title }}
                 </h3>
-                <div class="inline-block px-3 py-1 border border-current rounded-full">
-                  <span class="text-xs font-semibold">
+                <div class="inline-block px-3 py-1 border border-black rounded-full">
+                  <span class="text-xs font-semibold text-black">
                     {{ topic.count }} МАТЕРИАЛОВ
                   </span>
                 </div>
@@ -234,7 +234,7 @@ const mobileMenuItems = [
             <p class="text-sm text-gray-900 mb-4">
               {{ topic.description }}
             </p>
-            <div class="flex items-center gap-2 text-sm font-semibold">
+            <div class="flex items-center gap-2 text-sm font-semibold text-black">
               <span>ИЗУЧАТЬ ТЕМУ</span>
               <ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>

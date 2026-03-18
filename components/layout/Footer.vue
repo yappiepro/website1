@@ -68,17 +68,17 @@
             <h3 class="text-xs font-bold uppercase tracking-wider mb-4" :class="headingColor">
               {{ socialTitle }}
             </h3>
-            <div class="flex flex-wrap gap-3">
+            <div class="grid grid-cols-3 gap-2">
               <a
                 v-for="(network, index) in socialNetworks.slice(0, 7)"
                 :key="index"
                 :href="network.link"
                 target="_blank"
                 :aria-label="network.name || getSocialLabel(network.icon)"
-                class="inline-flex items-center justify-center px-4 py-2.5 bg-gray-800 hover:bg-gray-700 rounded-xl transition-all whitespace-nowrap"
+                class="inline-flex items-center justify-center px-2 py-3 bg-gray-800 hover:bg-gray-700 rounded-xl transition-all"
                 :class="iconColor"
               >
-                <span v-if="network.name" class="text-xs font-bold">{{ network.name }}</span>
+                <span v-if="network.name" class="text-[10px] font-bold text-center leading-tight">{{ network.name }}</span>
                 <Icon v-else :name="`fa-brands:${network.icon}`" class="w-5 h-5" />
               </a>
             </div>

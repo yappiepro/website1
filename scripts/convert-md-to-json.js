@@ -152,7 +152,7 @@ for (const block of postBlocks) {
     postsMap.set(id, {
       id,
       date,
-      title: title.replace(/"/g, '\\"'),
+      title, // JSON.stringify сам экранирует кавычки
       text: htmlText, // Сохраняем как HTML
       topics: topicSlugs,
       order_in_topic: orderInTopicObj

@@ -182,16 +182,16 @@ const mobileMenuItems = [
     <!-- Хлебные крошки -->
     <nav class="pt-24 pb-6 px-4 md:px-6">
       <div class="max-w-[1400px] mx-auto">
-        <ol class="flex items-center gap-2 text-xs uppercase tracking-wider">
+        <ol class="flex items-center justify-center gap-2 text-xs uppercase tracking-wider text-black">
           <li>
-            <NuxtLink to="/" class="hover:underline">Главная</NuxtLink>
+            <NuxtLink to="/" class="text-black hover:underline font-bold">Главная</NuxtLink>
           </li>
-          <li class="mx-2">/</li>
+          <li class="mx-2 text-black">/</li>
           <li>
-            <NuxtLink to="/knowledge" class="hover:underline">База знаний</NuxtLink>
+            <NuxtLink to="/knowledge" class="text-black hover:underline font-bold">База знаний</NuxtLink>
           </li>
-          <li class="mx-2">/</li>
-          <li class="font-bold">
+          <li class="mx-2 text-black">/</li>
+          <li class="font-bold text-black">
             {{ topic?.title }}
           </li>
         </ol>
@@ -249,39 +249,40 @@ const mobileMenuItems = [
       <div class="max-w-[1400px] mx-auto">
         <div class="text-xs uppercase tracking-wider mb-8">МАТЕРИАЛЫ ПО ТЕМЕ</div>
 
-        <div class="space-y-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <div
             v-for="(post, index) in topicPosts"
             :key="post.id"
-            class="group p-6 border-2 border-black hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200"
+            class="group p-4 border-2 border-black hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200"
           >
-            <div class="flex items-start gap-4">
+            <div class="flex gap-3">
               <!-- Номер поста -->
-              <div class="flex-shrink-0 w-10 h-10 bg-black text-white flex items-center justify-center font-black text-sm border-2 border-black">
+              <div class="flex-shrink-0 w-8 h-8 bg-black text-white flex items-center justify-center font-black text-xs border-2 border-black">
                 {{ String(index + 1).padStart(2, '0') }}
               </div>
 
               <!-- Контент -->
               <div class="flex-1 min-w-0">
-                <div class="flex items-start justify-between gap-4 mb-3">
-                  <h3 class="text-lg font-bold text-black">
-                    {{ post.title }}
-                  </h3>
-                  <div class="flex items-center gap-2 text-xs whitespace-nowrap text-gray-900">
-                    <Clock class="w-4 h-4" />
-                    <span>{{ new Date(post.date).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' }) }}</span>
-                  </div>
+                <!-- Заголовок -->
+                <h3 class="text-base font-bold text-black mb-2 leading-tight">
+                  {{ post.title }}
+                </h3>
+                
+                <!-- Дата -->
+                <div class="flex items-center gap-1.5 text-xs text-gray-900 mb-3">
+                  <Clock class="w-3.5 h-3.5 flex-shrink-0" />
+                  <span>{{ new Date(post.date).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' }) }}</span>
                 </div>
 
                 <!-- Смежные темы -->
-                <div v-if="post.relatedTopics.length" class="flex flex-wrap gap-2 mb-4">
+                <div v-if="post.relatedTopics.length" class="flex flex-wrap gap-1.5 mb-4">
                   <NuxtLink
                     v-for="relatedSlug in post.relatedTopics"
                     :key="relatedSlug"
                     :to="`/knowledge/${relatedSlug}`"
-                    class="inline-flex items-center gap-1 px-3 py-1 border border-black rounded-full text-xs font-medium text-black"
+                    class="inline-flex items-center gap-1 px-2.5 py-1 border border-black rounded-full text-[10px] font-medium text-black"
                   >
-                    <Tag class="w-3 h-3" />
+                    <Tag class="w-2.5 h-2.5" />
                     {{ getTopicName(relatedSlug) }}
                   </NuxtLink>
                 </div>
@@ -289,10 +290,10 @@ const mobileMenuItems = [
                 <!-- Кнопка -->
                 <NuxtLink
                   :to="`/knowledge/post/${post.id}`"
-                  class="inline-flex items-center gap-2 text-sm font-semibold text-black"
+                  class="inline-flex items-center justify-center gap-2 w-full px-4 py-2 border-2 border-black text-sm font-semibold text-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200"
                 >
                   <span>ЧИТАТЬ ПОСТ</span>
-                  <ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight class="w-4 h-4" />
                 </NuxtLink>
               </div>
             </div>

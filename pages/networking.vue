@@ -958,6 +958,56 @@ function toggleFaq(index) {
       </div>
     </section>
 
+    <!-- База знаний -->
+    <section class="py-12 md:py-20 px-4 md:px-6 border-b-2 border-black">
+      <div class="max-w-[1400px] mx-auto">
+        <div class="text-xs uppercase tracking-wider mb-2">БОНУС</div>
+        <div class="text-xs uppercase tracking-wider mb-8">БАЗА ЗНАНИЙ</div>
+        
+        <div class="grid md:grid-cols-[2fr_1fr] gap-8 md:gap-12 items-start">
+          <div>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-black leading-[1.2] tracking-tight mb-6">
+              220+ постов из Telegram-канала — структурировано и готово к изучению
+            </h2>
+            <p class="text-base md:text-lg text-gray-700 max-w-xl leading-relaxed mb-8">
+              База знаний «Нескучного Нетворкинга» — это маршруты обучения по 9 темам: контент-стратегия, личный бренд, платформы, продажи, мотивация, нетворкинг, история автора, реалити-проекты и инструменты ИИ.
+            </p>
+            <p class="text-base md:text-lg text-gray-700 max-w-xl leading-relaxed mb-8">
+              Каждый пост отобран, структурирован и расположен в логичном порядке — от простого к сложному. Никакой воды, только практика и реальный опыт.
+            </p>
+            <NuxtLink
+              href="/knowledge"
+              class="inline-flex items-center gap-3 px-8 py-4 bg-[#EA6D3A] hover:bg-[#EA6D3A]/90 text-white font-bold rounded-xl transition-all text-lg"
+            >
+              <span>ПОГРУЗИТЬСЯ В БАЗУ ЗНАНИЙ</span>
+              <ArrowRight class="w-5 h-5" />
+            </NuxtLink>
+          </div>
+
+          <div class="md:pl-8 md:border-l-2 border-black">
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <BookOpen class="w-5 h-5 flex-shrink-0" />
+                <span class="text-sm">220+ материалов</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <Users class="w-5 h-5 flex-shrink-0" />
+                <span class="text-sm">9 тем</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <Clock class="w-5 h-5 flex-shrink-0" />
+                <span class="text-sm">Пополняется регулярно</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <Tag class="w-5 h-5 flex-shrink-0" />
+                <span class="text-sm">Перекрёстные ссылки</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Секция FAQ -->
     <section id="faq" class="py-12 md:py-20 px-4 md:px-6 border-b-2 border-black animate-on-scroll">
       <div class="max-w-[1400px] mx-auto">

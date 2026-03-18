@@ -264,10 +264,10 @@ const mobileMenuItems = [
               <!-- Контент -->
               <div class="flex-1 min-w-0">
                 <div class="flex items-start justify-between gap-4 mb-3">
-                  <h3 class="text-lg font-bold">
+                  <h3 class="text-lg font-bold text-black">
                     {{ post.title }}
                   </h3>
-                  <div class="flex items-center gap-2 text-xs whitespace-nowrap">
+                  <div class="flex items-center gap-2 text-xs whitespace-nowrap text-gray-900">
                     <Clock class="w-4 h-4" />
                     <span>{{ new Date(post.date).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' }) }}</span>
                   </div>
@@ -279,7 +279,7 @@ const mobileMenuItems = [
                     v-for="relatedSlug in post.relatedTopics"
                     :key="relatedSlug"
                     :to="`/knowledge/${relatedSlug}`"
-                    class="inline-flex items-center gap-1 px-3 py-1 border border-current rounded-full text-xs font-medium"
+                    class="inline-flex items-center gap-1 px-3 py-1 border border-black rounded-full text-xs font-medium text-black"
                   >
                     <Tag class="w-3 h-3" />
                     {{ getTopicName(relatedSlug) }}
@@ -289,7 +289,7 @@ const mobileMenuItems = [
                 <!-- Кнопка -->
                 <NuxtLink
                   :to="`/knowledge/post/${post.id}`"
-                  class="inline-flex items-center gap-2 text-sm font-semibold"
+                  class="inline-flex items-center gap-2 text-sm font-semibold text-black"
                 >
                   <span>ЧИТАТЬ ПОСТ</span>
                   <ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -308,8 +308,8 @@ const mobileMenuItems = [
           >
             <ArrowLeft class="w-5 h-5" />
             <div class="text-left">
-              <div class="text-xs uppercase mb-0.5">Предыдущая тема</div>
-              <div class="font-bold">
+              <div class="text-xs uppercase mb-0.5 text-gray-900">Предыдущая тема</div>
+              <div class="font-bold text-black">
                 {{ getTopicIcon(prevTopic.slug) }} {{ prevTopic.title }}
               </div>
             </div>
@@ -322,8 +322,8 @@ const mobileMenuItems = [
             class="group flex items-center gap-3 px-6 py-4 border-2 border-black hover:bg-black hover:text-white transition-all"
           >
             <div class="text-right">
-              <div class="text-xs uppercase mb-0.5">Следующая тема</div>
-              <div class="font-bold">
+              <div class="text-xs uppercase mb-0.5 text-gray-900">Следующая тема</div>
+              <div class="font-bold text-black">
                 {{ getTopicIcon(nextTopic.slug) }} {{ nextTopic.title }}
               </div>
             </div>

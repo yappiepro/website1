@@ -988,19 +988,19 @@ function toggleFaq(index) {
             <div class="space-y-4">
               <div class="flex items-center gap-3">
                 <BookOpen class="w-5 h-5 flex-shrink-0" />
-                <span class="text-sm">220+ материалов</span>
+                <span class="text-sm text-gray-900">220+ материалов</span>
               </div>
               <div class="flex items-center gap-3">
                 <Users class="w-5 h-5 flex-shrink-0" />
-                <span class="text-sm">9 тем</span>
+                <span class="text-sm text-gray-900">9 тем</span>
               </div>
               <div class="flex items-center gap-3">
                 <Clock class="w-5 h-5 flex-shrink-0" />
-                <span class="text-sm">Пополняется регулярно</span>
+                <span class="text-sm text-gray-900">Пополняется регулярно</span>
               </div>
               <div class="flex items-center gap-3">
                 <Tag class="w-5 h-5 flex-shrink-0" />
-                <span class="text-sm">Перекрёстные ссылки</span>
+                <span class="text-sm text-gray-900">Перекрёстные ссылки</span>
               </div>
             </div>
           </div>
@@ -1115,19 +1115,19 @@ function toggleFaq(index) {
             <div class="space-y-4">
               <div class="flex items-center gap-3">
                 <BookOpen class="w-5 h-5 flex-shrink-0" />
-                <span class="text-sm">220+ материалов</span>
+                <span class="text-sm text-gray-900">220+ материалов</span>
               </div>
               <div class="flex items-center gap-3">
                 <Users class="w-5 h-5 flex-shrink-0" />
-                <span class="text-sm">9 тем</span>
+                <span class="text-sm text-gray-900">9 тем</span>
               </div>
               <div class="flex items-center gap-3">
                 <Clock class="w-5 h-5 flex-shrink-0" />
-                <span class="text-sm">Пополняется регулярно</span>
+                <span class="text-sm text-gray-900">Пополняется регулярно</span>
               </div>
               <div class="flex items-center gap-3">
                 <Tag class="w-5 h-5 flex-shrink-0" />
-                <span class="text-sm">Перекрёстные ссылки</span>
+                <span class="text-sm text-gray-900">Перекрёстные ссылки</span>
               </div>
             </div>
           </div>

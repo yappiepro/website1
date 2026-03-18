@@ -177,11 +177,11 @@ const mobileMenuItems = [
         <!-- Основной заголовок -->
         <div class="grid md:grid-cols-[2fr_1fr] gap-8 md:gap-12 items-start">
           <div>
-            <div class="text-xs uppercase tracking-wider mb-2">БАЗА ЗНАНИЙ</div>
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-black leading-[1.2] tracking-tight mb-6">
+            <div class="text-xs uppercase tracking-wider mb-2 text-gray-900">БАЗА ЗНАНИЙ</div>
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-black leading-[1.2] tracking-tight mb-6 text-black">
               Нескучный Нетворкинг — для тех, кто хочет учиться системно
             </h1>
-            <p class="text-base md:text-lg text-gray-700 max-w-xl leading-relaxed">
+            <p class="text-base md:text-lg text-gray-900 max-w-xl leading-relaxed">
               220+ постов из Telegram-канала, структурированных по 9 темам. Маршруты обучения от простого к сложному.
             </p>
           </div>

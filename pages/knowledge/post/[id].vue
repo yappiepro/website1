@@ -301,7 +301,7 @@ const mobileMenuItems = [
                 v-for="topicSlug in post.topics"
                 :key="topicSlug"
                 :to="`/knowledge/${topicSlug}`"
-                class="inline-flex items-center gap-1.5 px-3 py-1 border border-black rounded-full text-xs font-semibold hover:bg-black hover:text-white transition-all"
+                class="inline-flex items-center gap-1.5 px-3 py-1 border border-black rounded-full text-xs font-semibold hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200"
               >
                 <Tag class="w-3 h-3" />
                 {{ getTopicName(topicSlug) }}
@@ -323,7 +323,7 @@ const mobileMenuItems = [
           <NuxtLink
             v-if="prevPostInTopic"
             :to="`/knowledge/post/${prevPostInTopic.id}`"
-            class="group flex items-center gap-4 p-6 border-2 border-black hover:bg-black hover:text-white transition-all flex-1"
+            class="group flex items-center gap-4 p-6 border-2 border-black hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200 flex-1"
           >
             <ArrowLeft class="w-5 h-5 flex-shrink-0" />
             <div class="min-w-0">
@@ -337,7 +337,7 @@ const mobileMenuItems = [
           <NuxtLink
             v-if="nextPostInTopic"
             :to="`/knowledge/post/${nextPostInTopic.id}`"
-            class="group flex items-center gap-4 p-6 border-2 border-black hover:bg-black hover:text-white transition-all flex-1"
+            class="group flex items-center gap-4 p-6 border-2 border-black hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200 flex-1"
           >
             <div class="min-w-0 text-right flex-1">
               <div class="text-xs uppercase mb-1 text-gray-900">Следующий →</div>
@@ -358,7 +358,7 @@ const mobileMenuItems = [
               v-for="relatedPost in alsoReadPosts"
               :key="relatedPost.id"
               :to="`/knowledge/post/${relatedPost.id}`"
-              class="group p-6 border-2 border-black hover:bg-black hover:text-white transition-all"
+              class="group p-6 border-2 border-black hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200"
             >
               <div class="flex items-start gap-3 mb-3">
                 <span class="text-2xl">{{ getTopicIcon(relatedPost.topics?.[0]) }}</span>

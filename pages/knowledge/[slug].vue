@@ -253,11 +253,11 @@ const mobileMenuItems = [
           <div
             v-for="(post, index) in topicPosts"
             :key="post.id"
-            class="group p-6 border-2 border-black hover:bg-black hover:text-white transition-all duration-300"
+            class="group p-6 border-2 border-black hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200"
           >
             <div class="flex items-start gap-4">
               <!-- Номер поста -->
-              <div class="flex-shrink-0 w-10 h-10 bg-black text-white group-hover:bg-white group-hover:text-black flex items-center justify-center font-black text-sm border-2 border-current">
+              <div class="flex-shrink-0 w-10 h-10 bg-black text-white flex items-center justify-center font-black text-sm border-2 border-black">
                 {{ String(index + 1).padStart(2, '0') }}
               </div>
 
@@ -304,7 +304,7 @@ const mobileMenuItems = [
           <NuxtLink
             v-if="prevTopic"
             :to="`/knowledge/${prevTopic.slug}`"
-            class="group flex items-center gap-3 px-6 py-4 border-2 border-black hover:bg-black hover:text-white transition-all"
+            class="group flex items-center gap-3 px-6 py-4 border-2 border-black hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200"
           >
             <ArrowLeft class="w-5 h-5" />
             <div class="text-left">
@@ -319,7 +319,7 @@ const mobileMenuItems = [
           <NuxtLink
             v-if="nextTopic"
             :to="`/knowledge/${nextTopic.slug}`"
-            class="group flex items-center gap-3 px-6 py-4 border-2 border-black hover:bg-black hover:text-white transition-all"
+            class="group flex items-center gap-3 px-6 py-4 border-2 border-black hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200"
           >
             <div class="text-right">
               <div class="text-xs uppercase mb-0.5 text-gray-900">Следующая тема</div>

@@ -220,10 +220,10 @@ const mobileMenuItems = [
                 </h1>
               </div>
             </div>
-            <p class="text-base md:text-lg text-gray-700 max-w-xl leading-relaxed mb-6">
+            <p class="text-base md:text-lg text-gray-900 max-w-xl leading-relaxed mb-6">
               {{ topic?.description }}
             </p>
-            <p class="text-sm uppercase tracking-wider">
+            <p class="text-sm uppercase tracking-wider text-gray-900">
               {{ topic?.forWhom }}
             </p>
           </div>

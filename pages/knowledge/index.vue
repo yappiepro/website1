@@ -231,7 +231,7 @@ const mobileMenuItems = [
                 </div>
               </div>
             </div>
-            <p class="text-sm opacity-80 mb-4">
+            <p class="text-sm text-gray-900 mb-4">
               {{ topic.description }}
             </p>
             <div class="flex items-center gap-2 text-sm font-semibold">
@@ -255,10 +255,10 @@ const mobileMenuItems = [
             class="p-6 border-2 border-black"
           >
             <div class="text-3xl font-black mb-4">{{ item.step }}</div>
-            <h3 class="text-lg font-bold mb-3 uppercase">
+            <h3 class="text-lg font-bold mb-3 uppercase text-black">
               {{ item.title }}
             </h3>
-            <p class="text-sm text-gray-700">
+            <p class="text-sm text-gray-900">
               {{ item.description }}
             </p>
           </div>

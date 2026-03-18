@@ -232,11 +232,11 @@ const mobileMenuItems = [
             <div class="space-y-4">
               <div class="flex items-center gap-3">
                 <BookOpen class="w-5 h-5 flex-shrink-0" />
-                <span class="text-sm">{{ topicPosts.length }} материалов</span>
+                <span class="text-sm text-gray-900">{{ topicPosts.length }} материалов</span>
               </div>
               <div class="flex items-center gap-3">
                 <Clock class="w-5 h-5 flex-shrink-0" />
-                <span class="text-sm">Маршрут обучения</span>
+                <span class="text-sm text-gray-900">Маршрут обучения</span>
               </div>
             </div>
           </div>

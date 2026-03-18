@@ -448,20 +448,21 @@ function toggleFaq(index) {
           </div>
 
           <!-- Центральная зона: Десктопное меню -->
-          <div class="hidden md:flex items-center gap-1 flex-1 justify-center">
+          <nav class="hidden md:flex items-center gap-1 flex-1">
             <a href="/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Главная</a>
             <a href="#about" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">О проекте</a>
             <a href="#services" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Услуги</a>
             <a href="#faq" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">FAQ</a>
             <a href="/blog" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Блог</a>
             <a href="/business" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Бизнес Сетка</a>
+          </nav>
+
+          <!-- Правая зона: Кнопка -->
+          <div class="hidden md:flex items-center justify-end shrink-0">
             <a href="https://t.me/+dL4aVzBkems0MTMy" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-[#EA6D3A] hover:bg-[#EA6D3A]/90 rounded-xl transition-all">
               <span>В сообщество</span>
             </a>
           </div>
-
-          <!-- Правая зона: пустая для баланса -->
-          <div class="hidden md:block w-[120px] shrink-0"></div>
 
           <!-- Кнопка бургер-меню для мобильных -->
           <button

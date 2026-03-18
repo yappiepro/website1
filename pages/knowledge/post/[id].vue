@@ -1,10 +1,10 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
-import { ArrowLeft, ArrowRight, Calendar, Tag, ChevronRight } from 'lucide-vue-next'
+import { ArrowLeft, ArrowRight, Calendar, Tag, Menu, X, BookOpen } from 'lucide-vue-next'
 import { topics } from '~/data/knowledge/topics.js'
 import postsData from '~/data/knowledge/posts-data.json'
 import Footer from '~/components/layout/Footer.vue'
-import Header from '~/components/layout/Header.vue'
+import BaseMobileMenu from '~/components/layout/BaseMobileMenu.vue'
 
 const route = useRoute()
 const postId = parseInt(route.params.id)
@@ -25,12 +25,6 @@ if (!post.value) {
 const mainTopic = computed(() => {
   if (!post.value?.topics?.length) return null
   return topics.find(t => t.slug === post.value.topics[0])
-})
-
-// Смежные темы
-const relatedTopics = computed(() => {
-  if (!post.value?.topics?.length) return []
-  return post.value.topics.slice(1).map(slug => topics.find(t => t.slug === slug)).filter(t => t)
 })
 
 // Посты из той же темы для навигации
@@ -61,33 +55,11 @@ const nextPostInTopic = computed(() => {
   return null
 })
 
-// Функция для очистки текста от HTML-тегов
-function stripHtml(html) {
-  if (!html) return ''
-  return html.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').trim()
-}
-
-// Функция для генерации description (до 160 символов без тегов)
-function generateDescription(text) {
-  if (!text) return ''
-  const plainText = stripHtml(text)
-  // Берём первые 160 символов и обрезаем по слову
-  let desc = plainText.slice(0, 160)
-  const lastSpace = desc.lastIndexOf(' ')
-  if (lastSpace > 0 && plainText.length > 160) {
-    desc = desc.slice(0, lastSpace)
-  }
-  return desc + (plainText.length > 160 ? '...' : '')
-}
-
-// Посты для блока «Читай также» (из смежных тем, исключая текущий)
+// Посты для блока «Читай также»
 const alsoReadPosts = computed(() => {
   if (!post.value?.topics?.length) return []
   
   const currentPostId = post.value.id
-  const currentTopicSlugs = new Set(post.value.topics)
-  
-  // Собираем посты из смежных тем
   const relatedPosts = []
   const seenIds = new Set([currentPostId])
   
@@ -95,14 +67,14 @@ const alsoReadPosts = computed(() => {
     const topic = topics.find(t => t.slug === topicSlug)
     if (!topic) continue
     
-    for (const postId of topic.posts) {
-      if (seenIds.has(postId)) continue
+    for (const pid of topic.posts) {
+      if (seenIds.has(pid)) continue
       if (relatedPosts.length >= 6) break
       
-      const relatedPost = postsData.find(p => p.id === postId)
+      const relatedPost = postsData.find(p => p.id === pid)
       if (relatedPost) {
         relatedPosts.push(relatedPost)
-        seenIds.add(postId)
+        seenIds.add(pid)
       }
     }
   }
@@ -116,7 +88,16 @@ useSeoMeta({
     const topicName = mainTopic.value?.title || 'База знаний'
     return `${post.value?.title} — ${topicName} | Нескучный Нетворкинг`
   },
-  description: () => generateDescription(post.value?.text),
+  description: () => {
+    const text = post.value?.text || ''
+    const plainText = text.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').trim()
+    let desc = plainText.slice(0, 160)
+    const lastSpace = desc.lastIndexOf(' ')
+    if (lastSpace > 0 && plainText.length > 160) {
+      desc = desc.slice(0, lastSpace)
+    }
+    return desc + (plainText.length > 160 ? '...' : '')
+  },
   keywords: () => {
     const topicKeywords = post.value?.topics?.map(t => {
       const topic = topics.find(tp => tp.slug === t)
@@ -126,13 +107,21 @@ useSeoMeta({
   },
   robots: 'index, follow',
   ogTitle: () => post.value?.title,
-  ogDescription: () => generateDescription(post.value?.text),
+  ogDescription: () => {
+    const text = post.value?.text || ''
+    const plainText = text.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').trim()
+    return plainText.slice(0, 200) + '...'
+  },
   ogType: 'article',
   ogUrl: () => `https://artemselifanov.ru/knowledge/post/${postId}`,
   ogImage: 'https://artemselifanov.ru/reference/openGraph/knowledge.webp',
   twitterCard: 'summary_large_image',
   twitterTitle: () => post.value?.title,
-  twitterDescription: () => generateDescription(post.value?.text),
+  twitterDescription: () => {
+    const text = post.value?.text || ''
+    const plainText = text.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').trim()
+    return plainText.slice(0, 200) + '...'
+  },
   twitterImage: 'https://artemselifanov.ru/reference/opengraph_index.png'
 })
 
@@ -162,7 +151,7 @@ useSchemaOrg([
   })
 ])
 
-// Скролл для хедера
+const isMobileMenuOpen = ref(false)
 const isScrolled = ref(false)
 
 onMounted(() => {
@@ -172,14 +161,6 @@ onMounted(() => {
   window.addEventListener('scroll', handleScroll)
   return () => window.removeEventListener('scroll', handleScroll)
 })
-
-// Меню для хедера
-const menuItems = [
-  { href: '/networking', label: 'Нескучный Нетворкинг' },
-  { href: '/business', label: 'Бизнес Сетка' },
-  { href: '/yappie', label: 'Веб-разработка' },
-  { href: '/blog', label: 'Блог' }
-]
 
 // Получить название темы по slug
 function getTopicName(slug) {
@@ -193,58 +174,103 @@ function getTopicIcon(slug) {
   return t?.icon || '📄'
 }
 
-// Форматирование текста (переносы строк)
-function formatText(text) {
-  if (!text) return ''
-  return text.split('\n').map((line, i) => ({
-    type: 'paragraph',
-    content: line
-  }))
-}
-
-// Ссылки в тексте делаем кликабельными
-function linkify(text) {
-  if (!text) return ''
-  const urlRegex = /(https?:\/\/[^\s]+)/g
-  return text.replace(urlRegex, (url) => `<a href="${url}" target="_blank" rel="noopener" class="text-purple-600 hover:underline">${url}</a>`)
-}
+// Меню для хедера
+const mobileMenuItems = [
+  { href: '/', label: 'Главная' },
+  { href: '/networking', label: 'Нескучный Нетворкинг' },
+  { href: '/business', label: 'Бизнес Сетка' },
+  { href: '/yappie', label: 'Веб-разработка' },
+  { href: '/blog', label: 'Блог' },
+  { href: '/knowledge', label: 'База знаний' }
+]
 </script>
 
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-slate-50 via-white to-purple-50">
-    <!-- Header -->
-    <Header
-      :menu-items="menuItems"
-      logo-text="Артем Селифанов"
+  <div class="min-h-screen bg-white">
+    <!-- Навигация -->
+    <nav :class="[
+      'fixed left-4 right-4 z-40 transition-all duration-300 md:backdrop-blur-xl md:rounded-2xl',
+      isScrolled ? 'bg-transparent md:bg-white/90 md:shadow-lg' : 'bg-white/20',
+      'md:top-0 top-4'
+    ]">
+      <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
+        <div class="h-14 md:h-16 flex items-center">
+          <!-- Левая зона: Логотип -->
+          <div :class="[
+            'transition-all duration-300',
+            isScrolled ? 'hidden' : 'block md:block'
+          ]">
+            <a href="/" class="group flex items-center gap-3" aria-label="Главная" title="Главная">
+              <img src="/reference/Vector.svg" alt="Нескучный Нетворкинг — логотип" class="h-10 w-auto" />
+            </a>
+          </div>
+
+          <!-- Центральная зона: Десктопное меню -->
+          <div class="hidden md:flex items-center justify-center flex-1">
+            <nav class="flex items-center gap-1">
+              <a href="/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Главная</a>
+              <a href="/networking" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Нескучный Нетворкинг</a>
+              <a href="/business" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Бизнес Сетка</a>
+              <a href="/yappie" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Веб-разработка</a>
+              <a href="/blog" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Блог</a>
+            </nav>
+          </div>
+
+          <!-- Правая зона: Кнопка -->
+          <div class="hidden md:flex items-center justify-end shrink-0">
+            <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-[#EA6D3A] hover:bg-[#EA6D3A]/90 rounded-xl transition-all">
+              <span>Связаться</span>
+            </a>
+          </div>
+
+          <!-- Кнопка бургер-меню -->
+          <button
+            @click="isMobileMenuOpen = !isMobileMenuOpen"
+            :class="[
+              'md:hidden p-2 rounded-xl transition-all absolute right-4 z-50',
+              isScrolled ? 'bg-white/90 hover:bg-white' : 'hover:bg-gray-100'
+            ]"
+            aria-label="Открыть меню"
+          >
+            <Menu v-if="!isMobileMenuOpen" class="w-6 h-6 text-gray-700" />
+            <X v-else class="w-6 h-6 text-gray-700" />
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Мобильное меню -->
+    <BaseMobileMenu
+      v-model="isMobileMenuOpen"
+      :menu-items="mobileMenuItems"
       cta-link="https://t.me/artemselifanov"
-      cta-text="Связаться"
+      cta-text="Сообщество в Telegram"
+      theme="brutal"
+      :show-label="false"
+      :show-arrows="false"
     />
 
     <!-- Хлебные крошки -->
-    <nav class="pt-24 pb-6 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto">
-        <ol class="flex items-center flex-wrap gap-2 text-sm text-gray-500">
+    <nav class="pt-24 pb-6 px-4 md:px-6">
+      <div class="max-w-[1400px] mx-auto">
+        <ol class="flex items-center gap-2 text-xs uppercase tracking-wider">
           <li>
-            <NuxtLink to="/" class="hover:text-purple-600 transition-colors">
-              Главная
-            </NuxtLink>
+            <NuxtLink to="/" class="hover:underline">Главная</NuxtLink>
           </li>
           <li class="mx-2">/</li>
           <li>
-            <NuxtLink to="/knowledge" class="hover:text-purple-600 transition-colors">
-              База знаний
-            </NuxtLink>
+            <NuxtLink to="/knowledge" class="hover:underline">База знаний</NuxtLink>
           </li>
           <template v-if="mainTopic">
             <li class="mx-2">/</li>
             <li>
-              <NuxtLink :to="`/knowledge/${mainTopic.slug}`" class="hover:text-purple-600 transition-colors">
+              <NuxtLink :to="`/knowledge/${mainTopic.slug}`" class="hover:underline">
                 {{ mainTopic.title }}
               </NuxtLink>
             </li>
           </template>
           <li class="mx-2">/</li>
-          <li class="text-gray-900 font-medium truncate max-w-[200px] sm:max-w-none">
+          <li class="font-bold truncate max-w-[200px] sm:max-w-none">
             {{ post?.title }}
           </li>
         </ol>
@@ -252,16 +278,19 @@ function linkify(text) {
     </nav>
 
     <!-- Контент поста -->
-    <article class="pb-20 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto">
+    <article class="pb-20 px-4 md:px-6 border-b-2 border-black">
+      <div class="max-w-[900px] mx-auto">
         <!-- Заголовок и мета -->
-        <header class="mb-8">
-          <h1 class="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-6">
+        <header class="mb-8 pb-8 border-b-2 border-black">
+          <div class="text-xs uppercase tracking-wider mb-4">
+            МАТЕРИАЛ // {{ String(currentIndexInTopic + 1).padStart(2, '0') }}
+          </div>
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-black leading-[1.2] tracking-tight mb-6">
             {{ post?.title }}
           </h1>
 
-          <div class="flex flex-wrap items-center gap-4 mb-6">
-            <div class="flex items-center gap-2 text-sm text-gray-500">
+          <div class="flex flex-wrap items-center gap-4">
+            <div class="flex items-center gap-2 text-sm">
               <Calendar class="w-4 h-4" />
               <span>{{ new Date(post.date).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' }) }}</span>
             </div>
@@ -272,7 +301,7 @@ function linkify(text) {
                 v-for="topicSlug in post.topics"
                 :key="topicSlug"
                 :to="`/knowledge/${topicSlug}`"
-                class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-purple-100 hover:bg-purple-200 rounded-full text-xs font-semibold text-purple-700 transition-colors"
+                class="inline-flex items-center gap-1.5 px-3 py-1 border border-black rounded-full text-xs font-semibold hover:bg-black hover:text-white transition-all"
               >
                 <Tag class="w-3 h-3" />
                 {{ getTopicName(topicSlug) }}
@@ -282,26 +311,24 @@ function linkify(text) {
         </header>
 
         <!-- Текст поста -->
-        <div class="prose prose-lg prose-purple max-w-none mb-12">
+        <div class="prose prose-lg max-w-none mb-12">
           <div
-            class="bg-white rounded-3xl p-8 md:p-12 shadow-lg border border-gray-100 text-gray-900"
-            v-html="linkify(post.text)"
+            class="text-base md:text-lg leading-relaxed space-y-4"
+            v-html="post.text"
           ></div>
         </div>
 
         <!-- Навигация: предыдущий / следующий пост -->
-        <div class="flex flex-col sm:flex-row gap-4 mb-16 pt-8 border-t border-gray-200">
+        <div class="flex flex-col sm:flex-row gap-4 mt-12 pt-8 border-t-2 border-black">
           <NuxtLink
             v-if="prevPostInTopic"
             :to="`/knowledge/post/${prevPostInTopic.id}`"
-            class="group flex items-center gap-4 p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all hover:-translate-y-0.5 border border-gray-100 flex-1"
+            class="group flex items-center gap-4 p-6 border-2 border-black hover:bg-black hover:text-white transition-all flex-1"
           >
-            <div class="flex-shrink-0 w-10 h-10 bg-gray-100 rounded-xl flex items-center justify-center">
-              <ArrowLeft class="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
-            </div>
+            <ArrowLeft class="w-5 h-5 flex-shrink-0" />
             <div class="min-w-0">
-              <div class="text-xs text-gray-500 mb-1">← Предыдущий в теме</div>
-              <div class="font-semibold text-gray-900 group-hover:text-purple-600 transition-colors truncate">
+              <div class="text-xs uppercase mb-1">← Предыдущий</div>
+              <div class="font-bold truncate">
                 {{ prevPostInTopic.title }}
               </div>
             </div>
@@ -310,46 +337,42 @@ function linkify(text) {
           <NuxtLink
             v-if="nextPostInTopic"
             :to="`/knowledge/post/${nextPostInTopic.id}`"
-            class="group flex items-center gap-4 p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all hover:-translate-y-0.5 border border-gray-100 flex-1"
+            class="group flex items-center gap-4 p-6 border-2 border-black hover:bg-black hover:text-white transition-all flex-1"
           >
             <div class="min-w-0 text-right flex-1">
-              <div class="text-xs text-gray-500 mb-1">Следующий в теме →</div>
-              <div class="font-semibold text-gray-900 group-hover:text-purple-600 transition-colors truncate">
+              <div class="text-xs uppercase mb-1">Следующий →</div>
+              <div class="font-bold truncate">
                 {{ nextPostInTopic.title }}
               </div>
             </div>
-            <div class="flex-shrink-0 w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center">
-              <ArrowRight class="w-5 h-5 text-purple-600" />
-            </div>
+            <ArrowRight class="w-5 h-5 flex-shrink-0" />
           </NuxtLink>
         </div>
 
         <!-- Читай также -->
-        <section v-if="alsoReadPosts.length">
-          <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-8">
-            Читайте также
-          </h2>
+        <section v-if="alsoReadPosts.length" class="mt-12 pt-8 border-t-2 border-black">
+          <div class="text-xs uppercase tracking-wider mb-6">ЧИТАЙТЕ ТАКЖЕ</div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <NuxtLink
               v-for="relatedPost in alsoReadPosts"
               :key="relatedPost.id"
               :to="`/knowledge/post/${relatedPost.id}`"
-              class="group p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all hover:-translate-y-1 border border-gray-100"
+              class="group p-6 border-2 border-black hover:bg-black hover:text-white transition-all"
             >
               <div class="flex items-start gap-3 mb-3">
                 <span class="text-2xl">{{ getTopicIcon(relatedPost.topics?.[0]) }}</span>
-                <div class="flex items-center gap-2 text-xs text-gray-500">
+                <div class="flex items-center gap-2 text-xs">
                   <Calendar class="w-3 h-3" />
                   <span>{{ new Date(relatedPost.date).toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' }) }}</span>
                 </div>
               </div>
-              <h3 class="text-base font-bold text-gray-900 group-hover:text-purple-600 transition-colors line-clamp-2">
+              <h3 class="text-base font-bold line-clamp-2">
                 {{ relatedPost.title }}
               </h3>
-              <div class="flex items-center gap-1 mt-3 text-purple-600 text-sm font-semibold">
-                <span>Читать</span>
-                <ChevronRight class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <div class="flex items-center gap-1 mt-3 text-sm font-semibold">
+                <span>ЧИТАТЬ</span>
+                <ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </NuxtLink>
           </div>
@@ -378,15 +401,15 @@ function linkify(text) {
 </template>
 
 <style scoped>
-/* Стили для контента поста */
 .prose :deep(a) {
-  color: #9333ea;
+  color: #000;
   text-decoration: underline;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .prose :deep(a:hover) {
-  color: #7e22ce;
+  background-color: #000;
+  color: #fff;
 }
 
 .prose :deep(p) {
@@ -394,8 +417,31 @@ function linkify(text) {
   line-height: 1.7;
 }
 
-.prose :deep(p:last-child) {
-  margin-bottom: 0;
+.prose :deep(h3) {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.prose :deep(ul), .prose :deep(ol) {
+  margin-bottom: 1.5em;
+  padding-left: 1.5em;
+}
+
+.prose :deep(li) {
+  margin-bottom: 0.5em;
+}
+
+.prose :deep(blockquote) {
+  border-left: 4px solid #000;
+  padding-left: 1em;
+  font-style: italic;
+  margin: 1.5em 0;
+}
+
+.prose :deep(strong) {
+  font-weight: 700;
 }
 
 .line-clamp-2 {

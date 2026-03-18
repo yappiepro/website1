@@ -1,5 +1,7 @@
 import tailwindcss from '@tailwindcss/vite'
 import { articles } from './data/blog.js'
+import { topics } from './data/knowledge/topics.js'
+import { readFileSync } from 'fs'
 
 const blogSlugs = articles
   .map((article) => article.slug)
@@ -14,6 +16,14 @@ const blogClusters = Array.from(
       .filter((cluster) => Boolean(cluster))
   )
 ).map((cluster) => `/blog/cluster/${cluster}`)
+
+// Маршруты для базы знаний
+const knowledgeRoutes = topics.map((topic) => `/knowledge/${topic.slug}`)
+
+// Маршруты для постов базы знаний — читаем JSON динамически
+const postsDataPath = new URL('./data/knowledge/posts-data.json', import.meta.url)
+const postsData = JSON.parse(readFileSync(postsDataPath, 'utf-8'))
+const knowledgePostRoutes = postsData.map((post) => `/knowledge/post/${post.id}`)
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -124,6 +134,9 @@ export default defineNuxtConfig({
         '/business',
         '/yappie',
         '/study',
+        '/knowledge',
+        ...knowledgeRoutes,
+        ...knowledgePostRoutes,
         ...blogClusters,
         ...blogRoutes
       ],
@@ -169,6 +182,9 @@ export default defineNuxtConfig({
       '/business',
       '/yappie',
       '/study',
+      '/knowledge',
+      ...knowledgeRoutes,
+      ...knowledgePostRoutes,
       '/consultation',
       '/mentorship',
       '/blog',

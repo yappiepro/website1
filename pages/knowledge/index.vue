@@ -216,7 +216,7 @@ const mobileMenuItems = [
             v-for="topic in topics"
             :key="topic.slug"
             :to="`/knowledge/${topic.slug}`"
-            class="group p-6 border-2 border-black hover:bg-black hover:text-white transition-all duration-300"
+            class="group p-6 border-2 border-black hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-200"
           >
             <div class="flex items-start gap-4 mb-4">
               <span class="text-4xl">{{ topic.icon }}</span>

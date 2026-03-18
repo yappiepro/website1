@@ -437,7 +437,7 @@ function toggleFaq(index) {
     ]">
       <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
         <div class="h-14 md:h-16 flex items-center">
-          <!-- Левая зона: Логотип (виден на мобильных только без скролла) -->
+          <!-- Левая зона: Логотип -->
           <div :class="[
             'transition-all duration-300',
             isScrolled ? 'hidden' : 'block md:block'
@@ -447,15 +447,17 @@ function toggleFaq(index) {
             </a>
           </div>
 
-          <!-- Центральная зона: Десктопное меню -->
-          <nav class="hidden md:flex items-center gap-1 flex-1">
-            <a href="/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Главная</a>
-            <a href="#about" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">О проекте</a>
-            <a href="#services" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Услуги</a>
-            <a href="#faq" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">FAQ</a>
-            <a href="/blog" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Блог</a>
-            <a href="/business" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Бизнес Сетка</a>
-          </nav>
+          <!-- Центральная зона: Десктопное меню (центрировано) -->
+          <div class="hidden md:flex items-center justify-center flex-1">
+            <nav class="flex items-center gap-1">
+              <a href="/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Главная</a>
+              <a href="#about" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">О проекте</a>
+              <a href="#services" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Услуги</a>
+              <a href="#faq" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">FAQ</a>
+              <a href="/blog" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Блог</a>
+              <a href="/business" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Бизнес Сетка</a>
+            </nav>
+          </div>
 
           <!-- Правая зона: Кнопка -->
           <div class="hidden md:flex items-center justify-end shrink-0">

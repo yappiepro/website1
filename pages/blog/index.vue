@@ -317,34 +317,12 @@ const filteredArticles = computed(() => {
 
 // Функция для получения класса цвета кластера
 function getClusterColorClass(cluster) {
-  const color = getClusterColor(cluster)
-  const colorMap = {
-    violet: 'bg-violet-100 text-violet-700',
-    blue: 'bg-blue-100 text-blue-700',
-    green: 'bg-green-100 text-green-700',
-    orange: 'bg-orange-100 text-orange-700',
-    pink: 'bg-pink-100 text-pink-700',
-    teal: 'bg-teal-100 text-teal-700',
-    cyan: 'bg-cyan-100 text-cyan-700',
-    red: 'bg-red-100 text-red-700'
-  }
-  return colorMap[color] || colorMap.violet
+  return 'bg-gray-900 text-white'
 }
 
 // Функция для получения цвета активной кнопки кластера
 function getClusterButtonActiveClass(cluster) {
-  const color = getClusterColor(cluster)
-  const colorMap = {
-    violet: 'bg-violet-600 text-white shadow-md',
-    blue: 'bg-blue-600 text-white shadow-md',
-    green: 'bg-green-600 text-white shadow-md',
-    orange: 'bg-orange-600 text-white shadow-md',
-    pink: 'bg-pink-600 text-white shadow-md',
-    teal: 'bg-teal-600 text-white shadow-md',
-    cyan: 'bg-cyan-600 text-white shadow-md',
-    red: 'bg-red-600 text-white shadow-md'
-  }
-  return colorMap[color] || colorMap.violet
+  return 'bg-gray-900 text-white shadow-md'
 }
 
 useHead({

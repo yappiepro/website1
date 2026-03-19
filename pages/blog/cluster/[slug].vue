@@ -114,7 +114,7 @@
 
         <!-- Заголовок -->
         <div class="mb-12">
-          <span :class="`inline-block px-4 py-2 rounded-full text-sm font-semibold mb-4 bg-${clusterColor}-100 text-${clusterColor}-700`">
+          <span :class="[colorClasses.badge, 'inline-block px-4 py-2 rounded-full text-sm font-semibold mb-4']">
             {{ clusterName }}
           </span>
           <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
@@ -131,12 +131,13 @@
             v-for="article in clusterArticles"
             :key="article.slug"
             :href="`/blog/${article.slug}`"
-            class="group p-6 bg-white rounded-2xl border border-gray-200 hover:border-violet-300 hover:shadow-lg transition-all"
+            class="group p-6 bg-white rounded-2xl border border-gray-200 transition-all"
+            :class="colorClasses.border"
           >
-            <span class="text-xs font-medium text-violet-600 mb-3 block">
+            <span :class="[colorClasses.text, 'text-xs font-medium mb-3 block']">
               {{ article.category }}
             </span>
-            <h2 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-violet-700 line-clamp-2">
+            <h2 :class="[colorClasses.hoverText, 'text-xl font-bold text-gray-900 mb-3 line-clamp-2']">
               {{ article.title }}
             </h2>
             <p class="text-gray-600 text-sm line-clamp-3 mb-4">
@@ -146,7 +147,7 @@
               <span class="text-xs text-gray-500">
                 {{ formatDate(article.date) }}
               </span>
-              <span class="text-violet-600 text-sm font-medium group-hover:translate-x-1 transition-transform">
+              <span :class="[colorClasses.text, 'text-sm font-medium group-hover:translate-x-1 transition-transform']">
                 Читать →
               </span>
             </div>
@@ -156,7 +157,7 @@
         <!-- Пустое состояние -->
         <div v-if="clusterArticles.length === 0" class="text-center py-16">
           <p class="text-gray-500 text-lg">В этом кластере пока нет статей</p>
-          <NuxtLink to="/blog" class="inline-flex items-center gap-2 mt-4 text-violet-600 hover:text-violet-700 font-medium">
+          <NuxtLink :to="'/blog'" :class="[colorClasses.link, 'inline-flex items-center gap-2 mt-4 font-medium']">
             ← Вернуться к блогу
           </NuxtLink>
         </div>
@@ -181,6 +182,19 @@ const clusterColor = computed(() => clusterColors[clusterSlug] || 'violet')
 
 // Получаем статьи кластера
 const clusterArticles = computed(() => getArticlesByCluster(clusterSlug))
+
+// Функция для получения классов цвета
+function getColorClasses(color) {
+  return {
+    badge: 'bg-gray-900 text-white',
+    border: 'hover:border-gray-900',
+    text: 'text-gray-900',
+    hoverText: 'group-hover:text-gray-900',
+    link: 'hover:text-gray-900'
+  }
+}
+
+const colorClasses = computed(() => getColorClasses(clusterColor.value))
 
 // SEO
 useSeoMeta({

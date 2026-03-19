@@ -251,9 +251,9 @@ const mobileMenuItems = [
     />
 
     <!-- Хлебные крошки -->
-    <nav class="pt-24 pb-6 px-4 md:px-6">
-      <div class="max-w-[1400px] mx-auto">
-        <ol class="flex items-center justify-center gap-2 text-xs uppercase tracking-wider text-black">
+    <nav class="pt-24 md:pt-32 pl-3 md:pl-4 pb-6">
+      <div class="max-w-[900px] mx-auto">
+        <ol class="flex items-center gap-2 text-xs uppercase tracking-wider text-black">
           <li>
             <NuxtLink to="/" class="text-black hover:underline font-bold">Главная</NuxtLink>
           </li>
@@ -269,10 +269,6 @@ const mobileMenuItems = [
               </NuxtLink>
             </li>
           </template>
-          <li class="mx-2 text-black">/</li>
-          <li class="font-bold text-black truncate max-w-[200px] sm:max-w-none">
-            {{ post?.title }}
-          </li>
         </ol>
       </div>
     </nav>

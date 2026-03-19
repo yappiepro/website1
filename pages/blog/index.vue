@@ -330,7 +330,9 @@ function getClusterColorClass(cluster) {
     purple: 'bg-purple-100 text-purple-700',
     indigo: 'bg-indigo-100 text-indigo-700',
     emerald: 'bg-emerald-100 text-emerald-700',
-    amber: 'bg-amber-100 text-amber-700'
+    amber: 'bg-amber-100 text-amber-700',
+    fuchsia: 'bg-fuchsia-100 text-fuchsia-700',
+    sky: 'bg-sky-100 text-sky-700'
   }
   return colorMap[color] || colorMap.violet
 }
@@ -350,7 +352,9 @@ function getClusterButtonActiveClass(cluster) {
     purple: 'bg-purple-600 text-white shadow-md',
     indigo: 'bg-indigo-600 text-white shadow-md',
     emerald: 'bg-emerald-600 text-white shadow-md',
-    amber: 'bg-amber-600 text-white shadow-md'
+    amber: 'bg-amber-600 text-white shadow-md',
+    fuchsia: 'bg-fuchsia-600 text-white shadow-md',
+    sky: 'bg-sky-600 text-white shadow-md'
   }
   return colorMap[color] || colorMap.violet
 }

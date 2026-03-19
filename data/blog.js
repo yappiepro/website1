@@ -168,20 +168,20 @@ export const clusterNames = {
   'monetizatsiya-ekspertnosti': 'Монетизация экспертности'
 }
 
-// Цвета для кластеров
+// Цвета для кластеров (максимально разные)
 export const clusterColors = {
-  'razrabotka-saytov': 'violet',
-  'sozdanie-saytov': 'blue',
-  'mobilnye-prilozheniya': 'green',
-  'veb-razrabotka': 'orange',
-  'iskusstvennyy-intellekt': 'pink',
-  'lichnyy-brend': 'purple',
-  'kontent-marketing': 'red',
-  'networking': 'teal',
-  'chat-boty': 'cyan',
-  'telegram-marketing': 'blue',
-  'seo': 'indigo',
-  'monetizatsiya-ekspertnosti': 'amber'
+  'razrabotka-saytov': 'violet',      // Фиолетовый
+  'sozdanie-saytov': 'cyan',          // Голубой
+  'mobilnye-prilozheniya': 'emerald', // Изумрудный
+  'veb-razrabotka': 'orange',         // Оранжевый
+  'iskusstvennyy-intellekt': 'fuchsia', // Фуксия
+  'lichnyy-brend': 'purple',          // Пурпурный
+  'kontent-marketing': 'red',         // Красный
+  'networking': 'teal',               // Бирюзовый
+  'chat-boty': 'blue',                // Синий
+  'telegram-marketing': 'sky',        // Небесный
+  'seo': 'green',                     // Зелёный
+  'monetizatsiya-ekspertnosti': 'amber' // Янтарный
 }
 
 // Функция для получения названия кластера

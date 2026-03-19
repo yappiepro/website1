@@ -41,6 +41,13 @@ useSchemaOrg([
     description: 'Сообщество предпринимателей и экспертов для роста личного бренда. Продвижение в Telegram, Сетке и TenChat.',
     url: 'https://artemselifanov.ru/networking'
   }),
+  defineBreadcrumb({
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://artemselifanov.ru' },
+      { '@type': 'ListItem', position: 2, name: 'Нескучный Нетворкинг', item: 'https://artemselifanov.ru/networking' }
+    ]
+  }),
   definePerson({
     name: 'Артём Селифанов',
     url: 'https://artemselifanov.ru',
@@ -492,6 +499,19 @@ function toggleFaq(index) {
       :show-label="false"
       :show-arrows="false"
     />
+
+    <!-- Хлебные крошки -->
+    <nav class="pt-24 pb-6 px-4 md:px-6" aria-label="Breadcrumb">
+      <div class="max-w-[1400px] mx-auto">
+        <ol class="flex items-center gap-2 text-xs uppercase tracking-wider text-black">
+          <li>
+            <NuxtLink to="/" class="text-black hover:underline font-bold">Главная</NuxtLink>
+          </li>
+          <li class="mx-2 text-black">/</li>
+          <li class="font-bold text-black">Нескучный Нетворкинг</li>
+        </ol>
+      </div>
+    </nav>
 
     <!-- Основной контент -->
     <main role="main">

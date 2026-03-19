@@ -185,13 +185,93 @@ const clusterArticles = computed(() => getArticlesByCluster(clusterSlug))
 
 // Функция для получения классов цвета
 function getColorClasses(color) {
-  return {
-    badge: 'bg-gray-900 text-white',
-    border: 'hover:border-gray-900',
-    text: 'text-gray-900',
-    hoverText: 'group-hover:text-gray-900',
-    link: 'hover:text-gray-900'
+  const classes = {
+    violet: {
+      badge: 'bg-violet-100 text-violet-700',
+      border: 'hover:border-violet-300',
+      text: 'text-violet-600',
+      hoverText: 'group-hover:text-violet-700',
+      link: 'hover:text-violet-700'
+    },
+    blue: {
+      badge: 'bg-blue-100 text-blue-700',
+      border: 'hover:border-blue-300',
+      text: 'text-blue-600',
+      hoverText: 'group-hover:text-blue-700',
+      link: 'hover:text-blue-700'
+    },
+    green: {
+      badge: 'bg-green-100 text-green-700',
+      border: 'hover:border-green-300',
+      text: 'text-green-600',
+      hoverText: 'group-hover:text-green-700',
+      link: 'hover:text-green-700'
+    },
+    orange: {
+      badge: 'bg-orange-100 text-orange-700',
+      border: 'hover:border-orange-300',
+      text: 'text-orange-600',
+      hoverText: 'group-hover:text-orange-700',
+      link: 'hover:text-orange-700'
+    },
+    pink: {
+      badge: 'bg-pink-100 text-pink-700',
+      border: 'hover:border-pink-300',
+      text: 'text-pink-600',
+      hoverText: 'group-hover:text-pink-700',
+      link: 'hover:text-pink-700'
+    },
+    purple: {
+      badge: 'bg-purple-100 text-purple-700',
+      border: 'hover:border-purple-300',
+      text: 'text-purple-600',
+      hoverText: 'group-hover:text-purple-700',
+      link: 'hover:text-purple-700'
+    },
+    teal: {
+      badge: 'bg-teal-100 text-teal-700',
+      border: 'hover:border-teal-300',
+      text: 'text-teal-600',
+      hoverText: 'group-hover:text-teal-700',
+      link: 'hover:text-teal-700'
+    },
+    cyan: {
+      badge: 'bg-cyan-100 text-cyan-700',
+      border: 'hover:border-cyan-300',
+      text: 'text-cyan-600',
+      hoverText: 'group-hover:text-cyan-700',
+      link: 'hover:text-cyan-700'
+    },
+    red: {
+      badge: 'bg-red-100 text-red-700',
+      border: 'hover:border-red-300',
+      text: 'text-red-600',
+      hoverText: 'group-hover:text-red-700',
+      link: 'hover:text-red-700'
+    },
+    indigo: {
+      badge: 'bg-indigo-100 text-indigo-700',
+      border: 'hover:border-indigo-300',
+      text: 'text-indigo-600',
+      hoverText: 'group-hover:text-indigo-700',
+      link: 'hover:text-indigo-700'
+    },
+    emerald: {
+      badge: 'bg-emerald-100 text-emerald-700',
+      border: 'hover:border-emerald-300',
+      text: 'text-emerald-600',
+      hoverText: 'group-hover:text-emerald-700',
+      link: 'hover:text-emerald-700'
+    },
+    amber: {
+      badge: 'bg-amber-100 text-amber-700',
+      border: 'hover:border-amber-300',
+      text: 'text-amber-600',
+      hoverText: 'group-hover:text-amber-700',
+      link: 'hover:text-amber-700'
+    }
   }
+  return classes[color] || classes.violet
 }
 
 const colorClasses = computed(() => getColorClasses(clusterColor.value))

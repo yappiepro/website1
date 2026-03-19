@@ -269,6 +269,20 @@ function getColorClasses(color) {
       text: 'text-amber-600',
       hoverText: 'group-hover:text-amber-700',
       link: 'hover:text-amber-700'
+    },
+    fuchsia: {
+      badge: 'bg-fuchsia-100 text-fuchsia-700',
+      border: 'hover:border-fuchsia-300',
+      text: 'text-fuchsia-600',
+      hoverText: 'group-hover:text-fuchsia-700',
+      link: 'hover:text-fuchsia-700'
+    },
+    sky: {
+      badge: 'bg-sky-100 text-sky-700',
+      border: 'hover:border-sky-300',
+      text: 'text-sky-600',
+      hoverText: 'group-hover:text-sky-700',
+      link: 'hover:text-sky-700'
     }
   }
   return classes[color] || classes.violet

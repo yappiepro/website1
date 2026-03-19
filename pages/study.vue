@@ -46,6 +46,19 @@
       accent-color="violet"
     />
 
+    <!-- Хлебные крошки -->
+    <nav class="pt-24 pb-6 px-4 md:px-6" aria-label="Breadcrumb">
+      <div class="max-w-7xl mx-auto">
+        <ol class="flex items-center gap-2 text-xs uppercase tracking-wider text-gray-600">
+          <li>
+            <NuxtLink to="/" class="text-gray-600 hover:underline font-bold">Главная</NuxtLink>
+          </li>
+          <li class="mx-2 text-gray-600">/</li>
+          <li class="font-bold text-gray-600">Фокус</li>
+        </ol>
+      </div>
+    </nav>
+
     <!-- Старый header скрыт
     <header class="demo-header" v-if="isUnlocked">
       <nav class="demo-header-inner">
@@ -1120,6 +1133,13 @@ useSchemaOrg([
     name: 'Фокус — Тест на позиционирование личного бренда',
     description: 'Пройдите бесплатный тест на позиционирование личного бренда. Узнайте свои сильные стороны и получите рекомендации.',
     url: 'https://artemselifanov.ru/study'
+  }),
+  defineBreadcrumb({
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://artemselifanov.ru' },
+      { '@type': 'ListItem', position: 2, name: 'Фокус', item: 'https://artemselifanov.ru/study' }
+    ]
   }),
   definePerson({
     name: 'Артём Селифанов',

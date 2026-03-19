@@ -311,9 +311,9 @@ const mobileMenuItems = [
         </header>
 
         <!-- Текст поста -->
-        <div class="prose prose-lg max-w-none mb-12">
+        <div class="prose prose-lg max-w-none mb-12 text-black">
           <div
-            class="text-base md:text-lg leading-relaxed space-y-4"
+            class="text-base md:text-lg leading-relaxed space-y-4 text-black"
             v-html="post.text"
           ></div>
         </div>

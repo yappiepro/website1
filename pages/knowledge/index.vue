@@ -173,7 +173,7 @@ const mobileMenuItems = [
     </nav>
 
     <!-- Hero секция -->
-    <section class="pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6 border-b-2 border-black">
+    <section class="pt-16 md:pt-24 pb-12 md:pb-20 px-4 md:px-6 border-b-2 border-black">
       <div class="max-w-[1400px] mx-auto">
         <!-- Верхняя панель с мета-информацией -->
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8 md:mb-12 pb-4 border-b-2 border-black">

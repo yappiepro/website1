@@ -107,7 +107,7 @@
             <h3 class="text-xs font-bold uppercase tracking-wider mb-4" :class="headingColor">
               {{ socialTitle }}
             </h3>
-            <div class="grid grid-cols-3 gap-2">
+            <div class="grid grid-cols-2 gap-2">
               <a
                 v-for="(network, index) in socialNetworks.slice(0, 7)"
                 :key="index"

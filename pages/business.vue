@@ -60,13 +60,6 @@ useSchemaOrg([
     name: 'Бизнес Сетка — закрытый клуб и мастермайнд для предпринимателей',
     description: 'Закрытый клуб предпринимателей и экспертов. Мастермайнд-группы, бизнес-разборы, нетворкинг.',
     url: 'https://artemselifanov.ru/business'
-  }),
-  defineBreadcrumb({
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://artemselifanov.ru' },
-      { '@type': 'ListItem', position: 2, name: 'Бизнес Сетка', item: 'https://artemselifanov.ru/business' }
-    ]
   })
 ])
 

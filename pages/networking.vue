@@ -41,13 +41,6 @@ useSchemaOrg([
     description: 'Сообщество предпринимателей и экспертов для роста личного бренда. Продвижение в Telegram, Сетке и TenChat.',
     url: 'https://artemselifanov.ru/networking'
   }),
-  defineBreadcrumb({
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://artemselifanov.ru' },
-      { '@type': 'ListItem', position: 2, name: 'Нескучный Нетворкинг', item: 'https://artemselifanov.ru/networking' }
-    ]
-  }),
   definePerson({
     name: 'Артём Селифанов',
     url: 'https://artemselifanov.ru',

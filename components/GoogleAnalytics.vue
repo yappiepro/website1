@@ -3,6 +3,8 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+
 /**
  * Google Analytics 4 с загрузкой ТОЛЬКО при взаимодействии
  * Не загружается автоматически — максимальная экономия трафика

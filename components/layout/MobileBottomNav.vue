@@ -2,7 +2,7 @@
   <div class="md:hidden fixed bottom-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out" :class="menuClasses">
     <!-- Контейнер навигации -->
     <nav
-      class="flex items-center justify-around pb-safe rounded-t-2xl py-0 shadow-lg"
+      class="flex items-start justify-around pb-safe rounded-t-2xl py-3 shadow-lg"
       :class="navClasses"
     >
       <a
@@ -12,7 +12,7 @@
         :aria-label="item.label"
         :title="item.label"
         @click="handleClick(item, $event)"
-        class="relative flex flex-col items-center justify-center py-3 flex-1"
+        class="relative flex flex-col items-center justify-start pt-2 flex-1"
         :class="[
           isActive(item.href)
             ? activeTextClass

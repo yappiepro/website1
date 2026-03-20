@@ -1,11 +1,17 @@
 <template>
   <div class="min-h-screen bg-white text-gray-900 overflow-x-hidden touch-pan-y">
     <!-- Хедер -->
-    <header class="fixed left-4 right-4 z-40 transition-all duration-300 rounded-2xl bg-white/20 backdrop-blur-md shadow-sm md:top-0 top-4">
+    <header :class="[
+      'fixed left-4 right-4 z-40 transition-all duration-300 rounded-2xl md:top-0 top-4',
+      scrolled ? 'bg-transparent md:bg-white/60 md:backdrop-blur-xl md:shadow-lg' : 'bg-white/20 backdrop-blur-md shadow-sm'
+    ]">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <div class="h-14 md:h-16 flex items-center">
-          <!-- Левая зона: Логотип -->
-          <NuxtLink to="/blog" class="group text-sm font-semibold tracking-tight text-gray-900 transition-all duration-300 shrink-0">
+          <!-- Левая зона: Логотип (виден только без скролла) -->
+          <NuxtLink to="/blog" :class="[
+            'group text-sm font-semibold tracking-tight text-gray-900 transition-all duration-300 shrink-0',
+            scrolled ? 'hidden' : 'block'
+          ]">
             Блог
           </NuxtLink>
 
@@ -26,7 +32,10 @@
 
           <!-- Кнопка бургера для мобильных -->
           <button @click="isMenuOpen = !isMenuOpen"
-                  class="md:hidden p-2 bg-white/80 hover:bg-white rounded-xl transition-all backdrop-blur-sm absolute right-4"
+                  :class="[
+                    'md:hidden p-2 rounded-xl transition-all backdrop-blur-sm absolute right-4',
+                    scrolled ? 'bg-transparent hover:bg-white/50' : 'bg-white/80 hover:bg-white'
+                  ]"
                   aria-label="Открыть меню">
             <Icon name="fa-solid:bars" class="w-6 h-6 text-gray-700" />
           </button>
@@ -249,7 +258,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { ArrowRight, X } from 'lucide-vue-next'
 import { articles, formatDate, getClusters, getClusterName, getClusterColor, getRandomArticles, getArticlesByCluster } from '~/data/blog-meta.js'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
@@ -277,6 +286,20 @@ const searchQuery = ref('')
 
 // Мобильное меню
 const isMenuOpen = ref(false)
+const scrolled = ref(false)
+
+// Обработчик скролла
+function handleScroll() {
+  scrolled.value = window.scrollY > 50
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll, { passive: true })
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 
 // Функция для выбора кластера
 function selectCluster(cluster) {

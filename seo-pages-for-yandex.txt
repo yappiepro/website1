@@ -1,0 +1,108 @@
+# Список страниц для переобхода в Яндекс Вебмастер
+# Лимит: 150 страниц | Всего: 92 страницы
+# Сгенерировано: 19 марта 2026
+
+# ============================================
+# ПРИОРИТЕТ 1: Главные страницы (9)
+# ============================================
+https://artemselifanov.ru/
+https://artemselifanov.ru/networking
+https://artemselifanov.ru/business
+https://artemselifanov.ru/yappie
+https://artemselifanov.ru/study
+https://artemselifanov.ru/consultation
+https://artemselifanov.ru/mentorship
+https://artemselifanov.ru/blog
+https://artemselifanov.ru/knowledge
+
+# ============================================
+# ПРИОРИТЕТ 2: Страницы блога (62)
+# ============================================
+https://artemselifanov.ru/blog/api-razrabotka
+https://artemselifanov.ru/blog/avtomatizatsiya-biznesa-ii
+https://artemselifanov.ru/blog/backend-razrabotka
+https://artemselifanov.ru/blog/chat-bot-dlya-biznesa
+https://artemselifanov.ru/blog/chat-bot-v-max
+https://artemselifanov.ru/blog/chat-bot-v-telegram
+https://artemselifanov.ru/blog/chat-bot-vkontakte
+https://artemselifanov.ru/blog/chatgpt-dlya-biznesa
+https://artemselifanov.ru/blog/chto-takoe-chat-bot
+https://artemselifanov.ru/blog/chto-takoe-kontent-marketing
+https://artemselifanov.ru/blog/chto-takoe-lichnyy-brend
+https://artemselifanov.ru/blog/chto-takoe-networking
+https://artemselifanov.ru/blog/chto-takoe-seo
+https://artemselifanov.ru/blog/dizayn-mobilnogo-prilozheniya
+https://artemselifanov.ru/blog/frontend-razrabotka
+https://artemselifanov.ru/blog/fullstack-razrabotka
+https://artemselifanov.ru/blog/ii-agenty-dlya-biznesa
+https://artemselifanov.ru/blog/ii-dlya-biznesa
+https://artemselifanov.ru/blog/ii-dlya-sozdaniya-sayta
+https://artemselifanov.ru/blog/ii-v-it
+https://artemselifanov.ru/blog/kak-prodat-svoi-uslugi
+https://artemselifanov.ru/blog/kak-razvit-set-kontaktov
+https://artemselifanov.ru/blog/kak-sozdat-lichnyy-brend
+https://artemselifanov.ru/blog/kak-sozdat-mobilnoe-prilozhenie
+https://artemselifanov.ru/blog/kak-sozdat-onlayn-kurs
+https://artemselifanov.ru/blog/kak-sozdat-sajt-samostoyatelno
+https://artemselifanov.ru/blog/kak-vesti-telegram-kanal
+https://artemselifanov.ru/blog/kak-zakazat-razrabotku-sayta
+https://artemselifanov.ru/blog/konsalting-s-nulya
+https://artemselifanov.ru/blog/kontent-marketing-dlya-privlecheniya-klientov
+https://artemselifanov.ru/blog/networking-dlya-biznesa
+https://artemselifanov.ru/blog/neyroseti-dlya-generatsii-izobrazheniy
+https://artemselifanov.ru/blog/platformy-dlya-sozdaniya-saytov
+https://artemselifanov.ru/blog/prodvizhenie-mobilnogo-prilozheniya
+https://artemselifanov.ru/blog/prodvizhenie-sayta-v-yandex
+https://artemselifanov.ru/blog/prodvizhenie-v-telegram
+https://artemselifanov.ru/blog/prompt-inzhiniring
+https://artemselifanov.ru/blog/razrabotka-internet-magazina
+https://artemselifanov.ru/blog/razrabotka-mobilnogo-prilozheniya
+https://artemselifanov.ru/blog/razrabotka-sayta-dlya-biznesa
+https://artemselifanov.ru/blog/razrabotka-sayta-pod-klyuch
+https://artemselifanov.ru/blog/razrabotka-veb-prilozheniy
+https://artemselifanov.ru/blog/seo-dlya-biznesa
+https://artemselifanov.ru/blog/skolko-stoit-razrabotka-sayta
+https://artemselifanov.ru/blog/skolko-stoit-sozdat-sajt
+https://artemselifanov.ru/blog/skolko-stoit-sozdat-sayt
+https://artemselifanov.ru/blog/sozdanie-sayta-dlya-biznesa
+https://artemselifanov.ru/blog/sozdanie-sayta-html-css
+https://artemselifanov.ru/blog/sozdanie-sayta-s-nulya
+https://artemselifanov.ru/blog/strategiya-kontent-marketinga
+https://artemselifanov.ru/blog/tehnicheskoe-zadanie-na-razrabotku-sayta
+https://artemselifanov.ru/blog/telegram-kanal-dlya-biznesa
+https://artemselifanov.ru/blog/upakovka-lichnogo-brenda
+https://artemselifanov.ru/blog/vidy-mobilnykh-prilozheniy
+https://artemselifanov.ru/blog/yazyki-programmirovaniya-mobilnykh-prilozheniy
+
+# ============================================
+# ПРИОРИТЕТ 3: Кластеры блога (12)
+# ============================================
+https://artemselifanov.ru/blog/cluster/chat-boty
+https://artemselifanov.ru/blog/cluster/iskusstvennyy-intellekt
+https://artemselifanov.ru/blog/cluster/kontent-marketing
+https://artemselifanov.ru/blog/cluster/lichnyy-brend
+https://artemselifanov.ru/blog/cluster/mobilnye-prilozheniya
+https://artemselifanov.ru/blog/cluster/monetizatsiya-ekspertnosti
+https://artemselifanov.ru/blog/cluster/networking
+https://artemselifanov.ru/blog/cluster/razrabotka-saytov
+https://artemselifanov.ru/blog/cluster/seo
+https://artemselifanov.ru/blog/cluster/sozdanie-saytov
+https://artemselifanov.ru/blog/cluster/telegram-marketing
+https://artemselifanov.ru/blog/cluster/veb-razrabotka
+
+# ============================================
+# ПРИОРИТЕТ 4: Темы базы знаний (9)
+# ============================================
+https://artemselifanov.ru/knowledge/author-story
+https://artemselifanov.ru/knowledge/content-strategy
+https://artemselifanov.ru/knowledge/motivation
+https://artemselifanov.ru/knowledge/networking
+https://artemselifanov.ru/knowledge/personal-brand
+https://artemselifanov.ru/knowledge/platforms
+https://artemselifanov.ru/knowledge/reality-projects
+https://artemselifanov.ru/knowledge/sales
+https://artemselifanov.ru/knowledge/tools-ai
+
+# ============================================
+# ИТОГО: 92 страницы
+# ============================================

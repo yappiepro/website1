@@ -926,7 +926,32 @@ useSchemaOrg([
     name: 'Артём Селифанов — Личный бренд для предпринимателей и экспертов',
     url: 'https://artemselifanov.ru',
     description: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт',
-    inLanguage: 'ru-RU'
+    inLanguage: 'ru-RU',
+    hasPart: [
+      { '@type': 'WebPage', url: 'https://artemselifanov.ru/networking', name: 'Нескучный Нетворкинг' },
+      { '@type': 'WebPage', url: 'https://artemselifanov.ru/business', name: 'Бизнес Сетка' },
+      { '@type': 'WebPage', url: 'https://artemselifanov.ru/yappie', name: 'Веб-разработка' },
+      { '@type': 'WebPage', url: 'https://artemselifanov.ru/study', name: 'Фокус — Обучение' },
+      { '@type': 'WebPage', url: 'https://artemselifanov.ru/blog', name: 'Блог' },
+      { '@type': 'WebPage', url: 'https://artemselifanov.ru/knowledge', name: 'База знаний' },
+      { '@type': 'WebPage', url: 'https://artemselifanov.ru/consultation', name: 'Консультация' },
+      { '@type': 'WebPage', url: 'https://artemselifanov.ru/mentorship', name: 'Менторство' }
+    ]
+  }),
+  defineSiteNavigationElement({
+    name: 'Основная навигация по сайту',
+    url: 'https://artemselifanov.ru',
+    hasPart: [
+      { '@type': 'SiteNavigationElement', name: 'Главная', url: '/' },
+      { '@type': 'SiteNavigationElement', name: 'Нескучный Нетворкинг', url: '/networking' },
+      { '@type': 'SiteNavigationElement', name: 'Бизнес Сетка', url: '/business' },
+      { '@type': 'SiteNavigationElement', name: 'Веб-разработка', url: '/yappie' },
+      { '@type': 'SiteNavigationElement', name: 'Фокус — Обучение', url: '/study' },
+      { '@type': 'SiteNavigationElement', name: 'Блог', url: '/blog' },
+      { '@type': 'SiteNavigationElement', name: 'База знаний', url: '/knowledge' },
+      { '@type': 'SiteNavigationElement', name: 'Консультация', url: '/consultation' },
+      { '@type': 'SiteNavigationElement', name: 'Менторство', url: '/mentorship' }
+    ]
   }),
   defineWebPage({
     '@type': 'WebPage',

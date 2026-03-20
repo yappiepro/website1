@@ -92,7 +92,8 @@ export default defineNuxtConfig({
     inlineSSRStyles: true,
     appManifest: false,
     renderJsonPayloads: true,
-    islands: true
+    islands: true,
+    viewTransition: true
   },
 
   // Fontaine - оптимизация шрифтов без CLS
@@ -258,7 +259,7 @@ export default defineNuxtConfig({
       // Критический CSS инлайн - убирает блокировку рендеринга
       style: [
         {
-          children: `html{scroll-behavior:smooth}::-webkit-scrollbar{height:6px;width:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:#ffffff4d;border-radius:10px}::-webkit-scrollbar-thumb:hover{background:#ffffff80}`,
+          children: `::-webkit-scrollbar{height:6px;width:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:#ffffff4d;border-radius:10px}::-webkit-scrollbar-thumb:hover{background:#ffffff80}`,
           tagPosition: 'head'
         }
       ],

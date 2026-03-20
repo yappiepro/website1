@@ -1,13 +1,29 @@
 <template>
   <div>
+    <!-- Overlay для закрытия по клику вне -->
+    <Transition
+      enter-active-class="transition duration-300 ease-out"
+      enter-from-class="opacity-0"
+      enter-to-class="opacity-100"
+      leave-active-class="transition duration-200 ease-in"
+      leave-from-class="opacity-100"
+      leave-to-class="opacity-0"
+    >
+      <div
+        v-if="isOpen"
+        class="fixed inset-0 bg-black/50 z-[99] md:hidden"
+        @click="isOpen = false"
+      ></div>
+    </Transition>
+
     <!-- Мобильное меню -->
     <Transition
       enter-active-class="transition duration-300 ease-out"
-      enter-from-class="opacity-0 translate-x-full"
-      enter-to-class="opacity-100 translate-x-0"
+      enter-from-class="translate-x-full"
+      enter-to-class="translate-x-0"
       leave-active-class="transition duration-200 ease-in"
-      leave-from-class="opacity-100 translate-x-0"
-      leave-to-class="opacity-0 translate-x-full"
+      leave-from-class="translate-x-0"
+      leave-to-class="translate-x-full"
     >
       <div v-if="isOpen" class="fixed inset-0 z-[100] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 pt-20 px-6">
         <div class="flex justify-between items-center mb-8">
@@ -30,11 +46,12 @@
         </div>
 
         <nav class="flex flex-col gap-3 max-w-md mx-auto">
-          <a
+          <NuxtLink
             v-for="(item, i) in menuItems"
             :key="i"
-            :href="item.href"
-            @click.prevent="handleClick(item.href)"
+            :to="item.href"
+            :prefetch="true"
+            @click="handleClick(item.href)"
             class="group relative overflow-hidden p-5 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20 animate-menu-item"
             :style="{ animationDelay: `${i * 50 + 150}ms` }"
           >
@@ -43,7 +60,7 @@
               <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">{{ item.label }}</span>
               <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
             </div>
-          </a>
+          </NuxtLink>
 
           <a
             :href="ctaLink"
@@ -69,7 +86,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 
 const props = defineProps({
   menuItems: {
@@ -95,12 +112,6 @@ const props = defineProps({
 const isOpen = ref(false)
 
 function handleClick(href) {
-  if (href.startsWith('#')) {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
   isOpen.value = false
 }
 
@@ -108,11 +119,25 @@ function handleToggleMenu() {
   isOpen.value = !isOpen.value
 }
 
+// Блокировка скролла body при открытом меню
+watch(isOpen, (newValue) => {
+  if (newValue) {
+    document.body.style.overflow = 'hidden'
+    document.body.style.touchAction = 'none'
+  } else {
+    document.body.style.overflow = ''
+    document.body.style.touchAction = 'pan-y'
+  }
+}, { immediate: false })
+
 onMounted(() => {
   window.addEventListener('toggle-mobile-menu', handleToggleMenu)
 })
 
 onUnmounted(() => {
   window.removeEventListener('toggle-mobile-menu', handleToggleMenu)
+  // Сброс стилей при уничтожении компонента
+  document.body.style.overflow = ''
+  document.body.style.touchAction = 'pan-y'
 })
 </script>

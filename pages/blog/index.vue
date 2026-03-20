@@ -312,6 +312,8 @@ function selectCluster(cluster) {
   }
   // Закрываем меню
   isMenuOpen.value = false
+  // Прокрутка к началу страницы
+  window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
 // Случайный порядок статей

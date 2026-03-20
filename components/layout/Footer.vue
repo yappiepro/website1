@@ -59,14 +59,27 @@
             </ul>
           </div>
 
-          <!-- Логотип / Название + ИП -->
+          <!-- Логотип / Название + ИП и Контакты -->
           <div class="col-span-2 md:col-span-1">
-            <div class="text-sm font-bold text-white mb-4">{{ siteName }}</div>
-            <div class="text-xs text-gray-300 space-y-1">
+            <h3 class="text-sm font-bold text-white mb-4">{{ siteName }}</h3>
+            <div class="text-xs text-gray-400 space-y-1 mb-4">
               <p>ИП Селифанов А.В.</p>
               <p>ОГРНИП: 323100000003767</p>
               <p>ИНН: 100123594893</p>
             </div>
+            <h3 class="text-xs font-bold uppercase tracking-wider mb-3" :class="headingColor">Контакты</h3>
+            <ul class="space-y-2 text-sm">
+              <li v-for="contact in contacts" :key="contact.href">
+                <a
+                  :href="contact.href"
+                  :target="contact.external ? '_blank' : undefined"
+                  class="transition-colors"
+                  :class="linkColor"
+                >
+                  {{ contact.label }}
+                </a>
+              </li>
+            </ul>
           </div>
 
           <!-- Сообщества -->
@@ -79,25 +92,6 @@
                 <NuxtLink :to="community.href" class="transition-colors" :class="linkColor">
                   {{ community.label }}
                 </NuxtLink>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Контакты -->
-          <div v-if="contacts && contacts.length">
-            <h3 class="text-xs font-bold uppercase tracking-wider mb-4" :class="headingColor">
-              {{ contactsTitle }}
-            </h3>
-            <ul class="space-y-3 text-sm">
-              <li v-for="contact in contacts" :key="contact.href">
-                <a
-                  :href="contact.href"
-                  :target="contact.external ? '_blank' : undefined"
-                  class="transition-colors"
-                  :class="linkColor"
-                >
-                  {{ contact.label }}
-                </a>
               </li>
             </ul>
           </div>

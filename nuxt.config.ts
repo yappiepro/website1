@@ -240,8 +240,7 @@ export default defineNuxtConfig({
         { name: 'theme-color', content: '#7c3aed' }
       ],
       link: [
-        // Favicon для разных устройств (SVG в приоритете для Яндекса)
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicons/favicon.svg' },
+        // Favicon для разных устройств
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicons/apple-touch-icon.png' },
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicons/favicon-32x32.png' },

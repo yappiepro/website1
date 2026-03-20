@@ -18,15 +18,22 @@
 
         <!-- Центральная зона: Десктопное меню -->
         <nav class="hidden md:flex items-center gap-1 flex-1 justify-center transition-all duration-300">
-          <a
+          <NuxtLink
             v-for="item in menuItems"
             :key="item.href"
-            :href="item.href"
+            :to="item.href"
+            :prefetch="true"
             @click="handleAnchorClick($event, item.href)"
-            class="px-4 py-2 text-sm rounded-lg transition-all text-gray-600 hover:text-gray-900 hover:bg-white/50"
+            @touchstart="handleTouchStart(item.href)"
+            :class="[
+              'px-4 py-2 text-sm rounded-lg transition-all',
+              activeItem === item.href 
+                ? 'text-gray-900 bg-white/80' 
+                : 'text-gray-600 hover:text-gray-900 hover:bg-white/50'
+            ]"
           >
             {{ item.label }}
-          </a>
+          </NuxtLink>
         </nav>
 
         <!-- Правая зона: CTA кнопка -->
@@ -55,6 +62,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useRoute } from 'vue-router'
 
 const props = defineProps({
   logoText: {
@@ -84,7 +92,9 @@ const props = defineProps({
   }
 })
 
+const route = useRoute()
 const scrolled = ref(false)
+const activeItem = ref(null)
 
 function handleScroll() {
   scrolled.value = window.scrollY > 50
@@ -98,15 +108,20 @@ function handleAnchorClick(event, href) {
       element.scrollIntoView({ behavior: 'smooth' })
     }
   }
+  activeItem.value = href
+}
+
+function handleTouchStart(href) {
+  activeItem.value = href
 }
 
 function toggleMenu() {
-  // Событие для открытия мобильного меню
   window.dispatchEvent(new CustomEvent('toggle-mobile-menu'))
 }
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll, { passive: true })
+  activeItem.value = route.path
 })
 
 onUnmounted(() => {

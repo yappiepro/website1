@@ -1,11 +1,19 @@
 <template>
-  <NuxtPage />
+  <NuxtPage>
+    <template #default="{ Component }">
+      <Transition name="page" mode="out-in">
+        <Component :is="Component" />
+      </Transition>
+    </template>
+  </NuxtPage>
+  <LoadingBar />
   <CookieBanner />
   <GoogleAnalytics />
   <YandexMetrica />
 </template>
 
 <script setup>
+import LoadingBar from '~/components/layout/LoadingBar.vue'
 import CookieBanner from '~/components/layout/CookieBanner.vue'
 import GoogleAnalytics from '~/components/GoogleAnalytics.vue'
 import YandexMetrica from '~/components/YandexMetrica.vue'

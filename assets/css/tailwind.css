@@ -100,3 +100,26 @@ body {
   opacity: 0;
   animation: menuSlideUp 0.4s ease-out forwards;
 }
+
+/* Page transitions с hardware acceleration */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.15s ease;
+  will-change: transform;
+}
+
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+}
+
+/* View Transitions API support */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.15s;
+}
+
+/* Плавная прокрутка */
+html {
+  scroll-behavior: smooth;
+}

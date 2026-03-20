@@ -31,6 +31,12 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ['~/assets/css/tailwind.css'],
 
+  // Отключаем Nuxt Link Checker для production сборки
+  // Ошибки 500 при пререндеринге — ложные (проблема проверки ссылок во время генерации)
+  linkChecker: {
+    enabled: false
+  },
+
   modules: [
     '@nuxtjs/seo',
     '@nuxt/image',

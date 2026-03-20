@@ -1,8 +1,8 @@
 <template>
-  <div class="md:hidden fixed bottom-[12px] left-[12px] right-[12px] z-50 transition-all duration-300 ease-in-out" :class="menuClasses">
+  <div class="md:hidden fixed bottom-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out" :class="menuClasses">
     <!-- Контейнер навигации -->
     <nav
-      class="flex items-center justify-around pb-safe rounded-2xl py-0 shadow-lg"
+      class="flex items-center justify-around pb-safe rounded-t-2xl py-0 shadow-lg"
       :class="navClasses"
     >
       <a

@@ -938,21 +938,6 @@ useSchemaOrg([
       { '@type': 'WebPage', url: 'https://artemselifanov.ru/mentorship', name: 'Менторство' }
     ]
   }),
-  defineSiteNavigationElement({
-    name: 'Основная навигация по сайту',
-    url: 'https://artemselifanov.ru',
-    hasPart: [
-      { '@type': 'SiteNavigationElement', name: 'Главная', url: '/' },
-      { '@type': 'SiteNavigationElement', name: 'Нескучный Нетворкинг', url: '/networking' },
-      { '@type': 'SiteNavigationElement', name: 'Бизнес Сетка', url: '/business' },
-      { '@type': 'SiteNavigationElement', name: 'Веб-разработка', url: '/yappie' },
-      { '@type': 'SiteNavigationElement', name: 'Фокус — Обучение', url: '/study' },
-      { '@type': 'SiteNavigationElement', name: 'Блог', url: '/blog' },
-      { '@type': 'SiteNavigationElement', name: 'База знаний', url: '/knowledge' },
-      { '@type': 'SiteNavigationElement', name: 'Консультация', url: '/consultation' },
-      { '@type': 'SiteNavigationElement', name: 'Менторство', url: '/mentorship' }
-    ]
-  }),
   defineWebPage({
     '@type': 'WebPage',
     name: 'Артём Селифанов — Личный бренд для предпринимателей и экспертов',

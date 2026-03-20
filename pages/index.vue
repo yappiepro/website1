@@ -349,8 +349,8 @@
                   <span class="text-[9px] text-green-600 leading-none mt-0.5">за 6 мес</span>
                 </div>
               </div>
-              <div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-gray-200 hover:border-gray-400 transition-all hover:shadow-xl hover:-translate-y-1">
-                <NuxtImg src="/reference/networking.webp" quality="75" sizes="128px md:160px lg:200px" alt="Нескучный Нетворкинг" class="absolute inset-0 w-full h-full object-cover" preload />
+              <div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-gray-200 hover:border-gray-400 transition-all hover:shadow-xl hover:-translate-y-1 z-0">
+                <NuxtImg src="/reference/networking.webp" quality="75" sizes="128px md:160px lg:200px" alt="Нескучный Нетворкинг" class="absolute inset-0 w-full h-full object-cover pointer-events-none" preload />
               </div>
               <div class="text-center mt-3">
                 <div class="text-sm font-bold text-gray-900">Нескучный Нетворкинг</div>
@@ -373,8 +373,8 @@
                   <span class="text-[9px] text-blue-600 leading-none mt-0.5">за 1,5 мес</span>
                 </div>
               </div>
-              <div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-gray-200 hover:border-gray-400 transition-all hover:shadow-xl hover:-translate-y-1">
-                <NuxtImg src="/reference/business.webp" quality="75" sizes="128px md:160px lg:200px" alt="Бизнес Сетка" class="absolute inset-0 w-full h-full object-cover" preload />
+              <div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-gray-200 hover:border-gray-400 transition-all hover:shadow-xl hover:-translate-y-1 z-0">
+                <NuxtImg src="/reference/business.webp" quality="75" sizes="128px md:160px lg:200px" alt="Бизнес Сетка" class="absolute inset-0 w-full h-full object-cover pointer-events-none" preload />
               </div>
               <div class="text-center mt-3">
                 <div class="text-sm font-bold text-gray-900">Бизнес Сетка</div>

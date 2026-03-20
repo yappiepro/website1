@@ -62,7 +62,7 @@
           <!-- Логотип / Название + ИП и Контакты -->
           <div class="col-span-2 md:col-span-1">
             <h3 class="text-sm font-bold text-white mb-4">{{ siteName }}</h3>
-            <div class="text-xs text-gray-400 space-y-1 mb-4">
+            <div class="text-xs text-gray-400 space-y-1 mb-6">
               <p>ИП Селифанов А.В.</p>
               <p>ОГРНИП: 323100000003767</p>
               <p>ИНН: 100123594893</p>

@@ -4,7 +4,7 @@
     <!-- Навигация -->
     <nav :class="[
       'fixed left-4 right-4 z-40 transition-all duration-300 md:backdrop-blur-2xl md:rounded-2xl',
-      scrolled ? 'bg-[#030305] md:bg-[#030305] md:border-b md:border-white/[0.08]' : 'bg-[#030305]/70 md:border-b md:border-white/[0.08]',
+      scrolled ? 'bg-transparent md:bg-[#030305] md:border-b md:border-white/[0.08]' : 'bg-[#030305]/70 md:border-b md:border-white/[0.08]',
       'md:top-0 top-4'
     ]">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
@@ -12,7 +12,7 @@
           <!-- Левая зона: Логотип (виден на мобильных только без скролла, на десктопе всегда) -->
           <div :class="[
             'transition-all duration-300',
-            scrolled ? 'hidden md:block' : 'block md:block'
+            scrolled ? 'hidden' : 'block'
           ]">
             <a href="/yappie" class="text-xl font-semibold text-white flex items-center gap-2 group shrink-0" aria-label="YAPPIE" title="YAPPIE">
               <img src="/reference/YAPPIE.svg" alt="YAPPIE логотип" class="h-4 w-auto" />
@@ -42,7 +42,7 @@
             @click="isMobileMenuOpen = !isMobileMenuOpen"
             :class="[
               'md:hidden p-2 rounded-xl transition-all absolute right-4 z-50',
-              scrolled ? 'bg-[#030305]/80 hover:bg-[#030305]/90' : 'hover:bg-white/10'
+              scrolled ? 'bg-transparent hover:bg-white/10' : 'bg-[#030305]/80 hover:bg-[#030305]/90'
             ]"
             aria-label="Открыть меню"
           >

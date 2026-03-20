@@ -147,7 +147,7 @@ export default defineNuxtConfig({
         ...blogClusters,
         ...blogRoutes
       ],
-      failOnError: false
+      failOnError: true
     },
     // Настройка заголовков для кэширования
     routeRules: {

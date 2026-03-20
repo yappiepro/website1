@@ -801,13 +801,6 @@ useSchemaOrg([
     name: 'Разработка сайтов, чат-ботов и приложений — Yappie',
     description: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса',
     url: 'https://artemselifanov.ru/yappie'
-  }),
-  defineBreadcrumb({
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://artemselifanov.ru' },
-      { '@type': 'ListItem', position: 2, name: 'Yappie', item: 'https://artemselifanov.ru/yappie' }
-    ]
   })
 ])
 import Accordion from '~/components/ui/accordion/Accordion.vue'

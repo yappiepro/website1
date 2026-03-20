@@ -1134,13 +1134,6 @@ useSchemaOrg([
     description: 'Пройдите бесплатный тест на позиционирование личного бренда. Узнайте свои сильные стороны и получите рекомендации.',
     url: 'https://artemselifanov.ru/study'
   }),
-  defineBreadcrumb({
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://artemselifanov.ru' },
-      { '@type': 'ListItem', position: 2, name: 'Фокус', item: 'https://artemselifanov.ru/study' }
-    ]
-  }),
   definePerson({
     name: 'Артём Селифанов',
     url: 'https://artemselifanov.ru',

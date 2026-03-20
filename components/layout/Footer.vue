@@ -20,6 +20,45 @@
 
       <div class="pt-12" :class="borderClass">
         <div class="grid grid-cols-2 md:grid-cols-5 gap-10 mb-12">
+          <!-- Навигация по сайту -->
+          <div class="col-span-2 md:col-span-1">
+            <h3 class="text-xs font-bold uppercase tracking-wider mb-4" :class="headingColor">
+              Разделы сайта
+            </h3>
+            <ul class="space-y-3 text-sm">
+              <li>
+                <NuxtLink to="/" class="transition-colors" :class="linkColor">
+                  Главная
+                </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/networking" class="transition-colors" :class="linkColor">
+                  Нескучный Нетворкинг
+                </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/business" class="transition-colors" :class="linkColor">
+                  Бизнес Сетка
+                </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/yappie" class="transition-colors" :class="linkColor">
+                  Веб-разработка
+                </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/study" class="transition-colors" :class="linkColor">
+                  Фокус — Обучение
+                </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/blog" class="transition-colors" :class="linkColor">
+                  Блог
+                </NuxtLink>
+              </li>
+            </ul>
+          </div>
+
           <!-- Логотип / Название + ИП -->
           <div class="col-span-2 md:col-span-1">
             <div class="text-sm font-bold text-white mb-4">{{ siteName }}</div>

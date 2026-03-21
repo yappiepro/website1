@@ -44,7 +44,7 @@ jobs:
       - name: Send Push Notification
         run: |
           cd scripts
-          node send-push.js \
+          node send-push.cjs \
             --title "${{ github.event.inputs.title || 'Новая статья!' }}" \
             --body "${{ github.event.inputs.body || 'Читайте новую статью в блоге' }}" \
             --url "${{ github.event.inputs.url || '/blog' }}" \

@@ -26,7 +26,11 @@ yappie-website-ready.zip
 
 # Firebase
 serviceAccountKey.json
+*-firebase-adminsdk-*.json
 .firebase
+
+# GitHub CLI
+gh_*/
 
 # Ignore external project folders
 main Selifanov

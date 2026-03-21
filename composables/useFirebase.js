@@ -1,13 +1,11 @@
 import { initializeApp, getApps } from 'firebase/app'
 import { getMessaging, getToken, onMessage } from 'firebase/messaging'
 import { getAnalytics, isSupported } from 'firebase/analytics'
-import { getFirestore } from 'firebase/firestore'
 
 // Инициализация Firebase
 let app
 let messaging = null
 let analytics = null
-let db = null
 let initialized = false
 
 function getFirebaseConfig() {
@@ -50,16 +48,15 @@ function initFirebase() {
     }
   })
 
-  // Инициализация Firestore
-  db = getFirestore(app)
-
   initialized = true
 }
 
 // Ленивая инициализация при первом вызове
 export function ensureFirebase() {
-  initFirebase()
-  return { app, messaging, analytics, db }
+  if (process.client) {
+    initFirebase()
+  }
+  return { app, messaging, analytics }
 }
 
 export { getToken, onMessage }

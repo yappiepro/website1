@@ -1,9 +1,9 @@
 import { get, set, del } from 'idb-keyval'
 import { getToken, onMessage, ensureFirebase } from './useFirebase'
-import { collection, query, where, getDocs, addDoc, deleteDoc, doc } from 'firebase/firestore'
 
 let VAPID_KEY = null
 let _messaging = null
+let _db = null
 
 function getVapidKey() {
   if (!VAPID_KEY) {
@@ -21,11 +21,8 @@ function getMessagingInstance() {
 }
 
 function getFirestoreDb() {
-  const { db } = ensureFirebase()
-  if (!db) {
-    console.error('[Firestore] База данных не инициализирована')
-  }
-  return db
+  // Firestore отключён до настройки сервисного аккаунта
+  return null
 }
 
 // Проверка поддержки уведомлений
@@ -75,62 +72,18 @@ export async function saveToken(token) {
   await set('subscribed-at', new Date().toISOString())
 }
 
-// Сохранение токена в Firestore
+// Сохранение токена в Firestore (отключено)
 export async function saveTokenToFirestore(token) {
-  const db = getFirestoreDb()
-  if (!db) return { success: false, error: 'Firestore not initialized' }
-
-  try {
-    const tokensRef = collection(db, 'push_tokens')
-    
-    // Проверяем, нет ли уже такого токена
-    const q = query(tokensRef, where('token', '==', token))
-    const querySnapshot = await getDocs(q)
-
-    if (querySnapshot.empty) {
-      // Сохраняем новый токен
-      await addDoc(tokensRef, {
-        token: token,
-        createdAt: new Date().toISOString(),
-        status: 'active',
-        userAgent: navigator.userAgent,
-        timestamp: Date.now()
-      })
-      console.log('[Firestore] Токен сохранён')
-      return { success: true }
-    } else {
-      console.log('[Firestore] Токен уже существует')
-      return { success: true, exists: true }
-    }
-  } catch (error) {
-    console.error('[Firestore] Ошибка сохранения:', error)
-    return { success: false, error: error.message }
-  }
+  // Firestore требует сервисный аккаунт для серверной части
+  // Пока токены сохраняются только локально в IndexedDB
+  console.log('[Firestore] Отключено (требуется сервисный аккаунт)')
+  return { success: true, skipped: true }
 }
 
-// Удаление токена из Firestore
+// Удаление токена из Firestore (отключено)
 export async function removeTokenFromFirestore(token) {
-  const db = getFirestoreDb()
-  if (!db) return { success: false, error: 'Firestore not initialized' }
-
-  try {
-    const tokensRef = collection(db, 'push_tokens')
-    const q = query(tokensRef, where('token', '==', token))
-    const querySnapshot = await getDocs(q)
-
-    // Удаляем все найденные документы
-    const deletePromises = []
-    querySnapshot.forEach((docSnapshot) => {
-      deletePromises.push(deleteDoc(doc(db, docSnapshot.id)))
-    })
-
-    await Promise.all(deletePromises)
-    console.log('[Firestore] Токен удалён')
-    return { success: true }
-  } catch (error) {
-    console.error('[Firestore] Ошибка удаления:', error)
-    return { success: false, error: error.message }
-  }
+  console.log('[Firestore] Отключено (требуется сервисный аккаунт)')
+  return { success: true, skipped: true }
 }
 
 // Получение сохранённого токена

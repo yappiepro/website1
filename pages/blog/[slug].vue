@@ -209,25 +209,7 @@ const route = useRoute()
 
 const slug = route.params.slug
 const resolvedSlug = Array.isArray(slug) ? slug[0] : slug
-
-// Сначала пробуем загрузить из JS
-let jsArticle = await loadArticleBySlug(resolvedSlug)
-
-// Если не найдено, ищем в MD через @nuxt/content
-let mdArticle = null
-if (!jsArticle) {
-  try {
-    mdArticle = await queryContent(`/blog/${resolvedSlug}`).findOne()
-  } catch (e) {
-    // Статья не найдена в MD
-  }
-}
-
-// Объединяем данные
-const article = jsArticle || (mdArticle ? {
-  ...mdArticle,
-  content: mdArticle.body?.html || ''
-} : null)
+const article = await loadArticleBySlug(resolvedSlug)
 
 // Мобильное меню
 const isMenuOpen = ref(false)

@@ -51,66 +51,66 @@
       leave-active-class="transition duration-200 ease-in"
       leave-to-class="opacity-0 translate-x-full"
     >
-      <div v-if="isMenuOpen" class="fixed inset-0 z-[100] bg-gradient-to-br from-white via-gray-50 to-gray-100 md:hidden pt-20 px-6">
-        <div class="flex justify-between items-center mb-8">
+      <div v-if="isMenuOpen" class="fixed inset-0 z-[100] bg-gradient-to-br from-white via-gray-50 to-gray-100 md:hidden pt-24 px-6 pb-12">
+        <div class="flex justify-between items-center mb-10">
           <span class="text-gray-600 text-sm font-medium">Разделы блога</span>
           <button @click="isMenuOpen = false" class="group p-3 bg-gray-100 hover:bg-gray-200 rounded-2xl transition-all backdrop-blur-sm shadow-lg">
             <X class="w-6 h-6 text-gray-900" />
           </button>
         </div>
 
-        <nav class="flex flex-col gap-3 max-w-md mx-auto">
+        <nav class="flex flex-col gap-4 max-w-md mx-auto">
           <button
             @click="selectCluster('razrabotka-saytov')"
-            class="group relative overflow-hidden p-4 bg-gray-50 hover:bg-gray-100 rounded-2xl transition-all backdrop-blur-sm border border-gray-200 hover:border-gray-300">
+            class="group relative overflow-hidden p-6 bg-gray-50 hover:bg-gray-100 rounded-2xl transition-all backdrop-blur-sm border border-gray-200 hover:border-gray-300">
             <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/10 group-hover:to-violet-600/10 transition-all"></div>
-            <div class="relative flex items-center justify-between">
-              <span class="text-base font-medium text-gray-900 group-hover:text-violet-600 transition-colors">Разработка сайтов</span>
-              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-violet-600 group-hover:translate-x-1 transition-all" />
+            <div class="relative flex items-start justify-between">
+              <span class="text-lg font-semibold text-gray-900 group-hover:text-violet-600 transition-colors pt-1">Разработка сайтов</span>
+              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-violet-600 group-hover:translate-x-1 transition-all mt-0.5" />
             </div>
           </button>
           <button
             @click="selectCluster('sozdanie-saytov')"
-            class="group relative overflow-hidden p-4 bg-gray-50 hover:bg-gray-100 rounded-2xl transition-all backdrop-blur-sm border border-gray-200 hover:border-gray-300">
+            class="group relative overflow-hidden p-6 bg-gray-50 hover:bg-gray-100 rounded-2xl transition-all backdrop-blur-sm border border-gray-200 hover:border-gray-300">
             <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/10 group-hover:to-violet-600/10 transition-all"></div>
-            <div class="relative flex items-center justify-between">
-              <span class="text-base font-medium text-gray-900 group-hover:text-violet-600 transition-colors">Создание сайтов</span>
-              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-violet-600 group-hover:translate-x-1 transition-all" />
+            <div class="relative flex items-start justify-between">
+              <span class="text-lg font-semibold text-gray-900 group-hover:text-violet-600 transition-colors pt-1">Создание сайтов</span>
+              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-violet-600 group-hover:translate-x-1 transition-all mt-0.5" />
             </div>
           </button>
           <button
             @click="selectCluster('mobilnye-prilozheniya')"
-            class="group relative overflow-hidden p-4 bg-gray-50 hover:bg-gray-100 rounded-2xl transition-all backdrop-blur-sm border border-gray-200 hover:border-gray-300">
+            class="group relative overflow-hidden p-6 bg-gray-50 hover:bg-gray-100 rounded-2xl transition-all backdrop-blur-sm border border-gray-200 hover:border-gray-300">
             <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/10 group-hover:to-violet-600/10 transition-all"></div>
-            <div class="relative flex items-center justify-between">
-              <span class="text-base font-medium text-gray-900 group-hover:text-violet-600 transition-colors">Мобильные приложения</span>
-              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-violet-600 group-hover:translate-x-1 transition-all" />
+            <div class="relative flex items-start justify-between">
+              <span class="text-lg font-semibold text-gray-900 group-hover:text-violet-600 transition-colors pt-1">Мобильные приложения</span>
+              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-violet-600 group-hover:translate-x-1 transition-all mt-0.5" />
             </div>
           </button>
           <button
             @click="selectCluster('veb-razrabotka')"
-            class="group relative overflow-hidden p-4 bg-gray-50 hover:bg-gray-100 rounded-2xl transition-all backdrop-blur-sm border border-gray-200 hover:border-gray-300">
+            class="group relative overflow-hidden p-6 bg-gray-50 hover:bg-gray-100 rounded-2xl transition-all backdrop-blur-sm border border-gray-200 hover:border-gray-300">
             <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/10 group-hover:to-violet-600/10 transition-all"></div>
-            <div class="relative flex items-center justify-between">
-              <span class="text-base font-medium text-gray-900 group-hover:text-violet-600 transition-colors">Веб-разработка</span>
-              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-violet-600 group-hover:translate-x-1 transition-all" />
+            <div class="relative flex items-start justify-between">
+              <span class="text-lg font-semibold text-gray-900 group-hover:text-violet-600 transition-colors pt-1">Веб-разработка</span>
+              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-violet-600 group-hover:translate-x-1 transition-all mt-0.5" />
             </div>
           </button>
           <button
             @click="selectCluster('iskusstvennyy-intellekt')"
-            class="group relative overflow-hidden p-4 bg-gray-50 hover:bg-gray-100 rounded-2xl transition-all backdrop-blur-sm border border-gray-200 hover:border-gray-300">
+            class="group relative overflow-hidden p-6 bg-gray-50 hover:bg-gray-100 rounded-2xl transition-all backdrop-blur-sm border border-gray-200 hover:border-gray-300">
             <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/10 group-hover:to-violet-600/10 transition-all"></div>
-            <div class="relative flex items-center justify-between">
-              <span class="text-base font-medium text-gray-900 group-hover:text-violet-600 transition-colors">Искусственный интеллект</span>
-              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-violet-600 group-hover:translate-x-1 transition-all" />
+            <div class="relative flex items-start justify-between">
+              <span class="text-lg font-semibold text-gray-900 group-hover:text-violet-600 transition-colors pt-1">Искусственный интеллект</span>
+              <Icon name="fa-solid:arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-violet-600 group-hover:translate-x-1 transition-all mt-0.5" />
             </div>
           </button>
 
           <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer"
-             class="mt-6 group relative overflow-hidden p-5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-2xl transition-all shadow-lg shadow-blue-600/30">
+             class="mt-8 group relative overflow-hidden p-6 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-2xl transition-all shadow-lg shadow-blue-600/30">
             <div class="flex items-center justify-center gap-3">
-              <Icon name="fa-brands:telegram" class="w-5 h-5 text-white" />
-              <span class="text-base font-bold text-white">Связаться в Telegram</span>
+              <Icon name="fa-brands:telegram" class="w-6 h-6 text-white" />
+              <span class="text-lg font-bold text-white">Связаться в Telegram</span>
             </div>
           </a>
         </nav>

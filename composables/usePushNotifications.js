@@ -1,9 +1,8 @@
 import { get, set, del } from 'idb-keyval'
 import { getFirestore, doc, setDoc, deleteDoc, serverTimestamp } from 'firebase/firestore'
-import { getToken, onMessage, ensureFirebase } from './useFirebase'
+import { ensureFirebase } from './useFirebase'
 
 let VAPID_KEY = null
-let _messaging = null
 let _db = null
 
 function getVapidKey() {
@@ -11,14 +10,6 @@ function getVapidKey() {
     VAPID_KEY = useRuntimeConfig().public.firebaseVapidKey
   }
   return VAPID_KEY
-}
-
-function getMessagingInstance() {
-  if (!_messaging) {
-    const { messaging } = ensureFirebase()
-    _messaging = messaging
-  }
-  return _messaging
 }
 
 function getFirestoreDb() {
@@ -30,9 +21,30 @@ function getFirestoreDb() {
   return _db
 }
 
+function urlBase64ToUint8Array(base64String) {
+  const padding = '='.repeat((4 - (base64String.length % 4)) % 4)
+  const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/')
+  const rawData = atob(base64)
+  const outputArray = new Uint8Array(rawData.length)
+  for (let i = 0; i < rawData.length; ++i) {
+    outputArray[i] = rawData.charCodeAt(i)
+  }
+  return outputArray
+}
+
+function subscriptionId(subscription) {
+  const b64 = btoa(subscription.endpoint)
+  return b64.replace(/=+$/g, '').replace(/\+/g, '-').replace(/\//g, '_')
+}
+
+async function getServiceWorkerRegistration() {
+  if (!('serviceWorker' in navigator)) return null
+  return await navigator.serviceWorker.ready
+}
+
 // Проверка поддержки уведомлений
 export function isPushSupported() {
-  return process.client && 'Notification' in window && 'serviceWorker' in navigator && getMessagingInstance()
+  return process.client && 'Notification' in window && 'serviceWorker' in navigator && 'PushManager' in window
 }
 
 // Диагностика поддержки push
@@ -42,7 +54,6 @@ export function getPushSupportInfo() {
       notification: false,
       serviceWorker: false,
       pushManager: false,
-      messaging: false,
       permission: 'unsupported'
     }
   }
@@ -50,10 +61,9 @@ export function getPushSupportInfo() {
   const notification = 'Notification' in window
   const serviceWorker = 'serviceWorker' in navigator
   const pushManager = 'PushManager' in window
-  const messaging = !!getMessagingInstance()
   const permission = notification ? Notification.permission : 'unsupported'
 
-  return { notification, serviceWorker, pushManager, messaging, permission }
+  return { notification, serviceWorker, pushManager, permission }
 }
 
 // Запрос разрешения на уведомления
@@ -66,40 +76,37 @@ export async function requestNotificationPermission() {
   return permission
 }
 
-// Получение токена FCM
-export async function getPushToken() {
-  const msg = getMessagingInstance()
-  if (!msg) {
-    console.error('[Push] Messaging не инициализирован')
+// Получение подписки Web Push
+export async function getPushSubscription() {
+  const registration = await getServiceWorkerRegistration()
+  if (!registration) {
+    console.error('[Push] Service Worker не готов')
     return null
   }
 
-  // Ждём активации сервис-воркера
-  if ('serviceWorker' in navigator) {
-    const registration = await navigator.serviceWorker.ready
-    console.log('[Push] Service Worker готов:', registration.active ? 'активен' : 'не активен')
-  }
+  const existing = await registration.pushManager.getSubscription()
+  if (existing) return existing
 
   try {
-    const token = await getToken(msg, {
-      vapidKey: getVapidKey()
+    const subscription = await registration.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: urlBase64ToUint8Array(getVapidKey())
     })
-    console.log('[Push] Токен получен:', token ? token.substring(0, 50) + '...' : 'null')
-    return token
+    return subscription
   } catch (error) {
-    console.error('[Push] Ошибка получения токена:', error)
+    console.error('[Push] Ошибка подписки через PushManager:', error)
     return null
   }
 }
 
-// Сохранение токена в IndexedDB
-export async function saveToken(token) {
-  await set('fcm-token', token)
+// Сохранение подписки в IndexedDB
+export async function saveSubscription(subscription) {
+  await set('push-subscription', subscription.toJSON())
   await set('subscribed-at', new Date().toISOString())
 }
 
-// Сохранение токена в Firestore (отключено)
-export async function saveTokenToFirestore(token) {
+// Сохранение подписки в Firestore
+export async function saveSubscriptionToFirestore(subscription) {
   const db = getFirestoreDb()
   if (!db) {
     console.warn('[Firestore] Не инициализирован')
@@ -108,7 +115,9 @@ export async function saveTokenToFirestore(token) {
 
   try {
     const payload = {
-      token,
+      endpoint: subscription.endpoint,
+      keys: subscription.toJSON().keys || {},
+      expirationTime: subscription.expirationTime || null,
       updatedAt: serverTimestamp(),
       createdAt: serverTimestamp(),
       userAgent: navigator.userAgent || 'unknown',
@@ -116,16 +125,17 @@ export async function saveTokenToFirestore(token) {
       language: navigator.language || 'unknown',
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'unknown'
     }
-    await setDoc(doc(db, 'push_tokens', token), payload, { merge: true })
+    const id = subscriptionId(subscription)
+    await setDoc(doc(db, 'push_subscriptions', id), payload, { merge: true })
     return { success: true }
   } catch (error) {
-    console.error('[Firestore] Ошибка сохранения токена:', error)
+    console.error('[Firestore] Ошибка сохранения подписки:', error)
     return { success: false, error }
   }
 }
 
-// Удаление токена из Firestore
-export async function removeTokenFromFirestore(token) {
+// Удаление подписки из Firestore
+export async function removeSubscriptionFromFirestore(subscription) {
   const db = getFirestoreDb()
   if (!db) {
     console.warn('[Firestore] Не инициализирован')
@@ -133,22 +143,23 @@ export async function removeTokenFromFirestore(token) {
   }
 
   try {
-    await deleteDoc(doc(db, 'push_tokens', token))
+    const id = subscriptionId(subscription)
+    await deleteDoc(doc(db, 'push_subscriptions', id))
     return { success: true }
   } catch (error) {
-    console.error('[Firestore] Ошибка удаления токена:', error)
+    console.error('[Firestore] Ошибка удаления подписки:', error)
     return { success: false, error }
   }
 }
 
-// Получение сохранённого токена
-export async function getSavedToken() {
-  return await get('fcm-token')
+// Получение сохранённой подписки
+export async function getSavedSubscription() {
+  return await get('push-subscription')
 }
 
-// Удаление токена
-export async function deleteToken() {
-  await del('fcm-token')
+// Удаление подписки
+export async function deleteSubscription() {
+  await del('push-subscription')
   await del('subscribed-at')
   await del('notification-preferences')
 }
@@ -169,73 +180,57 @@ export async function subscribeToPush() {
     return { success: false, error: 'Permission denied' }
   }
 
-  const token = await getPushToken()
-  console.log('[Push] Токен:', token ? 'получен' : 'не получен')
+  const subscription = await getPushSubscription()
+  console.log('[Push] Подписка:', subscription ? 'получена' : 'не получена')
 
-  if (!token) {
-    return { success: false, error: 'No token' }
+  if (!subscription) {
+    return { success: false, error: 'No subscription' }
   }
 
   // Сохраняем в IndexedDB (локально)
-  await saveToken(token)
+  await saveSubscription(subscription)
 
-  // Сохраняем в Firestore (на сервере)
-  const firestoreResult = await saveTokenToFirestore(token)
+  // Сохраняем в Firestore
+  const firestoreResult = await saveSubscriptionToFirestore(subscription)
   if (!firestoreResult.success) {
     console.error('[Push] Ошибка сохранения в Firestore:', firestoreResult.error)
   }
 
-  return { success: true, token }
+  return { success: true, subscription }
 }
 
 // Отписка от push-уведомлений
 export async function unsubscribeFromPush() {
-  const token = await getSavedToken()
-  
-  // Удаляем из Firestore
-  if (token) {
-    await removeTokenFromFirestore(token)
+  const subscription = await getPushSubscription()
+
+  if (subscription) {
+    await removeSubscriptionFromFirestore(subscription)
+    await subscription.unsubscribe()
   }
-  
-  // Удаляем из IndexedDB
-  await deleteToken()
+
+  await deleteSubscription()
 
   return { success: true }
 }
 
 // Проверка статуса подписки
 export async function getSubscriptionStatus() {
-  const token = await getSavedToken()
+  const subscription = await getSavedSubscription()
   const subscribedAt = await get('subscribed-at')
   
   return {
-    subscribed: !!token,
-    token,
+    subscribed: !!subscription,
+    subscription,
     subscribedAt
   }
 }
 
 // Обработка входящих уведомлений в браузере
 export function onForegroundMessage(callback) {
-  const msg = getMessagingInstance()
-  if (!msg) return
-
-  onMessage(msg, (payload) => {
-    const { title, body, image } = payload.notification
-
-    const notificationData = {
-      title,
-      body,
-      data: payload.data,
-      icon: '/favicons/android-chrome-192x192.png',
-      badge: '/favicons/android-chrome-192x192.png',
-      image,
-      requireInteraction: false,
-      tag: payload.data?.type || 'default'
-    }
-
-    callback(notificationData)
-  })
+  // Web Push обрабатывается в Service Worker
+  if (typeof callback === 'function') {
+    callback(null)
+  }
 }
 
 // Показ уведомления

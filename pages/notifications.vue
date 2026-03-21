@@ -79,9 +79,9 @@
             <span class="text-gray-500 dark:text-gray-400">Дата подписки:</span>
             <span>{{ formatDate(subscriptionInfo.subscribedAt) }}</span>
           </div>
-          <div v-if="subscriptionInfo.token" class="space-y-2">
+          <div v-if="subscriptionInfo.subscription" class="space-y-2">
             <div class="flex justify-between items-center">
-              <span class="text-gray-500 dark:text-gray-400">FCM токен:</span>
+              <span class="text-gray-500 dark:text-gray-400">Web Push подписка:</span>
               <button
                 @click="copyToken"
                 class="px-2 py-1 text-xs font-medium text-blue-600 hover:text-blue-700"
@@ -90,7 +90,7 @@
               </button>
             </div>
             <div class="p-2 bg-white dark:bg-gray-900 rounded-lg text-xs break-all">
-              {{ subscriptionInfo.token }}
+              {{ subscriptionSummary }}
             </div>
           </div>
           <div class="flex gap-2 pt-1">
@@ -150,10 +150,6 @@
             <span>{{ supportInfo.pushManager ? 'Да' : 'Нет' }}</span>
           </div>
           <div class="flex justify-between">
-            <span class="text-gray-500 dark:text-gray-400">Firebase Messaging:</span>
-            <span>{{ supportInfo.messaging ? 'Да' : 'Нет' }}</span>
-          </div>
-          <div class="flex justify-between">
             <span class="text-gray-500 dark:text-gray-400">Permission:</span>
             <span>{{ supportInfo.permission }}</span>
           </div>
@@ -165,8 +161,8 @@
               Запросить разрешение
             </button>
           </div>
-          <p v-if="!supportInfo.messaging" class="text-xs text-gray-500 dark:text-gray-400 pt-1">
-            Firebase Messaging не инициализируется в этом браузере. На iOS push через FCM обычно не поддерживается.
+          <p v-if="!supportInfo.pushManager" class="text-xs text-gray-500 dark:text-gray-400 pt-1">
+            Push API недоступен. Проверь, что приложение установлено на экран «Домой» (iOS) и открыт именно PWA.
           </p>
         </div>
       </section>
@@ -183,11 +179,11 @@ const subscriptionInfo = ref(null)
 const isRefreshing = ref(false)
 const copied = ref(false)
 const permissionText = ref('unknown')
+const subscriptionSummary = ref('')
 const supportInfo = ref({
   notification: false,
   serviceWorker: false,
   pushManager: false,
-  messaging: false,
   permission: 'unknown'
 })
 
@@ -198,6 +194,7 @@ onMounted(async () => {
     permissionText.value = Notification.permission
   }
   supportInfo.value = getPushSupportInfo()
+  subscriptionSummary.value = summarizeSubscription(status?.subscription)
 })
 
 function formatDate(dateString) {
@@ -220,6 +217,7 @@ async function refreshToken() {
     if (result.success) {
       const status = await getSubscriptionStatus()
       subscriptionInfo.value = status
+      subscriptionSummary.value = summarizeSubscription(status?.subscription)
     }
   } finally {
     isRefreshing.value = false
@@ -233,15 +231,16 @@ async function clearToken() {
     await unsubscribeFromPush()
     const status = await getSubscriptionStatus()
     subscriptionInfo.value = status
+    subscriptionSummary.value = summarizeSubscription(status?.subscription)
   } finally {
     isRefreshing.value = false
   }
 }
 
 async function copyToken() {
-  if (!process.client || !subscriptionInfo.value?.token) return
+  if (!process.client || !subscriptionInfo.value?.subscription) return
   try {
-    await navigator.clipboard.writeText(subscriptionInfo.value.token)
+    await navigator.clipboard.writeText(JSON.stringify(subscriptionInfo.value.subscription, null, 2))
     copied.value = true
     setTimeout(() => {
       copied.value = false
@@ -258,6 +257,14 @@ async function requestPermissionOnly() {
   }
   supportInfo.value = getPushSupportInfo()
   return permission
+}
+
+function summarizeSubscription(subscription) {
+  if (!subscription) return ''
+  const { endpoint, keys } = subscription
+  const p256dh = keys?.p256dh ? keys.p256dh.slice(0, 24) + '...' : 'нет'
+  const auth = keys?.auth ? keys.auth.slice(0, 12) + '...' : 'нет'
+  return `endpoint: ${endpoint}\nkeys.p256dh: ${p256dh}\nkeys.auth: ${auth}`
 }
 
 // SEO

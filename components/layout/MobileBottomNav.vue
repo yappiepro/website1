@@ -1,8 +1,8 @@
 <template>
-  <div class="md:hidden fixed bottom-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out" :class="menuClasses">
+  <div class="md:hidden fixed bottom-[12px] left-[12px] right-[12px] z-50 transition-all duration-300 ease-in-out" :class="menuClasses">
     <!-- Контейнер навигации -->
     <nav
-      class="flex items-start justify-around pb-safe rounded-t-2xl py-4 shadow-lg"
+      class="flex items-start justify-around pb-safe rounded-2xl py-0 shadow-lg"
       :class="navClasses"
     >
       <a
@@ -12,7 +12,7 @@
         :aria-label="item.label"
         :title="item.label"
         @click="handleClick(item, $event)"
-        class="relative flex flex-col items-center justify-start pt-1 flex-1"
+        class="relative flex flex-col items-center justify-center flex-1"
         :class="[
           isActive(item.href)
             ? activeTextClass
@@ -20,7 +20,7 @@
         ]"
       >
         <!-- Иконка или изображение или текст -->
-        <div class="relative z-10 w-10 h-[60px] overflow-hidden rounded-[6px] flex items-start justify-center">
+        <div class="relative z-10 w-[60px] h-[60px] overflow-hidden rounded-[6px] flex items-center justify-center">
           <NuxtImg
             v-if="item.image"
             :src="item.image"

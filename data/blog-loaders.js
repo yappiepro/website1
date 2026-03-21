@@ -61,13 +61,7 @@ export const articleLoaders = {
 }
 
 export async function loadArticleBySlug(slug) {
-  // Сначала ищем в JS статьях
   const loader = articleLoaders[slug]
-  if (loader) {
-    return loader()
-  }
-  
-  // Если не найдено, ищем в MD статьях через @nuxt/content
-  // Эта часть обрабатывается в pages/blog/[slug].vue
-  return null
+  if (!loader) return null
+  return loader()
 }

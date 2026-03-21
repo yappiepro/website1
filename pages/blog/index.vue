@@ -266,20 +266,6 @@ import Footer from '~/components/layout/Footer.vue'
 
 const route = useRoute()
 
-// Загрузка MD статей из @nuxt/content
-const { data: mdArticles } = await useAsyncData('blog-md-articles', () => 
-  queryContent('/blog')
-    .only(['slug', 'title', 'description', 'category', 'cluster', 'date', 'image'])
-    .find()
-)
-
-// Объединяем JS и MD статьи
-const allArticles = computed(() => {
-  const jsArticles = getRandomArticles(articles.length)
-  const mdArticlesList = mdArticles.value || []
-  return [...jsArticles, ...mdArticlesList]
-})
-
 // Получаем все уникальные кластеры
 const clusters = getClusters()
 
@@ -330,9 +316,12 @@ function selectCluster(cluster) {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
+// Случайный порядок статей
+const shuffledArticles = computed(() => getRandomArticles(articles.length))
+
 // Фильтрованные статьи
 const filteredArticles = computed(() => {
-  let result = allArticles.value
+  let result = shuffledArticles.value
 
   // Фильтрация по кластеру
   if (selectedCluster.value !== null) {

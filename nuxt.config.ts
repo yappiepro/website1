@@ -43,8 +43,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@vite-pwa/nuxt',
     '@nuxtjs/fontaine',
-    'nuxt-delay-hydration',
-    '@nuxt/content'
+    'nuxt-delay-hydration'
   ],
   icon: {
     provider: 'server',

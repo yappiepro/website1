@@ -1,5 +1,6 @@
 import { get, set, del } from 'idb-keyval'
 import { getToken, onMessage, ensureFirebase } from './useFirebase'
+import { collection, query, where, getDocs, addDoc, deleteDoc, doc } from 'firebase/firestore'
 
 let VAPID_KEY = null
 let _messaging = null
@@ -17,6 +18,14 @@ function getMessagingInstance() {
     _messaging = messaging
   }
   return _messaging
+}
+
+function getFirestoreDb() {
+  const { db } = ensureFirebase()
+  if (!db) {
+    console.error('[Firestore] База данных не инициализирована')
+  }
+  return db
 }
 
 // Проверка поддержки уведомлений
@@ -66,6 +75,64 @@ export async function saveToken(token) {
   await set('subscribed-at', new Date().toISOString())
 }
 
+// Сохранение токена в Firestore
+export async function saveTokenToFirestore(token) {
+  const db = getFirestoreDb()
+  if (!db) return { success: false, error: 'Firestore not initialized' }
+
+  try {
+    const tokensRef = collection(db, 'push_tokens')
+    
+    // Проверяем, нет ли уже такого токена
+    const q = query(tokensRef, where('token', '==', token))
+    const querySnapshot = await getDocs(q)
+
+    if (querySnapshot.empty) {
+      // Сохраняем новый токен
+      await addDoc(tokensRef, {
+        token: token,
+        createdAt: new Date().toISOString(),
+        status: 'active',
+        userAgent: navigator.userAgent,
+        timestamp: Date.now()
+      })
+      console.log('[Firestore] Токен сохранён')
+      return { success: true }
+    } else {
+      console.log('[Firestore] Токен уже существует')
+      return { success: true, exists: true }
+    }
+  } catch (error) {
+    console.error('[Firestore] Ошибка сохранения:', error)
+    return { success: false, error: error.message }
+  }
+}
+
+// Удаление токена из Firestore
+export async function removeTokenFromFirestore(token) {
+  const db = getFirestoreDb()
+  if (!db) return { success: false, error: 'Firestore not initialized' }
+
+  try {
+    const tokensRef = collection(db, 'push_tokens')
+    const q = query(tokensRef, where('token', '==', token))
+    const querySnapshot = await getDocs(q)
+
+    // Удаляем все найденные документы
+    const deletePromises = []
+    querySnapshot.forEach((docSnapshot) => {
+      deletePromises.push(deleteDoc(doc(db, docSnapshot.id)))
+    })
+
+    await Promise.all(deletePromises)
+    console.log('[Firestore] Токен удалён')
+    return { success: true }
+  } catch (error) {
+    console.error('[Firestore] Ошибка удаления:', error)
+    return { success: false, error: error.message }
+  }
+}
+
 // Получение сохранённого токена
 export async function getSavedToken() {
   return await get('fcm-token')
@@ -81,7 +148,7 @@ export async function deleteToken() {
 // Подписка на push-уведомления
 export async function subscribeToPush() {
   console.log('[Push] Начало подписки...')
-  
+
   if (!isPushSupported()) {
     console.error('[Push] Не поддерживается')
     return { success: false, error: 'Not supported' }
@@ -100,28 +167,31 @@ export async function subscribeToPush() {
   if (!token) {
     return { success: false, error: 'No token' }
   }
-  
+
+  // Сохраняем в IndexedDB (локально)
   await saveToken(token)
-  
-  // TODO: Отправить токен на сервер для хранения
-  // await $fetch('/api/notifications/subscribe', {
-  //   method: 'POST',
-  //   body: { token }
-  // })
-  
+
+  // Сохраняем в Firestore (на сервере)
+  const firestoreResult = await saveTokenToFirestore(token)
+  if (!firestoreResult.success) {
+    console.error('[Push] Ошибка сохранения в Firestore:', firestoreResult.error)
+  }
+
   return { success: true, token }
 }
 
 // Отписка от push-уведомлений
 export async function unsubscribeFromPush() {
+  const token = await getSavedToken()
+  
+  // Удаляем из Firestore
+  if (token) {
+    await removeTokenFromFirestore(token)
+  }
+  
+  // Удаляем из IndexedDB
   await deleteToken()
-  
-  // TODO: Удалить токен с сервера
-  // await $fetch('/api/notifications/unsubscribe', {
-  //   method: 'POST',
-  //   body: { token: await getSavedToken() }
-  // })
-  
+
   return { success: true }
 }
 

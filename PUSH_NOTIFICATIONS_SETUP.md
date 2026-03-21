@@ -1,4 +1,4 @@
-# Настройка Push-уведомлений Firebase
+# Настройка Push-уведомлений (Web Push для iOS + Android)
 
 ## 1. Установка зависимостей
 
@@ -12,7 +12,7 @@ npm install firebase idb-keyval
 
 1. Зайди на https://console.firebase.google.com/
 2. Создай новый проект или выбери существующий (`artemselifanov-ru-pwa`)
-3. Включи **Cloud Messaging** в разделе Build → Cloud Messaging
+3. Включи **Firestore** и **Cloud Messaging** (для аналитики и общего доступа)
 
 ### Web App
 
@@ -20,14 +20,20 @@ npm install firebase idb-keyval
 2. Скопируй `firebaseConfig`
 3. Вставь значения в `.env` файл
 
-### VAPID Key для Push
+### VAPID Key для Push (Web Push)
 
-1. Project Settings → Cloud Messaging → Web Push certificates
-2. Нажми **Generate key pair**
-3. Скопируй ключ и вставь в `.env`:
+1. Сгенерируй VAPID ключи для Web Push (публичный и приватный):
+
+```bash
+cd functions
+npm install
+npx web-push generate-vapid-keys
+```
+
+2. Публичный ключ вставь в `.env`:
 
 ```
-NUXT_FIREBASE_VAPID_KEY=your-generated-vapid-key-here
+NUXT_FIREBASE_VAPID_KEY=your-public-vapid-key-here
 ```
 
 ## 3. Переменные окружения
@@ -60,38 +66,20 @@ npm run dev
 
 ## 6. Тестирование уведомлений
 
-### Отправка тестового уведомления
+### Отправка тестового уведомления (Web Push)
 
-В Firebase Console:
-1. Cloud Messaging → New campaign
-2. Выбери тип уведомления
-3. Заполни title/body
-4. Отправь
+Для Web Push нужен backend (Cloud Functions). После деплоя функции можно отправлять так:
 
-### Программная отправка
-
-```javascript
-// Для отправки нужен backend с Firebase Admin SDK
-// Пример через REST API:
-
-POST https://fcm.googleapis.com/fcm/send
-Headers:
-  Authorization: key=YOUR_SERVER_KEY
-  Content-Type: application/json
-
-Body:
-{
-  "to": "CLIENT_FCM_TOKEN",
-  "notification": {
-    "title": "Заголовок",
-    "body": "Текст уведомления",
-    "image": "https://..."
-  },
-  "data": {
-    "url": "https://artemselifanov.ru/blog/novaya-statya",
-    "type": "new-article"
-  }
-}
+```bash
+curl -X POST "https://<REGION>-<PROJECT_ID>.cloudfunctions.net/sendPushToAll" \
+  -H "Content-Type: application/json" \
+  -H "x-api-key: YOUR_PUSH_API_KEY" \
+  -d '{
+    "title": "Тест",
+    "body": "Проверка Web Push",
+    "url": "https://artemselifanov.ru/notifications",
+    "type": "test"
+  }'
 ```
 
 ## 7. Структура файлов
@@ -109,7 +97,7 @@ pages/
   notifications.vue           # Страница управления
 
 public/
-  firebase-messaging-sw.js    # Service worker для FCM
+  firebase-messaging-sw.js    # Service worker для Web Push
 ```
 
 ## 8. Компоненты
@@ -168,32 +156,29 @@ if (process.server) {
 
 2. Создай API endpoint `/api/notifications/send` для отправки через Firebase Admin SDK
 
-## 11. Firebase Admin SDK (для сервера)
+## 11. Cloud Functions (для отправки Web Push)
+
+Функция `sendPushToAll` находится в `functions/index.js`.
+
+Нужно задать переменные окружения через Firebase Functions config:
 
 ```bash
-npm install firebase-admin
+firebase functions:config:set \
+  webpush.public_key="PUBLIC_VAPID_KEY" \
+  webpush.private_key="PRIVATE_VAPID_KEY" \
+  webpush.subject="mailto:you@domain.com" \
+  webpush.api_key="YOUR_PUSH_API_KEY"
 ```
 
-```javascript
-// server/utils/firebase.js
-import admin from 'firebase-admin'
+Затем деплой функций:
 
-const serviceAccount = require('./serviceAccountKey.json')
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-})
-
-export async function sendNotification(token, { title, body, image, url, type }) {
-  return admin.messaging().send({
-    token,
-    notification: { title, body, image },
-    data: { url, type },
-    webpush: {
-      fcmOptions: { link: url }
-    }
-  })
-}
+```bash
+cd functions
+npm install
+firebase deploy --only functions
+```
+```
+PUBLIC_VAPID_KEY / PRIVATE_VAPID_KEY берутся из генерации выше.
 ```
 
 ## 12. Метрики

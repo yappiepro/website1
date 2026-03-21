@@ -330,8 +330,8 @@ export default defineNuxtConfig({
     },
     workbox: {
       navigateFallback: '/offline',
-      globPatterns: ['**/*.{js,css,html,txt,png,ico,svg,webp,json,woff,woff2}'],
-      globIgnores: ['**/gromish.png', '**/firebase-messaging-sw.js'],
+      globPatterns: ['**/*.{js,css,txt,png,ico,svg,webp,json,woff,woff2}'],
+      globIgnores: ['**/gromish.png', '**/firebase-messaging-sw.js', '**/*.html'],
       maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
       runtimeCaching: [
         {

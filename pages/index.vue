@@ -1054,7 +1054,8 @@ const mobileMenuItems = [
   { href: '#services', label: 'Услуги' },
   { href: '#ecosystem', label: 'Экосистема' },
   { href: '#cases', label: 'Кейсы' },
-  { href: '#faq', label: 'FAQ' }
+  { href: '#faq', label: 'FAQ' },
+  { href: '/notifications', label: 'Push (тест)' }
 ]
 
 const socialNetworks = [

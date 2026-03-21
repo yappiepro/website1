@@ -1,2 +1,6 @@
 # Ignore external project folders
 main Selifanov
+
+# Ignore GitHub Actions
+.github
+scripts

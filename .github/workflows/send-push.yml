@@ -24,14 +24,9 @@ on:
         required: false
         default: 'new-article'
 
-# Не запускать автоматически при push
-permissions:
-  contents: read
-
 jobs:
   send-push:
     runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_dispatch'
     steps:
       - name: Checkout
         uses: actions/checkout@v4

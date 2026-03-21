@@ -17,6 +17,42 @@ firebase.initializeApp({
 
 const messaging = firebase.messaging()
 
+// Обработка Web Push (без FCM)
+self.addEventListener('push', (event) => {
+  let payload = {}
+  if (event.data) {
+    try {
+      payload = event.data.json()
+    } catch (e) {
+      payload = { title: 'Уведомление', body: event.data.text() }
+    }
+  }
+
+  const title = payload.title || payload.notification?.title || 'Уведомление'
+  const body = payload.body || payload.notification?.body || ''
+  const image = payload.image || payload.notification?.image
+  const data = payload.data || {}
+
+  const notificationOptions = {
+    body,
+    icon: '/favicons/android-chrome-192x192.png',
+    badge: '/favicons/android-chrome-192x192.png',
+    image,
+    data: {
+      url: data.url || '/',
+      type: data.type || 'default'
+    },
+    tag: data.type || 'default',
+    requireInteraction: false,
+    actions: [
+      { action: 'open', title: 'Открыть' },
+      { action: 'dismiss', title: 'Закрыть' }
+    ]
+  }
+
+  event.waitUntil(self.registration.showNotification(title, notificationOptions))
+})
+
 // Обработка фоновых уведомлений
 messaging.onBackgroundMessage((payload) => {
   const { title, body, image } = payload.notification

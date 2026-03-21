@@ -23,10 +23,6 @@ on:
         description: 'Тип уведомления'
         required: false
         default: 'new-article'
-  
-  schedule:
-    # Можно настроить расписание (UTC)
-    # - cron: '0 9 * * 1' # Каждый понедельник в 9:00
 
 jobs:
   send-push:
@@ -49,11 +45,11 @@ jobs:
         run: |
           cd scripts
           node send-push.js \
-            --title "${{ github.event.inputs.title }}" \
-            --body "${{ github.event.inputs.body }}" \
-            --url "${{ github.event.inputs.url }}" \
-            --image "${{ github.event.inputs.image }}" \
-            --type "${{ github.event.inputs.type }}"
+            --title "${{ github.event.inputs.title || 'Новая статья!' }}" \
+            --body "${{ github.event.inputs.body || 'Читайте новую статью в блоге' }}" \
+            --url "${{ github.event.inputs.url || '/blog' }}" \
+            --image "${{ github.event.inputs.image || '' }}" \
+            --type "${{ github.event.inputs.type || 'new-article' }}"
         env:
           NUXT_FIREBASE_VAPID_KEY: ${{ secrets.NUXT_FIREBASE_VAPID_KEY }}
           VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}

@@ -847,6 +847,9 @@
     <!-- Нижняя навигация для мобильных -->
     <MobileBottomNav theme="light" />
 
+    <!-- Push уведомления промопт -->
+    <PushNotificationPrompt />
+
     <!-- Кнопка наверх (фиксированная, видна при скролле) - только для десктопа -->
     <button @click="scrollToTop"
             v-show="scrolled"
@@ -867,6 +870,7 @@ import Header from '~/components/layout/Header.vue'
 import BaseMobileMenu from '~/components/layout/BaseMobileMenu.vue'
 import Footer from '~/components/layout/Footer.vue'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
+import PushNotificationPrompt from '~/components/ui/PushNotificationPrompt.vue'
 
 // SEO для главной страницы
 useSeoMeta({

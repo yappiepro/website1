@@ -20,7 +20,7 @@
         ]"
       >
         <!-- Иконка или изображение или текст -->
-        <div class="relative z-10 w-10 h-10 mb-1 overflow-hidden rounded-[6px] flex items-start justify-center pt-1">
+        <div class="relative z-10 w-10 h-12 overflow-hidden rounded-[6px] flex items-center justify-center">
           <NuxtImg
             v-if="item.image"
             :src="item.image"

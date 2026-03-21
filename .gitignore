@@ -24,5 +24,9 @@ yappie-website-ready.zip
 .env.*
 !.env.example
 
+# Firebase
+serviceAccountKey.json
+.firebase
+
 # Ignore external project folders
 main Selifanov

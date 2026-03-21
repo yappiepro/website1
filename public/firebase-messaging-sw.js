@@ -1,10 +1,11 @@
 /* eslint-disable no-undef */
 
-import { initializeApp } from 'firebase/app'
-import { getMessaging, onBackgroundMessage } from 'firebase/messaging/sw'
+// Import Firebase via CDN for service worker
+importScripts('https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js')
+importScripts('https://www.gstatic.com/firebasejs/10.14.1/firebase-messaging-compat.js')
 
 // Firebase config
-const firebaseConfig = {
+firebase.initializeApp({
   apiKey: "AIzaSyCyLAxCpKNgvgRnt4z6NukP3-wG242tE2g",
   authDomain: "artemselifanov-ru-pwa.firebaseapp.com",
   projectId: "artemselifanov-ru-pwa",
@@ -12,17 +13,15 @@ const firebaseConfig = {
   messagingSenderId: "923740459406",
   appId: "1:923740459406:web:d67a35fcb94686dd5d14df",
   measurementId: "G-GETTG73DF6"
-}
+})
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig)
-const messaging = getMessaging(app)
+const messaging = firebase.messaging()
 
 // Обработка фоновых уведомлений
-onBackgroundMessage(messaging, (payload) => {
+messaging.onBackgroundMessage((payload) => {
   const { title, body, image } = payload.notification
   const data = payload.data || {}
-  
+
   const notificationOptions = {
     body,
     icon: '/favicons/android-chrome-192x192.png',
@@ -39,33 +38,31 @@ onBackgroundMessage(messaging, (payload) => {
       { action: 'dismiss', title: 'Закрыть' }
     ]
   }
-  
+
   self.registration.showNotification(title, notificationOptions)
 })
 
 // Обработка кликов по уведомлению
 self.addEventListener('notificationclick', (event) => {
   event.notification.close()
-  
+
   if (event.action === 'dismiss') {
     return
   }
-  
+
   const urlToOpen = event.notification.data?.url || '/'
-  
+
   event.waitUntil(
     clients.matchAll({ type: 'window', includeUncontrolled: true })
       .then((windowClients) => {
-        // Проверяем, есть ли уже открытая вкладка с нашим сайтом
-        const matchingClient = windowClients.find(client => 
+        const matchingClient = windowClients.find(client =>
           client.url === urlToOpen && 'focus' in client
         )
-        
+
         if (matchingClient) {
           return matchingClient.focus()
         }
-        
-        // Открываем новую вкладку
+
         if (clients.openWindow) {
           return clients.openWindow(urlToOpen)
         }

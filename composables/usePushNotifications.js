@@ -1,12 +1,27 @@
 import { get, set, del } from 'idb-keyval'
-import { messaging, getToken, onMessage } from './useFirebase'
+import { getToken, onMessage, ensureFirebase } from './useFirebase'
 
-const VAPID_KEY = useRuntimeConfig().public.firebaseVapidKey
-const NOTIFICATION_STORE = 'push-notifications'
+let VAPID_KEY = null
+let _messaging = null
+
+function getVapidKey() {
+  if (!VAPID_KEY) {
+    VAPID_KEY = useRuntimeConfig().public.firebaseVapidKey
+  }
+  return VAPID_KEY
+}
+
+function getMessagingInstance() {
+  if (!_messaging) {
+    const { messaging } = ensureFirebase()
+    _messaging = messaging
+  }
+  return _messaging
+}
 
 // Проверка поддержки уведомлений
 export function isPushSupported() {
-  return process.client && 'Notification' in window && 'serviceWorker' in navigator && messaging
+  return process.client && 'Notification' in window && 'serviceWorker' in navigator && getMessagingInstance()
 }
 
 // Запрос разрешения на уведомления
@@ -21,15 +36,26 @@ export async function requestNotificationPermission() {
 
 // Получение токена FCM
 export async function getPushToken() {
-  if (!messaging) return null
-  
+  const msg = getMessagingInstance()
+  if (!msg) {
+    console.error('[Push] Messaging не инициализирован')
+    return null
+  }
+
+  // Ждём активации сервис-воркера
+  if ('serviceWorker' in navigator) {
+    const registration = await navigator.serviceWorker.ready
+    console.log('[Push] Service Worker готов:', registration.active ? 'активен' : 'не активен')
+  }
+
   try {
-    const token = await getToken(messaging, {
-      vapidKey: VAPID_KEY
+    const token = await getToken(msg, {
+      vapidKey: getVapidKey()
     })
+    console.log('[Push] Токен получен:', token ? token.substring(0, 50) + '...' : 'null')
     return token
   } catch (error) {
-    console.error('Ошибка получения токена:', error)
+    console.error('[Push] Ошибка получения токена:', error)
     return null
   }
 }
@@ -54,18 +80,23 @@ export async function deleteToken() {
 
 // Подписка на push-уведомления
 export async function subscribeToPush() {
+  console.log('[Push] Начало подписки...')
+  
   if (!isPushSupported()) {
+    console.error('[Push] Не поддерживается')
     return { success: false, error: 'Not supported' }
   }
-  
+
   const permission = await requestNotificationPermission()
-  
+  console.log('[Push] Разрешение:', permission)
+
   if (permission !== 'granted') {
     return { success: false, error: 'Permission denied' }
   }
-  
+
   const token = await getPushToken()
-  
+  console.log('[Push] Токен:', token ? 'получен' : 'не получен')
+
   if (!token) {
     return { success: false, error: 'No token' }
   }
@@ -108,11 +139,12 @@ export async function getSubscriptionStatus() {
 
 // Обработка входящих уведомлений в браузере
 export function onForegroundMessage(callback) {
-  if (!messaging) return
-  
-  onMessage(messaging, (payload) => {
+  const msg = getMessagingInstance()
+  if (!msg) return
+
+  onMessage(msg, (payload) => {
     const { title, body, image } = payload.notification
-    
+
     const notificationData = {
       title,
       body,
@@ -123,7 +155,7 @@ export function onForegroundMessage(callback) {
       requireInteraction: false,
       tag: payload.data?.type || 'default'
     }
-    
+
     callback(notificationData)
   })
 }

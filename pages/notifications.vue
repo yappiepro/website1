@@ -64,16 +64,50 @@
       <!-- Статистика -->
       <section v-if="subscriptionInfo" class="mb-8">
         <h2 class="text-lg font-semibold mb-4">Информация о подписке</h2>
-        <div class="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl space-y-2 text-sm">
+        <div class="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl space-y-3 text-sm">
           <div class="flex justify-between">
             <span class="text-gray-500 dark:text-gray-400">Статус:</span>
             <span :class="subscriptionInfo.subscribed ? 'text-green-600' : 'text-gray-600'">
               {{ subscriptionInfo.subscribed ? 'Активна' : 'Не активна' }}
             </span>
           </div>
+          <div class="flex justify-between">
+            <span class="text-gray-500 dark:text-gray-400">Разрешение:</span>
+            <span class="text-gray-600">{{ permissionText }}</span>
+          </div>
           <div v-if="subscriptionInfo.subscribedAt" class="flex justify-between">
             <span class="text-gray-500 dark:text-gray-400">Дата подписки:</span>
             <span>{{ formatDate(subscriptionInfo.subscribedAt) }}</span>
+          </div>
+          <div v-if="subscriptionInfo.token" class="space-y-2">
+            <div class="flex justify-between items-center">
+              <span class="text-gray-500 dark:text-gray-400">FCM токен:</span>
+              <button
+                @click="copyToken"
+                class="px-2 py-1 text-xs font-medium text-blue-600 hover:text-blue-700"
+              >
+                {{ copied ? 'Скопировано' : 'Скопировать' }}
+              </button>
+            </div>
+            <div class="p-2 bg-white dark:bg-gray-900 rounded-lg text-xs break-all">
+              {{ subscriptionInfo.token }}
+            </div>
+          </div>
+          <div class="flex gap-2 pt-1">
+            <button
+              @click="refreshToken"
+              :disabled="isRefreshing"
+              class="px-3 py-2 text-xs font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {{ isRefreshing ? 'Обновление...' : 'Обновить токен' }}
+            </button>
+            <button
+              @click="clearToken"
+              :disabled="isRefreshing"
+              class="px-3 py-2 text-xs font-medium text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Сбросить подписку
+            </button>
           </div>
         </div>
       </section>
@@ -104,14 +138,20 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { getSubscriptionStatus } from '~/composables/usePushNotifications'
+import { getSubscriptionStatus, subscribeToPush, unsubscribeFromPush } from '~/composables/usePushNotifications'
 import NotificationToggle from '~/components/ui/NotificationToggle.vue'
 
 const subscriptionInfo = ref(null)
+const isRefreshing = ref(false)
+const copied = ref(false)
+const permissionText = ref('unknown')
 
 onMounted(async () => {
   const status = await getSubscriptionStatus()
   subscriptionInfo.value = status
+  if (process.client && 'Notification' in window) {
+    permissionText.value = Notification.permission
+  }
 })
 
 function formatDate(dateString) {
@@ -123,6 +163,46 @@ function formatDate(dateString) {
     hour: '2-digit',
     minute: '2-digit'
   })
+}
+
+async function refreshToken() {
+  if (isRefreshing.value) return
+  isRefreshing.value = true
+  try {
+    await unsubscribeFromPush()
+    const result = await subscribeToPush()
+    if (result.success) {
+      const status = await getSubscriptionStatus()
+      subscriptionInfo.value = status
+    }
+  } finally {
+    isRefreshing.value = false
+  }
+}
+
+async function clearToken() {
+  if (isRefreshing.value) return
+  isRefreshing.value = true
+  try {
+    await unsubscribeFromPush()
+    const status = await getSubscriptionStatus()
+    subscriptionInfo.value = status
+  } finally {
+    isRefreshing.value = false
+  }
+}
+
+async function copyToken() {
+  if (!process.client || !subscriptionInfo.value?.token) return
+  try {
+    await navigator.clipboard.writeText(subscriptionInfo.value.token)
+    copied.value = true
+    setTimeout(() => {
+      copied.value = false
+    }, 1500)
+  } catch (e) {
+    console.error('Не удалось скопировать токен', e)
+  }
 }
 
 // SEO

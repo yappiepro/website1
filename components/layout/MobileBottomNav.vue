@@ -12,7 +12,7 @@
         :aria-label="item.label"
         :title="item.label"
         @click="handleClick(item, $event)"
-        class="relative flex flex-col items-center justify-start pt-3 flex-1"
+        class="relative flex flex-col items-center justify-start pt-1 flex-1"
         :class="[
           isActive(item.href)
             ? activeTextClass
@@ -20,7 +20,7 @@
         ]"
       >
         <!-- Иконка или изображение или текст -->
-        <div class="relative z-10 w-10 h-12 overflow-hidden rounded-[6px] flex items-start justify-center pt-1">
+        <div class="relative z-10 w-10 h-[60px] overflow-hidden rounded-[6px] flex items-start justify-center">
           <NuxtImg
             v-if="item.image"
             :src="item.image"

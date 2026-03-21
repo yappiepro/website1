@@ -267,7 +267,15 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      siteUrl: 'https://artemselifanov.ru'
+      siteUrl: 'https://artemselifanov.ru',
+      firebaseApiKey: process.env.NUXT_FIREBASE_API_KEY,
+      firebaseAuthDomain: process.env.NUXT_FIREBASE_AUTH_DOMAIN,
+      firebaseProjectId: process.env.NUXT_FIREBASE_PROJECT_ID,
+      firebaseStorageBucket: process.env.NUXT_FIREBASE_STORAGE_BUCKET,
+      firebaseMessagingSenderId: process.env.NUXT_FIREBASE_MESSAGING_SENDER_ID,
+      firebaseAppId: process.env.NUXT_FIREBASE_APP_ID,
+      firebaseMeasurementId: process.env.NUXT_FIREBASE_MEASUREMENT_ID,
+      firebaseVapidKey: process.env.NUXT_FIREBASE_VAPID_KEY
     }
   },
   typescript: {
@@ -323,8 +331,8 @@ export default defineNuxtConfig({
     workbox: {
       navigateFallback: '/offline',
       globPatterns: ['**/*.{js,css,html,txt,png,ico,svg,webp,json,woff,woff2}'],
-      globIgnores: ['**/gromish.png'],
-      maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5 MB
+      globIgnores: ['**/gromish.png', '**/firebase-messaging-sw.js'],
+      maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
       runtimeCaching: [
         {
           urlPattern: /^https:\/\/cdn\.iconify\.sh\/.*/i,
@@ -349,6 +357,13 @@ export default defineNuxtConfig({
             cacheName: 'google-fonts-cache',
             expiration: { maxEntries: 30, maxAgeSeconds: 31536000 }
           }
+        },
+        {
+          urlPattern: /^https:\/\/firebaseinstallations\.googleapis\.com\/.*/i,
+          handler: 'NetworkFirst',
+          options: {
+            cacheName: 'firebase-installations'
+          }
         }
       ]
     },
@@ -357,7 +372,21 @@ export default defineNuxtConfig({
     strategies: 'generateSW',
     injectRegister: 'auto',
     includeAssets: ['favicon.ico', 'apple-touch-icon.png'],
-    offlinePage: '/offline'
+    offlinePage: '/offline',
+    client: {
+      installPrompt: true,
+      periodicSyncForBackgroundTag: true
+    },
+    experimental: {
+      directPages: true,
+      injectManifest: {
+        globPatterns: ['**/*.{js,css,html,txt,png,ico,svg,webp,json,woff,woff2}'],
+        globIgnores: ['**/firebase-messaging-sw.js'],
+        additionalManifestEntries: [
+          { url: '/firebase-messaging-sw.js', revision: null }
+        ]
+      }
+    }
   },
 
   // Оптимизация загрузки CSS перенесена в единый блок nitro

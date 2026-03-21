@@ -35,6 +35,27 @@ export function isPushSupported() {
   return process.client && 'Notification' in window && 'serviceWorker' in navigator && getMessagingInstance()
 }
 
+// Диагностика поддержки push
+export function getPushSupportInfo() {
+  if (!process.client) {
+    return {
+      notification: false,
+      serviceWorker: false,
+      pushManager: false,
+      messaging: false,
+      permission: 'unsupported'
+    }
+  }
+
+  const notification = 'Notification' in window
+  const serviceWorker = 'serviceWorker' in navigator
+  const pushManager = 'PushManager' in window
+  const messaging = !!getMessagingInstance()
+  const permission = notification ? Notification.permission : 'unsupported'
+
+  return { notification, serviceWorker, pushManager, messaging, permission }
+}
+
 // Запрос разрешения на уведомления
 export async function requestNotificationPermission() {
   if (!process.client || !('Notification' in window)) {

@@ -132,19 +132,64 @@
           </ol>
         </div>
       </section>
+
+      <!-- Диагностика -->
+      <section class="mb-8">
+        <h2 class="text-lg font-semibold mb-4">Диагностика</h2>
+        <div class="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl space-y-2 text-sm">
+          <div class="flex justify-between">
+            <span class="text-gray-500 dark:text-gray-400">Notification API:</span>
+            <span>{{ supportInfo.notification ? 'Да' : 'Нет' }}</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-500 dark:text-gray-400">Service Worker:</span>
+            <span>{{ supportInfo.serviceWorker ? 'Да' : 'Нет' }}</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-500 dark:text-gray-400">PushManager:</span>
+            <span>{{ supportInfo.pushManager ? 'Да' : 'Нет' }}</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-500 dark:text-gray-400">Firebase Messaging:</span>
+            <span>{{ supportInfo.messaging ? 'Да' : 'Нет' }}</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-500 dark:text-gray-400">Permission:</span>
+            <span>{{ supportInfo.permission }}</span>
+          </div>
+          <div class="pt-2">
+            <button
+              @click="requestPermissionOnly"
+              class="px-3 py-2 text-xs font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors"
+            >
+              Запросить разрешение
+            </button>
+          </div>
+          <p v-if="!supportInfo.messaging" class="text-xs text-gray-500 dark:text-gray-400 pt-1">
+            Firebase Messaging не инициализируется в этом браузере. На iOS push через FCM обычно не поддерживается.
+          </p>
+        </div>
+      </section>
     </main>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { getSubscriptionStatus, subscribeToPush, unsubscribeFromPush } from '~/composables/usePushNotifications'
+import { getSubscriptionStatus, subscribeToPush, unsubscribeFromPush, requestNotificationPermission, getPushSupportInfo } from '~/composables/usePushNotifications'
 import NotificationToggle from '~/components/ui/NotificationToggle.vue'
 
 const subscriptionInfo = ref(null)
 const isRefreshing = ref(false)
 const copied = ref(false)
 const permissionText = ref('unknown')
+const supportInfo = ref({
+  notification: false,
+  serviceWorker: false,
+  pushManager: false,
+  messaging: false,
+  permission: 'unknown'
+})
 
 onMounted(async () => {
   const status = await getSubscriptionStatus()
@@ -152,6 +197,7 @@ onMounted(async () => {
   if (process.client && 'Notification' in window) {
     permissionText.value = Notification.permission
   }
+  supportInfo.value = getPushSupportInfo()
 })
 
 function formatDate(dateString) {
@@ -203,6 +249,15 @@ async function copyToken() {
   } catch (e) {
     console.error('Не удалось скопировать токен', e)
   }
+}
+
+async function requestPermissionOnly() {
+  const permission = await requestNotificationPermission()
+  if (process.client && 'Notification' in window) {
+    permissionText.value = Notification.permission
+  }
+  supportInfo.value = getPushSupportInfo()
+  return permission
 }
 
 // SEO

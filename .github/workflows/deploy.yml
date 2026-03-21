@@ -32,6 +32,15 @@ jobs:
 
       - name: Build static site
         run: npm run generate
+        env:
+          NUXT_FIREBASE_API_KEY: ${{ secrets.NUXT_FIREBASE_API_KEY }}
+          NUXT_FIREBASE_AUTH_DOMAIN: ${{ secrets.NUXT_FIREBASE_AUTH_DOMAIN }}
+          NUXT_FIREBASE_PROJECT_ID: ${{ secrets.NUXT_FIREBASE_PROJECT_ID }}
+          NUXT_FIREBASE_STORAGE_BUCKET: ${{ secrets.NUXT_FIREBASE_STORAGE_BUCKET }}
+          NUXT_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.NUXT_FIREBASE_MESSAGING_SENDER_ID }}
+          NUXT_FIREBASE_APP_ID: ${{ secrets.NUXT_FIREBASE_APP_ID }}
+          NUXT_FIREBASE_MEASUREMENT_ID: ${{ secrets.NUXT_FIREBASE_MEASUREMENT_ID }}
+          NUXT_FIREBASE_VAPID_KEY: ${{ secrets.NUXT_FIREBASE_VAPID_KEY }}
 
       - name: Copy build output to dist
         run: |

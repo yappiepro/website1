@@ -1,0 +1,62 @@
+name: Send Push Notification
+
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: 'Заголовок уведомления'
+        required: true
+        default: 'Новая статья!'
+      body:
+        description: 'Текст уведомления'
+        required: true
+        default: 'Читайте новую статью в блоге'
+      url:
+        description: 'Ссылка (относительная)'
+        required: true
+        default: '/blog'
+      image:
+        description: 'URL изображения (опционально)'
+        required: false
+        default: ''
+      type:
+        description: 'Тип уведомления'
+        required: false
+        default: 'new-article'
+  
+  schedule:
+    # Можно настроить расписание (UTC)
+    # - cron: '0 9 * * 1' # Каждый понедельник в 9:00
+
+jobs:
+  send-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: |
+          cd scripts
+          npm ci
+
+      - name: Send Push Notification
+        run: |
+          cd scripts
+          node send-push.js \
+            --title "${{ github.event.inputs.title }}" \
+            --body "${{ github.event.inputs.body }}" \
+            --url "${{ github.event.inputs.url }}" \
+            --image "${{ github.event.inputs.image }}" \
+            --type "${{ github.event.inputs.type }}"
+        env:
+          NUXT_FIREBASE_VAPID_KEY: ${{ secrets.NUXT_FIREBASE_VAPID_KEY }}
+          VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
+          VAPID_SUBJECT: 'mailto:a9535487323@yandex.ru'
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}

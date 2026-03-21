@@ -1,4 +1,5 @@
 import { get, set, del } from 'idb-keyval'
+import { getFirestore, doc, setDoc, deleteDoc, serverTimestamp } from 'firebase/firestore'
 import { getToken, onMessage, ensureFirebase } from './useFirebase'
 
 let VAPID_KEY = null
@@ -21,8 +22,12 @@ function getMessagingInstance() {
 }
 
 function getFirestoreDb() {
-  // Firestore отключён до настройки сервисного аккаунта
-  return null
+  if (!process.client) return null
+  if (_db) return _db
+  const { app } = ensureFirebase()
+  if (!app) return null
+  _db = getFirestore(app)
+  return _db
 }
 
 // Проверка поддержки уведомлений
@@ -74,16 +79,45 @@ export async function saveToken(token) {
 
 // Сохранение токена в Firestore (отключено)
 export async function saveTokenToFirestore(token) {
-  // Firestore требует сервисный аккаунт для серверной части
-  // Пока токены сохраняются только локально в IndexedDB
-  console.log('[Firestore] Отключено (требуется сервисный аккаунт)')
-  return { success: true, skipped: true }
+  const db = getFirestoreDb()
+  if (!db) {
+    console.warn('[Firestore] Не инициализирован')
+    return { success: false, error: 'Firestore not initialized' }
+  }
+
+  try {
+    const payload = {
+      token,
+      updatedAt: serverTimestamp(),
+      createdAt: serverTimestamp(),
+      userAgent: navigator.userAgent || 'unknown',
+      platform: navigator.platform || 'unknown',
+      language: navigator.language || 'unknown',
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'unknown'
+    }
+    await setDoc(doc(db, 'push_tokens', token), payload, { merge: true })
+    return { success: true }
+  } catch (error) {
+    console.error('[Firestore] Ошибка сохранения токена:', error)
+    return { success: false, error }
+  }
 }
 
-// Удаление токена из Firestore (отключено)
+// Удаление токена из Firestore
 export async function removeTokenFromFirestore(token) {
-  console.log('[Firestore] Отключено (требуется сервисный аккаунт)')
-  return { success: true, skipped: true }
+  const db = getFirestoreDb()
+  if (!db) {
+    console.warn('[Firestore] Не инициализирован')
+    return { success: false, error: 'Firestore not initialized' }
+  }
+
+  try {
+    await deleteDoc(doc(db, 'push_tokens', token))
+    return { success: true }
+  } catch (error) {
+    console.error('[Firestore] Ошибка удаления токена:', error)
+    return { success: false, error }
+  }
 }
 
 // Получение сохранённого токена

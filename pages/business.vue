@@ -315,7 +315,7 @@ function toggleFaq(index) {
             scrolled ? 'hidden' : 'block md:block'
           ]">
             <a href="/" class="group flex items-center gap-3">
-              <NuxtImg src="/reference/business.webp" quality="75" sizes="20px sm:28px md:40px" alt="Бизнес Сетка — логотип закрытого клуба предпринимателей" class="w-10 h-10 rounded-lg" />
+              <img src="/reference/business.webp" quality="75"  alt="Бизнес Сетка — логотип закрытого клуба предпринимателей" class="w-10 h-10 rounded-lg" />
               <span class="text-sm font-bold tracking-tight text-gray-900">БИЗНЕС СЕТКА</span>
             </a>
           </div>

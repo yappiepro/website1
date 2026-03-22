@@ -497,7 +497,7 @@
 
       <section class="why-split" id="why-us">
         <div class="why-photo-wrap">
-          <NuxtImg :src="`${baseURL}images/artem.jpg`" format="webp" quality="70" sizes="320px sm:480px md:600px" alt="Артем Селифанов" class="author-photo" />
+          <img src="`${baseURL}images/artem.jpg`" format="webp" quality="70"  alt="Артем Селифанов" class="author-photo" />
         </div>
 
         <div class="why-content">

@@ -818,8 +818,8 @@ function toggleFaq(index) {
               <!-- Фото -->
               <div class="flex-shrink-0">
                 <div class="w-32 h-32 md:w-40 md:h-40 border-2 border-black bg-gray-100 overflow-hidden">
-                  <NuxtImg
-                    :src="author.image"
+                  <img
+                    src="author.image"
                     format="webp"
                     quality="70"
                     alt="Артём Селифанов — маркетолог, блогер, нетворкер, автор сообщества Нескучный Нетворкинг"

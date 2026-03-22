@@ -282,7 +282,7 @@ export default defineNuxtConfig({
       firebaseVapidKey: process.env.NUXT_FIREBASE_VAPID_KEY,
       supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL,
       supabaseAnonKey: process.env.NUXT_PUBLIC_SUPABASE_ANON_KEY,
-      adminPassword: process.env.NUXT_ADMIN_PASSWORD || 'admin123'
+      adminPassword: process.env.NUXT_ADMIN_PASSWORD || 'Bk62li4z'
     },
     supabaseServiceRoleKey: process.env.NUXT_SUPABASE_SERVICE_ROLE_KEY
   },

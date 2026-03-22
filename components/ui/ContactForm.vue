@@ -58,25 +58,25 @@
       <div class="space-y-3">
         <div class="flex items-start gap-2.5">
           <input
-            id="consent-read"
-            v-model="form.consentRead"
+            id="consent-policy"
+            v-model="form.consentPolicy"
             type="checkbox"
             class="shrink-0 w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-600 mt-1"
           />
-          <label for="consent-read" class="text-sm text-gray-600 dark:text-gray-400 leading-snug">
-            Я ознакомился(-лась) с
-            <a href="/privacy" target="_blank" class="text-purple-600 hover:underline">Политикой обработки персональных данных</a>
+          <label for="consent-policy" class="text-sm text-gray-600 dark:text-gray-400 leading-snug">
+            Я ознакомился(-лась) и принимаю условия
+            <a href="/privacy" target="_blank" class="text-purple-600 hover:underline">Политики конфиденциальности</a>
           </label>
         </div>
 
         <div class="flex items-start gap-2.5">
           <input
-            id="consent-give"
-            v-model="form.consentGive"
+            id="consent-processing"
+            v-model="form.consentProcessing"
             type="checkbox"
             class="shrink-0 w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-600 mt-1"
           />
-          <label for="consent-give" class="text-sm text-gray-600 dark:text-gray-400 leading-snug">
+          <label for="consent-processing" class="text-sm text-gray-600 dark:text-gray-400 leading-snug">
             Даю согласие ИП Селифанову А. на обработку моих персональных данных (имя, email, телефон) в целях обратной связи и оказания услуг
           </label>
         </div>
@@ -109,8 +109,8 @@ const form = ref({
   name: '',
   phone: '',
   contact: '',
-  consentRead: false,
-  consentGive: false
+  consentPolicy: false,
+  consentProcessing: false
 })
 
 const isSubmitting = ref(false)
@@ -120,8 +120,8 @@ const status = ref({ message: '', type: '' })
 const isFormValid = computed(() => {
   return form.value.name.trim() !== '' &&
          form.value.contact.trim() !== '' &&
-         form.value.consentRead &&
-         form.value.consentGive
+         form.value.consentPolicy &&
+         form.value.consentProcessing
 })
 
 // Форматирование телефона по маске +7 (XXX) XXX-XX-XX или 8 (XXX) XXX-XX-XX
@@ -208,8 +208,8 @@ async function handleSubmit() {
       name: '',
       phone: '',
       contact: '',
-      consentRead: false,
-      consentGive: false
+      consentPolicy: false,
+      consentProcessing: false
     }
 
     // Скрыть сообщение через 5 секунд

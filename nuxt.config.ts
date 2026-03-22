@@ -372,9 +372,7 @@ export default defineNuxtConfig({
             cacheName: 'firebase-installations'
           }
         }
-      ],
-      // Отключаем pre-cache для offline и robots.txt
-      offline: false
+      ]
     },
     devOptions: { enabled: false },
     registerType: 'autoUpdate',

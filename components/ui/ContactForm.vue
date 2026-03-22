@@ -115,6 +115,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useSupabase } from '~/composables/useSupabase'
+import { submitContactFormWithNotification } from '~/composables/useTelegramNotification'
 
 const supabase = useSupabase()
 
@@ -202,36 +203,34 @@ async function handleSubmit() {
   status.value = { message: '', type: '' }
 
   try {
-    const { data, error } = await supabase
-      .from('contact_submissions')
-      .insert([{
-        name: form.value.name,
-        phone: form.value.phone,
-        email: form.value.email,
-        telegram: form.value.telegram,
-        created_at: new Date().toISOString()
-      }])
-      .select()
-      .single()
+    // Используем новую функцию с уведомлением в Telegram
+    const result = await submitContactFormWithNotification({
+      name: form.value.name,
+      phone: form.value.phone,
+      email: form.value.email,
+      telegram: form.value.telegram
+    })
 
-    if (error) throw error
+    if (result.success) {
+      status.value = { message: '✅ Спасибо! Я свяжусь с вами в ближайшее время', type: 'success' }
+      
+      // Очистить форму
+      form.value = {
+        name: '',
+        phone: '',
+        email: '',
+        telegram: '',
+        consentPolicy: false,
+        consentProcessing: false
+      }
 
-    status.value = { message: '✅ Спасибо! Я свяжусь с вами в ближайшее время', type: 'success' }
-    
-    // Очистить форму
-    form.value = {
-      name: '',
-      phone: '',
-      email: '',
-      telegram: '',
-      consentPolicy: false,
-      consentProcessing: false
+      // Скрыть сообщение через 5 секунд
+      setTimeout(() => {
+        status.value = { message: '', type: '' }
+      }, 5000)
+    } else {
+      throw new Error(result.error)
     }
-
-    // Скрыть сообщение через 5 секунд
-    setTimeout(() => {
-      status.value = { message: '', type: '' }
-    }, 5000)
 
   } catch (error) {
     console.error('Ошибка отправки формы:', error)

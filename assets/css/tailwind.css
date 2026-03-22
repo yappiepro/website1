@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./typography.css";
+@import "./fonts.css";
 
 /* Screen reader only class for SEO */
 .sr-only {

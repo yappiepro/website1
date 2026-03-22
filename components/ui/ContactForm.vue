@@ -1,16 +1,16 @@
 <template>
-  <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 md:p-8">
-    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+  <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4 sm:p-5">
+    <h3 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
       Остались вопросы?
     </h3>
-    <p class="text-gray-600 dark:text-gray-400 mb-6">
+    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
       Заполните форму и я свяжусь с вами в течение 24 часов
     </p>
 
-    <form @submit.prevent="handleSubmit" class="space-y-4">
+    <form @submit.prevent="handleSubmit" class="space-y-3">
       <!-- Имя -->
       <div>
-        <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+        <label for="name" class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
           Имя *
         </label>
         <input
@@ -18,14 +18,14 @@
           v-model="form.name"
           type="text"
           required
-          class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
+          class="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
           placeholder="Иван Иванов"
         />
       </div>
 
       <!-- Телефон с маской -->
       <div>
-        <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+        <label for="phone" class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
           Телефон
         </label>
         <input
@@ -33,7 +33,7 @@
           v-model="form.phone"
           type="tel"
           @input="formatPhone"
-          class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
+          class="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
           placeholder="+7 (999) 000-00-00"
           maxlength="18"
         />
@@ -41,55 +41,55 @@
 
       <!-- Email -->
       <div>
-        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+        <label for="email" class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
           Email
         </label>
         <input
           id="email"
           v-model="form.email"
           type="email"
-          class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
+          class="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
           placeholder="email@example.com"
         />
       </div>
 
       <!-- Telegram -->
       <div>
-        <label for="telegram" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+        <label for="telegram" class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
           Telegram
         </label>
         <input
           id="telegram"
           v-model="form.telegram"
           type="text"
-          class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
+          class="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
           placeholder="@username"
         />
       </div>
 
       <!-- Чекбоксы согласия -->
-      <div class="space-y-3">
-        <div class="flex items-start gap-2.5">
+      <div class="space-y-2">
+        <div class="flex items-start gap-2">
           <input
             id="consent-policy"
             v-model="form.consentPolicy"
             type="checkbox"
-            class="shrink-0 w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-600 mt-1"
+            class="shrink-0 w-3.5 h-3.5 text-purple-600 border-gray-300 rounded focus:ring-purple-600 mt-0.5"
           />
-          <label for="consent-policy" class="text-sm text-gray-600 dark:text-gray-400 leading-snug">
+          <label for="consent-policy" class="text-xs text-gray-600 dark:text-gray-400 leading-snug">
             Я ознакомился(-лась) и принимаю условия
             <a href="/privacy" target="_blank" class="text-purple-600 hover:underline">Политики конфиденциальности</a>
           </label>
         </div>
 
-        <div class="flex items-start gap-2.5">
+        <div class="flex items-start gap-2">
           <input
             id="consent-processing"
             v-model="form.consentProcessing"
             type="checkbox"
-            class="shrink-0 w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-600 mt-1"
+            class="shrink-0 w-3.5 h-3.5 text-purple-600 border-gray-300 rounded focus:ring-purple-600 mt-0.5"
           />
-          <label for="consent-processing" class="text-sm text-gray-600 dark:text-gray-400 leading-snug">
+          <label for="consent-processing" class="text-xs text-gray-600 dark:text-gray-400 leading-snug">
             Даю согласие ИП Селифанову А. на обработку моих персональных данных (имя, email, телефон) в целях обратной связи и оказания услуг
           </label>
         </div>
@@ -99,7 +99,7 @@
       <button
         type="submit"
         :disabled="!isFormValid || isSubmitting"
-        class="w-full px-6 py-4 bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-semibold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none transform hover:-translate-y-0.5"
+        class="w-full px-4 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none transform hover:-translate-y-0.5"
       >
         {{ isSubmitting ? 'Отправка...' : 'Отправить' }}
       </button>

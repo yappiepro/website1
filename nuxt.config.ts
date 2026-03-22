@@ -229,7 +229,7 @@ export default defineNuxtConfig({
     }
   },
   app: {
-    baseURL: '/',
+    baseURL: '/website1/',
     head: {
       meta: [
         { charset: 'utf-8' },

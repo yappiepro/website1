@@ -122,7 +122,7 @@ useSeoMeta({
     const plainText = text.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').trim()
     return plainText.slice(0, 200) + '...'
   },
-  twitterImage: 'https://artemselifanov.ru/reference/opengraph_index.png'
+  twitterImage: 'https://artemselifanov.ru/reference/openGraph/knowledge.webp'
 })
 
 useHead({

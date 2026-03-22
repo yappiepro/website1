@@ -19,7 +19,7 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
   twitterTitle: 'База знаний Нескучный Нетворкинг',
   twitterDescription: '220+ постов → структурированные маршруты обучения',
-  twitterImage: 'https://artemselifanov.ru/reference/opengraph_index.png'
+  twitterImage: 'https://artemselifanov.ru/reference/openGraph/knowledge.webp'
 })
 
 useHead({

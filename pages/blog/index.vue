@@ -403,6 +403,6 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
   twitterTitle: 'Блог о разработке сайтов и AI для бизнеса',
   twitterDescription: 'Статьи о разработке сайтов, создании веб-приложений, мобильной разработке и искусственном интеллекте для бизнеса',
-  twitterImage: 'https://artemselifanov.ru/reference/opengraph_index.png'
+  twitterImage: 'https://artemselifanov.ru/reference/openGraph/blog.webp'
 })
 </script>

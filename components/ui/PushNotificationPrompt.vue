@@ -96,8 +96,42 @@ onMounted(async () => {
 async function handleSubscribe() {
   isSubscribing.value = true
 
-  // Сначала запрашиваем разрешение явно (нужно для iOS Safari)
-  if (process.client && 'Notification' in window) {
+  console.log('[Push] Начало подписки...')
+  console.log('[Push] Notification API:', 'Notification' in window)
+  console.log('[Push] Service Worker:', 'serviceWorker' in navigator)
+  console.log('[Push] Push Manager:', 'PushManager' in window)
+
+  // Проверка поддержки
+  if (!('Notification' in window)) {
+    console.error('[Push] Notification API не поддерживается')
+    alert('Ваш браузер не поддерживает уведомления')
+    isSubscribing.value = false
+    return
+  }
+
+  // Для iOS Safari нужно использовать другой подход
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+  console.log('[Push] iOS устройство:', isIOS)
+
+  if (isIOS) {
+    // iOS требует подписки через PushManager напрямую
+    try {
+      const result = await subscribeToPush()
+      
+      if (result.success) {
+        showPrompt.value = false
+        isSubscribed.value = true
+        console.log('[Push] Подписка успешна на iOS')
+      } else {
+        console.error('[Push] Ошибка подписки на iOS:', result.error)
+        alert('Не удалось подписаться. Убедитесь, что:\n1. iOS 16.4+\n2. Открыто из PWA (не Safari)\n3. Разрешены уведомления в Настройки → artemselifanov.ru')
+      }
+    } catch (error) {
+      console.error('[Push] Исключение при подписке:', error)
+      alert('Ошибка: ' + error.message)
+    }
+  } else {
+    // Desktop - стандартный подход
     const permission = await Notification.requestPermission()
     console.log('[Push] Разрешение:', permission)
     
@@ -106,17 +140,16 @@ async function handleSubscribe() {
       isSubscribing.value = false
       return
     }
-  }
 
-  const result = await subscribeToPush()
+    const result = await subscribeToPush()
 
-  if (result.success) {
-    showPrompt.value = false
-    isSubscribed.value = true
-    console.log('[Push] Подписка успешна')
-  } else {
-    console.error('[Push] Ошибка подписки:', result.error)
-    alert('Не удалось подписаться. Проверьте настройки уведомлений в Safari.')
+    if (result.success) {
+      showPrompt.value = false
+      isSubscribed.value = true
+    } else {
+      console.error('[Push] Ошибка подписки:', result.error)
+      alert('Не удалось подписаться')
+    }
   }
 
   isSubscribing.value = false

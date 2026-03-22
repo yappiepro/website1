@@ -129,7 +129,7 @@ export async function getPushSubscription() {
   }
 
   console.log('[Push] Существующей подписки нет, создаём новую...')
-  
+
   const vapidKey = getVapidKey()
   console.log('[Push] VAPID ключ:', vapidKey ? 'присутствует' : 'отсутствует')
   console.log('[Push] VAPID ключ (первые 20 символов):', vapidKey ? vapidKey.substring(0, 20) : 'N/A')
@@ -149,6 +149,8 @@ export async function getPushSubscription() {
     console.log('[Push] applicationServerKey создан, длина:', applicationServerKey.length)
     console.log('[Push] applicationServerKey первый байт:', applicationServerKey[0])
 
+    // Для iOS нужно указывать userVisibleOnly: true
+    console.log('[Push] Вызов subscribe...')
     const subscription = await registration.pushManager.subscribe({
       userVisibleOnly: true,
       applicationServerKey
@@ -158,6 +160,8 @@ export async function getPushSubscription() {
   } catch (error) {
     console.error('[Push] Ошибка подписки через PushManager:', error.message, error)
     console.error('[Push] Stack:', error.stack)
+    console.error('[Push] Name:', error.name)
+    console.error('[Push] iOS требует чтобы подписка происходила во время user gesture (клик)')
     return null
   }
 }

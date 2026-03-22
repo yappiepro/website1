@@ -23,7 +23,7 @@
         />
       </div>
 
-      <!-- Телефон -->
+      <!-- Телефон с маской -->
       <div>
         <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
           Телефон
@@ -32,8 +32,10 @@
           id="phone"
           v-model="form.phone"
           type="tel"
+          @input="formatPhone"
           class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
           placeholder="+7 (999) 000-00-00"
+          maxlength="18"
         />
       </div>
 
@@ -52,40 +54,39 @@
         />
       </div>
 
-      <!-- Согласие 1 -->
-      <div class="flex items-start gap-2">
-        <input
-          id="consent-read"
-          v-model="form.consentRead"
-          type="checkbox"
-          required
-          class="mt-1 w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-600"
-        />
-        <label for="consent-read" class="text-sm text-gray-600 dark:text-gray-400">
-          Я ознакомился(-лась) с
-          <a href="/privacy" target="_blank" class="text-purple-600 hover:underline">Политикой обработки персональных данных</a>
-        </label>
-      </div>
+      <!-- Чекбоксы согласия -->
+      <div class="space-y-3">
+        <div class="flex items-start gap-2">
+          <input
+            id="consent-read"
+            v-model="form.consentRead"
+            type="checkbox"
+            class="mt-1 w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-600"
+          />
+          <label for="consent-read" class="text-sm text-gray-600 dark:text-gray-400">
+            Я ознакомился(-лась) с
+            <a href="/privacy" target="_blank" class="text-purple-600 hover:underline">Политикой обработки персональных данных</a>
+          </label>
+        </div>
 
-      <!-- Согласие 2 -->
-      <div class="flex items-start gap-2">
-        <input
-          id="consent-give"
-          v-model="form.consentGive"
-          type="checkbox"
-          required
-          class="mt-1 w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-600"
-        />
-        <label for="consent-give" class="text-sm text-gray-600 dark:text-gray-400">
-          Даю согласие ИП Селифанову А. на обработку моих персональных данных (имя, email, телефон) в целях обратной связи и оказания услуг
-        </label>
+        <div class="flex items-start gap-2">
+          <input
+            id="consent-give"
+            v-model="form.consentGive"
+            type="checkbox"
+            class="mt-1 w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-600"
+          />
+          <label for="consent-give" class="text-sm text-gray-600 dark:text-gray-400">
+            Даю согласие ИП Селифанову А. на обработку моих персональных данных (имя, email, телефон) в целях обратной связи и оказания услуг
+          </label>
+        </div>
       </div>
 
       <!-- Кнопка -->
       <button
         type="submit"
-        :disabled="isSubmitting"
-        class="w-full px-6 py-4 bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-semibold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed transform hover:-translate-y-0.5"
+        :disabled="!isFormValid || isSubmitting"
+        class="w-full px-6 py-4 bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-semibold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none transform hover:-translate-y-0.5"
       >
         {{ isSubmitting ? 'Отправка...' : 'Отправить' }}
       </button>
@@ -99,7 +100,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useSupabase } from '~/composables/useSupabase'
 
 const supabase = useSupabase()
@@ -115,9 +116,59 @@ const form = ref({
 const isSubmitting = ref(false)
 const status = ref({ message: '', type: '' })
 
+// Валидация формы
+const isFormValid = computed(() => {
+  return form.value.name.trim() !== '' &&
+         form.value.contact.trim() !== '' &&
+         form.value.consentRead &&
+         form.value.consentGive
+})
+
+// Форматирование телефона по маске +7 (XXX) XXX-XX-XX
+function formatPhone(event) {
+  let value = event.target.value.replace(/\D/g, '')
+  
+  if (value.length === 0) {
+    form.value.phone = ''
+    return
+  }
+  
+  // Если начинается не с 7 или 8, добавляем 7
+  if (value[0] !== '7' && value[0] !== '8') {
+    value = '7' + value
+  }
+  
+  // Убираем первую цифру если это 8 и заменяем на 7
+  if (value[0] === '8') {
+    value = '7' + value.slice(1)
+  }
+  
+  // Ограничиваем длину
+  if (value.length > 11) {
+    value = value.slice(0, 11)
+  }
+  
+  // Форматируем
+  let formatted = '+7'
+  if (value.length > 1) {
+    formatted += ' (' + value.slice(1, 4)
+  }
+  if (value.length > 4) {
+    formatted += ') ' + value.slice(4, 7)
+  }
+  if (value.length > 7) {
+    formatted += '-' + value.slice(7, 9)
+  }
+  if (value.length > 9) {
+    formatted += '-' + value.slice(9, 11)
+  }
+  
+  form.value.phone = formatted
+}
+
 async function handleSubmit() {
-  if (!form.value.consentRead || !form.value.consentGive) {
-    status.value = { message: 'Пожалуйста, подтвердите оба согласия на обработку данных', type: 'error' }
+  if (!isFormValid.value) {
+    status.value = { message: 'Пожалуйста, заполните все обязательные поля', type: 'error' }
     return
   }
 

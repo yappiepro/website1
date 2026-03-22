@@ -18,7 +18,7 @@ const FIREBASE_SERVICE_ACCOUNT = process.env.FIREBASE_SERVICE_ACCOUNT
 function parseArgs() {
   const args = process.argv.slice(2)
   const result = {}
-  
+
   for (let i = 0; i < args.length; i++) {
     if (args[i] === '--title' && args[i + 1]) {
       result.title = args[++i]
@@ -32,7 +32,7 @@ function parseArgs() {
       result.type = args[++i]
     }
   }
-  
+
   return result
 }
 
@@ -44,9 +44,20 @@ function initFirebase() {
   }
 
   try {
-    // Заменяем \\n на \n для корректного парсинга JSON из GitHub Secrets
-    const cleanedJson = FIREBASE_SERVICE_ACCOUNT.replace(/\\n/g, '\n')
-    const serviceAccount = JSON.parse(cleanedJson)
+    // Пробуем разные способы парсинга JSON из GitHub Secrets
+    let serviceAccount
+    try {
+      // Сначала пробуем распарсить как есть
+      serviceAccount = JSON.parse(FIREBASE_SERVICE_ACCOUNT)
+    } catch (e) {
+      // Если не получилось, заменяем экранированные символы
+      const cleanedJson = FIREBASE_SERVICE_ACCOUNT
+        .replace(/\\n/g, '\n')
+        .replace(/\\"/g, '"')
+        .replace(/\\\\/g, '\\')
+      serviceAccount = JSON.parse(cleanedJson)
+    }
+    
     admin.initializeApp({
       credential: admin.credential.cert(serviceAccount)
     })

@@ -1,4 +1,3 @@
-import { get, set, del } from 'idb-keyval'
 import { useSupabase } from './useSupabase'
 
 let VAPID_KEY = null
@@ -83,12 +82,6 @@ export async function getPushSubscription() {
   }
 }
 
-// Сохранение подписки в IndexedDB
-export async function saveSubscription(subscription) {
-  await set('push-subscription', subscription.toJSON())
-  await set('subscribed-at', new Date().toISOString())
-}
-
 // Сохранение подписки в Supabase
 export async function saveSubscriptionToSupabase(subscription) {
   const supabase = useSupabase()
@@ -142,16 +135,46 @@ export async function removeSubscriptionFromSupabase(subscription) {
   }
 }
 
-// Получение сохранённой подписки
+// Получение сохранённой подписки из Supabase
 export async function getSavedSubscription() {
-  return await get('push-subscription')
+  const supabase = useSupabase()
+  if (!supabase) {
+    console.warn('[Supabase] Клиент не инициализирован')
+    return null
+  }
+
+  try {
+    // Получаем последнюю подписку с конкретными колонками
+    const { data, error } = await supabase
+      .from('push_subscriptions')
+      .select('endpoint, p256dh, auth')
+      .order('created_at', { ascending: false })
+      .limit(1)
+      .single()
+
+    if (error || !data) {
+      console.log('[Supabase] Подписка не найдена')
+      return null
+    }
+
+    console.log('[Supabase] Подписка найдена:', data.endpoint.substring(0, 30) + '...')
+
+    return {
+      endpoint: data.endpoint,
+      keys: {
+        p256dh: data.p256dh,
+        auth: data.auth
+      }
+    }
+  } catch (error) {
+    console.error('[Supabase] Ошибка получения подписки:', error.message)
+    return null
+  }
 }
 
 // Удаление подписки
 export async function deleteSubscription() {
-  await del('push-subscription')
-  await del('subscribed-at')
-  await del('notification-preferences')
+  // IndexedDB больше не используется
 }
 
 // Подписка на push-уведомления
@@ -176,9 +199,6 @@ export async function subscribeToPush() {
   if (!subscription) {
     return { success: false, error: 'No subscription' }
   }
-
-  // Сохраняем в IndexedDB (локально)
-  await saveSubscription(subscription)
 
   // Сохраняем в Supabase
   const supabaseResult = await saveSubscriptionToSupabase(subscription)
@@ -206,12 +226,11 @@ export async function unsubscribeFromPush() {
 // Проверка статуса подписки
 export async function getSubscriptionStatus() {
   const subscription = await getSavedSubscription()
-  const subscribedAt = await get('subscribed-at')
 
   return {
     subscribed: !!subscription,
     subscription,
-    subscribedAt
+    subscribedAt: subscription ? new Date().toISOString() : null
   }
 }
 

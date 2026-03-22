@@ -337,7 +337,7 @@ export default defineNuxtConfig({
     workbox: {
       navigateFallback: '/offline',
       globPatterns: ['**/*.{js,css,txt,png,ico,svg,webp,json,woff,woff2}'],
-      globIgnores: ['**/gromish.png', '**/firebase-messaging-sw.js', '**/*.html'],
+      globIgnores: ['**/gromish.png', '**/sw.js', '**/*.html'],
       maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
       runtimeCaching: [
         {
@@ -376,7 +376,7 @@ export default defineNuxtConfig({
     devOptions: { enabled: false },
     registerType: 'autoUpdate',
     strategies: 'generateSW',
-    injectRegister: 'auto',
+    injectRegister: null, // Отключаем автоматическую регистрацию - используем Firebase SW
     includeAssets: ['favicon.ico', 'apple-touch-icon.png'],
     offlinePage: '/offline',
     client: {
@@ -387,9 +387,9 @@ export default defineNuxtConfig({
       directPages: true,
       injectManifest: {
         globPatterns: ['**/*.{js,css,html,txt,png,ico,svg,webp,json,woff,woff2}'],
-        globIgnores: ['**/firebase-messaging-sw.js'],
+        globIgnores: ['**/sw.js'],
         additionalManifestEntries: [
-          { url: '/firebase-messaging-sw.js', revision: null }
+          { url: '/sw.js', revision: null }
         ]
       }
     }

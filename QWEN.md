@@ -7,10 +7,10 @@
 | Параметр | Значение |
 |----------|----------|
 | **Тип** | Статический сайт (Nuxt 3 + SSR) |
-| **Фреймворк** | Nuxt 3.5.28 |
+| **Фреймворк** | Nuxt 3.5.28+ |
 | **Стилизация** | Tailwind CSS v4 |
 | **Деплой** | GitHub Pages (авто-деплой при push в `main`) |
-| **URL** | https://yappiepro.github.io/website1/ |
+| **URL** | https://artemselifanov.ru |
 | **Язык** | Русский (ru-RU) |
 
 ## Быстрый старт
@@ -47,38 +47,57 @@ npm run generate # Сборка статического сайта в dist/
 │   │   ├── Footer.vue     # Футер
 │   │   ├── ScrollProgress.vue # Прогресс-бар скролла
 │   │   ├── ScrollToTop.vue # Кнопка наверх
-│   │   └── README.md      # Документация компонентов
+│   │   └── LoadingBar.vue # Индикатор загрузки
 │   ├── ui/                # UI-компоненты (shadcn/vue)
 │   │   ├── accordion/     # Accordion компоненты
 │   │   ├── badge/         # Badge компонент
 │   │   ├── button/        # Button компонент
 │   │   └── card/          # Card компоненты
-│   ├── BrainNetworkHero.vue # 3D-анимация нейросети (Three.js) — не используется
-│   └── TgPost.vue         # Компонент поста Telegram — не используется
+│   ├── BrainNetworkHero.vue # 3D-анимация нейросети (Three.js)
+│   ├── Breadcrumbs.vue    # Хлебные крошки
+│   ├── GoogleAnalytics.vue # GA4
+│   └── YandexMetrica.vue  # Яндекс.Метрика
 ├── data/
 │   ├── blog.js            # Реестр статей блога
-│   └── blog/              # Статьи по кластерам
-│       ├── razrabotka-saytov/
-│       ├── sozdanie-saytov/
-│       ├── mobilnye-prilozheniya/
-│       ├── veb-razrabotka/
-│       └── iskusstvennyy-intellekt/
+│   ├── blog-loaders.js    # Загрузчики статей
+│   ├── blog-meta.js       # Мета-данные блога
+│   ├── blog/              # Статьи по кластерам
+│   │   ├── razrabotka-saytov/
+│   │   ├── sozdanie-saytov/
+│   │   ├── mobilnye-prilozheniya/
+│   │   ├── veb-razrabotka/
+│   │   └── iskusstvennyy-intellekt/
+│   └── knowledge/         # База знаний
+│       ├── topics.js      # Темы базы знаний
+│       └── posts-data.json # Посты базы знаний
 ├── pages/
-│   ├── index.vue          # Главная лендинг-страница
-│   ├── blog/
-│   │   ├── index.vue      # Список статей
-│   │   └── [slug].vue     # Динамическая страница статьи
+│   ├── index.vue          # Главная лендинг-страница (~1500 строк)
+│   ├── 404.vue            # Страница ошибки
+│   ├── offline.vue        # Страница офлайн
+│   ├── consultation.vue   # Консультация
+│   ├── mentorship.vue     # Наставничество
 │   ├── networking.vue     # Нескучный нетворкинг
 │   ├── business.vue       # Бизнес-сетка
 │   ├── yappie.vue         # YAPPIE (No-code)
 │   ├── study.vue          # Фокус (обучение)
-│   └── 404.vue            # Страница ошибки
+│   ├── cookie.vue         # Cookie-политика
+│   ├── offer.vue          # Публичная оферта
+│   ├── privacy.vue        # Политика конфиденциальности
+│   ├── notifications.vue  # Push-уведомления
+│   └── blog/
+│       ├── index.vue      # Список статей
+│       └── [slug].vue     # Динамическая страница статьи
 ├── public/
 │   ├── favicon.ico
-│   ├── fonts/             # Шрифт Syncopate
+│   ├── favicons/          # Favicon для разных устройств
+│   ├── fonts/             # Шрифт Manrope
 │   ├── images/            # Изображения
+│   ├── reference/         # Референсные изображения
 │   ├── robots.txt
-│   └── sitemap.xml
+│   ├── sitemap.xml
+│   └── site.webmanifest   # PWA manifest
+├── scripts/
+│   └── postbuild.mjs      # Пост-обработка сборки
 ├── app.vue                # Корневой компонент
 ├── nuxt.config.ts         # Конфигурация Nuxt (SEO, routes, baseURL)
 ├── package.json           # Зависимости
@@ -98,6 +117,7 @@ npm run generate # Сборка статического сайта в dist/
 - **Lucide Vue Next** — Иконки
 - **Radix Vue / Reka UI** — Примитивы компонентов
 - **shadcn-vue** — Паттерны компонентов
+- **@nuxt/icon** — Иконки Iconify
 
 ### SEO
 - **@nuxtjs/seo** — Sitemap, robots, OG-изображения
@@ -108,6 +128,17 @@ npm run generate # Сборка статического сайта в dist/
 - **Three.js** — 3D-анимация в hero-секции
 - **GSAP** — Анимации
 
+### Интеграции
+- **Firebase** — Push-уведомления, Firestore
+- **Supabase** — База данных для push-подписок
+- **Яндекс.Метрика** — Аналитика
+- **Google Analytics 4** — Аналитика
+
+### PWA
+- **@vite-pwa/nuxt** — Progressive Web App
+- **Workbox** — Кэширование
+- **IndexedDB** — Хранение подписок
+
 ## Конфигурация
 
 ### nuxt.config.ts
@@ -116,18 +147,37 @@ npm run generate # Сборка статического сайта в dist/
 {
   ssr: true,
   app: {
-    baseURL: '/website1/',  // Важно для GitHub Pages
+    baseURL: '/',
   },
   nitro: {
     output: { publicDir: 'dist' },
     prerender: {
       crawlLinks: true,
-      routes: [/* список всех страниц */]
+      routes: [
+        '/',
+        '/blog',
+        '/knowledge',
+        '/consultation',
+        '/mentorship',
+        '/networking',
+        '/business',
+        '/yappie',
+        '/study',
+        // + динамические маршруты блога и базы знаний
+      ]
+    },
+    routeRules: {
+      // Кэширование статических ресурсов
+      '/_nuxt/**': { 'cache-control': 'public, max-age=31536000, immutable' },
+      '/images/**': { 'cache-control': 'public, max-age=31536000, immutable' },
+      // HTML страницы - проверка при каждом посещении
+      '/': { 'cache-control': 'public, max-age=0, must-revalidate' },
+      '/**': { 'cache-control': 'public, max-age=0, must-revalidate' }
     }
   },
   site: {
-    url: 'https://yappiepro.github.io',
-    name: 'Артем Селифанов — Личный бренд',
+    url: 'https://artemselifanov.ru',
+    name: 'Артём Селифанов — Личный бренд для предпринимателей и экспертов',
     defaultLocale: 'ru'
   }
 }
@@ -140,12 +190,14 @@ npm run generate # Сборка статического сайта в dist/
 **Секции:**
 1. **Навигация** — фиксированная, с выпадающим меню
 2. **Hero** — заголовок, подзаголовок, CTA-кнопки, триггеры
-3. **Маршрутизатор** — 4 карточки направлений
-4. **Обо мне** — timeline с этапами пути
-5. **Цифры** — flip cards с официальной и реальной статистикой
-6. **Сообщество** — лид-магнит с кнопками Telegram
-7. **Блог** — тизер статей
-8. **Footer** — контакты, соцсети, документы
+3. **Проблемы** — карточки проблем бизнеса
+4. **Услуги** — Bento grid layout
+5. **Почему мы** — карточки преимуществ
+6. **Автоматизация** — слайдер с решениями
+7. **Портфолио** — проекты
+8. **FAQ** — аккордеон
+9. **Контакты** — CTA-секция
+10. **Footer** — контакты, соцсети, документы
 
 ### Дополнительные страницы
 
@@ -155,8 +207,12 @@ npm run generate # Сборка статического сайта в dist/
 | Business | `/business` | Бизнес-сетка |
 | Yappie | `/yappie` | No-code разработка |
 | Study | `/study` | Обучение и наставничество |
+| Consultation | `/consultation` | Консультация |
+| Mentorship | `/mentorship` | Наставничество |
 | Blog | `/blog` | Список статей |
 | Article | `/blog/[slug]` | Страница статьи |
+| Knowledge | `/knowledge` | База знаний |
+| Knowledge Post | `/knowledge/post/[id]` | Пост базы знаний |
 
 ### Блог
 
@@ -202,6 +258,29 @@ nitro: {
     routes: ['/blog/nazvanie-stati']
   }
 }
+```
+
+### Важные правила для статей
+
+**Таблицы:** Все таблицы должны быть обёрнуты в `<div class="table-wrapper">`:
+```html
+<div class="table-wrapper">
+  <table>
+    <thead>...</thead>
+    <tbody>...</tbody>
+  </table>
+</div>
+```
+
+**Хлебные крошки:** Только 3 элемента (без названия статьи):
+```vue
+<Breadcrumbs
+  :items="[
+    { label: 'Главная', href: '/' },
+    { label: 'Блог', href: '/blog' },
+    { label: article?.category, href: `/blog#${article.cluster}` }
+  ]"
+/>
 ```
 
 ### Редактирование лендинга
@@ -250,14 +329,14 @@ function handleClick() {}
 
 ```css
 :root {
-  --background: 0 0% 0%;
-  --foreground: 0 0% 100%;
-  --primary: 285 70% 70%;
-  --secondary: 285 10% 20%;
-  --muted: 285 10% 20%;
-  --accent: 285 10% 20%;
-  --border: 285 10% 20%;
-  --ring: 285 70% 70%;
+  --background: 0 0% 100%;
+  --foreground: 0 0% 0%;
+  --primary: 226 89% 58%;
+  --secondary: 226 10% 20%;
+  --muted: 226 10% 90%;
+  --accent: 226 89% 58%;
+  --border: 226 10% 90%;
+  --ring: 226 89% 58%;
 }
 ```
 
@@ -292,7 +371,7 @@ ls dist/          # Проверить наличие output-файлов
 - Title, Description, Keywords
 - Open Graph (og:title, og:description, og:image)
 - Twitter Card
-- Yandex Verification: `5dd84e7965966e23`
+- Yandex Verification: `27bf0858465d6882`
 
 ### Schema.org
 
@@ -305,6 +384,27 @@ ls dist/          # Проверить наличие output-файлов
 - `public/robots.txt` — директивы для поисковиков
 - `public/sitemap.xml` — структура сайта
 
+## Push-уведомления
+
+### Настройка
+
+1. **Firestore** — хранение подписок
+2. **Supabase** — альтернативное хранилище
+3. **VAPID ключи** — аутентификация push
+
+### Отправка уведомлений
+
+```bash
+curl -X POST "https://<REGION>-<PROJECT_ID>.cloudfunctions.net/sendPushToAll" \
+  -H "Content-Type: application/json" \
+  -H "x-api-key: YOUR_PUSH_API_KEY" \
+  -d '{
+    "title": "Заголовок",
+    "body": "Текст",
+    "url": "https://artemselifanov.ru/notifications"
+  }'
+```
+
 ## Важные файлы
 
 | Файл | Назначение |
@@ -315,6 +415,7 @@ ls dist/          # Проверить наличие output-файлов
 | `.github/workflows/deploy.yml` | CI/CD пайплайн |
 | `assets/css/tailwind.css` | Глобальные стили и переменные |
 | `.ai/RULES.md` | Правила для AI-агентов |
+| `app.vue` | Корневой компонент с метриками |
 
 ## Контакты
 
@@ -328,3 +429,5 @@ ls dist/          # Проверить наличие output-файлов
 - **Архитектура:** `.ai/ARCHITECTURE.md`
 - **Дизайн-система:** `.ai/DESIGN.md`
 - **Управление контентом:** `.ai/CONTENT.md`
+- **Сборка и разработка:** `.ai/BUILD.md`
+- **Деплой:** `.ai/DEPLOY.md`

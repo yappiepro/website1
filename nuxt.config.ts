@@ -281,7 +281,8 @@ export default defineNuxtConfig({
       firebaseMeasurementId: process.env.NUXT_FIREBASE_MEASUREMENT_ID,
       firebaseVapidKey: process.env.NUXT_FIREBASE_VAPID_KEY,
       supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL,
-      supabaseAnonKey: process.env.NUXT_PUBLIC_SUPABASE_ANON_KEY
+      supabaseAnonKey: process.env.NUXT_PUBLIC_SUPABASE_ANON_KEY,
+      adminPassword: process.env.NUXT_ADMIN_PASSWORD || 'admin123'
     },
     supabaseServiceRoleKey: process.env.NUXT_SUPABASE_SERVICE_ROLE_KEY
   },

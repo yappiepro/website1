@@ -298,10 +298,10 @@
             <div class="order-1 lg:order-2 flex justify-center">
               <div class="relative">
                 <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl">
-                  <NuxtImg 
+                  <img 
                     src="/images/artem.webp" 
                     quality="80" 
-                    sizes="256 md:320" 
+                     
                     alt="Артём Селифанов"
                     class="w-full h-full object-cover"
                   />

@@ -21,12 +21,12 @@
       >
         <!-- Иконка или изображение или текст -->
         <div class="relative z-10 w-[60px] h-[60px] overflow-hidden rounded-[6px] flex items-center justify-center">
-          <NuxtImg
+          <img
             v-if="item.image"
-            :src="item.image"
-            :alt="item.label"
+            src="item.image"
+            alt="item.label"
             quality="75"
-            sizes="40px"
+            
             class="w-full h-full object-cover rounded-[6px]"
             loading="lazy"
           />

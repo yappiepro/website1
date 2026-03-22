@@ -118,6 +118,13 @@ import { useRoute } from 'vue-router'
 import { useSupabase } from '~/composables/useSupabase'
 import { submitContactFormWithNotification } from '~/composables/useTelegramNotification'
 
+const props = defineProps({
+  defaultSource: {
+    type: String,
+    default: '' // Можно передать источник из родителя
+  }
+})
+
 const route = useRoute()
 const supabase = useSupabase()
 
@@ -126,7 +133,7 @@ const form = ref({
   phone: '',
   email: '',
   telegram: '',
-  source: '', // Скрытое поле - источник заявки
+  source: props.defaultSource || '', // Скрытое поле - источник заявки
   consentPolicy: false,
   consentProcessing: false
 })
@@ -144,6 +151,13 @@ const isFormValid = computed(() => {
 
 // Определяем источник заявки при загрузке
 onMounted(() => {
+  // Если источник передан из родителя - используем его
+  if (props.defaultSource) {
+    form.value.source = props.defaultSource
+    return
+  }
+  
+  // Иначе определяем по маршруту
   const path = route.path
   const pageNames = {
     '/': 'Главная страница',

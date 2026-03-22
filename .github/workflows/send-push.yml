@@ -38,12 +38,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd scripts
+          cd .github/workflows/scripts
           npm install
 
       - name: Send Push Notification
         run: |
-          cd scripts
+          cd .github/workflows/scripts
           node send-push.cjs \
             --title "${{ github.event.inputs.title || 'Новая статья!' }}" \
             --body "${{ github.event.inputs.body || 'Читайте новую статью в блоге' }}" \

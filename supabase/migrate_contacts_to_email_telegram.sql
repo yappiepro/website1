@@ -9,7 +9,8 @@
 -- 1. Добавляем новые колонки
 ALTER TABLE contact_submissions 
   ADD COLUMN IF NOT EXISTS email TEXT,
-  ADD COLUMN IF NOT EXISTS telegram TEXT;
+  ADD COLUMN IF NOT EXISTS telegram TEXT,
+  ADD COLUMN IF NOT EXISTS source TEXT;
 
 -- 2. Переносим данные из старой колонки contact
 -- Если contact содержит @ но не начинается с @ - это email

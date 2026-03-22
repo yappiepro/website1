@@ -113,10 +113,12 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
 import { useSupabase } from '~/composables/useSupabase'
 import { submitContactFormWithNotification } from '~/composables/useTelegramNotification'
 
+const route = useRoute()
 const supabase = useSupabase()
 
 const form = ref({
@@ -124,6 +126,7 @@ const form = ref({
   phone: '',
   email: '',
   telegram: '',
+  source: '', // Скрытое поле - источник заявки
   consentPolicy: false,
   consentProcessing: false
 })
@@ -137,6 +140,23 @@ const isFormValid = computed(() => {
          (form.value.email.trim() !== '' || form.value.telegram.trim() !== '') &&
          form.value.consentPolicy &&
          form.value.consentProcessing
+})
+
+// Определяем источник заявки при загрузке
+onMounted(() => {
+  const path = route.path
+  const pageNames = {
+    '/': 'Главная страница',
+    '/consultation': 'Консультация',
+    '/mentorship': 'Менторство',
+    '/yappie': 'Веб-разработка',
+    '/networking': 'Нетворкинг',
+    '/business': 'Бизнес-сетка',
+    '/study': 'Обучение',
+    '/blog': 'Блог'
+  }
+  
+  form.value.source = pageNames[path] || `Страница: ${path}`
 })
 
 // Форматирование телефона по маске +7 (XXX) XXX-XX-XX или 8 (XXX) XXX-XX-XX
@@ -208,18 +228,20 @@ async function handleSubmit() {
       name: form.value.name,
       phone: form.value.phone,
       email: form.value.email,
-      telegram: form.value.telegram
+      telegram: form.value.telegram,
+      source: form.value.source
     })
 
     if (result.success) {
       status.value = { message: '✅ Спасибо! Я свяжусь с вами в ближайшее время', type: 'success' }
       
-      // Очистить форму
+      // Очистить форму (кроме source)
       form.value = {
         name: '',
         phone: '',
         email: '',
         telegram: '',
+        source: form.value.source, // Сохраняем источник
         consentPolicy: false,
         consentProcessing: false
       }

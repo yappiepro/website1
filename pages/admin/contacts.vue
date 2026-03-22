@@ -98,7 +98,13 @@
                   Имя
                 </th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Контакты
+                  Телефон
+                </th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                  Email
+                </th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                  Telegram
                 </th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                   Статус
@@ -116,25 +122,7 @@
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="text-sm font-medium text-gray-900 dark:text-white">{{ item.name }}</div>
                 </td>
-                <td class="px-6 py-4">
-                  <div class="text-sm">
-                    <a
-                      v-if="item.contact.includes('@') || item.contact.startsWith('@')"
-                      :href="item.contact.startsWith('@') ? `https://t.me/${item.contact.replace('@', '')}` : `mailto:${item.contact}`"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300 hover:underline"
-                    >
-                      {{ item.contact }}
-                    </a>
-                    <a
-                      v-else
-                      :href="`mailto:${item.contact}`"
-                      class="text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300 hover:underline"
-                    >
-                      {{ item.contact }}
-                    </a>
-                  </div>
+                <td class="px-6 py-4 whitespace-nowrap">
                   <div v-if="item.phone" class="text-sm text-gray-500 dark:text-gray-400">
                     <a
                       :href="`tel:${item.phone.replace(/\D/g, '')}`"
@@ -143,6 +131,31 @@
                       📞 {{ item.phone }}
                     </a>
                   </div>
+                  <div v-else class="text-sm text-gray-400 dark:text-gray-500">—</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div v-if="item.email" class="text-sm">
+                    <a
+                      :href="`mailto:${item.email}`"
+                      class="text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300 hover:underline"
+                    >
+                      {{ item.email }}
+                    </a>
+                  </div>
+                  <div v-else class="text-sm text-gray-400 dark:text-gray-500">—</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div v-if="item.telegram" class="text-sm">
+                    <a
+                      :href="item.telegram.startsWith('@') ? `https://t.me/${item.telegram.replace('@', '')}` : `https://t.me/${item.telegram}`"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300 hover:underline"
+                    >
+                      {{ item.telegram }}
+                    </a>
+                  </div>
+                  <div v-else class="text-sm text-gray-400 dark:text-gray-500">—</div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                   <span :class="['px-2 py-1 text-xs font-medium rounded-full', item.is_read ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200']">

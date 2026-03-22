@@ -39,18 +39,31 @@
         />
       </div>
 
-      <!-- Email или Telegram -->
+      <!-- Email -->
       <div>
-        <label for="contact" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-          Email или Telegram *
+        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+          Email
         </label>
         <input
-          id="contact"
-          v-model="form.contact"
-          type="text"
-          required
+          id="email"
+          v-model="form.email"
+          type="email"
           class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
-          placeholder="email@example.com или @username"
+          placeholder="email@example.com"
+        />
+      </div>
+
+      <!-- Telegram -->
+      <div>
+        <label for="telegram" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+          Telegram
+        </label>
+        <input
+          id="telegram"
+          v-model="form.telegram"
+          type="text"
+          class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
+          placeholder="@username"
         />
       </div>
 
@@ -108,7 +121,8 @@ const supabase = useSupabase()
 const form = ref({
   name: '',
   phone: '',
-  contact: '',
+  email: '',
+  telegram: '',
   consentPolicy: false,
   consentProcessing: false
 })
@@ -116,10 +130,10 @@ const form = ref({
 const isSubmitting = ref(false)
 const status = ref({ message: '', type: '' })
 
-// Валидация формы
+// Валидация формы - хотя бы email или telegram должны быть заполнены
 const isFormValid = computed(() => {
   return form.value.name.trim() !== '' &&
-         form.value.contact.trim() !== '' &&
+         (form.value.email.trim() !== '' || form.value.telegram.trim() !== '') &&
          form.value.consentPolicy &&
          form.value.consentProcessing
 })
@@ -193,7 +207,8 @@ async function handleSubmit() {
       .insert([{
         name: form.value.name,
         phone: form.value.phone,
-        contact: form.value.contact,
+        email: form.value.email,
+        telegram: form.value.telegram,
         created_at: new Date().toISOString()
       }])
       .select()
@@ -207,7 +222,8 @@ async function handleSubmit() {
     form.value = {
       name: '',
       phone: '',
-      contact: '',
+      email: '',
+      telegram: '',
       consentPolicy: false,
       consentProcessing: false
     }

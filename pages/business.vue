@@ -20,7 +20,7 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
   twitterTitle: 'Бизнес Сетка — закрытый клуб и мастермайнд для предпринимателей',
   twitterDescription: 'Закрытый клуб предпринимателей и экспертов. Мастермайнд-группы, бизнес-разборы, нетворкинг.',
-  twitterImage: 'https://artemselifanov.ru/reference/opengraph_index.png'
+  twitterImage: 'https://artemselifanov.ru/reference/openGraph/business.webp'
 })
 
 useHead({

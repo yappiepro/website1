@@ -758,7 +758,7 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
   twitterTitle: 'Разработка сайтов и AI-решений для бизнеса — YAPPIE | Артём Селифанов',
   twitterDescription: 'Разрабатываем сайты, Telegram-боты, CRM и веб-приложения с AI. Автоматизация бизнес-процессов под ключ.',
-  twitterImage: 'https://artemselifanov.ru/reference/opengraph_index.png'
+  twitterImage: 'https://artemselifanov.ru/reference/openGraph/yappie.webp'
 })
 
 useHead({

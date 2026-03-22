@@ -19,7 +19,7 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
   twitterTitle: 'Нескучный Нетворкинг — личный бренд и контент-маркетинг для экспертов',
   twitterDescription: 'Сообщество предпринимателей и экспертов для роста личного бренда',
-  twitterImage: 'https://artemselifanov.ru/reference/opengraph_index.png'
+  twitterImage: 'https://artemselifanov.ru/reference/openGraph/networking.webp'
 })
 
 useHead({

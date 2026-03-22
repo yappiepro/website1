@@ -1,16 +1,30 @@
 // Service Worker для Web Push уведомлений (без Firebase)
 
+// Установка Service Worker
+self.addEventListener('install', (event) => {
+  console.log('[SW] Install')
+  // Skip waiting - активируем сразу
+  self.skipWaiting()
+})
+
+// Активация Service Worker
+self.addEventListener('activate', (event) => {
+  console.log('[SW] Activate')
+  // Claim all clients
+  event.waitUntil(clients.claim())
+})
+
 // Обработка push-уведомлений
 self.addEventListener('push', (event) => {
   let payload = {}
-  
+
   if (event.data) {
     try {
       payload = event.data.json()
     } catch (e) {
-      payload = { 
-        title: 'Уведомление', 
-        body: event.data.text() 
+      payload = {
+        title: 'Уведомление',
+        body: event.data.text()
       }
     }
   }

@@ -42,9 +42,11 @@ function initFirebase() {
     console.error('❌ FIREBASE_SERVICE_ACCOUNT не указан')
     process.exit(1)
   }
-  
+
   try {
-    const serviceAccount = JSON.parse(FIREBASE_SERVICE_ACCOUNT)
+    // Заменяем \\n на \n для корректного парсинга JSON из GitHub Secrets
+    const cleanedJson = FIREBASE_SERVICE_ACCOUNT.replace(/\\n/g, '\n')
+    const serviceAccount = JSON.parse(cleanedJson)
     admin.initializeApp({
       credential: admin.credential.cert(serviceAccount)
     })

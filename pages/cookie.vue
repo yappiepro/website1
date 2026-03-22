@@ -30,22 +30,6 @@
           </header>
 
           <div class="prose prose-lg max-w-none">
-            <div class="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8 rounded-r-lg">
-              <p class="text-gray-700 italic m-0">
-                Этот текст размещается рядом с чекбоксом при добавлении формы обратной связи на сайт. 
-                Пользователь обязан поставить галочку перед отправкой формы.
-              </p>
-            </div>
-
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">Текст согласия для чекбокса</h2>
-            <div class="bg-gray-50 p-6 rounded-lg mb-8">
-              <p class="text-gray-800 font-medium">
-                Я ознакомился(-ась) с <a href="/privacy" class="text-blue-600 hover:underline">Политикой обработки персональных данных</a> 
-                и даю согласие ИП Селифанову А. на обработку моих персональных данных (имя, email, телефон) в целях 
-                обратной связи и оказания услуг.
-              </p>
-            </div>
-
             <h2 class="text-2xl font-bold text-gray-900 mb-4">Полный текст согласия</h2>
             <div class="space-y-4 text-gray-700">
               <p><strong>Субъект персональных данных:</strong> физическое лицо, заполнившее форму на сайте artemselifanov.ru.</p>

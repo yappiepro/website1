@@ -73,9 +73,8 @@
             <div class="text-3xl font-bold text-green-600">{{ stats.replied }}</div>
           </div>
         </div>
-      </div>
 
-      <!-- Таблица заявок -->
+        <!-- Таблица заявок -->
       <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
         <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
           <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Все заявки</h2>
@@ -148,7 +147,8 @@
           </table>
         </div>
       </div>
-    </main>
+      </main>
+    </div>
   </div>
 </template>
 

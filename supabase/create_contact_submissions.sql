@@ -9,9 +9,8 @@
 CREATE TABLE IF NOT EXISTS contact_submissions (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   name TEXT NOT NULL,
+  phone TEXT,
   contact TEXT NOT NULL,
-  subject TEXT NOT NULL,
-  message TEXT NOT NULL,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   is_read BOOLEAN DEFAULT FALSE,
   replied_at TIMESTAMPTZ

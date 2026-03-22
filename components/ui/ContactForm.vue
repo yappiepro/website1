@@ -23,6 +23,20 @@
         />
       </div>
 
+      <!-- Телефон -->
+      <div>
+        <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+          Телефон
+        </label>
+        <input
+          id="phone"
+          v-model="form.phone"
+          type="tel"
+          class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
+          placeholder="+7 (999) 000-00-00"
+        />
+      </div>
+
       <!-- Email или Telegram -->
       <div>
         <label for="contact" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
@@ -38,50 +52,32 @@
         />
       </div>
 
-      <!-- Тема -->
-      <div>
-        <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-          Тема
-        </label>
-        <select
-          id="subject"
-          v-model="form.subject"
-          class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
-        >
-          <option value="consultation">Консультация</option>
-          <option value="mentorship">Наставничество</option>
-          <option value="partnership">Партнёрство</option>
-          <option value="other">Другое</option>
-        </select>
-      </div>
-
-      <!-- Сообщение -->
-      <div>
-        <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-          Сообщение *
-        </label>
-        <textarea
-          id="message"
-          v-model="form.message"
-          rows="4"
-          required
-          class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all resize-none"
-          placeholder="Расскажите подробнее о вашем запросе..."
-        ></textarea>
-      </div>
-
-      <!-- Согласие -->
+      <!-- Согласие 1 -->
       <div class="flex items-start gap-2">
         <input
-          id="consent"
-          v-model="form.consent"
+          id="consent-read"
+          v-model="form.consentRead"
           type="checkbox"
           required
           class="mt-1 w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-600"
         />
-        <label for="consent" class="text-sm text-gray-600 dark:text-gray-400">
-          Я согласен на обработку
-          <a href="/privacy" target="_blank" class="text-purple-600 hover:underline">персональных данных</a>
+        <label for="consent-read" class="text-sm text-gray-600 dark:text-gray-400">
+          Я ознакомился(-лась) с
+          <a href="/privacy" target="_blank" class="text-purple-600 hover:underline">Политикой обработки персональных данных</a>
+        </label>
+      </div>
+
+      <!-- Согласие 2 -->
+      <div class="flex items-start gap-2">
+        <input
+          id="consent-give"
+          v-model="form.consentGive"
+          type="checkbox"
+          required
+          class="mt-1 w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-600"
+        />
+        <label for="consent-give" class="text-sm text-gray-600 dark:text-gray-400">
+          Даю согласие ИП Селифанову А. на обработку моих персональных данных (имя, email, телефон) в целях обратной связи и оказания услуг
         </label>
       </div>
 
@@ -110,18 +106,18 @@ const supabase = useSupabase()
 
 const form = ref({
   name: '',
+  phone: '',
   contact: '',
-  subject: 'consultation',
-  message: '',
-  consent: false
+  consentRead: false,
+  consentGive: false
 })
 
 const isSubmitting = ref(false)
 const status = ref({ message: '', type: '' })
 
 async function handleSubmit() {
-  if (!form.value.consent) {
-    status.value = { message: 'Пожалуйста, подтвердите согласие на обработку данных', type: 'error' }
+  if (!form.value.consentRead || !form.value.consentGive) {
+    status.value = { message: 'Пожалуйста, подтвердите оба согласия на обработку данных', type: 'error' }
     return
   }
 
@@ -133,9 +129,8 @@ async function handleSubmit() {
       .from('contact_submissions')
       .insert([{
         name: form.value.name,
+        phone: form.value.phone,
         contact: form.value.contact,
-        subject: form.value.subject,
-        message: form.value.message,
         created_at: new Date().toISOString()
       }])
       .select()
@@ -148,10 +143,10 @@ async function handleSubmit() {
     // Очистить форму
     form.value = {
       name: '',
+      phone: '',
       contact: '',
-      subject: 'consultation',
-      message: '',
-      consent: false
+      consentRead: false,
+      consentGive: false
     }
 
     // Скрыть сообщение через 5 секунд

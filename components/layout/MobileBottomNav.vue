@@ -81,8 +81,8 @@ const props = defineProps({
     type: Array,
     default: () => [
       { href: '/', label: 'Главная', iconComponent: Home },
-      { href: '/networking', label: 'Нетворкинг', image: '/reference/networking.jpg' },
-      { href: '/business', label: 'Бизнес', image: '/reference/business.jpg' },
+      { href: '/networking', label: 'Нетворкинг', image: '/reference/networking.webp' },
+      { href: '/business', label: 'Бизнес', image: '/reference/business.webp' },
       { href: '/yappie', label: 'Веб', text: 'веб' },
       { href: '/blog', label: 'Блог', text: 'блог' },
       { href: '#top', label: 'Наверх', iconComponent: ArrowUp, action: 'scrollToTop' }

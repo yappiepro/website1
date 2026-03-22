@@ -10,72 +10,19 @@ function getVapidKey() {
 }
 
 function urlBase64ToUint8Array(base64String) {
-  // Очищаем ключ от лишних символов
-  let base64 = base64String.trim()
-  
-  // Заменяем base64url на base64
-  base64 = base64.replace(/-/g, '+').replace(/_/g, '/')
-  
-  // Добавляем padding если нужно
-  const padding = '='.repeat((4 - (base64.length % 4)) % 4)
-  base64 = base64 + padding
-  
-  try {
-    const rawData = atob(base64)
-    const outputArray = new Uint8Array(rawData.length)
-    for (let i = 0; i < rawData.length; ++i) {
-      outputArray[i] = rawData.charCodeAt(i)
-    }
-    console.log('[Push] urlBase64ToUint8Array: decoded length =', outputArray.length)
-    return outputArray
-  } catch (error) {
-    console.error('[Push] Ошибка декодирования VAPID ключа:', error.message)
-    console.error('[Push] Исходный ключ:', base64String.substring(0, 20) + '...')
-    console.error('[Push] После обработки:', base64.substring(0, 20) + '...')
-    throw error
+  const padding = '='.repeat((4 - (base64String.length % 4)) % 4)
+  const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/')
+  const rawData = atob(base64)
+  const outputArray = new Uint8Array(rawData.length)
+  for (let i = 0; i < rawData.length; ++i) {
+    outputArray[i] = rawData.charCodeAt(i)
   }
+  return outputArray
 }
 
 async function getServiceWorkerRegistration() {
-  if (!('serviceWorker' in navigator)) {
-    console.error('[Push] Service Worker не поддерживается')
-    return null
-  }
-
-  // Проверяем, есть ли уже активный service worker
-  const activeWorker = navigator.serviceWorker.controller
-  if (activeWorker) {
-    console.log('[Push] Service Worker уже активен')
-    const registration = await navigator.serviceWorker.ready
-    return registration
-  }
-
-  // Если нет активного, регистрируем наш Service Worker
-  console.log('[Push] Регистрируем Service Worker...')
-  try {
-    const registration = await navigator.serviceWorker.register('/sw.js', {
-      scope: '/'
-    })
-    console.log('[Push] Service Worker зарегистрирован:', registration.scope)
-
-    // Ждём, пока service worker станет активным
-    if (registration.installing) {
-      console.log('[Push] Ждём активации Service Worker...')
-      await new Promise((resolve) => {
-        registration.installing.addEventListener('statechange', (e) => {
-          if (e.target.state === 'activated') {
-            console.log('[Push] Service Worker активирован')
-            resolve()
-          }
-        })
-      })
-    }
-
-    return registration
-  } catch (error) {
-    console.error('[Push] Ошибка регистрации Service Worker:', error)
-    return null
-  }
+  if (!('serviceWorker' in navigator)) return null
+  return await navigator.serviceWorker.ready
 }
 
 // Проверка поддержки уведомлений
@@ -120,48 +67,23 @@ export async function getPushSubscription() {
     return null
   }
 
-  console.log('[Push] Service Worker готов:', registration.scope)
-
   const existing = await registration.pushManager.getSubscription()
-  if (existing) {
-    console.log('[Push] Найдена существующая подписка')
-    return existing
-  }
-
-  console.log('[Push] Существующей подписки нет, создаём новую...')
-
-  const vapidKey = getVapidKey()
-  console.log('[Push] VAPID ключ:', vapidKey ? 'присутствует' : 'отсутствует')
-  console.log('[Push] VAPID ключ (первые 20 символов):', vapidKey ? vapidKey.substring(0, 20) : 'N/A')
-  console.log('[Push] VAPID ключ длина:', vapidKey ? vapidKey.length : 0)
+  if (existing) return existing
 
   try {
+    const vapidKey = getVapidKey()
     if (!vapidKey) {
-      console.error('[Push] VAPID ключ не найден в конфигурации')
+      console.error('[Push] VAPID ключ не найден')
       return null
     }
 
-    // Проверяем формат ключа - должен быть base64url без padding
-    const cleanVapidKey = vapidKey.trim()
-    console.log('[Push] Очищенный VAPID ключ длина:', cleanVapidKey.length)
-
-    const applicationServerKey = urlBase64ToUint8Array(cleanVapidKey)
-    console.log('[Push] applicationServerKey создан, длина:', applicationServerKey.length)
-    console.log('[Push] applicationServerKey первый байт:', applicationServerKey[0])
-
-    // Для iOS нужно указывать userVisibleOnly: true
-    console.log('[Push] Вызов subscribe...')
     const subscription = await registration.pushManager.subscribe({
       userVisibleOnly: true,
-      applicationServerKey
+      applicationServerKey: urlBase64ToUint8Array(vapidKey)
     })
-    console.log('[Push] Подписка успешно создана:', subscription.endpoint)
     return subscription
   } catch (error) {
-    console.error('[Push] Ошибка подписки через PushManager:', error.message, error)
-    console.error('[Push] Stack:', error.stack)
-    console.error('[Push] Name:', error.name)
-    console.error('[Push] iOS требует чтобы подписка происходила во время user gesture (клик)')
+    console.error('[Push] Ошибка подписки через PushManager:', error)
     return null
   }
 }
@@ -182,8 +104,6 @@ export async function saveSubscriptionToSupabase(subscription) {
       user_agent: navigator.userAgent || 'unknown',
       platform: navigator.platform || 'unknown'
     }
-
-    console.log('[Supabase] Сохраняем подписку:', payload.endpoint)
 
     const { data, error } = await supabase
       .from('push_subscriptions')
@@ -212,8 +132,6 @@ export async function removeSubscriptionFromSupabase(subscription) {
   }
 
   try {
-    console.log('[Supabase] Удаляем подписку:', subscription.endpoint)
-    
     const { error } = await supabase
       .from('push_subscriptions')
       .delete()
@@ -224,7 +142,6 @@ export async function removeSubscriptionFromSupabase(subscription) {
       return { success: false, error }
     }
 
-    console.log('[Supabase] Подписка удалена')
     return { success: true }
   } catch (error) {
     console.error('[Supabase] Ошибка удаления подписки:', error)
@@ -241,7 +158,6 @@ export async function getSavedSubscription() {
   }
 
   try {
-    // Получаем последнюю подписку с конкретными колонками
     const { data, error } = await supabase
       .from('push_subscriptions')
       .select('endpoint, p256dh, auth')
@@ -297,7 +213,6 @@ export async function subscribeToPush() {
     return { success: false, error: 'No subscription' }
   }
 
-  // Сохраняем в Supabase
   const supabaseResult = await saveSubscriptionToSupabase(subscription)
   if (!supabaseResult.success) {
     console.error('[Push] Ошибка сохранения в Supabase:', supabaseResult.error)

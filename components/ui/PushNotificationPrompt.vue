@@ -95,16 +95,30 @@ onMounted(async () => {
 // Подписка на уведомления
 async function handleSubscribe() {
   isSubscribing.value = true
-  
+
+  // Сначала запрашиваем разрешение явно (нужно для iOS Safari)
+  if (process.client && 'Notification' in window) {
+    const permission = await Notification.requestPermission()
+    console.log('[Push] Разрешение:', permission)
+    
+    if (permission !== 'granted') {
+      console.error('[Push] Разрешение не получено')
+      isSubscribing.value = false
+      return
+    }
+  }
+
   const result = await subscribeToPush()
-  
+
   if (result.success) {
     showPrompt.value = false
     isSubscribed.value = true
+    console.log('[Push] Подписка успешна')
   } else {
-    console.error('Ошибка подписки:', result.error)
+    console.error('[Push] Ошибка подписки:', result.error)
+    alert('Не удалось подписаться. Проверьте настройки уведомлений в Safari.')
   }
-  
+
   isSubscribing.value = false
 }
 

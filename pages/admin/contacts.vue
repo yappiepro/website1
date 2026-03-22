@@ -83,9 +83,12 @@
                   <button
                     @click="toggleReadStatus(item)"
                     :disabled="isUpdating"
-                    class="text-purple-600 hover:text-purple-900 dark:text-purple-400 dark:hover:text-purple-300 disabled:opacity-50"
+                    :class="['px-3 py-1.5 text-xs font-medium rounded-lg transition-colors disabled:opacity-50', 
+                      item.is_read 
+                        ? 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600' 
+                        : 'bg-purple-100 text-purple-700 hover:bg-purple-200 dark:bg-purple-900 dark:text-purple-300 dark:hover:bg-purple-800']"
                   >
-                    {{ item.is_read ? 'Отметить как новое' : 'Отметить как прочитано' }}
+                    {{ item.is_read ? '✓ Просмотрено' : '○ Отметить просмотренным' }}
                   </button>
                 </td>
               </tr>
@@ -137,17 +140,21 @@ async function loadSubmissions() {
   isLoading.value = true
   
   try {
+    // Используем service role key для обхода RLS
     const { data, error } = await supabase
       .from('contact_submissions')
       .select('*')
       .order('created_at', { ascending: false })
 
-    if (error) throw error
+    if (error) {
+      console.error('Supabase error:', error)
+      throw error
+    }
     
     submissions.value = data || []
   } catch (error) {
-    console.error('Ошибка загрузки заявок:', error)
-    alert('Не удалось загрузить заявки. Проверьте консоль.')
+    console.error('Ошибка загрузки заявок:', error.message, error.details)
+    alert('Не удалось загрузить заявки: ' + error.message + '\n\nПроверьте:\n1. RLS политики в Supabase\n2. Или выполните SQL из supabase/update_contact_rls_policies.sql')
   } finally {
     isLoading.value = false
   }

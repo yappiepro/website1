@@ -61,9 +61,9 @@
             id="consent-read"
             v-model="form.consentRead"
             type="checkbox"
-            class="mt-1 w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-600"
+            class="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-600 mt-1.5"
           />
-          <label for="consent-read" class="text-sm text-gray-600 dark:text-gray-400">
+          <label for="consent-read" class="text-sm text-gray-600 dark:text-gray-400 leading-snug">
             Я ознакомился(-лась) с
             <a href="/privacy" target="_blank" class="text-purple-600 hover:underline">Политикой обработки персональных данных</a>
           </label>
@@ -74,9 +74,9 @@
             id="consent-give"
             v-model="form.consentGive"
             type="checkbox"
-            class="mt-1 w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-600"
+            class="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-600 mt-1.5"
           />
-          <label for="consent-give" class="text-sm text-gray-600 dark:text-gray-400">
+          <label for="consent-give" class="text-sm text-gray-600 dark:text-gray-400 leading-snug">
             Даю согласие ИП Селифанову А. на обработку моих персональных данных (имя, email, телефон) в целях обратной связи и оказания услуг
           </label>
         </div>
@@ -124,7 +124,7 @@ const isFormValid = computed(() => {
          form.value.consentGive
 })
 
-// Форматирование телефона по маске +7 (XXX) XXX-XX-XX
+// Форматирование телефона по маске +7 (XXX) XXX-XX-XX или 8 (XXX) XXX-XX-XX
 function formatPhone(event) {
   let value = event.target.value.replace(/\D/g, '')
   
@@ -133,34 +133,46 @@ function formatPhone(event) {
     return
   }
   
-  // Если начинается не с 7 или 8, добавляем 7
-  if (value[0] !== '7' && value[0] !== '8') {
-    value = '7' + value
-  }
+  // Если начинается с 8, оставляем 8
+  // Если начинается с 7, оставляем 7
+  // Если с другого, добавляем 7
   
-  // Убираем первую цифру если это 8 и заменяем на 7
-  if (value[0] === '8') {
-    value = '7' + value.slice(1)
-  }
-  
-  // Ограничиваем длину
+  // Ограничиваем длину (11 цифр для полного номера)
   if (value.length > 11) {
     value = value.slice(0, 11)
   }
   
-  // Форматируем
-  let formatted = '+7'
-  if (value.length > 1) {
-    formatted += ' (' + value.slice(1, 4)
+  // Определяем префикс
+  let prefix = ''
+  let startIndex = 0
+  
+  if (value[0] === '8') {
+    prefix = '8'
+    startIndex = 1
+  } else if (value[0] === '7') {
+    prefix = '+7'
+    startIndex = 1
+  } else {
+    // Если ввели без префикса, считаем что это +7
+    prefix = '+7'
+    startIndex = 0
   }
-  if (value.length > 4) {
-    formatted += ') ' + value.slice(4, 7)
+  
+  // Форматируем остальную часть
+  let formatted = prefix
+  const digits = value.slice(startIndex)
+  
+  if (digits.length > 0) {
+    formatted += ' (' + digits.slice(0, 3)
   }
-  if (value.length > 7) {
-    formatted += '-' + value.slice(7, 9)
+  if (digits.length > 3) {
+    formatted += ') ' + digits.slice(3, 6)
   }
-  if (value.length > 9) {
-    formatted += '-' + value.slice(9, 11)
+  if (digits.length > 6) {
+    formatted += '-' + digits.slice(6, 8)
+  }
+  if (digits.length > 8) {
+    formatted += '-' + digits.slice(8, 10)
   }
   
   form.value.phone = formatted

@@ -85,8 +85,8 @@
                     :disabled="isUpdating"
                     :class="['px-3 py-1.5 text-xs font-medium rounded-lg transition-colors disabled:opacity-50', 
                       item.is_read 
-                        ? 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600' 
-                        : 'bg-purple-100 text-purple-700 hover:bg-purple-200 dark:bg-purple-900 dark:text-purple-300 dark:hover:bg-purple-800']"
+                        ? 'bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-600 dark:text-gray-100 dark:hover:bg-gray-500' 
+                        : 'bg-purple-600 text-white hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-400']"
                   >
                     {{ item.is_read ? '✓ Просмотрено' : '○ Отметить просмотренным' }}
                   </button>

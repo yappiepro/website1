@@ -41,13 +41,14 @@ jobs:
           cd .github/workflows/scripts
           npm install
 
+      - name: Decode Firebase Service Account
+        run: |
+          cd .github/workflows/scripts
+          echo "$FIREBASE_SERVICE_ACCOUNT" | base64 -d > service-account.json
+
       - name: Send Push Notification
         run: |
           cd .github/workflows/scripts
-          
-          # Записываем JSON в файл для избежания проблем с экранированием
-          echo "$FIREBASE_SERVICE_ACCOUNT" > service-account.json
-          
           node send-push.cjs \
             --title "${{ github.event.inputs.title || 'Новая статья!' }}" \
             --body "${{ github.event.inputs.body || 'Читайте новую статью в блоге' }}" \

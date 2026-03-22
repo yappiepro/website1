@@ -3,12 +3,7 @@ import { useSupabase } from './useSupabase'
 /**
  * Отправляет уведомление в Telegram бот при новой заявке
  */
-export async function sendTelegramNotification(formData: {
-  name: string
-  phone?: string
-  email?: string
-  telegram?: string
-}) {
+export async function sendTelegramNotification(formData) {
   const config = useRuntimeConfig()
   const telegramBotToken = config.public.telegramBotToken
   const telegramChatId = config.public.telegramChatId
@@ -71,12 +66,7 @@ export async function sendTelegramNotification(formData: {
 /**
  * Обновлённая функция отправки формы с уведомлением в Telegram
  */
-export async function submitContactFormWithNotification(formData: {
-  name: string
-  phone?: string
-  email?: string
-  telegram?: string
-}) {
+export async function submitContactFormWithNotification(formData) {
   const supabase = useSupabase()
 
   // 1. Сохраняем в Supabase

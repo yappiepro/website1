@@ -1,30 +1,77 @@
 <template>
   <div class="min-h-screen bg-gray-50 dark:bg-gray-900">
-    <!-- Навигация -->
-    <nav class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-        <h1 class="text-xl font-bold text-gray-900 dark:text-white">Заявки с формы</h1>
-        <a href="/" class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
-          ← На сайт
-        </a>
+    <!-- Страница входа -->
+    <div v-if="!isAuthenticated" class="min-h-screen flex items-center justify-center px-4">
+      <div class="max-w-md w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+        <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+          🔐 Вход в админ-панель
+        </h1>
+        
+        <form @submit.prevent="handleLogin" class="space-y-6">
+          <div>
+            <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              Пароль
+            </label>
+            <input
+              id="password"
+              v-model="password"
+              type="password"
+              required
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
+              placeholder="Введите пароль"
+            />
+          </div>
+          
+          <button
+            type="submit"
+            :disabled="isLoggingIn"
+            class="w-full px-6 py-4 bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-semibold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {{ isLoggingIn ? 'Проверка...' : 'Войти' }}
+          </button>
+          
+          <div v-if="loginError" class="p-4 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-lg">
+            {{ loginError }}
+          </div>
+        </form>
+        
+        <p class="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
+          <a href="/" class="text-purple-600 hover:underline">← Вернуться на сайт</a>
+        </p>
       </div>
-    </nav>
+    </div>
 
-    <!-- Контент -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-      <!-- Статистика -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-          <div class="text-sm text-gray-500 dark:text-gray-400">Всего заявок</div>
-          <div class="text-3xl font-bold text-gray-900 dark:text-white">{{ stats.total }}</div>
+    <!-- Админ-панель -->
+    <div v-else>
+      <!-- Навигация -->
+      <nav class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+          <h1 class="text-xl font-bold text-gray-900 dark:text-white">Заявки с формы</h1>
+          <button
+            @click="handleLogout"
+            class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+          >
+            Выйти
+          </button>
         </div>
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-          <div class="text-sm text-gray-500 dark:text-gray-400">Новые</div>
-          <div class="text-3xl font-bold text-blue-600">{{ stats.new }}</div>
-        </div>
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-          <div class="text-sm text-gray-500 dark:text-gray-400">Обработано</div>
-          <div class="text-3xl font-bold text-green-600">{{ stats.replied }}</div>
+      </nav>
+
+      <!-- Контент -->
+      <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+        <!-- Статистика -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+            <div class="text-sm text-gray-500 dark:text-gray-400">Всего заявок</div>
+            <div class="text-3xl font-bold text-gray-900 dark:text-white">{{ stats.total }}</div>
+          </div>
+          <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+            <div class="text-sm text-gray-500 dark:text-gray-400">Новые</div>
+            <div class="text-3xl font-bold text-blue-600">{{ stats.new }}</div>
+          </div>
+          <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+            <div class="text-sm text-gray-500 dark:text-gray-400">Обработано</div>
+            <div class="text-3xl font-bold text-green-600">{{ stats.replied }}</div>
+          </div>
         </div>
       </div>
 
@@ -126,6 +173,48 @@ const supabase = useSupabase()
 const submissions = ref([])
 const isLoading = ref(false)
 const isUpdating = ref(false)
+
+// Аутентификация
+const password = ref('')
+const isLoggingIn = ref(false)
+const loginError = ref('')
+const isAuthenticated = ref(false)
+
+// Пароль (хранится в .env или задайте здесь)
+const ADMIN_PASSWORD = useRuntimeConfig().public.adminPassword || 'admin123'
+
+// Проверка сохранения входа
+onMounted(() => {
+  const savedAuth = localStorage.getItem('admin_authenticated')
+  if (savedAuth === 'true') {
+    isAuthenticated.value = true
+    loadSubmissions()
+  }
+})
+
+// Вход
+function handleLogin() {
+  isLoggingIn.value = true
+  loginError.value = ''
+  
+  setTimeout(() => {
+    if (password.value === ADMIN_PASSWORD) {
+      isAuthenticated.value = true
+      localStorage.setItem('admin_authenticated', 'true')
+      loadSubmissions()
+    } else {
+      loginError.value = 'Неверный пароль'
+    }
+    isLoggingIn.value = false
+  }, 500)
+}
+
+// Выход
+function handleLogout() {
+  isAuthenticated.value = false
+  localStorage.removeItem('admin_authenticated')
+  password.value = ''
+}
 
 // Статистика
 const stats = computed(() => {

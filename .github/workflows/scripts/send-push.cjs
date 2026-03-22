@@ -12,7 +12,6 @@ const admin = require('firebase-admin')
 const VAPID_PUBLIC_KEY = process.env.NUXT_FIREBASE_VAPID_KEY
 const VAPID_PRIVATE_KEY = process.env.VAPID_PRIVATE_KEY
 const VAPID_SUBJECT = process.env.VAPID_SUBJECT || 'mailto:a9535487323@yandex.ru'
-const FIREBASE_SERVICE_ACCOUNT = process.env.FIREBASE_SERVICE_ACCOUNT
 
 // Парсинг аргументов командной строки
 function parseArgs() {
@@ -38,26 +37,19 @@ function parseArgs() {
 
 // Инициализация Firebase Admin
 function initFirebase() {
-  if (!FIREBASE_SERVICE_ACCOUNT) {
-    console.error('❌ FIREBASE_SERVICE_ACCOUNT не указан')
+  const fs = require('fs')
+  const path = require('path')
+  
+  // Пытаемся прочитать из файла (предпочтительно)
+  const serviceAccountPath = path.join(__dirname, 'service-account.json')
+  
+  if (!fs.existsSync(serviceAccountPath)) {
+    console.error('❌ Файл service-account.json не найден')
     process.exit(1)
   }
 
   try {
-    // Пробуем разные способы парсинга JSON из GitHub Secrets
-    let serviceAccount
-    try {
-      // Сначала пробуем распарсить как есть
-      serviceAccount = JSON.parse(FIREBASE_SERVICE_ACCOUNT)
-    } catch (e) {
-      // Если не получилось, заменяем экранированные символы
-      const cleanedJson = FIREBASE_SERVICE_ACCOUNT
-        .replace(/\\n/g, '\n')
-        .replace(/\\"/g, '"')
-        .replace(/\\\\/g, '\\')
-      serviceAccount = JSON.parse(cleanedJson)
-    }
-    
+    const serviceAccount = JSON.parse(fs.readFileSync(serviceAccountPath, 'utf8'))
     admin.initializeApp({
       credential: admin.credential.cert(serviceAccount)
     })

@@ -31,6 +31,9 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ['~/assets/css/tailwind.css'],
 
+  // Игнорировать папку scripts при сборке
+  ignore: ['scripts/**'],
+
   // Отключаем Nuxt Link Checker для production сборки
   // Ошибки 500 при пререндеринге — ложные (проблема проверки ссылок во время генерации)
   linkChecker: {

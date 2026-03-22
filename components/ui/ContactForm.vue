@@ -56,12 +56,12 @@
 
       <!-- Чекбоксы согласия -->
       <div class="space-y-3">
-        <div class="flex items-start gap-2">
+        <div class="flex items-start gap-2.5">
           <input
             id="consent-read"
             v-model="form.consentRead"
             type="checkbox"
-            class="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-600 mt-1.5"
+            class="shrink-0 w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-600 mt-1"
           />
           <label for="consent-read" class="text-sm text-gray-600 dark:text-gray-400 leading-snug">
             Я ознакомился(-лась) с
@@ -69,12 +69,12 @@
           </label>
         </div>
 
-        <div class="flex items-start gap-2">
+        <div class="flex items-start gap-2.5">
           <input
             id="consent-give"
             v-model="form.consentGive"
             type="checkbox"
-            class="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-600 mt-1.5"
+            class="shrink-0 w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-600 mt-1"
           />
           <label for="consent-give" class="text-sm text-gray-600 dark:text-gray-400 leading-snug">
             Даю согласие ИП Селифанову А. на обработку моих персональных данных (имя, email, телефон) в целях обратной связи и оказания услуг

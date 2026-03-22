@@ -5,8 +5,8 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate && node scripts/postbuild.js",
-    "postbuild": "node scripts/postbuild.js",
+    "generate": "nuxt generate && node scripts/postbuild.mjs",
+    "postbuild": "node scripts/postbuild.mjs",
     "favicons": "node scripts/gen-favicons.mjs",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"

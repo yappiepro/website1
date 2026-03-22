@@ -497,7 +497,7 @@
 
       <section class="why-split" id="why-us">
         <div class="why-photo-wrap">
-          <img src="`${baseURL}images/artem.jpg`" format="webp" quality="70"  alt="Артем Селифанов" class="author-photo" />
+          <img src="/images/artem.jpg" alt="Артем Селифанов" class="author-photo" />
         </div>
 
         <div class="why-content">

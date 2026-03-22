@@ -23,10 +23,8 @@
         <div class="relative z-10 w-[60px] h-[60px] overflow-hidden rounded-[6px] flex items-center justify-center">
           <img
             v-if="item.image"
-            src="item.image"
-            alt="item.label"
-            quality="75"
-            
+            :src="item.image"
+            :alt="item.label"
             class="w-full h-full object-cover rounded-[6px]"
             loading="lazy"
           />

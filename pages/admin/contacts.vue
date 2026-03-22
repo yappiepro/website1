@@ -117,8 +117,32 @@
                   <div class="text-sm font-medium text-gray-900 dark:text-white">{{ item.name }}</div>
                 </td>
                 <td class="px-6 py-4">
-                  <div class="text-sm text-gray-900 dark:text-white">{{ item.contact }}</div>
-                  <div v-if="item.phone" class="text-sm text-gray-500 dark:text-gray-400">{{ item.phone }}</div>
+                  <div class="text-sm">
+                    <a
+                      v-if="item.contact.includes('@') || item.contact.startsWith('@')"
+                      :href="item.contact.startsWith('@') ? `https://t.me/${item.contact.replace('@', '')}` : `mailto:${item.contact}`"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300 hover:underline"
+                    >
+                      {{ item.contact }}
+                    </a>
+                    <a
+                      v-else
+                      :href="`mailto:${item.contact}`"
+                      class="text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300 hover:underline"
+                    >
+                      {{ item.contact }}
+                    </a>
+                  </div>
+                  <div v-if="item.phone" class="text-sm text-gray-500 dark:text-gray-400">
+                    <a
+                      :href="`tel:${item.phone.replace(/\D/g, '')}`"
+                      class="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:underline"
+                    >
+                      📞 {{ item.phone }}
+                    </a>
+                  </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                   <span :class="['px-2 py-1 text-xs font-medium rounded-full', item.is_read ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200']">

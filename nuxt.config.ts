@@ -331,7 +331,7 @@ export default defineNuxtConfig({
     workbox: {
       navigateFallback: '/offline',
       globPatterns: ['**/*.{js,css,txt,png,ico,svg,webp,json,woff,woff2}'],
-      globIgnores: ['**/gromish.png', '**/firebase-messaging-sw.js', '**/*.html'],
+      globIgnores: ['**/gromish.png', '**/firebase-messaging-sw.js', '**/*.html', 'scripts/**'],
       maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
       runtimeCaching: [
         {
@@ -381,7 +381,7 @@ export default defineNuxtConfig({
       directPages: true,
       injectManifest: {
         globPatterns: ['**/*.{js,css,html,txt,png,ico,svg,webp,json,woff,woff2}'],
-        globIgnores: ['**/firebase-messaging-sw.js'],
+        globIgnores: ['**/firebase-messaging-sw.js', 'scripts/**'],
         additionalManifestEntries: [
           { url: '/firebase-messaging-sw.js', revision: null }
         ]

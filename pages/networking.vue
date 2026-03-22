@@ -819,9 +819,7 @@ function toggleFaq(index) {
               <div class="flex-shrink-0">
                 <div class="w-32 h-32 md:w-40 md:h-40 border-2 border-black bg-gray-100 overflow-hidden">
                   <img
-                    src="author.image"
-                    format="webp"
-                    quality="70"
+                    :src="author.image"
                     alt="Артём Селифанов — маркетолог, блогер, нетворкер, автор сообщества Нескучный Нетворкинг"
                     class="w-full h-full object-cover object-center"
                     style="object-position: center 10%"

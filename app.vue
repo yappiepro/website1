@@ -42,6 +42,8 @@ useHead({
     { name: 'msapplication-TileImage', content: '/favicons/mstile-144x144.png' }
   ],
   link: [
+    // Manifest для PWA
+    { rel: 'manifest', href: '/site.webmanifest' },
     // Дополнительные ссылки на favicon для поисковиков
     { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicons/favicon-16x16.png' },

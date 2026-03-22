@@ -43,9 +43,9 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/seo',
     '@nuxt/icon',
-    '@vite-pwa/nuxt',
     '@nuxtjs/fontaine',
-    'nuxt-delay-hydration'
+    'nuxt-delay-hydration',
+    '@vite-pwa/nuxt'
   ],
   icon: {
     provider: 'server',
@@ -290,7 +290,7 @@ export default defineNuxtConfig({
       start_url: '/',
       display: 'standalone',
       background_color: '#ffffff',
-      theme_color: '#ffffff',
+      theme_color: '#7c3aed',
       orientation: 'portrait-primary',
       icons: [
         {
@@ -310,18 +310,6 @@ export default defineNuxtConfig({
           sizes: '180x180',
           type: 'image/png',
           purpose: 'any'
-        },
-        {
-          src: '/favicons/favicon-32x32.png',
-          sizes: '32x32',
-          type: 'image/png',
-          purpose: 'any'
-        },
-        {
-          src: '/favicons/favicon-16x16.png',
-          sizes: '16x16',
-          type: 'image/png',
-          purpose: 'any'
         }
       ],
       categories: ['business', 'productivity'],
@@ -330,7 +318,6 @@ export default defineNuxtConfig({
     workbox: {
       navigateFallback: '/offline',
       globPatterns: ['**/*.{js,css,txt,png,ico,svg,webp,json,woff,woff2}'],
-      globIgnores: ['**/sw.js', '**/*.html'],
       maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
       runtimeCaching: [
         {
@@ -356,35 +343,17 @@ export default defineNuxtConfig({
             cacheName: 'google-fonts-cache',
             expiration: { maxEntries: 30, maxAgeSeconds: 31536000 }
           }
-        },
-        {
-          urlPattern: /^https:\/\/firebaseinstallations\.googleapis\.com\/.*/i,
-          handler: 'NetworkFirst',
-          options: {
-            cacheName: 'firebase-installations'
-          }
         }
       ]
     },
     devOptions: { enabled: false },
     registerType: 'autoUpdate',
     strategies: 'generateSW',
-    injectRegister: null, // Отключаем автоматическую регистрацию - используем Firebase SW
+    injectRegister: 'script',
     includeAssets: ['favicon.ico', 'apple-touch-icon.png'],
     offlinePage: '/offline',
     client: {
-      installPrompt: true,
-      periodicSyncForBackgroundTag: true
-    },
-    experimental: {
-      directPages: true,
-      injectManifest: {
-        globPatterns: ['**/*.{js,css,html,txt,png,ico,svg,webp,json,woff,woff2}'],
-        globIgnores: ['**/sw.js'],
-        additionalManifestEntries: [
-          { url: '/sw.js', revision: null }
-        ]
-      }
+      installPrompt: true
     }
   },
 

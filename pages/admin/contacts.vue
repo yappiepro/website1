@@ -1,15 +1,15 @@
 <template>
-  <div class="min-h-screen bg-gray-50 dark:bg-gray-900">
+  <div class="min-h-screen bg-white">
     <!-- Страница входа -->
     <div v-if="!isAuthenticated" class="min-h-screen flex items-center justify-center px-4">
-      <div class="max-w-md w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
-        <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+      <div class="max-w-md w-full bg-white rounded-xl shadow-xl p-8 border border-gray-200">
+        <h1 class="text-2xl font-bold text-gray-900 mb-6 text-center">
           🔐 Вход в админ-панель
         </h1>
-        
+
         <form @submit.prevent="handleLogin" class="space-y-6">
           <div>
-            <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
               Пароль
             </label>
             <input
@@ -17,11 +17,11 @@
               v-model="password"
               type="password"
               required
-              class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
               placeholder="Введите пароль"
             />
           </div>
-          
+
           <button
             type="submit"
             :disabled="isLoggingIn"
@@ -29,13 +29,13 @@
           >
             {{ isLoggingIn ? 'Проверка...' : 'Войти' }}
           </button>
-          
-          <div v-if="loginError" class="p-4 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-lg">
+
+          <div v-if="loginError" class="p-4 bg-red-50 text-red-800 rounded-lg border border-red-200">
             {{ loginError }}
           </div>
         </form>
-        
-        <p class="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
+
+        <p class="mt-6 text-center text-sm text-gray-500">
           <a href="/" class="text-purple-600 hover:underline">← Вернуться на сайт</a>
         </p>
       </div>
@@ -44,12 +44,12 @@
     <!-- Админ-панель -->
     <div v-else>
       <!-- Навигация -->
-      <nav class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
+      <nav class="bg-white shadow-sm border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-          <h1 class="text-xl font-bold text-gray-900 dark:text-white">Заявки с формы</h1>
+          <h1 class="text-xl font-bold text-gray-900">Заявки с формы</h1>
           <button
             @click="handleLogout"
-            class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+            class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 transition-all"
           >
             Выйти
           </button>
@@ -59,131 +59,161 @@
       <!-- Контент -->
       <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
         <!-- Статистика -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-          <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-            <div class="text-sm text-gray-500 dark:text-gray-400">Всего заявок</div>
-            <div class="text-3xl font-bold text-gray-900 dark:text-white">{{ stats.total }}</div>
+        <div v-if="contacts.length > 0" class="mb-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
+            <div class="text-sm text-gray-500">Всего заявок</div>
+            <div class="text-3xl font-bold text-gray-900 mt-2">{{ contacts.length }}</div>
           </div>
-          <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-            <div class="text-sm text-gray-500 dark:text-gray-400">Новые</div>
-            <div class="text-3xl font-bold text-blue-600">{{ stats.new }}</div>
+          <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
+            <div class="text-sm text-gray-500">Новых</div>
+            <div class="text-3xl font-bold text-gray-900 mt-2">{{ newCount }}</div>
           </div>
-          <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-            <div class="text-sm text-gray-500 dark:text-gray-400">Обработано</div>
-            <div class="text-3xl font-bold text-green-600">{{ stats.replied }}</div>
+          <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
+            <div class="text-sm text-gray-500">Обработано</div>
+            <div class="text-3xl font-bold text-gray-900 mt-2">{{ readCount }}</div>
           </div>
         </div>
 
-        <!-- Таблица заявок -->
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
-        <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
-          <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Все заявки</h2>
+        <!-- Панель управления -->
+        <div class="mb-6 flex items-center justify-between gap-4">
+          <!-- Фильтры -->
+          <div class="flex gap-2">
+            <button
+              @click="filter = 'all'"
+              :class="filter === 'all' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
+              class="px-4 py-2 rounded-lg text-sm font-medium transition-all"
+            >
+              Все
+            </button>
+            <button
+              @click="filter = 'new'"
+              :class="filter === 'new' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
+              class="px-4 py-2 rounded-lg text-sm font-medium transition-all"
+            >
+              Новые
+            </button>
+            <button
+              @click="filter = 'read'"
+              :class="filter === 'read' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
+              class="px-4 py-2 rounded-lg text-sm font-medium transition-all"
+            >
+              Обработанные
+            </button>
+          </div>
+
+          <!-- Кнопка обновления -->
           <button
-            @click="loadSubmissions"
+            @click="loadContacts"
             :disabled="isLoading"
-            class="px-4 py-2 text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 rounded-lg transition-colors disabled:opacity-50"
+            class="flex items-center gap-2 px-4 py-2 bg-gray-900 hover:bg-gray-800 text-white rounded-lg font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {{ isLoading ? 'Обновление...' : 'Обновить' }}
+            <svg v-if="isLoading" class="animate-spin h-4 w-4" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"/>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+            </svg>
+            <svg v-else class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+            </svg>
+            {{ isLoading ? 'Загрузка...' : 'Обновить' }}
           </button>
         </div>
 
-        <div class="overflow-x-auto">
-          <table class="w-full">
-            <thead class="bg-gray-50 dark:bg-gray-700">
+        <div v-if="isLoading" class="text-center py-12">
+          <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+        </div>
+
+        <div v-else-if="filteredContacts.length === 0" class="text-center py-12">
+          <p class="text-gray-500">Заявок нет</p>
+        </div>
+
+        <div v-else class="overflow-x-auto bg-white border border-gray-200 rounded-xl shadow-sm">
+          <table class="min-w-full">
+            <thead class="bg-gray-900">
               <tr>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                   Дата
                 </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                   Имя
                 </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                   Телефон
                 </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                   Email
                 </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                   Telegram
                 </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                  Источник
+                </th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                   Статус
                 </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                   Действия
                 </th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-              <tr v-for="item in submissions" :key="item.id" :class="['hover:bg-gray-50 dark:hover:bg-gray-700', !item.is_read ? 'bg-blue-50 dark:bg-blue-900/20' : '']">
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
-                  {{ formatDate(item.created_at) }}
+            <tbody class="divide-y divide-gray-200">
+              <tr 
+                v-for="contact in filteredContacts" 
+                :key="contact.id" 
+                :class="[
+                  'hover:bg-gray-50 transition-all',
+                  !contact.is_read ? 'bg-gray-50' : ''
+                ]"
+              >
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {{ formatDate(contact.created_at) }}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                  {{ contact.name }}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <a v-if="contact.phone" :href="'tel:' + contact.phone" class="hover:text-gray-900 hover:underline transition-all" target="_blank" rel="noopener">
+                    {{ contact.phone }}
+                  </a>
+                  <span v-else>—</span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <a v-if="contact.email" :href="'mailto:' + contact.email" class="hover:text-gray-900 hover:underline transition-all" target="_blank" rel="noopener">
+                    {{ contact.email }}
+                  </a>
+                  <span v-else>—</span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <a v-if="contact.telegram" :href="'https://t.me/' + contact.telegram.replace('@', '')" class="hover:text-gray-900 hover:underline transition-all" target="_blank" rel="noopener">
+                    {{ contact.telegram }}
+                  </a>
+                  <span v-else>—</span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {{ contact.source || '—' }}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm font-medium text-gray-900 dark:text-white">{{ item.name }}</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div v-if="item.phone" class="text-sm text-gray-500 dark:text-gray-400">
-                    <a
-                      :href="`tel:${item.phone.replace(/\D/g, '')}`"
-                      class="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:underline"
-                    >
-                      📞 {{ item.phone }}
-                    </a>
-                  </div>
-                  <div v-else class="text-sm text-gray-400 dark:text-gray-500">—</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div v-if="item.email" class="text-sm">
-                    <a
-                      :href="`mailto:${item.email}`"
-                      class="text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300 hover:underline"
-                    >
-                      {{ item.email }}
-                    </a>
-                  </div>
-                  <div v-else class="text-sm text-gray-400 dark:text-gray-500">—</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div v-if="item.telegram" class="text-sm">
-                    <a
-                      :href="item.telegram.startsWith('@') ? `https://t.me/${item.telegram.replace('@', '')}` : `https://t.me/${item.telegram}`"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300 hover:underline"
-                    >
-                      {{ item.telegram }}
-                    </a>
-                  </div>
-                  <div v-else class="text-sm text-gray-400 dark:text-gray-500">—</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <span :class="['px-2 py-1 text-xs font-medium rounded-full', item.is_read ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200']">
-                    {{ item.is_read ? 'Обработано' : 'Новая' }}
+                  <span 
+                    :class="contact.is_read ? 'bg-gray-100 text-gray-800' : 'bg-gray-900 text-white'"
+                    class="px-3 py-1 rounded-full text-xs font-medium uppercase"
+                  >
+                    {{ contact.is_read ? 'done' : 'new' }}
                   </span>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm">
                   <button
-                    @click="toggleReadStatus(item)"
-                    :disabled="isUpdating"
-                    :class="['px-3 py-1.5 text-xs font-medium rounded-lg transition-colors disabled:opacity-50', 
-                      item.is_read 
-                        ? 'bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-600 dark:text-gray-100 dark:hover:bg-gray-500' 
-                        : 'bg-purple-600 text-white hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-400']"
+                    @click="toggleReadStatus(contact)"
+                    :disabled="isUpdating.includes(contact.id)"
+                    :class="contact.is_read ? 'bg-gray-100 hover:bg-gray-200 text-gray-800' : 'bg-gray-900 hover:bg-gray-800 text-white'"
+                    class="px-4 py-2 rounded-lg font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {{ item.is_read ? '✓ Просмотрено' : '○ Отметить просмотренным' }}
+                    {{ isUpdating.includes(contact.id) ? '...' : (contact.is_read ? 'Вернуть в новые' : 'Обработан') }}
                   </button>
-                </td>
-              </tr>
-              <tr v-if="submissions.length === 0">
-                <td colspan="5" class="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
-                  Пока нет заявок
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-      </div>
       </main>
     </div>
   </div>
@@ -193,52 +223,36 @@
 import { ref, computed, onMounted } from 'vue'
 import { useSupabase } from '~/composables/useSupabase'
 
-// Запрет индексации
-useSeoMeta({
-  title: 'Заявки с формы — Админ панель',
-  description: 'Панель администратора для просмотра заявок',
-  robots: 'noindex, nofollow'
-})
-
-useHead({
-  meta: [
-    { name: 'robots', content: 'noindex, nofollow' }
-  ]
-})
-
 const supabase = useSupabase()
-const submissions = ref([])
-const isLoading = ref(false)
-const isUpdating = ref(false)
-
-// Аутентификация
-const password = ref('')
-const isLoggingIn = ref(false)
-const loginError = ref('')
 const isAuthenticated = ref(false)
+const isLoggingIn = ref(false)
+const isLoading = ref(false)
+const isUpdating = ref([])
+const password = ref('')
+const loginError = ref('')
+const contacts = ref([])
+const filter = ref('all') // all, new, read
 
-// Пароль (хранится в .env или задайте здесь)
-const ADMIN_PASSWORD = useRuntimeConfig().public.adminPassword || 'admin123'
+const ADMIN_PASSWORD = useRuntimeConfig().public.adminPassword || 'Bk62li4z'
 
-// Проверка сохранения входа
-onMounted(() => {
-  const savedAuth = localStorage.getItem('admin_authenticated')
-  if (savedAuth === 'true') {
-    isAuthenticated.value = true
-    loadSubmissions()
-  }
+const filteredContacts = computed(() => {
+  if (filter.value === 'all') return contacts.value
+  if (filter.value === 'new') return contacts.value.filter(c => !c.is_read)
+  if (filter.value === 'read') return contacts.value.filter(c => c.is_read)
+  return contacts.value
 })
 
-// Вход
+const newCount = computed(() => contacts.value.filter(c => !c.is_read).length)
+const readCount = computed(() => contacts.value.filter(c => c.is_read).length)
+
 function handleLogin() {
   isLoggingIn.value = true
   loginError.value = ''
-  
+
   setTimeout(() => {
     if (password.value === ADMIN_PASSWORD) {
       isAuthenticated.value = true
       localStorage.setItem('admin_authenticated', 'true')
-      loadSubmissions()
     } else {
       loginError.value = 'Неверный пароль'
     }
@@ -246,98 +260,67 @@ function handleLogin() {
   }, 500)
 }
 
-// Выход
 function handleLogout() {
   isAuthenticated.value = false
   localStorage.removeItem('admin_authenticated')
   password.value = ''
 }
 
-// Статистика
-const stats = computed(() => {
-  const total = submissions.value.length
-  const newCount = submissions.value.filter(s => !s.is_read).length
-  const replied = submissions.value.filter(s => s.is_read).length
-  return { total, new: newCount, replied }
-})
+async function loadContacts() {
+  if (!supabase) return
 
-// Загрузка заявок
-async function loadSubmissions() {
   isLoading.value = true
-  
-  try {
-    // Используем service role key для обхода RLS
-    const { data, error } = await supabase
-      .from('contact_submissions')
-      .select('*')
-      .order('created_at', { ascending: false })
 
-    if (error) {
-      console.error('Supabase error:', error)
-      throw error
-    }
-    
-    submissions.value = data || []
-  } catch (error) {
-    console.error('Ошибка загрузки заявок:', error.message, error.details)
-    alert('Не удалось загрузить заявки: ' + error.message + '\n\nПроверьте:\n1. RLS политики в Supabase\n2. Или выполните SQL из supabase/update_contact_rls_policies.sql')
-  } finally {
-    isLoading.value = false
+  const { data, error } = await supabase
+    .from('contact_submissions')
+    .select('*')
+    .order('created_at', { ascending: false })
+
+  if (error) {
+    console.error('Error loading contacts:', error)
+  } else {
+    contacts.value = data || []
   }
+
+  isLoading.value = false
 }
 
-// Переключение статуса прочтения
-async function toggleReadStatus(item) {
-  isUpdating.value = true
-  
-  try {
-    const newStatus = !item.is_read
-    
-    const { error } = await supabase
-      .from('contact_submissions')
-      .update({ 
-        is_read: newStatus,
-        replied_at: newStatus ? new Date().toISOString() : null
-      })
-      .eq('id', item.id)
+async function toggleReadStatus(contact) {
+  if (!supabase) return
 
-    if (error) throw error
-    
-    // Обновить локально
-    item.is_read = newStatus
-    if (newStatus) {
-      item.replied_at = new Date().toISOString()
-    } else {
-      item.replied_at = null
-    }
-  } catch (error) {
-    console.error('Ошибка обновления статуса:', error)
-    alert('Не удалось обновить статус')
-  } finally {
-    isUpdating.value = false
+  const newStatus = !contact.is_read
+  isUpdating.value.push(contact.id)
+
+  const { error } = await supabase
+    .from('contact_submissions')
+    .update({ is_read: newStatus })
+    .eq('id', contact.id)
+
+  if (error) {
+    console.error('Error updating status:', error)
+  } else {
+    contact.is_read = newStatus
   }
+
+  isUpdating.value = isUpdating.value.filter(id => id !== contact.id)
 }
 
-// Форматирование даты
 function formatDate(dateString) {
-  if (!dateString) return ''
   const date = new Date(dateString)
   return date.toLocaleDateString('ru-RU', {
-    day: 'numeric',
-    month: 'long',
     year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
     hour: '2-digit',
     minute: '2-digit'
   })
 }
 
 onMounted(() => {
-  loadSubmissions()
+  const authenticated = localStorage.getItem('admin_authenticated') === 'true'
+  if (authenticated) {
+    isAuthenticated.value = true
+    loadContacts()
+  }
 })
 </script>
-
-<style scoped>
-tbody tr {
-  transition: background-color 0.2s;
-}
-</style>

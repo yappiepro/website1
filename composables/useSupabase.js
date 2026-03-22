@@ -5,10 +5,16 @@ let supabase = null
 export function useSupabase() {
   if (!supabase) {
     const config = useRuntimeConfig()
-    supabase = createClient(
-      config.public.supabaseUrl,
-      config.public.supabaseAnonKey
-    )
+    const supabaseUrl = config.public.supabaseUrl
+    const supabaseAnonKey = config.public.supabaseAnonKey
+
+    if (!supabaseUrl || !supabaseAnonKey) {
+      console.warn('[Supabase] URL или ключ не настроены')
+      return null
+    }
+
+    supabase = createClient(supabaseUrl, supabaseAnonKey)
   }
+
   return supabase
 }

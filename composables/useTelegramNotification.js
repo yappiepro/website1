@@ -15,6 +15,7 @@ export async function sendTelegramNotification(formData) {
 
   // Формируем сообщение
   let message = `🔔 *Новая заявка с сайта*\n\n`
+  message += `📍 *Источник:* ${formData.source || 'Не указан'}\n`
   message += `👤 *Имя:* ${formData.name}\n`
   
   if (formData.phone) {
@@ -77,6 +78,7 @@ export async function submitContactFormWithNotification(formData) {
       phone: formData.phone,
       email: formData.email,
       telegram: formData.telegram,
+      source: formData.source,
       created_at: new Date().toISOString()
     }])
     .select()

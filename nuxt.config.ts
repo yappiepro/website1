@@ -278,8 +278,11 @@ export default defineNuxtConfig({
       firebaseMessagingSenderId: process.env.NUXT_FIREBASE_MESSAGING_SENDER_ID,
       firebaseAppId: process.env.NUXT_FIREBASE_APP_ID,
       firebaseMeasurementId: process.env.NUXT_FIREBASE_MEASUREMENT_ID,
-      firebaseVapidKey: process.env.NUXT_FIREBASE_VAPID_KEY
-    }
+      firebaseVapidKey: process.env.NUXT_FIREBASE_VAPID_KEY,
+      supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL,
+      supabaseAnonKey: process.env.NUXT_PUBLIC_SUPABASE_ANON_KEY
+    },
+    supabaseServiceRoleKey: process.env.NUXT_SUPABASE_SERVICE_ROLE_KEY
   },
   typescript: {
     strict: false

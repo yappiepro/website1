@@ -41,6 +41,8 @@ jobs:
           NUXT_FIREBASE_APP_ID: ${{ secrets.NUXT_FIREBASE_APP_ID }}
           NUXT_FIREBASE_MEASUREMENT_ID: ${{ secrets.NUXT_FIREBASE_MEASUREMENT_ID }}
           NUXT_FIREBASE_VAPID_KEY: ${{ secrets.NUXT_FIREBASE_VAPID_KEY }}
+          NUXT_PUBLIC_SUPABASE_URL: ${{ secrets.NUXT_PUBLIC_SUPABASE_URL }}
+          NUXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NUXT_PUBLIC_SUPABASE_ANON_KEY }}
 
       - name: Copy build output to dist
         run: |

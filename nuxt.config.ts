@@ -48,6 +48,10 @@ export default defineNuxtConfig({
     '@nuxtjs/fontaine',
     'nuxt-delay-hydration'
   ],
+  // Отключаем генерацию robots.txt для GitHub Pages с baseURL
+  robots: {
+    robotsTxt: false
+  },
   icon: {
     provider: 'server',
     serverBundle: {

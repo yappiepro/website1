@@ -837,7 +837,14 @@
       </div>
     </section>
 
-    <!-- 9. FOOTER + CTA -->
+    <!-- 9. CONTACT FORM -->
+    <section id="contact" class="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-violet-50 via-white to-blue-50">
+      <div class="max-w-3xl mx-auto">
+        <ContactForm />
+      </div>
+    </section>
+
+    <!-- FOOTER + CTA -->
     <Footer
       :social-networks="socialNetworks"
       cta-link="https://t.me/artemselifanov"
@@ -871,6 +878,7 @@ import BaseMobileMenu from '~/components/layout/BaseMobileMenu.vue'
 import Footer from '~/components/layout/Footer.vue'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
 import PushNotificationPrompt from '~/components/ui/PushNotificationPrompt.vue'
+import ContactForm from '~/components/ui/ContactForm.vue'
 
 // SEO для главной страницы
 useSeoMeta({

@@ -71,27 +71,27 @@
                 <div class="flex items-end justify-center gap-[6.5px]">
                   <!-- Левое фото 2 (Дзен) -->
                   <div class="w-[50px] sm:w-[70px] md:w-[90px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl" data-position="left-2">
-                    <img src="/reference/IMG_7084.webp" alt="Дзен" class="w-full h-full object-cover" loading="lazy" quality="75" />
+                    <img src="/reference/IMG_7084.webp" alt="Дзен" class="w-full h-full object-cover" loading="lazy" />
                   </div>
 
                   <!-- Левое фото 1 (Сетка) -->
                   <div class="w-[55px] sm:w-[75px] md:w-[100px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl" data-position="left-1">
-                    <img src="/reference/IMG_7082.webp" alt="Сетка" class="w-full h-full object-cover" loading="lazy" quality="75" />
+                    <img src="/reference/IMG_7082.webp" alt="Сетка" class="w-full h-full object-cover" loading="lazy" />
                   </div>
 
                   <!-- Центральное фото (IMG_7089) - LCP кандидат -->
                   <div class="w-[60px] sm:w-[85px] md:w-[110px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl" data-position="center">
-                    <img src="/reference/IMG_7089.webp" alt="Площадка" class="w-full h-full object-cover" fetchpriority="high" quality="75" />
+                    <img src="/reference/IMG_7089.webp" alt="Площадка" class="w-full h-full object-cover" fetchpriority="high" />
                   </div>
 
                   <!-- Правое фото 1 (TenChat) -->
                   <div class="w-[55px] sm:w-[75px] md:w-[100px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl" data-position="right-1">
-                    <img src="/reference/IMG_7083.webp" alt="TenChat" class="w-full h-full object-cover" loading="lazy" quality="75" />
+                    <img src="/reference/IMG_7083.webp" alt="TenChat" class="w-full h-full object-cover" loading="lazy" />
                   </div>
 
                   <!-- Правое фото 2 (IMG_7090) -->
                   <div class="w-[50px] sm:w-[70px] md:w-[90px] aspect-[9/19] rounded-[12px] overflow-hidden shadow-xl" data-position="right-2">
-                    <img src="/reference/IMG_7090.webp" alt="Площадка" class="w-full h-full object-cover" loading="lazy" quality="75" />
+                    <img src="/reference/IMG_7090.webp" alt="Площадка" class="w-full h-full object-cover" loading="lazy" />
                   </div>
                 </div>
               </div>

@@ -42,7 +42,6 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxtjs/seo',
-    '@nuxt/image',
     '@nuxt/icon',
     '@vite-pwa/nuxt',
     '@nuxtjs/fontaine',
@@ -52,19 +51,6 @@ export default defineNuxtConfig({
     provider: 'server',
     serverBundle: {
       collections: ['fa-solid', 'fa-brands']
-    }
-  },
-
-  // @nuxt/image — используем static provider для GitHub Pages
-  image: {
-    provider: 'static',
-    screens: {
-      xs: 320,
-      sm: 640,
-      md: 768,
-      lg: 1024,
-      xl: 1280,
-      xxl: 1536
     }
   },
 

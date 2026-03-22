@@ -42,7 +42,6 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxtjs/seo',
-    '@nuxt/image',
     '@nuxt/icon',
     '@vite-pwa/nuxt',
     '@nuxtjs/fontaine',
@@ -52,20 +51,6 @@ export default defineNuxtConfig({
     provider: 'server',
     serverBundle: {
       collections: ['fa-solid', 'fa-brands']
-    }
-  },
-
-  image: {
-    format: ['webp', 'avif', 'png'],
-    quality: 75,
-    provider: 'ipx',
-    screens: {
-      xs: 320,
-      sm: 640,
-      md: 768,
-      lg: 1024,
-      xl: 1280,
-      xxl: 1536
     }
   },
 
@@ -252,10 +237,13 @@ export default defineNuxtConfig({
         { rel: 'manifest', href: '/site.webmanifest' },
         // Preconnect для важных ресурсов
         { rel: 'preconnect', href: 'https://api.iconify.design', crossorigin: true },
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap' },
         { rel: 'dns-prefetch', href: 'https://api.iconify.design' },
+        // Preload шрифтов Manrope (критические ресурсы для LCP)
+        { rel: 'preload', href: '/fonts/Manrope-Regular.woff2', as: 'font', type: 'font/woff2', crossorigin: true },
+        { rel: 'preload', href: '/fonts/Manrope-Medium.woff2', as: 'font', type: 'font/woff2', crossorigin: true },
+        { rel: 'preload', href: '/fonts/Manrope-SemiBold.woff2', as: 'font', type: 'font/woff2', crossorigin: true },
+        { rel: 'preload', href: '/fonts/Manrope-Bold.woff2', as: 'font', type: 'font/woff2', crossorigin: true },
+        { rel: 'preload', href: '/fonts/Manrope-ExtraBold.woff2', as: 'font', type: 'font/woff2', crossorigin: true },
         // Preload изображений hero-секции для LCP задаются на уровне страницы
       ],
       // Критический CSS инлайн - убирает блокировку рендеринга

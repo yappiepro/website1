@@ -1,12 +1,9 @@
-# robots.txt for artemselifanov.ru
 User-agent: *
 Allow: /
-
-# Запрет индексации базы знаний (noindex в meta)
-Disallow: /knowledge/
 
 # Sitemap
 Sitemap: https://artemselifanov.ru/sitemap.xml
 
-# Хост
-Host: https://artemselifanov.ru
+# Disallow admin and api routes
+Disallow: /_nuxt/
+Disallow: /api/

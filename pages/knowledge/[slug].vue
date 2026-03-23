@@ -40,7 +40,7 @@ useSeoMeta({
   title: () => `${topic.value?.title} — База знаний Нескучный Нетворкинг`,
   description: () => topic.value?.description,
   keywords: () => `${topic.value?.title}, база знаний, Артем Селифанов, нетворкинг, личный бренд`,
-  robots: 'noindex, follow',
+  robots: 'index, follow',
   ogTitle: () => `${topic.value?.title} — База знаний`,
   ogDescription: () => topic.value?.description,
   ogType: 'website',

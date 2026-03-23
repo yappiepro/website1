@@ -226,6 +226,7 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'author', content: 'Артём Селифанов' },
         { name: 'yandex-verification', content: '27bf0858465d6882' },
+        { name: 'google-site-verification', content: 'nkHL1rKgFkFrUT52eBMxJ6dh49idk2fFznkxXrfyrxo' },
         { name: 'msapplication-TileColor', content: '#7c3aed' },
         { name: 'msapplication-TileImage', content: '/favicons/mstile-144x144.png' },
         { name: 'theme-color', content: '#7c3aed' }

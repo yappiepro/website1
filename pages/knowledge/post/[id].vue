@@ -105,7 +105,7 @@ useSeoMeta({
     }).filter(Boolean) || []
     return [...topicKeywords, 'база знаний', 'Нескучный Нетворкинг', 'Артём Селифанов', 'личный бренд', 'контент-маркетинг'].join(', ')
   },
-  robots: 'noindex, follow',
+  robots: 'index, follow',
   ogTitle: () => post.value?.title,
   ogDescription: () => {
     const text = post.value?.text || ''

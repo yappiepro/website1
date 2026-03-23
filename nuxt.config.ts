@@ -182,6 +182,9 @@ export default defineNuxtConfig({
       '/consultation',
       '/mentorship',
       '/blog',
+      '/knowledge',
+      ...knowledgeRoutes,
+      ...knowledgePostRoutes,
       ...blogClusters,
       ...blogRoutes
     ]

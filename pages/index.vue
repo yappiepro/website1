@@ -2,11 +2,11 @@
   <div class="min-h-screen bg-white text-gray-900 antialiased overflow-x-hidden">
     <!-- Preload критических ресурсов для LCP -->
     <Head>
-      <link rel="" as="image" href="/reference/IMG_7089.webp" imagesrcset="/reference/IMG_7089.webp 110w, /reference/IMG_7089.webp 85w, /reference/IMG_7089.webp 60w" image  />
-      <link rel="" as="image" href="/reference/IMG_7082.webp" imagesrcset="/reference/IMG_7082.webp 100w, /reference/IMG_7082.webp 75w, /reference/IMG_7082.webp 55w" image />
-      <link rel="" as="image" href="/reference/IMG_7084.webp" imagesrcset="/reference/IMG_7084.webp 90w, /reference/IMG_7084.webp 70w, /reference/IMG_7084.webp 50w" image />
-      <link rel="" as="image" href="/reference/IMG_7083.webp" imagesrcset="/reference/IMG_7083.webp 100w, /reference/IMG_7083.webp 75w, /reference/IMG_7083.webp 55w" image />
-      <link rel="" as="image" href="/reference/IMG_7090.webp" imagesrcset="/reference/IMG_7090.webp 90w, /reference/IMG_7090.webp 70w, /reference/IMG_7090.webp 50w" image />
+      <link rel="preload" as="image" href="/reference/IMG_7089.webp" imagesrcset="/reference/IMG_7089.webp 110w, /reference/IMG_7089.webp 85w, /reference/IMG_7089.webp 60w" imagesizes="100vw" />
+      <link rel="preload" as="image" href="/reference/IMG_7082.webp" imagesrcset="/reference/IMG_7082.webp 100w, /reference/IMG_7082.webp 75w, /reference/IMG_7082.webp 55w" imagesizes="100vw" />
+      <link rel="preload" as="image" href="/reference/IMG_7084.webp" imagesrcset="/reference/IMG_7084.webp 90w, /reference/IMG_7084.webp 70w, /reference/IMG_7084.webp 50w" imagesizes="100vw" />
+      <link rel="preload" as="image" href="/reference/IMG_7083.webp" imagesrcset="/reference/IMG_7083.webp 100w, /reference/IMG_7083.webp 75w, /reference/IMG_7083.webp 55w" imagesizes="100vw" />
+      <link rel="preload" as="image" href="/reference/IMG_7090.webp" imagesrcset="/reference/IMG_7090.webp 90w, /reference/IMG_7090.webp 70w, /reference/IMG_7090.webp 50w" imagesizes="100vw" />
     </Head>
     
     <!-- Прогресс-бар скролла -->
@@ -553,8 +553,8 @@
           </p>
         </div>
 
-        <!-- Секция: Веб-разработка и Блог -->
-        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
+        <!-- Секция: Веб-разработка, Блог и База знаний -->
+        <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
           <NuxtLink
             to="/yappie"
             class="card-animate group p-8 bg-white border-2 border-gray-200 rounded-[2rem] hover:border-blue-300 hover:shadow-xl transition-all hover:-translate-y-2"
@@ -581,6 +581,21 @@
             <p class="text-sm text-gray-600 leading-relaxed mb-6">Статьи о разработке, автоматизации и AI для бизнеса</p>
             <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide">
               <span>Читать статьи</span>
+              <Icon name="fa-solid:arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-2" />
+            </div>
+          </NuxtLink>
+
+          <NuxtLink
+            to="/knowledge"
+            class="card-animate delay-300 group p-8 bg-white border-2 border-gray-200 rounded-[2rem] hover:border-orange-300 hover:shadow-xl transition-all hover:-translate-y-2"
+          >
+            <div class="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mb-6">
+              <Icon name="fa-solid:book-open" class="w-8 h-8 text-gray-700" />
+            </div>
+            <h3 class="text-2xl font-bold mb-3">База знаний</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-6">220+ постов о личном бренде, контенте и продвижении</p>
+            <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide">
+              <span>Изучить материалы</span>
               <Icon name="fa-solid:arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-2" />
             </div>
           </NuxtLink>
@@ -839,20 +854,19 @@
 
     <!-- 9. CONTACT FORM -->
     <section id="contact" class="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-violet-50 via-white to-blue-50">
-      <div class="max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          <!-- Левая колонка: Текст и преимущества -->
-          <div>
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-2xl mb-6 shadow-sm">
+      <div class="w-full flex justify-center gap-6 lg:gap-8">
+        <!-- Левая колонка: Текст и преимущества -->
+        <div class="w-[40%] space-y-6">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-2xl shadow-sm">
               <Icon name="fa-solid:envelope" class="w-4 h-4 text-violet-600" />
               <span class="text-xs font-bold text-gray-700 uppercase tracking-wider">Связаться со мной</span>
             </div>
 
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-6">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">
               Готовы обсудить ваш проект?
             </h2>
 
-            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+            <p class="text-lg text-gray-600 leading-relaxed">
               Заполните форму и я свяжусь с вами в течение 24 часов. Консультация бесплатная — обсудим ваши задачи и я предложу варианты решения.
             </p>
 
@@ -870,7 +884,7 @@
 
               <div class="flex items-start gap-4">
                 <div class="flex-shrink-0 w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center shadow-sm">
-                  <Icon name="fa-solid:shield-check" class="w-5 h-5 text-violet-600" />
+                  <Icon name="fa-solid:shield-alt" class="w-5 h-5 text-violet-600" />
                 </div>
                 <div>
                   <h3 class="font-semibold text-gray-900 mb-1">Конфиденциально</h3>
@@ -906,11 +920,10 @@
           </div>
 
           <!-- Правая колонка: Форма -->
-          <div class="lg:pl-4">
+          <div class="w-[40%] bg-white rounded-2xl shadow-lg p-5 sm:p-6 lg:p-8">
             <ContactForm default-source="Главная страница" />
           </div>
         </div>
-      </div>
     </section>
 
     <!-- FOOTER + CTA -->

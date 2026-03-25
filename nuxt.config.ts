@@ -275,11 +275,11 @@ export default defineNuxtConfig({
       firebaseVapidKey: process.env.NUXT_FIREBASE_VAPID_KEY,
       supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL,
       supabaseAnonKey: process.env.NUXT_PUBLIC_SUPABASE_ANON_KEY,
+      supabaseServiceRoleKey: process.env.NUXT_SUPABASE_SERVICE_ROLE_KEY,
       adminPassword: process.env.NUXT_ADMIN_PASSWORD || 'Bk62li4z',
       telegramBotToken: process.env.NUXT_TELEGRAM_BOT_TOKEN,
       telegramChatId: process.env.NUXT_TELEGRAM_CHAT_ID
-    },
-    supabaseServiceRoleKey: process.env.NUXT_SUPABASE_SERVICE_ROLE_KEY
+    }
   },
   typescript: {
     strict: false

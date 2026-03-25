@@ -6,7 +6,7 @@
   ]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
       <div class="h-14 md:h-16 flex items-center">
-        <!-- Левая зона: Логотип (виден на мобильных только без скролла) -->
+        <!-- Левая зона: Логотип -->
         <div :class="[
           'transition-all duration-300 shrink-0',
           scrolled ? 'hidden md:block' : 'block'
@@ -16,7 +16,7 @@
           </NuxtLink>
         </div>
 
-        <!-- Центральная зона: Десктопное меню -->
+        <!-- Десктопное меню -->
         <nav class="hidden md:flex items-center gap-1 flex-1 justify-center transition-all duration-300">
           <NuxtLink
             v-for="item in menuItems"
@@ -27,8 +27,8 @@
             @touchstart="handleTouchStart(item.href)"
             :class="[
               'px-4 py-2 text-sm rounded-lg transition-all',
-              activeItem === item.href 
-                ? 'text-gray-900 bg-white/80' 
+              activeItem === item.href
+                ? 'text-gray-900 bg-white/80'
                 : 'text-gray-600 hover:text-gray-900 hover:bg-white/50'
             ]"
           >
@@ -36,7 +36,7 @@
           </NuxtLink>
         </nav>
 
-        <!-- Правая зона: CTA кнопка -->
+        <!-- CTA кнопка -->
         <div class="hidden md:block shrink-0">
           <a
             :href="ctaLink"
@@ -47,7 +47,7 @@
           </a>
         </div>
 
-        <!-- Кнопка бургера для мобильных -->
+        <!-- Кнопка бургера -->
         <button
           @click="toggleMenu"
           class="md:hidden p-2 hover:bg-white/50 rounded-xl transition-all absolute right-4"
@@ -88,9 +88,15 @@ const props = defineProps({
   },
   ctaBgClass: {
     type: String,
-    default: 'bg-gray-900/90 hover:bg-gray-900'
+    default: ''
+  },
+  modelValue: {
+    type: Boolean,
+    default: false
   }
 })
+
+const emit = defineEmits(['update:modelValue'])
 
 const route = useRoute()
 const scrolled = ref(false)
@@ -116,7 +122,7 @@ function handleTouchStart(href) {
 }
 
 function toggleMenu() {
-  window.dispatchEvent(new CustomEvent('toggle-mobile-menu'))
+  emit('update:modelValue', !props.modelValue)
 }
 
 onMounted(() => {

@@ -12,10 +12,13 @@
         v-for="(item, index) in items"
         :key="item.href"
         :to="item.href"
+        :prefetch="true"
         :aria-label="item.label"
         :title="item.label"
+        @touchstart="handleTouchStart(item, $event)"
+        @mousedown="handleMouseDown(item, $event)"
         @click="item.action ? handleSpecialAction(item, $event) : null"
-        class="group relative flex flex-col items-center justify-center flex-1 rounded-2xl py-2"
+        class="group relative flex flex-col items-center justify-center flex-1 rounded-2xl py-2 touch-manipulation"
         :class="[
           isActive(item.href)
             ? activeTextClass
@@ -23,7 +26,7 @@
         ]"
       >
         <!-- Фоновый эффект для активного элемента -->
-        <Transition name="fade">
+        <Transition name="fade" mode="out-in">
           <div
             v-if="isActive(item.href)"
             class="absolute inset-0 -z-10"
@@ -38,10 +41,11 @@
 
         <!-- Иконка -->
         <div
-          class="relative w-12 h-12 flex items-center justify-center transition-all duration-200"
+          class="relative w-12 h-12 flex items-center justify-center transition-all duration-75"
           :class="[
-            isActive(item.href) ? 'scale-110' : 'scale-100 group-hover:scale-105',
-            isActive(item.href) ? 'text-primary' : ''
+            isActive(item.href) ? 'scale-110' : 'scale-100',
+            isActive(item.href) ? 'text-primary' : '',
+            'active:scale-95'
           ]"
         >
           <!-- Изображение (если есть) -->
@@ -149,6 +153,20 @@ function handleSpecialAction(item, event) {
   }
 }
 
+// Мгновенная обратная связь при касании (мобильные)
+function handleTouchStart(item, event) {
+  // Тактильная отдача сразу при касании
+  if (navigator.vibrate) {
+    navigator.vibrate(5)
+  }
+  // Визуальный feedback через CSS active state
+}
+
+// Мгновенная обратная связь при клике (десктоп)
+function handleMouseDown(item, event) {
+  // Визуальный feedback через CSS active state
+}
+
 // Вибрация при изменении маршрута
 watch(route, (newRoute, oldRoute) => {
   if (newRoute.path !== oldRoute.path && navigator.vibrate) {
@@ -187,9 +205,9 @@ const activeTextClass = computed(() => {
 
 const inactiveTextClass = computed(() => {
   if (props.theme === 'dark') {
-    return 'text-gray-400 hover:text-gray-200'
+    return 'text-gray-400'
   }
-  return 'text-gray-500 hover:text-gray-700'
+  return 'text-gray-500'
 })
 
 onMounted(() => {
@@ -202,10 +220,10 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-/* Анимация появления/исчезновения фона */
+/* Анимация появления/исчезновения фона - быстрая для мгновенного отклика */
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.2s ease;
+  transition: opacity 0.1s ease;
 }
 
 .fade-enter-from,
@@ -216,5 +234,10 @@ onUnmounted(() => {
 /* Безопасная зона для iPhone с кнопкой Home */
 .pb-safe {
   padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+
+/* Отключаем задержку tap на мобильных */
+* {
+  touch-action: manipulation;
 }
 </style>

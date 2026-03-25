@@ -73,6 +73,8 @@ export default defineNuxtConfig({
     renderJsonPayloads: true,
     islands: true,
     viewTransition: true,
+    // Отключаем payload pre-fetching для SSG
+    payloadExtraction: false,
   },
 
   // Fontaine - оптимизация шрифтов без CLS

@@ -61,7 +61,6 @@ useHead({
           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=107703484", "ym");
 
         ym(107703484, "init", {
-          ssr: true,
           webvisor: true,
           clickmap: true,
           ecommerce: "dataLayer",

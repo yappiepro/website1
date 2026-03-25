@@ -112,7 +112,7 @@ export default defineNuxtConfig({
   },
   
   // SSG for GitHub Pages with SEO optimization
-  ssr: true,
+  ssr: false,
   nitro: {
     output: {
       publicDir: 'dist'

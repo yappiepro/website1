@@ -7,11 +7,13 @@ const corsHeaders = {
 }
 
 Deno.serve(async (req: Request) => {
+  // Обработка preflight запроса
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders })
   }
 
-  const { name, phone, email, telegram, source } = await req.json()
+  try {
+    const { name, phone, email, telegram, source } = await req.json()
 
   // Валидация - имя и телефон обязательны
   if (!name || !phone) {
@@ -60,11 +62,17 @@ Deno.serve(async (req: Request) => {
     })
   }
 
-  return new Response(JSON.stringify({ 
-    success: true, 
+  return new Response(JSON.stringify({
+    success: true,
     message: 'Отправлено!',
     data: submission
-  }), { 
+  }), {
     status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' }
   })
+  } catch (error) {
+    console.error('Edge Function error:', error)
+    return new Response(JSON.stringify({ error: 'Внутренняя ошибка сервера' }), {
+      status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+    })
+  }
 })

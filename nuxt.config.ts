@@ -321,7 +321,7 @@ export default defineNuxtConfig({
     },
     workbox: {
       navigateFallback: '/offline',
-      globPatterns: ['**/*.{js,css,txt,png,ico,svg,webp,json,woff,woff2}'],
+      globPatterns: ['**/*.{js,css,txt,png,ico,svg,webp,json,woff,woff2,html}'],
       maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
       runtimeCaching: [
         {

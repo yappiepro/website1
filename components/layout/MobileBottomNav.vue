@@ -5,10 +5,10 @@
       class="flex items-start justify-around pb-safe rounded-3xl py-0 shadow-2xl border border-white/20"
       :class="navClasses"
     >
-      <a
+      <NuxtLink
         v-for="item in items"
         :key="item.href"
-        :href="item.href"
+        :to="item.href"
         :aria-label="item.label"
         :title="item.label"
         @click="handleClick(item, $event)"
@@ -61,7 +61,7 @@
             class="absolute inset-0 bg-gray-200/80 -z-10 rounded-3xl"
           ></div>
         </Transition>
-      </a>
+      </NuxtLink>
     </nav>
   </div>
 </template>
@@ -122,11 +122,13 @@ function handleClick(item, event) {
   if (navigator.vibrate) {
     navigator.vibrate(10)
   }
-  
+
+  // Предотвращаем только для специальных действий
   if (item.action === 'scrollToTop' || item.href.startsWith('#')) {
     event.preventDefault()
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
+  // Для обычных ссылок NuxtLink сам обработает переход
 }
 
 // Вычисляемые классы в зависимости от темы

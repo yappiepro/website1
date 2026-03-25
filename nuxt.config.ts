@@ -297,7 +297,8 @@ export default defineNuxtConfig({
     }
   },
   typescript: {
-    strict: false
+    strict: true,
+    typeCheck: true
   },
 
   // PWA Configuration

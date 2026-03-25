@@ -79,12 +79,21 @@
 </template>
 
 <script setup lang="ts">
+interface Photo {
+  src: string
+  alt: string
+  widthClass: string
+  position: string
+  loading?: 'lazy' | 'eager'
+  priority?: 'high' | 'auto'
+}
+
 // Конфигурация фотографий
-const photos = [
-  { src: '/reference/IMG_7084.webp', alt: 'Дзен', widthClass: 'w-[50px] sm:w-[70px] md:w-[90px]', position: 'left-2', loading: 'lazy' as const },
-  { src: '/reference/IMG_7082.webp', alt: 'Сетка', widthClass: 'w-[55px] sm:w-[75px] md:w-[100px]', position: 'left-1', loading: 'lazy' as const },
-  { src: '/reference/IMG_7089.webp', alt: 'Площадка', widthClass: 'w-[60px] sm:w-[85px] md:w-[110px]', position: 'center', priority: 'high' as const },
-  { src: '/reference/IMG_7083.webp', alt: 'TenChat', widthClass: 'w-[55px] sm:w-[75px] md:w-[100px]', position: 'right-1', loading: 'lazy' as const },
-  { src: '/reference/IMG_7090.webp', alt: 'Площадка', widthClass: 'w-[50px] sm:w-[70px] md:w-[90px]', position: 'right-2', loading: 'lazy' as const },
+const photos: Photo[] = [
+  { src: '/reference/IMG_7084.webp', alt: 'Дзен', widthClass: 'w-[50px] sm:w-[70px] md:w-[90px]', position: 'left-2', loading: 'lazy' },
+  { src: '/reference/IMG_7082.webp', alt: 'Сетка', widthClass: 'w-[55px] sm:w-[75px] md:w-[100px]', position: 'left-1', loading: 'lazy' },
+  { src: '/reference/IMG_7089.webp', alt: 'Площадка', widthClass: 'w-[60px] sm:w-[85px] md:w-[110px]', position: 'center', priority: 'high' },
+  { src: '/reference/IMG_7083.webp', alt: 'TenChat', widthClass: 'w-[55px] sm:w-[75px] md:w-[100px]', position: 'right-1', loading: 'lazy' },
+  { src: '/reference/IMG_7090.webp', alt: 'Площадка', widthClass: 'w-[50px] sm:w-[70px] md:w-[90px]', position: 'right-2', loading: 'lazy' },
 ]
 </script>

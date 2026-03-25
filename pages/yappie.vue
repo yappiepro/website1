@@ -721,18 +721,8 @@
       </button>
     </Transition>
 
-    <!-- Нижняя навигация для мобильных (чёрная тема) -->
-    <MobileBottomNav
-      theme="black"
-      :items="[
-        { href: '/', label: 'Главная', iconComponent: Home },
-        { href: '/networking', label: 'Нетворкинг', image: '/reference/networking.webp' },
-        { href: '/business', label: 'Бизнес', image: '/reference/business.webp' },
-        { href: '/yappie', label: 'Веб', text: 'веб', textClass: 'text-black' },
-        { href: '/blog', label: 'Блог', text: 'блог', textClass: 'text-white' },
-        { href: '#top', label: 'Наверх', iconComponent: ArrowUp, action: 'scrollToTop' }
-      ]"
-    />
+    <!-- Нижняя навигация для мобильных -->
+    <MobileBottomNav theme="auto" />
   </div>
 </template>
 

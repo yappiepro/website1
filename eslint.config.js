@@ -6,9 +6,16 @@ import eslintPluginUnicorn from 'eslint-plugin-unicorn'
 
 export default [
   {
-    ignores: ['dist', '.nuxt', 'node_modules', '.output', 'coverage', '.husky'],
+    ignores: [
+      'dist',
+      '.nuxt',
+      'node_modules',
+      '.output',
+      'coverage',
+      '.husky',
+    ],
   },
-
+  
   {
     languageOptions: {
       globals: {
@@ -17,16 +24,17 @@ export default [
       },
     },
   },
-
+  
   ...tseslint.configs.recommended,
-
+  
   ...pluginVue.configs['flat/recommended'],
-
+  
   eslintPluginPrettierRecommended,
-
+  
   {
     files: ['**/*.vue', '**/*.js', '**/*.ts', '**/*.jsx', '**/*.tsx'],
     languageOptions: {
+      parser: tseslint.parser,
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
@@ -43,27 +51,24 @@ export default [
       'vue/multi-word-component-names': 'off',
       'vue/require-default-prop': 'off',
       'vue/no-v-html': 'off',
-
+      
       // TypeScript
-      '@typescript-eslint/no-unused-vars': [
-        'error',
-        {
-          argsIgnorePattern: '^_',
-          varsIgnorePattern: '^_',
-        },
-      ],
+      '@typescript-eslint/no-unused-vars': ['error', { 
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+      }],
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-non-null-assertion': 'off',
-
+      
       // General
       'no-console': 'off',
       'no-debugger': 'off',
       'prefer-const': 'error',
       'no-var': 'error',
-      eqeqeq: ['error', 'always'],
-      curly: ['error', 'all'],
-
+      'eqeqeq': ['error', 'always'],
+      'curly': ['error', 'all'],
+      
       // Unicorn (modern JS)
       'unicorn/prefer-optional-catch-binding': 'error',
       'unicorn/prefer-array-some': 'error',

@@ -345,7 +345,7 @@
     <Footer :show-cta="false" />
 
     <!-- Нижняя навигация для мобильных -->
-    <MobileBottomNav theme="light" />
+    <MobileBottomNav theme="auto" />
   </div>
 </template>
 

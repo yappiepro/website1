@@ -1119,7 +1119,7 @@ function toggleFaq(index) {
     <Footer :show-cta="false" bg-class="bg-white" border-class="border-t-2 border-black" />
 
     <!-- Нижняя навигация для мобильных -->
-    <MobileBottomNav theme="light" />
+    <MobileBottomNav theme="auto" />
   </div>
 </template>
 

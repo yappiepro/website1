@@ -854,9 +854,9 @@
 
     <!-- 9. CONTACT FORM -->
     <section id="contact" class="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-violet-50 via-white to-blue-50">
-      <div class="w-full flex justify-center gap-6 lg:gap-8">
+      <div class="w-full flex flex-col lg:flex-row justify-center gap-6 lg:gap-8">
         <!-- Левая колонка: Текст и преимущества -->
-        <div class="w-[40%] space-y-6">
+        <div class="w-full lg:w-[40%] space-y-6">
             <div class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-2xl shadow-sm">
               <Icon name="fa-solid:envelope" class="w-4 h-4 text-violet-600" />
               <span class="text-xs font-bold text-gray-700 uppercase tracking-wider">Связаться со мной</span>
@@ -920,7 +920,7 @@
           </div>
 
           <!-- Правая колонка: Форма -->
-          <div class="w-[40%] bg-white rounded-2xl shadow-lg p-5 sm:p-6 lg:p-8">
+          <div class="w-full lg:w-[40%] bg-white rounded-2xl shadow-lg p-5 sm:p-6 lg:p-8">
             <ContactForm default-source="Главная страница" />
           </div>
         </div>

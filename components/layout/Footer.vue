@@ -107,11 +107,10 @@
                 :key="index"
                 :href="network.link"
                 target="_blank"
-                :aria-label="network.name || getSocialLabel(network.icon)"
-                class="inline-flex items-center justify-center gap-2 px-4 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl transition-all border border-white/20"
+                :aria-label="network.name || network.icon"
+                class="inline-flex items-center justify-center px-4 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl transition-all border border-white/20"
               >
-                <Icon v-if="network.icon" :name="`fa-brands:${network.icon}`" class="w-5 h-5 text-white" />
-                <span class="text-sm font-bold text-white">{{ network.name }}</span>
+                <span class="text-sm font-bold text-white">{{ network.name || network.icon }}</span>
               </a>
             </div>
           </div>
@@ -253,15 +252,4 @@ const linkColor = computed(() => isDarkBg.value ? 'text-gray-300' : 'text-gray-6
 const iconColor = computed(() => isDarkBg.value ? 'text-gray-300' : 'text-gray-600')
 const copyrightColor = computed(() => isDarkBg.value ? 'text-gray-300' : 'text-gray-500')
 const docColor = computed(() => isDarkBg.value ? 'text-gray-300' : 'text-gray-500')
-
-function getSocialLabel(icon) {
-  const labels = {
-    telegram: 'Telegram',
-    whatsapp: 'WhatsApp',
-    vk: 'ВКонтакте',
-    youtube: 'YouTube',
-    instagram: 'Instagram'
-  }
-  return `Мы в ${labels[icon] || icon}`
-}
 </script>

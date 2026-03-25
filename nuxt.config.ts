@@ -288,42 +288,7 @@ export default defineNuxtConfig({
         // Preconnect для важных ресурсов
         { rel: 'preconnect', href: 'https://api.iconify.design', crossorigin: true },
         { rel: 'dns-prefetch', href: 'https://api.iconify.design' },
-        // Preload шрифтов Manrope (критические ресурсы для LCP)
-        {
-          rel: 'preload',
-          href: '/fonts/Manrope-Regular.woff2',
-          as: 'font',
-          type: 'font/woff2',
-          crossorigin: true,
-        },
-        {
-          rel: 'preload',
-          href: '/fonts/Manrope-Medium.woff2',
-          as: 'font',
-          type: 'font/woff2',
-          crossorigin: true,
-        },
-        {
-          rel: 'preload',
-          href: '/fonts/Manrope-SemiBold.woff2',
-          as: 'font',
-          type: 'font/woff2',
-          crossorigin: true,
-        },
-        {
-          rel: 'preload',
-          href: '/fonts/Manrope-Bold.woff2',
-          as: 'font',
-          type: 'font/woff2',
-          crossorigin: true,
-        },
-        {
-          rel: 'preload',
-          href: '/fonts/Manrope-ExtraBold.woff2',
-          as: 'font',
-          type: 'font/woff2',
-          crossorigin: true,
-        },
+        // Шрифты preload'ятся автоматически через @nuxt/fonts
         // Preload изображений hero-секции для LCP задаются на уровне страницы
       ],
       // Критический CSS инлайн - убирает блокировку рендеринга

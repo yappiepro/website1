@@ -57,3 +57,18 @@ export interface SocialNetwork {
   icon: string
   link: string
 }
+
+export interface MenuItem {
+  label: string
+  href: string
+  icon?: string
+  children?: MenuItem[]
+}
+
+export interface ButtonProps {
+  variant?: 'primary' | 'secondary' | 'outline'
+  size?: 'sm' | 'md' | 'lg'
+  disabled?: boolean
+  loading?: boolean
+}
+

@@ -1,11 +1,7 @@
 /**
  * Композируемый хук для отслеживания скролла
+ * Использует VueUse useWindowScroll и useScroll
  */
-
-interface ScrollPosition {
-  x: number
-  y: number
-}
 
 interface UseScrollOptions {
   throttle?: number
@@ -14,88 +10,61 @@ interface UseScrollOptions {
 }
 
 export function useScroll(options: UseScrollOptions = {}) {
-  const { throttle = 100, onBottom, bottomOffset = 100 } = options
+  const { onBottom, bottomOffset = 100 } = options
 
-  const position = ref<ScrollPosition>({ x: 0, y: 0 })
-  const isScrolling = ref(false)
-  const reachedBottom = ref(false)
+  // Базовый скролл из VueUse
+  const { x, y } = useWindowScroll({ behavior: 'smooth' })
 
-  let scrollTimeout: ReturnType<typeof setTimeout> | null = null
-  let rafId: number | null = null
+  // Вычисление позиции скролла
+  const scrollPosition = computed(() => ({ x: x.value, y: y.value }))
 
-  function checkBottom() {
+  // Проверка достижения низа страницы
+  const reachedBottom = computed(() => {
     const scrollHeight = document.documentElement.scrollHeight
-    const scrollTop = document.documentElement.scrollTop
+    const scrollTop = y.value
     const clientHeight = document.documentElement.clientHeight
 
-    reachedBottom.value = scrollHeight - scrollTop - clientHeight <= bottomOffset
+    return scrollHeight - scrollTop - clientHeight <= bottomOffset
+  })
 
-    if (reachedBottom.value && onBottom) {
+  // Авто-вызов callback при достижении низа
+  watch(reachedBottom, (reached) => {
+    if (reached && onBottom) {
       onBottom()
-    }
-  }
-
-  function onScroll() {
-    position.value = {
-      x: window.scrollX,
-      y: window.scrollY,
-    }
-
-    checkBottom()
-
-    isScrolling.value = true
-
-    if (scrollTimeout) {
-      clearTimeout(scrollTimeout)
-    }
-
-    scrollTimeout = setTimeout(() => {
-      isScrolling.value = false
-      scrollTimeout = null
-    }, throttle)
-  }
-
-  function onScrollRaf() {
-    onScroll()
-    rafId = requestAnimationFrame(onScrollRaf)
-  }
-
-  function scrollToTop(smooth = true) {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: smooth ? 'smooth' : 'auto',
-    })
-  }
-
-  function scrollToBottom(smooth = true) {
-    window.scrollTo({
-      top: document.documentElement.scrollHeight,
-      left: 0,
-      behavior: smooth ? 'smooth' : 'auto',
-    })
-  }
-
-  onMounted(() => {
-    if (typeof window !== 'undefined') {
-      rafId = requestAnimationFrame(onScrollRaf)
     }
   })
 
-  onUnmounted(() => {
-    if (rafId) {
-      cancelAnimationFrame(rafId)
+  // Функции прокрутки
+  function scrollToTop() {
+    y.value = 0
+  }
+
+  function scrollToBottom() {
+    y.value = document.documentElement.scrollHeight
+  }
+
+  function scrollToElement(selector: string) {
+    const element = document.querySelector(selector)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
     }
-    if (scrollTimeout) {
-      clearTimeout(scrollTimeout)
-    }
+  }
+
+  // Прогресс скролла (0-100%)
+  const scrollProgress = computed(() => {
+    const scrollHeight =
+      document.documentElement.scrollHeight - document.documentElement.clientHeight
+    return scrollHeight > 0 ? (y.value / scrollHeight) * 100 : 0
   })
 
   return {
-    position,
-    isScrolling,
+    x,
+    y,
+    position: scrollPosition,
     reachedBottom,
+    scrollProgress,
     scrollToTop,
     scrollToBottom,
+    scrollToElement,
   }
 }

@@ -5,7 +5,7 @@
   >
     <!-- Контейнер навигации -->
     <nav
-      class="flex items-center justify-around rounded-3xl py-0 shadow-2xl border backdrop-blur-xl"
+      class="flex items-center justify-around rounded-3xl py-0 shadow-2xl backdrop-blur-xl"
       :class="navClasses"
     >
       <NuxtLink
@@ -26,8 +26,13 @@
         <Transition name="fade">
           <div
             v-if="isActive(item.href)"
-            class="absolute inset-0 rounded-2xl -z-10"
-            :class="activeBgClass"
+            class="absolute inset-0 -z-10"
+            :class="[
+              activeBgClass,
+              index === 0 ? 'rounded-l-2xl rounded-r-none' : '',
+              index === items.length - 1 ? 'rounded-r-2xl rounded-l-none' : '',
+              index > 0 && index < items.length - 1 ? 'rounded-none' : ''
+            ]"
           ></div>
         </Transition>
 
@@ -154,9 +159,9 @@ watch(route, (newRoute, oldRoute) => {
 // Вычисляемые классы в зависимости от темы
 const navClasses = computed(() => {
   if (props.theme === 'dark') {
-    return 'bg-gray-900/80 border-white/10 text-white'
+    return 'bg-gray-900/80 text-white'
   }
-  return 'bg-white/80 border-white/20 text-gray-900'
+  return 'bg-white/80 text-gray-900'
 })
 
 const menuClasses = computed(() => {

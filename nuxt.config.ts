@@ -173,27 +173,44 @@ export default defineNuxtConfig({
   // SEO Modules Configuration
   sitemap: {
     enabled: true,
-    routes: [
-      '/',
-      '/networking',
-      '/business',
-      '/yappie',
-      '/study',
-      '/consultation',
-      '/mentorship',
-      '/blog',
-      '/knowledge',
-      ...knowledgeRoutes,
-      ...knowledgePostRoutes,
-      ...blogClusters,
-      ...blogRoutes
-    ]
+    // Разделяем sitemap на файлы для лучшей производительности
+    sitemaps: {
+      pages: {
+        filename: 'sitemap-pages.xml',
+        routes: [
+          '/',
+          '/networking',
+          '/business',
+          '/yappie',
+          '/study',
+          '/consultation',
+          '/mentorship',
+          '/knowledge',
+          '/cookie',
+          '/privacy',
+          '/offer',
+          '/offline',
+          '/404',
+          '/test',
+          '/admin/contacts'
+        ]
+      },
+      blog: {
+        filename: 'sitemap-blog.xml',
+        routes: [
+          '/blog',
+          ...blogClusters,
+          ...blogRoutes
+        ]
+      }
+    }
   },
 
   robots: {
     enabled: true,
     sitemap: [
-      '/sitemap.xml'
+      '/sitemap-pages.xml',
+      '/sitemap-blog.xml'
     ]
   },
   

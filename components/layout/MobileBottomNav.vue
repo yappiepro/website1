@@ -11,7 +11,7 @@
         :to="item.href"
         :aria-label="item.label"
         :title="item.label"
-        @click="handleClick(item, $event)"
+        @click="item.action ? handleSpecialAction(item, $event) : null"
         class="relative flex flex-col items-center justify-center flex-1"
         :class="[
           isActive(item.href)
@@ -117,19 +117,20 @@ function isActive(href) {
   return route.path.startsWith(href)
 }
 
-function handleClick(item, event) {
-  // Тактильная обратная связь (вибрация)
-  if (navigator.vibrate) {
-    navigator.vibrate(10)
-  }
-
-  // Предотвращаем только для специальных действий
+// Обработка специальных действий (якоря, scrollToTop)
+function handleSpecialAction(item, event) {
   if (item.action === 'scrollToTop' || item.href.startsWith('#')) {
     event.preventDefault()
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
-  // Для обычных ссылок NuxtLink сам обработает переход
 }
+
+// Вибрация при изменении маршрута
+watch(route, (newRoute, oldRoute) => {
+  if (newRoute.path !== oldRoute.path && navigator.vibrate) {
+    navigator.vibrate(10)
+  }
+})
 
 // Вычисляемые классы в зависимости от темы
 const navClasses = computed(() => {

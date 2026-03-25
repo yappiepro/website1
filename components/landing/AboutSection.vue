@@ -82,18 +82,7 @@
 </template>
 
 <script setup lang="ts">
-interface Stat {
-  value: string
-  label: string
-  growth?: string
-  sublabel?: string
-}
-
-interface SynergyItem {
-  icon: string
-  title: string
-  subtitle: string
-}
+import type { Stat, SynergyItem } from '~/types'
 
 // Данные статистики
 const stats: Stat[] = [

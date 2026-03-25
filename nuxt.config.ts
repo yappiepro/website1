@@ -39,6 +39,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxtjs/fontaine',
     '@nuxt/fonts',
+    '@vueuse/nuxt',
     'nuxt-delay-hydration',
     '@vite-pwa/nuxt',
   ],
@@ -100,6 +101,27 @@ export default defineNuxtConfig({
         weights: [400, 500, 600, 700, 800],
         styles: ['normal'],
       },
+    ],
+  },
+
+  // VueUse - композируемые утилиты
+  vueuse: {
+    prefix: '',
+    disableAutoImports: false,
+    // Авто-импорт популярных функций
+    imports: [
+      'useBreakpoints',
+      'useMediaQuery',
+      'useLocalStorage',
+      'useSessionStorage',
+      'useDark',
+      'useToggle',
+      'useScroll',
+      'useWindowScroll',
+      'useRafFn',
+      'useCssVar',
+      'useDebounceFn',
+      'useThrottleFn',
     ],
   },
 

@@ -4,21 +4,21 @@
 export async function submitContactFormWithNotification(formData) {
   const config = useRuntimeConfig()
   const supabaseUrl = config.public.supabaseUrl
-  const supabaseAnonKey = config.public.supabaseAnonKey
+  const supabaseServiceRoleKey = config.supabaseServiceRoleKey
 
-  if (!supabaseUrl || !supabaseAnonKey) {
-    console.error('[Supabase] URL или anon key не настроены')
+  if (!supabaseUrl || !supabaseServiceRoleKey) {
+    console.error('[Supabase] URL или service role key не настроены')
     return { success: false, error: 'Supabase not configured' }
   }
 
   try {
-    // Вызываем Edge Function напрямую через fetch с публичным anon key
+    // Вызываем Edge Function напрямую через fetch
     const response = await fetch(`${supabaseUrl}/functions/v1/tg_massege`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${supabaseAnonKey}`,
-        'apikey': supabaseAnonKey
+        'Authorization': `Bearer ${supabaseServiceRoleKey}`,
+        'apikey': supabaseServiceRoleKey
       },
       body: JSON.stringify({
         name: formData.name,

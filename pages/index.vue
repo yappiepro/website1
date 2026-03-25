@@ -14,6 +14,7 @@
 
     <!-- Хедер -->
     <Header
+      v-model="isMobileMenuOpen"
       :menu-items="headerMenuItems"
       cta-link="https://t.me/artemselifanov"
       cta-text="Связаться"
@@ -1114,19 +1115,6 @@ const faqs = ref([
 
 // Состояние мобильного меню
 const isMobileMenuOpen = ref(false)
-
-// Обработчик открытия меню из хедера
-function handleToggleMenu() {
-  isMobileMenuOpen.value = !isMobileMenuOpen.value
-}
-
-onMounted(() => {
-  window.addEventListener('toggle-mobile-menu', handleToggleMenu)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('toggle-mobile-menu', handleToggleMenu)
-})
 
 // Меню для хедера (без пункта "Создать свой блог")
 const headerMenuItems = [

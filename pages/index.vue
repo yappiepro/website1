@@ -935,7 +935,7 @@
     </main>
 
     <!-- Нижняя навигация для мобильных -->
-    <MobileBottomNav theme="auto" />
+    <MobileBottomNav theme="light" />
 
     <!-- Push уведомления промопт (отключено) -->
     <!-- <PushNotificationPrompt /> -->

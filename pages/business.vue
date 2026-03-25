@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { ArrowRight, Users, Target, Lightbulb, Calendar, MessageCircle, TrendingUp, CheckCircle, Mail, Linkedin, Twitter, Instagram, ExternalLink, Menu, X, ChevronDown, Home, ArrowUp } from 'lucide-vue-next'
+import { ArrowRight, Users, Target, Lightbulb, Calendar, MessageCircle, TrendingUp, CheckCircle, Mail, Linkedin, Twitter, Instagram, ExternalLink, Menu, X, ChevronDown } from 'lucide-vue-next'
 import gsap from 'gsap'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
 import BaseMobileMenu from '~/components/layout/BaseMobileMenu.vue'
@@ -696,18 +696,8 @@ function toggleFaq(index) {
     <!-- Footer -->
     <Footer :show-cta="false" bg-class="bg-gray-900" />
 
-    <!-- Нижняя навигация для мобильных (светлая тема) -->
-    <MobileBottomNav
-      theme="light"
-      :items="[
-        { href: '/', label: 'Главная', iconComponent: Home },
-        { href: '/networking', label: 'Нетворкинг', image: '/reference/networking.webp' },
-        { href: '/business', label: 'Бизнес', image: '/reference/business.webp' },
-        { href: '/yappie', label: 'Веб', text: 'веб' },
-        { href: '/blog', label: 'Блог', text: 'блог' },
-        { href: '#top', label: 'Наверх', iconComponent: ArrowUp, action: 'scrollToTop' }
-      ]"
-    />
+    <!-- Нижняя навигация для мобильных -->
+    <MobileBottomNav theme="light" />
   </div>
 </template>
 

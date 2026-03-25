@@ -302,7 +302,7 @@
     <Footer :show-cta="false" />
 
     <!-- Нижняя навигация для мобильных -->
-    <MobileBottomNav theme="auto" />
+    <MobileBottomNav theme="light" />
   </div>
 </template>
 

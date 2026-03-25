@@ -1,0 +1,43 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": [
+    "nuxt.config.ts",
+    "app.vue",
+    "pages/**/*.vue",
+    "components/landing/index.js"
+  ],
+  "project": [
+    "components/**/*.{vue,ts,js}",
+    "composables/**/*.{ts,js}",
+    "pages/**/*.{vue,ts,js}",
+    "plugins/**/*.{ts,js}",
+    "server/**/*.{ts,js}",
+    "types/**/*.{ts,js}"
+  ],
+  "ignore": [
+    "**/*.d.ts",
+    "**/scripts/**",
+    "**/supabase/**"
+  ],
+  "ignoreDependencies": [
+    "nuxt",
+    "vue",
+    "vue-router"
+  ],
+  "ignoreBinaries": [
+    "nuxt",
+    "npm",
+    "node"
+  ],
+  "rules": {
+    "files": "error",
+    "dependencies": "error",
+    "devDependencies": "error",
+    "unresolved": "error",
+    "exports": "error",
+    "nsExports": "error",
+    "types": "error",
+    "nsTypes": "error",
+    "duplicates": "error"
+  }
+}

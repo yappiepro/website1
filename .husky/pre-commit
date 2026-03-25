@@ -1,1 +1,19 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🧹 Запуск проверки кода перед коммитом..."
+
+# Шаг 1: ESLint с авто-исправлением
+echo "📝 ESLint проверка..."
 npx lint-staged
+
+# Шаг 2: TypeScript проверка типов
+echo "🔒 TypeScript type check..."
+npx nuxi typecheck
+
+if [ $? -ne 0 ]; then
+  echo "❌ Ошибка проверки типов! Коммит отклонён."
+  exit 1
+fi
+
+echo "✅ Все проверки пройдены!"

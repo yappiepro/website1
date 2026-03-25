@@ -1,16 +1,16 @@
 <template>
-  <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8">
-    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 text-center">
+  <div class="w-full">
+    <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">
       Остались вопросы?
     </h3>
-    <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 text-center">
+    <p class="text-sm text-gray-600 mb-8 text-center">
       Заполните форму и я свяжусь с вами в течение 24 часов
     </p>
 
-    <form @submit.prevent="handleSubmit" class="space-y-4">
+    <form @submit.prevent="handleSubmit" class="space-y-5">
       <!-- Имя -->
-      <div>
-        <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+      <div class="space-y-1">
+        <label for="name" class="block text-sm font-medium text-gray-700">
           Имя *
         </label>
         <input
@@ -18,14 +18,14 @@
           v-model="form.name"
           type="text"
           required
-          class="w-full px-4 py-3 text-base rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
+          class="w-full px-4 py-3 text-base rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
           placeholder="Иван Иванов"
         />
       </div>
 
       <!-- Телефон с маской -->
-      <div>
-        <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+      <div class="space-y-1">
+        <label for="phone" class="block text-sm font-medium text-gray-700">
           Телефон *
         </label>
         <input
@@ -34,42 +34,42 @@
           type="tel"
           @input="formatPhone"
           required
-          class="w-full px-4 py-3 text-base rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
+          class="w-full px-4 py-3 text-base rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
           placeholder="+7 (999) 000-00-00"
           maxlength="18"
         />
       </div>
 
       <!-- Email -->
-      <div>
-        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+      <div class="space-y-1">
+        <label for="email" class="block text-sm font-medium text-gray-700">
           Email
         </label>
         <input
           id="email"
           v-model="form.email"
           type="email"
-          class="w-full px-4 py-3 text-base rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
+          class="w-full px-4 py-3 text-base rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
           placeholder="email@example.com"
         />
       </div>
 
       <!-- Telegram -->
-      <div>
-        <label for="telegram" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+      <div class="space-y-1">
+        <label for="telegram" class="block text-sm font-medium text-gray-700">
           Telegram
         </label>
         <input
           id="telegram"
           v-model="form.telegram"
           type="text"
-          class="w-full px-4 py-3 text-base rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
+          class="w-full px-4 py-3 text-base rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
           placeholder="@username"
         />
       </div>
 
       <!-- Чекбоксы согласия -->
-      <div class="space-y-3 pt-2">
+      <div class="space-y-4 pt-6 border-t border-gray-200">
         <div class="flex items-start gap-3">
           <input
             id="consent-policy"
@@ -77,7 +77,7 @@
             type="checkbox"
             class="shrink-0 w-5 h-5 text-purple-600 border-gray-300 rounded focus:ring-purple-600 mt-0.5"
           />
-          <label for="consent-policy" class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+          <label for="consent-policy" class="text-sm text-gray-600 leading-relaxed">
             Я ознакомился(-лась) и принимаю условия
             <a href="/privacy" target="_blank" class="text-purple-600 hover:underline">Политики конфиденциальности</a>
           </label>
@@ -90,7 +90,7 @@
             type="checkbox"
             class="shrink-0 w-5 h-5 text-purple-600 border-gray-300 rounded focus:ring-purple-600 mt-0.5"
           />
-          <label for="consent-processing" class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+          <label for="consent-processing" class="text-sm text-gray-600 leading-relaxed">
             Даю согласие ИП Селифанову А. на обработку моих персональных данных (имя, email, телефон) в целях обратной связи и оказания услуг
           </label>
         </div>
@@ -100,13 +100,13 @@
       <button
         type="submit"
         :disabled="!isFormValid || isSubmitting"
-        class="w-full px-6 py-4 text-base font-semibold text-white bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl mt-2"
+        class="w-full px-6 py-4 text-base font-semibold text-white bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl mt-6"
       >
         {{ isSubmitting ? 'Отправка...' : 'Отправить' }}
       </button>
 
       <!-- Сообщение об успехе/ошибке -->
-      <div v-if="status.message" :class="['mt-4 p-4 rounded-lg text-sm', status.type === 'success' ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200' : 'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200']">
+      <div v-if="status.message" class="mt-4 p-4 rounded-lg text-sm" :class="status.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'">
         {{ status.message }}
       </div>
     </form>

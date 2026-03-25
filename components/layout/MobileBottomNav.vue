@@ -1,8 +1,8 @@
 <template>
-  <div class="md:hidden fixed bottom-[12px] left-[12px] right-[12px] z-50 transition-all duration-300 ease-in-out" :class="menuClasses">
+  <div class="md:hidden fixed bottom-[16px] left-[16px] right-[16px] z-50 transition-all duration-200 ease-out" :class="menuClasses">
     <!-- Контейнер навигации -->
     <nav
-      class="flex items-start justify-around pb-safe rounded-2xl py-0 shadow-lg"
+      class="flex items-start justify-around pb-safe rounded-3xl py-0 shadow-2xl border border-white/20"
       :class="navClasses"
     >
       <a
@@ -20,37 +20,37 @@
         ]"
       >
         <!-- Иконка или изображение или текст -->
-        <div class="relative z-10 w-[60px] h-[60px] overflow-hidden rounded-[6px] flex items-center justify-center">
+        <div class="relative z-10 w-[52px] h-[52px] overflow-hidden rounded-[6px] flex items-center justify-center transition-transform duration-200 active:scale-95">
           <img
             v-if="item.image"
             :src="item.image"
             :alt="item.label"
-            class="w-full h-full object-cover rounded-[6px]"
+            class="w-[36px] h-[36px] object-cover rounded-[4px]"
             loading="lazy"
           />
           <span
             v-else-if="item.text"
-            class="text-sm font-bold"
+            class="text-xs font-bold"
             :class="item.textClass || 'text-gray-700'"
           >{{ item.text }}</span>
           <component
             v-else-if="item.iconComponent"
             :is="item.iconComponent"
-            class="transition-all duration-200"
+            class="transition-all duration-200 transform-gpu"
             :class="[isActive(item.href) ? 'scale-110' : 'scale-100']"
-            style="width: 20px; height: 20px;"
+            style="width: 22px; height: 22px;"
           />
           <Icon
             v-else
             :name="item.icon"
-            class="transition-all duration-200"
+            class="transition-all duration-200 transform-gpu"
             :class="[isActive(item.href) ? 'scale-110' : 'scale-100']"
-            style="width: 20px; height: 20px;"
+            style="width: 22px; height: 22px;"
           />
           <!-- Индикатор активной страницы -->
           <div
             v-if="isActive(item.href)"
-            class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full"
+            class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full transition-colors duration-200"
             :class="indicatorClass"
           ></div>
         </div>
@@ -58,10 +58,7 @@
         <Transition name="fade">
           <div
             v-if="isActive(item.href)"
-            class="absolute inset-0 bg-gray-200 -z-10"
-            :class="[
-              item.href === '/' ? 'rounded-l-xl rounded-r-none' : 'rounded-none'
-            ]"
+            class="absolute inset-0 bg-gray-200/80 -z-10 rounded-3xl"
           ></div>
         </Transition>
       </a>
@@ -121,6 +118,11 @@ function isActive(href) {
 }
 
 function handleClick(item, event) {
+  // Тактильная обратная связь (вибрация)
+  if (navigator.vibrate) {
+    navigator.vibrate(10)
+  }
+  
   if (item.action === 'scrollToTop' || item.href.startsWith('#')) {
     event.preventDefault()
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -146,7 +148,7 @@ const menuClasses = computed(() => {
 })
 
 const activeBgClass = computed(() => {
-  return 'bg-gray-700'
+  return 'bg-primary/20'
 })
 
 const activeTextClass = computed(() => {
@@ -171,7 +173,7 @@ const inactiveTextClass = computed(() => {
 
 const indicatorClass = computed(() => {
   if (props.theme === 'black') {
-    return 'bg-white'
+    return 'bg-gray-300'
   }
   if (props.theme === 'dark') {
     return 'bg-gray-400'
@@ -190,12 +192,12 @@ onUnmounted(() => {
 
 <style scoped>
 .pb-safe {
-  padding-bottom: env(safe-area-inset-bottom, 0);
+  padding-bottom: max(16px, env(safe-area-inset-bottom, 0));
 }
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.3s ease-out;
+  transition: opacity 0.2s ease-out;
 }
 
 .fade-enter-from,

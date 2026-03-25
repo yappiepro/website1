@@ -28,7 +28,7 @@ const knowledgePostRoutes = postsData.map((post) => `/knowledge/post/${post.id}`
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
-  devtools: { enabled: false },
+  devtools: { enabled: true },
   css: ['~/assets/css/tailwind.css'],
 
   // Игнорировать папку scripts при сборке

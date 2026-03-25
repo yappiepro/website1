@@ -38,6 +38,7 @@ export default defineNuxtConfig({
     '@nuxtjs/seo',
     '@nuxt/icon',
     '@nuxtjs/fontaine',
+    '@nuxt/fonts',
     'nuxt-delay-hydration',
     '@vite-pwa/nuxt',
   ],
@@ -83,6 +84,23 @@ export default defineNuxtConfig({
     fallbacks: {
       Manrope: ['Arial', 'sans-serif'],
     },
+  },
+
+  // Nuxt Fonts - оптимизация и хостинг шрифтов
+  fonts: {
+    defaults: {
+      preload: true,
+      display: 'swap',
+      subset: 'cyrillic',
+    },
+    families: [
+      {
+        name: 'Manrope',
+        provider: 'google',
+        weights: [400, 500, 600, 700, 800],
+        styles: ['normal'],
+      },
+    ],
   },
 
   // Delay Hydration - отложенная гидратация

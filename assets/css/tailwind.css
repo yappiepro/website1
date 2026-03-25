@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "./typography.css";
-@import "./fonts.css";
+/* Шрифты подключаются автоматически через @nuxt/fonts */
 
 /* Screen reader only class for SEO */
 .sr-only {

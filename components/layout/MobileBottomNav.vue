@@ -5,7 +5,7 @@
   >
     <!-- Контейнер навигации -->
     <nav
-      class="flex items-center justify-around rounded-3xl py-3 shadow-2xl border backdrop-blur-xl"
+      class="flex items-center justify-around rounded-3xl py-0 shadow-2xl border backdrop-blur-xl"
       :class="navClasses"
     >
       <NuxtLink
@@ -15,7 +15,7 @@
         :aria-label="item.label"
         :title="item.label"
         @click="item.action ? handleSpecialAction(item, $event) : null"
-        class="group relative flex flex-col items-center justify-center flex-1 rounded-2xl py-2 mx-1 my-2"
+        class="group relative flex flex-col items-center justify-center flex-1 rounded-2xl py-2"
         :class="[
           isActive(item.href)
             ? activeTextClass
@@ -105,36 +105,16 @@ const props = defineProps({
       { href: '/blog', label: 'Блог', iconComponent: BookOpen, showLabel: false }
     ]
   },
-  // Тема: 'light' | 'dark' | 'auto' (автоматически от фона страницы)
+  // Тема: 'light' | 'dark'
   theme: {
     type: String,
-    default: 'auto',
-    validator: (value) => ['light', 'dark', 'auto'].includes(value)
+    default: 'light',
+    validator: (value) => ['light', 'dark'].includes(value)
   }
 })
 
 const lastScrollY = ref(0)
 const isVisible = ref(true)
-
-// Определяем текущую тему на основе prop theme или фона страницы
-const currentTheme = computed(() => {
-  if (props.theme !== 'auto') {
-    return props.theme
-  }
-  
-  // Автоматическое определение — проверяем фон body
-  if (typeof window !== 'undefined') {
-    const bodyBg = getComputedStyle(document.body).backgroundColor
-    const rgb = bodyBg.match(/\d+/g)
-    if (rgb) {
-      const [r, g, b] = rgb.map(Number)
-      // Если средний яркость < 128 — тёмная тема
-      const brightness = (r * 299 + g * 587 + b * 114) / 1000
-      return brightness < 128 ? 'dark' : 'light'
-    }
-  }
-  return 'light'
-})
 
 function handleScroll() {
   const currentScrollY = window.scrollY || window.pageYOffset
@@ -173,7 +153,7 @@ watch(route, (newRoute, oldRoute) => {
 
 // Вычисляемые классы в зависимости от темы
 const navClasses = computed(() => {
-  if (currentTheme.value === 'dark') {
+  if (props.theme === 'dark') {
     return 'bg-gray-900/80 border-white/10 text-white'
   }
   return 'bg-white/80 border-white/20 text-gray-900'
@@ -187,21 +167,21 @@ const menuClasses = computed(() => {
 })
 
 const activeBgClass = computed(() => {
-  if (currentTheme.value === 'dark') {
+  if (props.theme === 'dark') {
     return 'bg-white/15'
   }
   return 'bg-gray-900/10'
 })
 
 const activeTextClass = computed(() => {
-  if (currentTheme.value === 'dark') {
+  if (props.theme === 'dark') {
     return 'text-white'
   }
   return 'text-gray-900'
 })
 
 const inactiveTextClass = computed(() => {
-  if (currentTheme.value === 'dark') {
+  if (props.theme === 'dark') {
     return 'text-gray-400 hover:text-gray-200'
   }
   return 'text-gray-500 hover:text-gray-700'

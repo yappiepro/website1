@@ -591,7 +591,7 @@
     <Footer :show-cta="false" bg-class="bg-[#030305]" border-class="border-white/10" />
 
     <!-- Нижняя навигация для мобильных -->
-    <MobileBottomNav theme="auto" />
+    <MobileBottomNav theme="light" />
   </div>
 </template>
 

@@ -722,7 +722,7 @@
     </Transition>
 
     <!-- Нижняя навигация для мобильных -->
-    <MobileBottomNav theme="auto" />
+    <MobileBottomNav theme="dark" />
   </div>
 </template>
 

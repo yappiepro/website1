@@ -1,35 +1,46 @@
-import { useSupabase } from './useSupabase'
-
 /**
- * Отправляет заявку через Supabase Edge Function tg-message
+ * Отправляет заявку напрямую в Edge Function Supabase
  */
 export async function submitContactFormWithNotification(formData) {
-  const supabase = useSupabase()
+  const config = useRuntimeConfig()
+  const supabaseUrl = config.public.supabaseUrl
+  const supabaseAnonKey = config.public.supabaseAnonKey
 
-  if (!supabase) {
-    console.error('[Supabase] Клиент не инициализирован')
-    return { success: false, error: 'Supabase not initialized' }
+  if (!supabaseUrl || !supabaseAnonKey) {
+    console.error('[Supabase] URL или ключ не настроены')
+    return { success: false, error: 'Supabase not configured' }
   }
 
   try {
-    // Вызываем Edge Function tg_massege
-    const { data, error } = await supabase.functions.invoke('tg_massege', {
-      body: {
+    // Вызываем Edge Function напрямую через fetch с заголовком авторизации
+    const response = await fetch(`${supabaseUrl}/functions/v1/tg_massege`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${supabaseAnonKey}`,
+        'apikey': supabaseAnonKey
+      },
+      body: JSON.stringify({
         name: formData.name,
         phone: formData.phone,
         email: formData.email,
         telegram: formData.telegram,
         source: formData.source
-      }
+      })
     })
 
-    if (error) {
-      console.error('[Edge Function] Error:', error)
-      return { success: false, error: error.message }
+    const result = await response.json()
+
+    if (!response.ok) {
+      console.error('[Edge Function] Error:', response.status, result)
+      return { 
+        success: false, 
+        error: result.error || `HTTP ${response.status}: ${response.statusText}` 
+      }
     }
 
-    console.log('[Edge Function] Success:', data)
-    return { success: true, data }
+    console.log('[Edge Function] Success:', result)
+    return { success: true, data: result }
 
   } catch (error) {
     console.error('[Edge Function] Exception:', error)

@@ -1,75 +1,96 @@
 <template>
-  <div class="md:hidden fixed bottom-[16px] left-[16px] right-[16px] z-50 transition-all duration-200 ease-out" :class="menuClasses">
+  <div
+    class="md:hidden fixed bottom-4 left-4 right-4 z-50 transition-all duration-300 ease-out"
+    :class="menuClasses"
+  >
     <!-- Контейнер навигации -->
     <nav
-      class="flex items-start justify-around pb-safe rounded-3xl py-0 shadow-2xl border border-white/20"
+      class="flex items-center justify-around rounded-3xl py-3 shadow-2xl border backdrop-blur-xl"
       :class="navClasses"
     >
       <NuxtLink
-        v-for="item in items"
+        v-for="(item, index) in items"
         :key="item.href"
         :to="item.href"
         :aria-label="item.label"
         :title="item.label"
         @click="item.action ? handleSpecialAction(item, $event) : null"
-        class="relative flex flex-col items-center justify-center flex-1"
+        class="group relative flex flex-col items-center justify-center flex-1 py-2"
         :class="[
           isActive(item.href)
             ? activeTextClass
             : inactiveTextClass
         ]"
       >
-        <!-- Иконка или изображение или текст -->
-        <div class="relative z-10 w-[52px] h-[52px] overflow-hidden rounded-[6px] flex items-center justify-center transition-transform duration-200 active:scale-95">
+        <!-- Фоновый эффект для активного элемента -->
+        <Transition name="fade">
+          <div
+            v-if="isActive(item.href)"
+            class="absolute inset-0 rounded-2xl -z-10"
+            :class="activeBgClass"
+          ></div>
+        </Transition>
+
+        <!-- Иконка -->
+        <div
+          class="relative w-12 h-12 flex items-center justify-center transition-all duration-200"
+          :class="[
+            isActive(item.href) ? 'scale-110' : 'scale-100 group-hover:scale-105',
+            isActive(item.href) ? 'text-primary' : ''
+          ]"
+        >
+          <!-- Изображение (если есть) -->
           <img
             v-if="item.image"
             :src="item.image"
             :alt="item.label"
-            class="w-[36px] h-[36px] object-cover rounded-[4px]"
+            class="w-8 h-8 object-cover rounded-lg"
             loading="lazy"
           />
+
+          <!-- Текст (если есть) -->
           <span
             v-else-if="item.text"
             class="text-xs font-bold"
-            :class="item.textClass || 'text-gray-700'"
-          >{{ item.text }}</span>
+            :class="item.textClass || 'text-current'"
+          >
+            {{ item.text }}
+          </span>
+
+          <!-- Иконка из компонента -->
           <component
             v-else-if="item.iconComponent"
             :is="item.iconComponent"
-            class="transition-all duration-200 transform-gpu"
-            :class="[isActive(item.href) ? 'scale-110' : 'scale-100']"
-            style="width: 22px; height: 22px;"
+            class="w-6 h-6 transition-all duration-200"
+            :class="isActive(item.href) ? 'stroke-2' : 'stroke-[1.5]'"
           />
+
+          <!-- Иконка из Iconify -->
           <Icon
             v-else
             :name="item.icon"
-            class="transition-all duration-200 transform-gpu"
-            :class="[isActive(item.href) ? 'scale-110' : 'scale-100']"
-            style="width: 22px; height: 22px;"
+            class="w-6 h-6 transition-all duration-200"
+            :class="isActive(item.href) ? 'stroke-2' : 'stroke-[1.5]'"
           />
-          <!-- Индикатор активной страницы -->
-          <div
-            v-if="isActive(item.href)"
-            class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full transition-colors duration-200"
-            :class="indicatorClass"
-          ></div>
         </div>
-        <!-- Цветная подложка для активного пункта с анимацией -->
-        <Transition name="fade">
-          <div
-            v-if="isActive(item.href)"
-            class="absolute inset-0 bg-gray-200/80 -z-10 rounded-3xl"
-          ></div>
-        </Transition>
+
+        <!-- Подпись (опционально, для активных) -->
+        <span
+          v-if="item.showLabel"
+          class="text-[10px] font-medium mt-1 transition-opacity duration-200"
+          :class="isActive(item.href) ? 'opacity-100' : 'opacity-0'"
+        >
+          {{ item.label }}
+        </span>
       </NuxtLink>
     </nav>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { ref, onMounted, onUnmounted, computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { Home, ArrowUp } from 'lucide-vue-next'
+import { Home, Users, Briefcase, Globe, BookOpen } from 'lucide-vue-next'
 
 const route = useRoute()
 
@@ -77,12 +98,11 @@ const props = defineProps({
   items: {
     type: Array,
     default: () => [
-      { href: '/', label: 'Главная', iconComponent: Home },
-      { href: '/networking', label: 'Нетворкинг', image: '/reference/networking.webp' },
-      { href: '/business', label: 'Бизнес', image: '/reference/business.webp' },
-      { href: '/yappie', label: 'Веб', text: 'веб' },
-      { href: '/blog', label: 'Блог', text: 'блог' },
-      { href: '#top', label: 'Наверх', iconComponent: ArrowUp, action: 'scrollToTop' }
+      { href: '/', label: 'Главная', iconComponent: Home, showLabel: false },
+      { href: '/networking', label: 'Нетворкинг', iconComponent: Users, showLabel: false },
+      { href: '/business', label: 'Бизнес', iconComponent: Briefcase, showLabel: false },
+      { href: '/yappie', label: 'Веб', iconComponent: Globe, showLabel: false },
+      { href: '/blog', label: 'Блог', iconComponent: BookOpen, showLabel: false }
     ]
   },
   theme: {
@@ -100,10 +120,8 @@ function handleScroll() {
 
   // Скрываем при скролле вниз, показываем при скролле вверх
   if (currentScrollY > lastScrollY.value && currentScrollY > 100) {
-    // Скролл вниз - скрываем
     isVisible.value = false
   } else if (currentScrollY < lastScrollY.value) {
-    // Скролл вверх - показываем
     isVisible.value = true
   }
 
@@ -135,12 +153,12 @@ watch(route, (newRoute, oldRoute) => {
 // Вычисляемые классы в зависимости от темы
 const navClasses = computed(() => {
   if (props.theme === 'black') {
-    return 'bg-black/80 backdrop-blur-xl text-white'
+    return 'bg-black/80 border-white/10 text-white'
   }
   if (props.theme === 'dark') {
-    return 'bg-gray-900/80 backdrop-blur-xl text-white'
+    return 'bg-gray-900/80 border-white/10 text-white'
   }
-  return 'bg-white/80 backdrop-blur-xl text-gray-900'
+  return 'bg-white/80 border-white/20 text-gray-900'
 })
 
 const menuClasses = computed(() => {
@@ -151,7 +169,13 @@ const menuClasses = computed(() => {
 })
 
 const activeBgClass = computed(() => {
-  return 'bg-primary/20'
+  if (props.theme === 'black') {
+    return 'bg-white/10'
+  }
+  if (props.theme === 'dark') {
+    return 'bg-white/10'
+  }
+  return 'bg-gray-900/5'
 })
 
 const activeTextClass = computed(() => {
@@ -174,16 +198,6 @@ const inactiveTextClass = computed(() => {
   return 'text-gray-500 hover:text-gray-700'
 })
 
-const indicatorClass = computed(() => {
-  if (props.theme === 'black') {
-    return 'bg-gray-300'
-  }
-  if (props.theme === 'dark') {
-    return 'bg-gray-400'
-  }
-  return 'bg-gray-600'
-})
-
 onMounted(() => {
   window.addEventListener('scroll', handleScroll, { passive: true })
 })
@@ -194,17 +208,19 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.pb-safe {
-  padding-bottom: max(16px, env(safe-area-inset-bottom, 0));
-}
-
+/* Анимация появления/исчезновения фона */
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease;
 }
 
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+/* Безопасная зона для iPhone с кнопкой Home */
+.pb-safe {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
 }
 </style>

@@ -48,10 +48,8 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt'
   ],
   icon: {
-    provider: 'server',
-    serverBundle: {
-      collections: ['fa-solid', 'fa-brands']
-    }
+    provider: 'iconify',
+    class: ''
   },
 
   vite: {

@@ -4,7 +4,7 @@
 export async function submitContactFormWithNotification(formData) {
   const config = useRuntimeConfig()
   const supabaseUrl = config.public.supabaseUrl
-  const supabaseServiceRoleKey = config.supabaseServiceRoleKey
+  const supabaseServiceRoleKey = config.public.supabaseServiceRoleKey
 
   if (!supabaseUrl || !supabaseServiceRoleKey) {
     console.error('[Supabase] URL или service role key не настроены')

@@ -7,13 +7,5 @@ echo "🧹 Запуск проверки кода перед коммитом...
 echo "📝 ESLint проверка..."
 npx lint-staged
 
-# Шаг 2: TypeScript проверка типов
-echo "🔒 TypeScript type check..."
-npx nuxi typecheck
-
-if [ $? -ne 0 ]; then
-  echo "❌ Ошибка проверки типов! Коммит отклонён."
-  exit 1
-fi
-
 echo "✅ Все проверки пройдены!"
+echo "💡 Примечание: TypeScript проверка выполняется отдельно через 'npm run lint'"

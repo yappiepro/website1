@@ -156,6 +156,7 @@ export default defineNuxtConfig({
         '/',
         '/404',
         '/offline',
+        '/map',
         '/_robots.txt',
         '/blog',
         '/consultation',

@@ -446,42 +446,6 @@
           </div>
         </div>
       </section>
-
-      <!-- CTA секция -->
-      <section
-        class="py-20 md:py-28 px-4 sm:px-6 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white"
-      >
-        <div class="max-w-4xl mx-auto text-center">
-          <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/20 rounded-xl mb-6">
-            <Icon name="fa-solid:fire" class="w-5 h-5 text-yellow-300" />
-            <span class="text-sm font-bold uppercase tracking-wider">Ограниченное предложение</span>
-          </div>
-
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-6">
-            Готовы получить план для вашего блога?
-          </h2>
-
-          <p class="text-xl text-white/90 leading-relaxed mb-8">
-            ⚡ <strong>Количество мест в месяц ограничено</strong> — беру не более 8 клиентов, чтобы
-            уделять каждому максимум внимания.<br />
-            Если хотите стартовать без лишнего стресса — действуйте сейчас.
-          </p>
-
-          <a
-            href="https://t.me/artemselifanov"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group inline-flex items-center gap-3 px-10 py-5 text-lg font-semibold text-blue-600 bg-white hover:bg-gray-100 rounded-2xl transition-all hover:-translate-y-1 shadow-xl"
-          >
-            <Icon name="fa-brands:telegram" class="w-6 h-6" />
-            Разобрать мой случай
-          </a>
-
-          <p class="text-sm text-white/70 mt-6">
-            Напишите «консультация» в Telegram — я задам пару вопросов и мы подберём удобное время
-          </p>
-        </div>
-      </section>
     </main>
 
     <!-- Футер -->

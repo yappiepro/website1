@@ -13,11 +13,11 @@ Deno.serve(async (req: Request) => {
   }
 
   try {
-    const { name, phone, email, telegram, source } = await req.json()
+    const { name, phone, email, telegram, service, source } = await req.json()
 
   // Валидация - имя и телефон обязательны
   if (!name || !phone) {
-    return new Response(JSON.stringify({ error: 'Имя и телефон обязательны' }), { 
+    return new Response(JSON.stringify({ error: 'Имя и телефон обязательны' }), {
       status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' }
     })
   }
@@ -35,6 +35,7 @@ Deno.serve(async (req: Request) => {
       phone: phone || null,
       email: email || null,
       telegram: telegram || null,
+      service: service || null, // Новая услуга
       source: source || 'Неизвестно',
       is_read: false
     }])
@@ -43,7 +44,7 @@ Deno.serve(async (req: Request) => {
 
   if (dbError) {
     console.error('Supabase error:', dbError)
-    return new Response(JSON.stringify({ error: dbError.message }), { 
+    return new Response(JSON.stringify({ error: dbError.message }), {
       status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' }
     })
   }
@@ -53,7 +54,7 @@ Deno.serve(async (req: Request) => {
   const telegramChatId = Deno.env.get('TELEGRAM_CHAT_ID')
 
   if (telegramBotToken && telegramChatId) {
-    const message = `Новая заявка\n\n${source || 'Неизвестно'}\n${name}\n${phone}\n${email || ''}\n${telegram || ''}`
+    const message = `Новая заявка\n\n${source || 'Неизвестно'}\n${name}\n${phone}\n${service ? 'Услуга: ' + service + '\n' : ''}${email || ''}\n${telegram || ''}`
 
     await fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage`, {
       method: 'POST',

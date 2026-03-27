@@ -977,6 +977,7 @@
     <!-- FOOTER + CTA -->
     <Footer
       :social-networks="socialNetworks"
+      :show-cta="false"
       cta-link="https://t.me/artemselifanov"
     />
     </main>

@@ -353,7 +353,6 @@
                 >
                   <img
                     src="/images/artem.webp"
-                    quality="80"
                     alt="Артём Селифанов"
                     class="w-full h-full object-cover"
                   />

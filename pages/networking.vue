@@ -438,10 +438,7 @@ function toggleFaq(index) {
       <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
         <div class="h-14 md:h-16 flex items-center">
           <!-- Левая зона: Логотип -->
-          <div :class="[
-            'transition-all duration-300',
-            isScrolled ? 'hidden' : 'block md:block'
-          ]">
+          <div class="block">
             <a href="/" class="group flex items-center gap-3" aria-label="Главная" title="Главная">
               <img src="/reference/Vector.svg" alt="Нескучный Нетворкинг — логотип сообщества" class="h-10 w-auto" />
             </a>

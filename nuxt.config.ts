@@ -156,7 +156,6 @@ export default defineNuxtConfig({
         '/',
         '/404',
         '/offline',
-        '/map',
         '/_robots.txt',
         '/blog',
         '/consultation',
@@ -239,6 +238,13 @@ export default defineNuxtConfig({
   robots: {
     enabled: true,
     sitemap: ['/sitemap-pages.xml', '/sitemap-blog.xml'],
+    rules: [
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/map', '/admin'],
+      },
+    ],
   },
 
   ogImage: {

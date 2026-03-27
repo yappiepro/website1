@@ -1,11 +1,11 @@
 <template>
   <div class="w-full">
-    <h3 class="text-lg font-bold text-gray-900 mb-3 text-center">Остались вопросы?</h3>
-    <p class="text-xs text-gray-600 mb-6 text-center">
+    <h3 class="text-base font-bold text-gray-900 mb-2 text-center">Остались вопросы?</h3>
+    <p class="text-xs text-gray-600 mb-4 text-center">
       Заполните форму и я свяжусь с вами в течение 24 часов
     </p>
 
-    <form class="space-y-4" @submit.prevent="handleSubmit">
+    <form class="space-y-3" @submit.prevent="handleSubmit">
       <!-- Имя -->
       <div class="space-y-1">
         <label for="name" class="block text-xs font-medium text-gray-700"> Имя * </label>
@@ -14,7 +14,7 @@
           v-model="form.name"
           type="text"
           required
-          class="w-full px-3 py-2.5 text-sm rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
+          class="w-full px-2.5 py-2 text-sm rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
           placeholder="Иван Иванов"
         />
       </div>
@@ -27,7 +27,7 @@
           v-model="form.phone"
           type="tel"
           required
-          class="w-full px-3 py-2.5 text-sm rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
+          class="w-full px-2.5 py-2 text-sm rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
           placeholder="+7 (999) 000-00-00"
           maxlength="18"
           @input="formatPhone"
@@ -41,7 +41,7 @@
           id="email"
           v-model="form.email"
           type="email"
-          class="w-full px-3 py-2.5 text-sm rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
+          class="w-full px-2.5 py-2 text-sm rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
           placeholder="email@example.com"
         />
       </div>
@@ -53,13 +53,13 @@
           id="telegram"
           v-model="form.telegram"
           type="text"
-          class="w-full px-3 py-2.5 text-sm rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
+          class="w-full px-2.5 py-2 text-sm rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
           placeholder="@username"
         />
       </div>
 
       <!-- Чекбоксы согласия -->
-      <div class="space-y-3 pt-4 border-t border-gray-200">
+      <div class="space-y-2 pt-3 border-t border-gray-200">
         <div class="flex items-start gap-2">
           <input
             id="consent-policy"
@@ -93,7 +93,7 @@
       <button
         type="submit"
         :disabled="!isFormValid || isSubmitting"
-        class="w-full px-5 py-3 text-sm font-semibold text-white bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl mt-4"
+        class="w-full px-4 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl mt-3"
       >
         {{ isSubmitting ? 'Отправка...' : 'Отправить' }}
       </button>
@@ -101,7 +101,7 @@
       <!-- Сообщение об успехе/ошибке -->
       <div
         v-if="status.message"
-        class="mt-3 p-3 rounded-lg text-xs"
+        class="mt-2 p-2 rounded-lg text-xs"
         :class="
           status.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
         "

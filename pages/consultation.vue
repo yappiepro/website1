@@ -126,7 +126,7 @@
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
               <div class="text-center">
-                <div class="text-5xl font-black text-gray-900 mb-1">3 500 ₽</div>
+                <div class="text-5xl font-black text-gray-900 mb-1">5 500 ₽</div>
                 <div class="text-sm text-gray-500">за 60 минут</div>
               </div>
             </div>
@@ -439,7 +439,7 @@
 
             <div class="mt-8 pt-8 border-t border-blue-200 text-center">
               <p class="text-lg text-gray-700">
-                <strong class="text-gray-900">3 500 ₽</strong> — это меньше, чем один рекламный
+                <strong class="text-gray-900">5 500 ₽</strong> — это меньше, чем один рекламный
                 пост, но вы получаете план на месяц вперёд и разбор конкретно вашей ситуации.
               </p>
             </div>
@@ -471,7 +471,7 @@ useHead({
     {
       name: 'description',
       content:
-        'Через 60 минут у вас будет конкретный план блога на 14 дней. Позиционирование, разбор профиля, готовые темы постов. 3 500 ₽. Беру не более 8 клиентов в месяц.',
+        'Через 60 минут у вас будет конкретный план блога на 14 дней. Позиционирование, разбор профиля, готовые темы постов. 5 500 ₽. Беру не более 8 клиентов в месяц.',
     },
     {
       name: 'keywords',

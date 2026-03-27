@@ -97,7 +97,7 @@
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-10">
               <div class="text-center">
-                <div class="text-5xl font-black text-gray-900 mb-1">25 000 ₽</div>
+                <div class="text-5xl font-black text-gray-900 mb-1">35 000 ₽</div>
                 <div class="text-sm text-gray-500">за программу</div>
               </div>
               <div class="text-center sm:text-left">
@@ -318,7 +318,7 @@ const isMobileMenuOpen = ref(false)
 useHead({
   title: 'Менторская программа по запуску блога | Артём Селифанов',
   meta: [
-    { name: 'description', content: '5 сессий 1-на-1 по запуску блога за 25 000 ₽. От позиционирования до первых клиентов. Персональная работа + поддержка в чате.' },
+    { name: 'description', content: '5 сессий 1-на-1 по запуску блога за 35 000 ₽. От позиционирования до первых клиентов. Персональная работа + поддержка в чате.' },
     { name: 'keywords', content: 'менторство блог, запуск блога ментор, персональная работа, блог с нуля, клиенты из блога, Telegram канал' },
     { name: 'robots', content: 'index, follow' }
   ],
@@ -329,12 +329,12 @@ useHead({
 
 useSeoMeta({
   ogTitle: 'Менторская программа по запуску блога | Артём Селифанов',
-  ogDescription: '5 сессий 1-на-1 по запуску блога за 25 000 ₽. От позиционирования до первых клиентов.',
+  ogDescription: '5 сессий 1-на-1 по запуску блога за 35 000 ₽. От позиционирования до первых клиентов.',
   ogType: 'website',
   ogUrl: 'https://artemselifanov.ru/mentorship',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Менторская программа по запуску блога | Артём Селифанов',
-  twitterDescription: '5 сессий 1-на-1 по запуску блога за 25 000 ₽. От позиционирования до первых клиентов.'
+  twitterDescription: '5 сессий 1-на-1 по запуску блога за 35 000 ₽. От позиционирования до первых клиентов.'
 })
 
 // Меню

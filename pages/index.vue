@@ -447,7 +447,7 @@
             </div>
 
             <div class="mb-6">
-              <div class="text-4xl font-black text-gray-900">3 500 ₽</div>
+              <div class="text-4xl font-black text-gray-900">5 500 ₽</div>
               <div class="text-sm text-gray-500">за час</div>
             </div>
 
@@ -478,7 +478,7 @@
             </div>
 
             <div class="mb-6">
-              <div class="text-4xl font-black text-white">25 000 ₽</div>
+              <div class="text-4xl font-black text-white">35 000 ₽</div>
               <div class="text-sm text-gray-400">за месяц</div>
             </div>
 
@@ -681,11 +681,6 @@
                     <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-gray-400" />
                   </div>
                 </div>
-              </div>
-
-              <!-- Подпись цикла -->
-              <div class="flex justify-center items-center gap-2 text-gray-500 mt-4 md:mt-10">
-                <Icon name="fa-solid:sync" class="w-4 h-4 md:w-5 md:h-5" />
               </div>
             </div>
           </div>
@@ -1137,7 +1132,7 @@ const faqs = ref([
   },
   {
     question: 'Какие форматы работы вы предлагаете?',
-    answer: `<p class="mb-3">На данный момент доступны три формата:</p><ul class="list-disc list-inside space-y-2 mb-3"><li><strong>Бесплатная диагностика</strong> (30 минут) — экспресс-аудит Telegram-канала, выявление точек роста, рекомендации по улучшению.</li><li><strong>Консультация</strong> (1 час, 3 500 ₽) — глубокий разбор вашего блога, анализ позиционирования, конкретные шаги к улучшению.</li><li><strong>Менторство</strong> (1 месяц, 25 000 ₽) — полное сопровождение: еженедельные созвоны, контент-стратегия, помощь в создании продукта, настройка продаж, ежедневная обратная связь.</li></ul><p>Также оказываю услуги по <strong>веб- и мобильной разработке</strong> — подробнее на странице <a href="/yappie" class="text-violet-600 hover:underline">Веб-разработка</a>.</p>`
+    answer: `<p class="mb-3">На данный момент доступны три формата:</p><ul class="list-disc list-inside space-y-2 mb-3"><li><strong>Бесплатная диагностика</strong> (30 минут) — экспресс-аудит Telegram-канала, выявление точек роста, рекомендации по улучшению.</li><li><strong>Консультация</strong> (1 час, 5 500 ₽) — глубокий разбор вашего блога, анализ позиционирования, конкретные шаги к улучшению.</li><li><strong>Менторство</strong> (1 месяц, 35 000 ₽) — полное сопровождение: еженедельные созвоны, контент-стратегия, помощь в создании продукта, настройка продаж, ежедневная обратная связь.</li></ul><p>Также оказываю услуги по <strong>веб- и мобильной разработке</strong> — подробнее на странице <a href="/yappie" class="text-violet-600 hover:underline">Веб-разработка</a>.</p>`
   },
   {
     question: 'С чего лучше начать, если я только думаю об этом?',

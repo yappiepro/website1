@@ -762,6 +762,53 @@
       </div>
     </section>
 
+    <!-- 7.5. ОТЗЫВЫ -->
+    <section id="testimonials" class="py-16 md:py-24 lg:py-32 px-4 sm:px-6 border-t border-gray-100 bg-gray-50">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16 animate-on-scroll">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-2xl mb-6 animate-on-scroll delay-100">
+            <Icon name="fa-solid:quote-left" class="w-4 h-4 text-blue-600" />
+            <span class="text-xs font-bold text-gray-700 uppercase tracking-wider">Отзывы</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4 animate-on-scroll delay-200">
+            Что говорят клиенты
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto animate-on-scroll delay-300">
+            Реальные истории людей, которые уже внедрили мои рекомендации
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          <div v-for="(testimonial, index) in testimonials" :key="index"
+               :class="[
+                 'card-animate group p-8 bg-white border border-gray-200 rounded-[2rem] hover:border-blue-300 hover:shadow-xl transition-all hover:-translate-y-2',
+                 index === 1 ? 'delay-200' : index === 2 ? 'delay-400' : index === 3 ? 'delay-200' : ''
+               ]">
+            <!-- Иконка кавычек -->
+            <div class="mb-6">
+              <Icon name="fa-solid:quote-left" class="w-8 h-8 text-blue-200" />
+            </div>
+
+            <!-- Текст отзыва -->
+            <p class="text-gray-700 leading-relaxed mb-6 text-sm md:text-base">
+              {{ testimonial.text }}
+            </p>
+
+            <!-- Автор -->
+            <div class="flex items-center gap-4 pt-6 border-t border-gray-100">
+              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                <span class="text-lg font-bold text-blue-700">{{ testimonial.initial }}</span>
+              </div>
+              <div>
+                <div class="font-bold text-gray-900">{{ testimonial.name }}</div>
+                <div class="text-sm text-gray-500">{{ testimonial.role }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 8. ЭТАПЫ РАБОТЫ -->
     <section class="py-16 md:py-24 lg:py-32 px-4 sm:px-6 border-t border-gray-100">
       <div class="max-w-7xl mx-auto">
@@ -1132,6 +1179,7 @@ const mobileMenuItems = [
   { href: '#services', label: 'Услуги' },
   { href: '#ecosystem', label: 'Экосистема' },
   { href: '#cases', label: 'Кейсы' },
+  { href: '#testimonials', label: 'Отзывы' },
   { href: '#faq', label: 'FAQ' },
   { href: '/notifications', label: 'Push (тест)' }
 ]
@@ -1311,6 +1359,33 @@ const cases = [
       '+5 000 новых подписчиков органически за 3 месяца',
       'Охваты постов: 80 000+ просмотров (на примере канала в Сетке)'
     ]
+  }
+]
+
+const testimonials = [
+  {
+    name: 'Милена',
+    role: 'HR',
+    initial: 'М',
+    text: 'Внедрила рекомендации: разделила контент для Сетки и Telegram, вышла на регулярность и добавила больше продаж. С того момента запустила несколько крупных проектов по сопровождению. Спасибо за экспертизу и опыт.'
+  },
+  {
+    name: 'Наталья',
+    role: 'Финансовый менеджер',
+    initial: 'Н',
+    text: 'Создала канал в Сетке, запустила Telegram. Уже вижу живой интерес — люди подписываются, просматривают страницу. Это приятно и подстёгивает продолжать. Всё начиналось с нуля, а сейчас есть реальная аудитория и momentum.'
+  },
+  {
+    name: 'Лина',
+    role: 'Бизнес-аналитик',
+    initial: 'Л',
+    text: 'Иногда приходишь с одним запросом, а уходишь с совершенно противоположным — и именно это становится главным результатом. Я точно поняла, чего не хочу: воздушного контента без почвы. Хочу показывать реальные дела и опираться на свой опыт в бизнес-анализе. Для этого и нужны консультации.'
+  },
+  {
+    name: 'Александр',
+    role: 'Дизайнер',
+    initial: 'А',
+    text: 'Работа помогла выстроить контент, который реально продаёт. Методология адаптируется под конкретного человека и его аудиторию — неважно, запускаетесь ли вы с нуля, проходите ребрендинг или хотите усилить позиции.'
   }
 ]
 

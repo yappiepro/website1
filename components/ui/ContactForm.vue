@@ -1,9 +1,30 @@
 <template>
   <div class="w-full">
-    <h3 class="text-base font-bold text-gray-900 mb-2 text-center">Остались вопросы?</h3>
+    <h3 class="text-base font-bold text-gray-900 mb-2 text-center">Онлайн запись</h3>
     <p class="text-xs text-gray-600 mb-4 text-center">
       Заполните форму и я свяжусь с вами в течение 24 часов
     </p>
+
+    <!-- Выбор услуги (облако тегов) -->
+    <div class="mb-4">
+      <label class="block text-xs font-medium text-gray-700 mb-2">Выберите услугу:</label>
+      <div class="flex flex-wrap gap-2">
+        <button
+          v-for="service in services"
+          :key="service.value"
+          type="button"
+          @click="selectService(service.value)"
+          :class="[
+            'px-3 py-1.5 text-xs rounded-lg border transition-all',
+            form.service === service.value
+              ? 'bg-purple-600 text-white border-purple-600'
+              : 'bg-gray-50 text-gray-700 border-gray-200 hover:border-purple-300 hover:bg-purple-50'
+          ]"
+        >
+          {{ service.label }}
+        </button>
+      </div>
+    </div>
 
     <form class="space-y-3" @submit.prevent="handleSubmit">
       <!-- Имя -->
@@ -126,11 +147,19 @@ const props = defineProps({
 
 const route = useRoute()
 
+// Услуги для выбора (из блока услуг на главной)
+const services = [
+  { label: 'Диагностика', value: 'Диагностика' },
+  { label: 'Консультация', value: 'Консультация' },
+  { label: 'Менторство', value: 'Менторство' }
+]
+
 const form = ref({
   name: '',
   phone: '',
   email: '',
   telegram: '',
+  service: '', // Выбранная услуга
   source: props.defaultSource || '', // Скрытое поле - источник заявки
   consentPolicy: false,
   consentProcessing: false,
@@ -138,6 +167,11 @@ const form = ref({
 
 const isSubmitting = ref(false)
 const status = ref({ message: '', type: '' })
+
+// Функция выбора услуги
+function selectService(serviceValue) {
+  form.value.service = serviceValue
+}
 
 // Валидация формы - имя, телефон и согласие обязательны
 const isFormValid = computed(() => {
@@ -246,6 +280,7 @@ async function handleSubmit() {
       phone: form.value.phone,
       email: form.value.email,
       telegram: form.value.telegram,
+      service: form.value.service, // Добавляем услугу
       source: form.value.source,
     })
 
@@ -258,6 +293,7 @@ async function handleSubmit() {
         phone: '',
         email: '',
         telegram: '',
+        service: '', // Очищаем услугу
         source: form.value.source, // Сохраняем источник
         consentPolicy: false,
         consentProcessing: false,

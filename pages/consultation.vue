@@ -352,7 +352,7 @@
                   class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl"
                 >
                   <img
-                    src="/images/artem.webp"
+                    src="/reference/artem.webp"
                     alt="Артём Селифанов"
                     class="w-full h-full object-cover"
                   />

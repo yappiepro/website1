@@ -123,42 +123,85 @@
       </div>
     </Transition>
 
-    <main class="pt-24 pb-16 px-4 sm:px-6">
-      <div class="max-w-4xl mx-auto w-full overflow-x-hidden">
-        <header class="mb-8">
-          <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-            Блог о личном бренде, веб-разработке и AI для бизнеса
-          </h1>
-          <p class="text-lg text-gray-600">
-            Статьи о разработке сайтов, создании веб-приложений, мобильной разработке и AI для бизнеса
-          </p>
-        </header>
-
-        <!-- Фильтры по кластерам -->
-        <div class="flex flex-wrap gap-2 mb-6 px-2">
+    <main class="pt-24 pb-16 px-4 sm:px-6 lg:pl-[320px] lg:pr-[360px]">
+      <!-- Левая колонка: Навигация по кластерам (только десктоп) -->
+      <aside class="hidden lg:block fixed left-4 top-24 bottom-4 w-[280px] overflow-y-auto bg-white rounded-2xl border border-gray-200 shadow-sm p-4 z-30">
+        <div class="nav-header mb-4 pb-3 border-b border-gray-200">
+          <span class="nav-title text-xs font-bold text-gray-500 uppercase tracking-wider">Разделы блога</span>
+        </div>
+        <nav class="flex flex-col gap-1">
           <button
-            @click="selectedCluster = null"
+            @click="selectCluster(null)"
             :class="[
-              'px-3 py-2 rounded-full text-xs font-medium transition-all duration-200',
+              'w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 flex items-center justify-between',
               selectedCluster === null
-                ? 'bg-gray-900 text-white shadow-md'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                ? 'bg-gray-900 text-white'
+                : 'text-gray-700 hover:bg-gray-100'
             ]"
           >
-            Все статьи
+            <span class="flex items-center gap-2">
+              <Icon name="fa-solid:grid" class="w-4 h-4" />
+              Все статьи
+            </span>
+            <span :class="selectedCluster === null ? 'text-white/70' : 'text-gray-400'">
+              {{ articles.length }}
+            </span>
           </button>
           <button
             v-for="cluster in clusters"
             :key="cluster"
-            @click="selectedCluster = cluster"
+            @click="selectCluster(cluster)"
+            :class="[
+              'w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 flex items-center justify-between',
+              selectedCluster === cluster
+                ? getClusterButtonActiveClass(cluster)
+                : 'text-gray-700 hover:bg-gray-100'
+            ]"
+          >
+            <span>{{ getClusterName(cluster) }}</span>
+            <span :class="selectedCluster === cluster ? 'text-white/70' : 'text-gray-400'">
+              {{ getArticlesByCluster(cluster).length }}
+            </span>
+          </button>
+        </nav>
+      </aside>
+
+      <!-- Центральная колонка: Статьи -->
+      <div class="max-w-3xl mx-auto w-full">
+          <header class="mb-8">
+            <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+              Блог о личном бренде, веб-разработке и AI для бизнеса
+            </h1>
+            <p class="text-lg text-gray-600">
+              Статьи о разработке сайтов, создании веб-приложений, мобильной разработке и AI для бизнеса
+            </p>
+          </header>
+
+          <!-- Мобильные фильтры -->
+          <div class="lg:hidden flex flex-wrap gap-2 mb-6">
+            <button
+            @click="selectCluster(null)"
+            :class="[
+              'px-3 py-2 rounded-full text-xs font-medium transition-all duration-200',
+              selectedCluster === null
+                ? 'bg-gray-900 text-white'
+                : 'bg-gray-100 text-gray-600'
+            ]"
+          >
+            Все ({{ articles.length }})
+          </button>
+          <button
+            v-for="cluster in clusters"
+            :key="cluster"
+            @click="selectCluster(cluster)"
             :class="[
               'px-3 py-2 rounded-full text-xs font-medium transition-all duration-200',
               selectedCluster === cluster
                 ? getClusterButtonActiveClass(cluster)
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                : 'bg-gray-100 text-gray-600'
             ]"
           >
-            <span class="leading-tight">{{ getClusterName(cluster) }} ({{ getArticlesByCluster(cluster).length }})</span>
+            {{ getClusterName(cluster) }} ({{ getArticlesByCluster(cluster).length }})
           </button>
         </div>
 
@@ -201,53 +244,146 @@
           Найдено статей: {{ filteredArticles.length }}
         </p>
 
-        <div class="space-y-8">
-          <article
-            v-for="article in filteredArticles"
-            :key="article.slug"
-            class="group"
+        <div id="articles-section" class="space-y-8">
+          <TransitionGroup
+            enter-active-class="transition duration-300 ease-out"
+            enter-from-class="opacity-0 translate-y-4"
+            enter-to-class="opacity-100 translate-y-0"
+            leave-active-class="transition duration-200 ease-in"
+            leave-from-class="opacity-100 translate-y-0"
+            leave-to-class="opacity-0 -translate-y-4"
           >
-            <NuxtLink :to="`/blog/${article.slug}`" class="block">
-              <div class="border border-gray-200 rounded-2xl p-4 sm:p-5 hover:border-violet-300 hover:shadow-lg transition-all duration-300">
-                <div class="flex items-center gap-3 mb-4">
-                  <span
-                    v-if="article.category"
-                    :class="[
-                      'px-3 py-1 text-xs font-medium rounded-full',
-                      getClusterColorClass(article.cluster)
-                    ]"
-                  >
-                    {{ article.category }}
-                  </span>
-                  <span class="text-xs text-gray-500">
-                    {{ formatDate(article.date) }}
-                  </span>
+            <article
+              v-for="article in filteredArticles"
+              :key="article.slug"
+              class="group"
+            >
+              <NuxtLink :to="`/blog/${article.slug}`" class="block">
+                <div class="border border-gray-200 rounded-2xl p-4 sm:p-5 hover:border-violet-300 hover:shadow-lg transition-all duration-300">
+                  <div class="flex items-center gap-3 mb-4">
+                    <span
+                      v-if="article.category"
+                      :class="[
+                        'px-3 py-1 text-xs font-medium rounded-full',
+                        getClusterColorClass(article.cluster)
+                      ]"
+                    >
+                      {{ article.category }}
+                    </span>
+                    <span class="text-xs text-gray-500">
+                      {{ formatDate(article.date) }}
+                    </span>
+                  </div>
+
+                  <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 group-hover:text-violet-600 transition-colors">
+                    {{ article.title }}
+                  </h2>
+
+                  <p class="text-gray-600 leading-relaxed mb-4">
+                    {{ article.description }}
+                  </p>
+
+                  <div class="flex items-center gap-2 text-violet-600 font-medium text-sm">
+                    <span>Читать статью</span>
+                    <ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
+              </NuxtLink>
+            </article>
+          </TransitionGroup>
+        </div>
 
-                <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 group-hover:text-violet-600 transition-colors">
-                  {{ article.title }}
-                </h2>
-
-                <p class="text-gray-600 leading-relaxed mb-4">
-                  {{ article.description }}
-                </p>
-
-                <div class="flex items-center gap-2 text-violet-600 font-medium text-sm">
-                  <span>Читать статью</span>
-                  <ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </NuxtLink>
-          </article>
+        <!-- Индикатор фильтрации -->
+        <div v-if="isFiltering" class="text-center py-12">
+          <div class="inline-block w-8 h-8 border-4 border-violet-200 border-t-violet-600 rounded-full animate-spin"></div>
         </div>
 
         <!-- Сообщение, если ничего не найдено -->
-        <div v-if="filteredArticles.length === 0" class="text-center py-12">
-          <p class="text-gray-500 text-lg">
-            В этом кластере пока нет статей
+        <div v-else-if="filteredArticles.length === 0" class="text-center py-12">
+          <div class="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
+            <Icon name="fa-solid:search" class="w-8 h-8 text-gray-400" />
+          </div>
+          <p class="text-gray-500 text-lg mb-2">
+            Ничего не найдено
           </p>
+          <p class="text-gray-400 text-sm">
+            Попробуйте изменить параметры поиска или фильтра
+          </p>
+          <button
+            @click="selectedCluster = null; searchQuery = ''"
+            class="mt-4 px-4 py-2 bg-violet-600 text-white rounded-lg hover:bg-violet-700 transition-colors text-sm font-medium"
+          >
+            Сбросить фильтры
+          </button>
         </div>
       </div>
+
+      <!-- Правая колонка: Популярное (только десктоп) -->
+      <aside class="hidden lg:block fixed right-4 top-24 bottom-4 w-[320px] overflow-y-auto bg-white rounded-2xl border border-gray-200 shadow-sm p-4 z-30">
+        <!-- Популярное -->
+        <div class="mb-4 pb-4 border-b border-gray-200">
+          <div class="flex items-center gap-2 mb-3">
+            <Icon name="fa-solid:fire" class="w-4 h-4 text-orange-500" />
+            <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Популярное</span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <NuxtLink
+              v-for="article in popularArticles.slice(0, 3)"
+              :key="article.slug"
+              :to="`/blog/${article.slug}`"
+              class="group p-2 rounded-xl hover:bg-gray-50 transition-all"
+            >
+              <h4 class="text-sm font-medium text-gray-900 group-hover:text-violet-600 transition-colors line-clamp-2">
+                {{ article.title }}
+              </h4>
+            </NuxtLink>
+          </div>
+        </div>
+
+        <!-- Свежее -->
+        <div class="mb-4 pb-4 border-b border-gray-200">
+          <div class="flex items-center gap-2 mb-3">
+            <Icon name="fa-regular:clock" class="w-4 h-4 text-blue-500" />
+            <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Свежее</span>
+          </div>
+          <div class="flex flex-col gap-3">
+            <NuxtLink
+              v-for="article in freshArticles"
+              :key="article.slug"
+              :to="`/blog/${article.slug}`"
+              class="group p-3 rounded-xl hover:bg-gray-50 transition-all"
+            >
+              <h4 class="text-sm font-medium text-gray-900 group-hover:text-violet-600 transition-colors line-clamp-2">
+                {{ article.title }}
+              </h4>
+              <div class="flex items-center gap-2 mt-1">
+                <Icon name="fa-regular:calendar" class="w-3 h-3 text-gray-400" />
+                <span class="text-xs text-gray-500">{{ formatDate(article.date) }}</span>
+              </div>
+            </NuxtLink>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="bg-gradient-to-br from-violet-50 to-blue-50 rounded-2xl border border-violet-200 p-6 text-center">
+          <div class="text-center">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Нужна консультация?</h4>
+            <p class="text-sm text-gray-600 mb-6">Помогу выбрать правильное решение</p>
+            <a
+              href="https://t.me/artemselifanov"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all font-medium shadow-lg shadow-blue-600/30 hover:shadow-xl hover:shadow-blue-600/40 hover:-translate-y-0.5"
+            >
+              <Icon name="fa-brands:telegram" class="w-5 h-5" />
+              Записаться на консультацию
+            </a>
+            <p class="text-xs text-gray-500 mt-4">
+              Бесплатная оценка проекта за 15 минут
+            </p>
+          </div>
+        </div>
+      </aside>
     </main>
 
     <Footer bg-class="bg-gray-900" border-class="border-gray-800" />
@@ -258,28 +394,29 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { ArrowRight, X } from 'lucide-vue-next'
 import { articles, formatDate, getClusters, getClusterName, getClusterColor, getRandomArticles, getArticlesByCluster } from '~/data/blog-meta.js'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
 import Footer from '~/components/layout/Footer.vue'
 
 const route = useRoute()
+const router = useRouter()
 
 // Получаем все уникальные кластеры
 const clusters = getClusters()
 
-// Выбранный кластер из query параметра или hash
-const getClusterFromHash = () => {
-  const hash = route.hash.replace('#', '')
-  if (hash && clusters.includes(hash)) {
-    return hash
+// Выбранный кластер из query параметра
+const getClusterFromQuery = () => {
+  const cluster = route.query.cluster
+  if (cluster && clusters.includes(cluster)) {
+    return cluster
   }
   return null
 }
 
 // Выбранный кластер (null = все статьи)
-const selectedCluster = ref(getClusterFromHash())
+const selectedCluster = ref(getClusterFromQuery())
 
 // Поисковый запрос
 const searchQuery = ref('')
@@ -287,6 +424,9 @@ const searchQuery = ref('')
 // Мобильное меню
 const isMenuOpen = ref(false)
 const scrolled = ref(false)
+
+// Анимация фильтрации
+const isFiltering = ref(false)
 
 // Обработчик скролла
 function handleScroll() {
@@ -301,19 +441,31 @@ onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
 
+// Синхронизация с URL
+watch(selectedCluster, (newCluster) => {
+  if (newCluster) {
+    router.push({ query: { cluster: newCluster } })
+  } else {
+    router.push({ query: {} })
+  }
+})
+
 // Функция для выбора кластера
 function selectCluster(cluster) {
+  isFiltering.value = true
   selectedCluster.value = cluster
-  // Обновляем hash в URL
-  if (cluster) {
-    window.location.hash = cluster
-  } else {
-    window.history.pushState({}, '', window.location.pathname)
-  }
   // Закрываем меню
   isMenuOpen.value = false
-  // Прокрутка к началу страницы
-  window.scrollTo({ top: 0, behavior: 'smooth' })
+  // Прокрутка к статьям (на 120px выше)
+  setTimeout(() => {
+    const articlesSection = document.querySelector('#articles-section')
+    if (articlesSection) {
+      const elementPosition = articlesSection.getBoundingClientRect().top + window.pageYOffset
+      const offsetPosition = elementPosition - 120
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' })
+    }
+    isFiltering.value = false
+  }, 150)
 }
 
 // Случайный порядок статей
@@ -338,6 +490,37 @@ const filteredArticles = computed(() => {
   }
 
   return result
+})
+
+// Популярные статьи (исключаем текущую)
+const popularArticles = computed(() => {
+  const priorityClusters = [
+    'iskusstvennyy-intellekt',
+    'razrabotka-saytov',
+    'lichnyy-brend',
+    'telegram-marketing',
+    'monetizatsiya-ekspertnosti'
+  ]
+  
+  const sorted = [...articles].sort((a, b) => {
+    const aPriority = priorityClusters.indexOf(a.cluster)
+    const bPriority = priorityClusters.indexOf(b.cluster)
+    if (aPriority !== bPriority) return aPriority - bPriority
+    return a.title.length - b.title.length
+  })
+  
+  return sorted.slice(0, 5)
+})
+
+// Свежие статьи
+const freshArticles = computed(() => {
+  const sorted = [...articles].sort((a, b) => {
+    if (!a.date && !b.date) return 0
+    if (!a.date) return 1
+    if (!b.date) return -1
+    return new Date(b.date) - new Date(a.date)
+  })
+  return sorted.slice(0, 4)
 })
 
 // Функция для получения класса цвета кластера

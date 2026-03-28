@@ -63,19 +63,6 @@
       :show-label="false"
     />
 
-    <!-- Хлебные крошки -->
-    <nav class="pt-24 pb-6 px-4 md:px-6" aria-label="Breadcrumb">
-      <div class="max-w-7xl mx-auto">
-        <ol class="flex items-center gap-2 text-xs uppercase tracking-wider text-white/60">
-          <li>
-            <NuxtLink to="/" class="text-white/60 hover:underline font-bold">Главная</NuxtLink>
-          </li>
-          <li class="mx-2 text-white/60">/</li>
-          <li class="font-bold text-white/60">Yappie</li>
-        </ol>
-      </div>
-    </nav>
-
     <!-- Hero секция с улучшенными анимациями -->
     <section class="min-h-screen flex items-center relative pt-24 px-4 sm:px-6 overflow-hidden">
       <!-- Фоновые градиентные пятна только в хедере -->

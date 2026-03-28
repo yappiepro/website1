@@ -265,7 +265,7 @@
 
         <!-- Текстовый блок -->
         <div class="max-w-6xl mx-auto">
-          <div class="p-8 md:p-12 bg-white border border-gray-200 rounded-[2rem] shadow-lg">
+          <div class="py-[24px] px-[12px] md:p-12 bg-white border border-gray-200 rounded-[2rem] shadow-lg">
             <div class="space-y-8 text-gray-600 leading-relaxed">
               <p class="text-lg md:text-xl">
                 Я не распыляюсь на пять площадок одновременно. Я выстроил <span class="font-bold text-gray-900">модульную систему</span>, где каждая сеть играет свою роль.

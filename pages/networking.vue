@@ -432,7 +432,7 @@ function toggleFaq(index) {
     <!-- Навигация -->
     <nav :class="[
       'fixed left-4 right-4 z-40 transition-all duration-300 md:backdrop-blur-xl md:rounded-2xl',
-      isScrolled ? 'bg-transparent md:bg-white/90 md:shadow-lg' : 'bg-white/20',
+      isScrolled ? 'bg-white/90 md:bg-white/90 md:shadow-lg' : 'bg-white/90 md:bg-transparent',
       'md:top-0 top-4'
     ]">
       <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
@@ -490,23 +490,10 @@ function toggleFaq(index) {
       :show-arrows="false"
     />
 
-    <!-- Хлебные крошки -->
-    <nav class="pt-24 pb-6 px-4 md:px-6" aria-label="Breadcrumb">
-      <div class="max-w-[1400px] mx-auto">
-        <ol class="flex items-center gap-2 text-xs uppercase tracking-wider text-black">
-          <li>
-            <NuxtLink to="/" class="text-black hover:underline font-bold">Главная</NuxtLink>
-          </li>
-          <li class="mx-2 text-black">/</li>
-          <li class="font-bold text-black">Нескучный Нетворкинг</li>
-        </ol>
-      </div>
-    </nav>
-
     <!-- Основной контент -->
     <main role="main">
     <!-- Hero секция -->
-    <section id="about" class="pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6 border-b-2 border-black animate-on-scroll">
+    <section id="about" class="pt-[4rem] md:pt-[4rem] pb-12 md:pb-20 px-4 md:px-6 border-b-2 border-black animate-on-scroll">
       <div class="max-w-[1400px] mx-auto">
         <!-- Верхняя панель с мета-информацией -->
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8 md:mb-12 pb-4 border-b-2 border-black">

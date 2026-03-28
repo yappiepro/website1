@@ -1,5 +1,5 @@
 <template>
-  <footer class="py-16 md:py-24 px-4 sm:px-6 border-t border-gray-200" :class="bgClass">
+  <footer class="py-16 md:py-24 px-4 sm:px-6 border-t border-gray-200 relative z-50" :class="bgClass">
     <div class="max-w-7xl mx-auto">
       <!-- CTA секция -->
       <div v-if="showCta" class="text-center mb-16 animate-on-scroll">

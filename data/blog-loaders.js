@@ -66,7 +66,8 @@ export const articleLoaders = {
   'nocode-instrumenty': () => import('./blog/nocode/nocode-instrumenty.js').then(m => m.default),
   'chto-takoe-email-marketing': () => import('./blog/email-marketing/chto-takoe-email-marketing.js').then(m => m.default),
   'kak-sobrat-bazu-podpischikov': () => import('./blog/email-marketing/kak-sobrat-bazu-podpischikov.js').then(m => m.default),
-  'kak-napisat-pismo-dlya-rassylki': () => import('./blog/email-marketing/kak-napisat-pismo-dlya-rassylki.js').then(m => m.default)
+  'kak-napisat-pismo-dlya-rassylki': () => import('./blog/email-marketing/kak-napisat-pismo-dlya-rassylki.js').then(m => m.default),
+  'chto-takoe-ux-ui': () => import('./blog/ux-ui/chto-takoe-ux-ui.js').then(m => m.default)
 }
 
 export async function loadArticleBySlug(slug) {

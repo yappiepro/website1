@@ -63,7 +63,8 @@ export const articleLoaders = {
   'kontent-dlya-socsetey': () => import('./blog/smm/kontent-dlya-socsetey.js').then(m => m.default),
   'chto-takoe-nocode': () => import('./blog/nocode/chto-takoe-nocode.js').then(m => m.default),
   'tilda-dlya-biznesa': () => import('./blog/nocode/tilda-dlya-biznesa.js').then(m => m.default),
-  'nocode-instrumenty': () => import('./blog/nocode/nocode-instrumenty.js').then(m => m.default)
+  'nocode-instrumenty': () => import('./blog/nocode/nocode-instrumenty.js').then(m => m.default),
+  'chto-takoe-email-marketing': () => import('./blog/email-marketing/chto-takoe-email-marketing.js').then(m => m.default)
 }
 
 export async function loadArticleBySlug(slug) {

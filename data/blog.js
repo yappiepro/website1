@@ -61,6 +61,7 @@ import kontentDlyaSocsetey from './blog/smm/kontent-dlya-socsetey.js'
 import chtoTakoeNocode from './blog/nocode/chto-takoe-nocode.js'
 import tildaDlyaBiznesa from './blog/nocode/tilda-dlya-biznesa.js'
 import nocodeInstrumenty from './blog/nocode/nocode-instrumenty.js'
+import chtoTakoeEmailMarketing from './blog/email-marketing/chto-takoe-email-marketing.js'
 
 // Массив всех статей
 export const articles = [
@@ -129,6 +130,7 @@ export const articles = [
   chtoTakoeNocode,
   tildaDlyaBiznesa,
   nocodeInstrumenty,
+  chtoTakoeEmailMarketing,
 ]
 
 // Функция для получения статьи по slug
@@ -179,7 +181,8 @@ export const clusterNames = {
   'seo': 'SEO',
   'monetizatsiya-ekspertnosti': 'Монетизация экспертности',
   'smm': 'SMM',
-  'nocode': 'No-code'
+  'nocode': 'No-code',
+  'email-marketing': 'Email-маркетинг'
 }
 
 // Цвета для кластеров (максимально разные)
@@ -197,7 +200,8 @@ export const clusterColors = {
   'seo': 'green',                     // Зелёный
   'monetizatsiya-ekspertnosti': 'amber', // Янтарный
   'smm': 'pink',                      // Розовый
-  'nocode': 'indigo'                  // Индиго
+  'nocode': 'indigo',                 // Индиго
+  'email-marketing': 'yellow'         // Жёлтый
 }
 
 // Функция для получения названия кластера

@@ -68,6 +68,8 @@ import chtoTakoeUxUi from './blog/ux-ui/chto-takoe-ux-ui.js'
 import uxDizaynDlyaSayta from './blog/ux-ui/ux-dizayn-dlya-sayta.js'
 import prototipSayta from './blog/ux-ui/prototip-sayta.js'
 import chtoTakoeAgileIScrum from './blog/upravlenie-proektami/chto-takoe-agile-i-scrum.js'
+import upravlenieProektami from './blog/upravlenie-proektami/upravlenie-proektami.js'
+import sistemaZadach from './blog/upravlenie-proektami/sistema-zadach.js'
 
 // Массив всех статей
 export const articles = [
@@ -143,6 +145,8 @@ export const articles = [
   uxDizaynDlyaSayta,
   prototipSayta,
   chtoTakoeAgileIScrum,
+  upravlenieProektami,
+  sistemaZadach,
 ]
 
 // Функция для получения статьи по slug

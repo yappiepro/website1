@@ -622,6 +622,24 @@ export const articles = [
     "cluster": "upravlenie-proektami",
     "date": "2026-03-28",
     "image": "/reference/agile-scrum.webp"
+  },
+  {
+    "slug": "upravlenie-proektami",
+    "title": "Управление проектами: методологии, инструменты и как выстроить процессы в команде",
+    "description": "Практическое руководство по управлению проектами: методологии, инструменты (Notion, Jira, Trello, Asana), роли, планирование и типичные ошибки для малого бизнеса и команд в 2026 году.",
+    "category": "Управление проектами",
+    "cluster": "upravlenie-proektami",
+    "date": "2026-03-28",
+    "image": "/reference/project-management.webp"
+  },
+  {
+    "slug": "sistema-zadach",
+    "title": "Система задач для предпринимателя: Notion, Todoist, Things, Obsidian — что выбрать",
+    "description": "Как выстроить систему задач для предпринимателя и эксперта: сравнение Notion, Todoist, Things, Obsidian. Принципы GTD, планирование дня и неделя без хаоса в 2026 году.",
+    "category": "Управление проектами",
+    "cluster": "upravlenie-proektami",
+    "date": "2026-03-28",
+    "image": "/reference/task-system.webp"
   }
 ]
 

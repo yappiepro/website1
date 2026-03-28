@@ -62,6 +62,8 @@ import chtoTakoeNocode from './blog/nocode/chto-takoe-nocode.js'
 import tildaDlyaBiznesa from './blog/nocode/tilda-dlya-biznesa.js'
 import nocodeInstrumenty from './blog/nocode/nocode-instrumenty.js'
 import chtoTakoeEmailMarketing from './blog/email-marketing/chto-takoe-email-marketing.js'
+import kakSobratBazuPodpischikov from './blog/email-marketing/kak-sobrat-bazu-podpischikov.js'
+import kakNapisatPismoDlyaRassylki from './blog/email-marketing/kak-napisat-pismo-dlya-rassylki.js'
 
 // Массив всех статей
 export const articles = [
@@ -131,6 +133,8 @@ export const articles = [
   tildaDlyaBiznesa,
   nocodeInstrumenty,
   chtoTakoeEmailMarketing,
+  kakSobratBazuPodpischikov,
+  kakNapisatPismoDlyaRassylki,
 ]
 
 // Функция для получения статьи по slug

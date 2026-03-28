@@ -64,7 +64,9 @@ export const articleLoaders = {
   'chto-takoe-nocode': () => import('./blog/nocode/chto-takoe-nocode.js').then(m => m.default),
   'tilda-dlya-biznesa': () => import('./blog/nocode/tilda-dlya-biznesa.js').then(m => m.default),
   'nocode-instrumenty': () => import('./blog/nocode/nocode-instrumenty.js').then(m => m.default),
-  'chto-takoe-email-marketing': () => import('./blog/email-marketing/chto-takoe-email-marketing.js').then(m => m.default)
+  'chto-takoe-email-marketing': () => import('./blog/email-marketing/chto-takoe-email-marketing.js').then(m => m.default),
+  'kak-sobrat-bazu-podpischikov': () => import('./blog/email-marketing/kak-sobrat-bazu-podpischikov.js').then(m => m.default),
+  'kak-napisat-pismo-dlya-rassylki': () => import('./blog/email-marketing/kak-napisat-pismo-dlya-rassylki.js').then(m => m.default)
 }
 
 export async function loadArticleBySlug(slug) {

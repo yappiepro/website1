@@ -67,6 +67,7 @@ import kakNapisatPismoDlyaRassylki from './blog/email-marketing/kak-napisat-pism
 import chtoTakoeUxUi from './blog/ux-ui/chto-takoe-ux-ui.js'
 import uxDizaynDlyaSayta from './blog/ux-ui/ux-dizayn-dlya-sayta.js'
 import prototipSayta from './blog/ux-ui/prototip-sayta.js'
+import chtoTakoeAgileIScrum from './blog/upravlenie-proektami/chto-takoe-agile-i-scrum.js'
 
 // Массив всех статей
 export const articles = [
@@ -141,6 +142,7 @@ export const articles = [
   chtoTakoeUxUi,
   uxDizaynDlyaSayta,
   prototipSayta,
+  chtoTakoeAgileIScrum,
 ]
 
 // Функция для получения статьи по slug
@@ -193,7 +195,8 @@ export const clusterNames = {
   'smm': 'SMM',
   'nocode': 'No-code',
   'email-marketing': 'Email-маркетинг',
-  'ux-ui': 'UX/UI'
+  'ux-ui': 'UX/UI',
+  'upravlenie-proektami': 'Управление проектами'
 }
 
 // Цвета для кластеров (максимально разные)
@@ -213,7 +216,8 @@ export const clusterColors = {
   'smm': 'pink',                      // Розовый
   'nocode': 'indigo',                 // Индиго
   'email-marketing': 'yellow',        // Жёлтый
-  'ux-ui': 'rose'                     // Розовый (красно-розовый)
+  'ux-ui': 'rose',                    // Розовый (красно-розовый)
+  'upravlenie-proektami': 'slate'     // Грифельный (серо-синий)
 }
 
 // Функция для получения названия кластера

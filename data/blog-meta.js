@@ -613,6 +613,15 @@ export const articles = [
     "cluster": "ux-ui",
     "date": "2026-03-28",
     "image": "/reference/website-prototype.webp"
+  },
+  {
+    "slug": "chto-takoe-agile-i-scrum",
+    "title": "Что такое Agile и Scrum: методологии управления проектами простыми словами",
+    "description": "Разбираем, что такое Agile и Scrum, как работают гибкие методологии управления проектами, чем отличаются от Waterfall и когда их применять в бизнесе и IT в 2026 году.",
+    "category": "Управление проектами",
+    "cluster": "upravlenie-proektami",
+    "date": "2026-03-28",
+    "image": "/reference/agile-scrum.webp"
   }
 ]
 
@@ -632,7 +641,8 @@ export const clusterNames = {
   "smm": "SMM",
   "nocode": "No-code",
   "email-marketing": "Email-маркетинг",
-  "ux-ui": "UX/UI"
+  "ux-ui": "UX/UI",
+  "upravlenie-proektami": "Управление проектами"
 }
 
 export const clusterColors = {
@@ -651,7 +661,8 @@ export const clusterColors = {
   "smm": "pink",
   "nocode": "indigo",
   "email-marketing": "yellow",
-  "ux-ui": "rose"
+  "ux-ui": "rose",
+  "upravlenie-proektami": "slate"
 }
 
 export function getArticleBySlug(slug) {

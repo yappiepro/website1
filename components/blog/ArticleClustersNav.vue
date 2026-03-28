@@ -85,7 +85,8 @@ const clusterIcons = {
   'smm': 'fa-solid:share-nodes',
   'nocode': 'fa-solid:bolt',
   'email-marketing': 'fa-solid:envelope',
-  'ux-ui': 'fa-solid:pen-ruler'
+  'ux-ui': 'fa-solid:pen-ruler',
+  'upravlenie-proektami': 'fa-solid:clipboard-check'
 }
 
 // Формируем список кластеров с данными
@@ -208,6 +209,7 @@ watch(() => props.currentCluster, (newVal) => {
 .cluster-icon--indigo { background: #eef2ff; color: #4f46e5; }
 .cluster-icon--yellow { background: #fefce8; color: #ca8a04; }
 .cluster-icon--rose { background: #fff1f2; color: #e11d48; }
+.cluster-icon--slate { background: #f8fafc; color: #475569; }
 
 .cluster-info {
   display: flex;

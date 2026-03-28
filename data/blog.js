@@ -55,6 +55,7 @@ import prodvizhenieSaytaVYandex from './blog/seo/prodvizhenie-sayta-v-yandex.js'
 import kakProdatSvoiUslugi from './blog/monetizatsiya-ekspertnosti/kak-prodat-svoi-uslugi.js'
 import kakSozdatOnlaynKurs from './blog/monetizatsiya-ekspertnosti/kak-sozdat-onlayn-kurs.js'
 import konsaltingSNulya from './blog/monetizatsiya-ekspertnosti/konsalting-s-nulya.js'
+import smmDlyaBiznesa from './blog/smm/smm-dlya-biznesa.js'
 
 // Массив всех статей
 export const articles = [
@@ -117,6 +118,7 @@ export const articles = [
   kakProdatSvoiUslugi,
   kakSozdatOnlaynKurs,
   konsaltingSNulya,
+  smmDlyaBiznesa,
 ]
 
 // Функция для получения статьи по slug
@@ -165,7 +167,8 @@ export const clusterNames = {
   'chat-boty': 'Чат-боты',
   'telegram-marketing': 'Telegram-маркетинг',
   'seo': 'SEO',
-  'monetizatsiya-ekspertnosti': 'Монетизация экспертности'
+  'monetizatsiya-ekspertnosti': 'Монетизация экспертности',
+  'smm': 'SMM'
 }
 
 // Цвета для кластеров (максимально разные)
@@ -181,7 +184,8 @@ export const clusterColors = {
   'chat-boty': 'blue',                // Синий
   'telegram-marketing': 'sky',        // Небесный
   'seo': 'green',                     // Зелёный
-  'monetizatsiya-ekspertnosti': 'amber' // Янтарный
+  'monetizatsiya-ekspertnosti': 'amber', // Янтарный
+  'smm': 'pink'                       // Розовый
 }
 
 // Функция для получения названия кластера

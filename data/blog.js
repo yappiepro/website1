@@ -58,6 +58,7 @@ import konsaltingSNulya from './blog/monetizatsiya-ekspertnosti/konsalting-s-nul
 import smmDlyaBiznesa from './blog/smm/smm-dlya-biznesa.js'
 import prodvizhenieVVk from './blog/smm/prodvizhenie-v-vk.js'
 import kontentDlyaSocsetey from './blog/smm/kontent-dlya-socsetey.js'
+import chtoTakoeNocode from './blog/nocode/chto-takoe-nocode.js'
 
 // Массив всех статей
 export const articles = [
@@ -123,6 +124,7 @@ export const articles = [
   smmDlyaBiznesa,
   prodvizhenieVVk,
   kontentDlyaSocsetey,
+  chtoTakoeNocode,
 ]
 
 // Функция для получения статьи по slug
@@ -172,7 +174,8 @@ export const clusterNames = {
   'telegram-marketing': 'Telegram-маркетинг',
   'seo': 'SEO',
   'monetizatsiya-ekspertnosti': 'Монетизация экспертности',
-  'smm': 'SMM'
+  'smm': 'SMM',
+  'nocode': 'No-code'
 }
 
 // Цвета для кластеров (максимально разные)
@@ -189,7 +192,8 @@ export const clusterColors = {
   'telegram-marketing': 'sky',        // Небесный
   'seo': 'green',                     // Зелёный
   'monetizatsiya-ekspertnosti': 'amber', // Янтарный
-  'smm': 'pink'                       // Розовый
+  'smm': 'pink',                      // Розовый
+  'nocode': 'indigo'                  // Индиго
 }
 
 // Функция для получения названия кластера

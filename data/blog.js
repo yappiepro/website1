@@ -59,6 +59,8 @@ import smmDlyaBiznesa from './blog/smm/smm-dlya-biznesa.js'
 import prodvizhenieVVk from './blog/smm/prodvizhenie-v-vk.js'
 import kontentDlyaSocsetey from './blog/smm/kontent-dlya-socsetey.js'
 import chtoTakoeNocode from './blog/nocode/chto-takoe-nocode.js'
+import tildaDlyaBiznesa from './blog/nocode/tilda-dlya-biznesa.js'
+import nocodeInstrumenty from './blog/nocode/nocode-instrumenty.js'
 
 // Массив всех статей
 export const articles = [
@@ -125,6 +127,8 @@ export const articles = [
   prodvizhenieVVk,
   kontentDlyaSocsetey,
   chtoTakoeNocode,
+  tildaDlyaBiznesa,
+  nocodeInstrumenty,
 ]
 
 // Функция для получения статьи по slug

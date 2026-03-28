@@ -586,7 +586,7 @@ export const articles = [
     category: 'SMM',
     cluster: 'smm',
     date: '2026-03-28',
-    image: '/reference/vk-promo.webp',
+    image: null,
   },
   {
     slug: 'kontent-dlya-socsetey',
@@ -596,7 +596,7 @@ export const articles = [
     category: 'SMM',
     cluster: 'smm',
     date: '2026-03-28',
-    image: '/reference/social-content.webp',
+    image: null,
   },
   {
     slug: 'chto-takoe-nocode',
@@ -606,7 +606,7 @@ export const articles = [
     category: 'No-code',
     cluster: 'nocode',
     date: '2026-03-28',
-    image: '/reference/nocode.webp',
+    image: null,
   },
   {
     slug: 'tilda-dlya-biznesa',
@@ -616,7 +616,7 @@ export const articles = [
     category: 'No-code',
     cluster: 'nocode',
     date: '2026-03-28',
-    image: '/reference/tilda-business.webp',
+    image: null,
   },
   {
     slug: 'nocode-instrumenty',
@@ -626,7 +626,7 @@ export const articles = [
     category: 'No-code',
     cluster: 'nocode',
     date: '2026-03-28',
-    image: '/reference/nocode-tools.webp',
+    image: null,
   },
   {
     slug: 'chto-takoe-email-marketing',
@@ -636,7 +636,7 @@ export const articles = [
     category: 'Email-маркетинг',
     cluster: 'email-marketing',
     date: '2026-03-28',
-    image: '/reference/email-marketing.webp',
+    image: null,
   },
   {
     slug: 'kak-sobrat-bazu-podpischikov',
@@ -646,7 +646,7 @@ export const articles = [
     category: 'Email-маркетинг',
     cluster: 'email-marketing',
     date: '2026-03-28',
-    image: '/reference/email-base.webp',
+    image: null,
   },
   {
     slug: 'kak-napisat-pismo-dlya-rassylki',
@@ -656,7 +656,7 @@ export const articles = [
     category: 'Email-маркетинг',
     cluster: 'email-marketing',
     date: '2026-03-28',
-    image: '/reference/email-letter.webp',
+    image: null,
   },
   {
     slug: 'chto-takoe-ux-ui',
@@ -666,7 +666,7 @@ export const articles = [
     category: 'UX/UI',
     cluster: 'ux-ui',
     date: '2026-03-28',
-    image: '/reference/ux-ui.webp',
+    image: null,
   },
   {
     slug: 'ux-dizayn-dlya-sayta',
@@ -676,7 +676,7 @@ export const articles = [
     category: 'UX/UI',
     cluster: 'ux-ui',
     date: '2026-03-28',
-    image: '/reference/ux-design.webp',
+    image: null,
   },
   {
     slug: 'prototip-sayta',
@@ -686,7 +686,7 @@ export const articles = [
     category: 'UX/UI',
     cluster: 'ux-ui',
     date: '2026-03-28',
-    image: '/reference/website-prototype.webp',
+    image: null,
   },
   {
     slug: 'chto-takoe-agile-i-scrum',
@@ -696,7 +696,7 @@ export const articles = [
     category: 'Управление проектами',
     cluster: 'upravlenie-proektami',
     date: '2026-03-28',
-    image: '/reference/agile-scrum.webp',
+    image: null,
   },
   {
     slug: 'upravlenie-proektami',
@@ -706,7 +706,7 @@ export const articles = [
     category: 'Управление проектами',
     cluster: 'upravlenie-proektami',
     date: '2026-03-28',
-    image: '/reference/project-management.webp',
+    image: null,
   },
   {
     slug: 'sistema-zadach',
@@ -716,7 +716,7 @@ export const articles = [
     category: 'Управление проектами',
     cluster: 'upravlenie-proektami',
     date: '2026-03-28',
-    image: '/reference/task-system.webp',
+    image: null,
   },
 ]
 

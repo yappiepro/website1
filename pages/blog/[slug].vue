@@ -1,33 +1,63 @@
 <template>
   <div class="min-h-screen bg-white text-gray-900 overflow-x-hidden touch-pan-y">
     <!-- Хедер -->
-    <header class="fixed left-4 right-4 z-40 transition-all duration-300 rounded-2xl bg-white/20 backdrop-blur-md shadow-sm md:top-0 top-4">
+    <header
+      class="fixed left-4 right-4 z-40 transition-all duration-300 rounded-2xl bg-white/20 backdrop-blur-md shadow-sm md:top-0 top-4"
+    >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <div class="h-14 md:h-16 flex items-center">
           <!-- Левая зона: Логотип -->
-          <NuxtLink to="/blog" class="group text-sm font-semibold tracking-tight text-gray-900 transition-all duration-300 shrink-0">
+          <NuxtLink
+            to="/blog"
+            class="group text-sm font-semibold tracking-tight text-gray-900 transition-all duration-300 shrink-0"
+          >
             Блог
           </NuxtLink>
 
           <!-- Центральная зона: Десктопное меню -->
-          <nav class="hidden md:flex items-center gap-1 flex-1 justify-center transition-all duration-300">
-            <NuxtLink to="/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Главная</NuxtLink>
-            <NuxtLink to="/networking" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Нескучный Нетворкинг</NuxtLink>
-            <NuxtLink to="/business" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Бизнес Сетка</NuxtLink>
-            <NuxtLink to="/yappie" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all">Веб-разработка</NuxtLink>
+          <nav
+            class="hidden md:flex items-center gap-1 flex-1 justify-center transition-all duration-300"
+          >
+            <NuxtLink
+              to="/"
+              class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all"
+              >Главная</NuxtLink
+            >
+            <NuxtLink
+              to="/networking"
+              class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all"
+              >Нескучный Нетворкинг</NuxtLink
+            >
+            <NuxtLink
+              to="/business"
+              class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all"
+              >Бизнес Сетка</NuxtLink
+            >
+            <NuxtLink
+              to="/yappie"
+              class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all"
+              >Веб-разработка</NuxtLink
+            >
           </nav>
 
           <!-- Правая зона: CTA кнопка -->
           <div class="hidden md:block shrink-0">
-            <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-gray-900/90 hover:bg-gray-900 rounded-xl transition-all backdrop-blur-sm">
+            <a
+              href="https://t.me/artemselifanov"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-gray-900/90 hover:bg-gray-900 rounded-xl transition-all backdrop-blur-sm"
+            >
               <span>Связаться</span>
             </a>
           </div>
 
           <!-- Кнопка бургера для мобильных -->
-          <button @click="isMenuOpen = !isMenuOpen"
-                  class="md:hidden p-2 bg-white/80 hover:bg-white rounded-xl transition-all backdrop-blur-sm absolute right-4"
-                  aria-label="Открыть меню">
+          <button
+            class="md:hidden p-2 bg-white/80 hover:bg-white rounded-xl transition-all backdrop-blur-sm absolute right-4"
+            aria-label="Открыть меню"
+            @click="isMenuOpen = !isMenuOpen"
+          >
             <Icon name="fa-solid:bars" class="w-6 h-6 text-gray-700" />
           </button>
         </div>
@@ -42,12 +72,26 @@
       leave-active-class="transition duration-200 ease-in"
       leave-from-class="opacity-100 scale-95"
     >
-      <div v-if="isMenuOpen" class="fixed inset-0 z-[100] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 pt-20 px-6">
+      <div
+        v-if="isMenuOpen"
+        class="fixed inset-0 z-[100] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 pt-20 px-6"
+      >
         <div class="flex justify-between items-center mb-8">
           <span class="text-white/60 text-sm font-medium">Навигация</span>
-          <button @click="isMenuOpen = false" class="group p-3 bg-white hover:bg-gray-100 rounded-2xl transition-all backdrop-blur-sm shadow-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style="width: 24px; height: 24px;" fill="currentColor" class="text-gray-900">
-              <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+          <button
+            class="group p-3 bg-white hover:bg-gray-100 rounded-2xl transition-all backdrop-blur-sm shadow-lg"
+            @click="isMenuOpen = false"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 384 512"
+              style="width: 24px; height: 24px"
+              fill="currentColor"
+              class="text-gray-900"
+            >
+              <path
+                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+              />
             </svg>
           </button>
         </div>
@@ -55,53 +99,114 @@
         <nav class="flex flex-col gap-3 max-w-md mx-auto">
           <!-- Заголовок меню -->
           <div class="mb-2">
-            <span class="text-xs font-semibold text-white/40 uppercase tracking-wider px-2">Разделы блога</span>
+            <span class="text-xs font-semibold text-white/40 uppercase tracking-wider px-2"
+              >Разделы блога</span
+            >
           </div>
-          
+
           <!-- Фильтры блога -->
-          <NuxtLink to="/blog#razrabotka-saytov" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
-            <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/20 group-hover:to-violet-600/20 transition-all"></div>
+          <NuxtLink
+            to="/blog#razrabotka-saytov"
+            class="group relative overflow-hidden p-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20"
+            @click="isMenuOpen = false"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/20 group-hover:to-violet-600/20 transition-all"
+            ></div>
             <div class="relative flex items-center justify-between">
-              <span class="text-base font-medium text-white group-hover:text-violet-400 transition-colors">Разработка сайтов</span>
-              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-white/30 group-hover:text-violet-400 group-hover:translate-x-1 transition-all" />
+              <span
+                class="text-base font-medium text-white group-hover:text-violet-400 transition-colors"
+                >Разработка сайтов</span
+              >
+              <Icon
+                name="fa-solid:arrow-right"
+                class="w-4 h-4 text-white/30 group-hover:text-violet-400 group-hover:translate-x-1 transition-all"
+              />
             </div>
           </NuxtLink>
-          <NuxtLink to="/blog#sozdanie-saytov" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
-            <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/20 group-hover:to-violet-600/20 transition-all"></div>
+          <NuxtLink
+            to="/blog#sozdanie-saytov"
+            class="group relative overflow-hidden p-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20"
+            @click="isMenuOpen = false"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/20 group-hover:to-violet-600/20 transition-all"
+            ></div>
             <div class="relative flex items-center justify-between">
-              <span class="text-base font-medium text-white group-hover:text-violet-400 transition-colors">Создание сайтов</span>
-              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-white/30 group-hover:text-violet-400 group-hover:translate-x-1 transition-all" />
+              <span
+                class="text-base font-medium text-white group-hover:text-violet-400 transition-colors"
+                >Создание сайтов</span
+              >
+              <Icon
+                name="fa-solid:arrow-right"
+                class="w-4 h-4 text-white/30 group-hover:text-violet-400 group-hover:translate-x-1 transition-all"
+              />
             </div>
           </NuxtLink>
-          <NuxtLink to="/blog#mobilnye-prilozheniya" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
-            <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/20 group-hover:to-violet-600/20 transition-all"></div>
+          <NuxtLink
+            to="/blog#mobilnye-prilozheniya"
+            class="group relative overflow-hidden p-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20"
+            @click="isMenuOpen = false"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/20 group-hover:to-violet-600/20 transition-all"
+            ></div>
             <div class="relative flex items-center justify-between">
-              <span class="text-base font-medium text-white group-hover:text-violet-400 transition-colors">Мобильные приложения</span>
-              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-white/30 group-hover:text-violet-400 group-hover:translate-x-1 transition-all" />
+              <span
+                class="text-base font-medium text-white group-hover:text-violet-400 transition-colors"
+                >Мобильные приложения</span
+              >
+              <Icon
+                name="fa-solid:arrow-right"
+                class="w-4 h-4 text-white/30 group-hover:text-violet-400 group-hover:translate-x-1 transition-all"
+              />
             </div>
           </NuxtLink>
-          <NuxtLink to="/blog#veb-razrabotka" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
-            <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/20 group-hover:to-violet-600/20 transition-all"></div>
+          <NuxtLink
+            to="/blog#veb-razrabotka"
+            class="group relative overflow-hidden p-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20"
+            @click="isMenuOpen = false"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/20 group-hover:to-violet-600/20 transition-all"
+            ></div>
             <div class="relative flex items-center justify-between">
-              <span class="text-base font-medium text-white group-hover:text-violet-400 transition-colors">Веб-разработка</span>
-              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-white/30 group-hover:text-violet-400 group-hover:translate-x-1 transition-all" />
+              <span
+                class="text-base font-medium text-white group-hover:text-violet-400 transition-colors"
+                >Веб-разработка</span
+              >
+              <Icon
+                name="fa-solid:arrow-right"
+                class="w-4 h-4 text-white/30 group-hover:text-violet-400 group-hover:translate-x-1 transition-all"
+              />
             </div>
           </NuxtLink>
-          <NuxtLink to="/blog#iskusstvennyy-intellekt" @click="isMenuOpen = false"
-             class="group relative overflow-hidden p-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20">
-            <div class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/20 group-hover:to-violet-600/20 transition-all"></div>
+          <NuxtLink
+            to="/blog#iskusstvennyy-intellekt"
+            class="group relative overflow-hidden p-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-all backdrop-blur-sm border border-white/10 hover:border-white/20"
+            @click="isMenuOpen = false"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/0 to-violet-600/0 group-hover:via-violet-600/20 group-hover:to-violet-600/20 transition-all"
+            ></div>
             <div class="relative flex items-center justify-between">
-              <span class="text-base font-medium text-white group-hover:text-violet-400 transition-colors">Искусственный интеллект</span>
-              <Icon name="fa-solid:arrow-right" class="w-4 h-4 text-white/30 group-hover:text-violet-400 group-hover:translate-x-1 transition-all" />
+              <span
+                class="text-base font-medium text-white group-hover:text-violet-400 transition-colors"
+                >Искусственный интеллект</span
+              >
+              <Icon
+                name="fa-solid:arrow-right"
+                class="w-4 h-4 text-white/30 group-hover:text-violet-400 group-hover:translate-x-1 transition-all"
+              />
             </div>
           </NuxtLink>
 
-          <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer"
-             class="mt-6 group relative overflow-hidden p-5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-2xl transition-all shadow-lg shadow-blue-600/30">
+          <a
+            href="https://t.me/artemselifanov"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-6 group relative overflow-hidden p-5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-2xl transition-all shadow-lg shadow-blue-600/30"
+          >
             <div class="flex items-center justify-center gap-3">
               <Icon name="fa-brands:telegram" class="w-5 h-5 text-white" />
               <span class="text-base font-bold text-white">Связаться в Telegram</span>
@@ -111,8 +216,12 @@
 
         <!-- Декоративные элементы -->
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl"></div>
-          <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl"></div>
+          <div
+            class="absolute -top-40 -right-40 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl"
+          ></div>
+          <div
+            class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl"
+          ></div>
         </div>
       </div>
     </Transition>
@@ -121,10 +230,7 @@
     <div class="relative max-w-[1920px] mx-auto">
       <!-- Оглавление слева (только для десктопа) -->
       <aside class="hidden lg:block fixed left-4 top-24 bottom-4 w-[280px] overflow-y-auto z-30">
-        <ArticleTableOfContents
-          v-if="tableOfContents.length > 0"
-          :items="tableOfContents"
-        />
+        <ArticleTableOfContents v-if="tableOfContents.length > 0" :items="tableOfContents" />
       </aside>
 
       <!-- Центральная колонка: Статья -->
@@ -137,7 +243,10 @@
                 :items="[
                   { label: 'Главная', href: '/' },
                   { label: 'Блог', href: '/blog' },
-                  { label: article?.category || 'Статья', href: article?.cluster ? `/blog?cluster=${article.cluster}` : undefined }
+                  {
+                    label: article?.category || 'Статья',
+                    href: article?.cluster ? `/blog?cluster=${article.cluster}` : undefined,
+                  },
                 ]"
               />
             </div>
@@ -172,7 +281,10 @@
             class="w-full rounded-2xl mb-8 sm:mb-12"
           />
 
-          <div class="prose prose-lg prose-violet max-w-none article-content-body" v-html="processedContent"></div>
+          <div
+            class="prose prose-lg prose-violet max-w-none article-content-body"
+            v-html="processedContent"
+          ></div>
 
           <!-- Блок «Читать также» -->
           <div v-if="relatedArticles.length > 0" class="mt-12 pt-8 border-t border-gray-200">
@@ -187,7 +299,9 @@
                 <span class="text-xs font-medium text-violet-600 mb-2 block">
                   {{ related.category }}
                 </span>
-                <h3 class="text-base font-semibold text-gray-900 group-hover:text-violet-700 line-clamp-2">
+                <h3
+                  class="text-base font-semibold text-gray-900 group-hover:text-violet-700 line-clamp-2"
+                >
                   {{ related.title }}
                 </h3>
                 <p class="text-sm text-gray-500 mt-2 line-clamp-2">
@@ -206,7 +320,9 @@
           <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-4">
             <div class="flex items-center gap-2 mb-4 pb-3 border-b border-gray-200">
               <Icon name="fa-solid:fire" class="w-4 h-4 text-orange-500" />
-              <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Популярное</span>
+              <span class="text-xs font-bold text-gray-500 uppercase tracking-wider"
+                >Популярное</span
+              >
             </div>
             <div class="flex flex-col gap-2">
               <NuxtLink
@@ -215,7 +331,9 @@
                 :to="`/blog/${post.slug}`"
                 class="group p-2 rounded-xl hover:bg-gray-50 transition-all"
               >
-                <h4 class="text-sm font-medium text-gray-900 group-hover:text-violet-600 transition-colors line-clamp-2">
+                <h4
+                  class="text-sm font-medium text-gray-900 group-hover:text-violet-600 transition-colors line-clamp-2"
+                >
                   {{ post.title }}
                 </h4>
               </NuxtLink>
@@ -223,7 +341,9 @@
           </div>
 
           <!-- CTA -->
-          <div class="bg-gradient-to-br from-violet-50 to-blue-50 rounded-2xl border border-violet-200 p-6">
+          <div
+            class="bg-gradient-to-br from-violet-50 to-blue-50 rounded-2xl border border-violet-200 p-6"
+          >
             <div class="text-center">
               <h3 class="text-lg font-bold text-gray-900 mb-2">
                 Нужна помощь в {{ article?.category?.toLowerCase() || 'проекте' }}?
@@ -240,9 +360,7 @@
                 <Icon name="fa-brands:telegram" class="w-5 h-5" />
                 Записаться на консультацию
               </a>
-              <p class="text-xs text-gray-500 mt-4">
-                Бесплатная оценка проекта за 15 минут
-              </p>
+              <p class="text-xs text-gray-500 mt-4">Бесплатная оценка проекта за 15 минут</p>
             </div>
           </div>
         </div>
@@ -254,13 +372,13 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed } from 'vue'
 import { formatDate, getRelatedArticles } from '~/data/blog-meta.js'
 import { loadArticleBySlug } from '~/data/blog-loaders.js'
-import { articles, getClusterName } from '~/data/blog.js'
-import { getQuickAnswer } from '~/data/blog-quick-answers.js'
+import { articles } from '~/data/blog.js'
 import ArticleTableOfContents from '~/components/blog/ArticleTableOfContents.vue'
 import Footer from '~/components/layout/Footer.vue'
+import { useSchemaOrg, defineArticle } from '#imports'
 
 const route = useRoute()
 
@@ -273,7 +391,9 @@ const isMenuOpen = ref(false)
 
 // Парсинг заголовков из HTML-контента для оглавления
 const tableOfContents = computed(() => {
-  if (!article?.content) return []
+  if (!article?.content) {
+    return []
+  }
 
   const content = article.content
 
@@ -283,21 +403,21 @@ const tableOfContents = computed(() => {
   const h2All = [...content.matchAll(/<h2>([^<]+)<\/h2>/g)]
   const h3All = [...content.matchAll(/<h3>([^<]+)<\/h3>/g)]
 
-  h2All.forEach(m => {
+  h2All.forEach((m) => {
     headingPositions.push({
       index: m.index,
       type: 'h2',
       text: m[1].trim(),
-      id: generateId(m[1].trim())
+      id: generateId(m[1].trim()),
     })
   })
 
-  h3All.forEach(m => {
+  h3All.forEach((m) => {
     headingPositions.push({
       index: m.index,
       type: 'h3',
       text: m[1].trim(),
-      id: generateId(m[1].trim())
+      id: generateId(m[1].trim()),
     })
   })
 
@@ -308,20 +428,20 @@ const tableOfContents = computed(() => {
   const result = []
   let currentH2 = null
 
-  headingPositions.forEach(item => {
+  headingPositions.forEach((item) => {
     if (item.type === 'h2') {
       currentH2 = {
         id: item.id,
         text: item.text,
         level: 'h2',
-        children: []
+        children: [],
       }
       result.push(currentH2)
     } else if (item.type === 'h3' && currentH2) {
       currentH2.children.push({
         id: item.id,
         text: item.text,
-        level: 'h3'
+        level: 'h3',
       })
     }
   })
@@ -331,7 +451,9 @@ const tableOfContents = computed(() => {
 
 // Обработанный контент с добавленными ID к заголовкам
 const processedContent = computed(() => {
-  if (!article?.content) return ''
+  if (!article?.content) {
+    return ''
+  }
 
   let content = article.content
 
@@ -362,13 +484,15 @@ const generateId = (text) => {
 
 // Связанные статьи
 const relatedArticles = computed(() => {
-  if (!article) return []
+  if (!article) {
+    return []
+  }
   return getRelatedArticles(article.slug, article.cluster, 3)
 })
 
 // Популярные статьи (3 статьи, исключая текущую)
 const popularArticles = computed(() => {
-  const filtered = articles.filter(a => a.slug !== article?.slug)
+  const filtered = articles.filter((a) => a.slug !== article?.slug)
   const shuffled = [...filtered].sort(() => Math.random() - 0.5)
   return shuffled.slice(0, 3)
 })
@@ -376,7 +500,7 @@ const popularArticles = computed(() => {
 if (!article) {
   throw createError({
     statusCode: 404,
-    statusMessage: 'Статья не найдена'
+    statusMessage: 'Статья не найдена',
   })
 }
 
@@ -395,59 +519,43 @@ useSeoMeta({
   articleSection: article.category || '',
   twitterCard: 'summary_large_image',
   twitterTitle: article.title || '',
-  twitterDescription: article.description || ''
+  twitterDescription: article.description || '',
 })
 
 useHead({
-  link: [
-    { rel: 'canonical', href: `https://artemselifanov.ru/blog/${article.slug}` }
-  ]
+  link: [{ rel: 'canonical', href: `https://artemselifanov.ru/blog/${article.slug}` }],
 })
 
 // Schema.org для статьи
-const quickAnswer = getQuickAnswer(article.slug)
-
-useSchemaOrg([
-  defineArticle({
-    '@type': 'Article',
-    headline: article.title,
-    description: article.description,
-    datePublished: article.date,
-    dateModified: article.date,
-    author: {
-      '@type': 'Person',
-      name: 'Артём Селифанов',
-      url: 'https://artemselifanov.ru'
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'Yappie',
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://artemselifanov.ru/logo.png'
-      }
-    },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `https://artemselifanov.ru/blog/${article.slug}`
-    },
-    articleBody: article.content?.replace(/<[^>]*>/g, '').slice(0, 500) || ''
-  }),
-  // FAQ для быстрых ответов в поиске
-  quickAnswer && defineFAQPage({
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: quickAnswer.question,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: quickAnswer.answer
-        }
-      }
-    ]
-  })
-].filter(Boolean))
+useSchemaOrg(
+  [
+    defineArticle({
+      '@type': 'Article',
+      headline: article.title,
+      description: article.description,
+      datePublished: article.date,
+      dateModified: article.date,
+      author: {
+        '@type': 'Person',
+        name: 'Артём Селифанов',
+        url: 'https://artemselifanov.ru',
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Yappie',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://artemselifanov.ru/logo.png',
+        },
+      },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': `https://artemselifanov.ru/blog/${article.slug}`,
+      },
+      articleBody: article.content?.replace(/<[^>]*>/g, '').slice(0, 500) || '',
+    }),
+  ].filter(Boolean)
+)
 </script>
 
 <style>

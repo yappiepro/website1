@@ -568,6 +568,24 @@ export const articles = [
     "cluster": "email-marketing",
     "date": "2026-03-28",
     "image": "/reference/email-marketing.webp"
+  },
+  {
+    "slug": "kak-sobrat-bazu-podpischikov",
+    "title": "Как собрать базу подписчиков для email-рассылки: методы и инструменты",
+    "description": "Практическое руководство по сбору базы подписчиков для email-маркетинга: лид-магниты, формы подписки, pop-up, источники трафика и как не попасть под антиспам в 2026 году.",
+    "category": "Email-маркетинг",
+    "cluster": "email-marketing",
+    "date": "2026-03-28",
+    "image": "/reference/email-base.webp"
+  },
+  {
+    "slug": "kak-napisat-pismo-dlya-rassylki",
+    "title": "Как написать письмо для рассылки: структура, текст и дизайн",
+    "description": "Практическое руководство по написанию email-рассылок: структура письма, тема и прехедер, текст, CTA, дизайн и типичные ошибки. Шаблоны и примеры для бизнеса в 2026 году.",
+    "category": "Email-маркетинг",
+    "cluster": "email-marketing",
+    "date": "2026-03-28",
+    "image": "/reference/email-letter.webp"
   }
 ]
 

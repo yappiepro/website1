@@ -64,6 +64,7 @@ import nocodeInstrumenty from './blog/nocode/nocode-instrumenty.js'
 import chtoTakoeEmailMarketing from './blog/email-marketing/chto-takoe-email-marketing.js'
 import kakSobratBazuPodpischikov from './blog/email-marketing/kak-sobrat-bazu-podpischikov.js'
 import kakNapisatPismoDlyaRassylki from './blog/email-marketing/kak-napisat-pismo-dlya-rassylki.js'
+import chtoTakoeUxUi from './blog/ux-ui/chto-takoe-ux-ui.js'
 
 // Массив всех статей
 export const articles = [
@@ -135,6 +136,7 @@ export const articles = [
   chtoTakoeEmailMarketing,
   kakSobratBazuPodpischikov,
   kakNapisatPismoDlyaRassylki,
+  chtoTakoeUxUi,
 ]
 
 // Функция для получения статьи по slug
@@ -186,7 +188,8 @@ export const clusterNames = {
   'monetizatsiya-ekspertnosti': 'Монетизация экспертности',
   'smm': 'SMM',
   'nocode': 'No-code',
-  'email-marketing': 'Email-маркетинг'
+  'email-marketing': 'Email-маркетинг',
+  'ux-ui': 'UX/UI'
 }
 
 // Цвета для кластеров (максимально разные)
@@ -205,7 +208,8 @@ export const clusterColors = {
   'monetizatsiya-ekspertnosti': 'amber', // Янтарный
   'smm': 'pink',                      // Розовый
   'nocode': 'indigo',                 // Индиго
-  'email-marketing': 'yellow'         // Жёлтый
+  'email-marketing': 'yellow',        // Жёлтый
+  'ux-ui': 'rose'                     // Розовый (красно-розовый)
 }
 
 // Функция для получения названия кластера

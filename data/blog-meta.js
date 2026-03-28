@@ -586,6 +586,15 @@ export const articles = [
     "cluster": "email-marketing",
     "date": "2026-03-28",
     "image": "/reference/email-letter.webp"
+  },
+  {
+    "slug": "chto-takoe-ux-ui",
+    "title": "Что такое UX и UI дизайн: в чём разница и почему это важно для бизнеса",
+    "description": "Разбираем, что такое UX и UI дизайн, чем они отличаются, как влияют на конверсию и продажи. Примеры, инструменты и зачем это нужно вашему сайту или приложению в 2026 году.",
+    "category": "UX/UI",
+    "cluster": "ux-ui",
+    "date": "2026-03-28",
+    "image": "/reference/ux-ui.webp"
   }
 ]
 
@@ -604,7 +613,8 @@ export const clusterNames = {
   "monetizatsiya-ekspertnosti": "Монетизация экспертности",
   "smm": "SMM",
   "nocode": "No-code",
-  "email-marketing": "Email-маркетинг"
+  "email-marketing": "Email-маркетинг",
+  "ux-ui": "UX/UI"
 }
 
 export const clusterColors = {
@@ -622,7 +632,8 @@ export const clusterColors = {
   "monetizatsiya-ekspertnosti": "amber",
   "smm": "pink",
   "nocode": "indigo",
-  "email-marketing": "yellow"
+  "email-marketing": "yellow",
+  "ux-ui": "rose"
 }
 
 export function getArticleBySlug(slug) {

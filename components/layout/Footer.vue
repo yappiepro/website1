@@ -249,7 +249,6 @@ const isDarkBg = computed(() => {
 // Цвета для текста в зависимости от фона
 const headingColor = computed(() => isDarkBg.value ? 'text-gray-200' : 'text-gray-700')
 const linkColor = computed(() => isDarkBg.value ? 'text-gray-300' : 'text-gray-600')
-const iconColor = computed(() => isDarkBg.value ? 'text-gray-300' : 'text-gray-600')
 const copyrightColor = computed(() => isDarkBg.value ? 'text-gray-300' : 'text-gray-500')
 const docColor = computed(() => isDarkBg.value ? 'text-gray-300' : 'text-gray-500')
 </script>

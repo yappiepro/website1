@@ -120,60 +120,6 @@ onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
 
-// Данные для Bento-сетки
-const bentoItems = [
-  {
-    type: 'identity',
-    title: 'БИЗНЕС СЕТКА',
-    subtitle: 'v2.0',
-    description: 'Сообщество предпринимателей и экспертов'
-  },
-  {
-    type: 'navigation',
-    items: ['УЧАСТИЕ', 'СОБЫТИЯ', 'ПРОЕКТЫ']
-  },
-  {
-    type: 'cta',
-    title: 'ВСТУПИТЬ',
-    href: 'https://t.me/artemselifanov',
-    external: true
-  },
-  {
-    type: 'metric',
-    value: '10k+',
-    label: 'участников',
-    footer: 'ОТЧЁТ 2026',
-    highlighted: true
-  },
-  {
-    type: 'manifesto',
-    title: 'БЫСТРЫЙ РОСТ',
-    subtitle: 'Операционная система для современных бизнес-сообществ',
-    highlighted: true
-  },
-  {
-    type: 'focus',
-    title: 'ФОКУС',
-    subtitle: 'АБСТРАКТНАЯ ЛОГИКА'
-  },
-  {
-    type: 'connect',
-    title: 'КОНТАКТЫ',
-    socials: [
-      { name: 'Telegram', href: 'https://t.me/artemselifanov', icon: 'fa-brands:telegram' },
-      { name: 'WhatsApp', href: 'https://wa.me/79535487323', icon: 'fa-brands:whatsapp' },
-      { name: 'VK', href: 'https://vk.com/karelbusiness', icon: 'fa-brands:vk' }
-    ],
-    email: 'a9535487323@yandex.ru'
-  },
-  {
-    type: 'access',
-    title: 'ПОЛУЧИТЬ РАННИЙ ДОСТУП',
-    progress: 40,
-    footer: '40% мест занято'
-  }
-]
-
 // Направления сообщества
 const directions = [
   {

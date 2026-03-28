@@ -140,9 +140,6 @@ onMounted(() => {
   })
 })
 
-// Акцентный цвет бренда
-const accentColor = '#EA6D3A'
-
 const mobileMenuItems = [
   { label: 'Главная', href: '/' },
   { label: 'О проекте', href: '#about' },
@@ -152,24 +149,6 @@ const mobileMenuItems = [
   { label: 'Блог', href: '/blog' },
   { label: 'Бизнес Сетка', href: '/business' }
 ]
-
-// Анимация для пунктов мобильного меню
-const menuAnimationClass = `
-  @keyframes menuSlideUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .animate-menu-item {
-    opacity: 0;
-    animation: menuSlideUp 0.4s ease-out forwards;
-  }
-`
 
 // Данные для секции услуг
 const services = [

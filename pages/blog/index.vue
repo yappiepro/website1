@@ -246,10 +246,10 @@
 
         <div id="articles-section" class="space-y-8">
           <TransitionGroup
-            enter-active-class="transition duration-300 ease-out"
+            enter-active-class="transition duration-150 ease-out"
             enter-from-class="opacity-0 translate-y-4"
             enter-to-class="opacity-100 translate-y-0"
-            leave-active-class="transition duration-200 ease-in"
+            leave-active-class="transition duration-100 ease-in"
             leave-from-class="opacity-100 translate-y-0"
             leave-to-class="opacity-0 -translate-y-4"
           >
@@ -293,13 +293,8 @@
           </TransitionGroup>
         </div>
 
-        <!-- Индикатор фильтрации -->
-        <div v-if="isFiltering" class="text-center py-12">
-          <div class="inline-block w-8 h-8 border-4 border-violet-200 border-t-violet-600 rounded-full animate-spin"></div>
-        </div>
-
         <!-- Сообщение, если ничего не найдено -->
-        <div v-else-if="filteredArticles.length === 0" class="text-center py-12">
+        <div v-if="filteredArticles.length === 0" class="text-center py-12">
           <div class="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
             <Icon name="fa-solid:search" class="w-8 h-8 text-gray-400" />
           </div>
@@ -396,7 +391,7 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { ArrowRight, X } from 'lucide-vue-next'
-import { articles, formatDate, getClusters, getClusterName, getClusterColor, getRandomArticles, getArticlesByCluster } from '~/data/blog-meta.js'
+import { articles, formatDate, getClusters, getClusterName, getClusterColor, getArticlesByCluster } from '~/data/blog-meta.js'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
 import Footer from '~/components/layout/Footer.vue'
 
@@ -425,9 +420,6 @@ const searchQuery = ref('')
 const isMenuOpen = ref(false)
 const scrolled = ref(false)
 
-// Анимация фильтрации
-const isFiltering = ref(false)
-
 // Обработчик скролла
 function handleScroll() {
   scrolled.value = window.scrollY > 50
@@ -452,24 +444,22 @@ watch(selectedCluster, (newCluster) => {
 
 // Функция для выбора кластера
 function selectCluster(cluster) {
-  isFiltering.value = true
   selectedCluster.value = cluster
   // Закрываем меню
   isMenuOpen.value = false
   // Прокрутка к статьям (на 120px выше)
-  setTimeout(() => {
+  nextTick(() => {
     const articlesSection = document.querySelector('#articles-section')
     if (articlesSection) {
       const elementPosition = articlesSection.getBoundingClientRect().top + window.pageYOffset
       const offsetPosition = elementPosition - 120
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' })
     }
-    isFiltering.value = false
-  }, 150)
+  })
 }
 
-// Случайный порядок статей
-const shuffledArticles = computed(() => getRandomArticles(articles.length))
+// Случайный порядок статей — перемешиваем один раз при загрузке
+const shuffledArticles = ref([...articles].sort(() => Math.random() - 0.5))
 
 // Фильтрованные статьи
 const filteredArticles = computed(() => {

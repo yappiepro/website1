@@ -57,7 +57,13 @@ export const articleLoaders = {
   'prodvizhenie-sayta-v-yandex': () => import('./blog/seo/prodvizhenie-sayta-v-yandex.js').then(m => m.default),
   'kak-prodat-svoi-uslugi': () => import('./blog/monetizatsiya-ekspertnosti/kak-prodat-svoi-uslugi.js').then(m => m.default),
   'kak-sozdat-onlayn-kurs': () => import('./blog/monetizatsiya-ekspertnosti/kak-sozdat-onlayn-kurs.js').then(m => m.default),
-  'konsalting-s-nulya': () => import('./blog/monetizatsiya-ekspertnosti/konsalting-s-nulya.js').then(m => m.default)
+  'konsalting-s-nulya': () => import('./blog/monetizatsiya-ekspertnosti/konsalting-s-nulya.js').then(m => m.default),
+  'smm-dlya-biznesa': () => import('./blog/smm/smm-dlya-biznesa.js').then(m => m.default),
+  'prodvizhenie-v-vk': () => import('./blog/smm/prodvizhenie-v-vk.js').then(m => m.default),
+  'kontent-dlya-socsetey': () => import('./blog/smm/kontent-dlya-socsetey.js').then(m => m.default),
+  'chto-takoe-nocode': () => import('./blog/nocode/chto-takoe-nocode.js').then(m => m.default),
+  'tilda-dlya-biznesa': () => import('./blog/nocode/tilda-dlya-biznesa.js').then(m => m.default),
+  'nocode-instrumenty': () => import('./blog/nocode/nocode-instrumenty.js').then(m => m.default)
 }
 
 export async function loadArticleBySlug(slug) {

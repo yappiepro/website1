@@ -1092,7 +1092,7 @@ const scrolled = ref(false)
 const openFaqIndex = ref(null)
 
 // Функция для переключения FAQ
-function toggleFaq(index: number) {
+function toggleFaq(index) {
   openFaqIndex.value = openFaqIndex.value === index ? null : index
 }
 

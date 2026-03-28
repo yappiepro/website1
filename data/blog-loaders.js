@@ -70,7 +70,9 @@ export const articleLoaders = {
   'chto-takoe-ux-ui': () => import('./blog/ux-ui/chto-takoe-ux-ui.js').then(m => m.default),
   'ux-dizayn-dlya-sayta': () => import('./blog/ux-ui/ux-dizayn-dlya-sayta.js').then(m => m.default),
   'prototip-sayta': () => import('./blog/ux-ui/prototip-sayta.js').then(m => m.default),
-  'chto-takoe-agile-i-scrum': () => import('./blog/upravlenie-proektami/chto-takoe-agile-i-scrum.js').then(m => m.default)
+  'chto-takoe-agile-i-scrum': () => import('./blog/upravlenie-proektami/chto-takoe-agile-i-scrum.js').then(m => m.default),
+  'upravlenie-proektami': () => import('./blog/upravlenie-proektami/upravlenie-proektami.js').then(m => m.default),
+  'sistema-zadach': () => import('./blog/upravlenie-proektami/sistema-zadach.js').then(m => m.default)
 }
 
 export async function loadArticleBySlug(slug) {

@@ -67,7 +67,9 @@ export const articleLoaders = {
   'chto-takoe-email-marketing': () => import('./blog/email-marketing/chto-takoe-email-marketing.js').then(m => m.default),
   'kak-sobrat-bazu-podpischikov': () => import('./blog/email-marketing/kak-sobrat-bazu-podpischikov.js').then(m => m.default),
   'kak-napisat-pismo-dlya-rassylki': () => import('./blog/email-marketing/kak-napisat-pismo-dlya-rassylki.js').then(m => m.default),
-  'chto-takoe-ux-ui': () => import('./blog/ux-ui/chto-takoe-ux-ui.js').then(m => m.default)
+  'chto-takoe-ux-ui': () => import('./blog/ux-ui/chto-takoe-ux-ui.js').then(m => m.default),
+  'ux-dizayn-dlya-sayta': () => import('./blog/ux-ui/ux-dizayn-dlya-sayta.js').then(m => m.default),
+  'prototip-sayta': () => import('./blog/ux-ui/prototip-sayta.js').then(m => m.default)
 }
 
 export async function loadArticleBySlug(slug) {

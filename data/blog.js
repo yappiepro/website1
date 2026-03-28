@@ -65,6 +65,8 @@ import chtoTakoeEmailMarketing from './blog/email-marketing/chto-takoe-email-mar
 import kakSobratBazuPodpischikov from './blog/email-marketing/kak-sobrat-bazu-podpischikov.js'
 import kakNapisatPismoDlyaRassylki from './blog/email-marketing/kak-napisat-pismo-dlya-rassylki.js'
 import chtoTakoeUxUi from './blog/ux-ui/chto-takoe-ux-ui.js'
+import uxDizaynDlyaSayta from './blog/ux-ui/ux-dizayn-dlya-sayta.js'
+import prototipSayta from './blog/ux-ui/prototip-sayta.js'
 
 // Массив всех статей
 export const articles = [
@@ -137,6 +139,8 @@ export const articles = [
   kakSobratBazuPodpischikov,
   kakNapisatPismoDlyaRassylki,
   chtoTakoeUxUi,
+  uxDizaynDlyaSayta,
+  prototipSayta,
 ]
 
 // Функция для получения статьи по slug

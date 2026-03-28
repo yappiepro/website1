@@ -56,6 +56,8 @@ import kakProdatSvoiUslugi from './blog/monetizatsiya-ekspertnosti/kak-prodat-sv
 import kakSozdatOnlaynKurs from './blog/monetizatsiya-ekspertnosti/kak-sozdat-onlayn-kurs.js'
 import konsaltingSNulya from './blog/monetizatsiya-ekspertnosti/konsalting-s-nulya.js'
 import smmDlyaBiznesa from './blog/smm/smm-dlya-biznesa.js'
+import prodvizhenieVVk from './blog/smm/prodvizhenie-v-vk.js'
+import kontentDlyaSocsetey from './blog/smm/kontent-dlya-socsetey.js'
 
 // Массив всех статей
 export const articles = [
@@ -119,6 +121,8 @@ export const articles = [
   kakSozdatOnlaynKurs,
   konsaltingSNulya,
   smmDlyaBiznesa,
+  prodvizhenieVVk,
+  kontentDlyaSocsetey,
 ]
 
 // Функция для получения статьи по slug

@@ -258,6 +258,7 @@ import { ref, computed, onMounted } from 'vue'
 import { formatDate, getRelatedArticles } from '~/data/blog-meta.js'
 import { loadArticleBySlug } from '~/data/blog-loaders.js'
 import { articles, getClusterName } from '~/data/blog.js'
+import { getQuickAnswer } from '~/data/blog-quick-answers.js'
 import ArticleTableOfContents from '~/components/blog/ArticleTableOfContents.vue'
 import Footer from '~/components/layout/Footer.vue'
 
@@ -404,6 +405,8 @@ useHead({
 })
 
 // Schema.org для статьи
+const quickAnswer = getQuickAnswer(article.slug)
+
 useSchemaOrg([
   defineArticle({
     '@type': 'Article',
@@ -429,8 +432,22 @@ useSchemaOrg([
       '@id': `https://artemselifanov.ru/blog/${article.slug}`
     },
     articleBody: article.content?.replace(/<[^>]*>/g, '').slice(0, 500) || ''
+  }),
+  // FAQ для быстрых ответов в поиске
+  quickAnswer && defineFAQPage({
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: quickAnswer.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: quickAnswer.answer
+        }
+      }
+    ]
   })
-])
+].filter(Boolean))
 </script>
 
 <style>

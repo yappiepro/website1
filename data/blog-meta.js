@@ -505,6 +505,60 @@ export const articles = [
     "cluster": "monetizatsiya-ekspertnosti",
     "date": "2026-03-16",
     "image": null
+  },
+  {
+    "slug": "smm-dlya-biznesa",
+    "title": "SMM для бизнеса: что такое и как использовать социальные сети для роста",
+    "description": "Разбираем, что такое SMM, как социальные сети помогают бизнесу привлекать клиентов, какие платформы выбрать и как выстроить стратегию присутствия в соцсетях в 2026 году.",
+    "category": "SMM",
+    "cluster": "smm",
+    "date": "2026-03-28",
+    "image": "/reference/smm.webp"
+  },
+  {
+    "slug": "prodvizhenie-v-vk",
+    "title": "Продвижение во ВКонтакте: как вести страницу бизнеса и привлекать клиентов",
+    "description": "Практическое руководство по продвижению во ВКонтакте: как оформить сообщество, составить контент-план, настроить рекламу и получать заявки из VK в 2026 году.",
+    "category": "SMM",
+    "cluster": "smm",
+    "date": "2026-03-28",
+    "image": "/reference/vk-promo.webp"
+  },
+  {
+    "slug": "kontent-dlya-socsetey",
+    "title": "Контент для социальных сетей: форматы, идеи и как не выгореть",
+    "description": "Практическое руководство по созданию контента для соцсетей: какие форматы работают, как генерировать идеи, составлять контент-план и не выгорать от постоянного создания контента в 2026 году.",
+    "category": "SMM",
+    "cluster": "smm",
+    "date": "2026-03-28",
+    "image": "/reference/social-content.webp"
+  },
+  {
+    "slug": "chto-takoe-nocode",
+    "title": "Что такое no-code и low-code: как создавать продукты без программирования",
+    "description": "Разбираем, что такое no-code и low-code разработка, чем они отличаются, какие задачи решают и когда стоит выбрать их вместо классической разработки. Обзор подходов в 2026 году.",
+    "category": "No-code",
+    "cluster": "nocode",
+    "date": "2026-03-28",
+    "image": "/reference/nocode.webp"
+  },
+  {
+    "slug": "tilda-dlya-biznesa",
+    "title": "Tilda для бизнеса: как создать сайт без программиста и что умеет конструктор",
+    "description": "Полный обзор Tilda для бизнеса: возможности, тарифы, примеры использования, плюсы и минусы. Когда Tilda подходит, а когда лучше заказать разработку — честное сравнение в 2026 году.",
+    "category": "No-code",
+    "cluster": "nocode",
+    "date": "2026-03-28",
+    "image": "/reference/tilda-business.webp"
+  },
+  {
+    "slug": "nocode-instrumenty",
+    "title": "Топ no-code инструментов для бизнеса в 2026 году: полный обзор",
+    "description": "Лучшие no-code инструменты для бизнеса в 2026 году: конструкторы сайтов, автоматизация, базы данных, приложения. Обзор, сравнение и как выбрать нужный инструмент.",
+    "category": "No-code",
+    "cluster": "nocode",
+    "date": "2026-03-28",
+    "image": "/reference/nocode-tools.webp"
   }
 ]
 
@@ -520,22 +574,26 @@ export const clusterNames = {
   "chat-boty": "Чат-боты",
   "telegram-marketing": "Telegram-маркетинг",
   "seo": "SEO",
-  "monetizatsiya-ekspertnosti": "Монетизация экспертности"
+  "monetizatsiya-ekspertnosti": "Монетизация экспертности",
+  "smm": "SMM",
+  "nocode": "No-code"
 }
 
 export const clusterColors = {
   "razrabotka-saytov": "violet",
-  "sozdanie-saytov": "blue",
-  "mobilnye-prilozheniya": "green",
+  "sozdanie-saytov": "cyan",
+  "mobilnye-prilozheniya": "emerald",
   "veb-razrabotka": "orange",
-  "iskusstvennyy-intellekt": "pink",
+  "iskusstvennyy-intellekt": "fuchsia",
   "lichnyy-brend": "purple",
   "kontent-marketing": "red",
   "networking": "teal",
-  "chat-boty": "cyan",
-  "telegram-marketing": "blue",
-  "seo": "indigo",
-  "monetizatsiya-ekspertnosti": "amber"
+  "chat-boty": "blue",
+  "telegram-marketing": "sky",
+  "seo": "green",
+  "monetizatsiya-ekspertnosti": "amber",
+  "smm": "pink",
+  "nocode": "indigo"
 }
 
 export function getArticleBySlug(slug) {

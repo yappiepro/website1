@@ -43,7 +43,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 
-const props = defineProps({
+defineProps({
   items: {
     type: Array,
     required: true
@@ -84,18 +84,45 @@ const setupObserver = () => {
     rootMargin: '-100px 0px -60% 0px',
     threshold: 0
   }
-  
+
   observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         activeId.value = entry.target.id
+        // Автоматическая прокрутка оглавления к активному элементу
+        scrollToActiveItem()
       }
     })
   }, options)
-  
+
   headingElements.value.forEach(({ element }) => {
     observer.observe(element)
   })
+}
+
+// Прокрутка оглавления к активному элементу
+const scrollToActiveItem = () => {
+  setTimeout(() => {
+    const activeItem = document.querySelector('.toc-item--active')
+    const tocContainer = document.querySelector('.article-toc')
+    
+    if (activeItem && tocContainer) {
+      const itemRect = activeItem.getBoundingClientRect()
+      const containerRect = tocContainer.getBoundingClientRect()
+      
+      // Проверяем, виден ли элемент
+      const isVisible = itemRect.top >= containerRect.top && 
+                        itemRect.bottom <= containerRect.bottom
+      
+      if (!isVisible) {
+        // Центрируем активный элемент в контейнере
+        activeItem.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        })
+      }
+    }
+  }, 100)
 }
 
 // Плавный скролл к якорю
@@ -145,12 +172,15 @@ onUnmounted(() => {
   top: 100px;
   left: 20px;
   width: 280px;
+  /* Ограничиваем высоту чтобы не перекрывать футер */
   max-height: calc(100vh - 200px);
   overflow-y: auto;
   padding: 1.5rem 1.25rem;
   font-size: 0.875rem;
   scrollbar-width: thin;
   scrollbar-color: #e5e7eb transparent;
+  /* Оглавление ниже футера */
+  z-index: 40;
 }
 
 .article-toc::-webkit-scrollbar {

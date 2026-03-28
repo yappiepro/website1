@@ -117,82 +117,137 @@
       </div>
     </Transition>
 
-    <article class="pt-24 pb-16 px-4 sm:px-6 lg:pl-[180px] lg:pr-8">
+    <!-- Структура: оглавление слева | статья центр | CTA справа -->
+    <div class="relative max-w-[1920px] mx-auto">
       <!-- Оглавление слева (только для десктопа) -->
-      <ArticleTableOfContents
-        v-if="tableOfContents.length > 0"
-        :items="tableOfContents"
-      />
-
-      <div class="max-w-3xl mx-auto w-full overflow-x-hidden touch-pan-y article-content">
-        <header class="mb-8 sm:mb-12">
-          <!-- Хлебные крошки -->
-          <div class="mb-6">
-            <Breadcrumbs
-              :items="[
-                { label: 'Главная', href: '/' },
-                { label: 'Блог', href: '/blog' },
-                { label: article?.category || 'Статья', href: article?.cluster ? `/blog#${article.cluster}` : undefined }
-              ]"
-            />
-          </div>
-
-          <div class="flex items-center gap-3 mb-4">
-            <span
-              v-if="article?.category"
-              class="px-3 py-1 text-xs font-medium bg-violet-100 text-violet-700 rounded-full"
-            >
-              {{ article.category }}
-            </span>
-            <span class="text-sm text-gray-500">
-              {{ formatDate(article?.date) }}
-            </span>
-          </div>
-
-          <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
-            {{ article?.title }}
-          </h1>
-
-          <p class="text-lg sm:text-xl text-gray-600 leading-relaxed">
-            {{ article?.description }}
-          </p>
-        </header>
-
-        <img
-          v-if="article?.image"
-          :src="article.image"
-          format="webp"
-          quality="70"
-          :alt="article.title"
-          class="w-full rounded-2xl mb-8 sm:mb-12"
+      <aside class="hidden lg:block fixed left-4 top-24 bottom-4 w-[280px] overflow-y-auto z-30">
+        <ArticleTableOfContents
+          v-if="tableOfContents.length > 0"
+          :items="tableOfContents"
         />
+      </aside>
 
-        <div class="prose prose-lg prose-violet max-w-none article-content-body" v-html="processedContent"></div>
+      <!-- Центральная колонка: Статья -->
+      <article class="pt-24 pb-16 px-4 sm:px-6 lg:ml-[300px] lg:mr-[340px]">
+        <div class="max-w-3xl mx-auto w-full overflow-x-hidden touch-pan-y article-content">
+          <header class="mb-8 sm:mb-12">
+            <!-- Хлебные крошки -->
+            <div class="mb-6">
+              <Breadcrumbs
+                :items="[
+                  { label: 'Главная', href: '/' },
+                  { label: 'Блог', href: '/blog' },
+                  { label: article?.category || 'Статья', href: article?.cluster ? `/blog?cluster=${article.cluster}` : undefined }
+                ]"
+              />
+            </div>
 
-        <!-- Блок «Читать также» -->
-        <div v-if="relatedArticles.length > 0" class="mt-12 pt-8 border-t border-gray-200">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6">Читать также</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <NuxtLink
-              v-for="related in relatedArticles"
-              :key="related.slug"
-              :to="`/blog/${related.slug}`"
-              class="group p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-all border border-gray-200 hover:border-violet-300"
-            >
-              <span class="text-xs font-medium text-violet-600 mb-2 block">
-                {{ related.category }}
+            <div class="flex items-center gap-3 mb-4">
+              <span
+                v-if="article?.category"
+                class="px-3 py-1 text-xs font-medium bg-violet-100 text-violet-700 rounded-full"
+              >
+                {{ article.category }}
               </span>
-              <h3 class="text-base font-semibold text-gray-900 group-hover:text-violet-700 line-clamp-2">
-                {{ related.title }}
-              </h3>
-              <p class="text-sm text-gray-500 mt-2 line-clamp-2">
-                {{ related.description }}
-              </p>
-            </NuxtLink>
+              <span class="text-sm text-gray-500">
+                {{ formatDate(article?.date) }}
+              </span>
+            </div>
+
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+              {{ article?.title }}
+            </h1>
+
+            <p class="text-lg sm:text-xl text-gray-600 leading-relaxed">
+              {{ article?.description }}
+            </p>
+          </header>
+
+          <img
+            v-if="article?.image"
+            :src="article.image"
+            format="webp"
+            quality="70"
+            :alt="article.title"
+            class="w-full rounded-2xl mb-8 sm:mb-12"
+          />
+
+          <div class="prose prose-lg prose-violet max-w-none article-content-body" v-html="processedContent"></div>
+
+          <!-- Блок «Читать также» -->
+          <div v-if="relatedArticles.length > 0" class="mt-12 pt-8 border-t border-gray-200">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Читать также</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <NuxtLink
+                v-for="related in relatedArticles"
+                :key="related.slug"
+                :to="`/blog/${related.slug}`"
+                class="group p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-all border border-gray-200 hover:border-violet-300"
+              >
+                <span class="text-xs font-medium text-violet-600 mb-2 block">
+                  {{ related.category }}
+                </span>
+                <h3 class="text-base font-semibold text-gray-900 group-hover:text-violet-700 line-clamp-2">
+                  {{ related.title }}
+                </h3>
+                <p class="text-sm text-gray-500 mt-2 line-clamp-2">
+                  {{ related.description }}
+                </p>
+              </NuxtLink>
+            </div>
           </div>
         </div>
-      </div>
-    </article>
+      </article>
+
+      <!-- Правая колонка: CTA + статьи (только десктоп) -->
+      <aside class="hidden lg:block fixed right-4 top-24 bottom-4 w-[320px] overflow-y-auto z-30">
+        <div class="sticky top-0 space-y-4">
+          <!-- Популярные статьи -->
+          <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-4">
+            <div class="flex items-center gap-2 mb-4 pb-3 border-b border-gray-200">
+              <Icon name="fa-solid:fire" class="w-4 h-4 text-orange-500" />
+              <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Популярное</span>
+            </div>
+            <div class="flex flex-col gap-2">
+              <NuxtLink
+                v-for="post in popularArticles"
+                :key="post.slug"
+                :to="`/blog/${post.slug}`"
+                class="group p-2 rounded-xl hover:bg-gray-50 transition-all"
+              >
+                <h4 class="text-sm font-medium text-gray-900 group-hover:text-violet-600 transition-colors line-clamp-2">
+                  {{ post.title }}
+                </h4>
+              </NuxtLink>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="bg-gradient-to-br from-violet-50 to-blue-50 rounded-2xl border border-violet-200 p-6">
+            <div class="text-center">
+              <h3 class="text-lg font-bold text-gray-900 mb-2">
+                Нужна помощь в {{ article?.category?.toLowerCase() || 'проекте' }}?
+              </h3>
+              <p class="text-sm text-gray-600 mb-6 leading-relaxed">
+                Запишитесь на консультацию — разберём вашу ситуацию и наметим план действий
+              </p>
+              <a
+                href="https://t.me/artemselifanov"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all font-medium shadow-lg shadow-blue-600/30 hover:shadow-xl hover:shadow-blue-600/40 hover:-translate-y-0.5"
+              >
+                <Icon name="fa-brands:telegram" class="w-5 h-5" />
+                Записаться на консультацию
+              </a>
+              <p class="text-xs text-gray-500 mt-4">
+                Бесплатная оценка проекта за 15 минут
+              </p>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
 
     <Footer bg-class="bg-gray-900" border-class="border-gray-800" />
   </div>
@@ -202,6 +257,7 @@
 import { ref, computed, onMounted } from 'vue'
 import { formatDate, getRelatedArticles } from '~/data/blog-meta.js'
 import { loadArticleBySlug } from '~/data/blog-loaders.js'
+import { articles, getClusterName } from '~/data/blog.js'
 import ArticleTableOfContents from '~/components/blog/ArticleTableOfContents.vue'
 import Footer from '~/components/layout/Footer.vue'
 
@@ -217,112 +273,79 @@ const isMenuOpen = ref(false)
 // Парсинг заголовков из HTML-контента для оглавления
 const tableOfContents = computed(() => {
   if (!article?.content) return []
-  
+
   const content = article.content
-  const headings = []
-  
-  // Регулярка для поиска h2 и h3
-  const h2Regex = /<h2>([^<]+)<\/h2>/g
-  const h3Regex = /<h3>([^<]+)<\/h3>/g
-  
-  let match
-  
-  // Собираем h2
-  while ((match = h2Regex.exec(content)) !== null) {
-    const text = match[1].trim()
-    const id = generateId(text)
-    headings.push({
-      id,
-      text,
-      level: 'h2',
-      children: []
+
+  // Находим позицию каждого h2 и h3 в контенте
+  const headingPositions = []
+
+  const h2All = [...content.matchAll(/<h2>([^<]+)<\/h2>/g)]
+  const h3All = [...content.matchAll(/<h3>([^<]+)<\/h3>/g)]
+
+  h2All.forEach(m => {
+    headingPositions.push({
+      index: m.index,
+      type: 'h2',
+      text: m[1].trim(),
+      id: generateId(m[1].trim())
     })
-  }
-  
-  // Собираем h3 и привязываем к последнему h2
-  const h3Headings = []
-  while ((match = h3Regex.exec(content)) !== null) {
-    const text = match[1].trim()
-    const id = generateId(text)
-    h3Headings.push({ id, text, level: 'h3' })
-  }
-  
-  // Распределяем h3 по h2 (упрощённо - все h3 идут после h2)
-  // Для более точного распределения нужно парсить порядок
-  if (headings.length > 0 && h3Headings.length > 0) {
-    // Находим позицию каждого h2 и h3 в контенте
-    const headingPositions = []
-    
-    const h2All = [...content.matchAll(/<h2>([^<]+)<\/h2>/g)]
-    const h3All = [...content.matchAll(/<h3>([^<]+)<\/h3>/g)]
-    
-    h2All.forEach(m => {
-      headingPositions.push({
-        index: m.index,
-        type: 'h2',
-        text: m[1].trim(),
-        id: generateId(m[1].trim())
-      })
+  })
+
+  h3All.forEach(m => {
+    headingPositions.push({
+      index: m.index,
+      type: 'h3',
+      text: m[1].trim(),
+      id: generateId(m[1].trim())
     })
-    
-    h3All.forEach(m => {
-      headingPositions.push({
-        index: m.index,
-        type: 'h3',
-        text: m[1].trim(),
-        id: generateId(m[1].trim())
-      })
-    })
-    
-    // Сортируем по позиции
-    headingPositions.sort((a, b) => a.index - b.index)
-    
-    // Строим иерархию
-    const result = []
-    let currentH2 = null
-    
-    headingPositions.forEach(item => {
-      if (item.type === 'h2') {
-        currentH2 = {
-          id: item.id,
-          text: item.text,
-          level: 'h2',
-          children: []
-        }
-        result.push(currentH2)
-      } else if (item.type === 'h3' && currentH2) {
-        currentH2.children.push({
-          id: item.id,
-          text: item.text,
-          level: 'h3'
-        })
+  })
+
+  // Сортируем по позиции
+  headingPositions.sort((a, b) => a.index - b.index)
+
+  // Строим иерархию
+  const result = []
+  let currentH2 = null
+
+  headingPositions.forEach(item => {
+    if (item.type === 'h2') {
+      currentH2 = {
+        id: item.id,
+        text: item.text,
+        level: 'h2',
+        children: []
       }
-    })
-    
-    return result
-  }
-  
-  return headings
+      result.push(currentH2)
+    } else if (item.type === 'h3' && currentH2) {
+      currentH2.children.push({
+        id: item.id,
+        text: item.text,
+        level: 'h3'
+      })
+    }
+  })
+
+  return result
 })
 
 // Обработанный контент с добавленными ID к заголовкам
 const processedContent = computed(() => {
   if (!article?.content) return ''
-  
+
   let content = article.content
-  
+
   // Добавляем ID к h2
   content = content.replace(/<h2>([^<]+)<\/h2>/g, (match, text) => {
     const id = generateId(text.trim())
     return `<h2 id="${id}">${text}</h2>`
   })
-  
+
   // Добавляем ID к h3
   content = content.replace(/<h3>([^<]+)<\/h3>/g, (match, text) => {
     const id = generateId(text.trim())
     return `<h3 id="${id}">${text}</h3>`
   })
-  
+
   return content
 })
 
@@ -340,6 +363,13 @@ const generateId = (text) => {
 const relatedArticles = computed(() => {
   if (!article) return []
   return getRelatedArticles(article.slug, article.cluster, 3)
+})
+
+// Популярные статьи (3 статьи, исключая текущую)
+const popularArticles = computed(() => {
+  const filtered = articles.filter(a => a.slug !== article?.slug)
+  const shuffled = [...filtered].sort(() => Math.random() - 0.5)
+  return shuffled.slice(0, 3)
 })
 
 if (!article) {
@@ -687,5 +717,12 @@ div.prose div.table-wrapper,
 .prose .article-nav a:hover {
   color: #6d28d9;
   text-decoration: underline;
+}
+
+/* Якоря кластеров для навигации */
+.article-cluster-anchor {
+  position: absolute;
+  top: -100px;
+  left: 0;
 }
 </style>

@@ -361,19 +361,6 @@ function toggleFaq(index) {
       accent-color="purple"
     />
 
-    <!-- Хлебные крошки -->
-    <nav class="pt-24 pb-6 px-4 md:px-6" aria-label="Breadcrumb">
-      <div class="max-w-[1600px] mx-auto">
-        <ol class="flex items-center gap-2 text-xs uppercase tracking-wider text-black">
-          <li>
-            <NuxtLink to="/" class="text-black hover:underline font-bold">Главная</NuxtLink>
-          </li>
-          <li class="mx-2 text-black">/</li>
-          <li class="font-bold text-black">Бизнес Сетка</li>
-        </ol>
-      </div>
-    </nav>
-
     <!-- Основной контент -->
     <main role="main">
     <!-- Hero: Bento Grid -->

@@ -559,6 +559,15 @@ export const articles = [
     "cluster": "nocode",
     "date": "2026-03-28",
     "image": "/reference/nocode-tools.webp"
+  },
+  {
+    "slug": "chto-takoe-email-marketing",
+    "title": "Что такое email-маркетинг: как работает и зачем нужен бизнесу",
+    "description": "Разбираем, что такое email-маркетинг, как он работает, чем отличается от спама и какие результаты даёт бизнесу. Примеры, типы рассылок и с чего начать в 2026 году.",
+    "category": "Email-маркетинг",
+    "cluster": "email-marketing",
+    "date": "2026-03-28",
+    "image": "/reference/email-marketing.webp"
   }
 ]
 
@@ -576,7 +585,8 @@ export const clusterNames = {
   "seo": "SEO",
   "monetizatsiya-ekspertnosti": "Монетизация экспертности",
   "smm": "SMM",
-  "nocode": "No-code"
+  "nocode": "No-code",
+  "email-marketing": "Email-маркетинг"
 }
 
 export const clusterColors = {
@@ -593,7 +603,8 @@ export const clusterColors = {
   "seo": "green",
   "monetizatsiya-ekspertnosti": "amber",
   "smm": "pink",
-  "nocode": "indigo"
+  "nocode": "indigo",
+  "email-marketing": "yellow"
 }
 
 export function getArticleBySlug(slug) {

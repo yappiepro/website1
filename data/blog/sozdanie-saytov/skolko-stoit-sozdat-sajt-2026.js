@@ -1,7 +1,8 @@
 export default {
   slug: 'skolko-stoit-sozdat-sajt',
   title: 'Сколько стоит создать сайт в 2026 году: полный разбор цен',
-  description: 'Актуальные цены на создание сайтов в 2026 году: конструкторы, CMS, заказ у фрилансеров и студий. Из чего складывается стоимость и как сэкономить.',
+  description:
+    'Актуальные цены на создание сайтов в 2026 году: конструкторы, CMS, заказ у фрилансеров и студий. Из чего складывается стоимость и как сэкономить.',
   category: 'Создание сайтов',
   cluster: 'sozdanie-saytov',
   date: '2026-03-15',
@@ -323,8 +324,8 @@ export default {
 </ul>
 
 <div class="article-nav">
-  <p><strong>Читать далее:</strong> <a href="/blog/platformy-dlya-sozdaniya-saytov">Платформы для создания сайтов: сравнение и выбор →</a></p>
+  <p><strong>Читать далее:</strong> <a href="/blog/platformy-dlya-sozdaniya-saytov-sravnenie">Платформы для создания сайтов: сравнение и выбор →</a></p>
   <p><strong>Назад:</strong> <a href="/blog/kak-sozdat-sajt-samostoyatelno">← Как создать сайт самостоятельно: пошаговая инструкция</a></p>
 </div>
-  `
+  `,
 }

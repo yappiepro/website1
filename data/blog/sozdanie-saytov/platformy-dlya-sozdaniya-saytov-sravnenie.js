@@ -1,7 +1,8 @@
 export default {
-  slug: 'platformy-dlya-sozdaniya-saytov',
+  slug: 'platformy-dlya-sozdaniya-saytov-sravnenie',
   title: 'Платформы для создания сайтов: сравнение и выбор лучшего решения',
-  description: 'Обзор популярных платформ для создания сайтов: WordPress, Tilda, Wix, Joomla. Плюсы и минусы, сравнение цен, для каких задач подходят в 2026 году.',
+  description:
+    'Обзор популярных платформ для создания сайтов: WordPress, Tilda, Wix, Joomla. Плюсы и минусы, сравнение цен, для каких задач подходят в 2026 году.',
   category: 'Создание сайтов',
   cluster: 'sozdanie-saytov',
   date: '2026-03-15',
@@ -341,5 +342,5 @@ export default {
   <p><strong>Читать далее:</strong> <a href="/blog/sozdanie-sayta-html-css">Создание сайта на HTML и CSS: руководство для начинающих →</a></p>
   <p><strong>Назад:</strong> <a href="/blog/skolko-stoit-sozdat-sajt">← Сколько стоит создать сайт в 2026 году</a></p>
 </div>
-  `
+  `,
 }

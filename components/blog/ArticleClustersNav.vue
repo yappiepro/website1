@@ -82,7 +82,8 @@ const clusterIcons = {
   'telegram-marketing': 'fa-brands:telegram',
   'seo': 'fa-solid:magnifying-glass-chart',
   'monetizatsiya-ekspertnosti': 'fa-solid:chart-line',
-  'smm': 'fa-solid:share-nodes'
+  'smm': 'fa-solid:share-nodes',
+  'nocode': 'fa-solid:bolt'
 }
 
 // Формируем список кластеров с данными
@@ -202,6 +203,7 @@ watch(() => props.currentCluster, (newVal) => {
 .cluster-icon--green { background: #f0fdf4; color: #16a34a; }
 .cluster-icon--amber { background: #fffbeb; color: #d97706; }
 .cluster-icon--pink { background: #fdf2f8; color: #db2777; }
+.cluster-icon--indigo { background: #eef2ff; color: #4f46e5; }
 
 .cluster-info {
   display: flex;

@@ -134,7 +134,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { submitContactFormWithNotification } from '~/composables/useTelegramNotification'
 
@@ -154,6 +154,10 @@ const props = defineProps({
   showServiceSelector: {
     type: Boolean,
     default: true, // Показывать выбор услуги по умолчанию
+  },
+  selectedService: {
+    type: String,
+    default: '', // Можно передать выбранную услугу из родителя
   },
 })
 
@@ -183,6 +187,26 @@ const status = ref({ message: '', type: '' })
 // Функция выбора услуги
 function selectService(serviceValue) {
   form.value.service = serviceValue
+}
+
+// Функция для выбора услуги из hash URL
+function selectServiceFromHash() {
+  if (typeof window !== 'undefined') {
+    const hash = window.location.hash
+    const urlParams = new URLSearchParams(hash.substring(1))
+    const serviceFromHash = urlParams.get('service')
+
+    if (serviceFromHash && services.some((s) => s.value === serviceFromHash)) {
+      form.value.service = serviceFromHash
+      // Плавная прокрутка к форме
+      setTimeout(() => {
+        const formElement = document.getElementById('contact')
+        if (formElement) {
+          formElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      }, 100)
+    }
+  }
 }
 
 // Валидация формы - имя, телефон и согласие обязательны
@@ -217,24 +241,28 @@ onMounted(() => {
     form.value.source = pageNames[path] || `Страница: ${path}`
   }
 
-  // Проверяем hash URL для выбора услуги (#contact?service=Консультация)
-  if (typeof window !== 'undefined') {
-    const hash = window.location.hash
-    const urlParams = new URLSearchParams(hash.substring(1))
-    const serviceFromHash = urlParams.get('service')
+  // Проверяем hash URL для выбора услуги
+  selectServiceFromHash()
 
-    if (serviceFromHash && services.some((s) => s.value === serviceFromHash)) {
-      form.value.service = serviceFromHash
-      // Плавная прокрутка к форме
-      setTimeout(() => {
-        const formElement = document.getElementById('contact')
-        if (formElement) {
-          formElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }
-      }, 100)
-    }
-  }
+  // Слушаем изменения hash
+  window.addEventListener('hashchange', selectServiceFromHash)
 })
+
+// Очищаем слушатель при размонтировании
+onUnmounted(() => {
+  window.removeEventListener('hashchange', selectServiceFromHash)
+})
+
+// Следим за изменением selectedService prop
+watch(
+  () => props.selectedService,
+  (newService) => {
+    if (newService && services.some((s) => s.value === newService)) {
+      form.value.service = newService
+    }
+  },
+  { immediate: true }
+)
 
 // Форматирование телефона по маске +7 (XXX) XXX-XX-XX или 8 (XXX) XXX-XX-XX
 function formatPhone(event) {

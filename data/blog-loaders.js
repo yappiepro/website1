@@ -148,6 +148,11 @@ export const articleLoaders = {
     import('./blog/upravlenie-proektami/upravlenie-proektami.js').then((m) => m.default),
   'sistema-zadach': () =>
     import('./blog/upravlenie-proektami/sistema-zadach.js').then((m) => m.default),
+  'veb-analitika': () => import('./blog/analitika/veb-analitika.js').then((m) => m.default),
+  'klyuchevye-metriki-biznesa': () =>
+    import('./blog/analitika/klyuchevye-metriki-biznesa.js').then((m) => m.default),
+  'produktovaya-analitika': () =>
+    import('./blog/analitika/produktovaya-analitika.js').then((m) => m.default),
 }
 
 export async function loadArticleBySlug(slug) {

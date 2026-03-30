@@ -27,15 +27,28 @@
   </text>
   
   <!-- Заголовок (до 3 строк, с правильными отступами) -->
-  
-  <text x="600" y="300" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle" filter="url(#shadow)">
-    Что такое нетворкинг: определение, виды и зачем он
-  </text>
-  
-  <text x="600" y="368" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle" filter="url(#shadow)">
-    нужен в бизнесе и карьере
-  </text>
-  
+  <!-- Используем foreignObject для ограничения ширины текста с отступами 100px слева и справа -->
+  <foreignObject x="100" y="240" width="1000" height="220">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 48px;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+      line-height: 1.4;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+    ">
+      
+      <div style="margin: 4px 0;">Что такое нетворкинг: определение, виды и зачем он</div>
+      
+      <div style="margin: 4px 0;">нужен в бизнесе и карьере</div>
+      
+    </div>
+  </foreignObject>
   
   <!-- Подвал -->
   <text x="600" y="560" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="white" text-anchor="middle" opacity="0.8">

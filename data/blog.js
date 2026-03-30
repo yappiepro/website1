@@ -70,6 +70,9 @@ import prototipSayta from './blog/ux-ui/prototip-sayta.js'
 import chtoTakoeAgileIScrum from './blog/upravlenie-proektami/chto-takoe-agile-i-scrum.js'
 import upravlenieProektami from './blog/upravlenie-proektami/upravlenie-proektami.js'
 import sistemaZadach from './blog/upravlenie-proektami/sistema-zadach.js'
+import vebAnalitika from './blog/analitika/veb-analitika.js'
+import klyuchevyeMetrikiBiznesa from './blog/analitika/klyuchevye-metriki-biznesa.js'
+import produktovayaAnalitika from './blog/analitika/produktovaya-analitika.js'
 
 // Массив всех статей
 export const articles = [
@@ -147,38 +150,43 @@ export const articles = [
   chtoTakoeAgileIScrum,
   upravlenieProektami,
   sistemaZadach,
+  vebAnalitika,
+  klyuchevyeMetrikiBiznesa,
+  produktovayaAnalitika,
 ]
 
 // Функция для получения статьи по slug
 export function getArticleBySlug(slug) {
-  return articles.find(a => a.slug === slug)
+  return articles.find((a) => a.slug === slug)
 }
 
 // Функция форматирования даты
 export function formatDate(date) {
-  if (!date) return ''
+  if (!date) {
+    return ''
+  }
   const d = new Date(date)
   return d.toLocaleDateString('ru-RU', {
     day: 'numeric',
     month: 'short',
-    year: 'numeric'
+    year: 'numeric',
   })
 }
 
 // Функция для получения уникальных категорий
 export function getCategories() {
-  const categories = [...new Set(articles.map(a => a.category))]
+  const categories = [...new Set(articles.map((a) => a.category))]
   return categories.filter(Boolean)
 }
 
 // Функция для получения статей по кластеру
 export function getArticlesByCluster(cluster) {
-  return articles.filter(a => a.cluster === cluster)
+  return articles.filter((a) => a.cluster === cluster)
 }
 
 // Функция для получения уникальных кластеров
 export function getClusters() {
-  const clusters = [...new Set(articles.map(a => a.cluster))]
+  const clusters = [...new Set(articles.map((a) => a.cluster))]
   return clusters.filter(Boolean)
 }
 
@@ -191,37 +199,39 @@ export const clusterNames = {
   'iskusstvennyy-intellekt': 'Искусственный интеллект',
   'lichnyy-brend': 'Личный бренд',
   'kontent-marketing': 'Контент-маркетинг',
-  'networking': 'Нетворкинг',
+  networking: 'Нетворкинг',
   'chat-boty': 'Чат-боты',
   'telegram-marketing': 'Telegram-маркетинг',
-  'seo': 'SEO',
+  seo: 'SEO',
   'monetizatsiya-ekspertnosti': 'Монетизация экспертности',
-  'smm': 'SMM',
-  'nocode': 'No-code',
+  smm: 'SMM',
+  nocode: 'No-code',
   'email-marketing': 'Email-маркетинг',
   'ux-ui': 'UX/UI',
-  'upravlenie-proektami': 'Управление проектами'
+  'upravlenie-proektami': 'Управление проектами',
+  analitika: 'Аналитика',
 }
 
 // Цвета для кластеров (максимально разные)
 export const clusterColors = {
-  'razrabotka-saytov': 'violet',      // Фиолетовый
-  'sozdanie-saytov': 'cyan',          // Голубой
+  'razrabotka-saytov': 'violet', // Фиолетовый
+  'sozdanie-saytov': 'cyan', // Голубой
   'mobilnye-prilozheniya': 'emerald', // Изумрудный
-  'veb-razrabotka': 'orange',         // Оранжевый
+  'veb-razrabotka': 'orange', // Оранжевый
   'iskusstvennyy-intellekt': 'fuchsia', // Фуксия
-  'lichnyy-brend': 'purple',          // Пурпурный
-  'kontent-marketing': 'red',         // Красный
-  'networking': 'teal',               // Бирюзовый
-  'chat-boty': 'blue',                // Синий
-  'telegram-marketing': 'sky',        // Небесный
-  'seo': 'green',                     // Зелёный
+  'lichnyy-brend': 'purple', // Пурпурный
+  'kontent-marketing': 'red', // Красный
+  networking: 'teal', // Бирюзовый
+  'chat-boty': 'blue', // Синий
+  'telegram-marketing': 'sky', // Небесный
+  seo: 'green', // Зелёный
   'monetizatsiya-ekspertnosti': 'amber', // Янтарный
-  'smm': 'pink',                      // Розовый
-  'nocode': 'indigo',                 // Индиго
-  'email-marketing': 'yellow',        // Жёлтый
-  'ux-ui': 'rose',                    // Розовый (красно-розовый)
-  'upravlenie-proektami': 'slate'     // Грифельный (серо-синий)
+  smm: 'pink', // Розовый
+  nocode: 'indigo', // Индиго
+  'email-marketing': 'yellow', // Жёлтый
+  'ux-ui': 'rose', // Розовый (красно-розовый)
+  'upravlenie-proektami': 'slate', // Грифельный (серо-синий)
+  analitika: 'blue', // Синий
 }
 
 // Функция для получения названия кластера
@@ -242,12 +252,10 @@ export function getRandomArticles(count = 10) {
 
 // Функция для получения связанных статей (по тому же кластеру)
 export function getRelatedArticles(currentSlug, cluster, limit = 3) {
-  return articles
-    .filter(a => a.slug !== currentSlug && a.cluster === cluster)
-    .slice(0, limit)
+  return articles.filter((a) => a.slug !== currentSlug && a.cluster === cluster).slice(0, limit)
 }
 
 // Функция для получения статей по категории
 export function getArticlesByCategory(category) {
-  return articles.filter(a => a.category === category)
+  return articles.filter((a) => a.category === category)
 }

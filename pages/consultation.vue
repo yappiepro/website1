@@ -368,7 +368,7 @@
         <div class="max-w-4xl mx-auto">
           <div class="text-center mb-12">
             <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-xl mb-6">
-              <Icon name="fa-solid:scale-balanced" class="w-5 h-5 text-blue-600" />
+              <Icon name="lucide:scale" class="w-5 h-5 text-blue-600" />
               <span class="text-sm font-bold text-blue-700 uppercase tracking-wider">Ценность</span>
             </div>
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4">
@@ -384,19 +384,19 @@
                 <h3 class="text-lg font-bold text-gray-900 mb-4">Сравните:</h3>
                 <ul class="space-y-3">
                   <li class="flex items-start gap-3">
-                    <Icon name="fa-solid:xmark" class="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                    <Icon name="lucide:x" class="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
                     <span class="text-gray-700"
                       >Рекламный пост у блогера — от 5 000 ₽ без гарантии результата</span
                     >
                   </li>
                   <li class="flex items-start gap-3">
-                    <Icon name="fa-solid:xmark" class="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                    <Icon name="lucide:x" class="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
                     <span class="text-gray-700"
                       >Курсы по блогингу — от 10 000 ₽ с общей информацией</span
                     >
                   </li>
                   <li class="flex items-start gap-3">
-                    <Icon name="fa-solid:xmark" class="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                    <Icon name="lucide:x" class="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
                     <span class="text-gray-700"
                       >SMM-специалист — от 15 000 ₽ в месяц без стратегии</span
                     >

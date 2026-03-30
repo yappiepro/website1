@@ -29,8 +29,8 @@ const gradientMap = {
   slate: { from: '#64748b', to: '#334155', name: 'Грифельный' }
 }
 
-// Ограничение длины строки для заголовка (до 90 символов, чтобы влезало в 3 строки по 50 символов)
-const truncateTitle = (title, maxLength = 90) => {
+// Ограничение длины строки для заголовка (до 120 символов для 2-3 строк)
+const truncateTitle = (title, maxLength = 120) => {
   if (title.length <= maxLength) return title
   return title.substring(0, maxLength - 3) + '...'
 }
@@ -40,29 +40,6 @@ const generateSvg = (article, colorKey) => {
   const color = gradientMap[colorKey] || gradientMap.violet
   const title = truncateTitle(article.title)
   const category = article.category || 'Блог'
-
-  // Разбиваем заголовок на строки (максимум 50 символов в строке, до 3 строк)
-  const words = title.split(' ')
-  const lines = []
-  let currentLine = ''
-  const maxCharsPerLine = 50
-
-  for (const word of words) {
-    const testLine = currentLine ? `${currentLine} ${word}` : word
-    if (testLine.length <= maxCharsPerLine) {
-      currentLine = testLine
-    } else {
-      if (currentLine) lines.push(currentLine)
-      currentLine = word
-    }
-    if (lines.length >= 3) break
-  }
-  if (currentLine && lines.length < 4) lines.push(currentLine)
-
-  // Позиции строк для центрирования с правильными отступами
-  const startY = 300
-  const lineSpacing = 68
-  const linePositions = lines.map((_, i) => startY + i * lineSpacing)
 
   return `<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -92,25 +69,23 @@ const generateSvg = (article, colorKey) => {
     ${category}
   </text>
   
-  <!-- Заголовок (до 3 строк, с правильными отступами) -->
-  <!-- Используем foreignObject для ограничения ширины текста с отступами 100px слева и справа -->
-  <foreignObject x="100" y="240" width="1000" height="220">
+  <!-- Заголовок (автоматический перенос по ширине) -->
+  <!-- foreignObject с отступами 100px слева и справа (ширина 1000px) -->
+  <foreignObject x="100" y="260" width="1000" height="200">
     <div xmlns="http://www.w3.org/1999/xhtml" style="
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 48px;
+      font-size: 44px;
       font-weight: bold;
       color: white;
       text-align: center;
-      line-height: 1.4;
+      line-height: 1.35;
       display: flex;
-      flex-direction: column;
+      align-items: center;
       justify-content: center;
       height: 100%;
       filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
     ">
-      ${lines.map((line) => `
-      <div style="margin: 4px 0;">${escapeXml(line)}</div>
-      `).join('')}
+      ${escapeXml(title)}
     </div>
   </foreignObject>
   

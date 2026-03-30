@@ -397,11 +397,11 @@ const tableOfContents = computed(() => {
 
   const content = article.content
 
-  // Находим позицию каждого h2 и h3 в контенте
+  // Находим позицию каждого h2 и h3 в контенте (с id или без)
   const headingPositions = []
 
-  const h2All = [...content.matchAll(/<h2>([^<]+)<\/h2>/g)]
-  const h3All = [...content.matchAll(/<h3>([^<]+)<\/h3>/g)]
+  const h2All = [...content.matchAll(/<h2(?:\s+id="[^"]+")?>([^<]+)<\/h2>/g)]
+  const h3All = [...content.matchAll(/<h3(?:\s+id="[^"]+")?>([^<]+)<\/h3>/g)]
 
   h2All.forEach((m) => {
     headingPositions.push({

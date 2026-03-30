@@ -9,7 +9,7 @@ export default {
     'продуктовая аналитика, product analytics, метрики продукта, DAU MAU, retention rate, активация пользователей, North Star Metric, AARRR воронка, аналитика приложения',
   date: '2026-03-30',
   category: 'Аналитика',
-  image: '/images/blog/produktovaya-analitika/preview.webp',
+  image: '/images/blog/analitika/placeholder.svg',
   schema_question: 'Что такое продуктовая аналитика?',
   schema_answer:
     'Продуктовая аналитика — изучение поведения пользователей внутри продукта: как активируются, что делают, почему уходят. Помогает понять, что улучшить в продукте, чтобы пользователи оставались и платили.',

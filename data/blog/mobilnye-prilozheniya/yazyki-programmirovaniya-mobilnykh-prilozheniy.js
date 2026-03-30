@@ -1,11 +1,12 @@
 export default {
   slug: 'yazyki-programmirovaniya-mobilnykh-prilozheniy',
   title: 'Языки программирования для мобильных приложений: что выбрать в 2025 году',
-  description: 'Полный обзор языков и фреймворков для мобильной разработки: Swift, Kotlin, Flutter, React Native. Сравниваем производительность, кривую обучения и зарплаты.',
+  description:
+    'Полный обзор языков и фреймворков для мобильной разработки: Swift, Kotlin, Flutter, React Native. Сравниваем производительность, кривую обучения и зарплаты.',
   category: 'Мобильные приложения',
   cluster: 'mobilnye-prilozheniya',
   date: '2026-02-26',
-  image: null,
+  image: '/images/blog/mobilnye-prilozheniya/yazyki-programmirovaniya-mobilnykh-prilozheniy-og.svg',
   content: `
 <p>Выбор языка программирования для мобильного приложения — один из первых технических вопросов, с которым сталкиваются заказчики и начинающие разработчики. Swift или Kotlin? Flutter или React Native? Можно ли вообще разобраться в этом без технического бэкграунда?</p>
 
@@ -312,5 +313,5 @@ const styles = StyleSheet.create({
 <p><strong>Читать далее:</strong> <a href="/blog/kak-sozdat-mobilnoe-prilozhenie">Как создать мобильное приложение: пошаговое руководство →</a></p>
 <p><strong>Назад:</strong> <a href="/blog/ii-dlya-sozdaniya-sayta">← ИИ для создания сайта: обзор инструментов 2025 года</a></p>
 </div>
-`
+`,
 }

@@ -1,11 +1,12 @@
 export default {
   slug: 'api-razrabotka',
   title: 'Разработка API: что такое API, как создать и задокументировать',
-  description: 'Полное руководство по разработке API: REST, GraphQL, gRPC, WebSocket. Проектирование, авторизация, документация и безопасность в 2026 году.',
+  description:
+    'Полное руководство по разработке API: REST, GraphQL, gRPC, WebSocket. Проектирование, авторизация, документация и безопасность в 2026 году.',
   category: 'Веб-разработка',
   cluster: 'veb-razrabotka',
   date: '2026-02-27',
-  image: null,
+  image: '/images/blog/veb-razrabotka/api-razrabotka-og.svg',
   content: `
     <p>API (Application Programming Interface) — это интерфейс, через который программы общаются друг с другом. Когда мобильное приложение получает список товаров, когда сайт показывает погоду, когда CRM синхронизируется с почтой — всё это работает через API. Сегодня API — основа любой цифровой инфраструктуры: от мессенджеров до банков.</p>
 
@@ -414,5 +415,5 @@ async def test_get_nonexistent_user():
       <p><strong>Читать далее:</strong> <a href="/blog/ii-v-it">Искусственный интеллект в IT: как ИИ меняет разработку программного обеспечения →</a></p>
       <p><strong>Назад:</strong> <a href="/blog/fullstack-razrabotka">← Fullstack-разработка: кто такой fullstack-разработчик и стоит ли им становиться</a></p>
     </div>
-  `
+  `,
 }

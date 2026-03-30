@@ -6,7 +6,7 @@ export default {
   category: 'Создание сайтов',
   cluster: 'sozdanie-saytov',
   date: '2026-03-15',
-  image: '',
+  image: '/images/blog/sozdanie-saytov/skolko-stoit-sozdat-sajt-og.svg',
   content: `
 <h1>Сколько стоит создать сайт в 2026 году: полный разбор цен</h1>
 

@@ -1,11 +1,12 @@
 export default {
   slug: 'kak-vesti-telegram-kanal',
   title: 'Как вести Telegram-канал: контент, регулярность, форматы и аналитика',
-  description: 'Практическое руководство по ведению Telegram-канала: как выстроить контент-план, выбрать форматы, удерживать аудиторию и измерять результат. Советы для бизнеса и экспертов в 2026 году.',
+  description:
+    'Практическое руководство по ведению Telegram-канала: как выстроить контент-план, выбрать форматы, удерживать аудиторию и измерять результат. Советы для бизнеса и экспертов в 2026 году.',
   category: 'Telegram-маркетинг',
   cluster: 'telegram-marketing',
   date: '2026-03-15',
-  image: '',
+  image: '/images/blog/telegram-marketing/kak-vesti-telegram-kanal-og.svg',
   content: `
 <h1>Как вести Telegram-канал: контент, регулярность и аналитика</h1>
 
@@ -166,5 +167,5 @@ export default {
   <p><strong>Читать далее:</strong> <a href="/blog/prodvizhenie-v-telegram">Продвижение в Telegram: как набрать аудиторию и монетизировать канал →</a></p>
   <p><strong>Назад:</strong> <a href="/blog/telegram-kanal-dlya-biznesa">← Telegram-канал для бизнеса: зачем нужен и как запустить</a></p>
 </div>
-  `
+  `,
 }

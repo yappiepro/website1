@@ -1,11 +1,12 @@
 export default {
   slug: 'chat-bot-v-max',
   title: 'Чат-бот в MAX: как создать бота в мессенджере VK для бизнеса',
-  description: 'Руководство по чат-ботам в мессенджере MAX (бывший ICQ): как создать бота, подключить к бизнесу, какие инструменты использовать и чем MAX отличается от Telegram в 2026 году.',
+  description:
+    'Руководство по чат-ботам в мессенджере MAX (бывший ICQ): как создать бота, подключить к бизнесу, какие инструменты использовать и чем MAX отличается от Telegram в 2026 году.',
   category: 'Чат-боты',
   cluster: 'chat-boty',
   date: '2026-03-15',
-  image: '',
+  image: '/images/blog/chat-boty/chat-bot-v-max-og.svg',
   content: `
 <h1>Чат-бот в MAX: как создать бота в мессенджере VK</h1>
 
@@ -186,5 +187,5 @@ def handle_update(update):
   <p><strong>Читать далее:</strong> <a href="/blog/chat-bot-dlya-biznesa">Чат-бот для бизнеса: сценарии, стоимость и как заказать →</a></p>
   <p><strong>Назад:</strong> <a href="/blog/chat-bot-vkontakte">← Чат-бот ВКонтакте: как создать и использовать для бизнеса</a></p>
 </div>
-  `
+  `,
 }

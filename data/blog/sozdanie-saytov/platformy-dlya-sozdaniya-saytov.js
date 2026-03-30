@@ -1,11 +1,12 @@
 export default {
   slug: 'platformy-dlya-sozdaniya-saytov',
   title: 'Платформы и конструкторы для создания сайтов: сравниваем Tilda, Wix, WordPress и другие',
-  description: 'Сравнение платформ для создания сайтов: Tilda, Wix, WordPress, 1С-Битрикс. Плюсы, минусы, цены и как выбрать подходящую.',
+  description:
+    'Сравнение платформ для создания сайтов: Tilda, Wix, WordPress, 1С-Битрикс. Плюсы, минусы, цены и как выбрать подходящую.',
   category: 'Создание сайтов',
   cluster: 'sozdanie-saytov',
   date: '2026-02-25',
-  image: null,
+  image: '/images/blog/sozdanie-saytov/platformy-dlya-sozdaniya-saytov-og.svg',
   content: `
 <p>Выбор платформы для создания сайта — одно из ключевых решений, которое определяет всё остальное: стоимость, гибкость, SEO-возможности, сложность поддержки и то, насколько легко будет вносить изменения через год после запуска.</p>
 
@@ -318,5 +319,5 @@ export default {
 <p><strong>Читать далее:</strong> <a href="/blog/sozdanie-sayta-html-css">Создание сайта на HTML и CSS: основы и первые шаги →</a></p>
 <p><strong>Назад:</strong> <a href="/blog/sozdanie-sayta-dlya-biznesa">← Создание сайта для бизнеса: лендинг, корпоративный или магазин</a></p>
 </div>
-`
+`,
 }

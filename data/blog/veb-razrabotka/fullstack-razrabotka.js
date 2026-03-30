@@ -1,11 +1,12 @@
 export default {
   slug: 'fullstack-razrabotka',
   title: 'Fullstack-разработка: кто такой fullstack-разработчик и стоит ли им становиться',
-  description: 'Полный гид по fullstack-разработке: MERN, MEAN, T3 стеки. Что должен уметь fullstack-разработчик, зарплаты и путь в профессию в 2026 году.',
+  description:
+    'Полный гид по fullstack-разработке: MERN, MEAN, T3 стеки. Что должен уметь fullstack-разработчик, зарплаты и путь в профессию в 2026 году.',
   category: 'Веб-разработка',
   cluster: 'veb-razrabotka',
   date: '2026-02-27',
-  image: null,
+  image: '/images/blog/veb-razrabotka/fullstack-razrabotka-og.svg',
   content: `
     <p>Fullstack-разработчик — один из самых популярных запросов на рынке труда в IT. Компании хотят людей, которые могут написать и серверную часть, и клиентскую. Но за этим термином скрываются очень разные реальности: от настоящего специалиста широкого профиля до джуниора, который «немного умеет и то, и другое».</p>
 
@@ -283,5 +284,5 @@ export default {
       <p><strong>Читать далее:</strong> <a href="/blog/api-razrabotka">Разработка API: что такое API, как создать и задокументировать →</a></p>
       <p><strong>Назад:</strong> <a href="/blog/backend-razrabotka">← Бэкенд-разработка: что это такое, какие технологии используются и как стать специалистом</a></p>
     </div>
-  `
+  `,
 }

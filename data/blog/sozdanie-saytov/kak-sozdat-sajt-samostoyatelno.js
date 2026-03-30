@@ -1,11 +1,12 @@
 export default {
   slug: 'kak-sozdat-sajt-samostoyatelno',
   title: 'Как создать сайт самостоятельно: пошаговая инструкция для новичков',
-  description: 'Полное руководство по созданию сайта своими руками: выбор платформы, домен и хостинг, дизайн и запуск. Практические советы для начинающих в 2026 году.',
+  description:
+    'Полное руководство по созданию сайта своими руками: выбор платформы, домен и хостинг, дизайн и запуск. Практические советы для начинающих в 2026 году.',
   category: 'Создание сайтов',
   cluster: 'sozdanie-saytov',
   date: '2026-03-15',
-  image: '',
+  image: '/images/blog/sozdanie-saytov/kak-sozdat-sajt-samostoyatelno-og.svg',
   content: `
 <h1>Как создать сайт самостоятельно: пошаговая инструкция для новичков</h1>
 
@@ -222,5 +223,5 @@ export default {
   <p><strong>Читать далее:</strong> <a href="/blog/skolko-stoit-sozdat-sajt">Сколько стоит создать сайт в 2026 году →</a></p>
   <p><strong>Назад:</strong> <a href="/blog">← Все статьи блога</a></p>
 </div>
-  `
+  `,
 }

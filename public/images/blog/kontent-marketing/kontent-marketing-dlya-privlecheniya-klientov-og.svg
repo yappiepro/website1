@@ -1,0 +1,44 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b91c1c;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Фон -->
+  <rect width="1200" height="630" fill="url(#grad)"/>
+  
+  <!-- Декоративные элементы -->
+  <circle cx="100" cy="100" r="120" fill="white" opacity="0.08"/>
+  <circle cx="1100" cy="530" r="150" fill="white" opacity="0.08"/>
+  <circle cx="950" cy="150" r="80" fill="white" opacity="0.06"/>
+  <circle cx="200" cy="480" r="100" fill="white" opacity="0.06"/>
+  
+  <!-- Линия разделитель -->
+  <rect x="100" y="480" width="1000" height="3" fill="white" opacity="0.3"/>
+  
+  <!-- Категория (с отступом сверху) -->
+  <text x="600" y="160" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="600" fill="white" text-anchor="middle" opacity="0.9">
+    Контент-маркетинг
+  </text>
+  
+  <!-- Заголовок (до 3 строк, с правильными отступами) -->
+  
+  <text x="600" y="300" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle" filter="url(#shadow)">
+    Контент-маркетинг для привлечения клиентов:
+  </text>
+  
+  <text x="600" y="368" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle" filter="url(#shadow)">
+    каналы, форматы и реальные результаты
+  </text>
+  
+  
+  <!-- Подвал -->
+  <text x="600" y="560" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="white" text-anchor="middle" opacity="0.8">
+    Артём Селифанов — YAPPIE
+  </text>
+</svg>

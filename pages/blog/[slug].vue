@@ -505,6 +505,13 @@ if (!article) {
 }
 
 // SEO для статьи
+const siteUrl = 'https://artemselifanov.ru'
+const imageUrl = article.image
+  ? article.image.startsWith('http')
+    ? article.image
+    : `${siteUrl}${article.image}`
+  : `${siteUrl}/reference/openGraph/blog.webp`
+
 useSeoMeta({
   title: article.title ? `${article.title} — Yappie` : 'Статья — Yappie',
   description: article.description || '',
@@ -514,12 +521,14 @@ useSeoMeta({
   ogTitle: article.title || '',
   ogDescription: article.description || '',
   ogType: 'article',
-  ogImage: article.image || 'https://artemselifanov.ru/reference/openGraph/blog.webp',
+  ogImage: imageUrl,
+  ogImageUrl: imageUrl,
   articlePublishedTime: article.date || '',
   articleSection: article.category || '',
   twitterCard: 'summary_large_image',
   twitterTitle: article.title || '',
   twitterDescription: article.description || '',
+  twitterImage: imageUrl,
 })
 
 useHead({

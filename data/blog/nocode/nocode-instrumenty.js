@@ -7,7 +7,7 @@ export default {
   category: 'No-code',
   cluster: 'nocode',
   date: '2026-03-28',
-  image: null,
+  image: '/images/blog/nocode/nocode-instrumenty-og.svg',
   keywords:
     'no-code инструменты, no-code платформы, лучшие no-code, no-code для бизнеса, инструменты без кода, no-code обзор, nocode инструменты 2026',
   content: `<p>No-code экосистема выросла до сотен инструментов. Ориентироваться в них сложно: какой выбрать для сайта, какой для автоматизации, какой для базы данных? Собрали лучшие инструменты по категориям — с честной оценкой для кого подходит каждый.</p>

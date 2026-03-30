@@ -1891,6 +1891,36 @@ function scrollToTop() {
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
   initScrollAnimations()
+
+  // Обработка hash URL для прокрутки к секции контактов
+  if (typeof window !== 'undefined' && window.location.hash) {
+    const hash = window.location.hash
+    const hashPath = hash.split('?')[0] // Убираем query параметры
+    const element = document.querySelector(hashPath)
+    if (element) {
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }, 100)
+    }
+  }
+
+  // Добавляем обработчик клика на все ссылки с #contact
+  document.querySelectorAll('a[href^="#contact"]').forEach((anchor) => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault()
+      const href = this.getAttribute('href')
+      const hashPath = href.split('?')[0] // Убираем query параметры
+      const element = document.querySelector(hashPath)
+
+      if (element) {
+        // Обновляем URL с hash и query параметрами
+        window.history.pushState(null, '', href)
+
+        // Плавная прокрутка
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    })
+  })
 })
 
 onUnmounted(() => {

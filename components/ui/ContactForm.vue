@@ -1,8 +1,8 @@
 <template>
   <div class="w-full">
-    <h3 class="text-base font-bold text-gray-900 mb-2 text-center">Онлайн запись</h3>
+    <h3 class="text-base font-bold text-gray-900 mb-2 text-center">{{ sectionTitle }}</h3>
     <p class="text-xs text-gray-600 mb-4 text-center">
-      Заполните форму и я свяжусь с вами в течение 24 часов
+      {{ sectionDescription }}
     </p>
 
     <!-- Выбор услуги (облако тегов) -->
@@ -13,13 +13,13 @@
           v-for="service in services"
           :key="service.value"
           type="button"
-          @click="selectService(service.value)"
           :class="[
             'px-3 py-1.5 text-xs rounded-lg border transition-all',
             form.service === service.value
               ? 'bg-purple-600 text-white border-purple-600'
-              : 'bg-gray-50 text-gray-700 border-gray-200 hover:border-purple-300 hover:bg-purple-50'
+              : 'bg-gray-50 text-gray-700 border-gray-200 hover:border-purple-300 hover:bg-purple-50',
           ]"
+          @click="selectService(service.value)"
         >
           {{ service.label }}
         </button>
@@ -143,6 +143,14 @@ const props = defineProps({
     type: String,
     default: '', // Можно передать источник из родителя
   },
+  sectionTitle: {
+    type: String,
+    default: 'Онлайн запись',
+  },
+  sectionDescription: {
+    type: String,
+    default: 'Заполните форму и я свяжусь с вами в течение 24 часов',
+  },
 })
 
 const route = useRoute()
@@ -151,7 +159,7 @@ const route = useRoute()
 const services = [
   { label: 'Диагностика', value: 'Диагностика' },
   { label: 'Консультация', value: 'Консультация' },
-  { label: 'Менторство', value: 'Менторство' }
+  { label: 'Менторство', value: 'Менторство' },
 ]
 
 const form = ref({

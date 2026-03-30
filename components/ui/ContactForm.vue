@@ -195,28 +195,45 @@ const isFormValid = computed(() => {
   )
 })
 
-// Определяем источник заявки при загрузке
+// Определяем источник заявки и услугу при загрузке
 onMounted(() => {
   // Если источник передан из родителя - используем его
   if (props.defaultSource) {
     form.value.source = props.defaultSource
-    return
+  } else {
+    // Иначе определяем по маршруту
+    const path = route.path
+    const pageNames = {
+      '/': 'Главная страница',
+      '/consultation': 'Консультация',
+      '/mentorship': 'Менторство',
+      '/yappie': 'Веб-разработка',
+      '/networking': 'Нетворкинг',
+      '/business': 'Бизнес-сетка',
+      '/study': 'Обучение',
+      '/blog': 'Блог',
+    }
+
+    form.value.source = pageNames[path] || `Страница: ${path}`
   }
 
-  // Иначе определяем по маршруту
-  const path = route.path
-  const pageNames = {
-    '/': 'Главная страница',
-    '/consultation': 'Консультация',
-    '/mentorship': 'Менторство',
-    '/yappie': 'Веб-разработка',
-    '/networking': 'Нетворкинг',
-    '/business': 'Бизнес-сетка',
-    '/study': 'Обучение',
-    '/blog': 'Блог',
-  }
+  // Проверяем hash URL для выбора услуги (#contact?service=Консультация)
+  if (typeof window !== 'undefined') {
+    const hash = window.location.hash
+    const urlParams = new URLSearchParams(hash.substring(1))
+    const serviceFromHash = urlParams.get('service')
 
-  form.value.source = pageNames[path] || `Страница: ${path}`
+    if (serviceFromHash && services.some((s) => s.value === serviceFromHash)) {
+      form.value.service = serviceFromHash
+      // Плавная прокрутка к форме
+      setTimeout(() => {
+        const formElement = document.getElementById('contact')
+        if (formElement) {
+          formElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      }, 100)
+    }
+  }
 })
 
 // Форматирование телефона по маске +7 (XXX) XXX-XX-XX или 8 (XXX) XXX-XX-XX

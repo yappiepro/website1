@@ -718,6 +718,36 @@ export const articles = [
     date: '2026-03-28',
     image: null,
   },
+  {
+    slug: 'veb-analitika',
+    title: 'Веб-аналитика: как настроить Яндекс.Метрику и Google Analytics для бизнеса',
+    description:
+      'Практическое руководство по веб-аналитике: как настроить Яндекс.Метрику и Google Analytics, какие метрики смотреть и как принимать решения на основе данных о сайте в 2026 году.',
+    category: 'Аналитика',
+    cluster: 'analitika',
+    date: '2026-03-30',
+    image: '/images/blog/analitika/placeholder.svg',
+  },
+  {
+    slug: 'klyuchevye-metriki-biznesa',
+    title: 'Ключевые метрики бизнеса: какие показатели считать и как отслеживать',
+    description:
+      'Разбираем ключевые метрики бизнеса: выручка, прибыль, LTV, CAC, конверсия, churn. Какие показатели важны для разных типов бизнеса и как выстроить систему мониторинга в 2026 году.',
+    category: 'Аналитика',
+    cluster: 'analitika',
+    date: '2026-03-30',
+    image: '/images/blog/analitika/placeholder.svg',
+  },
+  {
+    slug: 'produktovaya-analitika',
+    title: 'Продуктовая аналитика: что смотреть в приложении и сервисе, чтобы расти',
+    description:
+      'Практическое руководство по продуктовой аналитике: метрики активации, удержания, монетизации. Фреймворки AARRR и North Star Metric. Инструменты и как принимать продуктовые решения на основе данных.',
+    category: 'Аналитика',
+    cluster: 'analitika',
+    date: '2026-03-30',
+    image: '/images/blog/analitika/placeholder.svg',
+  },
 ]
 
 export const clusterNames = {
@@ -738,6 +768,7 @@ export const clusterNames = {
   'email-marketing': 'Email-маркетинг',
   'ux-ui': 'UX/UI',
   'upravlenie-proektami': 'Управление проектами',
+  analitika: 'Аналитика',
 }
 
 export const clusterColors = {
@@ -758,6 +789,7 @@ export const clusterColors = {
   'email-marketing': 'yellow',
   'ux-ui': 'rose',
   'upravlenie-proektami': 'slate',
+  analitika: 'blue',
 }
 
 export function getArticleBySlug(slug) {

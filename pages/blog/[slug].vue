@@ -273,7 +273,7 @@
           </header>
 
           <img
-            v-if="article?.image"
+            v-if="article?.image && article.image.trim()"
             :src="article.image"
             format="webp"
             quality="70"

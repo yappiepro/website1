@@ -7,7 +7,7 @@ export default {
   category: 'Email-маркетинг',
   cluster: 'email-marketing',
   date: '2026-03-28',
-  image: null,
+  image: '/images/blog/email-marketing/chto-takoe-email-marketing-og.svg',
   keywords:
     'что такое email маркетинг, email маркетинг это, email рассылка для бизнеса, email маркетинг для бизнеса, рассылка по email, email маркетинг примеры, зачем нужен email маркетинг',
   content: `<p>Email-маркетинг часто списывают со счётов: «все почтовые ящики завалены спамом, кто это читает». Но данные говорят обратное — email остаётся одним из каналов с самым высоким ROI в маркетинге. Дело не в канале, а в подходе. Разбираем, как работает email-маркетинг и почему он до сих пор актуален.</p>

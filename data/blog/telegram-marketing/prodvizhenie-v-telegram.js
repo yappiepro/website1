@@ -1,11 +1,12 @@
 export default {
   slug: 'prodvizhenie-v-telegram',
   title: 'Продвижение в Telegram: как набрать аудиторию и монетизировать канал',
-  description: 'Как продвигать Telegram-канал: бесплатные и платные методы привлечения подписчиков, инструменты роста, способы монетизации и типичные ошибки. Практика для бизнеса и экспертов в 2026 году.',
+  description:
+    'Как продвигать Telegram-канал: бесплатные и платные методы привлечения подписчиков, инструменты роста, способы монетизации и типичные ошибки. Практика для бизнеса и экспертов в 2026 году.',
   category: 'Telegram-маркетинг',
   cluster: 'telegram-marketing',
   date: '2026-03-15',
-  image: '',
+  image: '/images/blog/telegram-marketing/prodvizhenie-v-telegram-og.svg',
   content: `
 <h1>Продвижение в Telegram: как набрать аудиторию и монетизировать канал</h1>
 
@@ -169,5 +170,5 @@ export default {
   <p><strong>Читать далее:</strong> <a href="/blog/telegram-kanal-dlya-biznesa">Telegram-канал для бизнеса: зачем нужен и как запустить →</a></p>
   <p><strong>Назад:</strong> <a href="/blog/kak-vesti-telegram-kanal">← Как вести Telegram-канал: контент, регулярность и аналитика</a></p>
 </div>
-  `
+  `,
 }

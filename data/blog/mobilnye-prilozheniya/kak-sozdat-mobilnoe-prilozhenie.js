@@ -1,11 +1,12 @@
 export default {
   slug: 'kak-sozdat-mobilnoe-prilozhenie',
   title: 'Как создать мобильное приложение: пошаговое руководство от идеи до публикации',
-  description: 'Полное руководство по созданию мобильного приложения в 2025 году: от идеи и проектирования до публикации в App Store и Google Play.',
+  description:
+    'Полное руководство по созданию мобильного приложения в 2025 году: от идеи и проектирования до публикации в App Store и Google Play.',
   category: 'Мобильные приложения',
   cluster: 'mobilnye-prilozheniya',
   date: '2026-02-26',
-  image: null,
+  image: '/images/blog/mobilnye-prilozheniya/kak-sozdat-mobilnoe-prilozhenie-og.svg',
   content: `
 <p>Создать мобильное приложение — задача, которая кажется сложной снаружи и становится управляемой, когда понимаешь процесс изнутри. Тысячи приложений выходят в App Store и Google Play каждый день. Одни — результат работы команд из 50 человек с многомиллионным бюджетом. Другие — продукт одного разработчика за несколько месяцев.</p>
 
@@ -398,5 +399,5 @@ export default {
 <p><strong>Читать далее:</strong> <a href="/blog/ii-dlya-sozdaniya-sayta">ИИ для создания сайта: обзор инструментов 2025 года →</a></p>
 <p><strong>Назад:</strong> <a href="/blog/sozdanie-sayta-html-css">← Создание сайта на HTML и CSS: основы и первые шаги</a></p>
 </div>
-`
+`,
 }

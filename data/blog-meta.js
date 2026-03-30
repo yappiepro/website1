@@ -10,7 +10,7 @@ export const articles = [
     category: 'Разработка сайтов',
     cluster: 'razrabotka-saytov',
     date: '2026-02-20',
-    image: null,
+    image: '/images/blog/razrabotka-saytov/razrabotka-sayta-pod-klyuch-og.svg',
   },
   {
     slug: 'skolko-stoit-razrabotka-sayta',
@@ -20,7 +20,7 @@ export const articles = [
     category: 'Разработка сайтов',
     cluster: 'razrabotka-saytov',
     date: '2025-02-20',
-    image: null,
+    image: '/images/blog/razrabotka-saytov/skolko-stoit-razrabotka-sayta-og.svg',
   },
   {
     slug: 'kak-zakazat-razrabotku-sayta',
@@ -30,7 +30,7 @@ export const articles = [
     category: 'Разработка сайтов',
     cluster: 'razrabotka-saytov',
     date: '2026-02-25',
-    image: null,
+    image: '/images/blog/razrabotka-saytov/kak-zakazat-razrabotku-sayta-og.svg',
   },
   {
     slug: 'razrabotka-sayta-dlya-biznesa',
@@ -40,7 +40,7 @@ export const articles = [
     category: 'Разработка сайтов',
     cluster: 'razrabotka-saytov',
     date: '2026-02-25',
-    image: null,
+    image: '/images/blog/razrabotka-saytov/razrabotka-sayta-dlya-biznesa-og.svg',
   },
   {
     slug: 'tehnicheskoe-zadanie-na-razrabotku-sayta',
@@ -50,7 +50,7 @@ export const articles = [
     category: 'Разработка сайтов',
     cluster: 'razrabotka-saytov',
     date: '2026-02-25',
-    image: null,
+    image: '/images/blog/razrabotka-saytov/tehnicheskoe-zadanie-na-razrabotku-sayta-og.svg',
   },
   {
     slug: 'razrabotka-internet-magazina',
@@ -60,7 +60,7 @@ export const articles = [
     category: 'Разработка сайтов',
     cluster: 'razrabotka-saytov',
     date: '2026-02-25',
-    image: null,
+    image: '/images/blog/razrabotka-saytov/razrabotka-internet-magazina-og.svg',
   },
   {
     slug: 'sozdanie-sayta-s-nulya',
@@ -70,7 +70,7 @@ export const articles = [
     category: 'Создание сайтов',
     cluster: 'sozdanie-saytov',
     date: '2026-02-25',
-    image: null,
+    image: '/images/blog/sozdanie-saytov/sozdanie-sayta-s-nulya-og.svg',
   },
   {
     slug: 'skolko-stoit-sozdat-sayt',
@@ -80,7 +80,7 @@ export const articles = [
     category: 'Создание сайтов',
     cluster: 'sozdanie-saytov',
     date: '2026-02-25',
-    image: null,
+    image: '/images/blog/sozdanie-saytov/skolko-stoit-sozdat-sayt-og.svg',
   },
   {
     slug: 'sozdanie-sayta-dlya-biznesa',
@@ -90,7 +90,7 @@ export const articles = [
     category: 'Создание сайтов',
     cluster: 'sozdanie-saytov',
     date: '2026-02-25',
-    image: null,
+    image: '/images/blog/sozdanie-saytov/sozdanie-sayta-dlya-biznesa-og.svg',
   },
   {
     slug: 'platformy-dlya-sozdaniya-saytov',
@@ -101,7 +101,7 @@ export const articles = [
     category: 'Создание сайтов',
     cluster: 'sozdanie-saytov',
     date: '2026-02-25',
-    image: null,
+    image: '/images/blog/sozdanie-saytov/platformy-dlya-sozdaniya-saytov-og.svg',
   },
   {
     slug: 'sozdanie-sayta-html-css',
@@ -111,7 +111,7 @@ export const articles = [
     category: 'Создание сайтов',
     cluster: 'sozdanie-saytov',
     date: '2026-02-25',
-    image: null,
+    image: '/images/blog/sozdanie-saytov/sozdanie-sayta-html-css-og.svg',
   },
   {
     slug: 'ii-dlya-sozdaniya-sayta',
@@ -121,7 +121,7 @@ export const articles = [
     category: 'Создание сайтов',
     cluster: 'sozdanie-saytov',
     date: '2026-02-25',
-    image: null,
+    image: '/images/blog/sozdanie-saytov/ii-dlya-sozdaniya-sayta-og.svg',
   },
   {
     slug: 'kak-sozdat-mobilnoe-prilozhenie',
@@ -131,7 +131,7 @@ export const articles = [
     category: 'Мобильные приложения',
     cluster: 'mobilnye-prilozheniya',
     date: '2026-02-26',
-    image: null,
+    image: '/images/blog/mobilnye-prilozheniya/kak-sozdat-mobilnoe-prilozhenie-og.svg',
   },
   {
     slug: 'yazyki-programmirovaniya-mobilnykh-prilozheniy',
@@ -141,7 +141,8 @@ export const articles = [
     category: 'Мобильные приложения',
     cluster: 'mobilnye-prilozheniya',
     date: '2026-02-26',
-    image: null,
+    image:
+      '/images/blog/mobilnye-prilozheniya/yazyki-programmirovaniya-mobilnykh-prilozheniy-og.svg',
   },
   {
     slug: 'dizayn-mobilnogo-prilozheniya',
@@ -151,7 +152,7 @@ export const articles = [
     category: 'Мобильные приложения',
     cluster: 'mobilnye-prilozheniya',
     date: '2026-02-26',
-    image: null,
+    image: '/images/blog/mobilnye-prilozheniya/dizayn-mobilnogo-prilozheniya-og.svg',
   },
   {
     slug: 'razrabotka-mobilnogo-prilozheniya',
@@ -162,7 +163,7 @@ export const articles = [
     category: 'Мобильные приложения',
     cluster: 'mobilnye-prilozheniya',
     date: '2026-02-27',
-    image: null,
+    image: '/images/blog/mobilnye-prilozheniya/razrabotka-mobilnogo-prilozheniya-og.svg',
   },
   {
     slug: 'vidy-mobilnykh-prilozheniy',
@@ -172,7 +173,7 @@ export const articles = [
     category: 'Мобильные приложения',
     cluster: 'mobilnye-prilozheniya',
     date: '2026-02-27',
-    image: null,
+    image: '/images/blog/mobilnye-prilozheniya/vidy-mobilnykh-prilozheniy-og.svg',
   },
   {
     slug: 'prodvizhenie-mobilnogo-prilozheniya',
@@ -183,7 +184,7 @@ export const articles = [
     category: 'Мобильные приложения',
     cluster: 'mobilnye-prilozheniya',
     date: '2026-02-27',
-    image: null,
+    image: '/images/blog/mobilnye-prilozheniya/prodvizhenie-mobilnogo-prilozheniya-og.svg',
   },
   {
     slug: 'razrabotka-veb-prilozheniy',
@@ -193,7 +194,7 @@ export const articles = [
     category: 'Веб-разработка',
     cluster: 'veb-razrabotka',
     date: '2026-02-26',
-    image: null,
+    image: '/images/blog/veb-razrabotka/razrabotka-veb-prilozheniy-og.svg',
   },
   {
     slug: 'frontend-razrabotka',
@@ -204,7 +205,7 @@ export const articles = [
     category: 'Веб-разработка',
     cluster: 'veb-razrabotka',
     date: '2026-02-27',
-    image: null,
+    image: '/images/blog/veb-razrabotka/frontend-razrabotka-og.svg',
   },
   {
     slug: 'backend-razrabotka',
@@ -215,7 +216,7 @@ export const articles = [
     category: 'Веб-разработка',
     cluster: 'veb-razrabotka',
     date: '2026-02-27',
-    image: null,
+    image: '/images/blog/veb-razrabotka/backend-razrabotka-og.svg',
   },
   {
     slug: 'fullstack-razrabotka',
@@ -225,7 +226,7 @@ export const articles = [
     category: 'Веб-разработка',
     cluster: 'veb-razrabotka',
     date: '2026-02-27',
-    image: null,
+    image: '/images/blog/veb-razrabotka/fullstack-razrabotka-og.svg',
   },
   {
     slug: 'api-razrabotka',
@@ -235,7 +236,7 @@ export const articles = [
     category: 'Веб-разработка',
     cluster: 'veb-razrabotka',
     date: '2026-02-27',
-    image: null,
+    image: '/images/blog/veb-razrabotka/api-razrabotka-og.svg',
   },
   {
     slug: 'ii-v-it',
@@ -245,7 +246,7 @@ export const articles = [
     category: 'Искусственный интеллект',
     cluster: 'iskusstvennyy-intellekt',
     date: '2026-02-27',
-    image: null,
+    image: '/images/blog/iskusstvennyy-intellekt/ii-v-it-og.svg',
   },
   {
     slug: 'ii-dlya-biznesa',
@@ -255,7 +256,7 @@ export const articles = [
     category: 'Искусственный интеллект',
     cluster: 'iskusstvennyy-intellekt',
     date: '2026-02-27',
-    image: null,
+    image: '/images/blog/iskusstvennyy-intellekt/ii-dlya-biznesa-og.svg',
   },
   {
     slug: 'chatgpt-dlya-biznesa',
@@ -265,7 +266,7 @@ export const articles = [
     category: 'Искусственный интеллект',
     cluster: 'iskusstvennyy-intellekt',
     date: '2026-02-27',
-    image: null,
+    image: '/images/blog/iskusstvennyy-intellekt/chatgpt-dlya-biznesa-og.svg',
   },
   {
     slug: 'neyroseti-dlya-generatsii-izobrazheniy',
@@ -276,7 +277,7 @@ export const articles = [
     category: 'Искусственный интеллект',
     cluster: 'iskusstvennyy-intellekt',
     date: '2026-03-14',
-    image: null,
+    image: '/images/blog/iskusstvennyy-intellekt/neyroseti-dlya-generatsii-izobrazheniy-og.svg',
   },
   {
     slug: 'ii-agenty-dlya-biznesa',
@@ -286,7 +287,7 @@ export const articles = [
     category: 'Искусственный интеллект',
     cluster: 'iskusstvennyy-intellekt',
     date: '2026-03-14',
-    image: null,
+    image: '/images/blog/iskusstvennyy-intellekt/ii-agenty-dlya-biznesa-og.svg',
   },
   {
     slug: 'prompt-inzhiniring',
@@ -296,7 +297,7 @@ export const articles = [
     category: 'Искусственный интеллект',
     cluster: 'iskusstvennyy-intellekt',
     date: '2026-03-14',
-    image: null,
+    image: '/images/blog/iskusstvennyy-intellekt/prompt-inzhiniring-og.svg',
   },
   {
     slug: 'avtomatizatsiya-biznesa-ii',
@@ -306,7 +307,7 @@ export const articles = [
     category: 'Искусственный интеллект',
     cluster: 'iskusstvennyy-intellekt',
     date: '2026-03-14',
-    image: null,
+    image: '/images/blog/iskusstvennyy-intellekt/avtomatizatsiya-biznesa-ii-og.svg',
   },
   {
     slug: 'chto-takoe-lichnyy-brend',
@@ -316,7 +317,7 @@ export const articles = [
     category: 'Личный бренд',
     cluster: 'lichnyy-brend',
     date: '2026-03-14',
-    image: null,
+    image: '/images/blog/lichnyy-brend/chto-takoe-lichnyy-brend-og.svg',
   },
   {
     slug: 'kak-sozdat-lichnyy-brend',
@@ -326,7 +327,7 @@ export const articles = [
     category: 'Личный бренд',
     cluster: 'lichnyy-brend',
     date: '2026-03-14',
-    image: null,
+    image: '/images/blog/lichnyy-brend/kak-sozdat-lichnyy-brend-og.svg',
   },
   {
     slug: 'upakovka-lichnogo-brenda',
@@ -336,7 +337,7 @@ export const articles = [
     category: 'Личный бренд',
     cluster: 'lichnyy-brend',
     date: '2026-03-14',
-    image: null,
+    image: '/images/blog/lichnyy-brend/upakovka-lichnogo-brenda-og.svg',
   },
   {
     slug: 'chto-takoe-kontent-marketing',
@@ -346,7 +347,7 @@ export const articles = [
     category: 'Контент-маркетинг',
     cluster: 'kontent-marketing',
     date: '2026-03-14',
-    image: null,
+    image: '/images/blog/kontent-marketing/chto-takoe-kontent-marketing-og.svg',
   },
   {
     slug: 'strategiya-kontent-marketinga',
@@ -356,7 +357,7 @@ export const articles = [
     category: 'Контент-маркетинг',
     cluster: 'kontent-marketing',
     date: '2026-03-14',
-    image: null,
+    image: '/images/blog/kontent-marketing/strategiya-kontent-marketinga-og.svg',
   },
   {
     slug: 'kontent-marketing-dlya-privlecheniya-klientov',
@@ -366,7 +367,7 @@ export const articles = [
     category: 'Контент-маркетинг',
     cluster: 'kontent-marketing',
     date: '2026-03-14',
-    image: null,
+    image: '/images/blog/kontent-marketing/kontent-marketing-dlya-privlecheniya-klientov-og.svg',
   },
   {
     slug: 'chto-takoe-networking',
@@ -376,7 +377,7 @@ export const articles = [
     category: 'Нетворкинг',
     cluster: 'networking',
     date: '2026-03-15',
-    image: null,
+    image: '/images/blog/networking/chto-takoe-networking-og.svg',
   },
   {
     slug: 'kak-razvit-set-kontaktov',
@@ -386,7 +387,7 @@ export const articles = [
     category: 'Нетворкинг',
     cluster: 'networking',
     date: '2026-03-15',
-    image: null,
+    image: '/images/blog/networking/kak-razvit-set-kontaktov-og.svg',
   },
   {
     slug: 'networking-dlya-biznesa',
@@ -396,7 +397,7 @@ export const articles = [
     category: 'Нетворкинг',
     cluster: 'networking',
     date: '2026-03-15',
-    image: null,
+    image: '/images/blog/networking/networking-dlya-biznesa-og.svg',
   },
   {
     slug: 'chto-takoe-chat-bot',
@@ -406,7 +407,7 @@ export const articles = [
     category: 'Чат-боты',
     cluster: 'chat-boty',
     date: '2026-03-15',
-    image: null,
+    image: '/images/blog/chat-boty/chto-takoe-chat-bot-og.svg',
   },
   {
     slug: 'chat-bot-dlya-biznesa',
@@ -416,7 +417,7 @@ export const articles = [
     category: 'Чат-боты',
     cluster: 'chat-boty',
     date: '2026-03-15',
-    image: null,
+    image: '/images/blog/chat-boty/chat-bot-dlya-biznesa-og.svg',
   },
   {
     slug: 'chat-bot-v-telegram',
@@ -426,7 +427,7 @@ export const articles = [
     category: 'Чат-боты',
     cluster: 'chat-boty',
     date: '2026-03-15',
-    image: null,
+    image: '/images/blog/chat-boty/chat-bot-v-telegram-og.svg',
   },
   {
     slug: 'chat-bot-vkontakte',
@@ -436,7 +437,7 @@ export const articles = [
     category: 'Чат-боты',
     cluster: 'chat-boty',
     date: '2026-03-15',
-    image: null,
+    image: '/images/blog/chat-boty/chat-bot-vkontakte-og.svg',
   },
   {
     slug: 'chat-bot-v-max',
@@ -446,7 +447,7 @@ export const articles = [
     category: 'Чат-боты',
     cluster: 'chat-boty',
     date: '2026-03-15',
-    image: null,
+    image: '/images/blog/chat-boty/chat-bot-v-max-og.svg',
   },
   {
     slug: 'kak-sozdat-sajt-samostoyatelno',
@@ -456,7 +457,7 @@ export const articles = [
     category: 'Создание сайтов',
     cluster: 'sozdanie-saytov',
     date: '2026-03-15',
-    image: null,
+    image: '/images/blog/sozdanie-saytov/kak-sozdat-sajt-samostoyatelno-og.svg',
   },
   {
     slug: 'skolko-stoit-sozdat-sajt',
@@ -466,7 +467,7 @@ export const articles = [
     category: 'Создание сайтов',
     cluster: 'sozdanie-saytov',
     date: '2026-03-15',
-    image: null,
+    image: '/images/blog/sozdanie-saytov/skolko-stoit-sozdat-sajt-og.svg',
   },
   {
     slug: 'platformy-dlya-sozdaniya-saytov-sravnenie',
@@ -476,7 +477,7 @@ export const articles = [
     category: 'Создание сайтов',
     cluster: 'sozdanie-saytov',
     date: '2026-03-15',
-    image: null,
+    image: '/images/blog/sozdanie-saytov/platformy-dlya-sozdaniya-saytov-sravnenie-og.svg',
   },
   {
     slug: 'kak-vesti-telegram-kanal',
@@ -486,7 +487,7 @@ export const articles = [
     category: 'Telegram-маркетинг',
     cluster: 'telegram-marketing',
     date: '2026-03-15',
-    image: null,
+    image: '/images/blog/telegram-marketing/kak-vesti-telegram-kanal-og.svg',
   },
   {
     slug: 'prodvizhenie-v-telegram',
@@ -496,7 +497,7 @@ export const articles = [
     category: 'Telegram-маркетинг',
     cluster: 'telegram-marketing',
     date: '2026-03-15',
-    image: null,
+    image: '/images/blog/telegram-marketing/prodvizhenie-v-telegram-og.svg',
   },
   {
     slug: 'telegram-kanal-dlya-biznesa',
@@ -506,7 +507,7 @@ export const articles = [
     category: 'Telegram-маркетинг',
     cluster: 'telegram-marketing',
     date: '2026-03-15',
-    image: null,
+    image: '/images/blog/telegram-marketing/telegram-kanal-dlya-biznesa-og.svg',
   },
   {
     slug: 'chto-takoe-seo',
@@ -516,7 +517,7 @@ export const articles = [
     category: 'SEO',
     cluster: 'seo',
     date: '2026-03-16',
-    image: null,
+    image: '/images/blog/seo/chto-takoe-seo-og.svg',
   },
   {
     slug: 'seo-dlya-biznesa',
@@ -526,7 +527,7 @@ export const articles = [
     category: 'SEO',
     cluster: 'seo',
     date: '2026-03-16',
-    image: null,
+    image: '/images/blog/seo/seo-dlya-biznesa-og.svg',
   },
   {
     slug: 'prodvizhenie-sayta-v-yandex',
@@ -536,7 +537,7 @@ export const articles = [
     category: 'SEO',
     cluster: 'seo',
     date: '2026-03-16',
-    image: null,
+    image: '/images/blog/seo/prodvizhenie-sayta-v-yandex-og.svg',
   },
   {
     slug: 'kak-prodat-svoi-uslugi',
@@ -546,7 +547,7 @@ export const articles = [
     category: 'Монетизация экспертности',
     cluster: 'monetizatsiya-ekspertnosti',
     date: '2026-03-16',
-    image: null,
+    image: '/images/blog/monetizatsiya-ekspertnosti/kak-prodat-svoi-uslugi-og.svg',
   },
   {
     slug: 'kak-sozdat-onlayn-kurs',
@@ -556,7 +557,7 @@ export const articles = [
     category: 'Монетизация экспертности',
     cluster: 'monetizatsiya-ekspertnosti',
     date: '2026-03-16',
-    image: null,
+    image: '/images/blog/monetizatsiya-ekspertnosti/kak-sozdat-onlayn-kurs-og.svg',
   },
   {
     slug: 'konsalting-s-nulya',
@@ -566,7 +567,7 @@ export const articles = [
     category: 'Монетизация экспертности',
     cluster: 'monetizatsiya-ekspertnosti',
     date: '2026-03-16',
-    image: null,
+    image: '/images/blog/monetizatsiya-ekspertnosti/konsalting-s-nulya-og.svg',
   },
   {
     slug: 'smm-dlya-biznesa',
@@ -576,7 +577,7 @@ export const articles = [
     category: 'SMM',
     cluster: 'smm',
     date: '2026-03-28',
-    image: '/reference/smm.webp',
+    image: '/images/blog/smm/smm-dlya-biznesa-og.svg',
   },
   {
     slug: 'prodvizhenie-v-vk',
@@ -586,7 +587,7 @@ export const articles = [
     category: 'SMM',
     cluster: 'smm',
     date: '2026-03-28',
-    image: null,
+    image: '/images/blog/smm/prodvizhenie-v-vk-og.svg',
   },
   {
     slug: 'kontent-dlya-socsetey',
@@ -596,7 +597,7 @@ export const articles = [
     category: 'SMM',
     cluster: 'smm',
     date: '2026-03-28',
-    image: null,
+    image: '/images/blog/smm/kontent-dlya-socsetey-og.svg',
   },
   {
     slug: 'chto-takoe-nocode',
@@ -606,7 +607,7 @@ export const articles = [
     category: 'No-code',
     cluster: 'nocode',
     date: '2026-03-28',
-    image: null,
+    image: '/images/blog/nocode/chto-takoe-nocode-og.svg',
   },
   {
     slug: 'tilda-dlya-biznesa',
@@ -616,7 +617,7 @@ export const articles = [
     category: 'No-code',
     cluster: 'nocode',
     date: '2026-03-28',
-    image: null,
+    image: '/images/blog/nocode/tilda-dlya-biznesa-og.svg',
   },
   {
     slug: 'nocode-instrumenty',
@@ -626,7 +627,7 @@ export const articles = [
     category: 'No-code',
     cluster: 'nocode',
     date: '2026-03-28',
-    image: null,
+    image: '/images/blog/nocode/nocode-instrumenty-og.svg',
   },
   {
     slug: 'chto-takoe-email-marketing',
@@ -636,7 +637,7 @@ export const articles = [
     category: 'Email-маркетинг',
     cluster: 'email-marketing',
     date: '2026-03-28',
-    image: null,
+    image: '/images/blog/email-marketing/chto-takoe-email-marketing-og.svg',
   },
   {
     slug: 'kak-sobrat-bazu-podpischikov',
@@ -646,7 +647,7 @@ export const articles = [
     category: 'Email-маркетинг',
     cluster: 'email-marketing',
     date: '2026-03-28',
-    image: null,
+    image: '/images/blog/email-marketing/kak-sobrat-bazu-podpischikov-og.svg',
   },
   {
     slug: 'kak-napisat-pismo-dlya-rassylki',
@@ -656,7 +657,7 @@ export const articles = [
     category: 'Email-маркетинг',
     cluster: 'email-marketing',
     date: '2026-03-28',
-    image: null,
+    image: '/images/blog/email-marketing/kak-napisat-pismo-dlya-rassylki-og.svg',
   },
   {
     slug: 'chto-takoe-ux-ui',
@@ -666,7 +667,7 @@ export const articles = [
     category: 'UX/UI',
     cluster: 'ux-ui',
     date: '2026-03-28',
-    image: null,
+    image: '/images/blog/ux-ui/chto-takoe-ux-ui-og.svg',
   },
   {
     slug: 'ux-dizayn-dlya-sayta',
@@ -676,7 +677,7 @@ export const articles = [
     category: 'UX/UI',
     cluster: 'ux-ui',
     date: '2026-03-28',
-    image: null,
+    image: '/images/blog/ux-ui/ux-dizayn-dlya-sayta-og.svg',
   },
   {
     slug: 'prototip-sayta',
@@ -686,7 +687,7 @@ export const articles = [
     category: 'UX/UI',
     cluster: 'ux-ui',
     date: '2026-03-28',
-    image: null,
+    image: '/images/blog/ux-ui/prototip-sayta-og.svg',
   },
   {
     slug: 'chto-takoe-agile-i-scrum',
@@ -696,7 +697,7 @@ export const articles = [
     category: 'Управление проектами',
     cluster: 'upravlenie-proektami',
     date: '2026-03-28',
-    image: null,
+    image: '/images/blog/upravlenie-proektami/chto-takoe-agile-i-scrum-og.svg',
   },
   {
     slug: 'upravlenie-proektami',
@@ -706,7 +707,7 @@ export const articles = [
     category: 'Управление проектами',
     cluster: 'upravlenie-proektami',
     date: '2026-03-28',
-    image: null,
+    image: '/images/blog/upravlenie-proektami/upravlenie-proektami-og.svg',
   },
   {
     slug: 'sistema-zadach',
@@ -716,7 +717,7 @@ export const articles = [
     category: 'Управление проектами',
     cluster: 'upravlenie-proektami',
     date: '2026-03-28',
-    image: null,
+    image: '/images/blog/upravlenie-proektami/sistema-zadach-og.svg',
   },
   {
     slug: 'veb-analitika',
@@ -726,7 +727,7 @@ export const articles = [
     category: 'Аналитика',
     cluster: 'analitika',
     date: '2026-03-30',
-    image: '/images/blog/analitika/placeholder.svg',
+    image: '/images/blog/analitika/veb-analitika-og.svg',
   },
   {
     slug: 'klyuchevye-metriki-biznesa',
@@ -736,7 +737,7 @@ export const articles = [
     category: 'Аналитика',
     cluster: 'analitika',
     date: '2026-03-30',
-    image: '/images/blog/analitika/placeholder.svg',
+    image: '/images/blog/analitika/klyuchevye-metriki-biznesa-og.svg',
   },
   {
     slug: 'produktovaya-analitika',
@@ -746,7 +747,7 @@ export const articles = [
     category: 'Аналитика',
     cluster: 'analitika',
     date: '2026-03-30',
-    image: '/images/blog/analitika/placeholder.svg',
+    image: '/images/blog/analitika/produktovaya-analitika-og.svg',
   },
 ]
 

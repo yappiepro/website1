@@ -1,11 +1,13 @@
 export default {
   slug: 'neyroseti-dlya-generatsii-izobrazheniy',
-  title: 'Нейросети для генерации изображений: Midjourney, DALL-E, Stable Diffusion — обзор и сравнение 2026',
-  description: 'Полный обзор нейросетей для генерации изображений: Midjourney, DALL-E 3, Stable Diffusion, Flux. Сравнение качества, цен и применения в бизнесе и творчестве в 2026 году.',
+  title:
+    'Нейросети для генерации изображений: Midjourney, DALL-E, Stable Diffusion — обзор и сравнение 2026',
+  description:
+    'Полный обзор нейросетей для генерации изображений: Midjourney, DALL-E 3, Stable Diffusion, Flux. Сравнение качества, цен и применения в бизнесе и творчестве в 2026 году.',
   category: 'Искусственный интеллект',
   cluster: 'iskusstvennyy-intellekt',
   date: '2026-03-14',
-  image: null,
+  image: '/images/blog/iskusstvennyy-intellekt/neyroseti-dlya-generatsii-izobrazheniy-og.svg',
   content: `
     <p>Ещё три года назад сгенерировать фотореалистичное изображение по текстовому описанию казалось фантастикой. Сегодня это занимает 10 секунд и доступно любому. Midjourney, DALL-E 3, Stable Diffusion, Flux — каждый инструмент со своим характером, сильными сторонами и ценой. Разбираем, что выбрать и как использовать в реальной работе.</p>
 
@@ -459,5 +461,5 @@ cinematic color grading, 8K, photorealistic --ar 16:9</code></pre>
       <p><strong>Читать далее:</strong> <a href="/blog/chatgpt-dlya-biznesa">ChatGPT для бизнеса: как использовать, реальные сценарии и ограничения →</a></p>
       <p><strong>Назад:</strong> <a href="/blog/ii-dlya-biznesa">← ИИ для бизнеса: как компании внедряют искусственный интеллект и что это даёт</a></p>
     </div>
-  `
+  `,
 }

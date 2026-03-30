@@ -3,33 +3,29 @@
     <div class="toc-header">
       <span class="toc-title">Содержание</span>
     </div>
-    
+
     <nav class="toc-nav">
       <ul class="toc-list">
-        <li 
-          v-for="item in items" 
+        <li
+          v-for="item in items"
           :key="item.id"
-          :class="['toc-item', `toc-item--${item.level}`, { 'toc-item--active': activeId === item.id }]"
+          :class="[
+            'toc-item',
+            `toc-item--${item.level}`,
+            { 'toc-item--active': activeId === item.id },
+          ]"
         >
-          <a 
-            :href="`#${item.id}`" 
-            class="toc-link"
-            @click="handleClick($event, item.id)"
-          >
+          <a :href="`#${item.id}`" class="toc-link" @click="handleClick($event, item.id)">
             {{ item.text }}
           </a>
-          
+
           <ul v-if="item.children && item.children.length" class="toc-list toc-list--nested">
-            <li 
-              v-for="child in item.children" 
+            <li
+              v-for="child in item.children"
               :key="child.id"
               :class="['toc-item', 'toc-item--h3', { 'toc-item--active': activeId === child.id }]"
             >
-              <a 
-                :href="`#${child.id}`" 
-                class="toc-link"
-                @click="handleClick($event, child.id)"
-              >
+              <a :href="`#${child.id}`" class="toc-link" @click="handleClick($event, child.id)">
                 {{ child.text }}
               </a>
             </li>
@@ -46,8 +42,8 @@ import { ref, onMounted, onUnmounted } from 'vue'
 defineProps({
   items: {
     type: Array,
-    required: true
-  }
+    required: true,
+  },
 })
 
 const activeId = ref('')
@@ -59,19 +55,21 @@ const headingElements = ref([])
 const collectHeadings = () => {
   const headings = []
   const content = document.querySelector('.article-content')
-  if (!content) return
-  
+  if (!content) {
+    return
+  }
+
   const h2s = content.querySelectorAll('h2[id]')
   const h3s = content.querySelectorAll('h3[id]')
-  
-  h2s.forEach(h2 => {
+
+  h2s.forEach((h2) => {
     headings.push({ element: h2, id: h2.id, level: 'h2' })
   })
-  
-  h3s.forEach(h3 => {
+
+  h3s.forEach((h3) => {
     headings.push({ element: h3, id: h3.id, level: 'h3' })
   })
-  
+
   // Сортировка по позиции в документе
   headings.sort((a, b) => a.element.offsetTop - b.element.offsetTop)
   headingElements.value = headings
@@ -82,11 +80,11 @@ const setupObserver = () => {
   const options = {
     root: null,
     rootMargin: '-100px 0px -60% 0px',
-    threshold: 0
+    threshold: 0,
   }
 
   observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         activeId.value = entry.target.id
         // Автоматическая прокрутка оглавления к активному элементу
@@ -105,20 +103,19 @@ const scrollToActiveItem = () => {
   setTimeout(() => {
     const activeItem = document.querySelector('.toc-item--active')
     const tocContainer = document.querySelector('.article-toc')
-    
+
     if (activeItem && tocContainer) {
       const itemRect = activeItem.getBoundingClientRect()
       const containerRect = tocContainer.getBoundingClientRect()
-      
+
       // Проверяем, виден ли элемент
-      const isVisible = itemRect.top >= containerRect.top && 
-                        itemRect.bottom <= containerRect.bottom
-      
+      const isVisible = itemRect.top >= containerRect.top && itemRect.bottom <= containerRect.bottom
+
       if (!isVisible) {
         // Центрируем активный элемент в контейнере
         activeItem.scrollIntoView({
           behavior: 'smooth',
-          block: 'center'
+          block: 'center',
         })
       }
     }
@@ -128,22 +125,24 @@ const scrollToActiveItem = () => {
 // Плавный скролл к якорю
 const handleClick = (event, id) => {
   event.preventDefault()
-  
+
   const element = document.getElementById(id)
-  if (!element) return
-  
+  if (!element) {
+    return
+  }
+
   const headerOffset = 100
   const elementPosition = element.getBoundingClientRect().top
   const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-  
+
   window.scrollTo({
     top: offsetPosition,
-    behavior: 'smooth'
+    behavior: 'smooth',
   })
-  
+
   // Обновляем активный ID сразу после клика
   activeId.value = id
-  
+
   // Добавляем ID в URL без перезагрузки
   if (history.pushState) {
     history.pushState(null, null, `#${id}`)
@@ -152,7 +151,7 @@ const handleClick = (event, id) => {
 
 onMounted(() => {
   collectHeadings()
-  
+
   // Небольшая задержка для установки Observer после рендера
   setTimeout(() => {
     setupObserver()
@@ -270,7 +269,7 @@ onUnmounted(() => {
 }
 
 /* Скрываем на мобильных и планшетах */
-@media (max-width: 1439px) {
+@media (max-width: 1279px) {
   .article-toc {
     display: none;
   }

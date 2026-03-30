@@ -1,11 +1,12 @@
 export default {
   slug: 'chat-bot-vkontakte',
   title: 'Чат-бот ВКонтакте: как создать бота в VK для бизнеса и сообщества',
-  description: 'Полное руководство по чат-ботам ВКонтакте: как работают боты в VK, инструменты Senler и Salebot, сценарии для бизнеса, как настроить автоответы и воронки продаж в 2026 году.',
+  description:
+    'Полное руководство по чат-ботам ВКонтакте: как работают боты в VK, инструменты Senler и Salebot, сценарии для бизнеса, как настроить автоответы и воронки продаж в 2026 году.',
   category: 'Чат-боты',
   cluster: 'chat-boty',
   date: '2026-03-15',
-  image: '',
+  image: '/images/blog/chat-boty/chat-bot-vkontakte-og.svg',
   content: `
 <h1>Чат-бот ВКонтакте: как создать и использовать для бизнеса</h1>
 
@@ -140,5 +141,5 @@ export default {
   <p><strong>Читать далее:</strong> <a href="/blog/chat-bot-v-max">Чат-бот в MAX: как создать бота в мессенджере VK →</a></p>
   <p><strong>Назад:</strong> <a href="/blog/chat-bot-v-telegram">← Чат-бот в Telegram: как создать и для чего использовать</a></p>
 </div>
-  `
+  `,
 }

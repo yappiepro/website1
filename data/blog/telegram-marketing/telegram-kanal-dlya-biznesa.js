@@ -1,11 +1,12 @@
 export default {
   slug: 'telegram-kanal-dlya-biznesa',
   title: 'Telegram-канал для бизнеса: зачем нужен и как запустить с нуля',
-  description: 'Разбираем, зачем бизнесу Telegram-канал, как его правильно запустить, оформить и начать получать подписчиков. Практическое руководство для предпринимателей и экспертов в 2026 году.',
+  description:
+    'Разбираем, зачем бизнесу Telegram-канал, как его правильно запустить, оформить и начать получать подписчиков. Практическое руководство для предпринимателей и экспертов в 2026 году.',
   category: 'Telegram-маркетинг',
   cluster: 'telegram-marketing',
   date: '2026-03-15',
-  image: '',
+  image: '/images/blog/telegram-marketing/telegram-kanal-dlya-biznesa-og.svg',
   content: `
 <h1>Telegram-канал для бизнеса: зачем нужен и как запустить</h1>
 
@@ -138,5 +139,5 @@ export default {
   <p><strong>Читать далее:</strong> <a href="/blog/kak-vesti-telegram-kanal">Как вести Telegram-канал: контент, регулярность и аналитика →</a></p>
   <p><strong>Назад:</strong> <a href="/blog">← Все статьи блога</a></p>
 </div>
-  `
+  `,
 }

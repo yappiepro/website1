@@ -1,11 +1,12 @@
 export default {
   slug: 'ii-v-it',
   title: 'Искусственный интеллект в IT: как ИИ меняет разработку программного обеспечения',
-  description: 'Обзор ИИ-инструментов для разработчиков: GitHub Copilot, Cursor, Claude Code. Как искусственный интеллект меняет IT-индустрию в 2026 году.',
+  description:
+    'Обзор ИИ-инструментов для разработчиков: GitHub Copilot, Cursor, Claude Code. Как искусственный интеллект меняет IT-индустрию в 2026 году.',
   category: 'Искусственный интеллект',
   cluster: 'iskusstvennyy-intellekt',
   date: '2026-02-27',
-  image: null,
+  image: '/images/blog/iskusstvennyy-intellekt/ii-v-it-og.svg',
   content: `
     <p>Искусственный интеллект перестал быть технологией будущего — он уже встроен в повседневную работу разработчиков, дизайнеров, тестировщиков и менеджеров продуктов. GitHub Copilot пишет код, ChatGPT объясняет ошибки, Midjourney генерирует иллюстрации, а ИИ-агенты автоматизируют рутинные задачи целых команд.</p>
 
@@ -210,5 +211,5 @@ export default {
       <p><strong>Читать далее:</strong> <a href="/blog/backend-razrabotka">Бэкенд-разработка: что это такое, какие технологии используются и как стать специалистом →</a></p>
       <p><strong>Назад:</strong> <a href="/blog/api-razrabotka">← Разработка API: что такое API, как создать и задокументировать</a></p>
     </div>
-  `
+  `,
 }

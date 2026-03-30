@@ -7,7 +7,7 @@ export default {
   category: 'Управление проектами',
   cluster: 'upravlenie-proektami',
   date: '2026-03-28',
-  image: null,
+  image: '/images/blog/upravlenie-proektami/chto-takoe-agile-i-scrum-og.svg',
   keywords:
     'что такое Agile, Scrum методология, Agile и Scrum, гибкие методологии, управление проектами Agile, Scrum спринт, Agile разработка, методологии управления проектами',
   content: `<p>«Мы работаем по Agile» — эту фразу можно услышать в каждой второй IT-компании. Но что за ней стоит на практике? Одни понимают Agile как хаотичную работу без планов. Другие — как религию со своими ритуалами. Разбираем, что это такое на самом деле.</p>

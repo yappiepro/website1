@@ -6,7 +6,7 @@ export default {
   category: 'Создание сайтов',
   cluster: 'sozdanie-saytov',
   date: '2026-03-15',
-  image: '',
+  image: '/images/blog/sozdanie-saytov/platformy-dlya-sozdaniya-saytov-sravnenie-og.svg',
   content: `
 <h1>Платформы для создания сайтов: сравнение и выбор лучшего решения</h1>
 

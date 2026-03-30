@@ -112,7 +112,7 @@
             class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors p-2 hover:bg-gray-100 rounded-full"
             @click="closePopup"
           >
-            <Icon name="fa-solid:xmark" class="w-6 h-6" />
+            <Icon name="lucide:x" class="w-6 h-6" />
           </button>
 
           <!-- Заголовок -->

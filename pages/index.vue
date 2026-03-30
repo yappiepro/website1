@@ -1422,7 +1422,7 @@
 
           <!-- Правая колонка: Форма -->
           <div class="w-full lg:w-[40%] bg-white rounded-2xl shadow-lg p-5 sm:p-6 lg:p-8">
-            <ContactForm default-source="Главная страница" />
+            <ContactForm default-source="Главная страница" :selected-service="selectedService" />
           </div>
         </div>
       </section>
@@ -1633,6 +1633,7 @@ const faqs = ref([
 
 // Состояние мобильного меню
 const isMobileMenuOpen = ref(false)
+const selectedService = ref('')
 
 // Меню для хедера (без пункта "Создать свой блог")
 const headerMenuItems = [
@@ -1894,8 +1895,7 @@ onMounted(() => {
 
   // Обработка hash URL для прокрутки к секции контактов
   if (typeof window !== 'undefined' && window.location.hash) {
-    const hash = window.location.hash
-    const hashPath = hash.split('?')[0] // Убираем query параметры
+    const hashPath = window.location.hash.split('?')[0]
     const element = document.querySelector(hashPath)
     if (element) {
       setTimeout(() => {
@@ -1909,14 +1909,19 @@ onMounted(() => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault()
       const href = this.getAttribute('href')
-      const hashPath = href.split('?')[0] // Убираем query параметры
+
+      // Извлекаем услугу из query параметра
+      const urlParams = new URLSearchParams(href.split('?')[1] || '')
+      const service = urlParams.get('service')
+
+      if (service) {
+        selectedService.value = service
+      }
+
+      // Прокрутка к секции
+      const hashPath = href.split('?')[0]
       const element = document.querySelector(hashPath)
-
       if (element) {
-        // Обновляем URL с hash и query параметрами
-        window.history.pushState(null, '', href)
-
-        // Плавная прокрутка
         element.scrollIntoView({ behavior: 'smooth', block: 'start' })
       }
     })

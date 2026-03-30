@@ -26,27 +26,23 @@
     Мобильные приложения
   </text>
   
-  <!-- Заголовок (до 3 строк, с правильными отступами) -->
-  <!-- Используем foreignObject для ограничения ширины текста с отступами 100px слева и справа -->
-  <foreignObject x="100" y="240" width="1000" height="220">
+  <!-- Заголовок (автоматический перенос по ширине) -->
+  <!-- foreignObject с отступами 100px слева и справа (ширина 1000px) -->
+  <foreignObject x="100" y="260" width="1000" height="200">
     <div xmlns="http://www.w3.org/1999/xhtml" style="
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 48px;
+      font-size: 44px;
       font-weight: bold;
       color: white;
       text-align: center;
-      line-height: 1.4;
+      line-height: 1.35;
       display: flex;
-      flex-direction: column;
+      align-items: center;
       justify-content: center;
       height: 100%;
       filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
     ">
-      
-      <div style="margin: 4px 0;">Языки программирования для мобильных приложений:</div>
-      
-      <div style="margin: 4px 0;">что выбрать в 2025 году</div>
-      
+      Языки программирования для мобильных приложений: что выбрать в 2025 году
     </div>
   </foreignObject>
   

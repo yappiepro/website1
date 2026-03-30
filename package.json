@@ -5,7 +5,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate && node scripts/postbuild.mjs && node scripts/generate-sitemap.mjs",
+    "generate": "node scripts/gen-blog-meta.mjs && nuxt generate && node scripts/postbuild.mjs && node scripts/generate-sitemap.mjs",
     "postbuild": "node scripts/postbuild.mjs",
     "favicons": "node scripts/gen-favicons.mjs",
     "preview": "nuxt preview",

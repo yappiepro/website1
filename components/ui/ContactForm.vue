@@ -6,7 +6,7 @@
     </p>
 
     <!-- Выбор услуги (облако тегов) -->
-    <div class="mb-4">
+    <div v-if="showServiceSelector" class="mb-4">
       <label class="block text-xs font-medium text-gray-700 mb-2">Выберите услугу:</label>
       <div class="flex flex-wrap gap-2">
         <button
@@ -150,6 +150,10 @@ const props = defineProps({
   sectionDescription: {
     type: String,
     default: 'Заполните форму и я свяжусь с вами в течение 24 часов',
+  },
+  showServiceSelector: {
+    type: Boolean,
+    default: true, // Показывать выбор услуги по умолчанию
   },
 })
 

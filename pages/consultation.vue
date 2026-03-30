@@ -546,6 +546,7 @@
         <div class="w-full lg:w-[40%] bg-white rounded-2xl shadow-lg p-5 sm:p-6 lg:p-8">
           <ContactForm
             default-source="Консультация"
+            :show-service-selector="false"
             section-title="Записаться на консультацию"
             section-description="Заполните форму и я свяжусь с вами в течение 24 часов"
           />

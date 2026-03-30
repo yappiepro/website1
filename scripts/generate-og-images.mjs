@@ -93,11 +93,26 @@ const generateSvg = (article, colorKey) => {
   </text>
   
   <!-- Заголовок (до 3 строк, с правильными отступами) -->
-  ${lines.map((line, i) => `
-  <text x="600" y="${linePositions[i]}" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle" filter="url(#shadow)">
-    ${escapeXml(line)}
-  </text>
-  `).join('')}
+  <!-- Используем foreignObject для ограничения ширины текста с отступами 100px слева и справа -->
+  <foreignObject x="100" y="240" width="1000" height="220">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 48px;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+      line-height: 1.4;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+    ">
+      ${lines.map((line) => `
+      <div style="margin: 4px 0;">${escapeXml(line)}</div>
+      `).join('')}
+    </div>
+  </foreignObject>
   
   <!-- Подвал -->
   <text x="600" y="560" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="white" text-anchor="middle" opacity="0.8">

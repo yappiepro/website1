@@ -324,6 +324,12 @@ async function handleSubmit() {
       message: 'Пожалуйста, заполните имя и телефон, а также примите согласие',
       type: 'error',
     }
+    console.error('Form validation failed:', {
+      name: form.value.name,
+      phone: form.value.phone,
+      consentPolicy: form.value.consentPolicy,
+      consentProcessing: form.value.consentProcessing,
+    })
     return
   }
 

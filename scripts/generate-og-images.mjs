@@ -41,6 +41,24 @@ const generateSvg = (article, colorKey) => {
   const title = truncateTitle(article.title)
   const category = article.category || 'Блог'
 
+  // Разбиваем заголовок на строки по 48 символов
+  const words = title.split(' ')
+  const lines = []
+  let currentLine = ''
+  const maxCharsPerLine = 48
+
+  for (const word of words) {
+    const testLine = currentLine ? `${currentLine} ${word}` : word
+    if (testLine.length <= maxCharsPerLine) {
+      currentLine = testLine
+    } else {
+      if (currentLine) lines.push(currentLine)
+      currentLine = word
+    }
+    if (lines.length >= 3) break
+  }
+  if (currentLine && lines.length < 4) lines.push(currentLine)
+
   return `<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -69,25 +87,12 @@ const generateSvg = (article, colorKey) => {
     ${category}
   </text>
   
-  <!-- Заголовок (автоматический перенос по ширине) -->
-  <!-- foreignObject с отступами 100px слева и справа (ширина 1000px) -->
-  <foreignObject x="100" y="260" width="1000" height="200">
-    <div xmlns="http://www.w3.org/1999/xhtml" style="
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 44px;
-      font-weight: bold;
-      color: white;
-      text-align: center;
-      line-height: 1.35;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
-    ">
-      ${escapeXml(title)}
-    </div>
-  </foreignObject>
+  <!-- Заголовок (разбиваем на строки по 48 символов) -->
+  ${lines.map((line, i) => `
+  <text x="600" y="${320 + i * 60}" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="bold" fill="white" text-anchor="middle" filter="url(#shadow)">
+    ${escapeXml(line)}
+  </text>
+  `).join('')}
   
   <!-- Подвал -->
   <text x="600" y="560" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="white" text-anchor="middle" opacity="0.8">

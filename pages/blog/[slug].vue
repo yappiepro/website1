@@ -267,7 +267,7 @@
               {{ article?.title }}
             </h1>
 
-            <p class="text-lg sm:text-xl text-gray-600 leading-relaxed">
+            <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
               {{ article?.description }}
             </p>
           </header>

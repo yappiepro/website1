@@ -5,10 +5,8 @@
       class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200"
     >
       <div class="max-w-7xl mx-auto px-6 py-4 flex items-center">
-        <!-- Левая зона: Логотип -->
         <a href="/" class="text-sm font-semibold text-gray-900 shrink-0">Артём Селифанов</a>
 
-        <!-- Центральная зона: меню -->
         <div class="hidden md:flex items-center gap-6 flex-1 justify-center">
           <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors"
             >Главная</a
@@ -34,10 +32,8 @@
           >
         </div>
 
-        <!-- Правая зона: пустая для баланса -->
         <div class="hidden md:block w-[100px] shrink-0"></div>
 
-        <!-- Кнопка бургер-меню для мобильных -->
         <button
           class="md:hidden text-gray-700 p-2 hover:bg-gray-100 rounded-lg transition-colors absolute right-4"
           aria-label="Открыть меню"
@@ -72,7 +68,6 @@
           >
         </button>
       </div>
-      <!-- Кнопка закрытия -->
       <button
         class="absolute top-6 right-6 text-gray-700 p-3 hover:bg-gray-100 rounded-lg transition-colors"
         aria-label="Закрыть меню"
@@ -86,18 +81,15 @@
     <nav class="pt-24 pb-6 px-4 md:px-6" aria-label="Breadcrumb">
       <div class="max-w-7xl mx-auto">
         <ol class="flex items-center gap-2 text-xs uppercase tracking-wider text-gray-600">
-          <li>
-            <a href="/" class="text-gray-600 hover:underline font-bold">Главная</a>
-          </li>
+          <li><a href="/" class="text-gray-600 hover:underline font-bold">Главная</a></li>
           <li class="mx-2 text-gray-600">/</li>
           <li class="font-bold text-gray-600">Менторство</li>
         </ol>
       </div>
     </nav>
 
-    <!-- Основной контент -->
+    <!-- Hero секция -->
     <main role="main" class="pt-20">
-      <!-- Hero секция -->
       <section
         class="relative min-h-[80vh] flex items-center px-4 sm:px-6 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100"
       >
@@ -125,367 +117,719 @@
             <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-10">
               <div class="text-center">
                 <div class="text-5xl font-black text-gray-900 mb-1">35 000 ₽</div>
-                <div class="text-sm text-gray-500">за программу</div>
+                <div class="text-sm text-gray-500">за всю программу</div>
               </div>
-              <div class="text-center sm:text-left">
-                <div class="text-lg font-semibold text-gray-700">5 сессий</div>
-                <div class="text-sm text-gray-500">по 1–1,5 часа + поддержка в чате</div>
+              <div class="hidden sm:block w-px h-16 bg-gray-300"></div>
+              <div class="text-center">
+                <div class="text-5xl font-black text-gray-900 mb-1">1 месяц</div>
+                <div class="text-sm text-gray-500">интенсивной работы</div>
               </div>
             </div>
 
             <a
-              href="https://t.me/artemselifanov"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group inline-flex items-center gap-3 px-10 py-5 text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-2xl transition-all hover:-translate-y-1 shadow-lg shadow-blue-600/30"
+              href="#contact"
+              class="group inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-2xl transition-all hover:-translate-y-1 shadow-xl shadow-blue-600/30"
             >
-              <Icon name="fa-brands:telegram" class="w-6 h-6" />
-              Написать «ментор»
+              Записаться на программу
+              <span class="group-hover:translate-x-1 transition-transform">→</span>
             </a>
 
-            <p class="text-sm text-gray-500 mt-6">
-              ⚡ Места ограничены — работаю только с 4 людьми в месяц
+            <p class="text-sm text-gray-400 mt-6">
+              ⚡ Только 4 места в месяц — пишу лично с каждым участником
             </p>
           </div>
         </div>
       </section>
 
-      <!-- Что мы сделаем -->
+      <!-- Проблема -->
       <section class="py-20 md:py-28 px-4 sm:px-6 border-t border-gray-100">
-        <div class="max-w-7xl mx-auto">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-red-50 rounded-xl mb-6">
+              <Icon name="lucide:circle-alert" class="w-5 h-5 text-red-600" />
+              <span class="text-sm font-bold text-red-700 uppercase tracking-wider">Знакомо?</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-6">
+              Вы эксперт. Но клиентов из блога — нет
+            </h2>
+          </div>
+
+          <p class="text-lg text-gray-700 leading-relaxed mb-8">
+            Вы знаете своё дело. У вас есть опыт, которым стоит делиться. Но каждый раз, когда дело
+            доходит до блога, что-то идёт не так: не знаете, о чём писать, боитесь продавать, не
+            понимаете, как превратить подписчиков в клиентов.
+          </p>
+
+          <div class="bg-red-50 border border-red-200 rounded-2xl p-6 md:p-8 mb-8">
+            <p class="text-lg text-gray-900 font-medium">
+              За месяц совместной работы я помогу вам выстроить систему, которая приносит заявки —
+              даже если сейчас у вас ноль подписчиков и ни одного поста.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Результаты -->
+      <section
+        class="py-20 md:py-28 px-4 sm:px-6 bg-gradient-to-br from-blue-50 via-white to-violet-50"
+      >
+        <div class="max-w-6xl mx-auto">
           <div class="text-center mb-16">
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-xl mb-6">
-              <Icon name="fa-solid:rocket" class="w-5 h-5 text-blue-600" />
+            <div
+              class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-blue-200 rounded-2xl mb-6"
+            >
+              <Icon name="lucide:target" class="w-5 h-5 text-blue-600" />
               <span class="text-sm font-bold text-blue-700 uppercase tracking-wider"
                 >Результат</span
               >
             </div>
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4">
-              Что мы сделаем за 5 сессий
+              Что вы получите за 5 сессий
             </h2>
           </div>
 
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div class="grid md:grid-cols-2 gap-6">
             <div
-              v-for="(item, index) in benefits"
-              :key="index"
-              class="group p-8 bg-white border border-gray-200 rounded-3xl hover:border-blue-300 transition-all hover:-translate-y-1"
+              class="group p-8 bg-white border-2 border-gray-200 rounded-[2rem] hover:border-blue-300 hover:shadow-xl transition-all hover:-translate-y-2"
             >
-              <div
-                class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors"
-              >
-                <Icon
-                  :name="item.icon"
-                  class="w-7 h-7 text-blue-600 group-hover:text-white transition-colors"
-                />
+              <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+                <Icon name="lucide:lightbulb" class="w-7 h-7 text-blue-600" />
               </div>
-              <h3 class="text-xl font-bold mb-3">{{ item.title }}</h3>
-              <p class="text-gray-600 leading-relaxed">{{ item.description }}</p>
+              <h3 class="text-2xl font-bold mb-4">
+                Вашу экспертную «фишку» — упакованную и понятную
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                Мы найдём то, что отличает вас от сотен других экспертов, и сформулируем это так,
+                чтобы человек с первых строк думал: «это про меня». Больше никакого «я помогаю людям
+                стать лучше» — только конкретное, цепляющее позиционирование.
+              </p>
+            </div>
+
+            <div
+              class="group p-8 bg-white border-2 border-gray-200 rounded-[2rem] hover:border-blue-300 hover:shadow-xl transition-all hover:-translate-y-2"
+            >
+              <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+                <Icon name="lucide:calendar" class="w-7 h-7 text-blue-600" />
+              </div>
+              <h3 class="text-2xl font-bold mb-4">Контент-план на месяц — без выгорания</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Не список тем «на всякий случай», а рабочая система: что, когда и зачем публиковать.
+                Такой план, от которого хочется писать, а не откладывать.
+              </p>
+            </div>
+
+            <div
+              class="group p-8 bg-white border-2 border-gray-200 rounded-[2rem] hover:border-blue-300 hover:shadow-xl transition-all hover:-translate-y-2"
+            >
+              <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+                <Icon name="lucide:funnel" class="w-7 h-7 text-blue-600" />
+              </div>
+              <h3 class="text-2xl font-bold mb-4">Простую воронку от поста к заявке</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Без сложных технических схем. Без чат-ботов, которые надо настраивать неделями.
+                Логика, которая работает: человек прочитал пост → заинтересовался → написал вам.
+                Всё.
+              </p>
+            </div>
+
+            <div
+              class="group p-8 bg-white border-2 border-gray-200 rounded-[2rem] hover:border-blue-300 hover:shadow-xl transition-all hover:-translate-y-2"
+            >
+              <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+                <Icon name="lucide:trending-up" class="w-7 h-7 text-blue-600" />
+              </div>
+              <h3 class="text-2xl font-bold mb-4">Уверенность в продажах</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Разберём, почему продавать через блог кажется страшным и навязчивым — и почему это
+                иллюзия. Вы научитесь приглашать на встречи и закрывать в работу без спама, без
+                давления, без ощущения «я впариваю».
+              </p>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div class="mt-12 max-w-3xl mx-auto">
-            <blockquote
-              class="p-8 bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl border-l-4 border-blue-600"
+      <!-- План по неделям -->
+      <section class="py-20 md:py-28 px-4 sm:px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto">
+          <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-violet-50 rounded-xl mb-6">
+              <Icon name="lucide:calendar-days" class="w-5 h-5 text-violet-600" />
+              <span class="text-sm font-bold text-violet-700 uppercase tracking-wider"
+                >Программа</span
+              >
+            </div>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4">
+              Как устроен ваш месяц — по неделям
+            </h2>
+          </div>
+
+          <div class="space-y-8">
+            <!-- Неделя 1 -->
+            <div
+              class="group relative bg-white border-2 border-gray-200 rounded-[2rem] p-8 md:p-10 hover:border-violet-300 hover:shadow-xl transition-all"
             >
-              <p class="text-lg font-medium text-gray-900 italic">
-                Вы получите не просто план — а готовую систему, которую можно внедрять сразу после
-                первой сессии.
+              <div
+                class="absolute -top-4 -left-4 w-12 h-12 bg-violet-600 rounded-2xl flex items-center justify-center shadow-lg"
+              >
+                <span class="text-white font-black text-lg">1</span>
+              </div>
+              <div class="ml-8">
+                <h3 class="text-2xl font-bold mb-2">Неделя 1 — Фундамент: кто вы и для кого</h3>
+                <p class="text-sm text-gray-500 mb-6">Сессия 1 + задания</p>
+                <ul class="space-y-3 mb-6">
+                  <li class="flex items-start gap-3">
+                    <Icon name="lucide:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span class="text-gray-700"
+                      >Разбираем вашу экспертизу и находим «фишку», которая выделяет вас среди
+                      конкурентов</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <Icon name="lucide:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span class="text-gray-700"
+                      >Формулируем позиционирование: кто вы, кому помогаете, какой результат
+                      даёте</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <Icon name="lucide:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span class="text-gray-700"
+                      >Определяем вашу целевую аудиторию — не абстрактную, а конкретную</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <Icon name="lucide:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span class="text-gray-700"
+                      >Пишете первый пост-знакомство по готовой структуре</span
+                    >
+                  </li>
+                </ul>
+                <div class="bg-violet-50 rounded-xl p-4">
+                  <p class="text-sm text-gray-700">
+                    <strong class="text-violet-900">К концу недели:</strong> у вас есть чёткий ответ
+                    на вопрос «чем ты занимаешься» — такой, после которого люди говорят «о, мне это
+                    надо»
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Неделя 2 -->
+            <div
+              class="group relative bg-white border-2 border-gray-200 rounded-[2rem] p-8 md:p-10 hover:border-violet-300 hover:shadow-xl transition-all"
+            >
+              <div
+                class="absolute -top-4 -left-4 w-12 h-12 bg-violet-600 rounded-2xl flex items-center justify-center shadow-lg"
+              >
+                <span class="text-white font-black text-lg">2</span>
+              </div>
+              <div class="ml-8">
+                <h3 class="text-2xl font-bold mb-2">Неделя 2 — Контент: система вместо хаоса</h3>
+                <p class="text-sm text-gray-500 mb-6">Сессия 2 + задания</p>
+                <ul class="space-y-3 mb-6">
+                  <li class="flex items-start gap-3">
+                    <Icon name="lucide:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span class="text-gray-700"
+                      >Разбираем, какие типы контента работают в вашей нише</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <Icon name="lucide:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span class="text-gray-700"
+                      >Составляем контент-план на месяц: темы, форматы, частота</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <Icon name="lucide:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span class="text-gray-700"
+                      >Прописываем 3–5 «вечнозелёных» постов, которые всегда актуальны</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <Icon name="lucide:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span class="text-gray-700"
+                      >Разбираем вашу первую публикацию: что зашло, что доработать</span
+                    >
+                  </li>
+                </ul>
+                <div class="bg-violet-50 rounded-xl p-4">
+                  <p class="text-sm text-gray-700">
+                    <strong class="text-violet-900">К концу недели:</strong> у вас есть план на
+                    месяц и понимание, о чём писать, — никогда больше не будете сидеть перед пустым
+                    экраном
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Неделя 3 -->
+            <div
+              class="group relative bg-white border-2 border-gray-200 rounded-[2rem] p-8 md:p-10 hover:border-violet-300 hover:shadow-xl transition-all"
+            >
+              <div
+                class="absolute -top-4 -left-4 w-12 h-12 bg-violet-600 rounded-2xl flex items-center justify-center shadow-lg"
+              >
+                <span class="text-white font-black text-lg">3</span>
+              </div>
+              <div class="ml-8">
+                <h3 class="text-2xl font-bold mb-2">
+                  Неделя 3 — Воронка: как блог становится источником клиентов
+                </h3>
+                <p class="text-sm text-gray-500 mb-6">Сессия 3 + задания</p>
+                <ul class="space-y-3 mb-6">
+                  <li class="flex items-start gap-3">
+                    <Icon name="lucide:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span class="text-gray-700"
+                      >Выстраиваем путь читателя от первого поста до заявки</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <Icon name="lucide:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span class="text-gray-700"
+                      >Настраиваем простой механизм сбора заявок (без технических сложностей)</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <Icon name="lucide:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span class="text-gray-700"
+                      >Прописываем «продающие» посты, которые не ощущаются как реклама</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <Icon name="lucide:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span class="text-gray-700"
+                      >Разбираем, как приглашать на бесплатную консультацию органично</span
+                    >
+                  </li>
+                </ul>
+                <div class="bg-violet-50 rounded-xl p-4">
+                  <p class="text-sm text-gray-700">
+                    <strong class="text-violet-900">К концу недели:</strong> воронка настроена,
+                    первые потенциальные клиенты уже в ней
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Неделя 4 -->
+            <div
+              class="group relative bg-white border-2 border-gray-200 rounded-[2rem] p-8 md:p-10 hover:border-violet-300 hover:shadow-xl transition-all"
+            >
+              <div
+                class="absolute -top-4 -left-4 w-12 h-12 bg-violet-600 rounded-2xl flex items-center justify-center shadow-lg"
+              >
+                <span class="text-white font-black text-lg">4</span>
+              </div>
+              <div class="ml-8">
+                <h3 class="text-2xl font-bold mb-2">
+                  Неделя 4 — Продажи и система: закрепляем результат
+                </h3>
+                <p class="text-sm text-gray-500 mb-6">Сессии 4 и 5 + финальный разбор</p>
+                <ul class="space-y-3 mb-6">
+                  <li class="flex items-start gap-3">
+                    <Icon name="lucide:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span class="text-gray-700"
+                      >Разбираем психологию продаж через контент: почему это не навязчиво</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <Icon name="lucide:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span class="text-gray-700"
+                      >Учимся вести переписку с потенциальным клиентом до встречи</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <Icon name="lucide:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span class="text-gray-700"
+                      >Прописываем простой скрипт для продающей консультации</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <Icon name="lucide:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span class="text-gray-700"
+                      >Финальный аудит всего, что вы внедрили за месяц</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <Icon name="lucide:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span class="text-gray-700">Строим план действий на следующие 2 месяца</span>
+                  </li>
+                </ul>
+                <div class="bg-violet-50 rounded-xl p-4">
+                  <p class="text-sm text-gray-700">
+                    <strong class="text-violet-900">К концу недели:</strong> вы работаете в системе,
+                    а не хаотично. Первые заявки уже есть или вы точно знаете, что сделать, чтобы
+                    они появились
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Для кого -->
+      <section
+        class="py-20 md:py-28 px-4 sm:px-6 bg-gradient-to-br from-gray-50 via-white to-gray-100"
+      >
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <div
+              class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-2xl mb-6"
+            >
+              <Icon name="lucide:users" class="w-5 h-5 text-gray-600" />
+              <span class="text-sm font-bold text-gray-700 uppercase tracking-wider"
+                >Аудитория</span
+              >
+            </div>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4">
+              Для кого эта программа
+            </h2>
+          </div>
+
+          <div class="space-y-4">
+            <div class="flex items-start gap-4 p-6 bg-white rounded-2xl border border-gray-200">
+              <Icon
+                name="lucide:check-circle-2"
+                class="w-6 h-6 text-green-600 flex-shrink-0 mt-1"
+              />
+              <p class="text-lg text-gray-700">
+                Вы эксперт — коуч, консультант, специалист — и хотите привлекать клиентов через
+                личный бренд
               </p>
-            </blockquote>
+            </div>
+            <div class="flex items-start gap-4 p-6 bg-white rounded-2xl border border-gray-200">
+              <Icon
+                name="lucide:check-circle-2"
+                class="w-6 h-6 text-green-600 flex-shrink-0 mt-1"
+              />
+              <p class="text-lg text-gray-700">
+                У вас есть блог или вы только планируете его запустить
+              </p>
+            </div>
+            <div class="flex items-start gap-4 p-6 bg-white rounded-2xl border border-gray-200">
+              <Icon
+                name="lucide:check-circle-2"
+                class="w-6 h-6 text-green-600 flex-shrink-0 mt-1"
+              />
+              <p class="text-lg text-gray-700">Вы устали от хаотичных публикаций без результата</p>
+            </div>
+            <div class="flex items-start gap-4 p-6 bg-white rounded-2xl border border-gray-200">
+              <Icon
+                name="lucide:check-circle-2"
+                class="w-6 h-6 text-green-600 flex-shrink-0 mt-1"
+              />
+              <p class="text-lg text-gray-700">
+                Вы боитесь продавать или не знаете, как делать это экологично
+              </p>
+            </div>
+            <div class="flex items-start gap-4 p-6 bg-white rounded-2xl border border-gray-200">
+              <Icon
+                name="lucide:check-circle-2"
+                class="w-6 h-6 text-green-600 flex-shrink-0 mt-1"
+              />
+              <p class="text-lg text-gray-700">Вы готовы внедрять, а не просто слушать</p>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- Формат работы -->
-      <section class="py-20 md:py-28 px-4 sm:px-6 bg-gray-50">
-        <div class="max-w-7xl mx-auto">
-          <div class="text-center mb-16">
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-xl mb-6">
-              <Icon name="fa-solid:calendar-check" class="w-5 h-5 text-gray-700" />
-              <span class="text-sm font-bold text-gray-700 uppercase tracking-wider">Формат</span>
+      <section class="py-20 md:py-28 px-4 sm:px-6 border-t border-gray-100">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-xl mb-6">
+              <Icon name="lucide:settings" class="w-5 h-5 text-blue-600" />
+              <span class="text-sm font-bold text-blue-700 uppercase tracking-wider">Формат</span>
             </div>
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4">
               Формат работы
             </h2>
           </div>
 
-          <div class="max-w-4xl mx-auto">
-            <div class="grid sm:grid-cols-2 gap-6">
-              <div
-                v-for="(item, index) in formatItems"
-                :key="index"
-                class="p-8 bg-white rounded-2xl border border-gray-200"
-              >
-                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-                  <Icon :name="item.icon" class="w-6 h-6 text-blue-600" />
-                </div>
-                <h3 class="text-lg font-bold mb-2">{{ item.title }}</h3>
-                <p class="text-gray-600">{{ item.description }}</p>
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div class="p-8 bg-white border-2 border-gray-200 rounded-[2rem]">
+              <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mb-4">
+                <Icon name="lucide:video" class="w-6 h-6 text-blue-600" />
               </div>
+              <h3 class="text-xl font-bold mb-2">5 индивидуальных встреч</h3>
+              <p class="text-gray-600">
+                по 1–1,5 часа — только вы и я, без лишних людей и шаблонных советов
+              </p>
+            </div>
+
+            <div class="p-8 bg-white border-2 border-gray-200 rounded-[2rem]">
+              <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mb-4">
+                <Icon name="lucide:message-circle" class="w-6 h-6 text-blue-600" />
+              </div>
+              <h3 class="text-xl font-bold mb-2">Поддержка в чате</h3>
+              <p class="text-gray-600">
+                между сессиями — задаёте вопросы по ходу, не застреваете на внедрении
+              </p>
+            </div>
+
+            <div class="p-8 bg-white border-2 border-gray-200 rounded-[2rem]">
+              <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mb-4">
+                <Icon name="lucide:calendar" class="w-6 h-6 text-blue-600" />
+              </div>
+              <h3 class="text-xl font-bold mb-2">Продолжительность</h3>
+              <p class="text-gray-600">1 месяц интенсивной работы</p>
+            </div>
+
+            <div class="p-8 bg-white border-2 border-gray-200 rounded-[2rem]">
+              <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mb-4">
+                <Icon name="lucide:clock" class="w-6 h-6 text-blue-600" />
+              </div>
+              <h3 class="text-xl font-bold mb-2">Старт</h3>
+              <p class="text-gray-600">по согласованию, обычно в течение 1–3 дней после оплаты</p>
+            </div>
+          </div>
+
+          <div class="mt-12 text-center">
+            <div
+              class="inline-block p-8 bg-gradient-to-br from-blue-600 to-violet-600 rounded-[2rem] text-white shadow-2xl"
+            >
+              <div class="text-5xl font-black mb-2">35 000 ₽</div>
+              <div class="text-blue-100">за всю программу</div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Как попасть в программу -->
-      <section class="py-20 md:py-28 px-4 sm:px-6">
-        <div class="max-w-7xl mx-auto">
-          <div class="text-center mb-16">
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-xl mb-6">
-              <Icon name="fa-solid:door-open" class="w-5 h-5 text-blue-600" />
-              <span class="text-sm font-bold text-blue-700 uppercase tracking-wider">Процесс</span>
+      <!-- Что будет после -->
+      <section
+        class="py-20 md:py-28 px-4 sm:px-6 bg-gradient-to-br from-violet-50 via-white to-blue-50"
+      >
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <div
+              class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-violet-200 rounded-2xl mb-6"
+            >
+              <Icon name="lucide:rocket" class="w-5 h-5 text-violet-600" />
+              <span class="text-sm font-bold text-violet-700 uppercase tracking-wider"
+                >Результат</span
+              >
+            </div>
+          </div>
+
+          <div class="bg-white border-2 border-violet-200 rounded-[2rem] p-8 md:p-12 shadow-xl">
+            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+              После месяца совместной работы вы либо уже получаете первые заявки из блога, либо
+              точно понимаете, почему этого ещё не произошло — и знаете конкретный следующий шаг.
+            </p>
+            <p class="text-lg text-gray-700 leading-relaxed mb-8">
+              Это не марафон, после которого остаётся папка с материалами и ощущение «ну и что
+              теперь». Это живая работа, результат которой — система, запущенная вашими руками.
+            </p>
+            <div class="bg-violet-50 rounded-xl p-6 text-center">
+              <p class="text-xl font-bold text-violet-900">
+                Это инвестиция в ваш доход. Не расход.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Как попасть -->
+      <section class="py-20 md:py-28 px-4 sm:px-6 border-t border-gray-100">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-green-50 rounded-xl mb-6">
+              <Icon name="lucide:door-open" class="w-5 h-5 text-green-600" />
+              <span class="text-sm font-bold text-green-700 uppercase tracking-wider">Старт</span>
             </div>
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4">
               Как попасть в программу
             </h2>
           </div>
 
-          <div class="max-w-3xl mx-auto">
-            <div class="relative">
-              <!-- Линия -->
+          <div class="space-y-6">
+            <div
+              class="flex items-start gap-6 p-8 bg-white border-2 border-gray-200 rounded-[2rem]"
+            >
               <div
-                class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 to-blue-800 hidden md:block"
-              ></div>
-
-              <div
-                v-for="(step, index) in processSteps"
-                :key="index"
-                class="relative flex gap-6 mb-12 last:mb-0"
+                class="flex-shrink-0 w-14 h-14 bg-green-600 rounded-2xl flex items-center justify-center shadow-lg"
               >
-                <!-- Номер -->
-                <div
-                  class="flex-shrink-0 w-16 h-16 bg-white border-4 border-blue-600 rounded-full flex items-center justify-center z-10 shadow-lg"
-                >
-                  <span class="text-xl font-black text-blue-600">{{ index + 1 }}</span>
-                </div>
-
-                <!-- Контент -->
-                <div class="flex-1 pt-4">
-                  <h3 class="text-xl font-bold mb-2">{{ step.title }}</h3>
-                  <p class="text-gray-600 leading-relaxed">{{ step.description }}</p>
-                </div>
+                <span class="text-2xl font-black text-white">1</span>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold mb-2">Напишите в Telegram слово «ментор»</h3>
+                <p class="text-gray-600">Я отвечу в течение нескольких часов</p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- Результат -->
-      <section
-        class="py-20 md:py-28 px-4 sm:px-6 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white"
-      >
-        <div class="max-w-7xl mx-auto">
-          <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/20 rounded-xl mb-6">
-                <Icon name="fa-solid:trophy" class="w-5 h-5 text-yellow-300" />
-                <span class="text-sm font-bold uppercase tracking-wider">Итог</span>
+            <div
+              class="flex items-start gap-6 p-8 bg-white border-2 border-gray-200 rounded-[2rem]"
+            >
+              <div
+                class="flex-shrink-0 w-14 h-14 bg-green-600 rounded-2xl flex items-center justify-center shadow-lg"
+              >
+                <span class="text-2xl font-black text-white">2</span>
               </div>
-
-              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-8">
-                Результат после программы
-              </h2>
-
-              <p class="text-xl text-white/90 leading-relaxed mb-8">
-                После программы вы либо уже получаете клиентов, либо чётко понимаете, почему раньше
-                не получалось — и знаете, что делать дальше.
-              </p>
-
-              <blockquote class="p-6 bg-white/10 rounded-2xl border-l-4 border-white/50">
-                <p class="text-lg font-medium text-white italic">
-                  Это не «поговорим за жизнь». Это инвестиция в ваш доход.
+              <div>
+                <h3 class="text-2xl font-bold mb-2">Я задам 2–3 вопроса</h3>
+                <p class="text-gray-600">
+                  Чтобы понять вашу ситуацию и убедиться, что программа вам подойдёт
                 </p>
-              </blockquote>
+              </div>
             </div>
 
-            <div class="relative">
+            <div
+              class="flex items-start gap-6 p-8 bg-white border-2 border-gray-200 rounded-[2rem]"
+            >
               <div
-                class="relative p-8 bg-white/10 backdrop-blur-sm rounded-3xl border border-white/20"
+                class="flex-shrink-0 w-14 h-14 bg-green-600 rounded-2xl flex items-center justify-center shadow-lg"
               >
-                <h3 class="text-2xl font-bold mb-6 text-center">Что вы получите</h3>
-                <ul class="space-y-4">
-                  <li class="flex items-start gap-3">
-                    <Icon
-                      name="fa-solid:check"
-                      class="w-6 h-6 text-green-300 flex-shrink-0 mt-0.5"
-                    />
-                    <span>Готовую систему привлечения клиентов</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <Icon
-                      name="fa-solid:check"
-                      class="w-6 h-6 text-green-300 flex-shrink-0 mt-0.5"
-                    />
-                    <span>Упакованное позиционирование</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <Icon
-                      name="fa-solid:check"
-                      class="w-6 h-6 text-green-300 flex-shrink-0 mt-0.5"
-                    />
-                    <span>Контент-план на месяц</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <Icon
-                      name="fa-solid:check"
-                      class="w-6 h-6 text-green-300 flex-shrink-0 mt-0.5"
-                    />
-                    <span>Настроенную воронку продаж</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <Icon
-                      name="fa-solid:check"
-                      class="w-6 h-6 text-green-300 flex-shrink-0 mt-0.5"
-                    />
-                    <span>Уверенность в продажах</span>
-                  </li>
-                </ul>
+                <span class="text-2xl font-black text-white">3</span>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold mb-2">
+                  Если формат подходит — согласуем дату старта
+                </h3>
+                <p class="text-gray-600">И начинаем работу</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-12 text-center">
+            <a
+              href="https://t.me/artemselifanov"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-white bg-green-600 hover:bg-green-700 rounded-2xl transition-all hover:-translate-y-1 shadow-xl shadow-green-600/30"
+            >
+              <Icon name="lucide:send" class="w-5 h-5" />
+              Написать «ментор» в Telegram
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Важно -->
+      <section class="py-16 px-4 sm:px-6 bg-gradient-to-br from-amber-50 via-white to-orange-50">
+        <div class="max-w-3xl mx-auto">
+          <div class="bg-white border-2 border-amber-200 rounded-[2rem] p-8 md:p-10 shadow-xl">
+            <div class="flex items-start gap-4 mb-6">
+              <Icon name="lucide:triangle-alert" class="w-8 h-8 text-amber-600 flex-shrink-0" />
+              <div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Важно</h3>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                  Я работаю только с <strong class="text-amber-600">4 людьми в месяц</strong> — это
+                  не маркетинговый приём, а реальное ограничение. Индивидуальная работа требует
+                  полного погружения в каждого участника.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mt-4">
+                  Если вы читаете это — скорее всего, место ещё есть. Но лучше написать сейчас, чем
+                  потом ждать следующего потока.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- CTA секция -->
-      <section class="py-20 md:py-28 px-4 sm:px-6 bg-gray-900 text-white">
-        <div class="max-w-4xl mx-auto text-center">
-          <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-xl mb-6">
-            <Icon name="fa-solid:fire" class="w-5 h-5 text-yellow-300" />
-            <span class="text-sm font-bold uppercase tracking-wider">Ограниченное предложение</span>
+      <!-- Секция контактов -->
+      <section
+        id="contact"
+        class="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-blue-50 via-white to-violet-50"
+      >
+        <div class="w-full flex flex-col lg:flex-row justify-center gap-6 lg:gap-8">
+          <!-- Левая колонка: Текст и преимущества -->
+          <div class="w-full lg:w-[40%] space-y-6">
+            <div
+              class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-2xl shadow-sm"
+            >
+              <Icon name="lucide:mail" class="w-4 h-4 text-blue-600" />
+              <span class="text-xs font-bold text-gray-700 uppercase tracking-wider"
+                >Записаться на программу</span
+              >
+            </div>
+
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-gray-900">
+              Готовы начать менторство?
+            </h2>
+
+            <p class="text-lg text-gray-600 leading-relaxed">
+              Заполните форму и я свяжусь с вами в течение 24 часов. Обсудим ваш опыт, цели и я
+              предложу индивидуальный план работы.
+            </p>
+
+            <div class="space-y-5">
+              <div class="flex items-start gap-4">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center shadow-sm"
+                >
+                  <Icon name="lucide:clock" class="w-5 h-5 text-blue-600" />
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900 mb-1">Быстрый ответ</h3>
+                  <p class="text-sm text-gray-600">Отвечаю в течение 24 часов в рабочее время</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center shadow-sm"
+                >
+                  <Icon name="lucide:shield-check" class="w-5 h-5 text-blue-600" />
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900 mb-1">Конфиденциально</h3>
+                  <p class="text-sm text-gray-600">
+                    Ваши данные под защитой и не передаются третьим лицам
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center shadow-sm"
+                >
+                  <Icon name="lucide:user-check" class="w-5 h-5 text-blue-600" />
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900 mb-1">Персональный подход</h3>
+                  <p class="text-sm text-gray-600">Программа адаптируется под ваш опыт и задачи</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-10 pt-8 border-t border-gray-200">
+              <p class="text-sm text-gray-600 mb-4 font-medium">Или напишите напрямую:</p>
+              <div class="flex flex-wrap gap-3">
+                <a
+                  href="https://t.me/artemselifanov"
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm font-medium transition-all shadow-md hover:shadow-lg"
+                >
+                  <Icon name="lucide:send" class="w-4 h-4" />
+                  Telegram
+                </a>
+                <a
+                  href="mailto:a9535487323@yandex.ru"
+                  class="inline-flex items-center gap-2 px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-lg text-sm font-medium transition-all shadow-md hover:shadow-lg"
+                >
+                  <Icon name="lucide:at-sign" class="w-4 h-4" />
+                  Email
+                </a>
+              </div>
+            </div>
           </div>
 
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-6">
-            Записаться в программу
-          </h2>
-
-          <p class="text-xl text-gray-300 leading-relaxed mb-8">
-            ⚡ <strong>Места ограничены — работаю только с 4 людьми в месяц.</strong><br />
-            Если хотите попасть в ближайший поток — напишите сейчас.
-          </p>
-
-          <a
-            href="https://t.me/artemselifanov"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group inline-flex items-center gap-3 px-10 py-5 text-lg font-semibold text-blue-600 bg-white hover:bg-gray-100 rounded-2xl transition-all hover:-translate-y-1 shadow-xl"
-          >
-            <Icon name="fa-brands:telegram" class="w-6 h-6" />
-            Написать «ментор» в Telegram
-          </a>
-
-          <p class="text-sm text-gray-400 mt-6">
-            После сообщения я задам пару вопросов, чтобы понять ваш запрос
-          </p>
+          <!-- Правая колонка: Форма -->
+          <div class="w-full lg:w-[40%] bg-white rounded-2xl shadow-lg p-5 sm:p-6 lg:p-8">
+            <ContactForm
+              default-source="Менторство"
+              :show-service-selector="false"
+              section-title="Записаться на менторство"
+              section-description="Заполните форму и я свяжусь с вами в течение 24 часов"
+            />
+          </div>
         </div>
       </section>
     </main>
-
-    <!-- Секция контактов -->
-    <section
-      id="contact"
-      class="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-blue-50 via-white to-violet-50"
-    >
-      <div class="w-full flex flex-col lg:flex-row justify-center gap-6 lg:gap-8">
-        <!-- Левая колонка: Текст и преимущества -->
-        <div class="w-full lg:w-[40%] space-y-6">
-          <!-- Бейдж -->
-          <div
-            class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-2xl shadow-sm"
-          >
-            <span class="iconify i-fa-solid:envelope w-4 h-4 text-blue-600"></span>
-            <span class="text-xs font-bold text-gray-700 uppercase tracking-wider"
-              >Записаться на программу</span
-            >
-          </div>
-
-          <!-- Заголовок -->
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-gray-900">
-            Готовы начать менторство?
-          </h2>
-
-          <!-- Описание -->
-          <p class="text-lg text-gray-600 leading-relaxed">
-            Заполните форму и я свяжусь с вами в течение 24 часов. Обсудим ваш опыт, цели и я
-            предложу индивидуальный план работы.
-          </p>
-
-          <!-- Преимущества -->
-          <div class="space-y-5">
-            <div class="flex items-start gap-4">
-              <div
-                class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center shadow-sm"
-              >
-                <span class="iconify i-fa-solid:clock w-5 h-5 text-blue-600"></span>
-              </div>
-              <div>
-                <h3 class="font-semibold text-gray-900 mb-1">Быстрый ответ</h3>
-                <p class="text-sm text-gray-600">Отвечаю в течение 24 часов в рабочее время</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-              <div
-                class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center shadow-sm"
-              >
-                <span class="iconify i-fa-solid:shield-alt w-5 h-5 text-blue-600"></span>
-              </div>
-              <div>
-                <h3 class="font-semibold text-gray-900 mb-1">Конфиденциально</h3>
-                <p class="text-sm text-gray-600">
-                  Ваши данные под защитой и не передаются третьим лицам
-                </p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-              <div
-                class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center shadow-sm"
-              >
-                <span class="iconify i-fa-solid:user-graduate w-5 h-5 text-blue-600"></span>
-              </div>
-              <div>
-                <h3 class="font-semibold text-gray-900 mb-1">Персональный подход</h3>
-                <p class="text-sm text-gray-600">Программа адаптируется под ваш опыт и задачи</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Альтернативные контакты -->
-          <div class="mt-10 pt-8 border-t border-gray-200">
-            <p class="text-sm text-gray-600 mb-4 font-medium">Или напишите напрямую:</p>
-            <div class="flex flex-wrap gap-3">
-              <a
-                href="https://t.me/artemselifanov"
-                target="_blank"
-                rel="noopener"
-                class="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm font-medium transition-all shadow-md hover:shadow-lg"
-              >
-                <span class="iconify i-fa-brands:telegram w-4 h-4"></span>
-                Telegram
-              </a>
-              <a
-                href="mailto:a9535487323@yandex.ru"
-                class="inline-flex items-center gap-2 px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-lg text-sm font-medium transition-all shadow-md hover:shadow-lg"
-              >
-                <span class="iconify i-fa-solid:at w-4 h-4"></span>
-                Email
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Правая колонка: Форма -->
-        <div class="w-full lg:w-[40%] bg-white rounded-2xl shadow-lg p-5 sm:p-6 lg:p-8">
-          <ContactForm
-            default-source="Менторство"
-            :show-service-selector="false"
-            section-title="Записаться на менторство"
-            section-description="Заполните форму и я свяжусь с вами в течение 24 часов"
-          />
-        </div>
-      </div>
-    </section>
 
     <!-- Футер -->
     <Footer :show-cta="false" />
@@ -542,71 +886,5 @@ const mobileMenuItems = [
   { label: 'Бизнес Сетка', href: '/business' },
   { label: 'Веб-разработка', href: '/yappie' },
   { label: 'Блог', href: '/blog' },
-]
-
-// Преимущества
-const benefits = [
-  {
-    icon: 'fa-solid:lightbulb',
-    title: 'Найдём вашу экспертную «фишку»',
-    description:
-      'Упакуем её так, чтобы аудитория сразу сказала «это про меня» — и захотела читать дальше.',
-  },
-  {
-    icon: 'fa-solid:calendar',
-    title: 'Составим контент-план на месяц',
-    description:
-      'Такой, от которого не выгораешь и который даёт результат, а не просто закрывает «надо что-то запостить».',
-  },
-  {
-    icon: 'fa-solid:funnel-dollar',
-    title: 'Настроим простую воронку',
-    description: 'От поста — к заявке. Без сложных схем, без технических головоломок.',
-  },
-  {
-    icon: 'fa-solid:handshake',
-    title: 'Разберём страх продавать',
-    description: 'Научимся назначать встречи и получать клиентов без навязчивых рассылок и спама.',
-  },
-]
-
-// Формат работы
-const formatItems = [
-  {
-    icon: 'fa-solid:users',
-    title: '5 индивидуальных встреч',
-    description: 'Один на один по 1–1,5 часа',
-  },
-  {
-    icon: 'fa-brands:telegram',
-    title: 'Поддержка в чате',
-    description: 'Между сессиями — можно задавать вопросы по ходу внедрения',
-  },
-  {
-    icon: 'fa-solid:clock',
-    title: 'Продолжительность',
-    description: '1 месяц работы',
-  },
-  {
-    icon: 'fa-solid:calendar',
-    title: 'Старт',
-    description: 'По согласованию',
-  },
-]
-
-// Процесс
-const processSteps = [
-  {
-    title: 'Напишите в Telegram слово «ментор»',
-    description: 'Так я пойму ваш запрос и смогу уделить вам максимальное внимание.',
-  },
-  {
-    title: 'Я задам пару вопросов',
-    description: 'Чтобы понять ваш запрос и текущую ситуацию.',
-  },
-  {
-    title: 'Если формат подходит — согласуем дату старта',
-    description: 'Подберём удобное время для первой сессии.',
-  },
 ]
 </script>

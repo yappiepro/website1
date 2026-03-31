@@ -759,6 +759,26 @@ export const articles = [
     date: '2026-03-31',
     image: '/images/blog/kontekstnaya-reklama/chto-takoe-kontekstnaya-reklama-og.svg',
   },
+  {
+    slug: 'yandex-direct-dlya-biznesa',
+    title: 'Яндекс.Директ для бизнеса: как настроить и запустить рекламу самостоятельно',
+    description:
+      'Пошаговое руководство по запуску рекламы в Яндекс.Директ: подбор ключевых слов, написание объявлений, настройка ставок, аналитика и типичные ошибки новичков в 2026 году.',
+    category: 'Контекстная реклама',
+    cluster: 'kontekstnaya-reklama',
+    date: '2026-03-31',
+    image: '/images/blog/kontekstnaya-reklama/yandex-direct-dlya-biznesa-og.svg',
+  },
+  {
+    slug: 'kak-zapustit-reklamu-samostoyatelno',
+    title: 'Как запустить рекламу без агентства: пошаговый план самостоятельного запуска',
+    description:
+      'Как запустить контекстную рекламу самостоятельно без агентства: выбор канала, подготовка сайта, бюджет, метрики и как не слить деньги впустую. Практическое руководство для бизнеса в 2026 году.',
+    category: 'Контекстная реклама',
+    cluster: 'kontekstnaya-reklama',
+    date: '2026-03-31',
+    image: '/images/blog/kontekstnaya-reklama/kak-zapustit-reklamu-samostoyatelno-og.svg',
+  },
 ]
 
 export const clusterNames = {

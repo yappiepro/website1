@@ -155,6 +155,12 @@ export const articleLoaders = {
     import('./blog/analitika/produktovaya-analitika.js').then((m) => m.default),
   'chto-takoe-kontekstnaya-reklama': () =>
     import('./blog/kontekstnaya-reklama/chto-takoe-kontekstnaya-reklama.js').then((m) => m.default),
+  'yandex-direct-dlya-biznesa': () =>
+    import('./blog/kontekstnaya-reklama/yandex-direct-dlya-biznesa.js').then((m) => m.default),
+  'kak-zapustit-reklamu-samostoyatelno': () =>
+    import('./blog/kontekstnaya-reklama/kak-zapustit-reklamu-samostoyatelno.js').then(
+      (m) => m.default
+    ),
 }
 
 export async function loadArticleBySlug(slug) {

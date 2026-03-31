@@ -206,26 +206,26 @@ export default defineNuxtConfig({
   // SEO Modules Configuration
   sitemap: {
     enabled: true,
+    // Отключаем генерацию sitemap.xml (используем только sitemap_index.xml)
+    sitemapsIndexEnabled: true,
+    sitemapsEnabled: true,
     // Разделяем sitemap на файлы для лучшей производительности
     sitemaps: {
       pages: {
         filename: 'sitemap-pages.xml',
         routes: [
-          '/',
-          '/networking',
-          '/business',
-          '/yappie',
-          '/study',
-          '/consultation',
-          '/mentorship',
-          '/knowledge',
-          '/cookie',
-          '/privacy',
-          '/offer',
-          '/offline',
-          '/404',
-          '/test',
-          '/admin/contacts',
+          { url: '/', priority: 1.0, changefreq: 'daily' },
+          { url: '/networking', priority: 0.8, changefreq: 'weekly' },
+          { url: '/business', priority: 0.8, changefreq: 'weekly' },
+          { url: '/yappie', priority: 0.8, changefreq: 'weekly' },
+          { url: '/study', priority: 0.8, changefreq: 'weekly' },
+          { url: '/consultation', priority: 0.8, changefreq: 'weekly' },
+          { url: '/mentorship', priority: 0.8, changefreq: 'weekly' },
+          { url: '/knowledge', priority: 0.8, changefreq: 'weekly' },
+          { url: '/cookie', priority: 0.3, changefreq: 'monthly' },
+          { url: '/privacy', priority: 0.3, changefreq: 'monthly' },
+          { url: '/offer', priority: 0.3, changefreq: 'monthly' },
+          { url: '/offline', priority: 0.1, changefreq: 'monthly' },
         ],
       },
       blog: {
@@ -236,15 +236,7 @@ export default defineNuxtConfig({
   },
 
   robots: {
-    enabled: true,
-    sitemap: ['/sitemap-pages.xml', '/sitemap-blog.xml'],
-    robots: [
-      {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/map', '/admin'],
-      },
-    ],
+    enabled: false, // Отключаем модуль, используем public/robots.txt
   },
 
   ogImage: {

@@ -73,6 +73,7 @@ import sistemaZadach from './blog/upravlenie-proektami/sistema-zadach.js'
 import vebAnalitika from './blog/analitika/veb-analitika.js'
 import klyuchevyeMetrikiBiznesa from './blog/analitika/klyuchevye-metriki-biznesa.js'
 import produktovayaAnalitika from './blog/analitika/produktovaya-analitika.js'
+import chtoTakoeKontekstnayaReklama from './blog/kontekstnaya-reklama/chto-takoe-kontekstnaya-reklama.js'
 
 // Массив всех статей
 export const articles = [
@@ -153,6 +154,7 @@ export const articles = [
   vebAnalitika,
   klyuchevyeMetrikiBiznesa,
   produktovayaAnalitika,
+  chtoTakoeKontekstnayaReklama,
 ]
 
 // Функция для получения статьи по slug
@@ -210,6 +212,7 @@ export const clusterNames = {
   'ux-ui': 'UX/UI',
   'upravlenie-proektami': 'Управление проектами',
   analitika: 'Аналитика',
+  'kontekstnaya-reklama': 'Контекстная реклама',
 }
 
 // Цвета для кластеров (максимально разные)
@@ -232,6 +235,7 @@ export const clusterColors = {
   'ux-ui': 'rose', // Розовый (красно-розовый)
   'upravlenie-proektami': 'slate', // Грифельный (серо-синий)
   analitika: 'blue', // Синий
+  'kontekstnaya-reklama': 'red', // Красный
 }
 
 // Функция для получения названия кластера

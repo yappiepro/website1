@@ -749,6 +749,16 @@ export const articles = [
     date: '2026-03-30',
     image: '/images/blog/analitika/produktovaya-analitika-og.svg',
   },
+  {
+    slug: 'chto-takoe-kontekstnaya-reklama',
+    title: 'Что такое контекстная реклама: как работает и зачем нужна бизнесу',
+    description:
+      'Разбираем, что такое контекстная реклама, как она работает в Яндексе и Google, чем отличается от других видов рекламы и когда стоит её использовать в 2026 году.',
+    category: 'Контекстная реклама',
+    cluster: 'kontekstnaya-reklama',
+    date: '2026-03-31',
+    image: '/images/blog/kontekstnaya-reklama/chto-takoe-kontekstnaya-reklama-og.svg',
+  },
 ]
 
 export const clusterNames = {
@@ -770,6 +780,7 @@ export const clusterNames = {
   'ux-ui': 'UX/UI',
   'upravlenie-proektami': 'Управление проектами',
   analitika: 'Аналитика',
+  'kontekstnaya-reklama': 'Контекстная реклама',
 }
 
 export const clusterColors = {
@@ -791,6 +802,7 @@ export const clusterColors = {
   'ux-ui': 'rose',
   'upravlenie-proektami': 'slate',
   analitika: 'blue',
+  'kontekstnaya-reklama': 'red',
 }
 
 export function getArticleBySlug(slug) {

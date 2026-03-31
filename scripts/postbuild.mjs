@@ -1,4 +1,4 @@
-import { copyFileSync, existsSync, mkdirSync, readdirSync, statSync } from 'fs'
+import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 
@@ -26,6 +26,17 @@ function copySitemapFiles() {
       copyFileSync(srcPath, destPath)
       console.log(`✓ Copied sitemap: ${file} → ${destName}`)
     }
+  }
+  
+  // Обновляем sitemap_index.xml с правильными путями
+  const sitemapIndexPath = join(distDir, 'sitemap_index.xml')
+  if (existsSync(sitemapIndexPath)) {
+    let content = readFileSync(sitemapIndexPath, 'utf8')
+    // Заменяем пути __sitemap__/pages.xml → sitemap-pages.xml
+    content = content.replace(/__sitemap__\/pages\.xml/g, 'sitemap-pages.xml')
+    content = content.replace(/__sitemap__\/blog\.xml/g, 'sitemap-blog.xml')
+    writeFileSync(sitemapIndexPath, content)
+    console.log(`✓ Updated sitemap_index.xml with correct paths`)
   }
 }
 

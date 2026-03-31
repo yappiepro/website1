@@ -238,7 +238,7 @@ export default defineNuxtConfig({
   robots: {
     enabled: true,
     sitemap: ['/sitemap-pages.xml', '/sitemap-blog.xml'],
-    rules: [
+    robots: [
       {
         userAgent: '*',
         allow: '/',

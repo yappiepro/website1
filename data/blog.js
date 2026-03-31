@@ -74,6 +74,8 @@ import vebAnalitika from './blog/analitika/veb-analitika.js'
 import klyuchevyeMetrikiBiznesa from './blog/analitika/klyuchevye-metriki-biznesa.js'
 import produktovayaAnalitika from './blog/analitika/produktovaya-analitika.js'
 import chtoTakoeKontekstnayaReklama from './blog/kontekstnaya-reklama/chto-takoe-kontekstnaya-reklama.js'
+import yandexDirectDlyaBiznesa from './blog/kontekstnaya-reklama/yandex-direct-dlya-biznesa.js'
+import kakZapustitReklamuSamostoyatelno from './blog/kontekstnaya-reklama/kak-zapustit-reklamu-samostoyatelno.js'
 
 // Массив всех статей
 export const articles = [
@@ -155,6 +157,8 @@ export const articles = [
   klyuchevyeMetrikiBiznesa,
   produktovayaAnalitika,
   chtoTakoeKontekstnayaReklama,
+  yandexDirectDlyaBiznesa,
+  kakZapustitReklamuSamostoyatelno,
 ]
 
 // Функция для получения статьи по slug

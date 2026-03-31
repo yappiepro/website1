@@ -26,25 +26,16 @@
     Монетизация экспертности
   </text>
   
-  <!-- Заголовок (автоматический перенос по ширине) -->
-  <!-- foreignObject с отступами 100px слева и справа (ширина 1000px) -->
-  <foreignObject x="100" y="260" width="1000" height="200">
-    <div xmlns="http://www.w3.org/1999/xhtml" style="
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 44px;
-      font-weight: bold;
-      color: white;
-      text-align: center;
-      line-height: 1.35;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
-    ">
-      Как продавать свои услуги: стратегия продаж для эксперта и фрилансера
-    </div>
-  </foreignObject>
+  <!-- Заголовок (разбиваем на строки по 48 символов) -->
+  
+  <text x="600" y="320" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="bold" fill="white" text-anchor="middle" filter="url(#shadow)">
+    Как продавать свои услуги: стратегия продаж для
+  </text>
+  
+  <text x="600" y="380" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="bold" fill="white" text-anchor="middle" filter="url(#shadow)">
+    эксперта и фрилансера
+  </text>
+  
   
   <!-- Подвал -->
   <text x="600" y="560" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="white" text-anchor="middle" opacity="0.8">

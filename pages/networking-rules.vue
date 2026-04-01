@@ -520,6 +520,10 @@ import { Menu, X } from 'lucide-vue-next'
 import Footer from '~/components/layout/Footer.vue'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
 
+definePageMeta({
+  path: '/networking-rules',
+})
+
 const isMobileMenuOpen = ref(false)
 
 // SEO
@@ -538,7 +542,7 @@ useHead({
     },
     { name: 'robots', content: 'index, follow' },
   ],
-  link: [{ rel: 'canonical', href: 'https://artemselifanov.ru/networking/rules' }],
+  link: [{ rel: 'canonical', href: 'https://artemselifanov.ru/networking-rules' }],
 })
 
 useSeoMeta({
@@ -546,7 +550,7 @@ useSeoMeta({
   ogDescription:
     'Частное сообщество для живого и полезного обмена контактами, знаниями и поддержкой. 13 000+ участников.',
   ogType: 'website',
-  ogUrl: 'https://artemselifanov.ru/networking/rules',
+  ogUrl: 'https://artemselifanov.ru/networking-rules',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Правила сообщества Нескучный Нетворкинг',
   twitterDescription:

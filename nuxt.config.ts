@@ -145,7 +145,8 @@ export default defineNuxtConfig({
   },
 
   // SSG for GitHub Pages with SEO optimization
-  ssr: false,
+  // Включаем SSR для пререндеринга, выводим в static
+  ssr: true,
   nitro: {
     output: {
       publicDir: 'dist',
@@ -161,7 +162,7 @@ export default defineNuxtConfig({
         '/consultation',
         '/mentorship',
         '/networking',
-        '/networking/rules',
+        '/networking-rules',
         '/business',
         '/yappie',
         '/study',

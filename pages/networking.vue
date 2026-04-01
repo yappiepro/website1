@@ -174,7 +174,7 @@ const mobileMenuItems = [
   { label: 'FAQ', href: '#faq' },
   { label: 'Блог', href: '/blog' },
   { label: 'Бизнес Сетка', href: '/business' },
-  { label: 'Правила', href: '/networking/rules' },
+  { label: 'Правила', href: '/networking-rules' },
 ]
 
 // Данные для секции услуг
@@ -507,7 +507,7 @@ function toggleFaq(index) {
                 >Бизнес Сетка</a
               >
               <a
-                href="/networking/rules"
+                href="/networking-rules"
                 class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all"
                 >Правила</a
               >

@@ -161,6 +161,7 @@ export default defineNuxtConfig({
         '/consultation',
         '/mentorship',
         '/networking',
+        '/networking/rules',
         '/business',
         '/yappie',
         '/study',

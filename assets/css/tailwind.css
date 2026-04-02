@@ -11,6 +11,15 @@
   padding-top: env(safe-area-inset-top, 0px);
 }
 
+/* Навигация в Telegram Web App */
+.tg-webapp nav.fixed {
+  top: calc(env(safe-area-inset-top, 0px) + 1rem);
+}
+
+.tg-webapp.is-scrolled nav.fixed {
+  top: env(safe-area-inset-top, 0px);
+}
+
 /* Screen reader only class for SEO */
 .sr-only {
   position: absolute;

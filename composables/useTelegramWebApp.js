@@ -6,6 +6,7 @@ export function useTelegramWebApp() {
   const telegramUser = ref(null)
   const themeParams = ref(null)
   const headerHeight = ref(0)
+  const isScrolled = ref(false)
 
   onMounted(() => {
     if (typeof window !== 'undefined' && window.Telegram?.WebApp) {
@@ -66,6 +67,16 @@ export function useTelegramWebApp() {
 
       // Добавляем класс для Telegram Web App
       document.documentElement.classList.add('tg-webapp')
+
+      // Отслеживаем скролл для навигации
+      window.addEventListener('scroll', () => {
+        isScrolled.value = window.scrollY > 50
+        if (isScrolled.value) {
+          document.documentElement.classList.add('is-scrolled')
+        } else {
+          document.documentElement.classList.remove('is-scrolled')
+        }
+      })
     }
   })
 

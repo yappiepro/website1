@@ -1896,11 +1896,19 @@ onMounted(() => {
   // Обработка hash URL для прокрутки к секции контактов
   if (typeof window !== 'undefined' && window.location.hash) {
     const hashPath = window.location.hash.split('?')[0]
-    const element = document.querySelector(hashPath)
-    if (element) {
-      setTimeout(() => {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }, 100)
+    // Игнорируем параметры Telegram Web App (содержат =)
+    if (hashPath && !hashPath.includes('=') && hashPath.startsWith('#')) {
+      try {
+        const element = document.querySelector(hashPath)
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          }, 100)
+        }
+      } catch {
+        // Игнорируем ошибки при невалидных селекторах
+        console.warn('[Hash navigation] Invalid selector:', hashPath)
+      }
     }
   }
 

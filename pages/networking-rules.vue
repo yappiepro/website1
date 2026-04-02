@@ -280,7 +280,7 @@
                 <div
                   class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-xl border-2 border-black flex items-center justify-center"
                 >
-                  <span class="text-xl font-black text-white">1</span>
+                  <span class="text-xl font-black text-white">3</span>
                 </div>
                 <div>
                   <h3 class="text-xl font-bold mb-2">Отправь команду</h3>
@@ -295,7 +295,7 @@
                 <div
                   class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-xl border-2 border-black flex items-center justify-center"
                 >
-                  <span class="text-xl font-black text-white">2</span>
+                  <span class="text-xl font-black text-white">4</span>
                 </div>
                 <div>
                   <h3 class="text-xl font-bold mb-2">Отправь текст поста</h3>
@@ -307,7 +307,7 @@
                 <div
                   class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-xl border-2 border-black flex items-center justify-center"
                 >
-                  <span class="text-xl font-black text-white">3</span>
+                  <span class="text-xl font-black text-white">5</span>
                 </div>
                 <div>
                   <h3 class="text-xl font-bold mb-2">Дождись вердикта</h3>

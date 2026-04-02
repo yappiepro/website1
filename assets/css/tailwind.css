@@ -2,16 +2,7 @@
 @import "./typography.css";
 /* Шрифты подключаются автоматически через @nuxt/fonts */
 
-/* Telegram Web App safe area */
-.tg-webapp {
-  padding-top: max(env(safe-area-inset-top, 0px), 100px);
-}
-
-body.tg-webapp {
-  padding-top: max(env(safe-area-inset-top, 0px), 100px);
-}
-
-/* Навигация в Telegram Web App - сдвиг вниз на 100px */
+/* Telegram Web App safe area - только для навигации */
 body.tg-webapp nav.fixed {
   top: 100px !important;
 }

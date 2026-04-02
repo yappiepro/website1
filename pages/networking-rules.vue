@@ -9,7 +9,7 @@
     <nav
       :class="[
         'fixed left-4 right-4 z-40 transition-all duration-300 md:backdrop-blur-xl md:rounded-2xl',
-        isScrolled ? 'bg-white/90 md:bg-white/90 md:shadow-lg' : 'bg-white/90 md:bg-transparent',
+        isScrolled ? 'bg-transparent md:bg-white/90 md:shadow-lg' : 'bg-white/90 md:bg-transparent',
         'md:top-0 top-4',
       ]"
     >

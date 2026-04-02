@@ -9,7 +9,12 @@ export function useTelegramWebApp() {
   const isScrolled = ref(false)
 
   onMounted(() => {
-    if (typeof window !== 'undefined' && window.Telegram?.WebApp) {
+    // Проверяем, что мы в Telegram Web App
+    if (
+      typeof window !== 'undefined' &&
+      window.Telegram?.WebApp &&
+      window.Telegram.WebApp.initData !== ''
+    ) {
       const tg = window.Telegram.WebApp
 
       // Инициализируем Telegram Web App
@@ -34,45 +39,8 @@ export function useTelegramWebApp() {
         themeParams.value = tg.themeParams
       }
 
-      // Получаем высоту хедера Telegram
-      headerHeight.value = tg.headerColor ? 0 : 0
-
-      // Настраиваем цвета под тему Telegram
-      if (themeParams.value) {
-        const root = document.documentElement
-        const params = themeParams.value
-
-        if (params.bg_color) {
-          root.style.setProperty('--tg-bg-color', params.bg_color)
-        }
-        if (params.text_color) {
-          root.style.setProperty('--tg-text-color', params.text_color)
-        }
-        if (params.hint_color) {
-          root.style.setProperty('--tg-hint-color', params.hint_color)
-        }
-        if (params.link_color) {
-          root.style.setProperty('--tg-link-color', params.link_color)
-        }
-        if (params.button_color) {
-          root.style.setProperty('--tg-button-color', params.button_color)
-        }
-        if (params.button_text_color) {
-          root.style.setProperty('--tg-button-text-color', params.button_text_color)
-        }
-        if (params.secondary_bg_color) {
-          root.style.setProperty('--tg-secondary-bg-color', params.secondary_bg_color)
-        }
-      }
-
       // Добавляем класс для Telegram Web App
       document.body.classList.add('tg-webapp')
-
-      // Устанавливаем безопасную зону для навигации
-      if (typeof window.Telegram?.WebApp?.headerColor !== 'undefined') {
-        const headerHeight = window.Telegram.WebApp.headerHeight || 0
-        document.documentElement.style.setProperty('--tg-header-height', `${headerHeight}px`)
-      }
 
       // Отслеживаем скролл для навигации
       window.addEventListener('scroll', () => {

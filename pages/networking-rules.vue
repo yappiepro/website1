@@ -178,17 +178,26 @@
         </div>
       </section>
 
-      <!-- CTA: Подписка и бот -->
-      <section class="py-20 md:py-24 px-4 sm:px-6">
+      <!-- Как опубликовать пост -->
+      <section class="py-20 md:py-28 px-4 sm:px-6 border-t-2 border-black">
         <div class="max-w-[1400px] mx-auto">
           <div class="text-center mb-12">
+            <div
+              class="inline-flex items-center gap-2 px-4 py-2 bg-violet-100 border border-violet-300 rounded-xl mb-6"
+            >
+              <Icon name="lucide:file-text" class="w-5 h-5 text-violet-600" />
+              <span class="text-sm font-bold text-violet-700 uppercase tracking-wider"
+                >Обязательно</span
+              >
+            </div>
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4">
-              Присоединяйся к сообществу
+              Как опубликовать свой пост
             </h2>
             <p class="text-xl text-gray-600">Два простых шага для участия в жизни сообщества</p>
           </div>
 
-          <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+          <!-- CTA карточки -->
+          <div class="grid md:grid-cols-2 gap-6 md:gap-8 mb-12">
             <!-- Шаг 1: Подпишись на канал -->
             <a
               href="https://t.me/funnetworking"
@@ -245,7 +254,7 @@
                     <h3 class="text-xl font-bold">Запусти проверочного бота</h3>
                   </div>
                   <p class="text-gray-600 mb-4">
-                    Бот проверит ваш профиль и откроет доступ к публикациям в сообществе
+                    Бот проверит ваш профиль и откроет доступ к публикациям
                   </p>
                   <span
                     class="inline-flex items-center gap-2 text-violet-600 font-semibold group-hover:gap-3 transition-all"
@@ -257,26 +266,8 @@
               </div>
             </a>
           </div>
-        </div>
-      </section>
 
-      <!-- Как опубликовать пост -->
-      <section class="py-20 md:py-28 px-4 sm:px-6 border-t-2 border-black">
-        <div class="max-w-[1400px] mx-auto">
-          <div class="text-center mb-12">
-            <div
-              class="inline-flex items-center gap-2 px-4 py-2 bg-violet-100 border border-violet-300 rounded-xl mb-6"
-            >
-              <Icon name="lucide:file-text" class="w-5 h-5 text-violet-600" />
-              <span class="text-sm font-bold text-violet-700 uppercase tracking-wider"
-                >Обязательно</span
-              >
-            </div>
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4">
-              Как опубликовать свой пост
-            </h2>
-          </div>
-
+          <!-- Подробные шаги -->
           <div
             class="bg-white border-2 border-black rounded-3xl p-8 md:p-12 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
           >

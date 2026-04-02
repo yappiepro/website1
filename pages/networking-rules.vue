@@ -283,30 +283,6 @@
                   <span class="text-xl font-black text-white">1</span>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold mb-2">Подпишись на канал</h3>
-                  <p class="text-gray-600">Телеграм «Нескучный Нетворкинг»</p>
-                </div>
-              </li>
-
-              <li class="flex items-start gap-4">
-                <div
-                  class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-xl border-2 border-black flex items-center justify-center"
-                >
-                  <span class="text-xl font-black text-white">2</span>
-                </div>
-                <div>
-                  <h3 class="text-xl font-bold mb-2">Запусти проверочного бота</h3>
-                  <p class="text-gray-600">Нажми /start в боте сообщества</p>
-                </div>
-              </li>
-
-              <li class="flex items-start gap-4">
-                <div
-                  class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-xl border-2 border-black flex items-center justify-center"
-                >
-                  <span class="text-xl font-black text-white">3</span>
-                </div>
-                <div>
                   <h3 class="text-xl font-bold mb-2">Отправь команду</h3>
                   <p class="text-gray-600">
                     Напиши боту слово <strong class="text-violet-600">пост</strong> или перезапусти
@@ -319,7 +295,7 @@
                 <div
                   class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-xl border-2 border-black flex items-center justify-center"
                 >
-                  <span class="text-xl font-black text-white">4</span>
+                  <span class="text-xl font-black text-white">2</span>
                 </div>
                 <div>
                   <h3 class="text-xl font-bold mb-2">Отправь текст поста</h3>
@@ -331,7 +307,7 @@
                 <div
                   class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-xl border-2 border-black flex items-center justify-center"
                 >
-                  <span class="text-xl font-black text-white">5</span>
+                  <span class="text-xl font-black text-white">3</span>
                 </div>
                 <div>
                   <h3 class="text-xl font-bold mb-2">Дождись вердикта</h3>

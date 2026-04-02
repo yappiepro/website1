@@ -4,16 +4,16 @@
 
 /* Telegram Web App safe area */
 .tg-webapp {
-  padding-top: max(env(safe-area-inset-top, 0px), 20px);
+  padding-top: max(env(safe-area-inset-top, 0px), 100px);
 }
 
 body.tg-webapp {
-  padding-top: max(env(safe-area-inset-top, 0px), 20px);
+  padding-top: max(env(safe-area-inset-top, 0px), 100px);
 }
 
-/* Навигация в Telegram Web App - сдвиг вниз */
+/* Навигация в Telegram Web App - сдвиг вниз на 100px */
 body.tg-webapp nav.fixed {
-  top: max(env(safe-area-inset-top, 0px), 20px) !important;
+  top: 100px !important;
 }
 
 /* При скролле навигация прижимается к верху */

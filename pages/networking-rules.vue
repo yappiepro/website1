@@ -16,7 +16,14 @@
       <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
         <div class="h-14 md:h-16 flex items-center">
           <!-- Левая зона: Логотип -->
-          <div class="block">
+          <div
+            :class="[
+              'transition-all duration-300',
+              isScrolled
+                ? 'opacity-0 md:opacity-100 pointer-events-none md:pointer-events-auto'
+                : 'opacity-100',
+            ]"
+          >
             <a href="/" class="group flex items-center gap-3" aria-label="Главная" title="Главная">
               <img
                 src="/reference/Vector.svg"
@@ -27,7 +34,12 @@
           </div>
 
           <!-- Центральная зона: Десктопное меню -->
-          <div class="hidden md:flex items-center justify-center flex-1">
+          <div
+            :class="[
+              'hidden md:flex items-center justify-center flex-1 transition-all duration-300',
+              isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100',
+            ]"
+          >
             <nav class="flex items-center gap-1">
               <a
                 href="/"
@@ -63,7 +75,14 @@
           </div>
 
           <!-- Правая зона: Кнопка -->
-          <div class="hidden md:flex items-center justify-end shrink-0">
+          <div
+            :class="[
+              'hidden md:flex items-center justify-end shrink-0 transition-all duration-300',
+              isScrolled
+                ? 'opacity-0 md:opacity-100 pointer-events-none md:pointer-events-auto'
+                : 'opacity-100',
+            ]"
+          >
             <a
               href="https://t.me/funnetworking"
               target="_blank"

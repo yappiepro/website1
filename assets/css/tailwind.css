@@ -4,20 +4,21 @@
 
 /* Telegram Web App safe area */
 .tg-webapp {
-  padding-top: env(safe-area-inset-top, 0px);
+  padding-top: max(env(safe-area-inset-top, 0px), 20px);
 }
 
-.tg-webapp body {
-  padding-top: env(safe-area-inset-top, 0px);
+body.tg-webapp {
+  padding-top: max(env(safe-area-inset-top, 0px), 20px);
 }
 
-/* Навигация в Telegram Web App */
-.tg-webapp nav.fixed {
-  top: calc(env(safe-area-inset-top, 0px) + 1rem);
+/* Навигация в Telegram Web App - сдвиг вниз */
+body.tg-webapp nav.fixed {
+  top: max(env(safe-area-inset-top, 0px), 20px) !important;
 }
 
-.tg-webapp.is-scrolled nav.fixed {
-  top: env(safe-area-inset-top, 0px);
+/* При скролле навигация прижимается к верху */
+body.tg-webapp.is-scrolled nav.fixed {
+  top: env(safe-area-inset-top, 0px) !important;
 }
 
 /* Screen reader only class for SEO */

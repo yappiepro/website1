@@ -66,15 +66,21 @@ export function useTelegramWebApp() {
       }
 
       // Добавляем класс для Telegram Web App
-      document.documentElement.classList.add('tg-webapp')
+      document.body.classList.add('tg-webapp')
+
+      // Устанавливаем безопасную зону для навигации
+      if (typeof window.Telegram?.WebApp?.headerColor !== 'undefined') {
+        const headerHeight = window.Telegram.WebApp.headerHeight || 0
+        document.documentElement.style.setProperty('--tg-header-height', `${headerHeight}px`)
+      }
 
       // Отслеживаем скролл для навигации
       window.addEventListener('scroll', () => {
         isScrolled.value = window.scrollY > 50
         if (isScrolled.value) {
-          document.documentElement.classList.add('is-scrolled')
+          document.body.classList.add('is-scrolled')
         } else {
-          document.documentElement.classList.remove('is-scrolled')
+          document.body.classList.remove('is-scrolled')
         }
       })
     }

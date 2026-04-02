@@ -586,6 +586,9 @@
               <p class="text-center text-blue-100 mt-6 text-sm">
                 💡 Адаптируй пример под себя — будь искренним и открытым
               </p>
+              <p class="text-center text-blue-100 mt-4 text-sm font-semibold">
+                📸 Не забудьте прикрепить ваше фото
+              </p>
             </div>
           </div>
         </div>

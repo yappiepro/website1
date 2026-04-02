@@ -133,13 +133,13 @@
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             <!-- Подписчики -->
             <div
-              class="group relative bg-[#EA6D3A] rounded-3xl p-8 md:p-10 text-white border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1"
+              class="group relative bg-[#EA6D3A] rounded-3xl p-4 sm:p-6 md:p-10 text-white border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1"
             >
               <div class="flex items-center gap-3 mb-4">
                 <div class="p-3 bg-white/20 rounded-xl border-2 border-black">
                   <Users class="w-8 h-8" />
                 </div>
-                <span class="text-sm font-semibold">Подписчиков</span>
+                <span class="text-base md:text-lg font-bold">Подписчиков</span>
               </div>
               <div class="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight">13 201</div>
               <p class="text-white/90 mt-3 text-sm md:text-base">Активных участников сообщества</p>
@@ -147,13 +147,13 @@
 
             <!-- Просмотры -->
             <div
-              class="group relative bg-violet-600 rounded-3xl p-8 md:p-10 text-white border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1"
+              class="group relative bg-violet-600 rounded-3xl p-4 sm:p-6 md:p-10 text-white border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1"
             >
               <div class="flex items-center gap-3 mb-4">
                 <div class="p-3 bg-white/20 rounded-xl border-2 border-black">
                   <Eye class="w-8 h-8" />
                 </div>
-                <span class="text-sm font-semibold">Просмотров</span>
+                <span class="text-base md:text-lg font-bold">Просмотров</span>
               </div>
               <div class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
                 1 899 254
@@ -163,13 +163,13 @@
 
             <!-- Реакции -->
             <div
-              class="group relative bg-amber-500 rounded-3xl p-8 md:p-10 text-white border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1"
+              class="group relative bg-amber-500 rounded-3xl p-4 sm:p-6 md:p-10 text-white border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1"
             >
               <div class="flex items-center gap-3 mb-4">
                 <div class="p-3 bg-white/20 rounded-xl border-2 border-black">
                   <Heart class="w-8 h-8" />
                 </div>
-                <span class="text-sm font-semibold">Реакций</span>
+                <span class="text-base md:text-lg font-bold">Реакций</span>
               </div>
               <div class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">106 483</div>
               <p class="text-white/90 mt-3 text-sm md:text-base">Реакций на постах в среднем</p>
@@ -203,7 +203,7 @@
               href="https://t.me/funnetworking"
               target="_blank"
               rel="noopener noreferrer"
-              class="group block bg-white border-2 border-black rounded-3xl p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1"
+              class="group block bg-white border-2 border-black rounded-3xl p-4 sm:p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1"
             >
               <div class="flex items-start gap-4">
                 <div
@@ -237,7 +237,7 @@
               href="https://t.me/setkaNetworking_bot"
               target="_blank"
               rel="noopener noreferrer"
-              class="group block bg-white border-2 border-black rounded-3xl p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1"
+              class="group block bg-white border-2 border-black rounded-3xl p-4 sm:p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1"
             >
               <div class="flex items-start gap-4">
                 <div
@@ -269,7 +269,7 @@
 
           <!-- Подробные шаги -->
           <div
-            class="bg-white border-2 border-black rounded-3xl p-8 md:p-12 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+            class="bg-white border-2 border-black rounded-3xl p-4 sm:p-6 md:p-12 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
           >
             <p class="text-lg text-gray-700 mb-8">
               Все посты проходят обязательную предварительную модерацию через бота.
@@ -341,7 +341,7 @@
           <div class="grid md:grid-cols-2 gap-8">
             <!-- Можно -->
             <div
-              class="bg-white border-2 border-black rounded-3xl p-8 md:p-10 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+              class="bg-white border-2 border-black rounded-3xl p-4 sm:p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
             >
               <div
                 class="inline-flex items-center gap-2 px-4 py-2 bg-green-100 border border-green-300 rounded-xl mb-6"
@@ -401,7 +401,7 @@
 
             <!-- Нельзя -->
             <div
-              class="bg-white border-2 border-black rounded-3xl p-8 md:p-10 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+              class="bg-white border-2 border-black rounded-3xl p-4 sm:p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
             >
               <div
                 class="inline-flex items-center gap-2 px-4 py-2 bg-red-100 border border-red-300 rounded-xl mb-6"
@@ -472,7 +472,7 @@
           <div class="grid lg:grid-cols-2 gap-8">
             <!-- Левая колонка: Рекомендации -->
             <div
-              class="bg-white border-2 border-black rounded-3xl p-8 md:p-10 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+              class="bg-white border-2 border-black rounded-3xl p-4 sm:p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
             >
               <h3 class="text-2xl font-black mb-6">Структура поста</h3>
 
@@ -541,7 +541,7 @@
 
             <!-- Правая колонка: Пример поста -->
             <div
-              class="bg-gradient-to-br from-blue-600 to-violet-600 rounded-3xl p-8 md:p-10 text-white border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+              class="bg-gradient-to-br from-blue-600 to-violet-600 rounded-3xl p-4 sm:p-6 md:p-10 text-white border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
             >
               <div class="flex items-center gap-3 mb-6">
                 <div class="p-2 bg-white/20 rounded-xl border-2 border-black">
@@ -595,7 +595,7 @@
       <section class="py-20 md:py-28 px-4 sm:px-6 border-t-2 border-black">
         <div class="max-w-[1400px] mx-auto">
           <div
-            class="bg-gradient-to-br from-violet-600 to-blue-600 rounded-3xl p-8 md:p-12 text-white border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+            class="bg-gradient-to-br from-violet-600 to-blue-600 rounded-3xl p-4 sm:p-6 md:p-12 text-white border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
           >
             <div class="text-center mb-8">
               <Icon name="lucide:message-circle" class="w-16 h-16 mx-auto mb-6 opacity-90" />
@@ -628,7 +628,7 @@
       <section class="py-16 px-4 sm:px-6 border-t-2 border-black">
         <div class="max-w-[1400px] mx-auto">
           <div
-            class="bg-white border-2 border-black rounded-3xl p-8 md:p-10 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-center"
+            class="bg-white border-2 border-black rounded-3xl p-4 sm:p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-center"
           >
             <Icon name="lucide:send" class="w-12 h-12 mx-auto mb-4 text-[#EA6D3A]" />
             <h3 class="text-2xl font-bold mb-4">Наш Телеграм канал</h3>

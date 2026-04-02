@@ -214,7 +214,7 @@
                 <div class="flex-1">
                   <div class="flex items-center gap-2 mb-3">
                     <span
-                      class="inline-flex items-center justify-center w-8 h-8 bg-[#EA6D3A] text-white rounded-full font-bold text-sm border-2 border-black"
+                      class="inline-flex items-center justify-center w-8 h-8 bg-[#EA6D3A] text-white rounded-full font-bold text-sm border-2 border-black min-w-8"
                       >1</span
                     >
                     <h3 class="text-xl font-bold">Подпишись на канал</h3>
@@ -248,7 +248,7 @@
                 <div class="flex-1">
                   <div class="flex items-center gap-2 mb-3">
                     <span
-                      class="inline-flex items-center justify-center w-8 h-8 bg-violet-600 text-white rounded-full font-bold text-sm border-2 border-black"
+                      class="inline-flex items-center justify-center w-8 h-8 bg-violet-600 text-white rounded-full font-bold text-sm border-2 border-black min-w-8"
                       >2</span
                     >
                     <h3 class="text-xl font-bold">Запусти проверочного бота</h3>
@@ -278,7 +278,7 @@
             <ol class="space-y-6">
               <li class="flex items-start gap-4">
                 <div
-                  class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-xl border-2 border-black flex items-center justify-center"
+                  class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-full border-2 border-black flex items-center justify-center"
                 >
                   <span class="text-xl font-black text-white">3</span>
                 </div>
@@ -293,7 +293,7 @@
 
               <li class="flex items-start gap-4">
                 <div
-                  class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-xl border-2 border-black flex items-center justify-center"
+                  class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-full border-2 border-black flex items-center justify-center"
                 >
                   <span class="text-xl font-black text-white">4</span>
                 </div>
@@ -305,7 +305,7 @@
 
               <li class="flex items-start gap-4">
                 <div
-                  class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-xl border-2 border-black flex items-center justify-center"
+                  class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-full border-2 border-black flex items-center justify-center"
                 >
                   <span class="text-xl font-black text-white">5</span>
                 </div>

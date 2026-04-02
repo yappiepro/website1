@@ -366,6 +366,13 @@ export default defineNuxtConfig({
       navigateFallback: '/offline',
       globPatterns: ['**/*.{js,css,txt,png,ico,svg,webp,json,woff,woff2,html}'],
       maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+      // Игнорируем параметры Telegram Web App
+      navigateFallbackDenylist: [
+        /tgWebAppData/,
+        /tgWebAppThemeParams/,
+        /tgWebAppVersion/,
+        /tgWebAppPlatform/,
+      ],
       runtimeCaching: [
         {
           urlPattern: /^https:\/\/cdn\.iconify\.sh\/.*/i,

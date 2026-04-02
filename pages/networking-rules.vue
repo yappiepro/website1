@@ -1,121 +1,126 @@
 <template>
-  <div class="min-h-screen bg-white text-gray-900 antialiased overflow-x-hidden">
+  <div class="min-h-screen bg-white text-black font-mono">
+    <!-- Фоновая сетка -->
+    <div class="fixed inset-0 pointer-events-none opacity-20">
+      <div class="grid-bg absolute inset-0"></div>
+    </div>
+
     <!-- Навигация -->
     <nav
-      class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200"
+      :class="[
+        'fixed left-4 right-4 z-40 transition-all duration-300 md:backdrop-blur-xl md:rounded-2xl',
+        isScrolled ? 'bg-white/90 md:bg-white/90 md:shadow-lg' : 'bg-white/90 md:bg-transparent',
+        'md:top-0 top-4',
+      ]"
     >
-      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center">
-        <a href="/" class="text-sm font-semibold text-gray-900 shrink-0">Артём Селифанов</a>
+      <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
+        <div class="h-14 md:h-16 flex items-center">
+          <!-- Левая зона: Логотип -->
+          <div class="block">
+            <a href="/" class="group flex items-center gap-3" aria-label="Главная" title="Главная">
+              <img
+                src="/reference/Vector.svg"
+                alt="Нескучный Нетворкинг — логотип сообщества"
+                class="h-10 w-auto"
+              />
+            </a>
+          </div>
 
-        <div class="hidden md:flex items-center gap-6 flex-1 justify-center">
-          <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-            >Главная</a
+          <!-- Центральная зона: Десктопное меню -->
+          <div class="hidden md:flex items-center justify-center flex-1">
+            <nav class="flex items-center gap-1">
+              <a
+                href="/"
+                class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all"
+                >Главная</a
+              >
+              <a
+                href="/networking"
+                class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all"
+                >Нескучный Нетворкинг</a
+              >
+              <a
+                href="/business"
+                class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all"
+                >Бизнес Сетка</a
+              >
+              <a
+                href="/yappie"
+                class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all"
+                >Веб-разработка</a
+              >
+              <a
+                href="/blog"
+                class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all"
+                >Блог</a
+              >
+              <a
+                href="/networking-rules"
+                class="px-4 py-2 text-sm text-gray-900 font-semibold hover:bg-white/50 rounded-lg transition-all"
+                >Правила</a
+              >
+            </nav>
+          </div>
+
+          <!-- Правая зона: Кнопка -->
+          <div class="hidden md:flex items-center justify-end shrink-0">
+            <a
+              href="https://t.me/funnetworking"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-[#EA6D3A] hover:bg-[#EA6D3A]/90 rounded-xl transition-all"
+            >
+              <span>В сообщество</span>
+            </a>
+          </div>
+
+          <!-- Кнопка бургер-меню -->
+          <button
+            :class="[
+              'md:hidden p-2 rounded-xl transition-all absolute right-4 z-50',
+              isScrolled ? 'bg-white/90 hover:bg-white' : 'hover:bg-gray-100',
+            ]"
+            aria-label="Открыть меню"
+            @click="isMobileMenuOpen = !isMobileMenuOpen"
           >
-          <a href="/networking" class="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-            >Нескучный Нетворкинг</a
-          >
-          <a href="/business" class="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-            >Бизнес Сетка</a
-          >
-          <a href="/yappie" class="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-            >Веб-разработка</a
-          >
-          <a href="/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-            >Блог</a
-          >
-          <a
-            href="https://t.me/artemselifanov"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-            >Связаться</a
-          >
+            <Menu v-if="!isMobileMenuOpen" class="w-6 h-6 text-gray-700" />
+            <X v-else class="w-6 h-6 text-gray-700" />
+          </button>
         </div>
-
-        <div class="hidden md:block w-[100px] shrink-0"></div>
-
-        <button
-          class="md:hidden text-gray-700 p-2 hover:bg-gray-100 rounded-lg transition-colors absolute right-4"
-          aria-label="Открыть меню"
-          @click="isMobileMenuOpen = !isMobileMenuOpen"
-        >
-          <Menu v-if="!isMobileMenuOpen" class="w-6 h-6" />
-          <X v-else class="w-6 h-6" />
-        </button>
       </div>
     </nav>
 
     <!-- Мобильное меню -->
-    <div v-if="isMobileMenuOpen" class="fixed inset-0 z-[100] md:hidden bg-white flex flex-col">
-      <div class="flex-1 flex flex-col justify-center items-center px-6">
-        <nav class="flex flex-col gap-8 w-full max-w-xs">
-          <a
-            v-for="item in mobileMenuItems"
-            :key="item.href"
-            :href="item.href"
-            class="text-3xl font-bold text-gray-900 text-center py-4 hover:text-blue-600 transition-colors"
-            @click="isMobileMenuOpen = false"
-          >
-            {{ item.label }}
-          </a>
-        </nav>
-        <button
-          class="mt-12 px-10 py-5 text-xl font-semibold bg-blue-600 text-white hover:bg-blue-700 w-full max-w-xs rounded-md"
-          @click="isMobileMenuOpen = false"
-        >
-          <a href="https://t.me/artemselifanov" target="_blank" rel="noopener noreferrer"
-            >Связаться</a
-          >
-        </button>
-      </div>
-      <button
-        class="absolute top-6 right-6 text-gray-700 p-3 hover:bg-gray-100 rounded-lg transition-colors"
-        aria-label="Закрыть меню"
-        @click="isMobileMenuOpen = false"
-      >
-        <X class="w-8 h-8" />
-      </button>
-    </div>
-
-    <!-- Хлебные крошки -->
-    <nav class="pt-24 pb-6 px-4 md:px-6" aria-label="Breadcrumb">
-      <div class="max-w-7xl mx-auto">
-        <ol class="flex items-center gap-2 text-xs uppercase tracking-wider text-gray-600">
-          <li><a href="/" class="text-gray-600 hover:underline font-bold">Главная</a></li>
-          <li class="mx-2 text-gray-600">/</li>
-          <li>
-            <a href="/networking" class="text-gray-600 hover:underline font-bold"
-              >Нескучный Нетворкинг</a
-            >
-          </li>
-          <li class="mx-2 text-gray-600">/</li>
-          <li class="font-bold text-gray-600">Правила</li>
-        </ol>
-      </div>
-    </nav>
+    <BaseMobileMenu
+      v-model="isMobileMenuOpen"
+      :menu-items="mobileMenuItems"
+      cta-link="https://t.me/funnetworking"
+      cta-text="В сообщество"
+      theme="brutal"
+      :show-label="false"
+      :show-arrows="false"
+    />
 
     <!-- Основной контент -->
     <main role="main" class="pt-20">
       <!-- Hero секция -->
-      <section
-        class="relative py-20 md:py-28 px-4 sm:px-6 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100"
-      >
-        <div class="max-w-4xl mx-auto w-full relative z-10">
-          <div class="text-center">
+      <section class="pt-12 pb-16 md:pt-20 md:pb-24 px-4 sm:px-6">
+        <div class="max-w-[1400px] mx-auto">
+          <div class="text-center mb-12">
             <div
-              class="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-blue-200 rounded-2xl mb-8"
+              class="inline-flex items-center gap-2 px-4 py-2 bg-[#EA6D3A]/10 border border-[#EA6D3A]/20 rounded-xl mb-6"
             >
-              <span class="w-2.5 h-2.5 bg-blue-500 rounded-full animate-pulse"></span>
-              <span class="text-sm font-medium text-blue-700">Правила сообщества</span>
+              <span class="w-2 h-2 bg-[#EA6D3A] rounded-full animate-pulse"></span>
+              <span class="text-xs font-semibold text-[#EA6D3A] uppercase tracking-wider"
+                >Правила сообщества</span
+              >
             </div>
-
             <h1
               class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] mb-6"
             >
               Нескучный Нетворкинг
             </h1>
-
-            <p class="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
               Самое активное сообщество предпринимателей и экспертов
             </p>
           </div>
@@ -123,87 +128,64 @@
       </section>
 
       <!-- Цифры сообщества -->
-      <section class="py-16 md:py-20 px-4 sm:px-6 bg-white border-b border-gray-100">
-        <div class="max-w-6xl mx-auto">
+      <section class="py-16 md:py-20 px-4 sm:px-6 border-t-2 border-b-2 border-black bg-white">
+        <div class="max-w-[1400px] mx-auto">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             <!-- Подписчики -->
             <div
-              class="group relative bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl p-8 md:p-10 text-white shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-1"
+              class="group relative bg-[#EA6D3A] rounded-3xl p-8 md:p-10 text-white border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1"
             >
-              <div
-                class="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-700 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              ></div>
-              <div class="relative z-10">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="p-3 bg-white/20 rounded-2xl">
-                    <Users class="w-8 h-8" />
-                  </div>
-                  <span class="text-sm font-semibold text-blue-100">Подписчиков</span>
+              <div class="flex items-center gap-3 mb-4">
+                <div class="p-3 bg-white/20 rounded-xl border-2 border-black">
+                  <Users class="w-8 h-8" />
                 </div>
-                <div class="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight">13 201</div>
-                <p class="text-blue-100 mt-3 text-sm md:text-base">
-                  Активных участников сообщества
-                </p>
+                <span class="text-sm font-semibold">Подписчиков</span>
               </div>
+              <div class="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight">13 201</div>
+              <p class="text-white/90 mt-3 text-sm md:text-base">Активных участников сообщества</p>
             </div>
 
             <!-- Просмотры -->
             <div
-              class="group relative bg-gradient-to-br from-violet-500 to-violet-600 rounded-3xl p-8 md:p-10 text-white shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-1"
+              class="group relative bg-violet-600 rounded-3xl p-8 md:p-10 text-white border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1"
             >
-              <div
-                class="absolute inset-0 bg-gradient-to-br from-violet-600 to-violet-700 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              ></div>
-              <div class="relative z-10">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="p-3 bg-white/20 rounded-2xl">
-                    <Eye class="w-8 h-8" />
-                  </div>
-                  <span class="text-sm font-semibold text-violet-100">Просмотров</span>
+              <div class="flex items-center gap-3 mb-4">
+                <div class="p-3 bg-white/20 rounded-xl border-2 border-black">
+                  <Eye class="w-8 h-8" />
                 </div>
-                <div class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
-                  1 899 254
-                </div>
-                <p class="text-violet-100 mt-3 text-sm md:text-base">Общее количество просмотров</p>
+                <span class="text-sm font-semibold">Просмотров</span>
               </div>
+              <div class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
+                1 899 254
+              </div>
+              <p class="text-white/90 mt-3 text-sm md:text-base">Общее количество просмотров</p>
             </div>
 
             <!-- Реакции -->
             <div
-              class="group relative bg-gradient-to-br from-amber-500 to-orange-500 rounded-3xl p-8 md:p-10 text-white shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-1"
+              class="group relative bg-amber-500 rounded-3xl p-8 md:p-10 text-white border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1"
             >
-              <div
-                class="absolute inset-0 bg-gradient-to-br from-orange-600 to-orange-700 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              ></div>
-              <div class="relative z-10">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="p-3 bg-white/20 rounded-2xl">
-                    <Heart class="w-8 h-8" />
-                  </div>
-                  <span class="text-sm font-semibold text-orange-100">Реакций</span>
+              <div class="flex items-center gap-3 mb-4">
+                <div class="p-3 bg-white/20 rounded-xl border-2 border-black">
+                  <Heart class="w-8 h-8" />
                 </div>
-                <div class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
-                  106 483
-                </div>
-                <p class="text-orange-100 mt-3 text-sm md:text-base">Реакций на постах в среднем</p>
+                <span class="text-sm font-semibold">Реакций</span>
               </div>
+              <div class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">106 483</div>
+              <p class="text-white/90 mt-3 text-sm md:text-base">Реакций на постах в среднем</p>
             </div>
           </div>
         </div>
       </section>
 
       <!-- CTA: Подписка и бот -->
-      <section
-        class="py-20 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-blue-50 via-white to-violet-50"
-      >
-        <div class="max-w-5xl mx-auto">
+      <section class="py-20 md:py-24 px-4 sm:px-6">
+        <div class="max-w-[1400px] mx-auto">
           <div class="text-center mb-12">
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4">
               Присоединяйся к сообществу
             </h2>
-            <p class="text-xl text-gray-600 leading-relaxed">
-              Два простых шага для участия в жизни сообщества
-            </p>
+            <p class="text-xl text-gray-600">Два простых шага для участия в жизни сообщества</p>
           </div>
 
           <div class="grid md:grid-cols-2 gap-6 md:gap-8">
@@ -212,27 +194,27 @@
               href="https://t.me/funnetworking"
               target="_blank"
               rel="noopener noreferrer"
-              class="group block bg-white border-2 border-blue-200 rounded-3xl p-8 shadow-xl hover:shadow-2xl hover:border-blue-400 transition-all duration-300"
+              class="group block bg-white border-2 border-black rounded-3xl p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1"
             >
               <div class="flex items-start gap-4">
                 <div
-                  class="flex-shrink-0 w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform"
+                  class="flex-shrink-0 w-14 h-14 bg-[#EA6D3A] rounded-2xl border-2 border-black flex items-center justify-center group-hover:scale-110 transition-transform"
                 >
                   <Send class="w-7 h-7 text-white" />
                 </div>
                 <div class="flex-1">
                   <div class="flex items-center gap-2 mb-3">
                     <span
-                      class="inline-flex items-center justify-center w-8 h-8 bg-blue-600 text-white rounded-full font-bold text-sm"
+                      class="inline-flex items-center justify-center w-8 h-8 bg-[#EA6D3A] text-white rounded-full font-bold text-sm border-2 border-black"
                       >1</span
                     >
-                    <h3 class="text-xl font-bold text-gray-900">Подпишись на канал</h3>
+                    <h3 class="text-xl font-bold">Подпишись на канал</h3>
                   </div>
                   <p class="text-gray-600 mb-4">
                     Телеграм-канал «Нескучный Нетворкинг» — новости, анонсы и полезные материалы
                   </p>
                   <span
-                    class="inline-flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-3 transition-all"
+                    class="inline-flex items-center gap-2 text-[#EA6D3A] font-semibold group-hover:gap-3 transition-all"
                   >
                     Подписаться
                     <ArrowRight class="w-5 h-5" />
@@ -246,21 +228,21 @@
               href="https://t.me/setkaNetworking_bot"
               target="_blank"
               rel="noopener noreferrer"
-              class="group block bg-white border-2 border-violet-200 rounded-3xl p-8 shadow-xl hover:shadow-2xl hover:border-violet-400 transition-all duration-300"
+              class="group block bg-white border-2 border-black rounded-3xl p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1"
             >
               <div class="flex items-start gap-4">
                 <div
-                  class="flex-shrink-0 w-14 h-14 bg-violet-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform"
+                  class="flex-shrink-0 w-14 h-14 bg-violet-600 rounded-2xl border-2 border-black flex items-center justify-center group-hover:scale-110 transition-transform"
                 >
                   <Bot class="w-7 h-7 text-white" />
                 </div>
                 <div class="flex-1">
                   <div class="flex items-center gap-2 mb-3">
                     <span
-                      class="inline-flex items-center justify-center w-8 h-8 bg-violet-600 text-white rounded-full font-bold text-sm"
+                      class="inline-flex items-center justify-center w-8 h-8 bg-violet-600 text-white rounded-full font-bold text-sm border-2 border-black"
                       >2</span
                     >
-                    <h3 class="text-xl font-bold text-gray-900">Запусти проверочного бота</h3>
+                    <h3 class="text-xl font-bold">Запусти проверочного бота</h3>
                   </div>
                   <p class="text-gray-600 mb-4">
                     Бот проверит ваш профиль и откроет доступ к публикациям в сообществе
@@ -279,13 +261,11 @@
       </section>
 
       <!-- Как опубликовать пост -->
-      <section
-        class="py-20 md:py-28 px-4 sm:px-6 bg-gradient-to-br from-violet-50 via-white to-blue-50"
-      >
-        <div class="max-w-4xl mx-auto">
+      <section class="py-20 md:py-28 px-4 sm:px-6 border-t-2 border-black">
+        <div class="max-w-[1400px] mx-auto">
           <div class="text-center mb-12">
             <div
-              class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-violet-200 rounded-2xl mb-6"
+              class="inline-flex items-center gap-2 px-4 py-2 bg-violet-100 border border-violet-300 rounded-xl mb-6"
             >
               <Icon name="lucide:file-text" class="w-5 h-5 text-violet-600" />
               <span class="text-sm font-bold text-violet-700 uppercase tracking-wider"
@@ -297,15 +277,17 @@
             </h2>
           </div>
 
-          <div class="bg-white border-2 border-violet-200 rounded-[2rem] p-8 md:p-12 shadow-xl">
-            <p class="text-lg text-gray-700 leading-relaxed mb-8">
+          <div
+            class="bg-white border-2 border-black rounded-3xl p-8 md:p-12 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+          >
+            <p class="text-lg text-gray-700 mb-8">
               Все посты проходят обязательную предварительную модерацию через бота.
             </p>
 
             <ol class="space-y-6">
               <li class="flex items-start gap-4">
                 <div
-                  class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-2xl flex items-center justify-center shadow-lg"
+                  class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-xl border-2 border-black flex items-center justify-center"
                 >
                   <span class="text-xl font-black text-white">1</span>
                 </div>
@@ -317,7 +299,7 @@
 
               <li class="flex items-start gap-4">
                 <div
-                  class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-2xl flex items-center justify-center shadow-lg"
+                  class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-xl border-2 border-black flex items-center justify-center"
                 >
                   <span class="text-xl font-black text-white">2</span>
                 </div>
@@ -329,7 +311,7 @@
 
               <li class="flex items-start gap-4">
                 <div
-                  class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-2xl flex items-center justify-center shadow-lg"
+                  class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-xl border-2 border-black flex items-center justify-center"
                 >
                   <span class="text-xl font-black text-white">3</span>
                 </div>
@@ -344,7 +326,7 @@
 
               <li class="flex items-start gap-4">
                 <div
-                  class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-2xl flex items-center justify-center shadow-lg"
+                  class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-xl border-2 border-black flex items-center justify-center"
                 >
                   <span class="text-xl font-black text-white">4</span>
                 </div>
@@ -356,7 +338,7 @@
 
               <li class="flex items-start gap-4">
                 <div
-                  class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-2xl flex items-center justify-center shadow-lg"
+                  class="flex-shrink-0 w-10 h-10 bg-violet-600 rounded-xl border-2 border-black flex items-center justify-center"
                 >
                   <span class="text-xl font-black text-white">5</span>
                 </div>
@@ -365,16 +347,15 @@
                   <div class="space-y-2 mt-3">
                     <div class="flex items-center gap-2">
                       <span class="text-green-600">✅</span>
-                      <span class="text-gray-700"
-                        ><strong>Пост прошел</strong> — можешь публиковать его в ленту</span
-                      >
+                      <span class="text-gray-700">
+                        <strong>Пост прошел</strong> — можешь публиковать его в ленту
+                      </span>
                     </div>
                     <div class="flex items-center gap-2">
                       <span class="text-red-600">⛔️</span>
-                      <span class="text-gray-700"
-                        ><strong>Пост не прошел</strong> — нужно исправить замечания по
-                        правилам</span
-                      >
+                      <span class="text-gray-700">
+                        <strong>Пост не прошел</strong> — нужно исправить замечания по правилам
+                      </span>
                     </div>
                   </div>
                   <p class="text-gray-600 mt-3">
@@ -388,12 +369,16 @@
       </section>
 
       <!-- Что можно и нельзя -->
-      <section class="py-20 md:py-28 px-4 sm:px-6 border-t border-gray-100">
-        <div class="max-w-6xl mx-auto">
+      <section class="py-20 md:py-28 px-4 sm:px-6 border-t-2 border-black">
+        <div class="max-w-[1400px] mx-auto">
           <div class="grid md:grid-cols-2 gap-8">
             <!-- Можно -->
-            <div class="bg-white border-2 border-green-200 rounded-[2rem] p-8 md:p-10 shadow-xl">
-              <div class="inline-flex items-center gap-2 px-4 py-2 bg-green-50 rounded-xl mb-6">
+            <div
+              class="bg-white border-2 border-black rounded-3xl p-8 md:p-10 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+            >
+              <div
+                class="inline-flex items-center gap-2 px-4 py-2 bg-green-100 border border-green-300 rounded-xl mb-6"
+              >
                 <Icon name="lucide:thumbs-up" class="w-5 h-5 text-green-600" />
                 <span class="text-sm font-bold text-green-700 uppercase tracking-wider"
                   >Можно и нужно</span
@@ -404,43 +389,43 @@
                 <li class="flex items-start gap-3">
                   <Icon name="lucide:check" class="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong class="text-gray-900">Знакомиться:</strong>
+                    <strong>Знакомиться:</strong>
                     <span class="text-gray-600">
-                      Создавать посты-визитки с хэштегом #постзнакомство</span
-                    >
+                      Создавать посты-визитки с хэштегом #постзнакомство
+                    </span>
                   </div>
                 </li>
                 <li class="flex items-start gap-3">
                   <Icon name="lucide:check" class="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong class="text-gray-900">Спрашивать:</strong>
+                    <strong>Спрашивать:</strong>
                     <span class="text-gray-600">
-                      Задавать вопросы и просить совета у сообщества</span
-                    >
+                      Задавать вопросы и просить совета у сообщества
+                    </span>
                   </div>
                 </li>
                 <li class="flex items-start gap-3">
                   <Icon name="lucide:check" class="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong class="text-gray-900">Делиться:</strong>
+                    <strong>Делиться:</strong>
                     <span class="text-gray-600">
-                      Писать авторские посты с полезной информацией</span
-                    >
+                      Писать авторские посты с полезной информацией
+                    </span>
                   </div>
                 </li>
                 <li class="flex items-start gap-3">
                   <Icon name="lucide:check" class="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong class="text-gray-900">Обсуждать:</strong>
+                    <strong>Обсуждать:</strong>
                     <span class="text-gray-600">
-                      Активно комментировать, участвовать в опросах</span
-                    >
+                      Активно комментировать, участвовать в опросах
+                    </span>
                   </div>
                 </li>
                 <li class="flex items-start gap-3">
                   <Icon name="lucide:check" class="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong class="text-gray-900">Предлагать:</strong>
+                    <strong>Предлагать:</strong>
                     <span class="text-gray-600"> Делиться идеями по развитию сообщества!</span>
                   </div>
                 </li>
@@ -448,42 +433,46 @@
             </div>
 
             <!-- Нельзя -->
-            <div class="bg-white border-2 border-red-200 rounded-[2rem] p-8 md:p-10 shadow-xl">
-              <div class="inline-flex items-center gap-2 px-4 py-2 bg-red-50 rounded-xl mb-6">
+            <div
+              class="bg-white border-2 border-black rounded-3xl p-8 md:p-10 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+            >
+              <div
+                class="inline-flex items-center gap-2 px-4 py-2 bg-red-100 border border-red-300 rounded-xl mb-6"
+              >
                 <Icon name="lucide:circle-x" class="w-5 h-5 text-red-600" />
                 <span class="text-sm font-bold text-red-700 uppercase tracking-wider"
                   >Строго запрещено</span
                 >
               </div>
 
-              <p class="text-sm text-red-600 mb-4">
+              <p class="text-sm text-red-600 mb-4 font-semibold">
                 Нарушение = удаление контента и/или блокировка
               </p>
 
               <ul class="space-y-4">
                 <li class="flex items-start gap-3">
                   <Icon name="lucide:x" class="w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" />
-                  <span class="text-gray-700">Реклама, спам и флуд</span>
+                  <span>Реклама, спам и флуд</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <Icon name="lucide:x" class="w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" />
-                  <span class="text-gray-700"><strong>РЕПОСТЫ</strong></span>
+                  <span><strong>РЕПОСТЫ</strong></span>
                 </li>
                 <li class="flex items-start gap-3">
                   <Icon name="lucide:x" class="w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" />
-                  <span class="text-gray-700">Ненормативная лексика и оскорбления</span>
+                  <span>Ненормативная лексика и оскорбления</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <Icon name="lucide:x" class="w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" />
-                  <span class="text-gray-700">Попытки обойти проверку бота при публикации</span>
+                  <span>Попытки обойти проверку бота при публикации</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <Icon name="lucide:x" class="w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" />
-                  <span class="text-gray-700">Контекстные ссылки (даже в комментариях)</span>
+                  <span>Контекстные ссылки (даже в комментариях)</span>
                 </li>
               </ul>
 
-              <div class="mt-6 p-4 bg-red-50 rounded-xl">
+              <div class="mt-6 p-4 bg-red-50 border-2 border-red-200 rounded-xl">
                 <p class="text-sm text-red-800">
                   <strong>➡️</strong> Администратор оставляет за собой право удалять любой контент
                   без объяснения причин.
@@ -495,13 +484,11 @@
       </section>
 
       <!-- Как создать хороший пост-знакомство -->
-      <section
-        class="py-20 md:py-28 px-4 sm:px-6 bg-gradient-to-br from-blue-50 via-white to-violet-50"
-      >
-        <div class="max-w-6xl mx-auto">
+      <section class="py-20 md:py-28 px-4 sm:px-6 border-t-2 border-black">
+        <div class="max-w-[1400px] mx-auto">
           <div class="text-center mb-12">
             <div
-              class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-blue-200 rounded-2xl mb-6"
+              class="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 border border-blue-300 rounded-xl mb-6"
             >
               <Icon name="lucide:user-plus" class="w-5 h-5 text-blue-600" />
               <span class="text-sm font-bold text-blue-700 uppercase tracking-wider">Шаблон</span>
@@ -509,7 +496,7 @@
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4">
               Как создать хороший пост-знакомство
             </h2>
-            <p class="text-xl text-gray-600 leading-relaxed">
+            <p class="text-xl text-gray-600">
               Используй хэштег <strong class="text-blue-600">#постзнакомство</strong>, чтобы тебя
               могли найти
             </p>
@@ -517,13 +504,15 @@
 
           <div class="grid lg:grid-cols-2 gap-8">
             <!-- Левая колонка: Рекомендации -->
-            <div class="bg-white border-2 border-blue-200 rounded-[2rem] p-8 md:p-10 shadow-xl">
-              <h3 class="text-2xl font-black mb-6 text-gray-900">Структура поста</h3>
+            <div
+              class="bg-white border-2 border-black rounded-3xl p-8 md:p-10 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+            >
+              <h3 class="text-2xl font-black mb-6">Структура поста</h3>
 
               <ol class="space-y-5">
                 <li class="flex items-start gap-4">
                   <div
-                    class="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg"
+                    class="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-xl border-2 border-black flex items-center justify-center"
                   >
                     <span class="text-xl font-black text-white">1</span>
                   </div>
@@ -535,7 +524,7 @@
 
                 <li class="flex items-start gap-4">
                   <div
-                    class="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg"
+                    class="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-xl border-2 border-black flex items-center justify-center"
                   >
                     <span class="text-xl font-black text-white">2</span>
                   </div>
@@ -547,7 +536,7 @@
 
                 <li class="flex items-start gap-4">
                   <div
-                    class="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg"
+                    class="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-xl border-2 border-black flex items-center justify-center"
                   >
                     <span class="text-xl font-black text-white">3</span>
                   </div>
@@ -559,7 +548,7 @@
 
                 <li class="flex items-start gap-4">
                   <div
-                    class="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg"
+                    class="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-xl border-2 border-black flex items-center justify-center"
                   >
                     <span class="text-xl font-black text-white">4</span>
                   </div>
@@ -571,7 +560,7 @@
 
                 <li class="flex items-start gap-4">
                   <div
-                    class="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg"
+                    class="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-xl border-2 border-black flex items-center justify-center"
                   >
                     <span class="text-xl font-black text-white">5</span>
                   </div>
@@ -585,16 +574,18 @@
 
             <!-- Правая колонка: Пример поста -->
             <div
-              class="bg-gradient-to-br from-blue-500 to-violet-600 rounded-[2rem] p-8 md:p-10 text-white shadow-2xl"
+              class="bg-gradient-to-br from-blue-600 to-violet-600 rounded-3xl p-8 md:p-10 text-white border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
             >
               <div class="flex items-center gap-3 mb-6">
-                <div class="p-2 bg-white/20 rounded-xl">
+                <div class="p-2 bg-white/20 rounded-xl border-2 border-black">
                   <FileText class="w-6 h-6" />
                 </div>
                 <h3 class="text-2xl font-black">Пример поста</h3>
               </div>
 
-              <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 space-y-4">
+              <div
+                class="bg-white/10 backdrop-blur-sm rounded-2xl border-2 border-black p-6 space-y-4"
+              >
                 <p class="text-sm text-blue-100">#постзнакомство</p>
 
                 <div class="space-y-3 text-base leading-relaxed">
@@ -634,10 +625,10 @@
       </section>
 
       <!-- Контакты -->
-      <section class="py-20 md:py-28 px-4 sm:px-6 border-t border-gray-100">
-        <div class="max-w-4xl mx-auto">
+      <section class="py-20 md:py-28 px-4 sm:px-6 border-t-2 border-black">
+        <div class="max-w-[1400px] mx-auto">
           <div
-            class="bg-gradient-to-br from-violet-600 to-blue-600 rounded-[2rem] p-8 md:p-12 text-white shadow-2xl"
+            class="bg-gradient-to-br from-violet-600 to-blue-600 rounded-3xl p-8 md:p-12 text-white border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
           >
             <div class="text-center mb-8">
               <Icon name="lucide:message-circle" class="w-16 h-16 mx-auto mb-6 opacity-90" />
@@ -652,7 +643,7 @@
                 href="https://t.me/artemselifanov"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="group inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-white bg-white/20 hover:bg-white/30 rounded-2xl transition-all backdrop-blur-sm"
+                class="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-white bg-white/20 hover:bg-white/30 rounded-2xl border-2 border-black transition-all"
               >
                 <Icon name="lucide:send" class="w-5 h-5" />
                 Написать в Telegram
@@ -667,12 +658,12 @@
       </section>
 
       <!-- CTA: Телеграм канал -->
-      <section class="py-16 px-4 sm:px-6 bg-gradient-to-br from-gray-50 via-white to-gray-100">
-        <div class="max-w-4xl mx-auto">
+      <section class="py-16 px-4 sm:px-6 border-t-2 border-black">
+        <div class="max-w-[1400px] mx-auto">
           <div
-            class="bg-white border-2 border-gray-200 rounded-[2rem] p-8 md:p-10 shadow-xl text-center"
+            class="bg-white border-2 border-black rounded-3xl p-8 md:p-10 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-center"
           >
-            <Icon name="lucide:send" class="w-12 h-12 mx-auto mb-4 text-blue-600" />
+            <Icon name="lucide:send" class="w-12 h-12 mx-auto mb-4 text-[#EA6D3A]" />
             <h3 class="text-2xl font-bold mb-4">Наш Телеграм канал</h3>
             <p class="text-lg text-gray-600 mb-6">
               Развитие Личного бренда через соцсети — заходи, там есть гайд по развитию Сетки
@@ -681,7 +672,7 @@
               href="https://t.me/funnetworking"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-2xl transition-all shadow-lg hover:shadow-xl"
+              class="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-white bg-[#EA6D3A] hover:bg-[#EA6D3A]/90 rounded-2xl border-2 border-black transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
             >
               Подписаться на канал
               <Icon name="lucide:arrow-right" class="w-5 h-5" />
@@ -700,16 +691,26 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { Menu, X, Users, Eye, Heart, Send, Bot, ArrowRight, FileText } from 'lucide-vue-next'
 import Footer from '~/components/layout/Footer.vue'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
+import BaseMobileMenu from '~/components/layout/BaseMobileMenu.vue'
 
 definePageMeta({
   path: '/networking-rules',
 })
 
 const isMobileMenuOpen = ref(false)
+const isScrolled = ref(false)
+
+onMounted(() => {
+  const handleScroll = () => {
+    isScrolled.value = window.scrollY > 50
+  }
+  window.addEventListener('scroll', handleScroll)
+  return () => window.removeEventListener('scroll', handleScroll)
+})
 
 // SEO
 useHead({

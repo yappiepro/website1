@@ -3,11 +3,13 @@
 /* Шрифты подключаются автоматически через @nuxt/fonts */
 
 /* Telegram Web App safe area - только для навигации */
+body.tg-webapp header.fixed,
 body.tg-webapp nav.fixed {
   top: 100px !important;
 }
 
 /* При скролле навигация прижимается к верху */
+body.tg-webapp.is-scrolled header.fixed,
 body.tg-webapp.is-scrolled nav.fixed {
   top: env(safe-area-inset-top, 0px) !important;
 }

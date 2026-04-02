@@ -2,6 +2,15 @@
 @import "./typography.css";
 /* Шрифты подключаются автоматически через @nuxt/fonts */
 
+/* Telegram Web App safe area */
+.tg-webapp {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.tg-webapp body {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
 /* Screen reader only class for SEO */
 .sr-only {
   position: absolute;

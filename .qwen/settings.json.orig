@@ -5,12 +5,7 @@
       "Bash(npx *)",
       "Bash(npm run *)",
       "Bash(git add *)",
-      "Bash(git commit *)",
-      "Bash(pkill *)",
-      "Bash(rm *)",
-      "Bash(sleep *)",
-      "Bash(curl *)"
+      "Bash(git commit *)"
     ]
-  },
-  "$version": 3
+  }
 }

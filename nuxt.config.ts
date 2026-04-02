@@ -267,7 +267,7 @@ export default defineNuxtConfig({
     head: {
       meta: [
         { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
         { name: 'author', content: 'Артём Селифанов' },
         { name: 'yandex-verification', content: '27bf0858465d6882' },
         {
@@ -297,6 +297,14 @@ export default defineNuxtConfig({
         {
           children: `::-webkit-scrollbar{height:6px;width:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:#ffffff4d;border-radius:10px}::-webkit-scrollbar-thumb:hover{background:#ffffff80}`,
           tagPosition: 'head',
+        },
+      ],
+      script: [
+        // Telegram Web App script
+        {
+          src: 'https://telegram.org/js/telegram-web-app.js',
+          tagPosition: 'head',
+          defer: true,
         },
       ],
       htmlAttrs: {

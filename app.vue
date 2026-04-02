@@ -17,18 +17,27 @@ import LoadingBar from '~/components/layout/LoadingBar.vue'
 import CookieBanner from '~/components/layout/CookieBanner.vue'
 import GoogleAnalytics from '~/components/GoogleAnalytics.vue'
 import YandexMetrica from '~/components/YandexMetrica.vue'
+import { useTelegramWebApp } from '~/composables/useTelegramWebApp'
+
+// Инициализация Telegram Web App
+const { isTelegramApp } = useTelegramWebApp()
 
 const route = useRoute()
 const config = useRuntimeConfig()
 const siteUrl = computed(() => (config.public.siteUrl || '').replace(/\/+$/, ''))
 const canonicalUrl = computed(() => {
-  if (!siteUrl.value) return null
+  if (!siteUrl.value) {
+    return null
+  }
   const path = route.path || '/'
   return `${siteUrl.value}${path === '/' ? '' : path}`
 })
 
 useHead(() => ({
-  link: canonicalUrl.value ? [{ rel: 'canonical', href: canonicalUrl.value }] : []
+  link: canonicalUrl.value ? [{ rel: 'canonical', href: canonicalUrl.value }] : [],
+  bodyAttrs: {
+    class: isTelegramApp.value ? 'tg-webapp' : '',
+  },
 }))
 
 // Яндекс.Метрика
@@ -39,7 +48,7 @@ useHead({
     { name: 'theme-color', content: '#1a1a1a', media: '(prefers-color-scheme: dark)' },
     // Favicon meta tags для лучшей видимости в поисковиках
     { name: 'msapplication-TileColor', content: '#7c3aed' },
-    { name: 'msapplication-TileImage', content: '/favicons/mstile-144x144.png' }
+    { name: 'msapplication-TileImage', content: '/favicons/mstile-144x144.png' },
   ],
   link: [
     // Manifest для PWA
@@ -48,7 +57,7 @@ useHead({
     { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicons/favicon-16x16.png' },
     { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicons/favicon-32x32.png' },
-    { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicons/apple-touch-icon.png' }
+    { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicons/apple-touch-icon.png' },
   ],
   script: [
     {
@@ -69,8 +78,8 @@ useHead({
         });
       `,
       type: 'text/javascript',
-      charset: 'utf-8'
-    }
-  ]
+      charset: 'utf-8',
+    },
+  ],
 })
 </script>

@@ -16,6 +16,8 @@ export const articleLoaders = {
     ),
   'razrabotka-internet-magazina': () =>
     import('./blog/razrabotka-saytov/razrabotka-internet-magazina.js').then((m) => m.default),
+  'kak-vybrat-domen-i-hosting': () =>
+    import('./blog/razrabotka-saytov/kak-vybrat-domen-i-hosting.js').then((m) => m.default),
   'sozdanie-sayta-s-nulya': () =>
     import('./blog/sozdanie-saytov/sozdanie-sayta-s-nulya.js').then((m) => m.default),
   'skolko-stoit-sozdat-sayt': () =>

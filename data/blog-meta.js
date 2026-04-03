@@ -63,6 +63,16 @@ export const articles = [
     image: '/images/blog/razrabotka-saytov/razrabotka-internet-magazina-og.svg',
   },
   {
+    slug: 'kak-vybrat-domen-i-hosting',
+    title: 'Домен и хостинг: как выбрать, зарегистрировать и подключить — полное руководство 2026',
+    description:
+      'Пошаговое руководство по выбору домена и хостинга для сайта: сравнение доменных зон, регистраторов, типов хостинга. Актуальные цены 2026, ошибки новичков, чек-лист подключения.',
+    category: 'Разработка сайтов',
+    cluster: 'razrabotka-saytov',
+    date: '2026-04-03',
+    image: '/images/blog/razrabotka-saytov/kak-vybrat-domen-i-hosting-og.svg',
+  },
+  {
     slug: 'sozdanie-sayta-s-nulya',
     title: 'Создание сайта с нуля: пошаговое руководство для начинающих',
     description:

@@ -34,7 +34,7 @@
             type="text"
             required
             placeholder="Мой бизнес"
-            class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+            class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
         </div>
 
@@ -44,7 +44,7 @@
             v-model="form.category"
             type="text"
             placeholder="IT, Маркетинг, Дизайн..."
-            class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+            class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
         </div>
 
@@ -54,7 +54,7 @@
             v-model="form.description"
             rows="2"
             placeholder="Чем занимается ваш бизнес..."
-            class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+            class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
           />
         </div>
 
@@ -64,7 +64,7 @@
             v-model="form.telegram_link"
             type="text"
             placeholder="@username или ссылка"
-            class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+            class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
         </div>
 
@@ -74,7 +74,7 @@
             v-model="form.website_url"
             type="url"
             placeholder="https://example.com"
-            class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+            class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
         </div>
 

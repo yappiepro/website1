@@ -78,7 +78,7 @@
                   type="email"
                   required
                   placeholder="your@email.com"
-                  class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                  class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
                   :disabled="loading"
                 />
               </div>
@@ -91,7 +91,7 @@
                   required
                   minlength="6"
                   :placeholder="activeTab === 'register' ? 'Минимум 6 символов' : 'Введите пароль'"
-                  class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                  class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
                   :disabled="loading"
                 />
               </div>
@@ -105,7 +105,7 @@
                   required
                   minlength="6"
                   placeholder="Повторите пароль"
-                  class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                  class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
                   :disabled="loading"
                 />
               </div>

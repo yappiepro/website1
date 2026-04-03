@@ -237,10 +237,6 @@ export default defineNuxtConfig({
     },
   },
 
-  robots: {
-    enabled: false, // Отключаем модуль, используем public/robots.txt
-  },
-
   ogImage: {
     enabled: true,
   },

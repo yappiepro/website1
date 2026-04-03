@@ -9,14 +9,12 @@
   <LoadingBar />
   <CookieBanner />
   <GoogleAnalytics />
-  <YandexMetrica />
 </template>
 
 <script setup>
 import LoadingBar from '~/components/layout/LoadingBar.vue'
 import CookieBanner from '~/components/layout/CookieBanner.vue'
 import GoogleAnalytics from '~/components/GoogleAnalytics.vue'
-import YandexMetrica from '~/components/YandexMetrica.vue'
 import { useTelegramWebApp } from '~/composables/useTelegramWebApp'
 
 // Инициализация Telegram Web App

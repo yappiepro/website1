@@ -156,7 +156,8 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue'])
 
-const { login, register } = useAuth()
+const auth = useAuth()
+const { login, register, ensureUser } = auth
 
 const activeTab = ref(props.defaultTab)
 const email = ref('')
@@ -198,6 +199,7 @@ async function handleSubmit() {
             ? 'Неверный email или пароль'
             : authError.message
       } else {
+        await ensureUser()
         emit('update:modelValue', false)
       }
     } else {
@@ -209,13 +211,9 @@ async function handleSubmit() {
             : authError.message
       } else {
         successMessage.value = 'Регистрация успешна! Проверьте email для подтверждения.'
-        if (data?.user) {
-          // Если email не требует подтверждения — сразу закрываем
-          if (!data.user.email_confirmed_at) {
-            // Ждём подтверждения email
-          } else {
-            emit('update:modelValue', false)
-          }
+        if (data?.user?.email_confirmed_at) {
+          await ensureUser()
+          emit('update:modelValue', false)
         }
       }
     }
@@ -227,8 +225,9 @@ async function handleSubmit() {
 // Сброс формы при открытии
 watch(
   () => props.modelValue,
-  (open) => {
+  async (open) => {
     if (open) {
+      await ensureUser()
       activeTab.value = props.defaultTab
       email.value = ''
       password.value = ''

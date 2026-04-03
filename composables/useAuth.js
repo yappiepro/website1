@@ -1,11 +1,19 @@
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed } from 'vue'
+
+const _user = ref(null)
+let _initialized = false
 
 export function useAuth() {
-  const supabase = useSupabase()
-  const user = ref(null)
-  const loading = ref(true)
+  function getSupabase() {
+    try {
+      return useSupabase()
+    } catch {
+      return null
+    }
+  }
 
   async function getUser() {
+    const supabase = getSupabase()
     if (!supabase) {
       return null
     }
@@ -14,17 +22,19 @@ export function useAuth() {
   }
 
   async function register(email, password) {
+    const supabase = getSupabase()
     if (!supabase) {
       return { error: { message: 'Supabase не настроен' } }
     }
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-    })
+    const { data, error } = await supabase.auth.signUp({ email, password })
+    if (!error && data?.session) {
+      _user.value = data.session.user
+    }
     return { data, error }
   }
 
   async function login(email, password) {
+    const supabase = getSupabase()
     if (!supabase) {
       return { error: { message: 'Supabase не настроен' } }
     }
@@ -32,42 +42,34 @@ export function useAuth() {
       email,
       password,
     })
+    if (!error && data?.session) {
+      _user.value = data.session.user
+    }
     return { data, error }
   }
 
   async function logout() {
+    const supabase = getSupabase()
     if (!supabase) {
       return
     }
     await supabase.auth.signOut()
+    _user.value = null
   }
 
-  // Подписка на изменения auth-состояния
-  let authSubscription = null
-
-  onMounted(async () => {
-    user.value = await getUser()
-    loading.value = false
-
-    if (supabase) {
-      const { data } = supabase.auth.onAuthStateChange((event, session) => {
-        user.value = session?.user || null
-        loading.value = false
-      })
-      authSubscription = data.subscription
+  async function ensureUser() {
+    if (!_initialized) {
+      _user.value = await getUser()
+      _initialized = true
     }
-  })
-
-  onUnmounted(() => {
-    authSubscription?.unsubscribe()
-  })
+  }
 
   return {
-    user,
-    loading,
-    isAuthenticated: computed(() => !!user.value),
+    user: computed(() => _user.value),
+    isAuthenticated: computed(() => !!_user.value),
     register,
     login,
     logout,
+    ensureUser,
   }
 }

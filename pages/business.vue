@@ -19,7 +19,12 @@ import Footer from '~/components/layout/Footer.vue'
 import AuthModal from '~/components/auth/AuthModal.vue'
 import BusinessDirectory from '~/components/business/BusinessDirectory.vue'
 
-const { isAuthenticated } = useAuth()
+const { isAuthenticated, ensureUser } = useAuth()
+
+// Загружаем состояние auth на клиенте
+onMounted(async () => {
+  await ensureUser()
+})
 
 // SEO для страницы
 useSeoMeta({
@@ -901,20 +906,25 @@ function toggleFaq(index) {
       <!-- Каталог участников -->
       <section id="directory" class="py-16 md:py-24 px-4 sm:px-6 bg-gray-50">
         <div class="max-w-[1600px] mx-auto">
-          <BusinessDirectory v-if="isAuthenticated" />
-          <div v-else class="text-center py-12">
-            <Users class="w-16 h-16 text-purple-300 mx-auto mb-4" />
-            <h3 class="text-2xl font-bold text-gray-900 mb-2">Каталог участников</h3>
-            <p class="text-gray-500 mb-6 max-w-md mx-auto">
-              Войдите, чтобы видеть контакты и бизнесы участников клуба
-            </p>
-            <button
-              class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white font-medium rounded-xl hover:from-purple-500 hover:to-fuchsia-500 transition-all shadow-lg shadow-purple-500/25"
-              @click="showAuthModal = true"
-            >
-              Войти
-            </button>
-          </div>
+          <ClientOnly>
+            <div v-if="isAuthenticated">
+              <BusinessDirectory />
+            </div>
+            <div v-else class="text-center py-12">
+              <Users class="w-16 h-16 text-purple-300 mx-auto mb-4" />
+              <h3 class="text-2xl font-bold text-gray-900 mb-2">Каталог участников</h3>
+              <p class="text-gray-500 mb-6 max-w-md mx-auto">
+                Войдите, чтобы видеть контакты и бизнесы участников клуба
+              </p>
+              <button
+                type="button"
+                class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white font-medium rounded-xl hover:from-purple-500 hover:to-fuchsia-500 transition-all shadow-lg shadow-purple-500/25 cursor-pointer"
+                @click="showAuthModal = true"
+              >
+                Войти
+              </button>
+            </div>
+          </ClientOnly>
         </div>
       </section>
     </main>

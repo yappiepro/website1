@@ -7,6 +7,7 @@
         <p class="text-sm text-gray-500 mt-1">Бизнесы и проекты участников клуба</p>
       </div>
       <button
+        type="button"
         class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white text-sm font-medium rounded-xl hover:from-purple-500 hover:to-fuchsia-500 transition-all shadow-lg shadow-purple-500/25"
         @click="showAddForm = !showAddForm"
       >
@@ -97,81 +98,89 @@
       </form>
     </div>
 
-    <!-- Статус загрузки -->
-    <div v-if="loading" class="flex items-center justify-center py-12">
-      <svg class="animate-spin w-8 h-8 text-purple-600" viewBox="0 0 24 24" fill="none">
-        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
-        <path
-          class="opacity-75"
-          fill="currentColor"
-          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-        />
-      </svg>
-    </div>
-
-    <!-- Ошибка -->
-    <div v-else-if="fetchError" class="p-6 bg-red-50 border border-red-200 rounded-2xl text-center">
-      <p class="text-red-700">{{ fetchError }}</p>
-    </div>
-
-    <!-- Пусто -->
-    <div v-else-if="contacts.length === 0" class="p-6 bg-gray-50 rounded-2xl text-center">
-      <p class="text-gray-500">Пока нет бизнесов в каталоге. Будьте первым!</p>
-    </div>
-
-    <!-- Список контактов -->
-    <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      <div
-        v-for="contact in contacts"
-        :key="contact.id"
-        class="p-5 bg-white rounded-2xl border border-gray-200 hover:border-purple-200 hover:shadow-lg transition-all"
-      >
-        <!-- Категория -->
-        <span
-          v-if="contact.category"
-          class="inline-block px-2.5 py-1 text-xs font-medium text-purple-700 bg-purple-100 rounded-full"
-        >
-          {{ contact.category }}
-        </span>
-
-        <!-- Название -->
-        <h4 class="text-lg font-bold text-gray-900 mt-3">{{ contact.business_name }}</h4>
-
-        <!-- Описание -->
-        <p v-if="contact.description" class="text-sm text-gray-600 mt-2 line-clamp-3">
-          {{ contact.description }}
-        </p>
-
-        <!-- Ссылки -->
-        <div class="flex flex-wrap gap-2 mt-4">
-          <a
-            v-if="contact.telegram_link"
-            :href="normalizeTelegram(contact.telegram_link)"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-blue-700 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors"
-          >
-            <Send class="w-3.5 h-3.5" />
-            Telegram
-          </a>
-          <a
-            v-if="contact.website_url"
-            :href="contact.website_url"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
-          >
-            <ExternalLink class="w-3.5 h-3.5" />
-            Сайт
-          </a>
-        </div>
-
-        <!-- Дата -->
-        <p class="text-xs text-gray-400 mt-4">
-          {{ formatDate(contact.created_at) }}
-        </p>
+    <!-- Контент только на клиенте -->
+    <ClientOnly>
+      <!-- Статус загрузки -->
+      <div v-if="loading" class="flex items-center justify-center py-12">
+        <svg class="animate-spin w-8 h-8 text-purple-600" viewBox="0 0 24 24" fill="none">
+          <circle
+            class="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            stroke-width="4"
+          />
+          <path
+            class="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+          />
+        </svg>
       </div>
-    </div>
+
+      <!-- Ошибка -->
+      <div
+        v-else-if="fetchError"
+        class="p-6 bg-red-50 border border-red-200 rounded-2xl text-center"
+      >
+        <p class="text-red-700">{{ fetchError }}</p>
+      </div>
+
+      <!-- Пусто -->
+      <div v-else-if="contacts.length === 0" class="p-6 bg-gray-50 rounded-2xl text-center">
+        <p class="text-gray-500">Пока нет бизнесов в каталоге. Будьте первым!</p>
+      </div>
+
+      <!-- Список контактов -->
+      <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div
+          v-for="contact in contacts"
+          :key="contact.id"
+          class="p-5 bg-white rounded-2xl border border-gray-200 hover:border-purple-200 hover:shadow-lg transition-all"
+        >
+          <span
+            v-if="contact.category"
+            class="inline-block px-2.5 py-1 text-xs font-medium text-purple-700 bg-purple-100 rounded-full"
+          >
+            {{ contact.category }}
+          </span>
+
+          <h4 class="text-lg font-bold text-gray-900 mt-3">{{ contact.business_name }}</h4>
+
+          <p v-if="contact.description" class="text-sm text-gray-600 mt-2 line-clamp-3">
+            {{ contact.description }}
+          </p>
+
+          <div class="flex flex-wrap gap-2 mt-4">
+            <a
+              v-if="contact.telegram_link"
+              :href="normalizeTelegram(contact.telegram_link)"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-blue-700 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors"
+            >
+              <Send class="w-3.5 h-3.5" />
+              Telegram
+            </a>
+            <a
+              v-if="contact.website_url"
+              :href="contact.website_url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+            >
+              <ExternalLink class="w-3.5 h-3.5" />
+              Сайт
+            </a>
+          </div>
+
+          <p class="text-xs text-gray-400 mt-4">
+            {{ formatDate(contact.created_at) }}
+          </p>
+        </div>
+      </div>
+    </ClientOnly>
   </div>
 </template>
 
@@ -223,8 +232,10 @@ async function addContact() {
     return
   }
 
-  const { user } = useAuth()
-  if (!user.value) {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+  if (!user) {
     formError.value = 'Нужно авторизоваться'
     return
   }

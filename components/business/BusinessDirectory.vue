@@ -188,12 +188,9 @@
 import { ref, onMounted } from 'vue'
 import { Plus, Send, ExternalLink } from 'lucide-vue-next'
 
-const supabase = useSupabase()
 const contacts = ref([])
 const loading = ref(true)
 const fetchError = ref('')
-
-// Форма добавления
 const showAddForm = ref(false)
 const formLoading = ref(false)
 const formError = ref('')
@@ -203,6 +200,20 @@ const form = ref({
   description: '',
   telegram_link: '',
   website_url: '',
+})
+
+let supabase = null
+
+onMounted(() => {
+  try {
+    supabase = useSupabase()
+  } catch (e) {
+    console.warn('[BusinessDirectory] Supabase init failed:', e)
+    fetchError.value = 'Supabase не настроен'
+    loading.value = false
+    return
+  }
+  fetchContacts()
 })
 
 async function fetchContacts() {

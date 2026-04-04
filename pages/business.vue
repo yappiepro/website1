@@ -21,7 +21,7 @@ import BusinessDirectory from '~/components/business/BusinessDirectory.vue'
 
 const { isAuthenticated, ensureUser } = useAuth()
 
-// Загружаем состояние auth на клиенте
+// Принудительно проверяем сессию на клиенте
 onMounted(async () => {
   await ensureUser()
 })
@@ -906,11 +906,11 @@ function toggleFaq(index) {
       <!-- Каталог участников -->
       <section id="directory" class="py-16 md:py-24 px-4 sm:px-6 bg-gray-50">
         <div class="max-w-[1600px] mx-auto">
-          <ClientOnly>
-            <div v-if="isAuthenticated">
-              <BusinessDirectory />
-            </div>
-            <div v-else class="text-center py-12">
+          <template v-if="isAuthenticated">
+            <BusinessDirectory />
+          </template>
+          <template v-else>
+            <div class="text-center py-12">
               <Users class="w-16 h-16 text-purple-300 mx-auto mb-4" />
               <h3 class="text-2xl font-bold text-gray-900 mb-2">Каталог участников</h3>
               <p class="text-gray-500 mb-6 max-w-md mx-auto">
@@ -924,7 +924,7 @@ function toggleFaq(index) {
                 Войти
               </button>
             </div>
-          </ClientOnly>
+          </template>
         </div>
       </section>
     </main>

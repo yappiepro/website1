@@ -1,7 +1,6 @@
 import { ref, computed } from 'vue'
 
 const _user = ref(null)
-let _initialized = false
 
 export function useAuth() {
   function getSupabase() {
@@ -17,8 +16,12 @@ export function useAuth() {
     if (!supabase) {
       return null
     }
-    const { data } = await supabase.auth.getSession()
-    return data.session?.user || null
+    try {
+      const { data } = await supabase.auth.getSession()
+      return data.session?.user || null
+    } catch {
+      return null
+    }
   }
 
   async function register(email, password) {
@@ -58,10 +61,8 @@ export function useAuth() {
   }
 
   async function ensureUser() {
-    if (!_initialized) {
-      _user.value = await getUser()
-      _initialized = true
-    }
+    // Всегда проверяем сессию (Supabase хранит токен в localStorage на клиенте)
+    _user.value = await getUser()
   }
 
   return {

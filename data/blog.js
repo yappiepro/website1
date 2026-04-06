@@ -6,6 +6,7 @@ import razrabotkaSaytaDlyaBiznesa from './blog/razrabotka-saytov/razrabotka-sayt
 import tehnicheskoeZadanieNaRazrabotkuSayta from './blog/razrabotka-saytov/tehnicheskoe-zadanie-na-razrabotku-sayta.js'
 import razrabotkaInternetMagazina from './blog/razrabotka-saytov/razrabotka-internet-magazina.js'
 import kakVybratDomenIHosting from './blog/razrabotka-saytov/kak-vybrat-domen-i-hosting.js'
+import saitVizitka from './blog/razrabotka-saytov/sait-vizitka.js'
 import sozdanieSaytaSNulya from './blog/sozdanie-saytov/sozdanie-sayta-s-nulya.js'
 import skolkoStoitSozdatSayt from './blog/sozdanie-saytov/skolko-stoit-sozdat-sayt.js'
 import sozdanieSaytaDlyaBiznesa from './blog/sozdanie-saytov/sozdanie-sayta-dlya-biznesa.js'
@@ -87,6 +88,7 @@ export const articles = [
   tehnicheskoeZadanieNaRazrabotkuSayta,
   razrabotkaInternetMagazina,
   kakVybratDomenIHosting,
+  saitVizitka,
   sozdanieSaytaSNulya,
   skolkoStoitSozdatSayt,
   sozdanieSaytaDlyaBiznesa,

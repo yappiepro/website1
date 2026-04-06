@@ -193,6 +193,24 @@ ROAS = Выручка от рекламы / Расходы на рекламу
 <li><a href="https://pagespeed.web.dev" target="_blank" rel="noopener">Google PageSpeed Insights</a></li>
 </ul>
 
+
+<div class="cta-block">
+<p><strong>Нужна помощь с запуском рекламы?</strong></p>
+<p>Напишите в Telegram — помогу настроить аналитику, рекламу или продвижение под ваш бизнес.</p>
+<a href="https://t.me/artemselifanov" target="_blank" class="cta-button">
+  Получить помощь в Telegram
+</a>
+<p><small>Ответим в течение 2 часов. Консультация бесплатна.</small></p>
+</div>
+
+<div class="cta-block">
+<p><strong>Хотите обсудить ваш проект?</strong></p>
+<p>Напишите — разберём вашу ситуацию и наметим план действий.</p>
+<a href="https://t.me/artemselifanov" target="_blank" class="cta-button">
+  Написать в Telegram
+</a>
+<p><small>Бесплатная консультация 15 минут.</small></p>
+</div>
 <p><strong>Читать далее:</strong> <a href="https://artemselifanov.ru/blog/chto-takoe-kontekstnaya-reklama">Что такое контекстная реклама и как она работает →</a></p>
 
 <p><strong>Назад:</strong> <a href="https://artemselifanov.ru/blog/yandex-direct-dlya-biznesa">← Яндекс.Директ для бизнеса: как настроить и запустить рекламу</a></p>

@@ -140,7 +140,25 @@ export default {
     <li><a href="https://targethunter.ru" target="_blank" rel="noopener noreferrer">TargetHunter — аудитории ВКонтакте</a></li>
   </ul>
 
-  <div class="article-nav">
+  
+<div class="cta-block">
+<p><strong>Нужна помощь с продвижением ВКонтакте?</strong></p>
+<p>Напишите в Telegram — помогу настроить аналитику, рекламу или продвижение под ваш бизнес.</p>
+<a href="https://t.me/artemselifanov" target="_blank" class="cta-button">
+  Получить помощь в Telegram
+</a>
+<p><small>Ответим в течение 2 часов. Консультация бесплатна.</small></p>
+</div>
+
+<div class="cta-block">
+<p><strong>Хотите обсудить ваш проект?</strong></p>
+<p>Напишите — разберём вашу ситуацию и наметим план действий.</p>
+<a href="https://t.me/artemselifanov" target="_blank" class="cta-button">
+  Написать в Telegram
+</a>
+<p><small>Бесплатная консультация 15 минут.</small></p>
+</div>
+<div class="article-nav">
     <p><strong>Читать далее:</strong> <a href="/blog/kontent-dlya-socsetey">Контент для социальных сетей: форматы, идеи и как не выгореть →</a></p>
     <p><strong>Назад:</strong> <a href="/blog/smm-dlya-biznesa">← SMM для бизнеса: что такое и как использовать социальные сети</a></p>
   </div>`,

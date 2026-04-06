@@ -213,6 +213,24 @@ export default {
 <li><a href="https://metrika.yandex.ru/add/informer" target="_blank" rel="noopener">UTM-компоновщик Яндекса</a></li>
 </ul>
 
+
+<div class="cta-block">
+<p><strong>Нужна помощь с веб-аналитикой?</strong></p>
+<p>Напишите в Telegram — помогу настроить аналитику, рекламу или продвижение под ваш бизнес.</p>
+<a href="https://t.me/artemselifanov" target="_blank" class="cta-button">
+  Получить помощь в Telegram
+</a>
+<p><small>Ответим в течение 2 часов. Консультация бесплатна.</small></p>
+</div>
+
+<div class="cta-block">
+<p><strong>Хотите обсудить ваш проект?</strong></p>
+<p>Напишите — разберём вашу ситуацию и наметим план действий.</p>
+<a href="https://t.me/artemselifanov" target="_blank" class="cta-button">
+  Написать в Telegram
+</a>
+<p><small>Бесплатная консультация 15 минут.</small></p>
+</div>
 <p><strong>Читать далее:</strong> <a href="https://artemselifanov.ru/blog/klyuchevye-metriki-biznesa">Ключевые метрики бизнеса: что считать и как отслеживать →</a></p>
 `,
 }

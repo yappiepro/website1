@@ -457,6 +457,12 @@ const processedContent = computed(() => {
 
   let content = article.content
 
+  // Оборачиваем таблицы в div для горизонтального скролла на мобильных
+  content = content.replace(
+    /<table>([\s\S]*?)<\/table>/g,
+    '<div class="table-wrapper"><table>$1</table></div>'
+  )
+
   // Добавляем ID к h2
   content = content.replace(/<h2>([^<]+)<\/h2>/g, (match, text) => {
     const id = generateId(text.trim())

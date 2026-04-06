@@ -558,7 +558,7 @@ function toggleFaq(index) {
       <!-- Hero секция -->
       <section
         id="about"
-        class="pt-[4rem] md:pt-[4rem] pb-12 md:pb-20 px-4 md:px-6 border-b-2 border-black animate-on-scroll"
+        class="pt-[6rem] md:pt-[8rem] pb-12 md:pb-20 px-4 md:px-6 border-b-2 border-black animate-on-scroll"
       >
         <div class="max-w-[1400px] mx-auto">
           <!-- Верхняя панель с мета-информацией -->

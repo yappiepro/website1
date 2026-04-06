@@ -452,93 +452,96 @@
             </div>
           </div>
 
-          <!-- Текстовый блок -->
+          <!-- Bento Grid: Модульная система -->
           <div class="max-w-6xl mx-auto">
-            <div
-              class="py-[24px] px-[12px] md:p-12 bg-white border border-gray-200 rounded-[2rem] shadow-lg"
-            >
-              <div class="space-y-8 text-gray-600 leading-relaxed">
-                <p class="text-lg md:text-xl">
-                  Я не распыляюсь на пять площадок одновременно. Я выстроил
-                  <span class="font-bold text-gray-900">модульную систему</span>, где каждая сеть
-                  играет свою роль.
-                </p>
-
-                <div class="grid md:grid-cols-2 gap-6">
-                  <div class="p-6 bg-gray-50 rounded-2xl border border-gray-200">
-                    <div class="flex items-center gap-3 mb-4">
-                      <div
-                        class="w-12 h-12 bg-gray-200 rounded-xl flex items-center justify-center"
-                      >
-                        <Icon name="fa-solid:rss" class="w-6 h-6 text-gray-700" />
-                      </div>
-                      <span class="font-bold text-gray-900 text-lg">Источники трафика</span>
-                    </div>
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                      ТенЧат, Дзен, Тредс и ВК работают на охваты. Они собирают внимание широкой
-                      аудитории и фильтруют случайных зрителей.
-                    </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+              <!-- Главная карточка: Telegram (2/3) -->
+              <div
+                class="md:col-span-2 p-6 md:p-8 rounded-[1.5rem] bg-gradient-to-br from-[#2AABEE] to-[#1E8FD5] text-white border border-[#1E8FD5]/20 shadow-lg"
+              >
+                <div class="flex items-center gap-3 mb-4">
+                  <div
+                    class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm"
+                  >
+                    <Icon name="fa-brands:telegram" class="w-5 h-5 text-white" />
                   </div>
+                  <span class="font-bold text-lg">Точка концентрации</span>
+                </div>
+                <div class="text-4xl md:text-5xl font-black mb-3">50-200</div>
+                <p class="text-sm md:text-base text-white/90 leading-relaxed mb-2">
+                  В Telegram ежемесячно приходят
+                  <strong class="text-white">прогретые предприниматели и эксперты</strong>, готовые
+                  к диалогу и сотрудничеству.
+                </p>
+                <p class="text-xs text-white/70">
+                  Без шума алгоритмов. Только польза, кейсы и решения для роста дохода.
+                </p>
+              </div>
 
-                  <div class="p-6 bg-gray-50 rounded-2xl border border-gray-200">
-                    <div class="flex items-center gap-3 mb-4">
-                      <div
-                        class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center"
-                      >
-                        <Icon name="fa-brands:telegram" class="w-6 h-6 text-white" />
-                      </div>
-                      <span class="font-bold text-gray-900 text-lg">Точка концентрации</span>
-                    </div>
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                      Telegram — это точка концентрации. Сюда попадает только «отфильтрованная»
-                      аудитория: предприниматели и эксперты, готовые к диалогу.
-                    </p>
+              <!-- Источники трафика (1/3) -->
+              <div class="p-6 rounded-[1.5rem] bg-gray-50 border border-gray-200 shadow-sm">
+                <div class="flex items-center gap-3 mb-4">
+                  <div class="w-10 h-10 bg-gray-200 rounded-xl flex items-center justify-center">
+                    <Icon name="fa-solid:rss" class="w-5 h-5 text-gray-700" />
+                  </div>
+                  <span class="font-bold text-gray-900 text-sm">Трафик</span>
+                </div>
+                <div class="space-y-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                    <span class="text-sm text-gray-700">ТенЧат</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                    <span class="text-sm text-gray-700">Дзен</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-black"></span>
+                    <span class="text-sm text-gray-700">Тредс</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+                    <span class="text-sm text-gray-700">ВК</span>
                   </div>
                 </div>
-
-                <p class="text-lg md:text-xl">
-                  Здесь нет шума алгоритмов. Только польза, кейсы и решения для роста вашего дохода.
+                <p class="text-xs text-gray-500 mt-4 leading-relaxed">
+                  Работают на охваты. Собирают внимание и фильтруют случайных зрителей.
                 </p>
+              </div>
 
-                <div class="p-6 bg-gray-50 rounded-2xl border border-gray-200">
-                  <p class="text-sm text-gray-700 leading-relaxed">
-                    <span class="font-bold"
-                      >🎯 Эта модель экономит бюджет и повышает конверсию.</span
-                    >
-                    Я привожу в свой канал тех, кто уже прогрет и заинтересован.
-                  </p>
-                </div>
+              <!-- Охват 2000+ -->
+              <div class="p-6 rounded-[1.5rem] bg-white border border-gray-200 shadow-sm">
+                <div class="text-3xl md:text-4xl font-black text-gray-900 mb-2">2000+</div>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                  подписчиков в соцсетях ежемесячно
+                </p>
+              </div>
 
-                <!-- Статистика по подписчикам -->
-                <div class="grid grid-cols-2 gap-4 mt-8">
-                  <div class="p-4 md:p-6 bg-gray-50 rounded-2xl border border-gray-200">
-                    <div class="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-2">
-                      2000+
-                    </div>
-                    <div class="text-xs sm:text-sm text-gray-600 font-medium">
-                      подписчиков в соцсетях ежемесячно
-                    </div>
-                  </div>
-                  <div class="p-4 md:p-6 bg-blue-50 rounded-2xl border border-blue-100">
-                    <div class="text-2xl sm:text-3xl md:text-4xl font-black text-blue-600 mb-2">
-                      50-200
-                    </div>
-                    <div class="text-xs sm:text-sm text-blue-700 font-medium">
-                      в Telegram ежемесячно
-                    </div>
+              <!-- Подход -->
+              <div class="p-6 rounded-[1.5rem] bg-gray-50 border border-gray-200 shadow-sm">
+                <div class="flex items-start gap-3">
+                  <span class="text-2xl flex-shrink-0">🎯</span>
+                  <div>
+                    <p class="text-sm text-gray-700 leading-relaxed font-medium mb-1">
+                      Модель экономит бюджет и повышает конверсию
+                    </p>
+                    <p class="text-xs text-gray-500 leading-relaxed">
+                      Я привожу в канал тех, кто уже прогрет и заинтересован. Каждая площадка играет
+                      свою роль.
+                    </p>
                   </div>
                 </div>
               </div>
 
-              <!-- CTA кнопка -->
-              <div class="mt-10 text-center">
+              <!-- CTA занимает оставшееся пространство -->
+              <div class="md:col-span-3 flex justify-center pt-2">
                 <a
                   href="https://t.me/artemselifanov"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="group inline-flex items-center justify-center gap-2 px-6 py-4 sm:px-8 sm:py-4 text-sm sm:text-base font-semibold text-white bg-gray-900 hover:bg-gray-800 rounded-2xl transition-all hover:-translate-y-1"
+                  class="group inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-white bg-gray-900 hover:bg-gray-800 rounded-2xl transition-all hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
                 >
-                  <Icon name="fa-brands:telegram" class="w-4 h-4 sm:w-5 sm:h-5" />
+                  <Icon name="fa-brands:telegram" class="w-5 h-5" />
                   <span>Записаться в Telegram</span>
                 </a>
               </div>
@@ -1058,73 +1061,76 @@
             </h2>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div class="space-y-5 max-w-5xl mx-auto">
             <div
               v-for="(caseItem, index) in cases"
               :key="index"
               :class="[
-                'card-animate group p-6 md:p-8 bg-white border border-gray-200 rounded-[2rem] hover:border-blue-300 hover:shadow-xl transition-all hover:-translate-y-2',
+                'card-animate group p-5 md:p-8 bg-white border border-gray-200 rounded-[1.5rem] hover:border-blue-300 hover:shadow-xl transition-all hover:-translate-y-1',
                 index === 1 ? 'delay-200' : index === 2 ? 'delay-400' : '',
               ]"
             >
-              <!-- Badge -->
-              <div class="flex items-center gap-3 mb-6">
-                <span
-                  class="px-3 py-1.5 text-xs font-bold text-blue-700 bg-blue-50 border border-blue-100 rounded-xl"
-                >
-                  {{ caseItem.badge }}
+              <!-- Badge + Заголовок -->
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-6">
+                <div>
+                  <span
+                    class="inline-block px-3 py-1.5 text-xs font-bold text-blue-700 bg-blue-50 border border-blue-100 rounded-xl mb-2"
+                  >
+                    {{ caseItem.badge }}
+                  </span>
+                  <h3 class="text-lg md:text-xl font-bold leading-snug text-gray-900">
+                    {{ caseItem.title }}
+                  </h3>
+                </div>
+                <p class="text-sm text-gray-500 max-w-xs sm:text-right flex-shrink-0">
+                  {{ caseItem.task }}
+                </p>
+              </div>
+
+              <!-- До / После -->
+              <div
+                class="grid grid-cols-1 md:grid-cols-2 gap-0 border border-gray-200 rounded-xl overflow-hidden"
+              >
+                <!-- Было -->
+                <div class="p-5 bg-gray-50">
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="text-lg">❌</span>
+                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wide"
+                      >Было</span
+                    >
+                  </div>
+                  <p class="text-sm text-gray-700 leading-relaxed">{{ caseItem.pointA }}</p>
+                </div>
+
+                <!-- Стало -->
+                <div class="p-5 bg-green-50 md:border-l-2 md:border-gray-200">
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="text-lg">✅</span>
+                    <span class="text-xs font-bold text-green-700 uppercase tracking-wide"
+                      >Стало</span
+                    >
+                  </div>
+                  <ul class="space-y-2">
+                    <li v-for="(res, i) in caseItem.result" :key="i" class="flex items-start gap-2">
+                      <Icon
+                        name="fa-solid:check"
+                        class="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5"
+                      />
+                      <span class="text-sm font-medium text-green-800">{{ res }}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Решение (одна строка) -->
+              <div class="mt-4 flex items-start gap-2 text-sm text-gray-600">
+                <span class="text-blue-600 flex-shrink-0 mt-0.5">
+                  <Icon name="fa-solid:lightbulb" class="w-4 h-4" />
                 </span>
-              </div>
-
-              <!-- Заголовок -->
-              <h3 class="text-lg md:text-xl font-bold mb-4 leading-snug text-gray-900">
-                {{ caseItem.title }}
-              </h3>
-
-              <!-- Задача -->
-              <div class="mb-4">
-                <div class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">
-                  Задача
-                </div>
-                <p class="text-sm text-gray-700">{{ caseItem.task }}</p>
-              </div>
-
-              <!-- Точка А -->
-              <div class="mb-4 p-3 bg-amber-50 rounded-xl border border-amber-100">
-                <div class="text-xs font-bold text-amber-700 uppercase tracking-wide mb-1">
-                  Точка А
-                </div>
-                <p class="text-sm text-amber-900">{{ caseItem.pointA }}</p>
-              </div>
-
-              <!-- Решение -->
-              <div class="mb-4">
-                <div class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">
-                  Решение
-                </div>
-                <ul class="space-y-1.5">
-                  <li v-for="(sol, i) in caseItem.solution" :key="i" class="flex items-start gap-2">
-                    <span class="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0 mt-1.5"></span>
-                    <span class="text-sm text-gray-700">{{ sol }}</span>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Результат -->
-              <div class="p-4 bg-green-50 rounded-xl border border-green-100">
-                <div class="flex items-center gap-2 mb-3">
-                  <Icon name="fa-solid:chart-line" class="w-4 h-4 text-green-600" />
-                  <span class="text-xs font-bold text-green-700 uppercase">Результат</span>
-                </div>
-                <ul class="space-y-1.5">
-                  <li v-for="(res, i) in caseItem.result" :key="i" class="flex items-start gap-2">
-                    <Icon
-                      name="fa-solid:check"
-                      class="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5"
-                    />
-                    <span class="text-sm font-medium text-green-800">{{ res }}</span>
-                  </li>
-                </ul>
+                <span>
+                  <strong class="text-gray-800">Решение:</strong>
+                  {{ caseItem.solution.join('; ') }}
+                </span>
               </div>
             </div>
           </div>

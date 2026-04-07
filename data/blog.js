@@ -11,6 +11,7 @@ import odnostranichnyySayt from './blog/razrabotka-saytov/odnostranichnyy-sayt.j
 import razrabotkaSaytaNaBitrikse from './blog/razrabotka-saytov/razrabotka-sayta-na-bitrikse.js'
 import saytDlyaUsluug from './blog/razrabotka-saytov/sayt-dlya-usluug.js'
 import saytKatalog from './blog/razrabotka-saytov/sayt-katalog.js'
+import etapyRazrabotkiSayta from './blog/razrabotka-saytov/etapy-razrabotki-sayta.js'
 import sozdanieSaytaSNulya from './blog/sozdanie-saytov/sozdanie-sayta-s-nulya.js'
 import skolkoStoitSozdatSayt from './blog/sozdanie-saytov/skolko-stoit-sozdat-sayt.js'
 import sozdanieSaytaDlyaBiznesa from './blog/sozdanie-saytov/sozdanie-sayta-dlya-biznesa.js'
@@ -97,6 +98,7 @@ export const articles = [
   razrabotkaSaytaNaBitrikse,
   saytDlyaUsluug,
   saytKatalog,
+  etapyRazrabotkiSayta,
   sozdanieSaytaSNulya,
   skolkoStoitSozdatSayt,
   sozdanieSaytaDlyaBiznesa,

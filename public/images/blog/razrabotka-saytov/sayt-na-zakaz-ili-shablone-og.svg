@@ -29,11 +29,11 @@
   <!-- Заголовок (разбиваем на строки по 48 символов) -->
   
   <text x="600" y="320" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="bold" fill="white" text-anchor="middle" filter="url(#shadow)">
-    Домен и хостинг: как выбрать, зарегистрировать и
+    Сайт на заказ или шаблон: как выбрать и не
   </text>
   
   <text x="600" y="380" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="bold" fill="white" text-anchor="middle" filter="url(#shadow)">
-    подключить
+    пожалеть
   </text>
   
   

@@ -12,6 +12,15 @@ import razrabotkaSaytaNaBitrikse from './blog/razrabotka-saytov/razrabotka-sayta
 import saytDlyaUsluug from './blog/razrabotka-saytov/sayt-dlya-usluug.js'
 import saytKatalog from './blog/razrabotka-saytov/sayt-katalog.js'
 import etapyRazrabotkiSayta from './blog/razrabotka-saytov/etapy-razrabotki-sayta.js'
+import saytNaZakazIliShablone from './blog/razrabotka-saytov/sayt-na-zakaz-ili-shablone.js'
+import sozdanieLendinga from './blog/razrabotka-saytov/sozdanie-lendinga.js'
+import sozdanieSaytaNaTilde from './blog/razrabotka-saytov/sozdanie-sayta-na-tilde.js'
+import sozdanieSaytaWordpress from './blog/razrabotka-saytov/sozdanie-sayta-wordpress.js'
+import kakNazvatSayt from './blog/sozdanie-saytov/kak-nazvat-sayt.js'
+import besplatnyySayt from './blog/sozdanie-saytov/besplatnyy-sayt.js'
+import saytZa1Den from './blog/sozdanie-saytov/sayt-za-1-den.js'
+import saytDlyaIp from './blog/sozdanie-saytov/sayt-dlya-ip.js'
+import kakPereitiNaNovyySayt from './blog/razrabotka-saytov/kak-pereiti-na-novyy-sayt.js'
 import sozdanieSaytaSNulya from './blog/sozdanie-saytov/sozdanie-sayta-s-nulya.js'
 import skolkoStoitSozdatSayt from './blog/sozdanie-saytov/skolko-stoit-sozdat-sayt.js'
 import sozdanieSaytaDlyaBiznesa from './blog/sozdanie-saytov/sozdanie-sayta-dlya-biznesa.js'
@@ -99,6 +108,15 @@ export const articles = [
   saytDlyaUsluug,
   saytKatalog,
   etapyRazrabotkiSayta,
+  saytNaZakazIliShablone,
+  sozdanieLendinga,
+  sozdanieSaytaNaTilde,
+  sozdanieSaytaWordpress,
+  kakNazvatSayt,
+  besplatnyySayt,
+  saytZa1Den,
+  saytDlyaIp,
+  kakPereitiNaNovyySayt,
   sozdanieSaytaSNulya,
   skolkoStoitSozdatSayt,
   sozdanieSaytaDlyaBiznesa,

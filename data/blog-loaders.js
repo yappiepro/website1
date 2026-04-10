@@ -44,6 +44,32 @@ export const articleLoaders = {
   'sayt-dlya-ip': () => import('./blog/sozdanie-saytov/sayt-dlya-ip.js').then((m) => m.default),
   'kak-pereiti-na-novyy-sayt': () =>
     import('./blog/razrabotka-saytov/kak-pereiti-na-novyy-sayt.js').then((m) => m.default),
+  'flutter-razrabotka': () =>
+    import('./blog/mobilnye-prilozheniya/flutter-razrabotka.js').then((m) => m.default),
+  'react-native': () =>
+    import('./blog/mobilnye-prilozheniya/react-native.js').then((m) => m.default),
+  'mvp-mobilnogo-prilozheniya': () =>
+    import('./blog/mobilnye-prilozheniya/mvp-mobilnogo-prilozheniya.js').then((m) => m.default),
+  'stoimost-razrabotki-prilozheniya': () =>
+    import('./blog/mobilnye-prilozheniya/stoimost-razrabotki-prilozheniya.js').then(
+      (m) => m.default
+    ),
+  'prilozhenie-dlya-malogo-biznesa': () =>
+    import('./blog/mobilnye-prilozheniya/prilozhenie-dlya-malogo-biznesa.js').then(
+      (m) => m.default
+    ),
+  'testirovaniye-mobilnogo-prilozheniya': () =>
+    import('./blog/mobilnye-prilozheniya/testirovaniye-mobilnogo-prilozheniya.js').then(
+      (m) => m.default
+    ),
+  'pwa-prilozhenie': () =>
+    import('./blog/mobilnye-prilozheniya/pwa-prilozhenie.js').then((m) => m.default),
+  'publikatsiya-v-app-store': () =>
+    import('./blog/mobilnye-prilozheniya/publikatsiya-v-app-store.js').then((m) => m.default),
+  'monetizatsiya-mobilnogo-prilozheniya': () =>
+    import('./blog/mobilnye-prilozheniya/monetizatsiya-mobilnogo-prilozheniya.js').then(
+      (m) => m.default
+    ),
   'sozdanie-sayta-s-nulya': () =>
     import('./blog/sozdanie-saytov/sozdanie-sayta-s-nulya.js').then((m) => m.default),
   'skolko-stoit-sozdat-sayt': () =>

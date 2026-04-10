@@ -64,13 +64,163 @@ export const articles = [
   },
   {
     slug: 'kak-vybrat-domen-i-hosting',
-    title: 'Домен и хостинг: как выбрать, зарегистрировать и подключить — полное руководство 2026',
+    title: 'Домен и хостинг: как выбрать, зарегистрировать и подключить',
     description:
-      'Пошаговое руководство по выбору домена и хостинга для сайта: сравнение доменных зон, регистраторов, типов хостинга. Актуальные цены 2026, ошибки новичков, чек-лист подключения.',
+      'Полный гайд по выбору домена и хостинга для сайта в 2026 году: типы хостинга, правила выбора доменного имени, пошаговая инструкция регистрации и подключения.',
     category: 'Разработка сайтов',
     cluster: 'razrabotka-saytov',
-    date: '2026-04-03',
+    date: '2026-04-09',
     image: '/images/blog/razrabotka-saytov/kak-vybrat-domen-i-hosting-og.svg',
+  },
+  {
+    slug: 'sait-vizitka',
+    title: 'Сайт-визитка: что это, когда нужен и сколько стоит',
+    description:
+      'Полный гайд по сайту-визитке: что это, структура, когда нужен, плюсы и минусы, стоимость создания в 2026 году. Чек-лист проверки перед запуском.',
+    category: 'Разработка сайтов',
+    cluster: 'razrabotka-saytov',
+    date: '2026-04-09',
+    image: '/images/blog/razrabotka-saytov/sait-vizitka-og.svg',
+  },
+  {
+    slug: 'odnostranichnyy-sayt',
+    title: 'Одностраничный сайт vs многостраничный: что выбрать в 2026 году',
+    description:
+      'Сравниваем одностраничные и многостраничные сайты: SEO, конверсия, стоимость, скорость разработки. Чек-лист выбора и реальные кейсы для бизнеса.',
+    category: 'Разработка сайтов',
+    cluster: 'razrabotka-saytov',
+    date: '2026-04-06',
+    image: '/images/blog/razrabotka-saytov/odnostranichnyy-sayt-og.svg',
+  },
+  {
+    slug: 'razrabotka-sayta-na-bitrikse',
+    title: 'Разработка сайта на 1С-Битрикс: когда это оправдано',
+    description:
+      'Когда стоит выбирать 1С-Битрикс для разработки сайта. Разбираем плюсы и минусы CMS, стоимость лицензий в 2026 году, типичные кейсы и сравнение с WordPress.',
+    category: 'Разработка сайтов',
+    cluster: 'razrabotka-saytov',
+    date: '2026-04-06',
+    image: '/images/blog/razrabotka-saytov/razrabotka-sayta-na-bitrikse-og.svg',
+  },
+  {
+    slug: 'sayt-dlya-usluug',
+    title: 'Сайт для услуг: структура, контент и как не потерять клиента',
+    description:
+      'Как создать сайт услуг, который конвертирует посетителей в заявки. Разбираем структуру, обязательные блоки, типичные ошибки и SEO-требования 2026 года.',
+    category: 'Разработка сайтов',
+    cluster: 'razrabotka-saytov',
+    date: '2026-04-06',
+    image: '/images/blog/razrabotka-saytov/sayt-dlya-usluug-og.svg',
+  },
+  {
+    slug: 'sayt-katalog',
+    title: 'Сайт-каталог: отличия от интернет-магазина и когда выбирать',
+    description:
+      'Чем сайт-каталог отличается от интернет-магазина. Разбираем структуру, плюсы и минусы, типичные кейсы и когда каталог лучше магазина для вашего бизнеса.',
+    category: 'Разработка сайтов',
+    cluster: 'razrabotka-saytov',
+    date: '2026-04-06',
+    image: '/images/blog/razrabotka-saytov/sayt-katalog-og.svg',
+  },
+  {
+    slug: 'etapy-razrabotki-sayta',
+    title: 'Этапы разработки сайта: от брифа до запуска',
+    description:
+      'Пошаговое руководство по созданию сайта: 9 этапов от брифа и ТЗ до запуска и поддержки. Сроки, стоимость и типичные ошибки на каждом этапе.',
+    category: 'Разработка сайтов',
+    cluster: 'razrabotka-saytov',
+    date: '2026-04-06',
+    image: '/images/blog/razrabotka-saytov/etapy-razrabotki-sayta-og.svg',
+  },
+  {
+    slug: 'sayt-na-zakaz-ili-shablone',
+    title: 'Сайт на заказ или шаблон: как выбрать и не пожалеть',
+    description:
+      'Шаблонный сайт или разработка на заказ: честное сравнение по стоимости, срокам, SEO, уникальности и масштабируемости. Чек-лист выбора и скрытые расходы.',
+    category: 'Разработка сайтов',
+    cluster: 'razrabotka-saytov',
+    date: '2026-04-09',
+    image: '/images/blog/razrabotka-saytov/sayt-na-zakaz-ili-shablone-og.svg',
+  },
+  {
+    slug: 'sozdanie-lendinga',
+    title: 'Создание лендинга: структура, текст и как сделать самому',
+    description:
+      'Пошаговое руководство по созданию лендинга в 2026 году: структура блоков, копирайтинг, прототип, дизайн, верстка и запуск. Чек-лист и типичные ошибки.',
+    category: 'Разработка сайтов',
+    cluster: 'razrabotka-saytov',
+    date: '2026-04-09',
+    image: '/images/blog/razrabotka-saytov/sozdanie-lendinga-og.svg',
+  },
+  {
+    slug: 'sozdanie-sayta-na-tilde',
+    title: 'Создание сайта на Тильде: пошаговое руководство',
+    description:
+      'Полное руководство по созданию сайта на Tilda в 2026 году: от выбора тарифа до подключения домена, настройки SEO и запуска. Пошагово для начинающих.',
+    category: 'Разработка сайтов',
+    cluster: 'razrabotka-saytov',
+    date: '2026-04-09',
+    image: '/images/blog/razrabotka-saytov/sozdanie-sayta-na-tilde-og.svg',
+  },
+  {
+    slug: 'sozdanie-sayta-wordpress',
+    title: 'Создание сайта на WordPress: от установки до запуска',
+    description:
+      'Пошаговое руководство по созданию сайта на WordPress в 2026 году: установка, выбор темы, плагины, настройка SEO, наполнение и запуск.',
+    category: 'Разработка сайтов',
+    cluster: 'razrabotka-saytov',
+    date: '2026-04-09',
+    image: '/images/blog/razrabotka-saytov/sozdanie-sayta-wordpress-og.svg',
+  },
+  {
+    slug: 'kak-nazvat-sayt',
+    title: 'Как выбрать доменное имя для сайта: 8 правил и типичные ошибки',
+    description:
+      'Как выбрать доменное имя для сайта в 2026 году: 8 правил, зона домена, проверка истории, типичные ошибки и пошаговая инструкция регистрации.',
+    category: 'Разработка сайтов',
+    cluster: 'razrabotka-saytov',
+    date: '2026-04-09',
+    image: '/images/blog/razrabotka-saytov/kak-nazvat-sayt-og.svg',
+  },
+  {
+    slug: 'besplatnyy-sayt',
+    title: 'Бесплатный сайт: реальные варианты и подводные камни',
+    description:
+      'Можно ли создать сайт бесплатно? Разбираем бесплатные конструкторы, их ограничения, скрытые расходы и подводные камни. Честный гайд 2026 года.',
+    category: 'Создание сайтов',
+    cluster: 'sozdanie-saytov',
+    date: '2026-04-09',
+    image: '/images/blog/sozdanie-saytov/besplatnyy-sayt-og.svg',
+  },
+  {
+    slug: 'sayt-za-1-den',
+    title: 'Как создать сайт за один день: 5 быстрых способов',
+    description:
+      'Как создать сайт за один день: 5 проверенных способов, конструкторы, шаблоны, пошаговая инструкция для быстрого запуска без программиста.',
+    category: 'Создание сайтов',
+    cluster: 'sozdanie-saytov',
+    date: '2026-04-09',
+    image: '/images/blog/sozdanie-saytov/sayt-za-1-den-og.svg',
+  },
+  {
+    slug: 'sayt-dlya-ip',
+    title: 'Нужен ли сайт ИП и самозанятому: зачем и с чего начать',
+    description:
+      'Нужен ли сайт ИП и самозанятому в 2026 году? Разбираем, зачем, какой тип сайта выбрать, с чего начать и как запустить без переплат.',
+    category: 'Создание сайтов',
+    cluster: 'sozdanie-saytov',
+    date: '2026-04-09',
+    image: '/images/blog/sozdanie-saytov/sayt-dlya-ip-og.svg',
+  },
+  {
+    slug: 'kak-pereiti-na-novyy-sayt',
+    title: 'Как перенести сайт на новый хостинг или платформу: пошаговая инструкция',
+    description:
+      'Пошаговое руководство по переносу сайта на новый хостинг или платформу в 2026 году: бэкап, миграция, DNS, SEO-сохранность и типичные ошибки.',
+    category: 'Разработка сайтов',
+    cluster: 'razrabotka-saytov',
+    date: '2026-04-09',
+    image: '/images/blog/razrabotka-saytov/kak-pereiti-na-novyy-sayt-og.svg',
   },
   {
     slug: 'sozdanie-sayta-s-nulya',

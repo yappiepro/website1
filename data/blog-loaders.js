@@ -18,6 +18,32 @@ export const articleLoaders = {
     import('./blog/razrabotka-saytov/razrabotka-internet-magazina.js').then((m) => m.default),
   'kak-vybrat-domen-i-hosting': () =>
     import('./blog/razrabotka-saytov/kak-vybrat-domen-i-hosting.js').then((m) => m.default),
+  'sait-vizitka': () => import('./blog/razrabotka-saytov/sait-vizitka.js').then((m) => m.default),
+  'odnostranichnyy-sayt': () =>
+    import('./blog/razrabotka-saytov/odnostranichnyy-sayt.js').then((m) => m.default),
+  'razrabotka-sayta-na-bitrikse': () =>
+    import('./blog/razrabotka-saytov/razrabotka-sayta-na-bitrikse.js').then((m) => m.default),
+  'sayt-dlya-usluug': () =>
+    import('./blog/razrabotka-saytov/sayt-dlya-usluug.js').then((m) => m.default),
+  'sayt-katalog': () => import('./blog/razrabotka-saytov/sayt-katalog.js').then((m) => m.default),
+  'etapy-razrabotki-sayta': () =>
+    import('./blog/razrabotka-saytov/etapy-razrabotki-sayta.js').then((m) => m.default),
+  'sayt-na-zakaz-ili-shablone': () =>
+    import('./blog/razrabotka-saytov/sayt-na-zakaz-ili-shablone.js').then((m) => m.default),
+  'sozdanie-lendinga': () =>
+    import('./blog/razrabotka-saytov/sozdanie-lendinga.js').then((m) => m.default),
+  'sozdanie-sayta-na-tilde': () =>
+    import('./blog/razrabotka-saytov/sozdanie-sayta-na-tilde.js').then((m) => m.default),
+  'sozdanie-sayta-wordpress': () =>
+    import('./blog/razrabotka-saytov/sozdanie-sayta-wordpress.js').then((m) => m.default),
+  'kak-nazvat-sayt': () =>
+    import('./blog/sozdanie-saytov/kak-nazvat-sayt.js').then((m) => m.default),
+  'besplatnyy-sayt': () =>
+    import('./blog/sozdanie-saytov/besplatnyy-sayt.js').then((m) => m.default),
+  'sayt-za-1-den': () => import('./blog/sozdanie-saytov/sayt-za-1-den.js').then((m) => m.default),
+  'sayt-dlya-ip': () => import('./blog/sozdanie-saytov/sayt-dlya-ip.js').then((m) => m.default),
+  'kak-pereiti-na-novyy-sayt': () =>
+    import('./blog/razrabotka-saytov/kak-pereiti-na-novyy-sayt.js').then((m) => m.default),
   'sozdanie-sayta-s-nulya': () =>
     import('./blog/sozdanie-saytov/sozdanie-sayta-s-nulya.js').then((m) => m.default),
   'skolko-stoit-sozdat-sayt': () =>

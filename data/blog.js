@@ -21,6 +21,15 @@ import besplatnyySayt from './blog/sozdanie-saytov/besplatnyy-sayt.js'
 import saytZa1Den from './blog/sozdanie-saytov/sayt-za-1-den.js'
 import saytDlyaIp from './blog/sozdanie-saytov/sayt-dlya-ip.js'
 import kakPereitiNaNovyySayt from './blog/razrabotka-saytov/kak-pereiti-na-novyy-sayt.js'
+import flutterRazrabotka from './blog/mobilnye-prilozheniya/flutter-razrabotka.js'
+import reactNative from './blog/mobilnye-prilozheniya/react-native.js'
+import mvpMobilnogoPrilozheniya from './blog/mobilnye-prilozheniya/mvp-mobilnogo-prilozheniya.js'
+import stoimostRazrabotkiPrilozheniya from './blog/mobilnye-prilozheniya/stoimost-razrabotki-prilozheniya.js'
+import prilozhenieDlyaMalogoBiznesa from './blog/mobilnye-prilozheniya/prilozhenie-dlya-malogo-biznesa.js'
+import testirovaniyeMobilnogoPrilozheniya from './blog/mobilnye-prilozheniya/testirovaniye-mobilnogo-prilozheniya.js'
+import pwaPrilozhenie from './blog/mobilnye-prilozheniya/pwa-prilozhenie.js'
+import publikatsiyaVAppStore from './blog/mobilnye-prilozheniya/publikatsiya-v-app-store.js'
+import monetizatsiyaMobilnogoPrilozheniya from './blog/mobilnye-prilozheniya/monetizatsiya-mobilnogo-prilozheniya.js'
 import sozdanieSaytaSNulya from './blog/sozdanie-saytov/sozdanie-sayta-s-nulya.js'
 import skolkoStoitSozdatSayt from './blog/sozdanie-saytov/skolko-stoit-sozdat-sayt.js'
 import sozdanieSaytaDlyaBiznesa from './blog/sozdanie-saytov/sozdanie-sayta-dlya-biznesa.js'
@@ -117,6 +126,15 @@ export const articles = [
   saytZa1Den,
   saytDlyaIp,
   kakPereitiNaNovyySayt,
+  flutterRazrabotka,
+  reactNative,
+  mvpMobilnogoPrilozheniya,
+  stoimostRazrabotkiPrilozheniya,
+  prilozhenieDlyaMalogoBiznesa,
+  testirovaniyeMobilnogoPrilozheniya,
+  pwaPrilozhenie,
+  publikatsiyaVAppStore,
+  monetizatsiyaMobilnogoPrilozheniya,
   sozdanieSaytaSNulya,
   skolkoStoitSozdatSayt,
   sozdanieSaytaDlyaBiznesa,

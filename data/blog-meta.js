@@ -223,6 +223,96 @@ export const articles = [
     image: '/images/blog/razrabotka-saytov/kak-pereiti-na-novyy-sayt-og.svg',
   },
   {
+    slug: 'flutter-razrabotka',
+    title: 'Flutter: что такое и почему лучший выбор для кроссплатформенной разработки',
+    description:
+      'Что такое Flutter, как работает, плюсы и минусы, когда использовать для мобильного приложения. Полный гайд по кроссплатформенной разработке в 2026 году.',
+    category: 'Мобильные приложения',
+    cluster: 'mobilnye-prilozheniya',
+    date: '2026-04-09',
+    image: '/images/blog/mobilnye-prilozheniya/flutter-razrabotka-og.svg',
+  },
+  {
+    slug: 'react-native',
+    title: 'React Native vs Flutter: что выбрать для мобильного приложения в 2026',
+    description:
+      'Подробное сравнение React Native и Flutter в 2026 году: производительность, стоимость, экосистема, когда что выбрать для мобильного приложения.',
+    category: 'Мобильные приложения',
+    cluster: 'mobilnye-prilozheniya',
+    date: '2026-04-09',
+    image: '/images/blog/mobilnye-prilozheniya/react-native-og.svg',
+  },
+  {
+    slug: 'mvp-mobilnogo-prilozheniya',
+    title: 'MVP мобильного приложения: что это, зачем и как запустить без лишних рисков',
+    description:
+      'Что такое MVP мобильного приложения, зачем запускать минимальный продукт, как определить ключевые функции и избежать типичных ошибок. Пошаговый гайд 2026.',
+    category: 'Мобильные приложения',
+    cluster: 'mobilnye-prilozheniya',
+    date: '2026-04-09',
+    image: '/images/blog/mobilnye-prilozheniya/mvp-mobilnogo-prilozheniya-og.svg',
+  },
+  {
+    slug: 'stoimost-razrabotki-prilozheniya',
+    title: 'Сколько стоит разработка мобильного приложения в 2026: полный разбор',
+    description:
+      'Сколько стоит создать мобильное приложение в 2026 году: от простого MVP до сложной платформы. Разбор стоимости по этапам, типам и функциям.',
+    category: 'Мобильные приложения',
+    cluster: 'mobilnye-prilozheniya',
+    date: '2026-04-09',
+    image: '/images/blog/mobilnye-prilozheniya/stoimost-razrabotki-prilozheniya-og.svg',
+  },
+  {
+    slug: 'prilozhenie-dlya-malogo-biznesa',
+    title: 'Мобильное приложение для малого бизнеса: нужно ли и с чего начать',
+    description:
+      'Нужно ли малому бизнесу мобильное приложение в 2026 году? Разбираем плюсы, минусы, альтернативы и пошаговый план запуска.',
+    category: 'Мобильные приложения',
+    cluster: 'mobilnye-prilozheniya',
+    date: '2026-04-09',
+    image: '/images/blog/mobilnye-prilozheniya/prilozhenie-dlya-malogo-biznesa-og.svg',
+  },
+  {
+    slug: 'testirovaniye-mobilnogo-prilozheniya',
+    title: 'Тестирование мобильного приложения: чек-лист перед запуском',
+    description:
+      'Как тестировать мобильное приложение перед запуском: типы тестирования, чек-лист, инструменты и типичные ошибки. Руководство 2026 года.',
+    category: 'Мобильные приложения',
+    cluster: 'mobilnye-prilozheniya',
+    date: '2026-04-09',
+    image: '/images/blog/mobilnye-prilozheniya/testirovaniye-mobilnogo-prilozheniya-og.svg',
+  },
+  {
+    slug: 'pwa-prilozhenie',
+    title: 'PWA: что такое прогрессивное веб-приложение и когда использовать',
+    description:
+      'Что такое PWA (прогрессивное веб-приложение), плюсы и минусы, когда выбрать вместо мобильного приложения, примеры и пошаговое создание.',
+    category: 'Мобильные приложения',
+    cluster: 'mobilnye-prilozheniya',
+    date: '2026-04-09',
+    image: '/images/blog/mobilnye-prilozheniya/pwa-prilozhenie-og.svg',
+  },
+  {
+    slug: 'publikatsiya-v-app-store',
+    title: 'Как опубликовать приложение в App Store и Google Play: полное руководство',
+    description:
+      'Пошаговое руководство по публикации мобильного приложения в App Store и Google Play в 2026 году: требования, процесс, типичные ошибки.',
+    category: 'Мобильные приложения',
+    cluster: 'mobilnye-prilozheniya',
+    date: '2026-04-09',
+    image: '/images/blog/mobilnye-prilozheniya/publikatsiya-v-app-store-og.svg',
+  },
+  {
+    slug: 'monetizatsiya-mobilnogo-prilozheniya',
+    title: 'Монетизация мобильного приложения: модели и стратегии в 2026',
+    description:
+      'Как заработать на мобильном приложении: 7 моделей монетизации, плюсы и минусы, примеры и выбор стратегии для вашего приложения.',
+    category: 'Мобильные приложения',
+    cluster: 'mobilnye-prilozheniya',
+    date: '2026-04-09',
+    image: '/images/blog/mobilnye-prilozheniya/monetizatsiya-mobilnogo-prilozheniya-og.svg',
+  },
+  {
     slug: 'sozdanie-sayta-s-nulya',
     title: 'Создание сайта с нуля: пошаговое руководство для начинающих',
     description:

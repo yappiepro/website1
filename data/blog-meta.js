@@ -313,6 +313,46 @@ export const articles = [
     image: '/images/blog/mobilnye-prilozheniya/monetizatsiya-mobilnogo-prilozheniya-og.svg',
   },
   {
+    slug: 'chto-takoe-react',
+    title: 'React: что такое, для каких проектов подходит и когда его выбирать',
+    description:
+      'Что такое React, зачем его используют, для каких проектов подходит, плюсы и минусы, альтернативы и как начать изучение. Гайд по веб-разработке 2026.',
+    category: 'Веб-разработка',
+    cluster: 'veb-razrabotka',
+    date: '2026-04-09',
+    image: '/images/blog/veb-razrabotka/chto-takoe-react-og.svg',
+  },
+  {
+    slug: 'bazy-dannyh',
+    title: 'Базы данных: SQL vs NoSQL — что выбрать для веб-разработки в 2026',
+    description:
+      'SQL и NoSQL базы данных: отличия, плюсы и минусы, когда что выбрать для веб-проекта. Сравнение PostgreSQL, MongoDB, Redis и других.',
+    category: 'Веб-разработка',
+    cluster: 'veb-razrabotka',
+    date: '2026-04-09',
+    image: '/images/blog/veb-razrabotka/bazy-dannyh-og.svg',
+  },
+  {
+    slug: 'docker-i-devops',
+    title: 'Docker и DevOps: базовое руководство для начинающих в 2026',
+    description:
+      'Что такое Docker и DevOps, зачем они нужны, как работают, основные инструменты и с чего начать изучение. Простое объяснение сложных концепций.',
+    category: 'Веб-разработка',
+    cluster: 'veb-razrabotka',
+    date: '2026-04-09',
+    image: '/images/blog/veb-razrabotka/docker-i-devops-og.svg',
+  },
+  {
+    slug: 'bezopasnost-sayta',
+    title: 'Безопасность сайта: как защитить от взлома — полное руководство 2026',
+    description:
+      'Как защитить сайт от взлома: SSL, пароли, обновления, защита от XSS и SQL-инъекций, бэкапы, мониторинг. Чек-лист безопасности для веб-разработки.',
+    category: 'Веб-разработка',
+    cluster: 'veb-razrabotka',
+    date: '2026-04-09',
+    image: '/images/blog/veb-razrabotka/bezopasnost-sayta-og.svg',
+  },
+  {
     slug: 'sozdanie-sayta-s-nulya',
     title: 'Создание сайта с нуля: пошаговое руководство для начинающих',
     description:

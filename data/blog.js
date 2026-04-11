@@ -30,6 +30,10 @@ import testirovaniyeMobilnogoPrilozheniya from './blog/mobilnye-prilozheniya/tes
 import pwaPrilozhenie from './blog/mobilnye-prilozheniya/pwa-prilozhenie.js'
 import publikatsiyaVAppStore from './blog/mobilnye-prilozheniya/publikatsiya-v-app-store.js'
 import monetizatsiyaMobilnogoPrilozheniya from './blog/mobilnye-prilozheniya/monetizatsiya-mobilnogo-prilozheniya.js'
+import chtoTakoeReact from './blog/veb-razrabotka/chto-takoe-react.js'
+import bazyDannyh from './blog/veb-razrabotka/bazy-dannyh.js'
+import dockerIDevOps from './blog/veb-razrabotka/docker-i-devops.js'
+import bezopasnostSayta from './blog/veb-razrabotka/bezopasnost-sayta.js'
 import sozdanieSaytaSNulya from './blog/sozdanie-saytov/sozdanie-sayta-s-nulya.js'
 import skolkoStoitSozdatSayt from './blog/sozdanie-saytov/skolko-stoit-sozdat-sayt.js'
 import sozdanieSaytaDlyaBiznesa from './blog/sozdanie-saytov/sozdanie-sayta-dlya-biznesa.js'
@@ -135,6 +139,10 @@ export const articles = [
   pwaPrilozhenie,
   publikatsiyaVAppStore,
   monetizatsiyaMobilnogoPrilozheniya,
+  chtoTakoeReact,
+  bazyDannyh,
+  dockerIDevOps,
+  bezopasnostSayta,
   sozdanieSaytaSNulya,
   skolkoStoitSozdatSayt,
   sozdanieSaytaDlyaBiznesa,

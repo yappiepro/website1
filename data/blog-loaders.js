@@ -70,6 +70,13 @@ export const articleLoaders = {
     import('./blog/mobilnye-prilozheniya/monetizatsiya-mobilnogo-prilozheniya.js').then(
       (m) => m.default
     ),
+  'chto-takoe-react': () =>
+    import('./blog/veb-razrabotka/chto-takoe-react.js').then((m) => m.default),
+  'bazy-dannyh': () => import('./blog/veb-razrabotka/bazy-dannyh.js').then((m) => m.default),
+  'docker-i-devops': () =>
+    import('./blog/veb-razrabotka/docker-i-devops.js').then((m) => m.default),
+  'bezopasnost-sayta': () =>
+    import('./blog/veb-razrabotka/bezopasnost-sayta.js').then((m) => m.default),
   'sozdanie-sayta-s-nulya': () =>
     import('./blog/sozdanie-saytov/sozdanie-sayta-s-nulya.js').then((m) => m.default),
   'skolko-stoit-sozdat-sayt': () =>

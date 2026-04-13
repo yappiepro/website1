@@ -51,6 +51,10 @@ import frontendRazrabotka from './blog/veb-razrabotka/frontend-razrabotka.js'
 import backendRazrabotka from './blog/veb-razrabotka/backend-razrabotka.js'
 import fullstackRazrabotka from './blog/veb-razrabotka/fullstack-razrabotka.js'
 import apiRazrabotka from './blog/veb-razrabotka/api-razrabotka.js'
+import restApiVsGraphql from './blog/veb-razrabotka/rest-api-vs-graphql.js'
+import vebServer from './blog/veb-razrabotka/veb-server.js'
+import hostingVybrat from './blog/veb-razrabotka/hosting-vybrat.js'
+import ciCd from './blog/veb-razrabotka/ci-cd.js'
 import iiVIt from './blog/iskusstvennyy-intellekt/ii-v-it.js'
 import iiDlyaBiznesa from './blog/iskusstvennyy-intellekt/ii-dlya-biznesa.js'
 import chatgptDlyaBiznesa from './blog/iskusstvennyy-intellekt/chatgpt-dlya-biznesa.js'
@@ -75,6 +79,7 @@ import chatBotVMax from './blog/chat-boty/chat-bot-v-max.js'
 import kakSozdatSajtSamostoyatelno from './blog/sozdanie-saytov/kak-sozdat-sajt-samostoyatelno.js'
 import skolkoStoitSozdatSajt2026 from './blog/sozdanie-saytov/skolko-stoit-sozdat-sajt-2026.js'
 import platformyDlyaSozdaniyaSaytovSravnenie from './blog/sozdanie-saytov/platformy-dlya-sozdaniya-saytov-sravnenie.js'
+import chtoTakoeCms from './blog/sozdanie-saytov/chto-takoe-cms.js'
 import kakVestiTelegramKanal from './blog/telegram-marketing/kak-vesti-telegram-kanal.js'
 import prodvizhenieVTelegram from './blog/telegram-marketing/prodvizhenie-v-telegram.js'
 import telegramKanalDlyaBiznesa from './blog/telegram-marketing/telegram-kanal-dlya-biznesa.js'
@@ -160,6 +165,10 @@ export const articles = [
   backendRazrabotka,
   fullstackRazrabotka,
   apiRazrabotka,
+  restApiVsGraphql,
+  vebServer,
+  hostingVybrat,
+  ciCd,
   iiVIt,
   iiDlyaBiznesa,
   chatgptDlyaBiznesa,
@@ -187,6 +196,7 @@ export const articles = [
   kakSozdatSajtSamostoyatelno,
   skolkoStoitSozdatSajt2026,
   platformyDlyaSozdaniyaSaytovSravnenie,
+  chtoTakoeCms,
   kakVestiTelegramKanal,
   prodvizhenieVTelegram,
   telegramKanalDlyaBiznesa,

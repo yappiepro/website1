@@ -125,10 +125,14 @@
 
       <div class="buttons-container">
         <a href="https://t.me/m/lnaxyb7QOGNi" class="btn btn-telegram" target="_blank" rel="noopener noreferrer">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.665 3.41702C20.941 3.52802 21.165 3.73802 21.295 3.99902C21.425 4.26002 21.455 4.55902 21.375 4.83902L18.375 19.839C18.285 20.289 17.865 20.589 17.415 20.499C17.175 20.451 16.965 20.313 16.835 20.115L15.375 17.889L12.875 19.389C12.645 19.527 12.375 19.599 12.105 19.599C11.835 19.599 11.565 19.527 11.335 19.389L6.335 16.389L3.335 14.589C3.085 14.439 2.895 14.209 2.805 13.939C2.715 13.669 2.735 13.369 2.855 13.109C2.975 12.849 3.185 12.639 3.445 12.519L19.445 4.51902C19.715 4.38902 20.025 4.35902 20.315 4.42902C20.605 4.49902 20.855 4.66902 21.015 4.90902L20.665 3.41702ZM13.875 16.889L17.375 5.88902L7.875 15.389L13.875 16.889Z" fill="currentColor"/>
+          </svg>
           Написать в Telegram
         </a>
         
         <a href="https://max.ru/u/f9LHodD0cOLO_FSLoMnfL87zUzWaeDrIUVzSccI1rSSfL24Xr81W37H7wmk" class="btn btn-max" target="_blank" rel="noopener noreferrer">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_MAX.svg" alt="MAX" class="btn-icon-img" />
           Написать в Max (отправьте МЕНТОР)
         </a>
       </div>
@@ -229,13 +233,17 @@ useHead({
 
 .buttons-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 16px;
   margin: 32px 0;
+  justify-content: center;
 }
 
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   padding: 16px 32px;
   font-size: 18px;
   font-weight: 600;
@@ -244,11 +252,26 @@ useHead({
   border-radius: 12px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
 }
 
 .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.btn-icon-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
 }
 
 .btn-telegram {
@@ -292,6 +315,16 @@ useHead({
 
   .intro-note {
     padding: 12px 16px;
+  }
+
+  .buttons-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    min-width: auto;
+    width: 100%;
   }
 }
 </style>

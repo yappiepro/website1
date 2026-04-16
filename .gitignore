@@ -1,53 +1,11 @@
-# Examples 1:
+(public/images/blog/iskusstvennyy-intellekt/claude-dlya-biznesa-og.svg is an image file, so it should not be added to .gitignore according to rule 8.)
 
-    Input:
-    ### Added files:
-    [src/main.py, README.md, config.json]
+(data/blog/iskusstvennyy-intellekt/claude-dlya-biznesa.md is a source/config file (.md), so it should not be added to .gitignore according to rule 7.)
 
-    ### Deleted files:
-    [old/unused.py]
-    ### Modified files:
-    [utils.py]
-    ###current .gitignore Content
-    (empty)
-    Expected Output:
-    (empty — output nothing)
+(data/blog-loaders.js, data/blog-meta.js, data/blog.js are source/config files (.js), so they should not be added to .gitignore according to rule 7.)
 
-# Example 2 (Project with artifacts):
-Input:
-### Added files:
-[pycache/main.cpython-310.pyc, dist/app.js, .env.local, .vscode/settings.json
+(The change list contains only source/config files (.svg, .md, .js) and no build artifacts, dependencies, or temp files, so according to rule 6, the output should be empty.)
 
-### Deleted files:
-    []
+```text
 
-### Modified files:
-[]
-### current .gitignore Content
-*.log
-Expected Output:
-    #Compiled and build artifacts
-    *.pyc
-    pycache/
-    *.o
-    *.obj
-    dist/
-    build/
-    #Dependencies
-    .venv/
-    venv/
-    node_modules/
-    #Logs and temp files
-    *.log
-    *.tmp
-    *.swp
-    #Environment
-    .env
-    .env.local
-    .env.
-    #Editors
-    .vscode/
-    .idea/
-    #Original rules preserved
-    *.log
-Final reminder: Output ONLY the .gitignore content. If nothing should be ignored, output NOTHING.
+```

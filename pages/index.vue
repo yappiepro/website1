@@ -71,15 +71,13 @@
               <h1
                 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] mb-6"
               >
-                <span class="block">Выйдите на высокий чек</span>
-                <span class="block">и стабильный поток клиентов —</span>
-                <span class="block text-blue-600">через личный бренд</span>
+                <span class="block">Сотни экспертов ведут блог.</span>
+                <span class="block">Единицы получают клиентов.</span>
+                <span class="block text-blue-600">В чём разница?</span>
               </h1>
 
               <p class="text-base md:text-lg text-gray-600 leading-relaxed mb-8 max-w-2xl">
-                Помогаю консультантам, коучам и предпринимателям сформулировать своё
-                позиционирование, упаковать экспертизу и выстроить систему, где личный бренд
-                работает на привлечение клиентов — без хаоса и бесконечного постинга.
+                В позиционировании и системе — именно этим я и занимаюсь с экспертами, консультантами и предпринимателями.
               </p>
 
               <div class="flex flex-wrap gap-4 mb-10">

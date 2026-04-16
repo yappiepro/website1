@@ -71,24 +71,50 @@
               <h1
                 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] mb-6"
               >
-                <span class="block">Сотни экспертов ведут блог.</span>
-                <span class="block">Единицы получают клиентов.</span>
-                <span class="block text-blue-600">В чём разница?</span>
+                <span class="block">Личный бренд,</span>
+                <span class="block">который приносит клиентов</span>
+                <span class="block text-blue-600">экспертам</span>
               </h1>
 
               <p class="text-base md:text-lg text-gray-600 leading-relaxed mb-8 max-w-2xl">
                 В позиционировании и системе — именно этим я и занимаюсь с экспертами, консультантами и предпринимателями.
               </p>
 
+              <!-- Input для ввода проблемы -->
+              <div class="mb-8 max-w-xl">
+                <label for="problem-input" class="block text-sm font-semibold text-gray-700 mb-2">
+                  С чем вам нужна помощь?
+                </label>
+                <input
+                  id="problem-input"
+                  v-model="problemText"
+                  type="text"
+                  placeholder="Например: нет заявок из блога, не знаю как упаковать экспертизу..."
+                  class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none"
+                />
+              </div>
+
               <div class="flex flex-wrap gap-4 mb-10">
                 <a
-                  href="https://t.me/artemselifanov"
+                  :href="telegramLink"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold text-white bg-gray-900 hover:bg-gray-800 rounded-2xl transition-all hover:-translate-y-1"
+                  class="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 rounded-2xl transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl"
                 >
-                  <Icon name="fa-brands:telegram" class="w-5 h-5" />
-                  Обсудить стратегию
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.054 5.56-5.022c.242-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+                  </svg>
+                  Отправить в Telegram
+                </a>
+                <a
+                  href="https://max.ru/u/f9LHodD0cOLO_FSLoMnfL87zUzWaeDrIUVzSccI1rSSfL24Xr81W37H7wmk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  @click="copyToClipboard"
+                  class="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 rounded-2xl transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl"
+                >
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_MAX.svg" alt="Max" class="w-5 h-5 invert" />
+                  Открыть в Max
                 </a>
               </div>
 
@@ -1467,7 +1493,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import ScrollProgress from '~/components/layout/ScrollProgress.vue'
 import Header from '~/components/layout/Header.vue'
 import BaseMobileMenu from '~/components/layout/BaseMobileMenu.vue'
@@ -1478,26 +1504,26 @@ import ContactForm from '~/components/ui/ContactForm.vue'
 
 // SEO для главной страницы
 useSeoMeta({
-  title: 'Артём Селифанов — Личный бренд для экспертов и предпринимателей | Клиенты и высокий чек',
+  title: 'Личный бренд, который приносит клиентов экспертам | Артём Селифанов',
   description:
-    'Помогаю экспертам и предпринимателям выйти на высокий чек и стабильный поток клиентов через личный бренд. Упаковка, стратегия, Telegram. Работаю с 2021 года.',
+    'Превращаю блог в стабильный поток заявок. Позиционирование, стратегия и упаковка в 5 соцсетях от основателя сообщества на 13 000+ экспертов.',
   keywords:
     'личный бренд, продвижение эксперта, контент-маркетинг, нетворкинг, позиционирование эксперта, Артём Селифанов, Telegram-канал, упаковка профиля, стратегия продвижения, личный бренд телеграм, продвижение в telegram, личный бренд для предпринимателя, упаковка эксперта, контент стратегия, личный маркетинг, продвижение услуг, эксперт телеграм, личный бренд с нуля, монетизация блога, личный бренд 2026, нетворкинг для бизнеса, личный бренд психолог, личный бренд юрист, личный бренд маркетолог, продвижение консультанта, личный бренд коуч, telegram продвижение, личный бренд цена, упаковка соцсетей, позиционирование бренда, личный бренд стратегия, контент план телеграм, личный бренд стоимость',
   author: 'Артём Селифанов',
   robots: 'index, follow',
   ogTitle:
-    'Артём Селифанов — Личный бренд для экспертов и предпринимателей | Клиенты и высокий чек',
+    'Личный бренд, который приносит клиентов экспертам | Артём Селифанов',
   ogDescription:
-    'Помогаю экспертам и предпринимателям выйти на высокий чек и стабильный поток клиентов через личный бренд. Упаковка, стратегия, Telegram. Работаю с 2021 года.',
+    'Превращаю блог в стабильный поток заявок. Позиционирование, стратегия и упаковка в 5 соцсетях от основателя сообщества на 13 000+ экспертов.',
   ogType: 'website',
   ogLocale: 'ru_RU',
   ogUrl: 'https://artemselifanov.ru',
   ogImage: 'https://artemselifanov.ru/reference/openGraph/opengraph_index.webp',
   twitterCard: 'summary_large_image',
   twitterTitle:
-    'Артём Селифанов — Личный бренд для экспертов и предпринимателей | Клиенты и высокий чек',
+    'Личный бренд, который приносит клиентов экспертам | Артём Селифанов',
   twitterDescription:
-    'Помогаю экспертам и предпринимателям выйти на высокий чек и стабильный поток клиентов через личный бренд. Упаковка, стратегия, Telegram. Работаю с 2021 года.',
+    'Превращаю блог в стабильный поток заявок. Позиционирование, стратегия и упаковка в 5 соцсетях от основателя сообщества на 13 000+ экспертов.',
   twitterUrl: 'https://artemselifanov.ru',
   twitterImage: 'https://artemselifanov.ru/reference/openGraph/opengraph_index.webp',
 })
@@ -1638,6 +1664,29 @@ const faqs = ref([
 // Состояние мобильного меню
 const isMobileMenuOpen = ref(false)
 const selectedService = ref('')
+const problemText = ref('')
+
+// Ссылка на Telegram с подставленным текстом
+const telegramLink = computed(() => {
+  const baseLink = 'https://t.me/m/lnaxyb7QOGNi'
+  if (problemText.value.trim()) {
+    const message = `Артем. Помогите с: ${problemText.value.trim()}`
+    return `${baseLink}?text=${encodeURIComponent(message)}`
+  }
+  return baseLink
+})
+
+// Функция копирования текста для Max
+const copyToClipboard = () => {
+  if (problemText.value.trim()) {
+    const message = `Артем. Помогите с: ${problemText.value.trim()}`
+    navigator.clipboard.writeText(message).then(() => {
+      alert('Текст скопирован! Теперь вставьте его в чат Max.')
+    }).catch(() => {
+      alert('Не удалось скопировать текст. Пожалуйста, напишите "Артем. Помогите с: [ваш текст]" вручную.')
+    })
+  }
+}
 
 // Меню для хедера (без пункта "Создать свой блог")
 const headerMenuItems = [

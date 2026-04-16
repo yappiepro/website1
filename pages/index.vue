@@ -72,7 +72,7 @@
                 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] mb-6"
               >
                 <span class="block">Блог есть. Клиентов нет.</span>
-                <span class="block">Значит, дело не в контенте</span>
+                <span class="block">Значит, <span class="text-blue-600">дело не в контенте</span></span>
               </h1>
 
               <p class="text-base md:text-lg text-gray-600 leading-relaxed mb-8 max-w-2xl">

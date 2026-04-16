@@ -123,7 +123,15 @@
 
       <h2>Как записаться</h2>
 
-      <p>Напишите слово <strong>МЕНТОР</strong> мне в Telegram: <a href="https://t.me/artemselifanov" class="telegram-link">@artemselifanov</a>.</p>
+      <div class="buttons-container">
+        <a href="https://t.me/m/lnaxyb7QOGNi" class="btn btn-telegram" target="_blank" rel="noopener noreferrer">
+          Написать в Telegram
+        </a>
+        
+        <a href="https://max.ru/u/f9LHodD0cOLO_FSLoMnfL87zUzWaeDrIUVzSccI1rSSfL24Xr81W37H7wmk" class="btn btn-max" target="_blank" rel="noopener noreferrer">
+          Написать в Max (отправьте МЕНТОР)
+        </a>
+      </div>
 
       <p>Я отвечу в течение 24 часов. Договоримся о времени бесплатного разбора — 20–30 минут, где я посмотрю на вашу ситуацию и скажу, что нужно сделать в первую очередь.</p>
 
@@ -132,8 +140,6 @@
       <p>Это ни к чему не обязывает. Я не продаю на разборе. Я разбираю — и говорю честно, подходит ли вам менторская программа или лучше другой путь.</p>
 
       <p>Если после разбора захотите работать вместе — отлично. Если нет — уйдёте с планом, который можно реализовать самостоятельно.</p>
-
-      <p>Пишите: <a href="https://t.me/artemselifanov" class="telegram-link">@artemselifanov</a>, слово <strong>МЕНТОР</strong>.</p>
 
       <p>Жду вас.</p>
     </article>
@@ -219,6 +225,48 @@ useHead({
 .telegram-link {
   color: #000000;
   text-decoration: underline;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 32px 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 16px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-telegram {
+  background: linear-gradient(135deg, #2AABEE 0%, #229ED9 100%);
+  color: #ffffff;
+}
+
+.btn-telegram:hover {
+  background: linear-gradient(135deg, #259ad6 0%, #1e8cc2 100%);
+}
+
+.btn-max {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: #ffffff;
+}
+
+.btn-max:hover {
+  background: linear-gradient(135deg, #45a0e9 0%, #00d4e0 100%);
 }
 
 @media (max-width: 768px) {

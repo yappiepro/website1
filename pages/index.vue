@@ -71,13 +71,12 @@
               <h1
                 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] mb-6"
               >
-                <span class="block">Личный бренд,</span>
-                <span class="block">который приносит клиентов</span>
-                <span class="block text-blue-600">экспертам</span>
+                <span class="block">Блог есть. Клиентов нет.</span>
+                <span class="block">Значит, дело не в контенте</span>
               </h1>
 
               <p class="text-base md:text-lg text-gray-600 leading-relaxed mb-8 max-w-2xl">
-                В позиционировании и системе — именно этим я и занимаюсь с экспертами, консультантами и предпринимателями.
+                Помогаю экспертам найти свою «фишку», упаковать её и выстроить систему, где личный бренд работает на доход — а не на охваты ради охватов.
               </p>
 
               <!-- Input для ввода проблемы -->
@@ -1668,7 +1667,7 @@ const problemText = ref('')
 
 // Ссылка на Telegram с подставленным текстом
 const telegramLink = computed(() => {
-  const baseLink = 'https://t.me/m/lnaxyb7QOGNi'
+  const baseLink = 'https://t.me/artemselifanov'
   if (problemText.value.trim()) {
     const message = `Артем. Помогите с: ${problemText.value.trim()}`
     return `${baseLink}?text=${encodeURIComponent(message)}`

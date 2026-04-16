@@ -62,6 +62,7 @@ import neyrosetiDlyaGeneratsiiIzobrazheniy from './blog/iskusstvennyy-intellekt/
 import iiAgentyDlyaBiznesa from './blog/iskusstvennyy-intellekt/ii-agenty-dlya-biznesa.js'
 import promptInzhiniring from './blog/iskusstvennyy-intellekt/prompt-inzhiniring.js'
 import avtomatizatsiyaBiznesaIi from './blog/iskusstvennyy-intellekt/avtomatizatsiya-biznesa-ii.js'
+import claudeDlyaBiznesa from './blog/iskusstvennyy-intellekt/claude-dlya-biznesa.js'
 import chtoTakoeLichnyyBrend from './blog/lichnyy-brend/chto-takoe-lichnyy-brend.js'
 import kakSozdatLichnyyBrend from './blog/lichnyy-brend/kak-sozdat-lichnyy-brend.js'
 import upakovkaLichnogoBrenda from './blog/lichnyy-brend/upakovka-lichnogo-brenda.js'
@@ -176,6 +177,7 @@ export const articles = [
   iiAgentyDlyaBiznesa,
   promptInzhiniring,
   avtomatizatsiyaBiznesaIi,
+  claudeDlyaBiznesa,
   chtoTakoeLichnyyBrend,
   kakSozdatLichnyyBrend,
   upakovkaLichnogoBrenda,

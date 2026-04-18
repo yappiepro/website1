@@ -42,9 +42,12 @@ function initGtag() {
   }
 }
 
-// Отложенная загрузка при взаимодействии
+// Отложенная загрузка при взаимодействии с защитой от повторных вызовов
+let isLoading = false
+
 function loadOnInteraction() {
-  if (!isLoaded.value) {
+  if (!isLoaded.value && !isLoading) {
+    isLoading = true
     initGtag()
     // Убираем все слушатели после загрузки
     window.removeEventListener('scroll', loadOnInteraction)
@@ -52,6 +55,7 @@ function loadOnInteraction() {
     window.removeEventListener('touchstart', loadOnInteraction)
     window.removeEventListener('mousemove', loadOnInteraction)
     window.removeEventListener('keydown', loadOnInteraction)
+    window.removeEventListener('wheel', loadOnInteraction)
   }
 }
 
@@ -65,11 +69,20 @@ onMounted(() => {
   // Загрузка при первом таче (мобильные)
   window.addEventListener('touchstart', loadOnInteraction, { once: true, passive: true })
 
-  // Загрузка при движении мыши (десктоп)
-  window.addEventListener('mousemove', loadOnInteraction, { once: true, passive: true })
+  // Загрузка при движении мыши (десктоп) - с debounce
+  let mouseMoveTimeout
+  window.addEventListener('mousemove', () => {
+    if (!isLoaded.value && !isLoading) {
+      clearTimeout(mouseMoveTimeout)
+      mouseMoveTimeout = setTimeout(loadOnInteraction, 100)
+    }
+  }, { passive: true })
 
   // Загрузка при нажатии клавиши (клавиатура)
   window.addEventListener('keydown', loadOnInteraction, { once: true })
+
+  // Загрузка при событии wheel (для Telegram WebApp)
+  window.addEventListener('wheel', loadOnInteraction, { once: true, passive: true })
 })
 
 onUnmounted(() => {
@@ -78,5 +91,6 @@ onUnmounted(() => {
   window.removeEventListener('touchstart', loadOnInteraction)
   window.removeEventListener('mousemove', loadOnInteraction)
   window.removeEventListener('keydown', loadOnInteraction)
+  window.removeEventListener('wheel', loadOnInteraction)
 })
 </script>

@@ -1,50 +1,45 @@
-<<<<<<< Updated upstream
-Nothing should be ignored based on the provided file changes. The only modified file is 'pages/index.vue', which is a source code file and should not be added to .gitignore.
-=======
-# Nuxt
-.nuxt/
-.output/
-dist/
+```
+# Dependencies
 node_modules/
 
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
+# Build outputs
+dist/
+build/
+.nuxt/
 
-# Environment
+# Environment variables
 .env
-.env.*
-!.env.example
+.env.local
+*.env.*
 
-# OS
-.DS_Store
-Thumbs.db
+# Cache directories
+.nyc_output/
+coverage/
+*.log
 
-# Playwright
-.playwright-mcp/
-
-# Secrets & Firebase
-*.json
-!package.json
-!package-lock.json
-!tsconfig.json
-!components.json
-!firebase.json
-!.firebaserc
-!knip.json
-!mcp.json
-!eslint.config.js
-!lint-staged.config.js
-
-# IDE
+# IDE specific
 .vscode/
 .idea/
 
-# Local data
-.data/
->>>>>>> Stashed changes
-\n# Local backups and tools\ngh_2.88.1_macOS_amd64/\nmain Selifanov/\nyappie-website-ready.zip
+# Python specific
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.DS_Store
+Thumbs.db
+```

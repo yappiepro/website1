@@ -74,7 +74,8 @@ export default defineNuxtConfig({
     appManifest: false,
     renderJsonPayloads: true,
     islands: true,
-    viewTransition: true,
+    // Отключаем viewTransition из-за конфликта с кастомными переходами
+    viewTransition: false,
     // Отключаем payload pre-fetching для SSG
     payloadExtraction: false,
   },
@@ -125,10 +126,11 @@ export default defineNuxtConfig({
     ],
   },
 
-  // Delay Hydration - отложенная гидратация
+  // Delay Hydration - отложенная гидратация с увеличенным таймаутом
   delayHydration: {
     mode: 'mount',
-    delay: 2000,
+    delay: 3000,
+    debug: false,
   },
 
   alias: {

@@ -1,5 +1,6 @@
 /**
  * Composable для работы с Telegram Web App
+ * Исправлена ошибка [Telegram.WebView] > postEvent web_app_request_safe_area
  */
 export function useTelegramWebApp() {
   const isTelegramApp = ref(false)
@@ -7,27 +8,29 @@ export function useTelegramWebApp() {
   const themeParams = ref(null)
   const headerHeight = ref(0)
   const isScrolled = ref(false)
-
+  
   onMounted(() => {
-    // Динамическая загрузка Telegram Web App
-    const script = document.createElement('script')
-    script.src = 'https://telegram.org/js/telegram-web-app.js'
-    script.async = true
-    script.onload = () => {
-      if (
-        typeof window !== 'undefined' &&
-        window.Telegram?.WebApp &&
-        window.Telegram.WebApp.initData !== ''
-      ) {
-        const tg = window.Telegram.WebApp
-
-        // Инициализируем Telegram Web App
-        tg.ready()
+    if (typeof window === 'undefined') return
+    
+    // Проверяем, не загружен ли уже скрипт
+    const existingScript = document.querySelector('script[src="https://telegram.org/js/telegram-web-app.js"]')
+    
+    const initTelegram = () => {
+      if (!window.Telegram?.WebApp) return
+      
+      const tg = window.Telegram.WebApp
+      
+      // Вызываем ready() немедленно при наличии объекта
+      tg.ready()
+      
+      // Проверяем initData для определения запуска в Telegram
+      if (tg.initData && tg.initData !== '') {
+        isTelegramApp.value = true
+        
+        // Раскрываем приложение
         tg.expand()
 
-        isTelegramApp.value = true
-
-        // Получаем данные пользователя
+        // Данные пользователя
         if (tg.initDataUnsafe?.user) {
           telegramUser.value = {
             id: tg.initDataUnsafe.user.id,
@@ -38,39 +41,66 @@ export function useTelegramWebApp() {
           }
         }
 
-        // Получаем параметры темы
+        // Параметры темы
         if (tg.themeParams) {
           themeParams.value = tg.themeParams
         }
 
-        // Добавляем класс для Telegram Web App
         document.body.classList.add('tg-webapp')
-
-        // Отслеживаем скролл для навигации
-        window.addEventListener('scroll', () => {
-          isScrolled.value = window.scrollY > 50
-          if (isScrolled.value) {
-            document.body.classList.add('is-scrolled')
+        
+        // FIX: Явная обработка Safe Area для устранения предупреждения
+        // Telegram требует явного взаимодействия с SafeArea, если мы используем его параметры
+        try {
+          if (tg.SafeArea) {
+            // Пустой слушатель предотвращает запрос web_app_request_safe_area без необходимости
+            tg.SafeArea.on('insetChanged', () => {})
           } else {
-            document.body.classList.remove('is-scrolled')
+            // Если SafeArea еще не доступен, пробуем позже
+            setTimeout(() => {
+              if (tg.SafeArea) {
+                tg.SafeArea.on('insetChanged', () => {})
+              }
+            }, 100)
           }
-        })
+        } catch (e) {
+          // Игнорируем ошибки SafeArea
+        }
       }
+
+      // Скролл
+      window.addEventListener('scroll', () => {
+        isScrolled.value = window.scrollY > 50
+        document.body.classList.toggle('is-scrolled', isScrolled.value)
+      })
     }
-    script.onerror = () => {
-      console.warn('Telegram Web App script failed to load - ignoring.')
+
+    if (existingScript && window.Telegram?.WebApp) {
+      // Скрипт уже загружен
+      initTelegram()
+    } else {
+      // Загружаем скрипт
+      const script = document.createElement('script')
+      script.src = 'https://telegram.org/js/telegram-web-app.js'
+      script.async = true
+      
+      script.onload = () => {
+        setTimeout(initTelegram, 0)
+      }
+      
+      script.onerror = () => {
+        console.warn('Telegram Web App script failed to load')
+      }
+      
+      document.head.appendChild(script)
     }
-    document.head.appendChild(script)
   })
 
-  // Функция для закрытия Web App
   function closeApp() {
     if (typeof window !== 'undefined' && window.Telegram?.WebApp) {
       window.Telegram.WebApp.close()
     }
   }
 
-  // Функция для показа главной кнопки
   function showMainButton(text, onClick) {
     if (typeof window !== 'undefined' && window.Telegram?.WebApp) {
       const tg = window.Telegram.WebApp
@@ -80,7 +110,6 @@ export function useTelegramWebApp() {
     }
   }
 
-  // Функция для скрытия главной кнопки
   function hideMainButton() {
     if (typeof window !== 'undefined' && window.Telegram?.WebApp) {
       window.Telegram.WebApp.MainButton.hide()

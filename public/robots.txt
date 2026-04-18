@@ -1,7 +1,0 @@
-# robots.txt for artemselifanov.ru
-User-agent: *
-Allow: /
-Disallow: /_nuxt/
-Disallow: /api/
-
-Sitemap: https://artemselifanov.ru/sitemap_index.xml

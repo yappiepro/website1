@@ -302,12 +302,7 @@ export default defineNuxtConfig({
         },
       ],
       script: [
-        // Telegram Web App script
-        {
-          src: 'https://telegram.org/js/telegram-web-app.js',
-          tagPosition: 'head',
-          defer: true,
-        },
+        // Дополнительные скрипты можно добавить здесь
       ],
       htmlAttrs: {
         lang: 'ru',

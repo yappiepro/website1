@@ -45,7 +45,12 @@ function initGtag() {
 // Отложенная загрузка при взаимодействии с защитой от повторных вызовов
 let isLoading = false
 
-function loadOnInteraction() {
+function loadOnInteraction(event) {
+  // Игнорируем wheel события от Telegram WebApp (они синтетические)
+  if (event && event.type === 'wheel' && event.isTrusted === false) {
+    return
+  }
+  
   if (!isLoaded.value && !isLoading) {
     isLoading = true
     initGtag()

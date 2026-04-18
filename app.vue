@@ -38,6 +38,22 @@ useHead(() => ({
   },
 }))
 
+// Обработчики переходов для предотвращения timeout ошибок
+let transitionTimeout = null
+const onBeforeEnter = () => {
+  if (transitionTimeout) clearTimeout(transitionTimeout)
+  transitionTimeout = setTimeout(() => {
+    // Принудительно завершаем переход если застрял
+    transitionTimeout = null
+  }, 5000)
+}
+const onAfterEnter = () => {
+  if (transitionTimeout) {
+    clearTimeout(transitionTimeout)
+    transitionTimeout = null
+  }
+}
+
 // Яндекс.Метрика
 useHead({
   meta: [

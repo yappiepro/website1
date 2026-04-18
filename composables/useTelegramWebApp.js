@@ -9,49 +9,55 @@ export function useTelegramWebApp() {
   const isScrolled = ref(false)
 
   onMounted(() => {
-    // Проверяем, что мы в Telegram Web App
-    if (
-      typeof window !== 'undefined' &&
-      window.Telegram?.WebApp &&
-      window.Telegram.WebApp.initData !== ''
-    ) {
-      const tg = window.Telegram.WebApp
+    // Динамическая загрузка Telegram Web App
+    const script = document.createElement('script')
+    script.src = 'https://telegram.org/js/telegram-web-app.js'
+    script.async = true
+    script.onload = () => {
+      if (
+        typeof window !== 'undefined' &&
+        window.Telegram?.WebApp &&
+        window.Telegram.WebApp.initData !== ''
+      ) {
+        const tg = window.Telegram.WebApp
 
-      // Инициализируем Telegram Web App
-      tg.ready()
-      tg.expand()
+        // Инициализируем Telegram Web App
+        tg.ready()
+        tg.expand()
 
-      isTelegramApp.value = true
+        isTelegramApp.value = true
 
-      // Получаем данные пользователя
-      if (tg.initDataUnsafe?.user) {
-        telegramUser.value = {
-          id: tg.initDataUnsafe.user.id,
-          firstName: tg.initDataUnsafe.user.first_name,
-          lastName: tg.initDataUnsafe.user.last_name,
-          username: tg.initDataUnsafe.user.username,
-          isPremium: tg.initDataUnsafe.user.is_premium,
+        // Получаем данные пользователя
+        if (tg.initDataUnsafe?.user) {
+          telegramUser.value = {
+            id: tg.initDataUnsafe.user.id,
+            firstName: tg.initDataUnsafe.user.first_name,
+            lastName: tg.initDataUnsafe.user.last_name,
+            username: tg.initDataUnsafe.user.username,
+            isPremium: tg.initDataUnsafe.user.is_premium,
+          }
         }
-      }
 
-      // Получаем параметры темы
-      if (tg.themeParams) {
-        themeParams.value = tg.themeParams
-      }
-
-      // Добавляем класс для Telegram Web App
-      document.body.classList.add('tg-webapp')
-
-      // Отслеживаем скролл для навигации
-      window.addEventListener('scroll', () => {
-        isScrolled.value = window.scrollY > 50
-        if (isScrolled.value) {
-          document.body.classList.add('is-scrolled')
-        } else {
-          document.body.classList.remove('is-scrolled')
+        // Получаем параметры темы
+        if (tg.themeParams) {
+          themeParams.value = tg.themeParams
         }
-      })
+
+        // Добавляем класс для Telegram Web App
+        document.body.classList.add('tg-webapp')
+
+        // Отслеживаем скролл для навигации
+        window.addEventListener('scroll', () => {
+          isScrolled.value = window.scrollY > 50
+          if (isScrolled.value) {
+            document.body.classList.add('is-scrolled')
+          } else {
+            document.body.classList.remove('is-scrolled')
+          }
+        })
+      }
     }
+    document.head.appendChild(script)
   })
 
   // Функция для закрытия Web App

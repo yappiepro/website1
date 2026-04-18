@@ -57,6 +57,9 @@ export function useTelegramWebApp() {
         })
       }
     }
+    script.onerror = () => {
+      console.warn('Telegram Web App script failed to load - ignoring.')
+    }
     document.head.appendChild(script)
   })
 

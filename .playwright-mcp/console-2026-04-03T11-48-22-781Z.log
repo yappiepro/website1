@@ -1,0 +1,32 @@
+[   10876ms] [LOG] [nuxt-delay-hydration] Hydration event timeout @ http://localhost:3000/networking-rules:90
+[   36841ms] [ERROR] Failed to load resource: net::ERR_TIMED_OUT @ https://telegram.org/js/telegram-web-app.js:0
+[   39884ms] [LOG] %cssr:success%c Vite server hmr 2 files 
+      background: #2ecc71;
+      border-radius: 0.5em;
+      color: white;
+      font-weight: bold;
+      padding: 2px 0.5em;
+      in 3.265ms 
+  at vite_node_entry_default (/Users/artemselifanov/qwen/%D0%BB%D0%B5%D0%BD%D0%B4%D0%B8%D0%BD%D0%B3%20ai/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs)
+  at process.processTicksAndRejections (node:internal/process/task_queues)
+  at async Object.renderToString (/Users/artemselifanov/qwen/%D0%BB%D0%B5%D0%BD%D0%B4%D0%B8%D0%BD%D0%B3%20ai/node_modules/vue-bundle-renderer/dist/runtime.mjs)
+ @ http://localhost:3000/_nuxt/node_modules/consola/dist/browser.mjs?v=46253f85:47
+[   39906ms] [INFO] <Suspense> is an experimental feature and its API will likely change. @ http://localhost:3000/_nuxt/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js?v=46253f85:7232
+[   40019ms] [LOG] ✨ %cNuxt DevTools %c Press Shift + Option + D to open DevTools color: black; border-radius: 3px 0 0 3px; padding: 2px 2px 1px 10px; background: #00DC82 border-radius: 0 3px 3px 0; padding: 2px 10px 1px 2px; background: #00DC8220  @ http://localhost:3000/_nuxt/node_modules/@nuxt/devtools/dist/runtime/plugins/devtools.client.js?v=46253f85:51
+[   78341ms] [LOG] [nuxt-delay-hydration] Hydration event Event @ http://localhost:3000/networking-rules:90
+[  108347ms] [ERROR] Failed to load resource: net::ERR_TIMED_OUT @ https://telegram.org/js/telegram-web-app.js:0
+[  108884ms] [LOG] %cssr:success%c Vite server hmr 6 files 
+      background: #2ecc71;
+      border-radius: 0.5em;
+      color: white;
+      font-weight: bold;
+      padding: 2px 0.5em;
+      in 0.007ms 
+  at vite_node_entry_default (/Users/artemselifanov/qwen/%D0%BB%D0%B5%D0%BD%D0%B4%D0%B8%D0%BD%D0%B3%20ai/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs)
+  at process.processTicksAndRejections (node:internal/process/task_queues)
+  at async Object.renderToString (/Users/artemselifanov/qwen/%D0%BB%D0%B5%D0%BD%D0%B4%D0%B8%D0%BD%D0%B3%20ai/node_modules/vue-bundle-renderer/dist/runtime.mjs)
+ @ http://localhost:3000/_nuxt/node_modules/consola/dist/browser.mjs?v=46253f85:47
+[  108891ms] [INFO] <Suspense> is an experimental feature and its API will likely change. @ http://localhost:3000/_nuxt/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js?v=46253f85:7232
+[  109035ms] [LOG] ✨ %cNuxt DevTools %c Press Shift + Option + D to open DevTools color: black; border-radius: 3px 0 0 3px; padding: 2px 2px 1px 10px; background: #00DC82 border-radius: 0 3px 3px 0; padding: 2px 10px 1px 2px; background: #00DC8220  @ http://localhost:3000/_nuxt/node_modules/@nuxt/devtools/dist/runtime/plugins/devtools.client.js?v=46253f85:51
+[  161837ms] [ERROR] Failed to load resource: net::ERR_SOCKET_NOT_CONNECTED @ https://api.iconify.design/fa-brands.json?icons=telegram:0
+[  161837ms] [WARNING] [Icon] failed to load icon `fa-brands:telegram` @ http://localhost:3000/_nuxt/node_modules/@nuxt/icon/dist/runtime/components/shared.js?v=46253f85:15

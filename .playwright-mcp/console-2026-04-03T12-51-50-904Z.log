@@ -1,0 +1,105 @@
+[     288ms] [LOG] [Telegram.WebView] > postEvent web_app_set_header_color {color_key: bg_color} @ https://telegram.org/js/telegram-web-app.js:134
+[     289ms] [LOG] [Telegram.WebView] > postEvent web_app_set_bottom_bar_color {color: #ffffff} @ https://telegram.org/js/telegram-web-app.js:134
+[     289ms] [LOG] [Telegram.WebView] > postEvent web_app_request_theme  @ https://telegram.org/js/telegram-web-app.js:134
+[     289ms] [LOG] [Telegram.WebView] > postEvent web_app_request_viewport  @ https://telegram.org/js/telegram-web-app.js:134
+[     289ms] [LOG] [Telegram.WebView] > postEvent web_app_request_safe_area  @ https://telegram.org/js/telegram-web-app.js:134
+[     289ms] [LOG] [Telegram.WebView] > postEvent web_app_request_content_safe_area  @ https://telegram.org/js/telegram-web-app.js:134
+[     591ms] [LOG] [nuxt-delay-hydration] Hydration event KeyboardEvent @ http://localhost:3000/blog/kak-vybrat-domen-i-hosting:528
+[     642ms] [LOG] %cssr:success%c Vite server hmr 11 files 
+      background: #2ecc71;
+      border-radius: 0.5em;
+      color: white;
+      font-weight: bold;
+      padding: 2px 0.5em;
+      in 2.247ms 
+  at vite_node_entry_default (/Users/artemselifanov/qwen/%D0%BB%D0%B5%D0%BD%D0%B4%D0%B8%D0%BD%D0%B3%20ai/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs)
+  at process.processTicksAndRejections (node:internal/process/task_queues)
+  at async Object.renderToString (/Users/artemselifanov/qwen/%D0%BB%D0%B5%D0%BD%D0%B4%D0%B8%D0%BD%D0%B3%20ai/node_modules/vue-bundle-renderer/dist/runtime.mjs)
+ @ http://localhost:3000/_nuxt/node_modules/consola/dist/browser.mjs?v=46253f85:47
+[     663ms] [INFO] <Suspense> is an experimental feature and its API will likely change. @ http://localhost:3000/_nuxt/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js?v=46253f85:7232
+[     687ms] [WARNING] [Vue warn]: Hydration text content mismatch on JSHandle@node 
+  - rendered on server: Как создать сайт самостоятельно: пошаговая инструкция для новичков
+  - expected on client: ИИ-агенты: что такое, как работают и как используются в бизнесе в 2026 году 
+  at <RouterLink ref=fn to="/blog/ii-agenty-dlya-biznesa" activeClass=undefined  ... > 
+  at <NuxtLink key="ii-agenty-dlya-biznesa" to="/blog/ii-agenty-dlya-biznesa" class="group p-2 rounded-xl hover:bg-gray-50 transition-all" > 
+  at <[slug] onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined > > 
+  at <BaseTransition mode="out-in" appear=false persisted=false  ... > 
+  at <Transition name="page" mode="out-in" ref=Ref< undefined > > 
+  at <RouteProvider key="/blog/kak-vybrat-domen-i-hosting()" vnode= {__v_isVNode: true, __v_skip: true, type: , props: Object, key: null} route= {fullPath: /blog/kak-vybrat-domen-i-hosting, hash: , query: Object, name: blog-slug, path: /blog/kak-vybrat-domen-i-hosting}  ... > 
+  at <RouterView name=undefined route=undefined > 
+  at <NuxtPage > 
+  at <App key=4 > 
+  at <NuxtRoot> @ http://localhost:3000/_nuxt/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js?v=46253f85:49
+[     687ms] [ERROR] Hydration completed but contains mismatches. @ http://localhost:3000/_nuxt/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js?v=46253f85:1880
+[     687ms] [WARNING] [Vue warn]: Hydration attribute mismatch on JSHandle@node 
+  - rendered on server: href="/blog/kak-sozdat-sajt-samostoyatelno"
+  - expected on client: href="/blog/ii-agenty-dlya-biznesa"
+  Note: this mismatch is check-only. The DOM will not be rectified in production due to performance overhead.
+  You should fix the source of the mismatch. 
+  at <RouterLink ref=fn to="/blog/ii-agenty-dlya-biznesa" activeClass=undefined  ... > 
+  at <NuxtLink key="ii-agenty-dlya-biznesa" to="/blog/ii-agenty-dlya-biznesa" class="group p-2 rounded-xl hover:bg-gray-50 transition-all" > 
+  at <[slug] onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined > > 
+  at <BaseTransition mode="out-in" appear=false persisted=false  ... > 
+  at <Transition name="page" mode="out-in" ref=Ref< undefined > > 
+  at <RouteProvider key="/blog/kak-vybrat-domen-i-hosting()" vnode= {__v_isVNode: true, __v_skip: true, type: , props: Object, key: null} route= {fullPath: /blog/kak-vybrat-domen-i-hosting, hash: , query: Object, name: blog-slug, path: /blog/kak-vybrat-domen-i-hosting}  ... > 
+  at <RouterView name=undefined route=undefined > 
+  at <NuxtPage > 
+  at <App key=4 > 
+  at <NuxtRoot> @ http://localhost:3000/_nuxt/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js?v=46253f85:49
+[     689ms] [WARNING] [Vue warn]: Hydration text content mismatch on JSHandle@node 
+  - rendered on server: Как продавать свои услуги: стратегия продаж для эксперта и фрилансера
+  - expected on client: Виды мобильных приложений: классификация, примеры и как выбрать нужный тип 
+  at <RouterLink ref=fn to="/blog/vidy-mobilnykh-prilozheniy" activeClass=undefined  ... > 
+  at <NuxtLink key="vidy-mobilnykh-prilozheniy" to="/blog/vidy-mobilnykh-prilozheniy" class="group p-2 rounded-xl hover:bg-gray-50 transition-all" > 
+  at <[slug] onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined > > 
+  at <BaseTransition mode="out-in" appear=false persisted=false  ... > 
+  at <Transition name="page" mode="out-in" ref=Ref< undefined > > 
+  at <RouteProvider key="/blog/kak-vybrat-domen-i-hosting()" vnode= {__v_isVNode: true, __v_skip: true, type: , props: Object, key: null} route= {fullPath: /blog/kak-vybrat-domen-i-hosting, hash: , query: Object, name: blog-slug, path: /blog/kak-vybrat-domen-i-hosting}  ... > 
+  at <RouterView name=undefined route=undefined > 
+  at <NuxtPage > 
+  at <App key=4 > 
+  at <NuxtRoot> @ http://localhost:3000/_nuxt/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js?v=46253f85:49
+[     689ms] [WARNING] [Vue warn]: Hydration attribute mismatch on JSHandle@node 
+  - rendered on server: href="/blog/kak-prodat-svoi-uslugi"
+  - expected on client: href="/blog/vidy-mobilnykh-prilozheniy"
+  Note: this mismatch is check-only. The DOM will not be rectified in production due to performance overhead.
+  You should fix the source of the mismatch. 
+  at <RouterLink ref=fn to="/blog/vidy-mobilnykh-prilozheniy" activeClass=undefined  ... > 
+  at <NuxtLink key="vidy-mobilnykh-prilozheniy" to="/blog/vidy-mobilnykh-prilozheniy" class="group p-2 rounded-xl hover:bg-gray-50 transition-all" > 
+  at <[slug] onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined > > 
+  at <BaseTransition mode="out-in" appear=false persisted=false  ... > 
+  at <Transition name="page" mode="out-in" ref=Ref< undefined > > 
+  at <RouteProvider key="/blog/kak-vybrat-domen-i-hosting()" vnode= {__v_isVNode: true, __v_skip: true, type: , props: Object, key: null} route= {fullPath: /blog/kak-vybrat-domen-i-hosting, hash: , query: Object, name: blog-slug, path: /blog/kak-vybrat-domen-i-hosting}  ... > 
+  at <RouterView name=undefined route=undefined > 
+  at <NuxtPage > 
+  at <App key=4 > 
+  at <NuxtRoot> @ http://localhost:3000/_nuxt/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js?v=46253f85:49
+[     690ms] [WARNING] [Vue warn]: Hydration text content mismatch on JSHandle@node 
+  - rendered on server: Как заводить полезные знакомства и развивать сеть контактов: принципы нетворкинга
+  - expected on client: Продвижение мобильного приложения: полное руководство по привлечению и удержанию пользователей 
+  at <RouterLink ref=fn to="/blog/prodvizhenie-mobilnogo-prilozheniya" activeClass=undefined  ... > 
+  at <NuxtLink key="prodvizhenie-mobilnogo-prilozheniya" to="/blog/prodvizhenie-mobilnogo-prilozheniya" class="group p-2 rounded-xl hover:bg-gray-50 transition-all" > 
+  at <[slug] onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined > > 
+  at <BaseTransition mode="out-in" appear=false persisted=false  ... > 
+  at <Transition name="page" mode="out-in" ref=Ref< undefined > > 
+  at <RouteProvider key="/blog/kak-vybrat-domen-i-hosting()" vnode= {__v_isVNode: true, __v_skip: true, type: , props: Object, key: null} route= {fullPath: /blog/kak-vybrat-domen-i-hosting, hash: , query: Object, name: blog-slug, path: /blog/kak-vybrat-domen-i-hosting}  ... > 
+  at <RouterView name=undefined route=undefined > 
+  at <NuxtPage > 
+  at <App key=4 > 
+  at <NuxtRoot> @ http://localhost:3000/_nuxt/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js?v=46253f85:49
+[     690ms] [WARNING] [Vue warn]: Hydration attribute mismatch on JSHandle@node 
+  - rendered on server: href="/blog/kak-razvit-set-kontaktov"
+  - expected on client: href="/blog/prodvizhenie-mobilnogo-prilozheniya"
+  Note: this mismatch is check-only. The DOM will not be rectified in production due to performance overhead.
+  You should fix the source of the mismatch. 
+  at <RouterLink ref=fn to="/blog/prodvizhenie-mobilnogo-prilozheniya" activeClass=undefined  ... > 
+  at <NuxtLink key="prodvizhenie-mobilnogo-prilozheniya" to="/blog/prodvizhenie-mobilnogo-prilozheniya" class="group p-2 rounded-xl hover:bg-gray-50 transition-all" > 
+  at <[slug] onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined > > 
+  at <BaseTransition mode="out-in" appear=false persisted=false  ... > 
+  at <Transition name="page" mode="out-in" ref=Ref< undefined > > 
+  at <RouteProvider key="/blog/kak-vybrat-domen-i-hosting()" vnode= {__v_isVNode: true, __v_skip: true, type: , props: Object, key: null} route= {fullPath: /blog/kak-vybrat-domen-i-hosting, hash: , query: Object, name: blog-slug, path: /blog/kak-vybrat-domen-i-hosting}  ... > 
+  at <RouterView name=undefined route=undefined > 
+  at <NuxtPage > 
+  at <App key=4 > 
+  at <NuxtRoot> @ http://localhost:3000/_nuxt/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js?v=46253f85:49
+[     747ms] [LOG] ✨ %cNuxt DevTools %c Press Shift + Option + D to open DevTools color: black; border-radius: 3px 0 0 3px; padding: 2px 2px 1px 10px; background: #00DC82 border-radius: 0 3px 3px 0; padding: 2px 10px 1px 2px; background: #00DC8220  @ http://localhost:3000/_nuxt/node_modules/@nuxt/devtools/dist/runtime/plugins/devtools.client.js?v=46253f85:51

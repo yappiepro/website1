@@ -1,0 +1,20 @@
+[    2086ms] [LOG] [Telegram.WebView] > postEvent web_app_set_header_color {color_key: bg_color} @ https://telegram.org/js/telegram-web-app.js:134
+[    2087ms] [LOG] [Telegram.WebView] > postEvent web_app_set_bottom_bar_color {color: #ffffff} @ https://telegram.org/js/telegram-web-app.js:134
+[    2087ms] [LOG] [Telegram.WebView] > postEvent web_app_request_theme  @ https://telegram.org/js/telegram-web-app.js:134
+[    2087ms] [LOG] [Telegram.WebView] > postEvent web_app_request_viewport  @ https://telegram.org/js/telegram-web-app.js:134
+[    2087ms] [LOG] [Telegram.WebView] > postEvent web_app_request_safe_area  @ https://telegram.org/js/telegram-web-app.js:134
+[    2088ms] [LOG] [Telegram.WebView] > postEvent web_app_request_content_safe_area  @ https://telegram.org/js/telegram-web-app.js:134
+[    2627ms] [LOG] %cssr:success%c Vite server hmr 14 files 
+      background: #2ecc71;
+      border-radius: 0.5em;
+      color: white;
+      font-weight: bold;
+      padding: 2px 0.5em;
+      in 2.543ms 
+  at vite_node_entry_default (/Users/artemselifanov/qwen/%D0%BB%D0%B5%D0%BD%D0%B4%D0%B8%D0%BD%D0%B3%20ai/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs)
+  at process.processTicksAndRejections (node:internal/process/task_queues)
+  at async Object.renderToString (/Users/artemselifanov/qwen/%D0%BB%D0%B5%D0%BD%D0%B4%D0%B8%D0%BD%D0%B3%20ai/node_modules/vue-bundle-renderer/dist/runtime.mjs)
+ @ http://localhost:3000/_nuxt/node_modules/consola/dist/browser.mjs?v=114b7748:47
+[    2746ms] [LOG] ✨ %cNuxt DevTools %c Press Shift + Option + D to open DevTools color: black; border-radius: 3px 0 0 3px; padding: 2px 2px 1px 10px; background: #00DC82 border-radius: 0 3px 3px 0; padding: 2px 10px 1px 2px; background: #00DC8220  @ http://localhost:3000/_nuxt/node_modules/@nuxt/devtools/dist/runtime/plugins/devtools.client.js?v=114b7748:51
+[    6105ms] [LOG] [nuxt-delay-hydration] Hydration event timeout @ http://localhost:3000/yappie:117
+[    6106ms] [INFO] <Suspense> is an experimental feature and its API will likely change. @ http://localhost:3000/_nuxt/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js?v=114b7748:7232

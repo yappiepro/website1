@@ -1,0 +1,14 @@
+[     757ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://tenchat.ru/gostinder/api/web/auth/account:0
+[     757ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://tenchat.ru/tenchat-cloudpayments/api/web/auth/premium_order/gifts:0
+[     757ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://tenchat.ru/gostinder/api/web/auth/user/current:0
+[     757ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://tenchat.ru/tenchat-billing/api/web/auth/account/balance:0
+[     757ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://tenchat.ru/tenchat-web-gateway/api/web/auth/user/roles:0
+[     846ms] [ERROR] Failed to load resource: net::ERR_SOCKET_NOT_CONNECTED @ https://mc.yandex.ru/metrika/tag.js:0
+[    1165ms] [ERROR] Failed to load resource: net::ERR_SOCKET_NOT_CONNECTED @ https://yandex.ru/ads/system/context.js:0
+[    1358ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://tenchat.ru/tenchat-cloudpayments/api/web/auth/premium_order/gifts:0
+[    1359ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://tenchat.ru/tenchat-billing/api/web/auth/account/balance:0
+[    1514ms] [ERROR] Failed to load resource: net::ERR_SOCKET_NOT_CONNECTED @ https://cdn2.tenchat.ru/_nuxt/tc-D4nEUN03.js:0
+[    1923ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://tenchat.ru/tenchat-cloudpayments/api/web/auth/premium_order/gifts:0
+[    1937ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://tenchat.ru/tenchat-billing/api/web/auth/account/balance:0
+[    2643ms] [ERROR] Failed to load resource: net::ERR_SOCKET_NOT_CONNECTED @ https://yastatic.net/partner-code-bundles/1304480/5bad8b0e4ae768b8.js:0
+[  520299ms] [ERROR] Failed to load resource: net::ERR_SOCKET_NOT_CONNECTED @ https://cdn1.tenchat.ru/static/vbc-gostinder/user-picture/1abadbb7-2dae-430a-ac3c-fd1121f2c8dc.jpeg?width=157&height=340&fmt=webp&crop=144%2C144%2Cx9%2Cy96:0

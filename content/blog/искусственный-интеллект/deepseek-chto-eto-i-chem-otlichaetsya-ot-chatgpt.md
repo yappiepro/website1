@@ -1,6 +1,6 @@
 ---
 cluster: искусственный-интеллект
-slug: deepseek-chto-eto-и-чем-отличается-от-chatgpt
+slug: deepseek-chto-eto-i-chem-otlichaetsya-ot-chatgpt
 title: DeepSeek — что это и чем отличается от ChatGPT
 description: DeepSeek — китайская нейросеть, которая в 2025 году шокировала рынок ИИ. Разбираем, чем DeepSeek отличается от ChatGPT, как его использовать бесплатно и почему он стал угрозой для OpenAI.
 keywords: deepseek, deepseek что это, deepseek vs chatgpt, чем отличается deepseek от chatgpt, бесплатный ии, нейросеть deepseek, ии чат бот, китайский чат бот, ии онлайн бесплатно, чат бот бесплатно

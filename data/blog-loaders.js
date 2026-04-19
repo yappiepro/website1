@@ -66,6 +66,7 @@ export const articleLoaders = {
   'prompt-inzhiniring': () => import('./blog/iskusstvennyy-intellekt/prompt-inzhiniring.js').then(m => m.default),
   'avtomatizatsiya-biznesa-ii': () => import('./blog/iskusstvennyy-intellekt/avtomatizatsiya-biznesa-ii.js').then(m => m.default),
   'claude-dlya-biznesa': () => import('./blog/iskusstvennyy-intellekt/claude-dlya-biznesa.js').then(m => m.default),
+  'deepseek-chto-eto-i-chem-otlichaetsya-ot-chatgpt': () => import('./blog/iskusstvennyy-intellekt/deepseek-chto-eto-i-chem-otlichaetsya-ot-chatgpt.js').then(m => m.default),
   'chto-takoe-lichnyy-brend': () => import('./blog/lichnyy-brend/chto-takoe-lichnyy-brend.js').then(m => m.default),
   'kak-sozdat-lichnyy-brend': () => import('./blog/lichnyy-brend/kak-sozdat-lichnyy-brend.js').then(m => m.default),
   'upakovka-lichnogo-brenda': () => import('./blog/lichnyy-brend/upakovka-lichnogo-brenda.js').then(m => m.default),

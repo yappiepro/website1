@@ -579,6 +579,15 @@ export const articles = [
     "image": "/images/blog/iskusstvennyy-intellekt/claude-dlya-biznesa-og.svg"
   },
   {
+    "slug": "deepseek-chto-eto-i-chem-otlichaetsya-ot-chatgpt",
+    "title": "DeepSeek — что это и чем отличается от ChatGPT",
+    "description": "DeepSeek — китайская нейросеть, которая в 2025 году шокировала рынок ИИ. Разбираем, чем DeepSeek отличается от ChatGPT, как его использовать бесплатно и почему он стал угрозой для OpenAI.",
+    "category": "Искусственный интеллект",
+    "cluster": "iskusstvennyy-intellekt",
+    "date": "2026-04-19",
+    "image": null
+  },
+  {
     "slug": "chto-takoe-lichnyy-brend",
     "title": "Что такое личный бренд и зачем он нужен эксперту и предпринимателю",
     "description": "Разбираем, что такое личный бренд, из чего он состоит и зачем нужен эксперту или предпринимателю. Примеры, ошибки и с чего начать построение личного бренда в 2026 году.",

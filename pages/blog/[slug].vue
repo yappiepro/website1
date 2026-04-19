@@ -499,8 +499,14 @@ const relatedArticles = computed(() => {
 // Популярные статьи (3 статьи, исключая текущую)
 const popularArticles = computed(() => {
   const filtered = articles.filter((a) => a.slug !== article?.slug)
-  const shuffled = [...filtered].sort(() => Math.random() - 0.5)
-  return shuffled.slice(0, 3)
+  const sorted = [...filtered].sort((a, b) => {
+    const dateCompare = new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime()
+    if (dateCompare !== 0) {
+      return dateCompare
+    }
+    return a.slug.localeCompare(b.slug)
+  })
+  return sorted.slice(0, 3)
 })
 
 if (!article) {

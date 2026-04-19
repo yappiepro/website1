@@ -74,7 +74,7 @@ export default defineNuxtConfig({
     appManifest: false,
     renderJsonPayloads: true,
     islands: true,
-    viewTransition: true,
+    viewTransition: false,
     // Отключаем payload pre-fetching для SSG
     payloadExtraction: false,
   },

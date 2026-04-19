@@ -140,7 +140,7 @@
             ]"
           >
             <span class="flex items-center gap-2">
-              <Icon name="fa-solid:grid" class="w-4 h-4" />
+              <Icon name="fa-solid:table-cells" class="w-4 h-4" />
               Все статьи
             </span>
             <span :class="selectedCluster === null ? 'text-white/70' : 'text-gray-400'">
@@ -458,8 +458,16 @@ function selectCluster(cluster) {
   })
 }
 
-// Случайный порядок статей — перемешиваем один раз при загрузке
-const shuffledArticles = ref([...articles].sort(() => Math.random() - 0.5))
+// Стабильный порядок для SSR/CSR без гидрационных расхождений
+const shuffledArticles = ref(
+  [...articles].sort((a, b) => {
+    const dateCompare = new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime()
+    if (dateCompare !== 0) {
+      return dateCompare
+    }
+    return a.slug.localeCompare(b.slug)
+  })
+)
 
 // Фильтрованные статьи
 const filteredArticles = computed(() => {

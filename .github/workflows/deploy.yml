@@ -1,0 +1,81 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: npm run generate
+        env:
+          NUXT_FIREBASE_API_KEY: ${{ secrets.NUXT_FIREBASE_API_KEY }}
+          NUXT_FIREBASE_AUTH_DOMAIN: ${{ secrets.NUXT_FIREBASE_AUTH_DOMAIN }}
+          NUXT_FIREBASE_PROJECT_ID: ${{ secrets.NUXT_FIREBASE_PROJECT_ID }}
+          NUXT_FIREBASE_STORAGE_BUCKET: ${{ secrets.NUXT_FIREBASE_STORAGE_BUCKET }}
+          NUXT_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.NUXT_FIREBASE_MESSAGING_SENDER_ID }}
+          NUXT_FIREBASE_APP_ID: ${{ secrets.NUXT_FIREBASE_APP_ID }}
+          NUXT_FIREBASE_MEASUREMENT_ID: ${{ secrets.NUXT_FIREBASE_MEASUREMENT_ID }}
+          NUXT_FIREBASE_VAPID_KEY: ${{ secrets.NUXT_FIREBASE_VAPID_KEY }}
+          NUXT_PUBLIC_SUPABASE_URL: ${{ secrets.NUXT_PUBLIC_SUPABASE_URL }}
+          NUXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NUXT_PUBLIC_SUPABASE_ANON_KEY }}
+          NUXT_SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.NUXT_SUPABASE_SERVICE_ROLE_KEY }}
+
+      - name: Copy build output to dist
+        run: |
+          if [ -d .output/public ]; then
+            rm -rf dist
+            cp -r .output/public dist
+          elif [ -d dist ]; then
+            echo "Using existing dist output"
+          else
+            echo "No build output found"
+            exit 1
+          fi
+
+      - name: Add _headers for caching
+        run: |
+          cp public/_headers dist/_headers
+
+      - name: Add .nojekyll
+        run: touch dist/.nojekyll
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

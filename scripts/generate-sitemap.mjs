@@ -1,6 +1,6 @@
 import { articles } from '../data/blog.js'
 import { topics } from '../data/knowledge/topics.js'
-import { writeFileSync } from 'fs'
+import { readFileSync, writeFileSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 
@@ -16,6 +16,11 @@ const blogClusters = Array.from(
 ).map((cluster) => `/blog/cluster/${cluster}`)
 
 const knowledgeRoutes = topics.map((topic) => `/knowledge/${topic.slug}`)
+const postsData = JSON.parse(readFileSync(new URL('../data/knowledge/posts-data.json', import.meta.url), 'utf-8'))
+const knowledgePostRoutes = postsData
+  .map((post) => post?.id)
+  .filter((id) => id !== null && id !== undefined)
+  .map((id) => `/knowledge/post/${id}`)
 
 // Страницы
 const pages = [
@@ -31,6 +36,8 @@ const pages = [
   { path: '/privacy', priority: '0.3', changefreq: 'monthly' },
   { path: '/offer', priority: '0.3', changefreq: 'monthly' },
   { path: '/offline', priority: '0.1', changefreq: 'monthly' },
+  ...knowledgeRoutes.map((path) => ({ path, priority: '0.7', changefreq: 'weekly' })),
+  ...knowledgePostRoutes.map((path) => ({ path, priority: '0.6', changefreq: 'weekly' })),
 ]
 
 // Блог

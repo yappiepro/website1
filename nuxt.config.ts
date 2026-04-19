@@ -40,7 +40,6 @@ export default defineNuxtConfig({
     '@nuxtjs/fontaine',
     '@nuxt/fonts',
     '@vueuse/nuxt',
-    'nuxt-delay-hydration',
     '@vite-pwa/nuxt',
   ],
   icon: {
@@ -90,7 +89,7 @@ export default defineNuxtConfig({
   // Nuxt Fonts - оптимизация и хостинг шрифтов
   fonts: {
     defaults: {
-      preload: true,
+      preload: false,
       display: 'swap',
       subset: 'cyrillic',
     },
@@ -123,12 +122,6 @@ export default defineNuxtConfig({
       'useDebounceFn',
       'useThrottleFn',
     ],
-  },
-
-  // Delay Hydration - отложенная гидратация
-  delayHydration: {
-    mode: 'mount',
-    delay: 2000,
   },
 
   alias: {
@@ -371,13 +364,6 @@ export default defineNuxtConfig({
       navigateFallback: '/offline',
       globPatterns: ['**/*.{js,css,txt,png,ico,svg,webp,json,woff,woff2,html}'],
       maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
-      // Игнорируем параметры Telegram Web App
-      navigateFallbackDenylist: [
-        /tgWebAppData/,
-        /tgWebAppThemeParams/,
-        /tgWebAppVersion/,
-        /tgWebAppPlatform/,
-      ],
       runtimeCaching: [
         {
           urlPattern: /^https:\/\/cdn\.iconify\.sh\/.*/i,

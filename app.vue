@@ -15,10 +15,6 @@
 import LoadingBar from '~/components/layout/LoadingBar.vue'
 import CookieBanner from '~/components/layout/CookieBanner.vue'
 import GoogleAnalytics from '~/components/GoogleAnalytics.vue'
-import { useTelegramWebApp } from '~/composables/useTelegramWebApp'
-
-// Инициализация Telegram Web App
-const { isTelegramApp } = useTelegramWebApp()
 
 const route = useRoute()
 const config = useRuntimeConfig()
@@ -33,9 +29,6 @@ const canonicalUrl = computed(() => {
 
 useHead(() => ({
   link: canonicalUrl.value ? [{ rel: 'canonical', href: canonicalUrl.value }] : [],
-  bodyAttrs: {
-    class: isTelegramApp.value ? 'tg-webapp' : '',
-  },
 }))
 
 // Яндекс.Метрика

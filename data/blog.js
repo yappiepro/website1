@@ -65,6 +65,10 @@ import avtomatizatsiyaBiznesaIi from './blog/iskusstvennyy-intellekt/avtomatizat
 import claudeDlyaBiznesa from './blog/iskusstvennyy-intellekt/claude-dlya-biznesa.js'
 import deepseekChtoEtoIchemOtlichaetsyaOtChatgpt from './blog/iskusstvennyy-intellekt/deepseek-chto-eto-i-chem-otlichaetsya-ot-chatgpt.js'
 import iiDlyaKontentaInstrumenty from './blog/iskusstvennyy-intellekt/ii-dlya-kontenta-instrumenty.js'
+import lokalnyeIiModeliOllama from './blog/iskusstvennyy-intellekt/lokalnye-ii-modeli-ollama.js'
+import gigaChatDlyaBiznesa from './blog/iskusstvennyy-intellekt/gigachat-dlya-biznesa.js'
+import iiDlyaKodaCopilotCursor from './blog/iskusstvennyy-intellekt/ii-dlya-koda-copilot-cursor.js'
+import gpt5VsClaude from './blog/iskusstvennyy-intellekt/gpt-5-vs-claude.js'
 import chtoTakoeLichnyyBrend from './blog/lichnyy-brend/chto-takoe-lichnyy-brend.js'
 import kakSozdatLichnyyBrend from './blog/lichnyy-brend/kak-sozdat-lichnyy-brend.js'
 import upakovkaLichnogoBrenda from './blog/lichnyy-brend/upakovka-lichnogo-brenda.js'
@@ -182,6 +186,10 @@ export const articles = [
   claudeDlyaBiznesa,
   deepseekChtoEtoIchemOtlichaetsyaOtChatgpt,
   iiDlyaKontentaInstrumenty,
+  lokalnyeIiModeliOllama,
+  gigaChatDlyaBiznesa,
+  iiDlyaKodaCopilotCursor,
+  gpt5VsClaude,
   chtoTakoeLichnyyBrend,
   kakSozdatLichnyyBrend,
   upakovkaLichnogoBrenda,

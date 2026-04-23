@@ -597,6 +597,42 @@ export const articles = [
     "image": null
   },
   {
+    "slug": "lokalnye-ii-modeli-ollama",
+    "title": "Локальные ИИ-модели: как запустить Ollama на своём компьютере",
+    "description": "Полное руководство по Ollama — инструменту для запуска локальных ИИ-моделей. Установка, настройка, лучшие модели, интеграция с Open WebUI. Запустите DeepSeek, Llama и Mistral без интернета и без подписок.",
+    "category": "Искусственный интеллект",
+    "cluster": "iskusstvennyy-intellekt",
+    "date": "2026-04-23",
+    "image": null
+  },
+  {
+    "slug": "gigachat-dlya-biznesa",
+    "title": "GigaChat — российский ИИ для бизнеса: обзор, возможности, цены 2026",
+    "description": "Полный обзор GigaChat от Сбера для бизнеса. Чем отличается от ChatGPT, какие задачи решает, сколько стоит API, как подключить в своё приложение. Реальные кейсы использования.",
+    "category": "Искусственный интеллект",
+    "cluster": "iskusstvennyy-intellekt",
+    "date": "2026-04-23",
+    "image": null
+  },
+  {
+    "slug": "ii-dlya-koda-copilot-cursor",
+    "title": "ИИ для написания кода — GitHub Copilot, Cursor и другие инструменты 2026",
+    "description": "Обзор лучших ИИ-инструментов для программирования в 2026 году. Сравниваем GitHub Copilot, Cursor, Claude Code, Windsurf и другие. Как выбрать, сколько стоит, реальный опыт использования.",
+    "category": "Искусственный интеллект",
+    "cluster": "iskusstvennyy-intellekt",
+    "date": "2026-04-23",
+    "image": null
+  },
+  {
+    "slug": "gpt-5-vs-claude",
+    "title": "GPT-5 vs Claude — сравнение флагманских ИИ-моделей 2026 года",
+    "description": "Подробное сравнение GPT-5 и Claude в 2026 году. Бенчмарки, цены, сильные и слабые стороны, реальные тесты. Что выбрать для кода, аналитики, текстов и агентных задач.",
+    "category": "Искусственный интеллект",
+    "cluster": "iskusstvennyy-intellekt",
+    "date": "2026-04-23",
+    "image": null
+  },
+  {
     "slug": "chto-takoe-lichnyy-brend",
     "title": "Что такое личный бренд и зачем он нужен эксперту и предпринимателю",
     "description": "Разбираем, что такое личный бренд, из чего он состоит и зачем нужен эксперту или предпринимателю. Примеры, ошибки и с чего начать построение личного бренда в 2026 году.",

@@ -69,6 +69,7 @@ import lokalnyeIiModeliOllama from './blog/iskusstvennyy-intellekt/lokalnye-ii-m
 import gigaChatDlyaBiznesa from './blog/iskusstvennyy-intellekt/gigachat-dlya-biznesa.js'
 import iiDlyaKodaCopilotCursor from './blog/iskusstvennyy-intellekt/ii-dlya-koda-copilot-cursor.js'
 import gpt5VsClaude from './blog/iskusstvennyy-intellekt/gpt-5-vs-claude.js'
+import iiIAvtorskoePravo from './blog/iskusstvennyy-intellekt/ii-i-avtorskoe-pravo.js'
 import chtoTakoeLichnyyBrend from './blog/lichnyy-brend/chto-takoe-lichnyy-brend.js'
 import kakSozdatLichnyyBrend from './blog/lichnyy-brend/kak-sozdat-lichnyy-brend.js'
 import upakovkaLichnogoBrenda from './blog/lichnyy-brend/upakovka-lichnogo-brenda.js'
@@ -190,6 +191,7 @@ export const articles = [
   gigaChatDlyaBiznesa,
   iiDlyaKodaCopilotCursor,
   gpt5VsClaude,
+  iiIAvtorskoePravo,
   chtoTakoeLichnyyBrend,
   kakSozdatLichnyyBrend,
   upakovkaLichnogoBrenda,

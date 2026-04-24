@@ -73,6 +73,7 @@ export const articleLoaders = {
   'ii-dlya-koda-copilot-cursor': () => import('./blog/iskusstvennyy-intellekt/ii-dlya-koda-copilot-cursor.js').then(m => m.default),
   'gpt-5-vs-claude': () => import('./blog/iskusstvennyy-intellekt/gpt-5-vs-claude.js').then(m => m.default),
   'ii-i-avtorskoe-pravo': () => import('./blog/iskusstvennyy-intellekt/ii-i-avtorskoe-pravo.js').then(m => m.default),
+  'ii-dlya-analitiki': () => import('./blog/iskusstvennyy-intellekt/ii-dlya-analitiki.js').then(m => m.default),
   'chto-takoe-lichnyy-brend': () => import('./blog/lichnyy-brend/chto-takoe-lichnyy-brend.js').then(m => m.default),
   'kak-sozdat-lichnyy-brend': () => import('./blog/lichnyy-brend/kak-sozdat-lichnyy-brend.js').then(m => m.default),
   'upakovka-lichnogo-brenda': () => import('./blog/lichnyy-brend/upakovka-lichnogo-brenda.js').then(m => m.default),

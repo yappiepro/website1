@@ -67,7 +67,7 @@ function acceptCookies() {
   // Уведомляем Яндекс.Метрику о согласии (если нужно)
   if (window.ym) {
     // Метрика уже инициализирована, но можно отправить событие
-    window.ym('98765432', 'userParams', { cookiesAccepted: true })
+    window.ym(107703484, 'userParams', { cookiesAccepted: true })
   }
 }
 </script>

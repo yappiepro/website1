@@ -31,7 +31,7 @@ useHead(() => ({
   link: canonicalUrl.value ? [{ rel: 'canonical', href: canonicalUrl.value }] : [],
 }))
 
-// Яндекс.Метрика
+// Метрики и аналитика подключаются через клиентские плагины/компоненты.
 useHead({
   meta: [
     // Theme color для PWA - адаптируется под тему устройства
@@ -49,28 +49,6 @@ useHead({
     { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicons/favicon-16x16.png' },
     { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicons/favicon-32x32.png' },
     { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicons/apple-touch-icon.png' },
-  ],
-  script: [
-    {
-      innerHTML: `
-        (function(m,e,t,r,i,k,a){
-          m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-          m[i].l=1*new Date();
-          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return m[i].a=m[i].a[m[i].a.length-1];};}
-          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-          (window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=107703484", "ym");
-
-        ym(107703484, "init", {
-          webvisor: true,
-          clickmap: true,
-          ecommerce: "dataLayer",
-          accurateTrackBounce: true,
-          trackLinks: true
-        });
-      `,
-      type: 'text/javascript',
-      charset: 'utf-8',
-    },
   ],
 })
 </script>

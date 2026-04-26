@@ -149,7 +149,7 @@ export default defineNuxtConfig({
       routes: [
         '/',
         '/404',
-        '/offline',
+        // '/offline',
         '/_robots.txt',
         '/blog',
         '/consultation',
@@ -399,7 +399,7 @@ export default defineNuxtConfig({
     strategies: 'generateSW',
     injectRegister: 'script',
     includeAssets: ['favicon.ico', 'apple-touch-icon.png'],
-    offlinePage: '/offline',
+    // offlinePage: '/offline',
     client: {
       installPrompt: true,
     },

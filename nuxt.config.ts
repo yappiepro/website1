@@ -362,7 +362,7 @@ export default defineNuxtConfig({
       lang: 'ru-RU',
     },
     workbox: {
-      navigateFallback: '/offline',
+      // navigateFallback: '/offline',
       globPatterns: ['**/*.{js,css,txt,png,ico,svg,webp,json,woff,woff2,html}'],
       // Исключаем дубли 404 из precache: /404 и /404.html нормализуются в один URL
       globIgnores: ['**/404.html', '**/404/index.html', '**/404'],

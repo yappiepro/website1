@@ -78,6 +78,7 @@ export const articleLoaders = {
   'chto-takoe-lichnyy-brend': () => import('./blog/lichnyy-brend/chto-takoe-lichnyy-brend.js').then(m => m.default),
   'kak-sozdat-lichnyy-brend': () => import('./blog/lichnyy-brend/kak-sozdat-lichnyy-brend.js').then(m => m.default),
   'upakovka-lichnogo-brenda': () => import('./blog/lichnyy-brend/upakovka-lichnogo-brenda.js').then(m => m.default),
+  'pozitsionirovanie-eksperta': () => import('./blog/lichnyy-brend/pozitsionirovanie-eksperta.js').then(m => m.default),
   'chto-takoe-kontent-marketing': () => import('./blog/kontent-marketing/chto-takoe-kontent-marketing.js').then(m => m.default),
   'strategiya-kontent-marketinga': () => import('./blog/kontent-marketing/strategiya-kontent-marketinga.js').then(m => m.default),
   'kontent-marketing-dlya-privlecheniya-klientov': () => import('./blog/kontent-marketing/kontent-marketing-dlya-privlecheniya-klientov.js').then(m => m.default),

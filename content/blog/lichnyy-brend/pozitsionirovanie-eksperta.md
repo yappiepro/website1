@@ -8,16 +8,10 @@ keywords: позиционирование эксперта, личный бре
 date: 2026-04-23
 author: Артём Селифанов
 canonical: https://artemselifanov.ru/blog/pozitsionirovanie-eksperta
-og_image: /images/blog/pozitsionirovanie-eksperta.jpg
+og_image: /images/blog/lichnyy-brend/pozitsionirovanie-eksperta-og.svg
 ---
 
 # Позиционирование эксперта: как найти нишу и стать узнаваемым
-
-> **Кластер:** Личный бренд
-> **Slug:** `pozitsionirovanie-eksperta`
-> **Тип материала:** Образовательная статья-руководство
-
----
 
 ## Введение: почему «я делаю всё» - это путь в никуда
 

@@ -693,7 +693,7 @@ export const articles = [
     "category": "Личный бренд",
     "cluster": "lichnyy-brend",
     "date": "2026-04-23",
-    "image": "/images/blog/pozitsionirovanie-eksperta.jpg"
+    "image": "/images/blog/lichnyy-brend/pozitsionirovanie-eksperta-og.svg"
   },
   {
     "slug": "chto-takoe-kontent-marketing",

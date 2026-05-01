@@ -696,6 +696,15 @@ export const articles = [
     "image": "/images/blog/lichnyy-brend/pozitsionirovanie-eksperta-og.svg"
   },
   {
+    "slug": "lichnyy-brend-v-socsetyah",
+    "title": "Личный бренд в соцсетях: с чего начать и как выстроить систему с нуля",
+    "description": "Пошаговое руководство по построению личного бренда в социальных сетях. Как выбрать платформу, что публиковать, как расти органически и превращать подписчиков в клиентов.",
+    "category": "Личный бренд",
+    "cluster": "lichnyy-brend",
+    "date": "2026-04-24",
+    "image": "/images/blog/lichnyy-brend/lichnyy-brend-v-socsetyah-og.svg"
+  },
+  {
     "slug": "chto-takoe-kontent-marketing",
     "title": "Что такое контент-маркетинг: определение, цели и примеры для бизнеса",
     "description": "Разбираем, что такое контент-маркетинг, как он работает, чем отличается от рекламы и какие результаты даёт бизнесу. Примеры, инструменты и с чего начать в 2026 году.",

@@ -701,7 +701,7 @@ export const articles = [
     "description": "Пошаговое руководство по построению личного бренда в социальных сетях. Как выбрать платформу, что публиковать, как расти органически и превращать подписчиков в клиентов.",
     "category": "Личный бренд",
     "cluster": "lichnyy-brend",
-    "date": "2026-04-24",
+    "date": "2026-05-01",
     "image": "/images/blog/lichnyy-brend/lichnyy-brend-v-socsetyah-og.svg"
   },
   {

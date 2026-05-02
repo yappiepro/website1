@@ -80,6 +80,7 @@ export const articleLoaders = {
   'upakovka-lichnogo-brenda': () => import('./blog/lichnyy-brend/upakovka-lichnogo-brenda.js').then(m => m.default),
   'pozitsionirovanie-eksperta': () => import('./blog/lichnyy-brend/pozitsionirovanie-eksperta.js').then(m => m.default),
   'lichnyy-brend-v-socsetyah': () => import('./blog/lichnyy-brend/lichnyy-brend-v-socsetyah.js').then(m => m.default),
+  'lichnyy-sayt-eksperta': () => import('./blog/lichnyy-brend/lichnyy-sayt-eksperta.js').then(m => m.default),
   'chto-takoe-kontent-marketing': () => import('./blog/kontent-marketing/chto-takoe-kontent-marketing.js').then(m => m.default),
   'strategiya-kontent-marketinga': () => import('./blog/kontent-marketing/strategiya-kontent-marketinga.js').then(m => m.default),
   'kontent-marketing-dlya-privlecheniya-klientov': () => import('./blog/kontent-marketing/kontent-marketing-dlya-privlecheniya-klientov.js').then(m => m.default),

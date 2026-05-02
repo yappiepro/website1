@@ -710,7 +710,7 @@ export const articles = [
     "description": "Разбираем, зачем эксперту нужен личный сайт, как он работает в системе личного бренда, что должно быть на страницах и как создать сайт без технических знаний или с помощью разработчика.",
     "category": "Личный бренд",
     "cluster": "lichnyy-brend",
-    "date": "2026-04-24",
+    "date": "2026-05-02",
     "image": "/images/blog/lichnyy-brend/lichnyy-sayt-eksperta-og.svg"
   },
   {

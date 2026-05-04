@@ -228,61 +228,52 @@
           <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div class="animate-on-scroll">
               <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-100 rounded-xl mb-6">
-                <span class="text-xs font-bold text-gray-700 uppercase tracking-wider"
-                  >Позиционирование</span
-                >
+                <span class="text-xs font-bold text-gray-700 uppercase tracking-wider">Причина результатов</span>
               </div>
 
               <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-8">
-                Помогаю найти, сформулировать и<br />
-                <span class="text-gray-400">упаковать вашу экспертизу</span>
+                Почему результаты получаются именно со мной
               </h2>
 
-              <div class="space-y-5 text-gray-600 leading-relaxed">
-                <p class="text-lg">
-                  Работаю с теми, кто продаёт свою экспертизу: консультанты, коучи, наставники,
-                  владельцы бизнеса.
-                </p>
-                <p class="text-lg">
-                  Моя задача — не писать за вас посты. Моя задача — помочь вам понять, кто вы, для
-                  кого работаете и чем отличаетесь от других, а затем упаковать это в систему, где
-                  личный бренд стабильно приводит заявки.
-                </p>
-                <p class="text-lg font-medium text-gray-900">
-                  Опыт в бизнес-консалтинге позволяет мне думать категориями вашей прибыли, а не
-                  просто роста подписчиков.
-                </p>
-              </div>
+              <h3 class="text-xl font-bold mb-6">Я думаю о твоём доходе, а не о моём (и это видно сразу)</h3>
+              <p class="text-lg text-gray-600 leading-relaxed mb-4">
+                7+ лет в консалтинге научили меня одному:
+              </p>
+              <p class="text-lg font-medium text-gray-900 mb-6">
+                Если я помогу тебе заработать больше — мне тебя хватит на долго.
+              </p>
 
-              <div class="grid grid-cols-3 gap-3 sm:gap-4 mt-10">
-                <div
-                  v-for="(stat, index) in aboutStats"
-                  :key="index"
-                  class="group relative p-3 sm:p-5 bg-white border border-gray-200 rounded-2xl hover:border-blue-300 transition-all"
-                >
-                  <div
-                    v-if="stat.growth"
-                    class="absolute top-2 right-2 text-[8px] sm:text-[10px] text-green-600 font-bold"
-                  >
-                    {{ stat.growth }}
-                  </div>
-                  <div class="text-xl sm:text-2xl md:text-3xl font-black text-gray-900 mb-1">
-                    {{ stat.value }}
-                  </div>
-                  <div class="text-[10px] sm:text-xs text-gray-500 font-medium leading-tight">
-                    {{ stat.label }}
-                  </div>
-                  <div
-                    v-if="stat.sublabel"
-                    class="text-[9px] sm:text-[10px] text-gray-400 mt-0.5 sm:mt-1 leading-tight"
-                  >
-                    {{ stat.sublabel }}
-                  </div>
-                </div>
-              </div>
+              <p class="text-base font-semibold text-gray-700 mb-4">Поэтому:</p>
+              <ul class="space-y-3 mb-8 list-disc list-inside">
+                <li class="text-sm text-gray-700">Предлагаю диагностику бесплатно (я проверяю, нужна ли тебе вообще помощь)</li>
+                <li class="text-sm text-gray-700">Рассказываю о конкурентах найма (когда курс за 20к может подойти лучше, чем моё менторство)</li>
+                <li class="text-sm text-gray-700">Делюсь методиками, которые я отработал на себе (не теория из книжек)</li>
+              </ul>
 
-              <p class="text-sm text-gray-600 mt-6 italic">
-                Эти же методы я применяю в работе с клиентами — и они дают измеримый результат.
+              <h3 class="text-xl font-bold mb-6">Не обещаю миллион подписчиков, обещаю нужных клиентов</h3>
+              <p class="text-lg text-gray-600 leading-relaxed mb-4">
+                За 2 года я вырос от 0 до 45 тыс подписчиков.
+              </p>
+              <p class="text-lg font-medium text-gray-900 mb-6">
+                Но главное не в числе — в том, что:
+              </p>
+              <ul class="space-y-3 mb-8 list-disc list-inside">
+                <li class="text-sm text-gray-700">50+ человек в месяц становятся платными клиентами</li>
+                <li class="text-sm text-gray-700">Средний чек консультации вырос с 3 тыс до 8+ тыс</li>
+                <li class="text-sm text-gray-700">Я не прыгаю по платформам в поисках алгоритма, а следую системе</li>
+              </ul>
+              <p class="text-sm text-gray-600 leading-relaxed mb-6">
+                Эту же систему я внедряю с каждым клиентом.
+              </p>
+
+              <h3 class="text-xl font-bold mb-6">Я работаю только с тем, что работает</h3>
+              <ul class="space-y-3 mb-8 list-disc list-inside">
+                <li class="text-sm text-gray-700">Не напишу тебе 1000 постов (ты выгоришь)</li>
+                <li class="text-sm text-gray-700">Не посоветую платить за рекламу, если органика работает</li>
+                <li class="text-sm text-gray-700">Не буду настаивать на платформе, если твоя аудитория в другой</li>
+              </ul>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Я адаптирую методику под тебя, а не под свои привычки.
               </p>
             </div>
 

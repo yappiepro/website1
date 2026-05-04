@@ -1136,16 +1136,11 @@
                 </div>
               </div>
 
-              <!-- Решение (одна строка) -->
-              <div class="mt-4 flex items-start gap-2 text-sm text-gray-600">
-                <span class="text-blue-600 flex-shrink-0 mt-0.5">
-                  <Icon name="fa-solid:lightbulb" class="w-4 h-4" />
-                </span>
-                <span>
-                  <strong class="text-gray-800">Решение:</strong>
-                  {{ caseItem.solution.join('; ') }}
-                </span>
-              </div>
+              <!-- План действий -->
+              <div class="mt-4 text-sm text-gray-600" v-html="caseItem.plan"></div>
+              
+              <!-- Главный инсайт -->
+              <div class="mt-4 text-sm text-gray-700 italic" v-html="caseItem.mainInsight"></div>
             </div>
           </div>
         </div>

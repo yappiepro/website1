@@ -72,8 +72,7 @@
                 class="text-3xl sm:text-4xl md:text-4xl lg:text-4xl font-black tracking-tight leading-[1.05] mb-6"
               >
                 <span class="block">Месяцы контента, ноль заявок?</span>
-                <span class="block">Покажу систему, где блог работает на тебя 24/7 —</span>
-                <span class="block">и ты получаешь клиентов, не тратя 8 часов в день на постинг</span>
+                <span class="block">Покажу систему, где блог работает на тебя 24/7 и ты получаешь клиентов, не тратя 8 часов в день на постинг</span>
               </h1>
 
               <p class="text-base md:text-lg text-gray-600 leading-relaxed mb-8 max-w-2xl">
@@ -232,50 +231,27 @@
               </div>
 
               <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-8">
-                Почему результаты получаются именно со мной
-              </h2>
+                              Почему результаты получаются именно со мной
+                            </h2>
 
-              <h3 class="text-xl font-bold mb-6">Я думаю о твоём доходе, а не о моём (и это видно сразу)</h3>
-              <p class="text-lg text-gray-600 leading-relaxed mb-4">
-                7+ лет в консалтинге научили меня одному:
-              </p>
-              <p class="text-lg font-medium text-gray-900 mb-6">
-                Если я помогу тебе заработать больше — мне тебя хватит на долго.
-              </p>
+                            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                              Мой подход основан на 7+ годах в консалтинге: я думаю о твоём доходе, а не о своём. Поэтому я предлагаю бесплатную диагностику, честно говорю о конкурентах и делюсь проверенными на себе методиками.
+                            </p>
 
-              <p class="text-base font-semibold text-gray-700 mb-4">Поэтому:</p>
-              <ul class="space-y-3 mb-8 list-disc list-inside">
-                <li class="text-sm text-gray-700">Предлагаю диагностику бесплатно (я проверяю, нужна ли тебе вообще помощь)</li>
-                <li class="text-sm text-gray-700">Рассказываю о конкурентах найма (когда курс за 20к может подойти лучше, чем моё менторство)</li>
-                <li class="text-sm text-gray-700">Делюсь методиками, которые я отработал на себе (не теория из книжек)</li>
-              </ul>
+                            <h3 class="text-xl font-bold mb-6">Не обещаю миллион подписчиков, обещаю нужных клиентов</h3>
+                            <p class="text-base text-gray-700 leading-relaxed mb-4">
+                              За 2 года я вырос от 0 до 45 тыс подписчиков. Главное не в числе, а в качестве:
+                            </p>
+                            <ul class="space-y-2 mb-8 list-disc list-inside">
+                              <li class="text-sm text-gray-700">50+ человек в месяц становятся платными клиентами</li>
+                              <li class="text-sm text-gray-700">Средний чек консультации вырос с 3 тыс до 8+ тыс</li>
+                              <li class="text-sm text-gray-700">Я внедряю систему, которая доказала свою эффективность</li>
+                            </ul>
 
-              <h3 class="text-xl font-bold mb-6">Не обещаю миллион подписчиков, обещаю нужных клиентов</h3>
-              <p class="text-lg text-gray-600 leading-relaxed mb-4">
-                За 2 года я вырос от 0 до 45 тыс подписчиков.
-              </p>
-              <p class="text-lg font-medium text-gray-900 mb-6">
-                Но главное не в числе — в том, что:
-              </p>
-              <ul class="space-y-3 mb-8 list-disc list-inside">
-                <li class="text-sm text-gray-700">50+ человек в месяц становятся платными клиентами</li>
-                <li class="text-sm text-gray-700">Средний чек консультации вырос с 3 тыс до 8+ тыс</li>
-                <li class="text-sm text-gray-700">Я не прыгаю по платформам в поисках алгоритма, а следую системе</li>
-              </ul>
-              <p class="text-sm text-gray-600 leading-relaxed mb-6">
-                Эту же систему я внедряю с каждым клиентом.
-              </p>
-
-              <h3 class="text-xl font-bold mb-6">Я работаю только с тем, что работает</h3>
-              <ul class="space-y-3 mb-8 list-disc list-inside">
-                <li class="text-sm text-gray-700">Не напишу тебе 1000 постов (ты выгоришь)</li>
-                <li class="text-sm text-gray-700">Не посоветую платить за рекламу, если органика работает</li>
-                <li class="text-sm text-gray-700">Не буду настаивать на платформе, если твоя аудитория в другой</li>
-              </ul>
-              <p class="text-sm text-gray-600 leading-relaxed">
-                Я адаптирую методику под тебя, а не под свои привычки.
-              </p>
-            </div>
+                            <h3 class="text-xl font-bold mb-6">Я работаю только с тем, что работает</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                              Я адаптирую методику под тебя, не заставляю писать 1000 постов, не советую платить за рекламу, если работает органика, и не настаиваю на своих привычных платформах. Моя цель — твои результаты.
+                            </p>            </div>
 
             <div class="image-animate delay-200">
               <div class="relative">

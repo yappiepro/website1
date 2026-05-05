@@ -69,7 +69,7 @@
           <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div class="lg:col-span-8">
               <h1
-                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] mb-6"
+                class="text-3xl sm:text-4xl md:text-4xl lg:text-4xl font-black tracking-tight leading-[1.05] mb-6"
               >
                 <span class="block">Месяцы контента, ноль заявок?</span>
                 <span class="block">Покажу систему, где блог работает на тебя 24/7 —</span>
@@ -1084,63 +1084,48 @@
                 index === 1 ? 'delay-200' : index === 2 ? 'delay-400' : '',
               ]"
             >
-              <!-- Badge + Заголовок -->
-              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-6">
-                <div>
-                  <span
-                    class="inline-block px-3 py-1.5 text-xs font-bold text-blue-700 bg-blue-50 border border-blue-100 rounded-xl mb-2"
-                  >
-                    {{ caseItem.badge }}
-                  </span>
-                  <h3 class="text-lg md:text-xl font-bold leading-snug text-gray-900">
-                    {{ caseItem.title }}
-                  </h3>
-                </div>
-                <p class="text-sm text-gray-500 max-w-xs sm:text-right flex-shrink-0">
-                  {{ caseItem.task }}
+              <!-- Заголовок -->
+              <div class="mb-6">
+                <h3 class="text-xl md:text-2xl font-black leading-snug text-gray-900 mb-3">
+                  {{ caseItem.title }}
+                </h3>
+                <p class="text-base text-gray-700 italic">
+                  <strong>Была работа:</strong> "{{ caseItem.job }}"
                 </p>
               </div>
 
-              <!-- До / После -->
-              <div
-                class="grid grid-cols-1 md:grid-cols-2 gap-0 border border-gray-200 rounded-xl overflow-hidden"
-              >
-                <!-- Было -->
-                <div class="p-5 bg-gray-50">
-                  <div class="flex items-center gap-2 mb-3">
-                    <span class="text-lg">❌</span>
-                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wide"
-                      >Было</span
-                    >
+              <!-- План и Результаты -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <!-- Что мы сделали -->
+                <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100">
+                  <div class="flex items-center gap-2 mb-4">
+                    <Icon name="fa-solid:tools" class="w-5 h-5 text-gray-600" />
+                    <span class="text-xs font-bold text-gray-600 uppercase tracking-wide">Что мы сделали</span>
                   </div>
-                  <p class="text-sm text-gray-700 leading-relaxed">{{ caseItem.pointA }}</p>
+                  <ol class="space-y-2 list-decimal list-inside text-sm text-gray-700">
+                    <li v-for="(step, i) in caseItem.plan" :key="i">{{ step }}</li>
+                  </ol>
                 </div>
 
-                <!-- Стало -->
-                <div class="p-5 bg-green-50 md:border-l-2 md:border-gray-200">
-                  <div class="flex items-center gap-2 mb-3">
-                    <span class="text-lg">✅</span>
-                    <span class="text-xs font-bold text-green-700 uppercase tracking-wide"
-                      >Стало</span
-                    >
+                <!-- Что изменилось -->
+                <div class="p-6 bg-green-50 rounded-2xl border border-green-100">
+                  <div class="flex items-center gap-2 mb-4">
+                    <Icon name="fa-solid:chart-line" class="w-5 h-5 text-green-600" />
+                    <span class="text-xs font-bold text-green-700 uppercase tracking-wide">Что изменилось</span>
                   </div>
                   <ul class="space-y-2">
-                    <li v-for="(res, i) in caseItem.result" :key="i" class="flex items-start gap-2">
-                      <Icon
-                        name="fa-solid:check"
-                        class="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5"
-                      />
+                    <li v-for="(res, i) in caseItem.results" :key="i" class="flex items-start gap-2">
+                      <Icon name="fa-solid:check" class="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
                       <span class="text-sm font-medium text-green-800">{{ res }}</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
-              <!-- План действий -->
-              <div class="mt-4 text-sm text-gray-600" v-html="caseItem.plan"></div>
-              
               <!-- Главный инсайт -->
-              <div class="mt-4 text-sm text-gray-700 italic" v-html="caseItem.mainInsight"></div>
+              <div class="p-4 bg-blue-50 rounded-xl border border-blue-100 text-sm text-gray-800">
+                <strong>Главное:</strong> {{ caseItem.mainInsight }}
+              </div>
             </div>
           </div>
         </div>
@@ -1823,38 +1808,47 @@ const ecosystemItems = [
 const cases = [
   {
     title: '«Нескучный Нетворкинг»: от неопределённости к системе',
-    job:
-      '<strong>Была работа:</strong> "Мне нужно собрать ядро авторов, которые будут делиться контентом. Но я не знаю как начать и боюсь, что это не сработает"',
-    plan:
-      '<p><strong>План действий:</strong></p><ol><li>Определили нишу и целевую аудиторию (авторы, эксперты, предприниматели)</li><li>Написали контент, который решает их проблемы напрямую</li><li>Использовали органические методы (Сетка, TenChat) вместо рекламы</li></ol>',
-    result:
-      '<ul><li>✅ 500+ подписчиков за 3 месяца без рекламного бюджета</li><li>✅ 55 активных участников в комьюнити (а не просто подписчики)</li><li>✅ Конверсия из просмотра в подписку: 50% (на тестовых постах)</li></ul>',
-    mainInsight:
-      '<strong>Главное:</strong> Теперь канал работает как магнит для нужной аудитории. Не нужно ловить случайных зрителей — они приходят сами',
+    job: 'Мне нужно собрать ядро авторов, которые будут делиться контентом. Но я не знаю как начать и боюсь, что это не сработает',
+    plan: [
+      'Определили нишу и целевую аудиторию (авторы, эксперты, предприниматели)',
+      'Написали контент, который решает их проблемы напрямую',
+      'Использовали органические методы (Сетка, TenChat) вместо рекламы',
+    ],
+    results: [
+      '500+ подписчиков за 3 месяца без рекламного бюджета',
+      '55 активных участников в комьюнити (а не просто подписчики)',
+      'Конверсия из просмотра в подписку: 50% (на тестовых постах)',
+    ],
+    mainInsight: 'Теперь канал работает как магнит для нужной аудитории. Не нужно ловить случайных зрителей — они приходят сами',
   },
   {
     title: '«Диагностики вместо консультаций»: от раздачи советов к продажам',
-    job:
-      '<strong>Была работа:</strong> "Я провожу бесплатные консультации, но половина людей просто \"сливает\" мне советы и уходит. Нужно быть избирательнее и больше продавать"'
-    ,
-    plan:
-      '<p><strong>Что изменилось:</strong></p><ol><li>Переименовали формат: \"консультация\" → \"диагностика\"</li><li>Создали скрипт: выявление боли → демонстрация решения → оффер</li><li>Начали фильтровать людей через анкету до звонка</li></ol>',
-    result:
-      '<ul><li>✅ Конверсия в покупку с холодного трафика: 20-25%</li><li>✅ Конверсия из теплой базы (подписчики): 60-80%</li><li>✅ Каждый 4-5-й звонок = оплаченный клиент</li></ul>',
-    mainInsight:
-      '<strong>Главное:</strong> Теперь я не раздаю советы, я диагностирую проблему и предлагаю решение. Это работает в 3 раза лучше',
+    job: 'Я провожу бесплатные консультации, но половина людей просто "сливает" мне советы и уходит. Нужно быть избирательнее и больше продавать',
+    plan: [
+      'Переименовали формат: "консультация" → "диагностика"',
+      'Создали скрипт: выявление боли → демонстрация решения → оффер',
+      'Начали фильтровать людей через анкету до звонка',
+    ],
+    results: [
+      'Конверсия в покупку с холодного трафика: 20-25%',
+      'Конверсия из теплой базы (подписчики): 60-80%',
+      'Каждый 4-5-й звонок = оплаченный клиент',
+    ],
+    mainInsight: 'Теперь я не раздаю советы, я диагностирую проблему и предлагаю решение. Это работает в 3 раза лучше',
   },
   {
     title: 'Мультиплатформенная стратегия продвижения: от хаоса к системе',
-    job:
-      '<strong>Была работа:</strong> "Контент разрознен, сложно удерживать темп, разные алгоритмы площадок. Нужно обеспечить стабильный трафик и узнаваемость"'
-    ,
-    plan:
-      '<p><strong>Что изменилось:</strong></p><ol><li>Внедрена система «30 минут в день» на создание и дистрибуцию контента</li><li>Адаптация одного смысла под форматы: Сетка, Дзен, ВК, Телеграм</li></ol>',
-    result:
-      '<ul><li>✅ 30 000+ общая аудитория на всех платформах</li><li>✅ +5 000 новых подписчиков органически за 3 месяца</li><li>✅ Охваты постов: 80 000+ просмотров (на примере канала в Сетке)</li></ul>',
-    mainInsight:
-      '<strong>Главное:</strong> Теперь контент работает как единая система, приводя трафик туда, где он конвертируется',
+    job: 'Контент разрознен, сложно удерживать темп, разные алгоритмы площадок. Нужно обеспечить стабильный трафик и узнаваемость',
+    plan: [
+      'Внедрена система «30 минут в день» на создание и дистрибуцию контента',
+      'Адаптация одного смысла под форматы: Сетка, Дзен, ВК, Телеграм',
+    ],
+    results: [
+      '30 000+ общая аудитория на всех платформах',
+      '+5 000 новых подписчиков органически за 3 месяца',
+      'Охваты постов: 80 000+ просмотров (на примере канала в Сетке)',
+    ],
+    mainInsight: 'Теперь контент работает как единая система, приводя трафик туда, где он конвертируется',
   },
 ]
 

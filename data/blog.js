@@ -79,6 +79,7 @@ import pozitsionirovanieEksperta from './blog/lichnyy-brend/pozitsionirovanie-ek
 import lichnyyBrendVSocsetyah from './blog/lichnyy-brend/lichnyy-brend-v-socsetyah.js'
 import lichnyySaytEksperta from './blog/lichnyy-brend/lichnyy-sayt-eksperta.js'
 import ekspertVNiche from './blog/lichnyy-brend/ekspert-v-niche.js'
+import lichnyyBrendDlyaNaemnika from './blog/lichnyy-brend/lichnyy-brend-dlya-naemnika.js'
 import chtoTakoeKontentMarketing from './blog/kontent-marketing/chto-takoe-kontent-marketing.js'
 import strategiyaKontentMarketinga from './blog/kontent-marketing/strategiya-kontent-marketinga.js'
 import kontentMarketingDlyaPrivlecheniyaKlientov from './blog/kontent-marketing/kontent-marketing-dlya-privlecheniya-klientov.js'
@@ -207,6 +208,7 @@ export const articles = [
   lichnyyBrendVSocsetyah,
   lichnyySaytEksperta,
   ekspertVNiche,
+  lichnyyBrendDlyaNaemnika,
   chtoTakoeKontentMarketing,
   strategiyaKontentMarketinga,
   kontentMarketingDlyaPrivlecheniyaKlientov,

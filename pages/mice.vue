@@ -480,9 +480,9 @@ import { ref, onMounted } from 'vue'
 const isMenuOpen = ref(false)
 const currentSlide = ref(0)
 const slides = [
-  '/images/hero/IMG_7319.JPG',
-  '/images/hero/IMG_7320.JPG',
-  '/images/hero/IMG_7321.JPG'
+  '/images/hero/IMG_7319.webp',
+  '/images/hero/IMG_7320.webp',
+  '/images/hero/IMG_7321.webp'
 ]
 
 onMounted(() => {
@@ -499,10 +499,10 @@ const kpis = [
 ]
 
 const advantages = [
-  { metric: '~40% ВРП', title: 'Промышленность', desc: 'ЛПК, горнопром, машиностроение — реальный сектор экономики', icon: 'fa-solid:industry', image: '/images/why%20Karelia/wrp.JPG' },
-  { metric: 'до 20%', title: 'Бумаги России', desc: 'Модернизированные ЦБК, глубокая переработка сырья', icon: 'fa-solid:scroll', image: '/images/why%20Karelia/paper.JPG' },
-  { metric: '>50%', title: 'Садковой форели', desc: 'Лидер аквакультуры, локализация кормов', icon: 'fa-solid:fish', image: '/images/why%20Karelia/trout.JPG' },
-  { metric: '0%', title: 'Налог на прибыль', desc: 'Льгота 5 лет + страховые 7,5% + таможня без НДС', icon: 'fa-solid:percent', image: '/images/why%20Karelia/tax.JPG' },
+  { metric: '~40% ВРП', title: 'Промышленность', desc: 'ЛПК, горнопром, машиностроение — реальный сектор экономики', icon: 'fa-solid:industry', image: '/images/why%20Karelia/wrp.webp' },
+  { metric: 'до 20%', title: 'Бумаги России', desc: 'Модернизированные ЦБК, глубокая переработка сырья', icon: 'fa-solid:scroll', image: '/images/why%20Karelia/paper.webp' },
+  { metric: '>50%', title: 'Садковой форели', desc: 'Лидер аквакультуры, локализация кормов', icon: 'fa-solid:fish', image: '/images/why%20Karelia/trout.webp' },
+  { metric: '0%', title: 'Налог на прибыль', desc: 'Льгота 5 лет + страховые 7,5% + таможня без НДС', icon: 'fa-solid:percent', image: '/images/why%20Karelia/tax.webp' },
 ]
 
 const valueList = [
@@ -548,9 +548,9 @@ const pricingPlans = [
 ]
 
 const environments = [
-  { category: 'Деловая часть', places: 'Cosmos Petrozavodsk / Piter Inn', desc: 'Конференц-залы, переговорные, Wi-Fi, трансфер', icon: 'fa-solid:briefcase', image: '/images/why%20Karelia/business-hotel.jpg' },
-  { category: 'Нетворкинг', places: 'Karjala Park / Ladoga Fjord', desc: 'Стратегические сессии, выезды, закрытые форматы', icon: 'fa-solid:users', image: '/images/why%20Karelia/networking.JPG' },
-  { category: 'Уникальный опыт', places: 'WelT Glamping / Рускеала', desc: 'Гастро-ужины, неформальные встречи, премиальный комфорт', icon: 'fa-solid:mountain-sun', image: '/images/why%20Karelia/glamping.JPG' },
+  { category: 'Деловая часть', places: 'Cosmos Petrozavodsk / Piter Inn', desc: 'Конференц-залы, переговорные, Wi-Fi, трансфер', icon: 'fa-solid:briefcase', image: '/images/why%20Karelia/business-hotel.webp' },
+  { category: 'Нетворкинг', places: 'Karjala Park / Ladoga Fjord', desc: 'Стратегические сессии, выезды, закрытые форматы', icon: 'fa-solid:users', image: '/images/why%20Karelia/networking.webp' },
+  { category: 'Уникальный опыт', places: 'WelT Glamping / Рускеала', desc: 'Гастро-ужины, неформальные встречи, премиальный комфорт', icon: 'fa-solid:mountain-sun', image: '/images/why%20Karelia/glamping.webp' },
 ]
 
 const grPartners = ['Минэкономразвития РК', 'Корпорация развития РК', 'Центр «Мой бизнес»']

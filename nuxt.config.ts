@@ -149,6 +149,7 @@ export default defineNuxtConfig({
     },
     prerender: {
       crawlLinks: true,
+      ignore: ['/admin/contacts'],
       routes: [
         '/',
         '/404',
@@ -166,6 +167,7 @@ export default defineNuxtConfig({
         '/part1',
         '/part2',
         '/part3',
+        '/mice',
         ...knowledgeRoutes,
         ...knowledgePostRoutes,
         ...blogClusters,

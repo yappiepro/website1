@@ -442,7 +442,7 @@
           <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
             <div class="p-4">
               <div class="font-bold text-white mb-2 flex items-center justify-center gap-2">
-                <Icon name="fa-solid:location-dot" class="w-4 h-4 text-blue-400" />
+                <Icon name="fa-solid:map-marker-alt" class="w-4 h-4 text-blue-400" />
                 Локация
               </div>
               <div class="text-slate-400">г. Петрозаводск, Республика Карелия</div>

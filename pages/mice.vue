@@ -793,7 +793,7 @@ const pricingPlans = [
 const environments = [
   { category: 'Деловая часть', places: 'Космос Петрозаводск / Питер Инн', desc: 'Конференц-залы на 10–200 человек, переговорные комнаты, высокоскоростной Wi-Fi, трансфер из аэропорта', icon: 'fa-solid:briefcase', image: '/images/why%20Karelia/business-hotel.webp' },
   { category: 'Нетворкинг', places: 'Карьяла Парк / Ладожский Фьорд', desc: 'Выездные стратсессии, закрытые форматы для команд, командообразование на природе', icon: 'fa-solid:users', image: '/images/why%20Karelia/networking.webp' },
-  { category: 'Уникальный опыт', places: 'WelT Глэмпинг / Рускеала', desc: 'Гастро-ужины с карельской кухней, неформальные встречи у воды, премиальный глэмпинг', icon: 'fa-solid:mountain-sun', image: '/images/why%20Karelia/glamping.webp' },
+  { category: 'Уникальный опыт', places: 'Глэмпинг 4 Стихии / Рускеала', desc: 'Гастро-ужины с карельской кухней, неформальные встречи у воды, премиальный глэмпинг', icon: 'fa-solid:mountain-sun', image: '/images/why%20Karelia/glamping.webp' },
 ]
 
 const grPartners = ['Минэкономразвития РК', 'Корпорация развития РК', 'Центр «Мой бизнес»']

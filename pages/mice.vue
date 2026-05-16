@@ -12,6 +12,7 @@
           <a href="#gr" class="hover:text-blue-600 transition-colors">GR и доступ</a>
           <a href="#cases" class="hover:text-blue-600 transition-colors">Кейсы</a>
           <a href="#contacts" class="px-5 py-2.5 rounded-xl border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all">Обсудить миссию</a>
+          <a href="https://t.me/artemslifanov" target="_blank" class="px-5 py-2.5 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition-all font-bold">Написать в Telegram</a>
         </nav>
         <div class="md:hidden">
           <button @click="isMenuOpen = !isMenuOpen" class="p-2">
@@ -20,6 +21,18 @@
         </div>
       </div>
     </header>
+
+    <!-- Mobile menu -->
+    <div v-if="isMenuOpen" class="fixed inset-0 z-40 bg-white pt-20 px-4">
+      <nav class="flex flex-col gap-6 text-lg font-semibold text-slate-700">
+        <a href="#why" @click="isMenuOpen = false">Почему Карелия</a>
+        <a href="#programs" @click="isMenuOpen = false">Программы</a>
+        <a href="#gr" @click="isMenuOpen = false">GR и доступ</a>
+        <a href="#cases" @click="isMenuOpen = false">Кейсы</a>
+        <a href="#contacts" @click="isMenuOpen = false">Обсудить миссию</a>
+        <a href="https://t.me/artemslifanov" target="_blank" class="px-5 py-3 rounded-xl bg-blue-600 text-white text-center font-bold">Написать в Telegram</a>
+      </nav>
+    </div>
 
     <main class="pt-20">
       <!-- HERO -->
@@ -48,7 +61,7 @@
             <div>
               <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600/20 border border-blue-500/30 rounded-full text-blue-400 text-sm font-medium mb-8">
                 <span class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
-                Бизнес-миссии под ключ
+                Деловой туризм в Карелию · Под ключ
               </div>
 
               <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6">
@@ -56,8 +69,12 @@
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500">территория роста</span>
               </h1>
 
-              <p class="text-lg text-slate-400 leading-relaxed mb-10 max-w-lg">
-                Организуем деловые поездки с прямым доступом к предприятиям, власти и инвестпроектам. Не тур — бизнес-инструмент.
+              <p class="text-lg text-slate-400 leading-relaxed mb-4 max-w-lg">
+                Вы тратите месяцы на поиск партнёров в новом регионе.
+                Мы открываем нужные двери за 3–5 дней.
+              </p>
+              <p class="text-base text-slate-500 leading-relaxed mb-10 max-w-lg">
+                Прямой доступ к собственникам предприятий, профильным министерствам и инвестпроектам Республики Карелия.
               </p>
 
               <div class="flex flex-wrap gap-4 mb-12">
@@ -73,15 +90,15 @@
               <div class="flex flex-wrap gap-6 text-sm text-slate-500">
                 <div class="flex items-center gap-2">
                   <Icon name="fa-solid:check" class="w-4 h-4 text-green-500" />
-                  <span>6 лет опыта</span>
+                  <span>6 лет опыта в деловом туризме</span>
                 </div>
                 <div class="flex items-center gap-2">
                   <Icon name="fa-solid:check" class="w-4 h-4 text-green-500" />
-                  <span>40+ миссий</span>
+                  <span>40+ бизнес-миссий проведено</span>
                 </div>
                 <div class="flex items-center gap-2">
                   <Icon name="fa-solid:check" class="w-4 h-4 text-green-500" />
-                  <span>Прямой доступ к ЛПР</span>
+                  <span>Прямой доступ к ЛПР региона</span>
                 </div>
               </div>
             </div>
@@ -108,8 +125,8 @@
             <h2 class="text-3xl sm:text-5xl font-black text-slate-900 mb-6 tracking-tight">
               Почему бизнес выбирает Карелию
             </h2>
-            <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-              Индустриальный регион Северо-Запада с прозрачными льготами и работающей инфраструктурой
+            <p class="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+              Индустриальный регион Северо-Запада. Здесь ещё есть пространство — рынки, которые ваши конкуренты не заметили. 107 млрд рублей инвестиций ежегодно идут в территорию с нулевым налогом на прибыль первые пять лет.
             </p>
           </div>
 
@@ -157,8 +174,12 @@
               </div>
 
               <div class="p-6 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl text-white">
-                <p class="text-base font-medium italic leading-relaxed">
-                  «Результат — конкретные договорённости и точки роста. Стоимость миссии кратно ниже стоимости ошибки при выходе в регион.»
+                <p class="text-base font-medium italic leading-relaxed mb-4">
+                  «Результат — конкретные договорённости и точки роста.
+                  Стоимость одной миссии кратно ниже стоимости одной ошибки при самостоятельном выходе в регион.»
+                </p>
+                <p class="text-sm font-semibold opacity-90">
+                  — Артём Селифанов, организатор бизнес-миссий, 6 лет в системе поддержки предпринимательства Карелии
                 </p>
               </div>
             </div>
@@ -196,8 +217,8 @@
             <h2 class="text-3xl sm:text-5xl font-black text-slate-900 mb-6 tracking-tight">
               Форматы бизнес-миссий
             </h2>
-            <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-              Прозрачная логика. Оплата за результат доступа, а не за «дни проживания»
+            <p class="text-lg text-slate-600 max-w-3xl mx-auto">
+              Прозрачная логика. Вы платите за доступ и результат — не за дни проживания и «туристическую программу»
             </p>
           </div>
 
@@ -218,8 +239,8 @@
               </div>
 
               <div class="space-y-3 mb-8">
-                <div v-for="feature in plan.features" :key="feature" class="flex items-center gap-3 text-sm text-slate-600">
-                  <Icon name="fa-solid:check" class="w-4 h-4 text-blue-600 flex-shrink-0" />
+                <div v-for="feature in plan.features" :key="feature" class="flex items-start gap-3 text-sm text-slate-600">
+                  <Icon name="fa-solid:check" class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                   {{ feature }}
                 </div>
               </div>
@@ -237,8 +258,10 @@
             </div>
           </div>
 
-          <p class="text-center text-slate-500 text-sm mt-12 italic">
-            Итоговая стоимость формируется индивидуально. Для корпоративных групп (MICE) — от 1,5 млн ₽.
+          <p class="text-center text-slate-500 text-sm mt-12 leading-relaxed">
+            Итоговая стоимость формируется индивидуально после брифинга.<br />
+            Для корпоративных групп и MICE-мероприятий (от 10 человек) — от 1,5 млн ₽.<br />
+            Программа и предварительный расчёт — в течение 24 часов.
           </p>
         </div>
       </section>
@@ -250,8 +273,8 @@
             <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-blue-400 text-sm font-semibold mb-6">
               Среда для решений
             </div>
-            <h2 class="text-3xl sm:text-5xl font-black mb-6">Подбираем среду под задачи бизнеса</h2>
-            <p class="text-slate-400 text-lg max-w-2xl mx-auto">Окружение, которое способствует принятию решений</p>
+            <h2 class="text-3xl sm:text-5xl font-black mb-6">Среда, в которой принимают решения</h2>
+            <p class="text-slate-400 text-lg max-w-3xl mx-auto">Переговорные и конференц-залы — для деловой части. Карельская природа — для того, что важнее</p>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -275,7 +298,7 @@
           <div class="mt-16 text-center">
             <div class="inline-block p-8 rounded-2xl bg-white/5 border border-white/10">
               <p class="italic text-xl text-slate-300 font-medium">
-                «Люди принимают решения не в переговорных, а после них.»
+                «Люди принимают решения не в переговорных — а после них. Карелия умеет создавать это "после".»
               </p>
             </div>
           </div>
@@ -290,10 +313,10 @@
               Прямой доступ
             </div>
             <h2 class="text-3xl sm:text-5xl font-black text-slate-900 mb-6 tracking-tight">
-              Ваш канал к власти и институтам развития
+              Прямой доступ к власти и институтам развития
             </h2>
-            <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-              Вы не ищете контакты — вы сразу работаете с ними
+            <p class="text-lg text-slate-600 max-w-3xl mx-auto">
+              Вы приезжаете не на экскурсию. Вы сразу садитесь за стол с теми, кто принимает решения в регионе
             </p>
           </div>
 
@@ -334,11 +357,11 @@
               <div class="space-y-4">
                 <div>
                   <div class="text-3xl font-black text-white">6 лет</div>
-                  <div class="text-sm text-slate-400">в системе поддержки предпринимательства</div>
+                  <div class="text-sm text-slate-400">в системе поддержки предпринимательства Карелии</div>
                 </div>
                 <div>
                   <div class="text-3xl font-black text-white">40+</div>
-                  <div class="text-sm text-slate-400">организованных миссий</div>
+                  <div class="text-sm text-slate-400">бизнес-миссий от разведки до закрытых сделок</div>
                 </div>
               </div>
             </div>
@@ -357,8 +380,53 @@
         </div>
       </section>
 
+      <!-- IS THIS FOR YOU? -->
+      <section class="py-24 md:py-32 px-4 sm:px-6 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full text-blue-600 text-sm font-semibold mb-6">
+              Для кого это
+            </div>
+            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 mb-6">Это для вас?</h2>
+            <p class="text-lg text-slate-600 max-w-3xl mx-auto">
+              Мы работаем с теми, кто едет в Карелию за результатом — а не за фотографиями с водопадов
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <!-- This is for you -->
+            <div class="p-8 rounded-2xl bg-white border border-green-200 shadow-sm">
+              <div class="text-lg font-black text-green-700 mb-6 flex items-center gap-3">
+                <Icon name="fa-solid:check-circle" class="w-6 h-6" />
+                Это для вас, если...
+              </div>
+              <ul class="space-y-4">
+                <li v-for="item in isForYou" :key="item" class="flex items-start gap-3 text-sm text-slate-700">
+                  <Icon name="fa-solid:check" class="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                  {{ item }}
+                </li>
+              </ul>
+            </div>
+
+            <!-- This is NOT for you -->
+            <div class="p-8 rounded-2xl bg-white border border-slate-200">
+              <div class="text-lg font-black text-slate-500 mb-6 flex items-center gap-3">
+                <Icon name="fa-solid:times-circle" class="w-6 h-6" />
+                Это не для вас, если...
+              </div>
+              <ul class="space-y-4">
+                <li v-for="item in notForYou" :key="item" class="flex items-start gap-3 text-sm text-slate-500">
+                  <Icon name="fa-solid:times" class="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
+                  {{ item }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- BUSINESS TASKS -->
-      <section class="py-20 px-4 sm:px-6 bg-slate-50">
+      <section class="py-20 px-4 sm:px-6 bg-white">
         <div class="max-w-4xl mx-auto text-center">
           <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full text-blue-600 text-sm font-semibold mb-6">
             Под любую задачу
@@ -366,7 +434,7 @@
           <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-10">Проектируем миссию под вашу цель</h2>
           <div class="flex flex-wrap justify-center gap-3">
             <span v-for="tag in taskTags" :key="tag" 
-                  class="px-5 py-2.5 bg-white border border-slate-200 text-slate-700 rounded-full text-sm font-semibold hover:border-blue-600 hover:text-blue-600 transition-all cursor-default">
+                  class="px-5 py-2.5 bg-slate-50 border border-slate-200 text-slate-700 rounded-full text-sm font-semibold hover:border-blue-600 hover:text-blue-600 transition-all cursor-default">
               {{ tag }}
             </span>
           </div>
@@ -374,7 +442,7 @@
       </section>
 
       <!-- CASES -->
-      <section id="cases" class="py-24 md:py-32 px-4 sm:px-6 bg-white">
+      <section id="cases" class="py-24 md:py-32 px-4 sm:px-6 bg-slate-50">
         <div class="max-w-7xl mx-auto">
           <div class="text-center mb-16">
             <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full text-blue-600 text-sm font-semibold mb-6">
@@ -383,27 +451,55 @@
             <h2 class="text-3xl sm:text-5xl font-black text-slate-900 mb-6 tracking-tight">
               Кейсы и результаты
             </h2>
-            <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-              Мы не делаем туры. Мы создаём условия для сделок.
+            <p class="text-lg text-slate-600 max-w-3xl mx-auto">
+              Мы не делаем туры. Мы создаём условия, в которых рождаются сделки
             </p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
             <div v-for="(caseItem, i) in cases" :key="i" 
                  class="group p-8 rounded-2xl bg-white border border-slate-200 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-500/5 transition-all">
-              <div class="text-sm font-bold text-blue-600 uppercase tracking-wider mb-4">{{ caseItem.client }}</div>
-              <div class="text-slate-900 font-bold mb-6 leading-relaxed">{{ caseItem.text }}</div>
-              <div class="flex items-center gap-2 pt-4 border-t border-slate-100">
-                <Icon name="fa-solid:chart-line" class="w-4 h-4 text-green-600" />
-                <span class="text-sm font-bold text-green-600">{{ caseItem.result }}</span>
+              <div class="text-sm font-bold text-blue-600 uppercase tracking-wider mb-3">{{ caseItem.client }}</div>
+              <div class="text-slate-700 text-sm mb-4">{{ caseItem.task }}</div>
+              <div class="text-slate-900 font-bold mb-4 leading-relaxed text-sm">{{ caseItem.text }}</div>
+              <div class="text-sm text-green-700 font-bold mb-4">{{ caseItem.result }}</div>
+              <div class="pt-4 border-t border-slate-100">
+                <p class="text-xs text-slate-500 italic">{{ caseItem.quote }}</p>
+                <p class="text-xs text-slate-400 mt-1">{{ caseItem.quoteAuthor }}</p>
               </div>
             </div>
           </div>
 
-          <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div v-for="adv in expertAdv" :key="adv" class="flex items-start gap-3 p-4">
               <Icon name="fa-solid:star" class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
               <span class="text-slate-700 font-medium text-sm">{{ adv }}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="py-24 md:py-32 px-4 sm:px-6 bg-white">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full text-blue-600 text-sm font-semibold mb-6">
+              Вопросы и ответы
+            </div>
+            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 mb-6">Частые вопросы</h2>
+          </div>
+
+          <div class="space-y-4">
+            <div v-for="(faq, i) in faqs" :key="i" 
+                 class="rounded-2xl border border-slate-200 bg-white overflow-hidden hover:border-blue-300 transition-all">
+              <button @click="toggleFaq(i)" class="w-full text-left p-6 flex items-start justify-between gap-4">
+                <span class="font-bold text-slate-900 text-base">{{ faq.q }}</span>
+                <Icon :name="openFaq === i ? 'fa-solid:chevron-up' : 'fa-solid:chevron-down'" 
+                      class="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5 transition-transform" />
+              </button>
+              <div v-show="openFaq === i" class="px-6 pb-6">
+                <p class="text-slate-600 text-sm leading-relaxed">{{ faq.a }}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -421,24 +517,120 @@
           </div>
 
           <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black mb-6 leading-tight">
-            Организуем бизнес-миссию,<br />
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">которая даст результат</span>
+            Обсудим вашу задачу
           </h2>
 
           <p class="text-slate-400 text-lg mb-12 max-w-xl mx-auto">
-            Пришлём программу и расчёт под вашу отрасль в течение 24 часов
+            Расскажите о задаче в двух словах — пришлём предварительную программу и расчёт в течение 24 часов. Без давления и обязательств.
           </p>
 
-          <div class="max-w-md mx-auto p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
-              <input type="text" placeholder="Имя / Компания" class="px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm" />
-              <input type="text" placeholder="Email / Telegram" class="px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm" />
+          <!-- Multi-step form -->
+          <div class="max-w-lg mx-auto p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm text-left">
+            <!-- Step indicators -->
+            <div class="flex items-center gap-2 mb-8">
+              <div v-for="s in 3" :key="s" class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all"
+                     :class="formStep >= s ? 'bg-blue-600 text-white' : 'bg-white/10 text-slate-400'">
+                  {{ s }}
+                </div>
+                <div v-if="s < 3" class="w-8 h-px" :class="formStep > s ? 'bg-blue-600' : 'bg-white/10'"></div>
+              </div>
             </div>
-            <button class="w-full py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-600/25">
-              Получить программу
-            </button>
+
+            <!-- Step 1: Format -->
+            <div v-show="formStep === 1">
+              <div class="text-sm font-bold text-slate-300 uppercase tracking-wider mb-4">Выберите формат</div>
+              <div class="space-y-3">
+                <label v-for="opt in formatOptions" :key="opt.value"
+                       class="flex items-center gap-3 p-4 rounded-xl border cursor-pointer transition-all"
+                       :class="formFormat === opt.value ? 'border-blue-500 bg-blue-600/10' : 'border-white/10 bg-white/5 hover:border-white/20'">
+                  <input type="radio" name="format" :value="opt.value" v-model="formFormat" class="sr-only" />
+                  <div class="w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0"
+                       :class="formFormat === opt.value ? 'border-blue-500' : 'border-white/30'">
+                    <div v-if="formFormat === opt.value" class="w-2 h-2 rounded-full bg-blue-500"></div>
+                  </div>
+                  <span class="text-sm font-medium">{{ opt.label }}</span>
+                </label>
+              </div>
+              <button @click="formStep = 2" class="w-full mt-6 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all">
+                Далее →
+              </button>
+            </div>
+
+            <!-- Step 2: Task -->
+            <div v-show="formStep === 2">
+              <div class="text-sm font-bold text-slate-300 uppercase tracking-wider mb-4">Ваша задача</div>
+              <div class="space-y-4">
+                <div>
+                  <label class="text-sm text-slate-400 mb-1 block">Ваша отрасль *</label>
+                  <input v-model="formIndustry" type="text" placeholder="Например: производство, IT, логистика"
+                         class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm" />
+                </div>
+                <div>
+                  <label class="text-sm text-slate-400 mb-1 block">Опишите задачу кратко</label>
+                  <textarea v-model="formTask" rows="3" placeholder="Что хотите получить от поездки?"
+                            class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm resize-none"></textarea>
+                </div>
+                <div>
+                  <label class="text-sm text-slate-400 mb-1 block">Примерные даты или период</label>
+                  <input v-model="formDates" type="text" placeholder="Например: март 2026, или «гибко»"
+                         class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm" />
+                </div>
+              </div>
+              <div class="flex gap-3 mt-6">
+                <button @click="formStep = 1" class="flex-1 py-4 bg-white/10 hover:bg-white/15 text-white font-bold rounded-xl transition-all">
+                  ← Назад
+                </button>
+                <button @click="formStep = 3" class="flex-1 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all">
+                  Далее →
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 3: Contacts -->
+            <div v-show="formStep === 3">
+              <div class="text-sm font-bold text-slate-300 uppercase tracking-wider mb-4">Контакты</div>
+              <div class="space-y-4">
+                <div>
+                  <label class="text-sm text-slate-400 mb-1 block">Ваше имя *</label>
+                  <input v-model="formName" type="text" placeholder="Как к вам обращаться"
+                         class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm" />
+                </div>
+                <div>
+                  <label class="text-sm text-slate-400 mb-1 block">Telegram или телефон *</label>
+                  <input v-model="formContact" type="text" placeholder="@username или +7..."
+                         class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm" />
+                </div>
+                <div>
+                  <label class="text-sm text-slate-400 mb-1 block">Email</label>
+                  <input v-model="formEmail" type="email" placeholder="Необязательно"
+                         class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm" />
+                </div>
+              </div>
+              <div class="flex gap-3 mt-6">
+                <button @click="formStep = 2" class="flex-1 py-4 bg-white/10 hover:bg-white/15 text-white font-bold rounded-xl transition-all">
+                  ← Назад
+                </button>
+                <button @click="submitForm" class="flex-1 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-600/25">
+                  Получить программу и расчёт →
+                </button>
+              </div>
+            </div>
+
+            <!-- Success message -->
+            <div v-show="formSubmitted" class="text-center py-8">
+              <Icon name="fa-solid:check-circle" class="w-16 h-16 text-green-500 mx-auto mb-4" />
+              <div class="text-xl font-bold mb-2">Заявка отправлена!</div>
+              <p class="text-slate-400 text-sm">Отвечу лично в течение нескольких часов. Без спама и автоответов.</p>
+            </div>
           </div>
 
+          <p class="mt-6 text-sm text-slate-500 italic">
+            Отвечаю лично в течение нескольких часов. Без спама и автоответов.<br />
+            — Артём Селифанов
+          </p>
+
+          <!-- Contact info -->
           <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
             <div class="p-4">
               <div class="font-bold text-white mb-2 flex items-center justify-center gap-2">
@@ -452,23 +644,47 @@
                 <Icon name="fa-solid:envelope" class="w-4 h-4 text-blue-400" />
                 Email
               </div>
-              <div class="text-slate-400">your@email.ru</div>
+              <a href="mailto:a9535487323@yandex.ru" class="text-slate-400 hover:text-blue-400 transition-colors">a9535487323@yandex.ru</a>
             </div>
             <div class="p-4">
               <div class="font-bold text-white mb-2 flex items-center justify-center gap-2">
                 <Icon name="fa-brands:telegram" class="w-4 h-4 text-blue-400" />
                 Telegram
               </div>
-              <div class="text-slate-400">@your_handle</div>
+              <a href="https://t.me/artemslifanov" target="_blank" class="text-slate-400 hover:text-blue-400 transition-colors">@artemslifanov</a>
             </div>
+          </div>
+
+          <!-- Quick contact buttons -->
+          <div class="mt-12 flex flex-wrap justify-center gap-4">
+            <a href="https://t.me/artemslifanov" target="_blank"
+               class="px-6 py-3 rounded-xl bg-blue-600/20 border border-blue-500/30 text-blue-400 font-semibold text-sm hover:bg-blue-600/30 transition-all flex items-center gap-2">
+              <Icon name="fa-brands:telegram" class="w-4 h-4" />
+              Написать в Telegram
+            </a>
+            <a href="mailto:a9535487323@yandex.ru"
+               class="px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-slate-300 font-semibold text-sm hover:bg-white/10 transition-all flex items-center gap-2">
+              <Icon name="fa-solid:envelope" class="w-4 h-4" />
+              Написать на Email
+            </a>
+            <a href="https://max.ru/u/f9LHodD0cOLO_FSLoMnfL87zUzWaeDrIUVzSccI1rSSfL24Xr81W37H7wmk" target="_blank"
+               class="px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-slate-300 font-semibold text-sm hover:bg-white/10 transition-all flex items-center gap-2">
+              <Icon name="fa-solid:comment-dots" class="w-4 h-4" />
+              Написать в MAX
+            </a>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="py-12 bg-slate-950 text-slate-500 text-center border-t border-slate-900">
-      <div class="max-w-7xl mx-auto px-4 text-xs uppercase tracking-widest font-bold">
-        © 2026 MICE KARELIA. Все права защищены.
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-xs uppercase tracking-widest font-bold mb-2">
+          © 2026 MICE KARELIA. Все права защищены.
+        </div>
+        <div class="text-xs text-slate-600">
+          Организатор: Артём Селифанов · г. Петрозаводск, Республика Карелия
+        </div>
       </div>
     </footer>
   </div>
@@ -476,6 +692,15 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+
+useHead({
+  title: 'Бизнес-миссии в Карелию | MICE Karelia — Артём Селифанов',
+  meta: [
+    { name: 'description', content: 'Бизнес-миссии в Карелию под ключ. Прямой доступ к предприятиям, власти и инвестпроектам. 6 лет опыта, 40+ организованных миссий. Программа и расчёт за 24 часа.' },
+    { property: 'og:title', content: 'Бизнес-миссии в Карелию | MICE Karelia' },
+    { property: 'og:description', content: 'Бизнес-миссии в Карелию под ключ. Прямой доступ к предприятиям, власти и инвестпроектам. 6 лет опыта, 40+ организованных миссий.' },
+  ]
+})
 
 const isMenuOpen = ref(false)
 const currentSlide = ref(0)
@@ -492,32 +717,32 @@ onMounted(() => {
 })
 
 const kpis = [
-  { val: '107+ млрд ₽', label: 'Инвестиций в год' },
+  { val: '107+ млрд ₽', label: 'Инвестиций в регион ежегодно' },
   { val: '40%', label: 'ВРП — промышленность' },
-  { val: '>50%', label: 'Форели России' },
-  { val: 'Топ-17', label: 'Инвестклимат РФ' },
+  { val: '>50%', label: 'Форели России производится здесь' },
+  { val: 'Топ-17', label: 'Инвестклимат РФ (RAEX)' },
 ]
 
 const advantages = [
-  { metric: '~40% ВРП', title: 'Промышленность', desc: 'ЛПК, горнопром, машиностроение — реальный сектор экономики', icon: 'fa-solid:industry', image: '/images/why%20Karelia/wrp.webp' },
-  { metric: 'до 20%', title: 'Бумаги России', desc: 'Модернизированные ЦБК, глубокая переработка сырья', icon: 'fa-solid:scroll', image: '/images/why%20Karelia/paper.webp' },
-  { metric: '>50%', title: 'Садковой форели', desc: 'Лидер аквакультуры, локализация кормов', icon: 'fa-solid:fish', image: '/images/why%20Karelia/trout.webp' },
-  { metric: '0%', title: 'Налог на прибыль', desc: 'Льгота 5 лет + страховые 7,5% + таможня без НДС', icon: 'fa-solid:percent', image: '/images/why%20Karelia/tax.webp' },
+  { metric: '~40% ВРП', title: 'Промышленность', desc: 'ЛПК, горнодобывающий сектор, машиностроение. Реальная экономика, не сервисный пузырь', icon: 'fa-solid:industry', image: '/images/why%20Karelia/wrp.webp' },
+  { metric: 'до 20%', title: 'Бумаги России', desc: 'Модернизированные ЦБК с глубокой переработкой. Сегежский и Кондопожский — якоря отрасли', icon: 'fa-solid:scroll', image: '/images/why%20Karelia/paper.webp' },
+  { metric: '>50%', title: 'Садковой форели', desc: 'Абсолютный лидер аквакультуры России. Растущий рынок с господдержкой и потенциалом экспорта', icon: 'fa-solid:fish', image: '/images/why%20Karelia/trout.webp' },
+  { metric: '0%', title: 'Налог на прибыль', desc: 'Нулевой налог на прибыль первые 5 лет. Страховые взносы 7,5%. Таможня без НДС для резидентов ОЭЗ', icon: 'fa-solid:percent', image: '/images/why%20Karelia/tax.webp' },
 ]
 
 const valueList = [
-  'Встречи с собственниками и директорами заводов',
-  'Переговоры с потенциальными партнёрами и поставщиками',
-  'Доступ к инвестиционным проектам и промпаркам',
-  'GR-сопровождение (министерства, Корпорация развития)',
+  'Встречи с собственниками и директорами — без посредников и ассистентов',
+  'Переговоры с партнёрами и поставщиками, отобранными под вашу отрасль',
+  'Доступ к инвестиционным проектам и промышленным паркам региона',
+  'GR-сопровождение: министерства, Корпорация развития, институты поддержки',
   'Полная логистика, размещение и отчётность для центров «Мой бизнес»'
 ]
 
 const steps = [
-  { title: 'Брифинг', desc: 'Определяем ваши бизнес-цели и задачи' },
-  { title: 'Подбор программы', desc: 'Формируем маршрут, встречи, GR-сессии' },
-  { title: 'Реализация', desc: 'Полное сопровождение на месте' },
-  { title: 'Результат', desc: 'Конкретные договорённости и дорожная карта' },
+  { title: 'Брифинг', desc: 'Вы рассказываете о целях. Мы задаём 5 ключевых вопросов, чтобы понять, кто нужен и зачем' },
+  { title: 'Программа под задачу', desc: 'Формируем маршрут, список встреч и GR-сессии — согласовываем с вами до старта' },
+  { title: 'Реализация', desc: 'Полное сопровождение: трансфер, размещение, модерация переговоров, протоколы встреч' },
+  { title: 'Результат', desc: 'Конкретные договорённости, дорожная карта и отчёт для вашей управленческой команды' },
 ]
 
 const pricingPlans = [
@@ -526,31 +751,49 @@ const pricingPlans = [
     duration: '3 дня',
     price: 'от 70 000',
     highlight: false,
-    features: ['Обзор экономики региона', '1–2 предприятия', 'Базовые встречи', 'Нетворкинг-сессия'],
-    result: 'Понимание рынка + первые контакты'
+    features: [
+      'Обзор экономики и инвестклимата региона',
+      'Посещение 1–2 профильных предприятий',
+      'Встречи с представителями отрасли',
+      'Нетворкинг-сессия с локальными предпринимателями'
+    ],
+    result: 'Понимание рынка, первые живые контакты и ориентир для следующего шага'
   },
   {
     name: 'Отраслевая миссия',
     duration: '3–5 дней',
     price: 'от 110 000',
     highlight: true,
-    features: ['Подбор заводов под задачу', '5–7 B2B-встреч', 'GR-сессия с властью', 'Расширенный нетворкинг'],
-    result: 'Конкретные партнёры + дорожная карта'
+    features: [
+      'Подбор предприятий и партнёров под вашу отраслевую задачу',
+      '5–7 B2B-встреч с собственниками и директорами',
+      'GR-сессия с профильным министерством или Корпорацией развития',
+      'Расширенный нетворкинг в закрытом формате',
+      'Протокол встреч и дорожная карта'
+    ],
+    result: 'Конкретные партнёры, зафиксированные договорённости и дорожная карта входа в регион'
   },
   {
     name: 'Инвестиционная VIP',
     duration: '7+ дней',
     price: 'от 250 000',
     highlight: false,
-    features: ['Все кластеры региона', 'Встречи с руководством', 'Стратегия входа', 'Индивидуальные переговоры'],
-    result: 'Готовая модель запуска в регионе'
+    features: [
+      'Погружение во все ключевые кластеры региона',
+      'Встречи с первыми лицами предприятий и институтов',
+      'Индивидуальные переговоры под инвестиционную задачу',
+      'Разработка стратегии входа с финансовой моделью',
+      'Юридическое и GR-сопровождение на старте',
+      'Постмиссионное сопровождение (1 месяц)'
+    ],
+    result: 'Готовая модель запуска: партнёры, юрструктура, план первых 90 дней в регионе'
   }
 ]
 
 const environments = [
-  { category: 'Деловая часть', places: 'Cosmos Petrozavodsk / Piter Inn', desc: 'Конференц-залы, переговорные, Wi-Fi, трансфер', icon: 'fa-solid:briefcase', image: '/images/why%20Karelia/business-hotel.webp' },
-  { category: 'Нетворкинг', places: 'Karjala Park / Ladoga Fjord', desc: 'Стратегические сессии, выезды, закрытые форматы', icon: 'fa-solid:users', image: '/images/why%20Karelia/networking.webp' },
-  { category: 'Уникальный опыт', places: 'WelT Glamping / Рускеала', desc: 'Гастро-ужины, неформальные встречи, премиальный комфорт', icon: 'fa-solid:mountain-sun', image: '/images/why%20Karelia/glamping.webp' },
+  { category: 'Деловая часть', places: 'Cosmos Petrozavodsk / Piter Inn', desc: 'Конференц-залы на 10–200 человек, переговорные комнаты, высокоскоростной Wi-Fi, трансфер из аэропорта', icon: 'fa-solid:briefcase', image: '/images/why%20Karelia/business-hotel.webp' },
+  { category: 'Нетворкинг', places: 'Karjala Park / Ladoga Fjord', desc: 'Выездные стратсессии, закрытые форматы для команд, командообразование на природе', icon: 'fa-solid:users', image: '/images/why%20Karelia/networking.webp' },
+  { category: 'Уникальный опыт', places: 'WelT Glamping / Рускеала', desc: 'Гастро-ужины с карельской кухней, неформальные встречи у воды, премиальный глэмпинг', icon: 'fa-solid:mountain-sun', image: '/images/why%20Karelia/glamping.webp' },
 ]
 
 const grPartners = ['Минэкономразвития РК', 'Корпорация развития РК', 'Центр «Мой бизнес»']
@@ -562,6 +805,21 @@ const anchorCompanies = [
   'ИП Федоренко (Кондопога)', 
   'ООО «Каламар» (Костомукша)', 
   'ГК «Интеркамень»'
+]
+
+const isForYou = [
+  'Вы рассматриваете Карелию как рынок сбыта, площадку для производства или объект инвестиций',
+  'Вам нужны живые переговоры с собственниками, а не презентации от менеджеров',
+  'Вы или ваш представитель готовы принимать решения прямо на месте',
+  'Вы хотите понять регион изнутри — с реальными цифрами и без маркетинга',
+  'Вы ищете отраслевые партнёрства, поставщиков или локацию для проекта'
+]
+
+const notForYou = [
+  'Вы ищете туристическую поездку с культурной программой',
+  'Вам нужна красивая папка с буклетами о регионе',
+  'Вы не готовы к реальным переговорам и конкретным договорённостям',
+  'У вас нет мандата принимать решения или представлять компанию'
 ]
 
 const taskTags = [
@@ -578,8 +836,80 @@ const expertAdv = [
 ]
 
 const cases = [
-  { client: 'Производитель оборудования', text: '3 встречи с заводами, подписан протокол намерений.', result: 'Сделка в процессе' },
-  { client: 'Инвестфонд', text: 'Выезд на карьер, GR-встреча, запущен аудит проекта.', result: 'Объём 1.2 млрд ₽' },
-  { client: 'Корпорация (28 чел.)', text: 'Стратсессия + тимбилдинг, утверждена дорожная карта.', result: 'NPS 92%' },
+  { 
+    client: 'Производитель промышленного оборудования, Москва', 
+    task: 'Задача: найти OEM-партнёра в сегменте ЛПК.',
+    text: 'За 4 дня: 3 встречи с директорами заводов, 2 тура по производствам, GR-сессия с Минпромом РК.',
+    result: 'Итог: подписан протокол намерений, сделка на финальной стадии.',
+    quote: '«За 4 дня мы прошли путь, который самостоятельно занял бы год переписки»',
+    quoteAuthor: '— руководитель направления развития'
+  },
+  { 
+    client: 'Частный инвестиционный фонд', 
+    task: 'Задача: оценить проект горнодобычи перед входом.',
+    text: 'За 3 дня: выезд на объект, встреча с собственниками, GR-сессия с Корпорацией развития РК.',
+    result: 'Итог: запущен независимый аудит проекта. Объём сделки — 1,2 млрд ₽.',
+    quote: '«Мы увидели всё своими глазами и поняли, что проект реален»',
+    quoteAuthor: '— партнёр фонда'
+  },
+  { 
+    client: 'Корпоративный MICE — федеральная компания, 28 участников', 
+    task: 'Задача: выездная стратегическая сессия + командообразование.',
+    text: 'За 5 дней: деловая программа в Петрозаводске, стратсессия в Karjala Park, тимбилдинг на Ладоге.',
+    result: 'Итог: утверждена дорожная карта на 2025 год. NPS участников — 92%.',
+    quote: '«Природа Карелии сделала то, что не удалось офисным переговорам»',
+    quoteAuthor: '— HR-директор'
+  },
 ]
+
+const faqs = [
+  {
+    q: 'Нужно ли заранее знать, с кем мы хотим встретиться?',
+    a: 'Нет. Именно за это вы и платите. Мы сами проектируем список контактов под вашу задачу: собираем информацию об отрасли, выходим на нужных людей и согласовываем встречи заранее. Вы приезжаете к уже подтверждённой программе.'
+  },
+  {
+    q: 'Что если мы группа 10+ человек?',
+    a: 'Для корпоративных групп (MICE) мы готовим отдельную программу. Стоимость — от 1,5 млн ₽ за группу, зависит от состава, формата и задач. Напишите нам — пришлём коммерческое предложение в течение 24 часов.'
+  },
+  {
+    q: 'Как быстро готовится программа?',
+    a: 'Предварительную программу и расчёт — пришлём в течение 24 часов после брифинга. Полную согласованную программу со встречами — в течение 5–7 рабочих дней.'
+  },
+  {
+    q: 'Есть ли гарантии, что встречи состоятся?',
+    a: 'Мы согласовываем все встречи письменно до старта миссии. Если встреча по независящим от нас причинам срывается — заменяем равноценной альтернативой. Это наша репутация, и мы её защищаем.'
+  },
+  {
+    q: 'Подходит ли это для малого бизнеса или только для крупных компаний?',
+    a: 'Подходит для любых предпринимателей, готовых к серьёзным переговорам. Среди участников наших миссий — от ИП до федеральных корпораций. Главное — конкретная задача и готовность двигаться к результату.'
+  }
+]
+
+const openFaq = ref(null)
+function toggleFaq(i) {
+  openFaq.value = openFaq.value === i ? null : i
+}
+
+// Form state
+const formStep = ref(1)
+const formFormat = ref('industry')
+const formIndustry = ref('')
+const formTask = ref('')
+const formDates = ref('')
+const formName = ref('')
+const formContact = ref('')
+const formEmail = ref('')
+const formSubmitted = ref(false)
+
+const formatOptions = [
+  { value: 'basic', label: 'Базовый вход (3 дня, от 70 000 ₽/чел)' },
+  { value: 'industry', label: 'Отраслевая миссия (3–5 дней, от 110 000 ₽/чел)' },
+  { value: 'vip', label: 'Инвестиционная VIP (7+ дней, от 250 000 ₽/чел)' },
+  { value: 'mice', label: 'Корпоративный MICE (группа от 10 чел)' },
+  { value: 'unknown', label: 'Ещё не знаю — помогите выбрать' }
+]
+
+function submitForm() {
+  formSubmitted.value = true
+}
 </script>

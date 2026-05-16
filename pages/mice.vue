@@ -505,6 +505,374 @@
         </div>
       </section>
 
+      <!-- PROGRAM EXAMPLE -->
+      <section class="py-24 md:py-32 px-4 sm:px-6 bg-slate-50">
+        <div class="max-w-5xl mx-auto">
+          <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full text-blue-600 text-sm font-semibold mb-6">
+              Пример программы
+            </div>
+            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 mb-6 tracking-tight">
+              Как это выглядит изнутри
+            </h2>
+            <p class="text-lg text-slate-600 max-w-3xl mx-auto">
+              Отраслевая миссия · Аквакультура · 4 дня<br />
+              <span class="text-slate-400">Маршрут: Москва — Петрозаводск — Кондопога — Петрозаводск — Москва</span>
+            </p>
+            <p class="text-sm text-slate-500 mt-4 max-w-2xl mx-auto leading-relaxed">
+              Ниже — реальная структура миссии для производителя рыбных кормов, который искал партнёров среди карельских форелеводческих хозяйств. Имена и детали изменены. Логика и хронология — настоящие.
+            </p>
+          </div>
+
+          <!-- Timeline -->
+          <div class="relative">
+            <!-- Vertical line -->
+            <div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-slate-200 md:-translate-x-px"></div>
+
+            <!-- Day 0 -->
+            <div class="relative mb-12 md:mb-16">
+              <div class="flex flex-col md:flex-row md:items-start">
+                <!-- Day badge -->
+                <div class="flex items-center gap-4 mb-4 md:mb-0 md:w-1/2 md:pr-12 md:text-right md:flex-col md:items-end">
+                  <div class="relative z-10 w-12 h-12 rounded-full bg-slate-900 text-white flex items-center justify-center text-sm font-black flex-shrink-0">
+                    0
+                  </div>
+                  <div>
+                    <div class="text-sm font-bold text-slate-900">Отправление</div>
+                    <div class="text-xs text-slate-500">Москва, Ленинградский вокзал</div>
+                  </div>
+                </div>
+                <!-- Spacer for desktop -->
+                <div class="hidden md:block md:w-12 flex-shrink-0"></div>
+                <!-- Content -->
+                <div class="md:w-1/2 md:pl-12">
+                  <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                    <div class="flex items-start gap-3 mb-3">
+                      <span class="text-lg">🚆</span>
+                      <div>
+                        <span class="font-mono text-sm font-bold text-blue-600">21:35</span>
+                        <span class="text-sm text-slate-700 ml-2">Посадка на поезд № 018А «Карелия» (Москва — Петрозаводск)</span>
+                      </div>
+                    </div>
+                    <div class="ml-11 text-sm text-slate-500 space-y-1">
+                      <p>Вагон СВ или купе — в зависимости от предпочтений</p>
+                      <p>Билеты включены в стоимость миссии</p>
+                    </div>
+                    <div class="mt-4 ml-11 p-3 rounded-xl bg-blue-50 border border-blue-100">
+                      <p class="text-xs text-blue-700 italic leading-relaxed">
+                        Поезд удобен: не нужно приезжать в аэропорт за 2 часа, не нужно сдавать багаж. Ложитесь спать в Москве — просыпаетесь в Карелии.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 1 -->
+            <div class="relative mb-12 md:mb-16">
+              <div class="flex flex-col md:flex-row md:items-start">
+                <div class="flex items-center gap-4 mb-4 md:mb-0 md:w-1/2 md:pr-12 md:text-right md:flex-col md:items-end">
+                  <div class="relative z-10 w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-black flex-shrink-0">
+                    1
+                  </div>
+                  <div>
+                    <div class="text-sm font-bold text-slate-900">Прибытие и погружение</div>
+                    <div class="text-xs text-slate-500">Петрозаводск</div>
+                  </div>
+                </div>
+                <div class="hidden md:block md:w-12 flex-shrink-0"></div>
+                <div class="md:w-1/2 md:pl-12">
+                  <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+                    <!-- Event -->
+                    <div class="flex items-start gap-3">
+                      <span class="text-lg">🚐</span>
+                      <div>
+                        <span class="font-mono text-sm font-bold text-blue-600">07:10</span>
+                        <span class="text-sm text-slate-700 ml-2">Прибытие на вокзал Петрозаводск</span>
+                        <p class="text-xs text-slate-500 mt-1 ml-0">Встреча с сопровождающим на перроне — табличка с именем</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                      <span class="text-lg">🏨</span>
+                      <div>
+                        <span class="font-mono text-sm font-bold text-blue-600">07:45</span>
+                        <span class="text-sm text-slate-700 ml-2">Заселение · Cosmos Hotel Petrozavodsk 4★</span>
+                        <p class="text-xs text-slate-500 mt-1 ml-0">Номер готов с утра. Завтрак включён</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                      <span class="text-lg">🤝</span>
+                      <div>
+                        <span class="font-mono text-sm font-bold text-blue-600">09:30</span>
+                        <span class="text-sm text-slate-700 ml-2">Брифинг с организатором</span>
+                        <p class="text-xs text-slate-500 mt-1 ml-0">Артём Селифанов лично: финальная сверка программы, цели на каждую встречу</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                      <span class="text-lg">🤝</span>
+                      <div>
+                        <span class="font-mono text-sm font-bold text-blue-600">11:00</span>
+                        <span class="text-sm text-slate-700 ml-2">Встреча 1 · Министерство сельского и рыбного хозяйства РК</span>
+                        <p class="text-xs text-slate-500 mt-1 ml-0">Начальник отдела аквакультуры: господдержка, открытые участки, субсидии</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                      <span class="text-lg">🍽</span>
+                      <div>
+                        <span class="font-mono text-sm font-bold text-blue-600">13:00</span>
+                        <span class="text-sm text-slate-700 ml-2">Обед · Ресторан «Карельская горница»</span>
+                        <p class="text-xs text-slate-500 mt-1 ml-0">Карельская кухня + нетворкинг с приглашённым местным предпринимателем</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                      <span class="text-lg">🤝</span>
+                      <div>
+                        <span class="font-mono text-sm font-bold text-blue-600">15:00</span>
+                        <span class="text-sm text-slate-700 ml-2">Встреча 2 · Корпорация развития Республики Карелия</span>
+                        <p class="text-xs text-slate-500 mt-1 ml-0">Инвестиционная карта, льготы для резидентов, практика входа</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                      <span class="text-lg">🍽</span>
+                      <div>
+                        <span class="font-mono text-sm font-bold text-blue-600">19:30</span>
+                        <span class="text-sm text-slate-700 ml-2">Неформальный ужин</span>
+                        <p class="text-xs text-slate-500 mt-1 ml-0">Встреча с двумя местными форелеводами в ресторане с видом на Онежское озеро</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 2 -->
+            <div class="relative mb-12 md:mb-16">
+              <div class="flex flex-col md:flex-row md:items-start">
+                <div class="flex items-center gap-4 mb-4 md:mb-0 md:w-1/2 md:pr-12 md:text-right md:flex-col md:items-end">
+                  <div class="relative z-10 w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-black flex-shrink-0">
+                    2
+                  </div>
+                  <div>
+                    <div class="text-sm font-bold text-slate-900">Выезд на объекты</div>
+                    <div class="text-xs text-slate-500">Петрозаводск → Кондопога → Медвежьегорский район</div>
+                  </div>
+                </div>
+                <div class="hidden md:block md:w-12 flex-shrink-0"></div>
+                <div class="md:w-1/2 md:pl-12">
+                  <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+                    <div class="flex items-start gap-3">
+                      <span class="text-lg">🚐</span>
+                      <div>
+                        <span class="font-mono text-sm font-bold text-blue-600">09:00</span>
+                        <span class="text-sm text-slate-700 ml-2">Выезд на объект 1 · Форелевое хозяйство, Кондопожский район</span>
+                        <p class="text-xs text-slate-500 mt-1 ml-0">~60 км от Петрозаводска, трансфер на минивэне</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                      <span class="text-lg">🏭</span>
+                      <div>
+                        <span class="font-mono text-sm font-bold text-blue-600">10:00</span>
+                        <span class="text-sm text-slate-700 ml-2">Тур по садковому хозяйству</span>
+                        <p class="text-xs text-slate-500 mt-1 ml-0">Осмотр садков, кормовой техники, системы мониторинга. Разговор с собственником о логистике кормов</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                      <span class="text-lg">🍽</span>
+                      <div>
+                        <span class="font-mono text-sm font-bold text-blue-600">14:00</span>
+                        <span class="text-sm text-slate-700 ml-2">Обед на месте · Полевой формат</span>
+                        <p class="text-xs text-slate-500 mt-1 ml-0">Уха на берегу, приготовленная на костре хозяевами</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                      <span class="text-lg">🏭</span>
+                      <div>
+                        <span class="font-mono text-sm font-bold text-blue-600">15:00</span>
+                        <span class="text-sm text-slate-700 ml-2">Тур по объекту 2 · Крупное садковое хозяйство</span>
+                        <p class="text-xs text-slate-500 mt-1 ml-0">Один из топ-5 производителей форели в России. Переговоры о возможном партнёрстве</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                      <span class="text-lg">🍽</span>
+                      <div>
+                        <span class="font-mono text-sm font-bold text-blue-600">20:00</span>
+                        <span class="text-sm text-slate-700 ml-2">Рабочий ужин с организатором</span>
+                        <p class="text-xs text-slate-500 mt-1 ml-0">Разбор дня: что услышали, какие сигналы важны, корректировка стратегии</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="relative mb-12 md:mb-16">
+              <div class="flex flex-col md:flex-row md:items-start">
+                <div class="flex items-center gap-4 mb-4 md:mb-0 md:w-1/2 md:pr-12 md:text-right md:flex-col md:items-end">
+                  <div class="relative z-10 w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-black flex-shrink-0">
+                    3
+                  </div>
+                  <div>
+                    <div class="text-sm font-bold text-slate-900">Переговоры и стратегия</div>
+                    <div class="text-xs text-slate-500">Петрозаводск</div>
+                  </div>
+                </div>
+                <div class="hidden md:block md:w-12 flex-shrink-0"></div>
+                <div class="md:w-1/2 md:pl-12">
+                  <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+                    <div class="flex items-start gap-3">
+                      <span class="text-lg">🤝</span>
+                      <div>
+                        <span class="font-mono text-sm font-bold text-blue-600">09:30</span>
+                        <span class="text-sm text-slate-700 ml-2">Встреча 3 · Ассоциация форелеводов Карелии</span>
+                        <p class="text-xs text-slate-500 mt-1 ml-0">Главные игроки рынка, консолидированный запрос отрасли на корма</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                      <span class="text-lg">☕</span>
+                      <div>
+                        <span class="font-mono text-sm font-bold text-blue-600">11:30</span>
+                        <span class="text-sm text-slate-700 ml-2">Рабочая пауза · Кофе-пауза в коворкинге отеля</span>
+                        <p class="text-xs text-slate-500 mt-1 ml-0">Время на звонки и внутренние согласования</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                      <span class="text-lg">🤝</span>
+                      <div>
+                        <span class="font-mono text-sm font-bold text-blue-600">14:30</span>
+                        <span class="text-sm text-slate-700 ml-2">Встреча 4 · Технопарк «Надвоицы»</span>
+                        <p class="text-xs text-slate-500 mt-1 ml-0">Площадки для локализации производства, готовая инфраструктура, условия аренды</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                      <span class="text-lg">🤝</span>
+                      <div>
+                        <span class="font-mono text-sm font-bold text-blue-600">16:30</span>
+                        <span class="text-sm text-slate-700 ml-2">Встреча 5 · Потенциальный дистрибьютор</span>
+                        <p class="text-xs text-slate-500 mt-1 ml-0">Встреча организована по итогам неформального ужина. Обсуждение схемы дистрибуции</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                      <span class="text-lg">🍽</span>
+                      <div>
+                        <span class="font-mono text-sm font-bold text-blue-600">20:00</span>
+                        <span class="text-sm text-slate-700 ml-2">Завершающий ужин</span>
+                        <p class="text-xs text-slate-500 mt-1 ml-0">Подведение итогов: договорённости, следующие шаги, кто за что отвечает</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 4 -->
+            <div class="relative mb-12 md:mb-16">
+              <div class="flex flex-col md:flex-row md:items-start">
+                <div class="flex items-center gap-4 mb-4 md:mb-0 md:w-1/2 md:pr-12 md:text-right md:flex-col md:items-end">
+                  <div class="relative z-10 w-12 h-12 rounded-full bg-slate-900 text-white flex items-center justify-center text-sm font-black flex-shrink-0">
+                    4
+                  </div>
+                  <div>
+                    <div class="text-sm font-bold text-slate-900">Отъезд</div>
+                    <div class="text-xs text-slate-500">Петрозаводск → Москва</div>
+                  </div>
+                </div>
+                <div class="hidden md:block md:w-12 flex-shrink-0"></div>
+                <div class="md:w-1/2 md:pl-12">
+                  <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+                    <div class="flex items-start gap-3">
+                      <span class="text-lg">📄</span>
+                      <div>
+                        <span class="font-mono text-sm font-bold text-blue-600">09:30</span>
+                        <span class="text-sm text-slate-700 ml-2">Финальная встреча с организатором</span>
+                        <p class="text-xs text-slate-500 mt-1 ml-0">Передача протокола всех встреч (PDF). Контакты всех участников с комментариями. Дорожная карта: что делать в течение 30 дней после</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                      <span class="text-lg">🚐</span>
+                      <div>
+                        <span class="font-mono text-sm font-bold text-blue-600">13:30</span>
+                        <span class="text-sm text-slate-700 ml-2">Трансфер на вокзал</span>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                      <span class="text-lg">🚆</span>
+                      <div>
+                        <span class="font-mono text-sm font-bold text-blue-600">14:05</span>
+                        <span class="text-sm text-slate-700 ml-2">Отправление поезда № 017А Петрозаводск — Москва</span>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                      <span class="text-lg">🏁</span>
+                      <div>
+                        <span class="font-mono text-sm font-bold text-blue-600">23:00</span>
+                        <span class="text-sm text-slate-700 ml-2">Прибытие на Ленинградский вокзал, Москва</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- What's included -->
+          <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="p-8 rounded-2xl bg-green-50 border border-green-200">
+              <div class="text-sm font-bold text-green-700 uppercase tracking-wider mb-6 flex items-center gap-2">
+                <Icon name="fa-solid:check-circle" class="w-5 h-5" />
+                Включено в стоимость
+              </div>
+              <ul class="space-y-3">
+                <li v-for="item in includedItems" :key="item" class="flex items-start gap-3 text-sm text-slate-700">
+                  <Icon name="fa-solid:check" class="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                  {{ item }}
+                </li>
+              </ul>
+            </div>
+            <div class="p-8 rounded-2xl bg-slate-50 border border-slate-200">
+              <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-6 flex items-center gap-2">
+                <Icon name="fa-solid:times-circle" class="w-5 h-5" />
+                Не включено
+              </div>
+              <ul class="space-y-3">
+                <li v-for="item in excludedItems" :key="item" class="flex items-start gap-3 text-sm text-slate-500">
+                  <Icon name="fa-solid:times" class="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
+                  {{ item }}
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Results summary -->
+          <div class="mt-12 p-8 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+            <div class="text-sm font-bold text-blue-200 uppercase tracking-wider mb-6">Итог этой миссии</div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div v-for="stat in missionStats" :key="stat.label">
+                <div class="text-3xl font-black text-white">{{ stat.value }}</div>
+                <div class="text-sm text-blue-200 mt-1">{{ stat.label }}</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quote -->
+          <div class="mt-12 p-8 rounded-2xl bg-white border border-slate-200 shadow-sm">
+            <Icon name="fa-solid:quote-left" class="w-8 h-8 text-blue-200 mb-4" />
+            <p class="text-lg text-slate-700 italic leading-relaxed mb-4">
+              «К концу третьего дня у нас было 5 живых контактов, понимание рынка и предварительная договорённость о пробной поставке. Я ехал разведать — уехал с конкретным планом.»
+            </p>
+            <p class="text-sm text-slate-500 font-semibold">— участник миссии, производитель рыбных кормов, Москва</p>
+          </div>
+
+          <!-- CTA -->
+          <div class="mt-12 text-center">
+            <p class="text-xl font-bold text-slate-900 mb-6">Хотите такую же программу — под вашу отрасль и задачу?</p>
+            <a href="#contacts" class="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-600/25">
+              Обсудить мою миссию →
+            </a>
+          </div>
+        </div>
+      </section>
+
       <!-- CTA / CONTACTS -->
       <section id="contacts" class="py-24 md:py-32 px-4 sm:px-6 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white overflow-hidden relative">
         <!-- Background effects -->
@@ -889,6 +1257,32 @@ const faqs = [
     q: 'Подходит ли это для малого бизнеса или только для крупных компаний?',
     a: 'Подходит для любых предпринимателей, готовых к серьёзным переговорам. Среди участников наших миссий — от ИП до федеральных корпораций. Главное — конкретная задача и готовность двигаться к результату.'
   }
+]
+
+const includedItems = [
+  'Билеты на поезд туда и обратно (купе / СВ на выбор)',
+  'Проживание 3 ночи · Cosmos Hotel Petrozavodsk 4★',
+  'Все завтраки',
+  '2 деловых обеда и 2 ужина (включая неформальные)',
+  'Все трансферы в рамках программы (минивэн бизнес-класса)',
+  'Организация и сопровождение всех 5 встреч',
+  'Личное сопровождение Артёма Селифанова',
+  'Протокол встреч и контакты (PDF после миссии)',
+  'Дорожная карта следующих шагов',
+  'Отчётность для центров «Мой бизнес» (при необходимости)',
+]
+
+const excludedItems = [
+  'Авиабилеты (если вы предпочитаете самолёт)',
+  'Личные расходы и мини-бар',
+  'Дополнительные экскурсии сверх программы',
+]
+
+const missionStats = [
+  { value: '5', label: 'Встреч с ЛПР за 3 дня' },
+  { value: '2', label: 'Хозяйства с выездом' },
+  { value: '1', label: 'Дистрибьютор — договорённость' },
+  { value: 'PDF', label: 'Протокол + дорожная карта' },
 ]
 
 const openFaq = ref(null)

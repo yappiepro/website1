@@ -927,9 +927,9 @@ async function submitForm() {
   try {
     const result = await submitContactFormWithNotification({
       name: formName.value,
-      phone: formContact.value.includes('+') ? formContact.value : '',
+      phone: formContact.value,
       email: formEmail.value || '',
-      telegram: formContact.value.includes('@') || !formContact.value.includes('+') ? formContact.value : '',
+      telegram: formContact.value.includes('@') ? formContact.value : '',
       service: 'MICE — ' + formatOptions.find(o => o.value === formFormat.value)?.label || 'MICE',
       source: 'mice-page',
       task: formTask.value,

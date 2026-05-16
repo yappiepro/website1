@@ -611,8 +611,8 @@
                 <button @click="formStep = 2" class="flex-1 py-4 bg-white/10 hover:bg-white/15 text-white font-bold rounded-xl transition-all">
                   ← Назад
                 </button>
-                <button @click="submitForm" class="flex-1 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-600/25">
-                  Получить программу и расчёт →
+                <button @click="submitForm" :disabled="formSubmitting" class="flex-1 py-4 bg-blue-600 hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-600/25">
+                  {{ formSubmitting ? 'Отправка...' : 'Получить программу и расчёт →' }}
                 </button>
               </div>
             </div>
@@ -629,6 +629,8 @@
             Отвечаю лично в течение нескольких часов. Без спама и автоответов.<br />
             — Артём Селифанов
           </p>
+
+          <p v-if="formError" class="mt-4 text-sm text-red-400 font-medium">{{ formError }}</p>
 
           <!-- Contact info -->
           <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
@@ -692,6 +694,10 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import { submitContactFormWithNotification } from '~/composables/useTelegramNotification'
+
+const formSubmitting = ref(false)
+const formError = ref('')
 
 useHead({
   title: 'Бизнес-миссии в Карелию | MICE Karelia — Артём Селифанов',
@@ -909,7 +915,37 @@ const formatOptions = [
   { value: 'unknown', label: 'Ещё не знаю — помогите выбрать' }
 ]
 
-function submitForm() {
-  formSubmitted.value = true
+async function submitForm() {
+  if (!formName.value || !formContact.value) {
+    formError.value = 'Пожалуйста, заполните имя и контакт'
+    return
+  }
+
+  formSubmitting.value = true
+  formError.value = ''
+
+  try {
+    const result = await submitContactFormWithNotification({
+      name: formName.value,
+      phone: formContact.value.includes('+') ? formContact.value : '',
+      email: formEmail.value || '',
+      telegram: formContact.value.includes('@') || !formContact.value.includes('+') ? formContact.value : '',
+      service: 'MICE — ' + formatOptions.find(o => o.value === formFormat.value)?.label || 'MICE',
+      source: 'mice-page',
+      task: formTask.value,
+      industry: formIndustry.value,
+      dates: formDates.value,
+    })
+
+    if (result.success) {
+      formSubmitted.value = true
+    } else {
+      formError.value = 'Произошла ошибка. Напишите мне напрямую в Telegram'
+    }
+  } catch (error) {
+    formError.value = 'Произошла ошибка. Напишите мне напрямую в Telegram'
+  } finally {
+    formSubmitting.value = false
+  }
 }
 </script>

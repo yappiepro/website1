@@ -59,21 +59,21 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20 relative z-10 w-full">
           <div class="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600/20 border border-blue-500/30 rounded-full text-blue-400 text-sm font-medium mb-8">
+              <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600/20 border border-blue-500/30 rounded-full text-blue-300 text-sm font-medium mb-8">
                 <span class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
                 Деловой туризм в Карелию · Под ключ
               </div>
 
               <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6">
                 Карелия —<br />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500">территория роста</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-cyan-300 to-blue-400">территория роста</span>
               </h1>
 
-              <p class="text-lg text-slate-400 leading-relaxed mb-4 max-w-lg">
+              <p class="text-lg text-slate-300 leading-relaxed mb-4 max-w-lg">
                 Вы тратите месяцы на поиск партнёров в новом регионе.
                 Мы открываем нужные двери за 3–5 дней.
               </p>
-              <p class="text-base text-slate-500 leading-relaxed mb-10 max-w-lg">
+              <p class="text-base text-slate-300 leading-relaxed mb-10 max-w-lg">
                 Прямой доступ к собственникам предприятий, профильным министерствам и инвестпроектам Республики Карелия.
               </p>
 
@@ -87,17 +87,17 @@
               </div>
 
               <!-- Trust badges -->
-              <div class="flex flex-wrap gap-6 text-sm text-slate-500">
+              <div class="flex flex-wrap gap-6 text-sm text-slate-300">
                 <div class="flex items-center gap-2">
-                  <Icon name="fa-solid:check" class="w-4 h-4 text-green-500" />
+                  <Icon name="fa-solid:check" class="w-4 h-4 text-green-400" />
                   <span>6 лет опыта в деловом туризме</span>
                 </div>
                 <div class="flex items-center gap-2">
-                  <Icon name="fa-solid:check" class="w-4 h-4 text-green-500" />
+                  <Icon name="fa-solid:check" class="w-4 h-4 text-green-400" />
                   <span>40+ бизнес-миссий проведено</span>
                 </div>
                 <div class="flex items-center gap-2">
-                  <Icon name="fa-solid:check" class="w-4 h-4 text-green-500" />
+                  <Icon name="fa-solid:check" class="w-4 h-4 text-green-400" />
                   <span>Прямой доступ к ЛПР региона</span>
                 </div>
               </div>
@@ -107,8 +107,8 @@
             <div class="grid grid-cols-2 gap-4">
               <div v-for="(kpi, i) in kpis" :key="i" 
                    class="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/30 hover:bg-white/10 transition-all backdrop-blur-sm">
-                <div class="text-3xl sm:text-4xl font-black text-white mb-2 group-hover:text-blue-400 transition-colors">{{ kpi.val }}</div>
-                <div class="text-sm text-slate-400 font-medium">{{ kpi.label }}</div>
+                <div class="text-3xl sm:text-4xl font-black text-white mb-2 group-hover:text-blue-300 transition-colors">{{ kpi.val }}</div>
+                <div class="text-sm text-slate-300 font-medium">{{ kpi.label }}</div>
               </div>
             </div>
           </div>

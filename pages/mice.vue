@@ -558,10 +558,10 @@
               <table class="w-full">
                 <thead>
                   <tr class="border-b border-slate-100 bg-slate-50/50">
-                    <th class="text-left text-xs font-bold text-slate-400 uppercase tracking-wider px-6 py-3 w-24">Время</th>
-                    <th class="text-left text-xs font-bold text-slate-400 uppercase tracking-wider px-6 py-3 w-16"></th>
-                    <th class="text-left text-xs font-bold text-slate-400 uppercase tracking-wider px-6 py-3">Событие</th>
-                    <th class="text-left text-xs font-bold text-slate-400 uppercase tracking-wider px-6 py-3 w-48 hidden md:table-cell">Детали</th>
+                    <th class="text-left text-xs font-bold text-slate-400 uppercase tracking-wider px-6 py-3 w-20">Время</th>
+                    <th class="text-left text-xs font-bold text-slate-400 uppercase tracking-wider px-6 py-3 w-12"></th>
+                    <th class="text-left text-xs font-bold text-slate-400 uppercase tracking-wider px-6 py-3 w-48">Событие</th>
+                    <th class="text-left text-xs font-bold text-slate-400 uppercase tracking-wider px-6 py-3">Детали</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -575,9 +575,8 @@
                     </td>
                     <td class="px-6 py-3">
                       <div class="text-sm font-semibold text-slate-900">{{ event.title }}</div>
-                      <div class="text-xs text-slate-500 mt-0.5 md:hidden">{{ event.details }}</div>
                     </td>
-                    <td class="px-6 py-3 hidden md:table-cell">
+                    <td class="px-6 py-3">
                       <div class="text-xs text-slate-500 leading-relaxed">{{ event.details }}</div>
                     </td>
                   </tr>

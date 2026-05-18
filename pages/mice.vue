@@ -69,11 +69,11 @@
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-cyan-300 to-blue-400">территория роста</span>
               </h1>
 
-              <p class="text-lg text-slate-300 leading-relaxed mb-4 max-w-lg">
+              <p class="text-lg text-white/95 leading-relaxed mb-4 max-w-lg">
                 Вы тратите месяцы на поиск партнёров в новом регионе.
                 Мы открываем нужные двери за 3–5 дней.
               </p>
-              <p class="text-base text-slate-300 leading-relaxed mb-10 max-w-lg">
+              <p class="text-base text-white/90 leading-relaxed mb-10 max-w-lg">
                 Прямой доступ к собственникам предприятий, профильным министерствам и инвестпроектам Республики Карелия.
               </p>
 
@@ -87,18 +87,10 @@
               </div>
 
               <!-- Trust badges -->
-              <div class="flex flex-wrap gap-6 text-sm text-slate-300">
-                <div class="flex items-center gap-2">
-                  <Icon name="fa-solid:check" class="w-4 h-4 text-green-400" />
-                  <span>6 лет опыта в деловом туризме</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <Icon name="fa-solid:check" class="w-4 h-4 text-green-400" />
-                  <span>40+ бизнес-миссий проведено</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <Icon name="fa-solid:check" class="w-4 h-4 text-green-400" />
-                  <span>Прямой доступ к ЛПР региона</span>
+              <div class="flex flex-wrap gap-3">
+                <div v-for="badge in trustBadges" :key="badge" class="flex items-center gap-2 px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-sm text-white/80 backdrop-blur-sm">
+                  <Icon name="fa-solid:check" class="w-3.5 h-3.5 text-green-400 flex-shrink-0" />
+                  <span>{{ badge }}</span>
                 </div>
               </div>
             </div>
@@ -560,8 +552,8 @@
                   <tr class="border-b border-slate-100 bg-slate-50/50">
                     <th class="text-left text-xs font-bold text-slate-400 uppercase tracking-wider px-6 py-3 w-20">Время</th>
                     <th class="text-left text-xs font-bold text-slate-400 uppercase tracking-wider px-6 py-3 w-12"></th>
-                    <th class="text-left text-xs font-bold text-slate-400 uppercase tracking-wider px-6 py-3 w-48">Событие</th>
-                    <th class="text-left text-xs font-bold text-slate-400 uppercase tracking-wider px-6 py-3">Детали</th>
+                    <th class="text-left text-xs font-bold text-slate-400 uppercase tracking-wider px-6 py-3 w-1/2">Событие</th>
+                    <th class="text-left text-xs font-bold text-slate-400 uppercase tracking-wider px-6 py-3 w-1/2">Детали</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -683,97 +675,27 @@
             Расскажите о задаче в двух словах — пришлём предварительную программу и расчёт в течение 24 часов. Без давления и обязательств.
           </p>
 
-          <!-- Multi-step form -->
-          <div class="max-w-lg mx-auto p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm text-left">
-            <!-- Step indicators -->
-            <div class="flex items-center gap-2 mb-8">
-              <div v-for="s in 3" :key="s" class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all"
-                     :class="formStep >= s ? 'bg-blue-600 text-white' : 'bg-white/10 text-slate-400'">
-                  {{ s }}
-                </div>
-                <div v-if="s < 3" class="w-8 h-px" :class="formStep > s ? 'bg-blue-600' : 'bg-white/10'"></div>
+           <!-- Simple form -->
+           <div class="max-w-lg mx-auto p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm text-left">
+            <div class="space-y-4">
+              <div>
+                <label class="text-sm text-slate-400 mb-1 block">Ваше имя *</label>
+                <input v-model="formName" type="text" placeholder="Как к вам обращаться"
+                       class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm" />
               </div>
-            </div>
-
-            <!-- Step 1: Format -->
-            <div v-show="formStep === 1">
-              <div class="text-sm font-bold text-slate-300 uppercase tracking-wider mb-4">Выберите формат</div>
-              <div class="space-y-3">
-                <label v-for="opt in formatOptions" :key="opt.value"
-                       class="flex items-center gap-3 p-4 rounded-xl border cursor-pointer transition-all"
-                       :class="formFormat === opt.value ? 'border-blue-500 bg-blue-600/10' : 'border-white/10 bg-white/5 hover:border-white/20'">
-                  <input type="radio" name="format" :value="opt.value" v-model="formFormat" class="sr-only" />
-                  <div class="w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0"
-                       :class="formFormat === opt.value ? 'border-blue-500' : 'border-white/30'">
-                    <div v-if="formFormat === opt.value" class="w-2 h-2 rounded-full bg-blue-500"></div>
-                  </div>
-                  <span class="text-sm font-medium">{{ opt.label }}</span>
-                </label>
+              <div>
+                <label class="text-sm text-slate-400 mb-1 block">Telegram или телефон *</label>
+                <input v-model="formContact" type="text" placeholder="@username или +7..."
+                       class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm" />
               </div>
-              <button @click="formStep = 2" class="w-full mt-6 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all">
-                Далее →
+              <div>
+                <label class="text-sm text-slate-400 mb-1 block">Ваша задача (необязательно)</label>
+                <textarea v-model="formTask" rows="3" placeholder="Опишите кратко, что хотите получить от поездки"
+                          class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm resize-none"></textarea>
+              </div>
+              <button @click="submitForm" :disabled="formSubmitting" class="w-full py-4 bg-blue-600 hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-600/25">
+                {{ formSubmitting ? 'Отправка...' : 'Получить программу и расчёт →' }}
               </button>
-            </div>
-
-            <!-- Step 2: Task -->
-            <div v-show="formStep === 2">
-              <div class="text-sm font-bold text-slate-300 uppercase tracking-wider mb-4">Ваша задача</div>
-              <div class="space-y-4">
-                <div>
-                  <label class="text-sm text-slate-400 mb-1 block">Ваша отрасль *</label>
-                  <input v-model="formIndustry" type="text" placeholder="Например: производство, IT, логистика"
-                         class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm" />
-                </div>
-                <div>
-                  <label class="text-sm text-slate-400 mb-1 block">Опишите задачу кратко</label>
-                  <textarea v-model="formTask" rows="3" placeholder="Что хотите получить от поездки?"
-                            class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm resize-none"></textarea>
-                </div>
-                <div>
-                  <label class="text-sm text-slate-400 mb-1 block">Примерные даты или период</label>
-                  <input v-model="formDates" type="text" placeholder="Например: март 2026, или «гибко»"
-                         class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm" />
-                </div>
-              </div>
-              <div class="flex gap-3 mt-6">
-                <button @click="formStep = 1" class="flex-1 py-4 bg-white/10 hover:bg-white/15 text-white font-bold rounded-xl transition-all">
-                  ← Назад
-                </button>
-                <button @click="formStep = 3" class="flex-1 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all">
-                  Далее →
-                </button>
-              </div>
-            </div>
-
-            <!-- Step 3: Contacts -->
-            <div v-show="formStep === 3">
-              <div class="text-sm font-bold text-slate-300 uppercase tracking-wider mb-4">Контакты</div>
-              <div class="space-y-4">
-                <div>
-                  <label class="text-sm text-slate-400 mb-1 block">Ваше имя *</label>
-                  <input v-model="formName" type="text" placeholder="Как к вам обращаться"
-                         class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm" />
-                </div>
-                <div>
-                  <label class="text-sm text-slate-400 mb-1 block">Telegram или телефон *</label>
-                  <input v-model="formContact" type="text" placeholder="@username или +7..."
-                         class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm" />
-                </div>
-                <div>
-                  <label class="text-sm text-slate-400 mb-1 block">Email</label>
-                  <input v-model="formEmail" type="email" placeholder="Необязательно"
-                         class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm" />
-                </div>
-              </div>
-              <div class="flex gap-3 mt-6">
-                <button @click="formStep = 2" class="flex-1 py-4 bg-white/10 hover:bg-white/15 text-white font-bold rounded-xl transition-all">
-                  ← Назад
-                </button>
-                <button @click="submitForm" :disabled="formSubmitting" class="flex-1 py-4 bg-blue-600 hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-600/25">
-                  {{ formSubmitting ? 'Отправка...' : 'Получить программу и расчёт →' }}
-                </button>
-              </div>
             </div>
 
             <!-- Success message -->
@@ -886,6 +808,12 @@ const kpis = [
   { val: '40%', label: 'ВРП — промышленность' },
   { val: '>50%', label: 'Форели России производится здесь' },
   { val: 'Топ-17', label: 'Инвестклимат РФ (RAEX)' },
+]
+
+const trustBadges = [
+  '6 лет опыта в деловом туризме',
+  '40+ бизнес-миссий проведено',
+  'Прямой доступ к ЛПР региона',
 ]
 
 const advantages = [
@@ -1051,7 +979,6 @@ const faqs = [
 ]
 
 const includedItems = [
-  'Билеты на поезд туда и обратно (купе / СВ на выбор)',
   'Проживание 3 ночи · Cosmos Hotel Petrozavodsk 4★',
   'Все завтраки',
   '2 деловых обеда и 2 ужина (включая неформальные)',
@@ -1064,6 +991,7 @@ const includedItems = [
 ]
 
 const excludedItems = [
+  'Билеты на поезд туда и обратно (купе / СВ на выбор)',
   'Авиабилеты (если вы предпочитаете самолёт)',
   'Личные расходы и мини-бар',
   'Дополнительные экскурсии сверх программы',
@@ -1080,7 +1008,7 @@ const programDays = [
     meals: 0,
     note: 'Поезд удобен: не нужно приезжать в аэропорт за 2 часа. Ложитесь спать в Москве — просыпаетесь в Карелии.',
     events: [
-      { time: '21:35', icon: '🚆', title: 'Посадка на поезд № 018А «Карелия»', details: 'Вагон СВ или купе — в зависимости от предпочтений. Билеты включены в стоимость миссии' },
+      { time: '21:35', icon: '🚆', title: 'Посадка на поезд № 018А «Карелия»', details: 'Вагон СВ или купе — в зависимости от предпочтений. Билеты оплачиваются отдельно' },
     ]
   },
   {
@@ -1152,23 +1080,10 @@ function toggleFaq(i) {
 }
 
 // Form state
-const formStep = ref(1)
-const formFormat = ref('industry')
-const formIndustry = ref('')
-const formTask = ref('')
-const formDates = ref('')
 const formName = ref('')
 const formContact = ref('')
-const formEmail = ref('')
+const formTask = ref('')
 const formSubmitted = ref(false)
-
-const formatOptions = [
-  { value: 'basic', label: 'Базовый вход (3 дня, от 70 000 ₽/чел)' },
-  { value: 'industry', label: 'Отраслевая миссия (3–5 дней, от 110 000 ₽/чел)' },
-  { value: 'vip', label: 'Инвестиционная VIP (7+ дней, от 250 000 ₽/чел)' },
-  { value: 'mice', label: 'Корпоративный MICE (группа от 10 чел)' },
-  { value: 'unknown', label: 'Ещё не знаю — помогите выбрать' }
-]
 
 async function submitForm() {
   if (!formName.value || !formContact.value) {
@@ -1183,13 +1098,13 @@ async function submitForm() {
     const result = await submitContactFormWithNotification({
       name: formName.value,
       phone: formContact.value,
-      email: formEmail.value || '',
+      email: '',
       telegram: formContact.value.includes('@') ? formContact.value : '',
-      service: 'MICE — ' + formatOptions.find(o => o.value === formFormat.value)?.label || 'MICE',
+      service: 'MICE',
       source: 'mice-page',
       task: formTask.value,
-      industry: formIndustry.value,
-      dates: formDates.value,
+      industry: '',
+      dates: '',
     })
 
     if (result.success) {

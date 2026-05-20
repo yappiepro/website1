@@ -1124,40 +1124,6 @@ useHead({
   link: [{ rel: 'canonical', href: 'https://artemselifanov.ru/yappie' }],
 })
 
-// Schema.org Organization markup
-useSchemaOrg([
-  defineOrganization({
-    name: 'Yappie',
-    url: 'https://artemselifanov.ru/yappie',
-    description: 'Разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса',
-    sameAs: ['https://t.me/artemselifanov'],
-    contactPoint: {
-      '@type': 'ContactPoint',
-      contactType: 'customer service',
-      availableLanguage: ['Russian'],
-      url: 'https://t.me/artemselifanov',
-      telephone: '+79535487323',
-      email: 'a9535487323@yandex.ru',
-    },
-    founder: {
-      '@type': 'Person',
-      name: 'Артём Селифанов',
-      url: 'https://artemselifanov.ru',
-    },
-  }),
-  defineWebSite({
-    name: 'Yappie - Разработка сайтов, чат-ботов и приложений',
-    url: 'https://artemselifanov.ru/yappie',
-    description: 'Разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса',
-    inLanguage: 'ru-RU',
-  }),
-  defineWebPage({
-    '@type': 'WebPage',
-    name: 'Разработка сайтов, чат-ботов и приложений — Yappie',
-    description: 'Yappie — разработка сайтов, чат-ботов и веб-приложений на базе AI для бизнеса',
-    url: 'https://artemselifanov.ru/yappie',
-  }),
-])
 import Accordion from '~/components/ui/accordion/Accordion.vue'
 import AccordionItem from '~/components/ui/accordion/AccordionItem.vue'
 import AccordionTrigger from '~/components/ui/accordion/AccordionTrigger.vue'

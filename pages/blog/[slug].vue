@@ -378,7 +378,6 @@ import { loadArticleBySlug } from '~/data/blog-loaders.js'
 import { articles } from '~/data/blog.js'
 import ArticleTableOfContents from '~/components/blog/ArticleTableOfContents.vue'
 import Footer from '~/components/layout/Footer.vue'
-import { useSchemaOrg, defineArticle } from '#imports'
 
 const route = useRoute()
 
@@ -546,37 +545,6 @@ useSeoMeta({
 useHead({
   link: [{ rel: 'canonical', href: `https://artemselifanov.ru/blog/${article.slug}` }],
 })
-
-// Schema.org для статьи
-useSchemaOrg(
-  [
-    defineArticle({
-      '@type': 'Article',
-      headline: article.title,
-      description: article.description,
-      datePublished: article.date,
-      dateModified: article.date,
-      author: {
-        '@type': 'Person',
-        name: 'Артём Селифанов',
-        url: 'https://artemselifanov.ru',
-      },
-      publisher: {
-        '@type': 'Organization',
-        name: 'Yappie',
-        logo: {
-          '@type': 'ImageObject',
-          url: 'https://artemselifanov.ru/logo.png',
-        },
-      },
-      mainEntityOfPage: {
-        '@type': 'WebPage',
-        '@id': `https://artemselifanov.ru/blog/${article.slug}`,
-      },
-      articleBody: article.content?.replace(/<[^>]*>/g, '').slice(0, 500) || '',
-    }),
-  ].filter(Boolean)
-)
 </script>
 
 <style>

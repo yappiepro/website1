@@ -184,15 +184,6 @@ useHead({
     { rel: 'canonical', href: 'https://artemselifanov.ru/cookie' }
   ]
 })
-
-useSchemaOrg([
-  defineWebPage({
-    '@type': 'WebPage',
-    name: 'Согласие на обработку ПД и Cookie политика',
-    description: 'Согласие на обработку персональных данных и политика использования cookies',
-    url: 'https://artemselifanov.ru/cookie'
-  })
-])
 </script>
 
 <style scoped>

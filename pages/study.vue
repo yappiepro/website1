@@ -601,7 +601,6 @@ import { ref, computed, onMounted, onUnmounted } from 'vue'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
 import BaseMobileMenu from '~/components/layout/BaseMobileMenu.vue'
 import Footer from '~/components/layout/Footer.vue'
-import { useSchemaOrg, defineWebPage, definePerson } from '#imports'
 
 const config = useRuntimeConfig()
 const baseURL = config.app.baseURL
@@ -1125,22 +1124,6 @@ useSeoMeta({
   twitterTitle: 'Фокус — Тест на позиционирование личного бренда',
   twitterDescription: 'Пройдите бесплатный тест на позиционирование личного бренда и получите персональные рекомендации'
 })
-
-// Schema.org для страницы
-useSchemaOrg([
-  defineWebPage({
-    '@type': 'WebPage',
-    name: 'Фокус — Тест на позиционирование личного бренда',
-    description: 'Пройдите бесплатный тест на позиционирование личного бренда. Узнайте свои сильные стороны и получите рекомендации.',
-    url: 'https://artemselifanov.ru/study'
-  }),
-  definePerson({
-    name: 'Артём Селифанов',
-    url: 'https://artemselifanov.ru',
-    sameAs: ['https://t.me/artemselifanov'],
-    jobTitle: 'Маркетолог, эксперт по личному бренду'
-  })
-])
 </script>
 
 <style scoped>

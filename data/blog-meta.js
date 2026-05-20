@@ -786,6 +786,51 @@ export const articles = [
     "image": "/images/blog/kontent-marketing/kontent-marketing-dlya-privlecheniya-klientov-og.svg"
   },
   {
+    "slug": "kak-pisat-stati",
+    "title": "Как писать статьи для блога: полное руководство для экспертов и предпринимателей",
+    "description": "Как писать статьи для блога, которые читают и находят в поиске. Структура, SEO, заголовки, текст — пошаговое руководство для экспертов, предпринимателей и авторов.",
+    "category": "Контент-маркетинг",
+    "cluster": "kontent-marketing",
+    "date": "2026-04-25",
+    "image": "/images/blog/kontent-marketing/kak-pisat-stati-og.svg"
+  },
+  {
+    "slug": "videomarketing",
+    "title": "Видеомаркетинг: YouTube и Reels для экспертов и предпринимателей — полное руководство",
+    "description": "Как использовать видеомаркетинг через YouTube и Reels для продвижения личного бренда и бизнеса. Форматы, сценарии, съёмка, монтаж, SEO для видео — практическое руководство.",
+    "category": "Контент-маркетинг",
+    "cluster": "kontent-marketing",
+    "date": "2026-04-25",
+    "image": "/images/blog/kontent-marketing/videomarketing-og.svg"
+  },
+  {
+    "slug": "kopyrayting",
+    "title": "Копирайтинг для бизнеса: как писать тексты, которые продают",
+    "description": "Копирайтинг для бизнеса — как писать продающие тексты для сайта, соцсетей и рекламы. Формулы, структура, примеры для экспертов и предпринимателей. Практическое руководство.",
+    "category": "Контент-маркетинг",
+    "cluster": "kontent-marketing",
+    "date": "2026-04-25",
+    "image": "/images/blog/kontent-marketing/kopyrayting-og.svg"
+  },
+  {
+    "slug": "kontent-dlya-b2b",
+    "title": "Контент-маркетинг для B2B: особенности, форматы и стратегия",
+    "description": "Контент-маркетинг для B2B — чем отличается от B2C, какие форматы работают, как выстроить стратегию и измерять результат. Практическое руководство для экспертов и предпринимателей.",
+    "category": "Контент-маркетинг",
+    "cluster": "kontent-marketing",
+    "date": "2026-04-25",
+    "image": "/images/blog/kontent-marketing/kontent-dlya-b2b-og.svg"
+  },
+  {
+    "slug": "kak-vesti-blog",
+    "title": "Как вести корпоративный блог: система, темы и авторы",
+    "description": "Как вести корпоративный блог, который привлекает клиентов. Редполитика, контент-план, выбор тем, работа с авторами, SEO и аналитика — полное руководство для бизнеса.",
+    "category": "Контент-маркетинг",
+    "cluster": "kontent-marketing",
+    "date": "2026-04-25",
+    "image": "/images/blog/kontent-marketing/kak-vesti-blog-og.svg"
+  },
+  {
     "slug": "chto-takoe-networking",
     "title": "Что такое нетворкинг: определение, виды и зачем он нужен в бизнесе и карьере",
     "description": "Разбираем, что такое нетворкинг простыми словами, какие виды существуют и зачем он нужен предпринимателям, экспертам и специалистам. Примеры и первые шаги в 2026 году.",

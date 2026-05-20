@@ -235,15 +235,6 @@ useHead({
     { rel: 'canonical', href: 'https://artemselifanov.ru/offer' }
   ]
 })
-
-useSchemaOrg([
-  defineWebPage({
-    '@type': 'WebPage',
-    name: 'Публичная оферта',
-    description: 'Публичная оферта на оказание услуг по продвижению личного бренда',
-    url: 'https://artemselifanov.ru/offer'
-  })
-])
 </script>
 
 <style scoped>

@@ -28,28 +28,6 @@ useHead({
   ]
 })
 
-// Schema.org разметка
-useSchemaOrg([
-  defineOrganization({
-    name: 'Нескучный Нетворкинг',
-    url: 'https://artemselifanov.ru/knowledge',
-    description: 'База знаний для авторов и экспертов по личному бренду и контент-маркетингу'
-  }),
-  defineWebPage({
-    '@type': 'WebPage',
-    name: 'База знаний Нескучный Нетворкинг',
-    description: '220+ постов Telegram-канала, структурированных по 9 темам с маршрутами обучения',
-    url: 'https://artemselifanov.ru/knowledge'
-  }),
-  definePerson({
-    name: 'Артём Селифанов',
-    url: 'https://artemselifanov.ru',
-    sameAs: ['https://t.me/artemselifanov'],
-    jobTitle: 'Маркетолог, эксперт по личному бренду',
-    description: 'Помогаю предпринимателям и экспертам развивать личный бренд через контент-маркетинг'
-  })
-])
-
 const isMobileMenuOpen = ref(false)
 const isScrolled = ref(false)
 

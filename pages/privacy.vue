@@ -205,15 +205,6 @@ useHead({
     { rel: 'canonical', href: 'https://artemselifanov.ru/privacy' }
   ]
 })
-
-useSchemaOrg([
-  defineWebPage({
-    '@type': 'WebPage',
-    name: 'Политика конфиденциальности',
-    description: 'Политика обработки персональных данных на сайте artemselifanov.ru',
-    url: 'https://artemselifanov.ru/privacy'
-  })
-])
 </script>
 
 <style scoped>

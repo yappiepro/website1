@@ -46,30 +46,6 @@ useHead({
   link: [{ rel: 'canonical', href: 'https://artemselifanov.ru/networking' }],
 })
 
-// Schema.org разметка
-useSchemaOrg([
-  defineOrganization({
-    name: 'Нескучный Нетворкинг',
-    url: 'https://artemselifanov.ru/networking',
-    description: 'Закрытое сообщество предпринимателей и экспертов для нетворкинга и обмена опытом',
-  }),
-  defineWebPage({
-    '@type': 'WebPage',
-    name: 'Нескучный Нетворкинг — личный бренд и контент-маркетинг для экспертов',
-    description:
-      'Сообщество предпринимателей и экспертов для роста личного бренда. Продвижение в Telegram, Сетке и TenChat.',
-    url: 'https://artemselifanov.ru/networking',
-  }),
-  definePerson({
-    name: 'Артём Селифанов',
-    url: 'https://artemselifanov.ru',
-    sameAs: ['https://t.me/artemselifanov'],
-    jobTitle: 'Маркетолог, эксперт по личному бренду',
-    description:
-      'Помогаю предпринимателям и экспертам развивать личный бренд через контент-маркетинг в социальных сетях',
-  }),
-])
-
 const isMobileMenuOpen = ref(false)
 
 // Скролл для хедера

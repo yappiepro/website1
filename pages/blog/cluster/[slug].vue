@@ -310,14 +310,4 @@ useHead({
     { rel: 'canonical', href: `https://artemselifanov.ru/blog/cluster/${clusterSlug}` }
   ]
 })
-
-// Schema.org
-useSchemaOrg([
-  defineWebPage({
-    '@type': 'CollectionPage',
-    name: `${clusterName.value} — Статьи блога`,
-    description: `Все статьи по теме «${clusterName.value}»`,
-    url: `https://artemselifanov.ru/blog/cluster/${clusterSlug}`
-  })
-])
 </script>

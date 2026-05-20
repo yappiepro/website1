@@ -1519,51 +1519,6 @@ useHead({
   ],
 })
 
-// Schema.org разметка
-useSchemaOrg([
-  defineOrganization({
-    name: 'Артём Селифанов',
-    url: 'https://artemselifanov.ru',
-    logo: 'https://artemselifanov.ru/logo.png',
-    sameAs: ['https://t.me/artemselifanov'],
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: '+7-953-548-73-23',
-      contactType: 'customer service',
-      areaServed: 'RU',
-      availableLanguage: ['Russian'],
-    },
-    email: 'a9535487323@yandex.ru',
-  }),
-  defineWebSite({
-    name: 'Артём Селифанов — Личный бренд для предпринимателей и экспертов',
-    url: 'https://artemselifanov.ru',
-    description: 'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт',
-    inLanguage: 'ru-RU',
-    hasPart: [
-      {
-        '@type': 'WebPage',
-        url: 'https://artemselifanov.ru/networking',
-        name: 'Нескучный Нетворкинг',
-      },
-      { '@type': 'WebPage', url: 'https://artemselifanov.ru/business', name: 'Бизнес Сетка' },
-      { '@type': 'WebPage', url: 'https://artemselifanov.ru/yappie', name: 'Веб-разработка' },
-      { '@type': 'WebPage', url: 'https://artemselifanov.ru/study', name: 'Фокус — Обучение' },
-      { '@type': 'WebPage', url: 'https://artemselifanov.ru/blog', name: 'Блог' },
-      { '@type': 'WebPage', url: 'https://artemselifanov.ru/knowledge', name: 'База знаний' },
-      { '@type': 'WebPage', url: 'https://artemselifanov.ru/consultation', name: 'Консультация' },
-      { '@type': 'WebPage', url: 'https://artemselifanov.ru/mentorship', name: 'Менторство' },
-    ],
-  }),
-  defineWebPage({
-    '@type': 'WebPage',
-    name: 'Артём Селифанов — Личный бренд для предпринимателей и экспертов',
-    description:
-      'Помогаю предпринимателям и экспертам создать личный бренд, который продаёт. Стратегия, упаковка, контент и дистрибуция в Telegram',
-    url: 'https://artemselifanov.ru',
-  }),
-])
-
 const scrolled = ref(false)
 const openFaqIndex = ref(null)
 

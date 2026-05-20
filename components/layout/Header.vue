@@ -11,8 +11,8 @@
           'transition-all duration-300 shrink-0',
           scrolled ? 'hidden md:block' : 'block'
         ]">
-          <NuxtLink to="/" class="group text-sm font-semibold tracking-tight text-gray-900 transition-all duration-300">
-            {{ logoText }}
+          <NuxtLink to="/" class="group transition-all duration-300">
+            <img src="/logo.svg" alt="Артем Селифанов" class="h-8 w-auto" />
           </NuxtLink>
         </div>
 

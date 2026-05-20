@@ -86,6 +86,11 @@ import lichnyyBrendVB2b from './blog/lichnyy-brend/lichnyy-brend-v-b2b.js'
 import chtoTakoeKontentMarketing from './blog/kontent-marketing/chto-takoe-kontent-marketing.js'
 import strategiyaKontentMarketinga from './blog/kontent-marketing/strategiya-kontent-marketinga.js'
 import kontentMarketingDlyaPrivlecheniyaKlientov from './blog/kontent-marketing/kontent-marketing-dlya-privlecheniya-klientov.js'
+import kakPisatStati from './blog/kontent-marketing/kak-pisat-stati.js'
+import videomarketing from './blog/kontent-marketing/videomarketing.js'
+import kopyrayting from './blog/kontent-marketing/kopyrayting.js'
+import kontentDlyaB2b from './blog/kontent-marketing/kontent-dlya-b2b.js'
+import kakVestiBlog from './blog/kontent-marketing/kak-vesti-blog.js'
 import chtoTakoeNetworking from './blog/networking/chto-takoe-networking.js'
 import kakRazvitSetKontaktov from './blog/networking/kak-razvit-set-kontaktov.js'
 import networkingDlyaBiznesa from './blog/networking/networking-dlya-biznesa.js'
@@ -218,6 +223,11 @@ export const articles = [
   chtoTakoeKontentMarketing,
   strategiyaKontentMarketinga,
   kontentMarketingDlyaPrivlecheniyaKlientov,
+  kakPisatStati,
+  videomarketing,
+  kopyrayting,
+  kontentDlyaB2b,
+  kakVestiBlog,
   // Сюда добавляйте новые статьи:
   // import nazvanieStatyi from './blog/razrabotka-saytov/nazvanie-statyi.js'
   // nazvanieStatyi,

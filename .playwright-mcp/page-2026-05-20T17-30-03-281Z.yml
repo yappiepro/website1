@@ -1,0 +1,262 @@
+- generic [ref=e1]:
+  - generic [ref=e14]:
+    - banner [ref=e15]:
+      - generic [ref=e17]:
+        - link [ref=e19] [cursor=pointer]:
+          - /url: /
+          - img [ref=e22]
+        - generic [ref=e24]:
+          - link "0,00 ₽" [ref=e26] [cursor=pointer]:
+            - /url: /pay
+            - img [ref=e29]
+            - generic [ref=e31]: 0,00 ₽
+          - generic [ref=e33] [cursor=pointer]:
+            - img "u95354wx" [ref=e35]
+            - generic [ref=e38]:
+              - generic [ref=e39]: u95354wx
+              - img [ref=e42]
+    - navigation [ref=e44]:
+      - region "scrollable content" [ref=e49]:
+        - generic [ref=e51]:
+          - link "Хостинг" [ref=e52] [cursor=pointer]:
+            - /url: /main
+            - img [ref=e54]
+            - generic [ref=e60]: Хостинг
+          - link "Домены" [ref=e61] [cursor=pointer]:
+            - /url: /domains
+            - img [ref=e63]
+            - generic [ref=e65]: Домены
+          - link "DNS" [ref=e66] [cursor=pointer]:
+            - /url: /dns
+            - img [ref=e68]
+            - generic [ref=e70]: DNS
+          - link "Поддержка" [ref=e71] [cursor=pointer]:
+            - /url: /support
+            - img [ref=e73]
+            - generic [ref=e75]: Поддержка
+          - link "Настройки" [ref=e76] [cursor=pointer]:
+            - /url: /settings
+            - img [ref=e78]
+            - generic [ref=e80]: Настройки
+          - separator [ref=e81]
+          - link "Чат" [ref=e82] [cursor=pointer]:
+            - /url: https://t.me/beget_chat
+            - img [ref=e84]
+            - generic [ref=e86]: Чат
+          - link "Канал" [ref=e87] [cursor=pointer]:
+            - /url: https://t.me/beget_official
+            - img [ref=e89]
+            - generic [ref=e91]: Канал
+    - main [ref=e93]:
+      - generic [ref=e94]:
+        - region "scrollable content" [ref=e102]:
+          - generic [ref=e104]:
+            - link "Панель управления Beget" [ref=e105] [cursor=pointer]:
+              - /url: /dns
+              - img "Панель управления Beget" [ref=e106]
+            - generic [ref=e107]:
+              - generic [ref=e108]: Список DNS-серверов Beget
+              - separator [ref=e109]
+              - paragraph [ref=e111]:
+                - generic [ref=e112]: ns1.beget.com
+                - generic [ref=e113]: ns2.beget.com
+                - generic [ref=e114]: ns1.beget.pro
+                - generic [ref=e115]: ns2.beget.pro
+              - generic [ref=e116]: Полезная информация
+              - separator [ref=e117]
+              - link "Описание раздела DNS" [ref=e119] [cursor=pointer]:
+                - /url: https://beget.com/ru/kb/manual/dns
+            - link [ref=e121] [cursor=pointer]:
+              - /url: /settings/appearance
+              - img [ref=e123]
+        - generic [ref=e127]:
+          - generic [ref=e128] [cursor=pointer]:
+            - img [ref=e130]
+            - generic [ref=e132]: Назад
+          - heading "Управление записями DNS" [level=1] [ref=e133]
+          - generic [ref=e134]:
+            - generic [ref=e135]:
+              - generic [ref=e136]: "Выберите домен:"
+              - combobox [ref=e139]:
+                - generic [ref=e141]:
+                  - generic [ref=e143]: artemselifanov.ru
+                  - textbox [ref=e144]
+                - button "$vuetify.open" [ref=e146] [cursor=pointer]:
+                  - img [ref=e147]
+              - generic [ref=e149]:
+                - generic [ref=e151] [cursor=pointer]:
+                  - img [ref=e154]
+                  - generic [ref=e159]: Редактирование DNS-серверов
+                - generic [ref=e161] [cursor=pointer]:
+                  - img [ref=e164]
+                  - generic [ref=e166]: Текст зоны
+            - generic [ref=e167]:
+              - generic [ref=e169]:
+                - generic [ref=e170]: Быстрое добавление
+                - generic [ref=e171]:
+                  - generic [ref=e172]:
+                    - generic [ref=e173]: "Name:"
+                    - generic [ref=e174]:
+                      - combobox [ref=e176]:
+                        - generic [ref=e178]:
+                          - generic [ref=e180]: artemselifanov.ru
+                          - textbox [ref=e181]
+                        - button "$vuetify.open" [ref=e183] [cursor=pointer]:
+                          - img [ref=e184]
+                      - alert [ref=e186]
+                  - generic [ref=e188]:
+                    - generic [ref=e189]: "Type:"
+                    - generic [ref=e190]:
+                      - combobox [expanded] [ref=e192] [cursor=pointer]:
+                        - generic [ref=e194]:
+                          - generic [ref=e196]: A
+                          - textbox "$vuetify.close" [active]: A
+                        - img [ref=e199]
+                      - alert [ref=e201]
+                  - generic [ref=e203]:
+                    - generic [ref=e204]: "Address IPv4:"
+                    - generic [ref=e205]:
+                      - textbox [ref=e209]
+                      - alert [ref=e210]
+                - button "Добавить" [ref=e212] [cursor=pointer]:
+                  - generic [ref=e213]: Добавить
+              - generic [ref=e214]:
+                - generic [ref=e215]:
+                  - generic [ref=e216]: Подзоны и записи DNS
+                  - generic [ref=e217]:
+                    - button [ref=e218] [cursor=pointer]:
+                      - img [ref=e221]
+                    - generic [ref=e225]:
+                      - img [ref=e228]
+                      - textbox "Фильтр" [ref=e231]
+                - generic [ref=e233]:
+                  - generic [ref=e234]:
+                    - generic [ref=e235] [cursor=pointer]:
+                      - img [ref=e237]
+                      - generic [ref=e240]: artemselifanov.ru
+                      - generic [ref=e241]:
+                        - button "Панель управления Beget" [ref=e242]:
+                          - img "Панель управления Beget" [ref=e244]
+                        - button [ref=e245]:
+                          - img [ref=e248]
+                    - generic [ref=e404]:
+                      - generic [ref=e406]:
+                        - generic [ref=e407]: A
+                        - generic [ref=e408]: 185.199.111.153
+                      - generic [ref=e410]:
+                        - generic [ref=e411]: A
+                        - generic [ref=e412]: 185.199.109.153
+                      - generic [ref=e414]:
+                        - generic [ref=e415]: A
+                        - generic [ref=e416]: 185.199.108.153
+                      - generic [ref=e418]:
+                        - generic [ref=e419]: A
+                        - generic [ref=e420]: 185.199.110.153
+                      - generic [ref=e422]:
+                        - generic [ref=e423]: MX
+                        - generic [ref=e424]: 10 emx.mail.ru.
+                      - generic [ref=e426]:
+                        - generic [ref=e427]: TXT
+                        - generic [ref=e428]: v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDFFk5ke94yKA9ba+QFockmWxYPQsJYqs6ygRIAiu/9m+jjLGyorKjOULWZMZB3wGs2YlfijhszZhEjugUbkm8WQGJvsEURc8u62146sQFkxtWuuHfxgwwd8moyAt7omf+XlMFLHAPNxKvWzk5JbyKUTPPDPTh/atP6XywaCAICXQIDAQAB
+                      - generic [ref=e430]:
+                        - generic [ref=e431]: TXT
+                        - generic [ref=e432]: v=spf1 include:_spf.mail.ru
+                      - generic [ref=e434]:
+                        - generic [ref=e435]: TXT
+                        - generic [ref=e436]: "mailru-domain: g9AK3Et7gz3lQH0F"
+                      - generic [ref=e438]:
+                        - generic [ref=e439]: TXT
+                        - generic [ref=e440]: v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDFFk5ke94yKA9ba+QFockmWxYPQsJYqs6ygRIAiu/9m+jjLGyorKjOULWZMZB3wGs2YlfijhszZhEjugUbkm8WQGJvsEURc8u62146sQFkxtWuuHfxgwwd8moyAt7omf+XlMFLHAPNxKvWzk5JbyKUTPPDPTh/atP6XywaCAICXQIDAQAB
+                  - generic [ref=e251] [cursor=pointer]:
+                    - img [ref=e253]
+                    - generic [ref=e255]:
+                      - generic [ref=e256]: api.
+                      - generic [ref=e257]: artemselifanov.ru
+                    - generic [ref=e258]:
+                      - button "Панель управления Beget" [ref=e259]:
+                        - img "Панель управления Beget" [ref=e261]
+                      - button [ref=e262]:
+                        - img [ref=e265]
+                      - button [ref=e267]:
+                        - img [ref=e270]
+                  - generic [ref=e273] [cursor=pointer]:
+                    - img [ref=e275]
+                    - generic [ref=e277]:
+                      - generic [ref=e278]: autoconfig.
+                      - generic [ref=e279]: artemselifanov.ru
+                    - generic [ref=e280]:
+                      - button "Панель управления Beget" [ref=e281]:
+                        - img "Панель управления Beget" [ref=e283]
+                      - button [ref=e284]:
+                        - img [ref=e287]
+                      - button [ref=e289]:
+                        - img [ref=e292]
+                  - generic [ref=e295] [cursor=pointer]:
+                    - img [ref=e297]
+                    - generic [ref=e299]:
+                      - generic [ref=e300]: autodiscover.
+                      - generic [ref=e301]: artemselifanov.ru
+                    - generic [ref=e302]:
+                      - button "Панель управления Beget" [ref=e303]:
+                        - img "Панель управления Beget" [ref=e305]
+                      - button [ref=e306]:
+                        - img [ref=e309]
+                      - button [ref=e311]:
+                        - img [ref=e314]
+                  - generic [ref=e317] [cursor=pointer]:
+                    - img [ref=e319]
+                    - generic [ref=e321]:
+                      - generic [ref=e322]: contacts.
+                      - generic [ref=e323]: artemselifanov.ru
+                    - generic [ref=e324]:
+                      - button "Панель управления Beget" [ref=e325]:
+                        - img "Панель управления Beget" [ref=e327]
+                      - button [ref=e328]:
+                        - img [ref=e331]
+                      - button [ref=e333]:
+                        - img [ref=e336]
+                  - generic [ref=e339] [cursor=pointer]:
+                    - img [ref=e341]
+                    - generic [ref=e343]:
+                      - generic [ref=e344]: www.
+                      - generic [ref=e345]: artemselifanov.ru
+                    - generic [ref=e346]:
+                      - button "Панель управления Beget" [ref=e347]:
+                        - img "Панель управления Beget" [ref=e349]
+                      - button [ref=e350]:
+                        - img [ref=e353]
+                      - button [ref=e355]:
+                        - img [ref=e358]
+                  - generic [ref=e361] [cursor=pointer]:
+                    - img [ref=e363]
+                    - generic [ref=e365]:
+                      - generic [ref=e366]: www.api.
+                      - generic [ref=e367]: artemselifanov.ru
+                    - generic [ref=e368]:
+                      - button "Панель управления Beget" [ref=e369]:
+                        - img "Панель управления Beget" [ref=e371]
+                      - button [ref=e372]:
+                        - img [ref=e375]
+                      - button [ref=e377]:
+                        - img [ref=e380]
+                  - generic [ref=e383] [cursor=pointer]:
+                    - img [ref=e385]
+                    - generic [ref=e387]:
+                      - generic [ref=e388]: www.contacts.
+                      - generic [ref=e389]: artemselifanov.ru
+                    - generic [ref=e390]:
+                      - button "Панель управления Beget" [ref=e391]:
+                        - img "Панель управления Beget" [ref=e393]
+                      - button [ref=e394]:
+                        - img [ref=e397]
+                      - button [ref=e399]:
+                        - img [ref=e402]
+  - generic:
+    - tooltip
+    - listbox [ref=e442]:
+      - generic "A" [ref=e445] [cursor=pointer]
+      - generic "AAAA" [ref=e448] [cursor=pointer]
+      - generic "CAA" [ref=e451] [cursor=pointer]
+      - generic "MX" [ref=e454] [cursor=pointer]
+      - generic "SRV" [ref=e457] [cursor=pointer]
+      - generic "TXT" [ref=e460] [cursor=pointer]

@@ -57,22 +57,6 @@ useHead({
   ]
 })
 
-// Schema.org разметка
-useSchemaOrg([
-  defineWebPage({
-    '@type': 'WebPage',
-    name: () => `${topic.value?.title} — База знаний Нескучный Нетворкинг`,
-    description: () => topic.value?.description,
-    url: `https://artemselifanov.ru/knowledge/${topicSlug}`
-  }),
-  definePerson({
-    name: 'Артём Селифанов',
-    url: 'https://artemselifanov.ru',
-    sameAs: ['https://t.me/artemselifanov'],
-    jobTitle: 'Маркетолог, эксперт по личному бренду'
-  })
-])
-
 const isMobileMenuOpen = ref(false)
 const isScrolled = ref(false)
 

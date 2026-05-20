@@ -131,26 +131,6 @@ useHead({
   ]
 })
 
-// Schema.org разметка
-useSchemaOrg([
-  defineArticle({
-    '@type': 'Article',
-    headline: () => post.value?.title,
-    datePublished: () => post.value?.date,
-    description: () => post.value?.text?.slice(0, 200),
-    author: definePerson({
-      name: 'Артём Селифанов',
-      url: 'https://artemselifanov.ru',
-      sameAs: ['https://t.me/artemselifanov']
-    })
-  }),
-  defineWebPage({
-    '@type': 'WebPage',
-    name: () => `${post.value?.title} — База знаний`,
-    url: `https://artemselifanov.ru/knowledge/post/${postId}`
-  })
-])
-
 const isMobileMenuOpen = ref(false)
 const isScrolled = ref(false)
 

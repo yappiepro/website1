@@ -51,42 +51,7 @@ useHead({
   link: [{ rel: 'canonical', href: 'https://artemselifanov.ru/business' }],
 })
 
-// Schema.org разметка
-useSchemaOrg([
-  defineOrganization({
-    name: 'Бизнес Сетка',
-    url: 'https://artemselifanov.ru/business',
-    description:
-      'Закрытый клуб предпринимателей и экспертов. Мастермайнд-группы, бизнес-разборы, нетворкинг.',
-    founder: {
-      '@type': 'Person',
-      name: 'Артём Селифанов',
-      url: 'https://artemselifanov.ru',
-    },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      contactType: 'sales',
-      url: 'https://t.me/artemselifanov',
-      email: 'a9535487323@yandex.ru',
-    },
-    offers: {
-      '@type': 'Offer',
-      name: 'Мастермайнд группа',
-      price: '35000',
-      priceCurrency: 'RUB',
-      description:
-        'Интенсивная работа в мини-группе предпринимателей. 8 сессий по 2 часа за 2 месяца.',
-      url: 'https://artemselifanov.ru/business/#membership',
-    },
-  }),
-  defineWebPage({
-    '@type': 'WebPage',
-    name: 'Бизнес Сетка — закрытый клуб и мастермайнд для предпринимателей',
-    description:
-      'Закрытый клуб предпринимателей и экспертов. Мастермайнд-группы, бизнес-разборы, нетворкинг.',
-    url: 'https://artemselifanov.ru/business',
-  }),
-])
+const isMobileMenuOpen = ref(false)
 
 const isMenuOpen = ref(false)
 const scrolled = ref(false)

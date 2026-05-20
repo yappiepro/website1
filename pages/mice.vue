@@ -44,10 +44,19 @@
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20 relative z-10 w-full">
+          <!-- KPI Cards - top -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div v-for="(kpi, i) in kpis" :key="i" 
+                 class="group p-5 md:p-6 rounded-2xl bg-white border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all shadow-sm text-center">
+              <div class="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 mb-1 md:mb-2 group-hover:text-blue-600 transition-colors">{{ kpi.val }}</div>
+              <div class="text-xs md:text-sm text-slate-600 font-medium">{{ kpi.label }}</div>
+            </div>
+          </div>
+
           <div class="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] mb-6">
-                Организуем бизнес-миссии в Карелию.<br />
+                Бизнес-миссии в Карелию.<br />
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700">Под ключ с GR-сопровождением.</span>
               </h1>
 
@@ -77,14 +86,8 @@
               </div>
             </div>
 
-            <!-- KPI Cards -->
-            <div class="grid grid-cols-2 gap-4">
-              <div v-for="(kpi, i) in kpis" :key="i" 
-                   class="group p-6 rounded-2xl bg-white border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all shadow-sm">
-                <div class="text-3xl sm:text-4xl font-black text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">{{ kpi.val }}</div>
-                <div class="text-sm text-slate-600 font-medium">{{ kpi.label }}</div>
-              </div>
-            </div>
+            <!-- Right column empty / spacer on desktop -->
+            <div class="hidden lg:block"></div>
           </div>
         </div>
       </section>

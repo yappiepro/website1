@@ -77,12 +77,33 @@
               </div>
             </div>
 
-            <!-- KPI Cards -->
-            <div class="grid grid-cols-2 gap-3">
-              <div v-for="(kpi, i) in kpis" :key="i" 
-                   class="group p-4 rounded-xl border border-slate-100 bg-slate-50/50 transition-all">
-                <div class="text-lg md:text-xl font-bold text-slate-800 mb-0.5">{{ kpi.val }}</div>
-                <div class="text-[11px] text-slate-500 leading-snug">{{ kpi.label }}</div>
+            <!-- Right: Image slider + KPI row -->
+            <div class="space-y-4">
+              <!-- Slider -->
+              <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-200">
+                <div v-for="(slide, index) in slides" :key="index"
+                     class="absolute inset-0 transition-opacity duration-1000"
+                     :class="{ 'opacity-100': index === currentSlide, 'opacity-0': index !== currentSlide }">
+                  <img :src="slide"
+                       :alt="'Karelia landscape ' + (index + 1)"
+                       class="w-full h-full object-cover" />
+                </div>
+                <!-- Dots -->
+                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                  <button v-for="(slide, index) in slides" :key="index"
+                          class="w-2 h-2 bg-white/50 rounded-full transition-all"
+                          :class="{ 'bg-white w-5': index === currentSlide }"
+                          @click="currentSlide = index"></button>
+                </div>
+              </div>
+
+              <!-- KPI row -->
+              <div class="grid grid-cols-4 gap-2">
+                <div v-for="(kpi, i) in kpis" :key="i" 
+                     class="p-3 rounded-xl border border-slate-100 bg-slate-50/50 text-center">
+                  <div class="text-sm md:text-base font-bold text-slate-800">{{ kpi.val }}</div>
+                  <div class="text-[10px] text-slate-500 leading-snug mt-0.5">{{ kpi.label }}</div>
+                </div>
               </div>
             </div>
           </div>
@@ -785,7 +806,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { submitContactFormWithNotification } from '~/composables/useTelegramNotification'
 
 const formSubmitting = ref(false)
@@ -801,6 +822,18 @@ useHead({
 })
 
 const isMenuOpen = ref(false)
+const currentSlide = ref(0)
+const slides = [
+  '/images/hero/IMG_7319.webp',
+  '/images/hero/IMG_7320.webp',
+  '/images/hero/IMG_7321.webp'
+]
+
+onMounted(() => {
+  setInterval(() => {
+    currentSlide.value = (currentSlide.value + 1) % slides.length
+  }, 5000)
+})
 
 const kpis = [
   { val: '107+ млрд ₽', label: 'Инвестиций в регион ежегодно' },

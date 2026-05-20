@@ -513,10 +513,10 @@
           </div>
 
           <!-- Day tabs -->
-          <div class="flex flex-wrap justify-center gap-2 mb-8">
+          <div class="flex overflow-x-auto gap-2 mb-6 pb-2 -mx-4 px-4 md:mx-0 md:px-0 md:justify-center md:overflow-visible md:flex-wrap md:mb-8">
             <button v-for="(day, i) in programDays" :key="i"
                     @click="activeDay = i"
-                    class="px-4 py-2 rounded-lg text-sm font-bold transition-all"
+                    class="px-3 py-2 md:px-4 md:py-2 rounded-lg text-xs md:text-sm font-bold transition-all whitespace-nowrap flex-shrink-0"
                     :class="activeDay === i ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/25' : 'bg-white text-slate-600 border border-slate-200 hover:border-blue-300'">
               День {{ day.num }}
             </button>
@@ -525,28 +525,43 @@
           <!-- Active day content -->
           <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
             <!-- Day header -->
-            <div class="p-6 border-b border-slate-100 bg-gradient-to-r from-slate-50 to-white">
-              <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="p-4 md:p-6 border-b border-slate-100 bg-gradient-to-r from-slate-50 to-white">
+              <div class="flex items-center justify-between flex-wrap gap-3">
                 <div>
-                  <div class="text-sm font-bold text-blue-600 uppercase tracking-wider">День {{ programDays[activeDay].num }}</div>
-                  <div class="text-xl font-black text-slate-900 mt-1">{{ programDays[activeDay].title }}</div>
-                  <div class="text-sm text-slate-500 mt-1">{{ programDays[activeDay].location }}</div>
+                  <div class="text-xs md:text-sm font-bold text-blue-600 uppercase tracking-wider">День {{ programDays[activeDay].num }}</div>
+                  <div class="text-lg md:text-xl font-black text-slate-900 mt-0.5">{{ programDays[activeDay].title }}</div>
+                  <div class="text-xs md:text-sm text-slate-500 mt-0.5">{{ programDays[activeDay].location }}</div>
                 </div>
-                <div class="flex items-center gap-3 text-sm text-slate-500">
+                <div class="flex items-center gap-3 text-xs md:text-sm text-slate-500">
                   <span class="flex items-center gap-1.5">
-                    <Icon name="fa-solid:handshake" class="w-4 h-4 text-blue-500" />
+                    <Icon name="fa-solid:handshake" class="w-3.5 h-3.5 md:w-4 md:h-4 text-blue-500" />
                     {{ programDays[activeDay].meetings }} встреч
                   </span>
                   <span class="flex items-center gap-1.5">
-                    <Icon name="fa-solid:utensils" class="w-4 h-4 text-orange-500" />
+                    <Icon name="fa-solid:utensils" class="w-3.5 h-3.5 md:w-4 md:h-4 text-orange-500" />
                     {{ programDays[activeDay].meals }} приёма пищи
                   </span>
                 </div>
               </div>
             </div>
 
-            <!-- Schedule table -->
-            <div class="overflow-x-auto">
+            <!-- Schedule: mobile cards -->
+            <div class="md:hidden divide-y divide-slate-100">
+              <div v-for="(event, j) in programDays[activeDay].events" :key="j"
+                   class="flex gap-4 p-4">
+                <div class="flex-shrink-0 w-14 text-right">
+                  <span class="font-mono text-sm font-bold text-blue-600">{{ event.time }}</span>
+                </div>
+                <div class="flex-shrink-0 text-xl">{{ event.icon }}</div>
+                <div class="min-w-0">
+                  <div class="text-sm font-semibold text-slate-900">{{ event.title }}</div>
+                  <div class="text-xs text-slate-500 leading-relaxed mt-1">{{ event.details }}</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Schedule: desktop table -->
+            <div class="hidden md:block overflow-x-auto">
               <table class="w-full">
                 <thead>
                   <tr class="border-b border-slate-100 bg-slate-50/50">
@@ -586,50 +601,50 @@
           </div>
 
           <!-- Quick stats bar -->
-          <div class="mt-8 grid grid-cols-2 md:grid-cols-5 gap-3">
-            <div class="p-4 rounded-xl bg-white border border-slate-200 text-center">
-              <div class="text-2xl font-black text-blue-600">5</div>
-              <div class="text-xs text-slate-500 mt-1">Встреч с ЛПР</div>
+          <div class="mt-6 grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-3">
+            <div class="p-3 md:p-4 rounded-xl bg-white border border-slate-200 text-center">
+              <div class="text-xl md:text-2xl font-black text-blue-600">5</div>
+              <div class="text-[10px] md:text-xs text-slate-500 mt-1">Встреч с ЛПР</div>
             </div>
-            <div class="p-4 rounded-xl bg-white border border-slate-200 text-center">
-              <div class="text-2xl font-black text-blue-600">2</div>
-              <div class="text-xs text-slate-500 mt-1">Выезда на объекты</div>
+            <div class="p-3 md:p-4 rounded-xl bg-white border border-slate-200 text-center">
+              <div class="text-xl md:text-2xl font-black text-blue-600">2</div>
+              <div class="text-[10px] md:text-xs text-slate-500 mt-1">Выезда на объекты</div>
             </div>
-            <div class="p-4 rounded-xl bg-white border border-slate-200 text-center">
-              <div class="text-2xl font-black text-blue-600">4</div>
-              <div class="text-xs text-slate-500 mt-1">Дня программы</div>
+            <div class="p-3 md:p-4 rounded-xl bg-white border border-slate-200 text-center">
+              <div class="text-xl md:text-2xl font-black text-blue-600">4</div>
+              <div class="text-[10px] md:text-xs text-slate-500 mt-1">Дня программы</div>
             </div>
-            <div class="p-4 rounded-xl bg-white border border-slate-200 text-center">
-              <div class="text-2xl font-black text-blue-600">1</div>
-              <div class="text-xs text-slate-500 mt-1">Дистрибьютор</div>
+            <div class="p-3 md:p-4 rounded-xl bg-white border border-slate-200 text-center">
+              <div class="text-xl md:text-2xl font-black text-blue-600">1</div>
+              <div class="text-[10px] md:text-xs text-slate-500 mt-1">Дистрибьютор</div>
             </div>
-            <div class="p-4 rounded-xl bg-white border border-slate-200 text-center col-span-2 md:col-span-1">
-              <div class="text-2xl font-black text-blue-600">PDF</div>
-              <div class="text-xs text-slate-500 mt-1">Протокол + карта</div>
+            <div class="p-3 md:p-4 rounded-xl bg-white border border-slate-200 text-center col-span-3 md:col-span-1">
+              <div class="text-xl md:text-2xl font-black text-blue-600">PDF</div>
+              <div class="text-[10px] md:text-xs text-slate-500 mt-1">Протокол + карта</div>
             </div>
           </div>
 
           <!-- Included / Not included -->
-          <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="p-5 rounded-xl bg-green-50 border border-green-200">
-              <div class="text-xs font-bold text-green-700 uppercase tracking-wider mb-3 flex items-center gap-2">
-                <Icon name="fa-solid:check-circle" class="w-4 h-4" />
+          <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+            <div class="p-4 md:p-5 rounded-xl bg-green-50 border border-green-200">
+              <div class="text-[10px] md:text-xs font-bold text-green-700 uppercase tracking-wider mb-2 md:mb-3 flex items-center gap-2">
+                <Icon name="fa-solid:check-circle" class="w-3.5 h-3.5 md:w-4 md:h-4" />
                 Включено
               </div>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
-                <div v-for="item in includedItems" :key="item" class="flex items-start gap-2 text-xs text-slate-700">
+                <div v-for="item in includedItems" :key="item" class="flex items-start gap-2 text-[11px] md:text-xs text-slate-700">
                   <Icon name="fa-solid:check" class="w-3 h-3 text-green-600 flex-shrink-0 mt-0.5" />
                   {{ item }}
                 </div>
               </div>
             </div>
-            <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
-              <div class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3 flex items-center gap-2">
-                <Icon name="fa-solid:times-circle" class="w-4 h-4" />
+            <div class="p-4 md:p-5 rounded-xl bg-slate-50 border border-slate-200">
+              <div class="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 md:mb-3 flex items-center gap-2">
+                <Icon name="fa-solid:times-circle" class="w-3.5 h-3.5 md:w-4 md:h-4" />
                 Не включено
               </div>
               <div class="space-y-2">
-                <div v-for="item in excludedItems" :key="item" class="flex items-start gap-2 text-xs text-slate-500">
+                <div v-for="item in excludedItems" :key="item" class="flex items-start gap-2 text-[11px] md:text-xs text-slate-500">
                   <Icon name="fa-solid:times" class="w-3 h-3 text-slate-400 flex-shrink-0 mt-0.5" />
                   {{ item }}
                 </div>
@@ -638,18 +653,18 @@
           </div>
 
           <!-- Quote -->
-          <div class="mt-8 p-6 rounded-xl bg-white border border-slate-200">
-            <Icon name="fa-solid:quote-left" class="w-6 h-6 text-blue-200 mb-3" />
-            <p class="text-sm text-slate-700 italic leading-relaxed mb-3">
+          <div class="mt-6 p-4 md:p-6 rounded-xl bg-white border border-slate-200">
+            <Icon name="fa-solid:quote-left" class="w-5 h-5 md:w-6 md:h-6 text-blue-200 mb-2 md:mb-3" />
+            <p class="text-xs md:text-sm text-slate-700 italic leading-relaxed mb-2 md:mb-3">
               «К концу третьего дня у нас было 5 живых контактов, понимание рынка и предварительная договорённость о пробной поставке. Я ехал разведать — уехал с конкретным планом.»
             </p>
-            <p class="text-xs text-slate-500 font-semibold">— участник миссии, производитель рыбных кормов, Москва</p>
+            <p class="text-[10px] md:text-xs text-slate-500 font-semibold">— участник миссии, производитель рыбных кормов, Москва</p>
           </div>
 
           <!-- CTA -->
-          <div class="mt-8 text-center">
-            <p class="text-lg font-bold text-slate-900 mb-4">Хотите такую же программу — под вашу отрасль?</p>
-            <a href="#contacts" class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-600/25 text-sm">
+          <div class="mt-6 md:mt-8 text-center">
+            <p class="text-base md:text-lg font-bold text-slate-900 mb-3 md:mb-4">Хотите такую же программу — под вашу отрасль?</p>
+            <a href="#contacts" class="inline-flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-600/25 text-xs md:text-sm">
               Обсудить мою миссию →
             </a>
           </div>

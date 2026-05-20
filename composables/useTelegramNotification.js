@@ -25,8 +25,12 @@ export async function submitContactFormWithNotification(formData) {
         phone: formData.phone,
         email: formData.email,
         telegram: formData.telegram,
-        service: formData.service, // Новая услуга
-        source: formData.source
+        max: formData.max,
+        service: formData.service,
+        source: formData.source,
+        task: formData.task,
+        industry: formData.industry,
+        dates: formData.dates
       })
     })
 

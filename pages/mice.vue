@@ -691,7 +691,7 @@
                          class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm" />
                 </div>
                 <div>
-                  <label class="text-sm text-slate-400 mb-1 block">Email</label>
+                  <label class="text-sm text-slate-400 mb-1 block">Email *</label>
                   <input v-model="formEmail" type="email" placeholder="name@company.ru"
                          class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm" />
                 </div>
@@ -1093,8 +1093,8 @@ const formTask = ref('')
 const formSubmitted = ref(false)
 
 async function submitForm() {
-  if (!formName.value || !formPhone.value) {
-    formError.value = 'Пожалуйста, заполните имя и телефон'
+  if (!formName.value || !formPhone.value || !formEmail.value) {
+    formError.value = 'Пожалуйста, заполните имя, телефон и email'
     return
   }
 

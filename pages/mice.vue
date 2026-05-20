@@ -44,16 +44,7 @@
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20 relative z-10 w-full">
-          <!-- KPI Cards - top -->
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-            <div v-for="(kpi, i) in kpis" :key="i" 
-                 class="group p-5 md:p-6 rounded-2xl bg-white border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all shadow-sm text-center">
-              <div class="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 mb-1 md:mb-2 group-hover:text-blue-600 transition-colors">{{ kpi.val }}</div>
-              <div class="text-xs md:text-sm text-slate-600 font-medium">{{ kpi.label }}</div>
-            </div>
-          </div>
-
-          <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="grid lg:grid-cols-2 gap-16 items-start">
             <div>
               <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] mb-6">
                 Бизнес-миссии в Карелию.<br />
@@ -86,8 +77,15 @@
               </div>
             </div>
 
-            <!-- Right column empty / spacer on desktop -->
-            <div class="hidden lg:block"></div>
+            <!-- KPI Cards -->
+            <div class="grid grid-cols-2 gap-4">
+              <div v-for="(kpi, i) in kpis" :key="i" 
+                   class="group p-4 md:p-5 rounded-2xl border transition-all shadow-sm"
+                   :class="[kpi.bg, kpi.border, kpi.hover]">
+                <div class="text-xl md:text-2xl font-black mb-1 transition-colors" :class="kpi.text">{{ kpi.val }}</div>
+                <div class="text-xs font-medium text-slate-600">{{ kpi.label }}</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -806,10 +804,10 @@ useHead({
 const isMenuOpen = ref(false)
 
 const kpis = [
-  { val: '107+ млрд ₽', label: 'Инвестиций в регион ежегодно' },
-  { val: '40%', label: 'ВРП — промышленность' },
-  { val: '>50%', label: 'Форели России производится здесь' },
-  { val: 'Топ-17', label: 'Инвестклимат РФ (RAEX)' },
+  { val: '107+ млрд ₽', label: 'Инвестиций в регион ежегодно', bg: 'bg-blue-50', border: 'border-blue-200', text: 'text-blue-700', hover: 'hover:border-blue-300 hover:shadow-blue-100' },
+  { val: '40%', label: 'ВРП — промышленность', bg: 'bg-indigo-50', border: 'border-indigo-200', text: 'text-indigo-700', hover: 'hover:border-indigo-300 hover:shadow-indigo-100' },
+  { val: '>50%', label: 'Форели России производится здесь', bg: 'bg-cyan-50', border: 'border-cyan-200', text: 'text-cyan-700', hover: 'hover:border-cyan-300 hover:shadow-cyan-100' },
+  { val: 'Топ-17', label: 'Инвестклимат РФ (RAEX)', bg: 'bg-emerald-50', border: 'border-emerald-200', text: 'text-emerald-700', hover: 'hover:border-emerald-300 hover:shadow-emerald-100' },
 ]
 
 const trustBadges = [

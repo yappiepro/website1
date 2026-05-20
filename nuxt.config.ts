@@ -140,9 +140,9 @@ export default defineNuxtConfig({
     defaultLocale: 'ru',
   },
 
-  // SSG for GitHub Pages with SEO optimization
-  // Включаем SSR для пререндеринга, выводим в static
-  ssr: true,
+  // Static Site Generation (SSG) for GitHub Pages
+  // SSR отключён — все страницы генерируются статически при сборке
+  ssr: false,
   nitro: {
     output: {
       publicDir: 'dist',

@@ -35,7 +35,6 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    '@nuxtjs/seo',
     '@nuxt/icon',
     '@nuxtjs/fontaine',
     '@nuxt/fonts',
@@ -43,10 +42,7 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
   ],
   icon: {
-    provider: 'server',
-    serverBundle: {
-      collections: ['fa-solid', 'fa-brands', 'fa-regular', 'lucide'],
-    },
+    provider: 'iconify',
     class: '',
   },
 
@@ -206,62 +202,9 @@ export default defineNuxtConfig({
     ],
   },
 
-  // SEO Modules Configuration
-  sitemap: {
-    enabled: true,
-    // Отключаем генерацию sitemap.xml (используем только sitemap_index.xml)
-    sitemapsIndexEnabled: true,
-    sitemapsEnabled: true,
-    // Разделяем sitemap на файлы для лучшей производительности
-    sitemaps: {
-      pages: {
-        filename: 'sitemap-pages.xml',
-        routes: [
-          { url: '/', priority: 1.0, changefreq: 'daily' },
-          { url: '/networking', priority: 0.8, changefreq: 'weekly' },
-          { url: '/business', priority: 0.8, changefreq: 'weekly' },
-          { url: '/yappie', priority: 0.8, changefreq: 'weekly' },
-          { url: '/study', priority: 0.8, changefreq: 'weekly' },
-          { url: '/consultation', priority: 0.8, changefreq: 'weekly' },
-          { url: '/mentorship', priority: 0.8, changefreq: 'weekly' },
-          { url: '/knowledge', priority: 0.8, changefreq: 'weekly' },
-          { url: '/part1', priority: 0.7, changefreq: 'monthly' },
-          { url: '/part2', priority: 0.7, changefreq: 'monthly' },
-          { url: '/part3', priority: 0.7, changefreq: 'monthly' },
-          { url: '/cookie', priority: 0.3, changefreq: 'monthly' },
-          { url: '/privacy', priority: 0.3, changefreq: 'monthly' },
-          { url: '/offer', priority: 0.3, changefreq: 'monthly' },
-          { url: '/offline', priority: 0.1, changefreq: 'monthly' },
-        ],
-      },
-      blog: {
-        filename: 'sitemap-blog.xml',
-        routes: ['/blog', ...blogClusters, ...blogRoutes],
-      },
-    },
-  },
+  // Sitemap генерируется отдельно через scripts/generate-sitemap.mjs
+  // SEO мета-теги задаются вручную в useHead() на уровне страниц
 
-  ogImage: {
-    enabled: true,
-  },
-
-  schemaOrg: {
-    enabled: true,
-    identity: {
-      type: 'Organization',
-      name: 'Артём Селифанов',
-      url: 'https://artemselifanov.ru',
-      logo: 'https://artemselifanov.ru/logo.png',
-      contactPoint: {
-        '@type': 'ContactPoint',
-        telephone: '+7-953-548-73-23',
-        contactType: 'customer service',
-        areaServed: 'RU',
-        availableLanguage: ['Russian'],
-      },
-      email: 'a9535487323@yandex.ru',
-    },
-  },
   app: {
     baseURL: '/',
     head: {

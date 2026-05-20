@@ -78,12 +78,11 @@
             </div>
 
             <!-- KPI Cards -->
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-2 gap-3">
               <div v-for="(kpi, i) in kpis" :key="i" 
-                   class="group p-4 md:p-5 rounded-2xl border transition-all shadow-sm"
-                   :class="[kpi.bg, kpi.border, kpi.hover]">
-                <div class="text-xl md:text-2xl font-black mb-1 transition-colors" :class="kpi.text">{{ kpi.val }}</div>
-                <div class="text-xs font-medium text-slate-600">{{ kpi.label }}</div>
+                   class="group p-4 rounded-xl border border-slate-100 bg-slate-50/50 transition-all">
+                <div class="text-lg md:text-xl font-bold text-slate-800 mb-0.5">{{ kpi.val }}</div>
+                <div class="text-[11px] text-slate-500 leading-snug">{{ kpi.label }}</div>
               </div>
             </div>
           </div>
@@ -804,10 +803,10 @@ useHead({
 const isMenuOpen = ref(false)
 
 const kpis = [
-  { val: '107+ млрд ₽', label: 'Инвестиций в регион ежегодно', bg: 'bg-blue-50', border: 'border-blue-200', text: 'text-blue-700', hover: 'hover:border-blue-300 hover:shadow-blue-100' },
-  { val: '40%', label: 'ВРП — промышленность', bg: 'bg-indigo-50', border: 'border-indigo-200', text: 'text-indigo-700', hover: 'hover:border-indigo-300 hover:shadow-indigo-100' },
-  { val: '>50%', label: 'Форели России производится здесь', bg: 'bg-cyan-50', border: 'border-cyan-200', text: 'text-cyan-700', hover: 'hover:border-cyan-300 hover:shadow-cyan-100' },
-  { val: 'Топ-17', label: 'Инвестклимат РФ (RAEX)', bg: 'bg-emerald-50', border: 'border-emerald-200', text: 'text-emerald-700', hover: 'hover:border-emerald-300 hover:shadow-emerald-100' },
+  { val: '107+ млрд ₽', label: 'Инвестиций в регион ежегодно' },
+  { val: '40%', label: 'ВРП — промышленность' },
+  { val: '>50%', label: 'Форели России производится здесь' },
+  { val: 'Топ-17', label: 'Инвестклимат РФ (RAEX)' },
 ]
 
 const trustBadges = [

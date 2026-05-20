@@ -826,7 +826,11 @@ const currentSlide = ref(0)
 const slides = [
   '/images/hero/IMG_7319.webp',
   '/images/hero/IMG_7320.webp',
-  '/images/hero/IMG_7321.webp'
+  '/images/hero/IMG_7321.webp',
+  '/images/hero/IMG_7458.webp',
+  '/images/hero/IMG_7459.webp',
+  '/images/hero/IMG_7460.webp',
+  '/images/hero/IMG_7461.webp'
 ]
 
 onMounted(() => {

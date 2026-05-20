@@ -36,60 +36,47 @@
 
     <main class="pt-20">
       <!-- HERO -->
-      <section class="relative min-h-screen flex items-center overflow-hidden">
-        <!-- Background slides -->
+      <section class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/50 to-white">
+        <!-- Subtle background pattern -->
         <div class="absolute inset-0 z-0">
-          <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/70 to-transparent z-10"></div>
-          <div v-for="(slide, index) in slides" :key="index"
-               class="absolute inset-0 opacity-0 transition-opacity duration-1000"
-               :class="{ 'opacity-100': index === currentSlide }">
-            <img :src="slide"
-                 :alt="'Karelia landscape ' + (index + 1)"
-                 class="w-full h-full object-cover" />
-          </div>
-          <!-- Slide dots -->
-          <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-            <button v-for="(slide, index) in slides" :key="index"
-                    class="w-2.5 h-2.5 bg-white/40 rounded-full hover:bg-white/70 transition-all"
-                    :class="{ 'bg-white w-6': index === currentSlide }"
-                    @click="currentSlide = index"></button>
-          </div>
+          <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-100/40 blur-[120px] rounded-full"></div>
+          <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-cyan-100/30 blur-[100px] rounded-full"></div>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20 relative z-10 w-full">
           <div class="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600/20 border border-blue-500/30 rounded-full text-blue-300 text-sm font-medium mb-8">
-                <span class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
+              <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 border border-blue-200 rounded-full text-blue-700 text-sm font-semibold mb-8">
+                <span class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
                 Деловой туризм в Карелию · Под ключ
               </div>
 
-              <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6">
+              <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] mb-6">
                 Карелия —<br />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-cyan-300 to-blue-400">территория роста</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700">территория роста</span>
               </h1>
 
-              <p class="text-lg text-white/95 leading-relaxed mb-4 max-w-lg">
+              <p class="text-lg text-slate-700 leading-relaxed mb-4 max-w-lg">
                 Вы тратите месяцы на поиск партнёров в новом регионе.
                 Мы открываем нужные двери за 3–5 дней.
               </p>
-              <p class="text-base text-white/90 leading-relaxed mb-10 max-w-lg">
+              <p class="text-base text-slate-600 leading-relaxed mb-10 max-w-lg">
                 Прямой доступ к собственникам предприятий, профильным министерствам и инвестпроектам Республики Карелия.
               </p>
 
               <div class="flex flex-wrap gap-4 mb-12">
-                <a href="#contacts" class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-600/25">
+                <a href="#contacts" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-blue-600/30">
                   Обсудить задачу
                 </a>
-                <a href="#programs" class="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-bold rounded-xl transition-all border border-white/10 backdrop-blur-sm">
+                <a href="#programs" class="px-8 py-4 bg-white hover:bg-slate-50 text-slate-900 font-bold rounded-xl transition-all border border-slate-200 hover:border-slate-300 shadow-sm">
                   Смотреть форматы
                 </a>
               </div>
 
               <!-- Trust badges -->
               <div class="flex flex-wrap gap-3">
-                <div v-for="badge in trustBadges" :key="badge" class="flex items-center gap-2 px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-sm text-white/80 backdrop-blur-sm">
-                  <Icon name="fa-solid:check" class="w-3.5 h-3.5 text-green-400 flex-shrink-0" />
+                <div v-for="badge in trustBadges" :key="badge" class="flex items-center gap-2 px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm text-slate-700 shadow-sm">
+                  <Icon name="fa-solid:check" class="w-3.5 h-3.5 text-green-600 flex-shrink-0" />
                   <span>{{ badge }}</span>
                 </div>
               </div>
@@ -98,9 +85,9 @@
             <!-- KPI Cards -->
             <div class="grid grid-cols-2 gap-4">
               <div v-for="(kpi, i) in kpis" :key="i" 
-                   class="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/30 hover:bg-white/10 transition-all backdrop-blur-sm">
-                <div class="text-3xl sm:text-4xl font-black text-white mb-2 group-hover:text-blue-300 transition-colors">{{ kpi.val }}</div>
-                <div class="text-sm text-slate-300 font-medium">{{ kpi.label }}</div>
+                   class="group p-6 rounded-2xl bg-white border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all shadow-sm">
+                <div class="text-3xl sm:text-4xl font-black text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">{{ kpi.val }}</div>
+                <div class="text-sm text-slate-600 font-medium">{{ kpi.label }}</div>
               </div>
             </div>
           </div>
@@ -789,7 +776,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import { submitContactFormWithNotification } from '~/composables/useTelegramNotification'
 
 const formSubmitting = ref(false)
@@ -805,18 +792,6 @@ useHead({
 })
 
 const isMenuOpen = ref(false)
-const currentSlide = ref(0)
-const slides = [
-  '/images/hero/IMG_7319.webp',
-  '/images/hero/IMG_7320.webp',
-  '/images/hero/IMG_7321.webp'
-]
-
-onMounted(() => {
-  setInterval(() => {
-    currentSlide.value = (currentSlide.value + 1) % slides.length
-  }, 5000)
-})
 
 const kpis = [
   { val: '107+ млрд ₽', label: 'Инвестиций в регион ежегодно' },

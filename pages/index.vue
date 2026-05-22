@@ -102,7 +102,7 @@
                   <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.054 5.56-5.022c.242-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
                   </svg>
-                  Отправить в Telegram
+                  Telegram
                 </a>
                 <a
                   href="https://max.ru/u/f9LHodD0cOLO_FSLoMnfL87zUzWaeDrIUVzSccI1rSSfL24Xr81W37H7wmk"
@@ -112,7 +112,7 @@
                   class="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 rounded-2xl transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl"
                 >
                   <img src="/max-logo.svg" alt="Max" class="w-5 h-5 brightness-0 invert" />
-                  Отправить в Max
+                  Max
                 </a>
               </div>
 

@@ -91,6 +91,10 @@ import videomarketing from './blog/kontent-marketing/videomarketing.js'
 import kopyrayting from './blog/kontent-marketing/kopyrayting.js'
 import kontentDlyaB2b from './blog/kontent-marketing/kontent-dlya-b2b.js'
 import kakVestiBlog from './blog/kontent-marketing/kak-vesti-blog.js'
+import infografika from './blog/kontent-marketing/infografika.js'
+import repurposingKontenta from './blog/kontent-marketing/repurposing-kontenta.js'
+import kontentDlyaEkspertov from './blog/kontent-marketing/kontent-dlya-ekspertov.js'
+import obnovlenieStaryhStatey from './blog/kontent-marketing/obnovlenie-staryh-statey.js'
 import chtoTakoeNetworking from './blog/networking/chto-takoe-networking.js'
 import kakRazvitSetKontaktov from './blog/networking/kak-razvit-set-kontaktov.js'
 import networkingDlyaBiznesa from './blog/networking/networking-dlya-biznesa.js'
@@ -228,6 +232,10 @@ export const articles = [
   kopyrayting,
   kontentDlyaB2b,
   kakVestiBlog,
+  infografika,
+  repurposingKontenta,
+  kontentDlyaEkspertov,
+  obnovlenieStaryhStatey,
   // Сюда добавляйте новые статьи:
   // import nazvanieStatyi from './blog/razrabotka-saytov/nazvanie-statyi.js'
   // nazvanieStatyi,

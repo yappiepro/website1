@@ -32,6 +32,7 @@ const pages = [
   { path: '/consultation', priority: '0.8', changefreq: 'weekly' },
   { path: '/mentorship', priority: '0.8', changefreq: 'weekly' },
   { path: '/knowledge', priority: '0.8', changefreq: 'weekly' },
+  { path: '/mice', priority: '0.8', changefreq: 'weekly' },
   { path: '/cookie', priority: '0.3', changefreq: 'monthly' },
   { path: '/privacy', priority: '0.3', changefreq: 'monthly' },
   { path: '/offer', priority: '0.3', changefreq: 'monthly' },
@@ -67,9 +68,24 @@ ${blogPages.map(path => `  <url>
   </url>`).join('\n')}
 </urlset>`
 
+// Генерация sitemap.xml — sitemap index, ссылающийся на оба файла
+const sitemapIndexXml = `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>${baseUrl}/sitemap-pages.xml</loc>
+    <lastmod>${lastmod}</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>${baseUrl}/sitemap-blog.xml</loc>
+    <lastmod>${lastmod}</lastmod>
+  </sitemap>
+</sitemapindex>`
+
 // Запись файлов
 writeFileSync(join(distDir, 'sitemap-pages.xml'), pagesXml)
 writeFileSync(join(distDir, 'sitemap-blog.xml'), blogXml)
+writeFileSync(join(distDir, 'sitemap.xml'), sitemapIndexXml)
 
 console.log('✓ Generated sitemap-pages.xml with', pages.length, 'URLs')
 console.log('✓ Generated sitemap-blog.xml with', blogPages.length, 'URLs')
+console.log('✓ Generated sitemap.xml (sitemap index)')

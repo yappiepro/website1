@@ -1,2 +1,0 @@
-[    3335ms] [WARNING] Sentry is not initialized @ https://cdn-assets.setka.ru/setka-web/static/js/controllers/tracking/logging/loggingController.a42bb47ce521edcc75a950236c822179.js:136
-[    3884ms] [ERROR] WebSocket connection to 'wss://mc.yandex.com/solid.ws' failed: Error in connection establishment: net::ERR_SOCKET_NOT_CONNECTED @ https://mc.yandex.ru/metrika/tag.js:458

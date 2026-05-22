@@ -1,6 +1,0 @@
-[    2019ms] [LOG] Итерация 1: scrollHeight=658, divs=0 @ :28
-[    4022ms] [LOG] Итерация 2: scrollHeight=658, divs=0 @ :28
-[    6024ms] [LOG] Итерация 3: scrollHeight=658, divs=0 @ :28
-[    8026ms] [LOG] Итерация 4: scrollHeight=658, divs=0 @ :28
-[   10029ms] [LOG] Итерация 5: scrollHeight=658, divs=0 @ :28
-[   10029ms] [LOG] ✅ Готово после 5 итераций @ :33

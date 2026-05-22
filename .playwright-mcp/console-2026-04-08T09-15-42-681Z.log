@@ -1,2 +1,0 @@
-[     394ms] [ERROR] WebSocket connection to 'wss://mc.yandex.com/solid.ws' failed: Error in connection establishment: net::ERR_SOCKET_NOT_CONNECTED @ https://mc.yandex.ru/metrika/tag.js:458
-[   70398ms] [ERROR] WebSocket connection to 'wss://mc.yandex.com/solid.ws' failed: Error in connection establishment: net::ERR_SOCKET_NOT_CONNECTED @ https://mc.yandex.ru/metrika/tag.js:458

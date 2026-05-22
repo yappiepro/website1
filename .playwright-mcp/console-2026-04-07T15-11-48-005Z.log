@@ -1,2 +1,0 @@
-[     198ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://tenchat.ru/tenchat-cloudpayments/api/web/auth/premium_order/gifts:0
-[     198ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://tenchat.ru/tenchat-billing/api/web/auth/account/balance:0

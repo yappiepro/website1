@@ -1,2 +1,0 @@
-[   31883ms] [ERROR] Failed to load resource: net::ERR_SOCKET_NOT_CONNECTED @ https://telegram.org/css/bootstrap.min.css?3:0
-[   31883ms] [ERROR] Failed to load resource: net::ERR_SOCKET_NOT_CONNECTED @ https://telegram.org/css/font-roboto.css?1:0

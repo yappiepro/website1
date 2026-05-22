@@ -54,3 +54,7 @@ Thumbs.db
 
 # Old/duplicate project directories
 main Selifanov/
+
+# Playwright MCP artifacts
+.playwright-mcp/
+deployed-site.md

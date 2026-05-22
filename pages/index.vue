@@ -606,7 +606,7 @@
                           d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z"
                         />
                       </svg>
-                      <span class="text-xs font-bold text-blue-700">240</span>
+                      <span class="text-xs font-bold text-blue-700">310</span>
                     </div>
                     <span class="text-[9px] text-blue-600 leading-none mt-0.5">за 1,5 мес</span>
                   </div>

@@ -1,0 +1,9 @@
+# robots.txt for artemselifanov.ru
+User-agent: *
+Allow: /
+
+# Nuxt static assets and (optional) icon endpoints must be crawlable for JS rendering.
+Allow: /_nuxt/
+Allow: /api/
+
+Sitemap: https://artemselifanov.ru/sitemap.xml

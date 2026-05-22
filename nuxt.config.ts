@@ -42,15 +42,12 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
   ],
   icon: {
-    provider: 'server',
-    serverBundle: {
-      collections: ['fa-solid', 'fa-brands', 'fa-regular', 'lucide'],
-    },
+    provider: 'iconify',
+    serverBundle: false,
     clientBundle: {
       scan: true,
       sizeLimitKb: 256,
     },
-    class: '',
   },
 
   vite: {

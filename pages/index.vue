@@ -69,7 +69,7 @@
           <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div class="lg:col-span-8">
               <h1
-                class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] mb-6 lg:max-w-2xl"
+                class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] mb-6 lg:max-w-2xl text-balance"
               >
                 <span class="block">Блог, который приносит клиентов — а не просто подписчиков</span>
               </h1>

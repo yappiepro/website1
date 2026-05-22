@@ -75,36 +75,60 @@
               </h1>
 
               <p class="text-base md:text-lg text-gray-600 leading-relaxed mb-4 max-w-2xl">
-                Выстраиваю систему продвижения для экспертов, фрилансеров и предпринимателей. Вы получаете стабильный поток заявок из контента — без рекламного бюджета и ежедневного постинга.
+                Выстраиваю систему продвижения для экспертов, фрилансеров и предпринимателей. Вы получаете стабильный поток заявок из контента — без рекламного бюджета и ежедневного постинга. Работаю с 2021 года.
               </p>
 
               <p class="text-sm text-gray-500 leading-relaxed mb-8 max-w-2xl">
                 Если клиенты приходят только по знакомству, а контент уходит в пустоту — дело не в количестве постов. Дело в системе.
               </p>
 
+              <!-- Input для ввода проблемы -->
+              <div class="mb-8 max-w-xl">
+                <label for="problem-input" class="block text-sm font-semibold text-gray-700 mb-2">
+                  С чем вам нужна помощь?
+                </label>
+                <input
+                  id="problem-input"
+                  v-model="problemText"
+                  type="text"
+                  placeholder="Например: нет заявок из блога, не знаю как упаковать экспертизу..."
+                  class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none"
+                />
+              </div>
+
               <div class="flex flex-wrap gap-4 mb-10">
                 <a
                   :href="telegramLink"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 rounded-2xl transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl"
+                  class="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 rounded-2xl transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl"
                 >
                   <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.054 5.56-5.022c.242-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
                   </svg>
-                  Получить бесплатный разбор за 30 минут
+                  Отправить в Telegram
                 </a>
                 <a
-                  :href="telegramLink"
+                  href="https://max.ru/u/f9LHodD0cOLO_FSLoMnfL87zUzWaeDrIUVzSccI1rSSfL24Xr81W37H7wmk"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold text-purple-700 border-2 border-purple-300 hover:border-purple-400 hover:bg-purple-50 rounded-2xl transition-all hover:-translate-y-1"
+                  @click="copyToClipboard"
+                  class="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 rounded-2xl transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl"
                 >
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.054 5.56-5.022c.242-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
-                  </svg>
-                  Написать в Telegram
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_MAX.svg" alt="Max" class="w-5 h-5 invert" />
+                  Отправить в Max
                 </a>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-6 text-sm text-gray-500">
+                <div class="flex items-center gap-2">
+                  <Icon name="fa-solid:check-circle" class="w-5 h-5 text-green-500" />
+                  <span>Получить бесплатный аудит за 30 минут</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <Icon name="fa-solid:calendar-check" class="w-5 h-5 text-green-500" />
+                  <span>Работаю с 2021 года</span>
+                </div>
               </div>
             </div>
 
@@ -217,24 +241,21 @@
                               За 2 года: 0 → 45 000 подписчиков, 50+ платных клиентов ежемесячно, средний чек вырос с 3 000 до 8 000 ₽. Без рекламы. Только органика и правильная структура.
                             </p>
 
-                            <ul class="space-y-3 mb-8">
-                              <li class="flex items-start gap-3 text-sm text-gray-700">
-                                <Icon name="fa-solid:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                                <span>Не обещаю миллион подписчиков — обещаю нужных клиентов</span>
-                              </li>
-                              <li class="flex items-start gap-3 text-sm text-gray-700">
-                                <Icon name="fa-solid:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                                <span>Адаптирую методику под вас, а не заставляю писать по шаблону</span>
-                              </li>
-                              <li class="flex items-start gap-3 text-sm text-gray-700">
-                                <Icon name="fa-solid:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                                <span>Честно говорю, если считаю, что справитесь сами</span>
-                              </li>
-                              <li class="flex items-start gap-3 text-sm text-gray-700">
-                                <Icon name="fa-solid:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                                <span>Работаю только с тем, что доказало эффективность</span>
-                              </li>
-                            </ul>            </div>
+                            <h3 class="text-xl font-bold mb-6">Не обещаю миллион подписчиков, обещаю нужных клиентов</h3>
+                            <p class="text-base text-gray-700 leading-relaxed mb-4">
+                              Главное не в числе, а в качестве:
+                            </p>
+                            <ul class="space-y-2 mb-8 list-disc list-inside">
+                              <li class="text-sm text-gray-700">Не обещаю миллион подписчиков — обещаю нужных клиентов</li>
+                              <li class="text-sm text-gray-700">Адаптирую методику под вас, а не заставляю писать по шаблону</li>
+                              <li class="text-sm text-gray-700">Честно говорю, если считаю, что справитесь сами</li>
+                              <li class="text-sm text-gray-700">Работаю только с тем, что доказало эффективность</li>
+                            </ul>
+
+                            <h3 class="text-xl font-bold mb-6">Я работаю только с тем, что работает</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                              Я адаптирую методику под вас, не заставляю писать 1000 постов, не советую платить за рекламу, если работает органика, и не настаиваю на своих привычных платформах. Моя цель — ваши результаты.
+                            </p>            </div>
 
             <div class="image-animate delay-200">
               <div class="relative">
@@ -723,7 +744,7 @@
               </div>
 
               <div class="mb-6">
-                <div class="text-4xl font-black text-white">25 000 ₽</div>
+                <div class="text-4xl font-black text-white">35 000 ₽</div>
                 <div class="text-sm text-gray-400">в месяц</div>
               </div>
 
@@ -772,7 +793,7 @@
             >
               <span class="text-xs font-bold text-gray-700 uppercase tracking-wider">Для кого</span>
             </div>
-              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4">
               Выберите свою ситуацию
             </h2>
           </div>
@@ -1321,6 +1342,15 @@
         <div class="w-full flex flex-col lg:flex-row justify-center gap-6 lg:gap-8">
           <!-- Левая колонка: Текст и преимущества -->
           <div class="w-full lg:w-[40%] space-y-6">
+            <div
+              class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-2xl shadow-sm"
+            >
+              <Icon name="fa-solid:envelope" class="w-4 h-4 text-violet-600" />
+              <span class="text-xs font-bold text-gray-700 uppercase tracking-wider"
+                >Связаться со мной</span
+              >
+            </div>
+
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">
               Готовы перестать гадать и начать получать клиентов?
             </h2>
@@ -1328,31 +1358,6 @@
             <p class="text-lg text-gray-600 leading-relaxed">
               Напишите мне в Telegram, и я проведу бесплатный разбор вашей ситуации за 30 минут. Вы узнаете: что работает именно в вашем случае, с чего начать прямо сейчас и подходит ли вам мой формат работы.
             </p>
-
-            <div class="flex flex-wrap gap-4 pt-4">
-              <a
-                :href="telegramLink"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 rounded-2xl transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl"
-              >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.054 5.56-5.022c.242-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
-                </svg>
-                Получить бесплатный разбор за 30 минут
-              </a>
-              <a
-                :href="telegramLink"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold text-purple-700 border-2 border-purple-300 hover:border-purple-400 hover:bg-purple-50 rounded-2xl transition-all hover:-translate-y-1"
-              >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.054 5.56-5.022c.242-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
-                </svg>
-                Написать в Telegram
-              </a>
-            </div>
 
             <!-- Преимущества -->
             <div class="space-y-5">
@@ -1381,34 +1386,47 @@
                   </p>
                 </div>
               </div>
+
+              <div class="flex items-start gap-4">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center shadow-sm"
+                >
+                  <Icon name="fa-solid:lightbulb" class="w-5 h-5 text-violet-600" />
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900 mb-1">Бесплатная консультация</h3>
+                  <p class="text-sm text-gray-600">Обсудим задачи и я предложу варианты решения</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Контакты альтернативные -->
+            <div class="mt-10 pt-8 border-t border-gray-200">
+              <p class="text-sm text-gray-600 mb-4 font-medium">Или напишите напрямую:</p>
+              <div class="flex flex-wrap gap-3">
+                <a
+                  href="https://t.me/artemselifanov"
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm font-medium transition-all shadow-md hover:shadow-lg"
+                >
+                  <Icon name="fa-brands:telegram" class="w-4 h-4" />
+                  Telegram
+                </a>
+                <a
+                  href="mailto:a9535487323@yandex.ru"
+                  class="inline-flex items-center gap-2 px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-lg text-sm font-medium transition-all shadow-md hover:shadow-lg"
+                >
+                  <Icon name="fa-solid:at" class="w-4 h-4" />
+                  Email
+                </a>
+              </div>
             </div>
           </div>
 
-          <!-- Правая колонка: изображение или контакт -->
-          <div class="w-full lg:w-[40%] bg-white rounded-2xl shadow-lg p-5 sm:p-6 lg:p-8 flex flex-col items-center justify-center text-center">
-            <Icon name="fa-solid:paper-plane" class="w-16 h-16 text-purple-600 mb-6" />
-            <p class="text-xl font-bold text-gray-900 mb-3">Напишите, и я отвечу</p>
-            <p class="text-sm text-gray-600 leading-relaxed max-w-sm">
-              Если вы дочитали до этого места — скорее всего, у вас есть запрос. Не откладывайте. Напишите, и за 30 минут бесплатного разбора мы поймём, нужно ли вам моё сопровождение или вы справитесь сами.
-            </p>
-            <div class="mt-8 flex flex-wrap gap-3">
-              <a
-                href="https://t.me/artemselifanov"
-                target="_blank"
-                rel="noopener"
-                class="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm font-medium transition-all shadow-md hover:shadow-lg"
-              >
-                <Icon name="fa-brands:telegram" class="w-4 h-4" />
-                Telegram
-              </a>
-              <a
-                href="mailto:a9535487323@yandex.ru"
-                class="inline-flex items-center gap-2 px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-lg text-sm font-medium transition-all shadow-md hover:shadow-lg"
-              >
-                <Icon name="fa-solid:at" class="w-4 h-4" />
-                Email
-              </a>
-            </div>
+          <!-- Правая колонка: Форма -->
+          <div class="w-full lg:w-[40%] bg-white rounded-2xl shadow-lg p-5 sm:p-6 lg:p-8">
+            <ContactForm default-source="Главная страница" :selected-service="selectedService" />
           </div>
         </div>
       </section>

@@ -115,7 +115,7 @@
                   @click="copyToClipboard"
                   class="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 rounded-2xl transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl"
                 >
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_MAX.svg" alt="Max" class="w-5 h-5 invert" />
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_MAX.svg" alt="Max" class="w-5 h-5 brightness-0 invert" />
                   Отправить в Max
                 </a>
               </div>

@@ -4,7 +4,10 @@
     <header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
         <div class="text-2xl font-black tracking-tighter">
-          <img src="/logo.svg" alt="MICE Karelia" class="h-8 w-auto" />
+          <svg width="180" height="32" viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="0" y="24" font-family="system-ui, sans-serif" font-weight="900" font-size="20" letter-spacing="-0.5" fill="#0F172A">MICE</text>
+            <text x="56" y="24" font-family="system-ui, sans-serif" font-weight="400" font-size="20" letter-spacing="-0.5" fill="#64748B">Karelia</text>
+          </svg>
         </div>
         <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
           <a href="#why" class="hover:text-blue-600 transition-colors">Почему Карелия</a>

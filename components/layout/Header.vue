@@ -12,7 +12,7 @@
           scrolled ? 'hidden md:block' : 'block'
         ]">
           <NuxtLink to="/" class="group transition-all duration-300">
-            <img src="/logo.svg" alt="Артем Селифанов" class="h-8 w-auto" />
+            <span class="text-lg font-black tracking-tighter">Селифанов Артем</span>
           </NuxtLink>
         </div>
 

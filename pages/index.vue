@@ -71,60 +71,40 @@
               <h1
                 class="text-3xl sm:text-4xl md:text-4xl lg:text-4xl font-black tracking-tight leading-[1.05] mb-6"
               >
-                <span class="block">Ваша экспертиза есть. Клиентов из контента — нет?</span>
+                <span class="block">Блог, который приносит клиентов — а не просто подписчиков</span>
               </h1>
 
-              <p class="text-base md:text-lg text-gray-600 leading-relaxed mb-8 max-w-2xl">
-                Выстрою систему, где блог приносит заявки 24/7 — без ежедневного постинга и выгорания. Работаю с экспертами, фрилансерами и предпринимателями с 2021 года.
+              <p class="text-base md:text-lg text-gray-600 leading-relaxed mb-4 max-w-2xl">
+                Выстраиваю систему продвижения для экспертов, фрилансеров и предпринимателей. Вы получаете стабильный поток заявок из контента — без рекламного бюджета и ежедневного постинга.
               </p>
 
-              <!-- Input для ввода проблемы -->
-              <div class="mb-8 max-w-xl">
-                <label for="problem-input" class="block text-sm font-semibold text-gray-700 mb-2">
-                  С чем вам нужна помощь?
-                </label>
-                <input
-                  id="problem-input"
-                  v-model="problemText"
-                  type="text"
-                  placeholder="Например: нет заявок из блога, не знаю как упаковать экспертизу..."
-                  class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none"
-                />
-              </div>
+              <p class="text-sm text-gray-500 leading-relaxed mb-8 max-w-2xl">
+                Если клиенты приходят только по знакомству, а контент уходит в пустоту — дело не в количестве постов. Дело в системе.
+              </p>
 
               <div class="flex flex-wrap gap-4 mb-10">
                 <a
                   :href="telegramLink"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 rounded-2xl transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl"
+                  class="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 rounded-2xl transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl"
                 >
                   <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.054 5.56-5.022c.242-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
                   </svg>
-                  Отправить в Telegram
+                  Получить бесплатный разбор за 30 минут
                 </a>
                 <a
-                  href="https://max.ru/u/f9LHodD0cOLO_FSLoMnfL87zUzWaeDrIUVzSccI1rSSfL24Xr81W37H7wmk"
+                  :href="telegramLink"
                   target="_blank"
                   rel="noopener noreferrer"
-                  @click="copyToClipboard"
-                  class="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 rounded-2xl transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl"
+                  class="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold text-purple-700 border-2 border-purple-300 hover:border-purple-400 hover:bg-purple-50 rounded-2xl transition-all hover:-translate-y-1"
                 >
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_MAX.svg" alt="Max" class="w-5 h-5 invert" />
-                  Отправить в Max
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.054 5.56-5.022c.242-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+                  </svg>
+                  Написать в Telegram
                 </a>
-              </div>
-
-              <div class="flex flex-wrap items-center gap-6 text-sm text-gray-500">
-                <div class="flex items-center gap-2">
-                  <Icon name="fa-solid:check-circle" class="w-5 h-5 text-green-500" />
-                  <span>Получить бесплатный аудит за 30 минут</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <Icon name="fa-solid:calendar-check" class="w-5 h-5 text-green-500" />
-                  <span>Работаю с 2021 года</span>
-                </div>
               </div>
             </div>
 
@@ -230,27 +210,31 @@
               </div>
 
               <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-8">
-                              Почему результаты получаются именно со мной
+                              Не советы — система, которая уже доказала результат на мне самом
                             </h2>
 
                             <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                              Мой подход основан на 7+ годах в консалтинге: я думаю о твоём доходе, а не о своём. Поэтому я предлагаю бесплатную диагностику, честно говорю о конкурентах и делюсь проверенными на себе методиками.
+                              За 2 года: 0 → 45 000 подписчиков, 50+ платных клиентов ежемесячно, средний чек вырос с 3 000 до 8 000 ₽. Без рекламы. Только органика и правильная структура.
                             </p>
 
-                            <h3 class="text-xl font-bold mb-6">Не обещаю миллион подписчиков, обещаю нужных клиентов</h3>
-                            <p class="text-base text-gray-700 leading-relaxed mb-4">
-                              За 2 года я вырос от 0 до 45 тыс подписчиков. Главное не в числе, а в качестве:
-                            </p>
-                            <ul class="space-y-2 mb-8 list-disc list-inside">
-                              <li class="text-sm text-gray-700">50+ человек в месяц становятся платными клиентами</li>
-                              <li class="text-sm text-gray-700">Средний чек консультации вырос с 3 тыс до 8+ тыс</li>
-                              <li class="text-sm text-gray-700">Я внедряю систему, которая доказала свою эффективность</li>
-                            </ul>
-
-                            <h3 class="text-xl font-bold mb-6">Я работаю только с тем, что работает</h3>
-                            <p class="text-sm text-gray-600 leading-relaxed">
-                              Я адаптирую методику под тебя, не заставляю писать 1000 постов, не советую платить за рекламу, если работает органика, и не настаиваю на своих привычных платформах. Моя цель — твои результаты.
-                            </p>            </div>
+                            <ul class="space-y-3 mb-8">
+                              <li class="flex items-start gap-3 text-sm text-gray-700">
+                                <Icon name="fa-solid:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                                <span>Не обещаю миллион подписчиков — обещаю нужных клиентов</span>
+                              </li>
+                              <li class="flex items-start gap-3 text-sm text-gray-700">
+                                <Icon name="fa-solid:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                                <span>Адаптирую методику под вас, а не заставляю писать по шаблону</span>
+                              </li>
+                              <li class="flex items-start gap-3 text-sm text-gray-700">
+                                <Icon name="fa-solid:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                                <span>Честно говорю, если считаю, что справитесь сами</span>
+                              </li>
+                              <li class="flex items-start gap-3 text-sm text-gray-700">
+                                <Icon name="fa-solid:check" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                                <span>Работаю только с тем, что доказало эффективность</span>
+                              </li>
+                            </ul>            </div>
 
             <div class="image-animate delay-200">
               <div class="relative">
@@ -638,9 +622,9 @@
               <span class="text-xs font-bold text-gray-700 uppercase tracking-wider">Услуги</span>
             </div>
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4">
-              Работа со мной
+              Форматы работы
             </h2>
-            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Выберите формат сотрудничества</p>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Выберите формат, который подходит под вашу задачу</p>
           </div>
 
           <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -656,7 +640,7 @@
                 </div>
                 <h3 class="text-2xl font-bold mb-2">Диагностика</h3>
                 <p class="text-sm text-gray-600">
-                  Узнаешь точно, почему канал не растёт (и что именно надо изменить)
+                  Бесплатный разбор вашего блога или профиля. Узнаете, что мешает росту
                 </p>
               </div>
 
@@ -690,9 +674,9 @@
                 >
                   <Icon name="fa-solid:users" class="w-7 h-7 text-gray-700" />
                 </div>
-                <h3 class="text-2xl font-bold mb-2">Консультация</h3>
+                <h3 class="text-2xl font-bold mb-2">Стратегическая сессия</h3>
                 <p class="text-sm text-gray-600">
-                  Через час ты будешь знать точно, о чём писать и как превратить это в заявки
+                  Час плотной работы: вы уходите с планом, а не с общими советами
                 </p>
               </div>
 
@@ -732,15 +716,15 @@
                 >
                   <Icon name="fa-solid:crown" class="w-7 h-7 text-white" />
                 </div>
-                <h3 class="text-2xl font-bold text-white mb-2">Менторство</h3>
+                <h3 class="text-2xl font-bold text-white mb-2">Менторство на месяц</h3>
                 <p class="text-sm text-gray-400">
-                  За месяц выстроим систему, где блог работает на клиентов (и ты не думаешь о рекламе)
+                  Полное ведение на месяц: контент, стратегия, внедрение. Блог начинает приносить клиентов
                 </p>
               </div>
 
               <div class="mb-6">
-                <div class="text-4xl font-black text-white">35 000 ₽</div>
-                <div class="text-sm text-gray-400">за месяц</div>
+                <div class="text-4xl font-black text-white">25 000 ₽</div>
+                <div class="text-sm text-gray-400">в месяц</div>
               </div>
 
               <ul class="space-y-3 mb-8">
@@ -788,8 +772,8 @@
             >
               <span class="text-xs font-bold text-gray-700 uppercase tracking-wider">Для кого</span>
             </div>
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4">
-              Выбери свой путь (в зависимости от ситуации)
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4">
+              Выберите свою ситуацию
             </h2>
           </div>
 
@@ -1244,15 +1228,15 @@
           <div class="space-y-8">
             <div>
               <h3 class="text-2xl font-bold mb-4">"Это очень дорого / А может быть дешевле?"</h3>
-              <p class="text-gray-700 leading-relaxed">Понимаю, что менторство — это инвестиция. Но посчитай стоимость ошибки: месяц на поиск информации в гугле, месяц на попытки, риск потерять целевых подписчиков из-за плохой упаковки. 80% моих клиентов окупают менторство в первый же месяц за счёт новых клиентов. Это не расходы, это ускорение твоего заработка в разы.</p>
+              <p class="text-gray-700 leading-relaxed">Понимаю, что менторство — это инвестиция. Но посчитайте стоимость ошибки: месяц на поиск информации, месяц на попытки, риск потерять целевых подписчиков из-за плохой упаковки. 80% моих клиентов окупают менторство в первый же месяц за счёт новых клиентов. Это не расходы, это ускорение вашего заработка в разы.</p>
             </div>
             <div>
               <h3 class="text-2xl font-bold mb-4">"Я попробую сам, может сработает?"</h3>
-              <p class="text-gray-700 leading-relaxed">Может. Но сколько ты готов потратить времени? Месяц на «тесты» или час на диагностику, чтобы понять, что именно работает? Я честно скажу, нужна ли тебе моя помощь или ты можешь справиться сам. Риск — только моё время на разговор, а шанс — сэкономить месяцы попыток.</p>
+              <p class="text-gray-700 leading-relaxed">Может. Но сколько вы готовы потратить времени? Месяц на «тесты» или час на диагностику, чтобы понять, что именно работает? Я честно скажу, нужна ли вам моя помощь или вы можете справиться сами. Риск — только моё время на разговор, а шанс — сэкономить месяцы попыток.</p>
             </div>
             <div>
               <h3 class="text-2xl font-bold mb-4">"Я не верю, что это работает без большого бюджета"</h3>
-              <p class="text-gray-700 leading-relaxed">Справедливо. Я тоже не верил, пока не запустил канал «Нескучный Нетворкинг» на 500+ подписчиков за 3 месяца без единого рубля в рекламу. Это не магия — это система: позиционирование + дистрибуция + регулярность. Я научу тебя каждой технике.</p>
+              <p class="text-gray-700 leading-relaxed">Справедливо. Я тоже не верил, пока не запустил канал «Нескучный Нетворкинг» на 500+ подписчиков за 3 месяца без единого рубля в рекламу. Это не магия — это система: позиционирование + дистрибуция + регулярность. Я научу вас каждой технике.</p>
             </div>
           </div>
         </div>
@@ -1271,10 +1255,10 @@
             <h2
               class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4 animate-on-scroll delay-200"
             >
-              Часто задаваемые вопросы
+              Сомневаетесь? Это нормально
             </h2>
             <p class="text-lg text-gray-600 max-w-2xl mx-auto animate-on-scroll delay-300">
-              Ответы на популярные вопросы о личном бренде, продвижении и работе со мной
+              Вот что обычно спрашивают перед тем, как начать
             </p>
           </div>
 
@@ -1337,27 +1321,38 @@
         <div class="w-full flex flex-col lg:flex-row justify-center gap-6 lg:gap-8">
           <!-- Левая колонка: Текст и преимущества -->
           <div class="w-full lg:w-[40%] space-y-6">
-            <div
-              class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-2xl shadow-sm"
-            >
-              <Icon name="fa-solid:envelope" class="w-4 h-4 text-violet-600" />
-              <span class="text-xs font-bold text-gray-700 uppercase tracking-wider"
-                >Связаться со мной</span
-              >
-            </div>
-
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">
-              Готовы обсудить ваш проект?
+              Готовы перестать гадать и начать получать клиентов?
             </h2>
 
             <p class="text-lg text-gray-600 leading-relaxed">
-              Расскажи мне о своей ситуации (и что уже пробовал)<br><br>
-              После твоего сообщения я:<br>
-              1. Разберусь, в каком ты «этапе» (только думаешь, ведёшь без результата, или готов к системе)<br>
-              2. Предложу формат работы, который подойдёт именно тебе<br>
-              3. Честно скажу, нужна ли тебе вообще помощь<br><br>
-              Я не продаю услуги по шаблону. Я предлагаю решение под твой конкретный запрос.
+              Напишите мне в Telegram, и я проведу бесплатный разбор вашей ситуации за 30 минут. Вы узнаете: что работает именно в вашем случае, с чего начать прямо сейчас и подходит ли вам мой формат работы.
             </p>
+
+            <div class="flex flex-wrap gap-4 pt-4">
+              <a
+                :href="telegramLink"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 rounded-2xl transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.054 5.56-5.022c.242-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+                </svg>
+                Получить бесплатный разбор за 30 минут
+              </a>
+              <a
+                :href="telegramLink"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold text-purple-700 border-2 border-purple-300 hover:border-purple-400 hover:bg-purple-50 rounded-2xl transition-all hover:-translate-y-1"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.054 5.56-5.022c.242-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+                </svg>
+                Написать в Telegram
+              </a>
+            </div>
 
             <!-- Преимущества -->
             <div class="space-y-5">
@@ -1386,47 +1381,34 @@
                   </p>
                 </div>
               </div>
-
-              <div class="flex items-start gap-4">
-                <div
-                  class="flex-shrink-0 w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center shadow-sm"
-                >
-                  <Icon name="fa-solid:lightbulb" class="w-5 h-5 text-violet-600" />
-                </div>
-                <div>
-                  <h3 class="font-semibold text-gray-900 mb-1">Бесплатная консультация</h3>
-                  <p class="text-sm text-gray-600">Обсудим задачи и я предложу варианты решения</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Контакты альтернативные -->
-            <div class="mt-10 pt-8 border-t border-gray-200">
-              <p class="text-sm text-gray-600 mb-4 font-medium">Или напишите напрямую:</p>
-              <div class="flex flex-wrap gap-3">
-                <a
-                  href="https://t.me/artemselifanov"
-                  target="_blank"
-                  rel="noopener"
-                  class="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm font-medium transition-all shadow-md hover:shadow-lg"
-                >
-                  <Icon name="fa-brands:telegram" class="w-4 h-4" />
-                  Telegram
-                </a>
-                <a
-                  href="mailto:a9535487323@yandex.ru"
-                  class="inline-flex items-center gap-2 px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-lg text-sm font-medium transition-all shadow-md hover:shadow-lg"
-                >
-                  <Icon name="fa-solid:at" class="w-4 h-4" />
-                  Email
-                </a>
-              </div>
             </div>
           </div>
 
-          <!-- Правая колонка: Форма -->
-          <div class="w-full lg:w-[40%] bg-white rounded-2xl shadow-lg p-5 sm:p-6 lg:p-8">
-            <ContactForm default-source="Главная страница" :selected-service="selectedService" />
+          <!-- Правая колонка: изображение или контакт -->
+          <div class="w-full lg:w-[40%] bg-white rounded-2xl shadow-lg p-5 sm:p-6 lg:p-8 flex flex-col items-center justify-center text-center">
+            <Icon name="fa-solid:paper-plane" class="w-16 h-16 text-purple-600 mb-6" />
+            <p class="text-xl font-bold text-gray-900 mb-3">Напишите, и я отвечу</p>
+            <p class="text-sm text-gray-600 leading-relaxed max-w-sm">
+              Если вы дочитали до этого места — скорее всего, у вас есть запрос. Не откладывайте. Напишите, и за 30 минут бесплатного разбора мы поймём, нужно ли вам моё сопровождение или вы справитесь сами.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a
+                href="https://t.me/artemselifanov"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm font-medium transition-all shadow-md hover:shadow-lg"
+              >
+                <Icon name="fa-brands:telegram" class="w-4 h-4" />
+                Telegram
+              </a>
+              <a
+                href="mailto:a9535487323@yandex.ru"
+                class="inline-flex items-center gap-2 px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-lg text-sm font-medium transition-all shadow-md hover:shadow-lg"
+              >
+                <Icon name="fa-solid:at" class="w-4 h-4" />
+                Email
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -1529,28 +1511,24 @@ function toggleFaq(index) {
 // FAQ данные
 const faqs = ref([
   {
-    question: 'Что такое личный бренд и зачем он нужен эксперту?',
-    answer: `<p class="mb-3">Личный бренд — это система, которая работает на тебя 24/7. Она превращает твою экспертизу в понятную ценность, за которую люди готовы платить больше и выбирать тебя, а не конкурентов.</p><p class="mb-3">Это не про «популярность», а про стабильный приток заявок. Моя задача — выстроить систему, где клиенты сами приходят за консультацией, а не ты бегаешь за ними.</p>`,
+    question: 'Я только начал, мне рано?',
+    answer: `<p>Первый вопрос — «когда начинать?». Ответ: вчера. Но это не про спешку, а про то, что лучший момент — сейчас. Чем раньше вы начнёте выстраивать систему, тем быстрее получите результат. Я помогу вам сделать это без лишних ошибок.</p>`,
   },
   {
-    question: 'Чем личный бренд отличается от обычного SMM?',
-    answer: `<p class="mb-3">SMM — это просто постинг ради охватов. Личный бренд — это фундамент: ты понимаешь, кто ты, для кого ты и какой результат даёшь.</p><p>Я не занимаюсь «SMM», я строю систему привлечения клиентов. Посты — это лишь инструмент, который помогает донести твой результат до нужных людей.</p>`,
+    question: 'А что, если у меня ничего не выйдет?',
+    answer: `<p>Нет гарантий, что вы станете блогером-миллионником. Но я даю гарантию: после нашей диагностики вы будете знать, что работает, а что нет. Большинство моих клиентов получают результат уже в первый месяц. Если я вижу, что не смогу помочь — я скажу это честно, и вы не потеряете ни рубля.</p>`,
   },
   {
-    question: 'Вы пишете посты за меня?',
-    answer: `<p><strong>Нет, и вот почему это лучше для тебя:</strong></p><p class="mb-3">Если я буду писать посты за тебя, ты останешься зависимым от меня. Когда наше сотрудничество закончится, блог перестанет работать.</p><p>Я учу тебя находить идеи, которые цепляют, даю структуру поста (история → инсайт → действие) и правлю твои тексты. Через месяц ты пишешь в 3 раза быстрее, и этот навык останется с тобой навсегда.</p>`,
+    question: 'Сколько времени нужно уделять?',
+    answer: `<p><strong>Честный ответ:</strong></p><p class="mb-3"><strong>На старте:</strong> 1–2 часа в день (упаковка, первые посты). <strong>Потом:</strong> 30 минут в день.</p><p>Я помогаю создать систему дистрибуции, где один смысл адаптируется под 5 площадок. Если вы тратите больше — значит, системы нет. А если её нет, то не будет и клиентов.</p>`,
   },
   {
-    question: 'Сколько времени мне нужно тратить?',
-    answer: `<p><strong>Честный ответ:</strong></p><p class="mb-3"><strong>На старте:</strong> 1.5–2 часа в день (упаковка, первые посты). <strong>Потом:</strong> 30 минут в день.</p><p>Я помогаю создать систему дистрибуции, где один твой смысл адаптируется под 5 площадок. Если ты тратишь больше — значит, системы нет. А если её нет, то не будет и клиентов.</p>`,
+    question: 'Почему я должен платить вам, а не учиться сам?',
+    answer: `<p>Можете учиться сами. Вопрос в цене времени. Вы можете потратить 3 месяца на пробы и ошибки — или получить готовую систему за 2 недели и начать зарабатывать. Самообучение обходится дороже, чем кажется: потерянные заявки, упущенные клиенты, неиспользованный потенциал. Моя задача — сократить этот путь.</p>`,
   },
   {
-    question: 'А если это дорого / А может быть дешевле?',
-    answer: `<p class="mb-3">Понимаю, что менторство — это инвестиция. Но посчитай стоимость ошибки: месяц на поиск информации в гугле, месяц на попытки, риск потерять целевых подписчиков из-за плохой упаковки.</p><p>80% моих клиентов окупают менторство в первый же месяц за счёт новых клиентов. Это не расходы, это ускорение твоего заработка в разы.</p>`,
-  },
-  {
-    question: 'Я попробую сам, может сработает?',
-    answer: `<p class="mb-3">Может. Но сколько ты готов потратить времени? Месяц на «тесты» или час на диагностику, чтобы понять, что именно работает?</p><p>Я честно скажу, нужна ли тебе моя помощь или ты можешь справиться сам. Риск — только моё время на разговор, а шанс — сэкономить месяцы попыток.</p>`,
+    question: 'Чем вы отличаетесь от других наставников?',
+    answer: `<p>Я не обещаю чуда. Я даю конкретную систему, которая уже доказала результат на мне и моих клиентах. Не общие советы, а пошаговый план под вашу нишу. И я не беру деньги, если не уверен, что смогу помочь. Честность — моё главное правило.</p>`,
   },
 ])
 
@@ -1650,27 +1628,27 @@ const trafficSources = [
 ]
 
 const service1Features = [
-  'За 30 минут поймёшь, что конкретно тормозит твой канал (не общие советы, а твой случай)',
-  'Узнаешь, какой один элемент профиля убивает подписки новичков',
-  'Получишь 2-3 конкретных шага, которые сделаешь завтра',
-  'Перестанешь гадать "это работает или нет"',
+  'За 30 минут поймёте, что конкретно тормозит ваш блог',
+  'Узнаете, какой элемент профиля отталкивает подписчиков',
+  'Получите 2–3 конкретных шага, которые можно сделать завтра',
+  'Перестанете гадать, «это работает или нет»',
 ]
 
 const service2Features = [
-  'Определишь свою фишку — то, что отличает тебя от 100 других в твоей нише',
-  'Поймёшь, кого ты действительно можешь помочь (и почему именно им)',
-  'Получишь готовый план на 2 недели: какие 5 постов писать, когда постить, где искать первых подписчиков',
-  'Увидишь конкретные ошибки в профиле, которые отпугивают целевую аудиторию',
-  'Уйдёшь с уверенностью: я знаю, как это работает',
+  'Определите свою фишку — то, что отличает вас от конкурентов',
+  'Поймёте, кому именно вы помогаете и почему',
+  'Получите готовый план на 2 недели с темами постов',
+  'Увидите ошибки в профиле, которые отпугивают клиентов',
+  'Уйдёте с уверенностью: «Я знаю, как это работает»',
 ]
 
 const service3Features = [
-  'К концу месяца ты опубликуешь 12-15 постов, которые действительно цепляют твою аудиторию',
-  'Получишь первых платных клиентов из органического трафика (не из "знакомства")',
-  'Выстроишь воронку: кто подписался → кто читает → кто пишет в личку → кто платит',
-  'Будешь уверен в каждом посте — я говорю "выпусти это", значит это будет работать',
-  'Поднимешь свой чек благодаря сильному позиционированию (не скидки, а доверие)',
-  'За месяц сэкономишь сотни часов на поиск решений в гугле и бездумный постинг',
+  'К концу месяца опубликуете 12–15 сильных постов',
+  'Получите первых платных клиентов из органики',
+  'Выстроите воронку: подписка → чтение → заявка → оплата',
+  'Будете уверены в каждом посте благодаря обратной связи',
+  'Поднимете чек за счёт сильного позиционирования',
+  'Сэкономите сотни часов на поиске решений',
 ]
 
 const aboutStats = [
@@ -1681,26 +1659,26 @@ const aboutStats = [
 
 const targetAudience = [
   {
-    title: 'Если ты только думаешь о блоге',
+    title: 'Вы только думаете о блоге',
     description:
-      '<p>Блог есть идея, но ты откладываешь уже месяц. Боишься писать неправильно, не знаешь с чего начать.</p><p><strong>Что получишь:</strong></p><ul><li>Честный ответ: стоит ли вкладываться прямо сейчас</li><li>План на 2 недели (готов к завтрашнему дню)</li><li>Понимание: это сработает именно для твоей ниши</li></ul>',
+      '<p>Идея есть, но вы откладываете. Боитесь писать неправильно, не знаете, с чего начать.</p><p><strong>Что получите:</strong></p><ul><li>Честный ответ: стоит ли вкладываться прямо сейчас</li><li>Готовый план на 2 недели</li><li>Понимание: это сработает именно в вашей нише</li></ul>',
   },
   {
-    title: 'Если ты 2-3 месяца ведёшь блог без результата',
+    title: 'Ведёте блог 2–3 месяца без заявок',
     description:
-      '<p>Пишешь посты, растёт аудитория, но заявок нет. Или растёт медленно. Уже вложил деньги в SMM или курс — не помогло.</p><p><strong>Что получишь:</strong></p><ul><li>Разбор того, что ломает конверсию (не общие советы)</li><li>План на месяц (знаешь что писать каждый день)</li><li>Уверенность: я знаю что делаю</li></ul>',
+      '<p>Пишете посты, аудитория растёт — а клиентов нет. Или рост слишком медленный. Уже пробовали курсы и SMM — не помогло.</p><p><strong>Что получите:</strong></p><ul><li>Разбор того, что ломает конверсию</li><li>План на месяц: знаете, что писать каждый день</li><li>Уверенность: вы знаете, что делаете</li></ul>',
   },
   {
-    title: 'Если ты хочешь системы, а не советов',
+    title: 'Хотите не советов, а готовую систему',
     description:
-      '<p>Экспертиза есть, время есть, но ты устал искать ответы сам. Нужен человек рядом, который будет направлять каждую неделю.</p><p><strong>Что получишь:</strong></p><ul><li>Еженедельные встречи + ежедневная поддержка</li><li>Первых платных клиентов через месяц</li><li>Систему, которая будет работать и без тебя (автоматизация)</li></ul>',
+      '<p>Экспертиза есть, опыт есть, но вы устали искать ответы в одиночку. Нужен человек, который будет направлять вас еженедельно.</p><p><strong>Что получите:</strong></p><ul><li>Еженедельные встречи + ежедневная поддержка</li><li>Первых платных клиентов через месяц</li><li>Систему, которая будет работать без вас</li></ul>',
   },
 ]
 
 const workResults = [
-  'Личный бренд работает на вас 24/7',
-  'Клиенты приходят сами, потому что доверяют вашей экспертизе',
-  'Вы продаете дороже, потому что вы — бренд',
+  'Система работает → блог приносит клиентов каждый день',
+  'Вы перестаёте зависеть от одного канала продаж',
+  'Ваш личный бренд становится активом — даже когда вы отдыхаете',
 ]
 
 /* eslint-disable unused-imports/no-unused-vars, @typescript-eslint/no-unused-vars */

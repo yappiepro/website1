@@ -46,6 +46,10 @@ export default defineNuxtConfig({
     serverBundle: {
       collections: ['fa-solid', 'fa-brands', 'fa-regular', 'lucide'],
     },
+    clientBundle: {
+      scan: true,
+      sizeLimitKb: 256,
+    },
     class: '',
   },
 

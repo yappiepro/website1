@@ -63,64 +63,147 @@ function copyPublicFiles(src, dest) {
   }
 }
 
-// Per-page SEO мета-теги (хардкод, т.к. ssr:false не рендерит useSeoMeta)
+const SITE = 'https://artemselifanov.ru'
+
+// Per-page SEO мета-теги (хардкод, т.к. ssr:false не рендерит useSeoMeta/useHead)
 const pageMeta = {
-  'blog': {
+  index: {
+    title: 'Личный бренд эксперта: стратегия, упаковка и поток клиентов в Telegram | Артём Селифанов',
+    description: 'Создам систему привлечения клиентов через личный бренд. Позиционирование, упаковка экспертности и продвижение в Telegram для предпринимателей. Запишитесь на аудит!',
+    canonical: SITE,
+    ogTitle: 'Личный бренд эксперта: стратегия, упаковка и поток клиентов в Telegram | Артём Селифанов',
+    ogDescription: 'Создам систему привлечения клиентов через личный бренд. Позиционирование, упаковка экспертности и продвижение в Telegram для предпринимателей. Запишитесь на аудит!',
+    ogImage: SITE + '/reference/openGraph/opengraph_index.webp',
+    twitterTitle: 'Личный бренд эксперта: стратегия, упаковка и поток клиентов в Telegram | Артём Селифанов',
+    twitterDescription: 'Создам систему привлечения клиентов через личный бренд. Позиционирование, упаковка экспертности и продвижение в Telegram для предпринимателей. Запишитесь на аудит!',
+    twitterImage: SITE + '/reference/openGraph/opengraph_index.webp',
+  },
+  blog: {
     title: 'Блог о разработке сайтов, веб-приложений и AI для бизнеса | Артём Селифанов',
     description: 'Статьи о разработке сайтов, создании веб-приложений, мобильной разработке, веб-разработке и искусственном интеллекте для бизнеса. Практические руководства и кейсы.',
+    canonical: SITE + '/blog',
+    ogTitle: 'Блог о разработке сайтов и AI для бизнеса',
+    ogDescription: 'Статьи о разработке сайтов, создании веб-приложений, мобильной разработке и искусственном интеллекте для бизнеса',
+    ogImage: SITE + '/reference/openGraph/blog.webp',
+    twitterTitle: 'Блог о разработке сайтов и AI для бизнеса',
+    twitterDescription: 'Статьи о разработке сайтов, создании веб-приложений, мобильной разработке и искусственном интеллекте для бизнеса',
+    twitterImage: SITE + '/reference/openGraph/blog.webp',
   },
-  'knowledge': {
+  knowledge: {
     title: 'База знаний Нескучный Нетворкинг — 220+ материалов по личному бренду и контенту',
     description: 'Структурированная база знаний из 220+ постов Telegram-канала «Нескучный Нетворкинг». 9 тем: контент-стратегия, личный бренд, платформы, продажи, мотивация, нетворкинг.',
+    canonical: SITE + '/knowledge',
+    ogTitle: 'База знаний Нескучный Нетворкинг — 220+ материалов',
+    ogDescription: 'Структурированная база знаний для авторов и экспертов. Найди ответ на свой вопрос.',
+    ogImage: SITE + '/reference/openGraph/knowledge.webp',
+    twitterTitle: 'База знаний Нескучный Нетворкинг',
+    twitterDescription: '220+ постов → структурированные маршруты обучения',
+    twitterImage: SITE + '/reference/openGraph/knowledge.webp',
   },
-  'networking': {
+  networking: {
     title: 'Нескучный Нетворкинг — личный бренд и контент-маркетинг для экспертов | Артём Селифанов',
     description: 'Сообщество предпринимателей и экспертов для роста личного бренда. Продвижение в Telegram, Сетке и TenChat. Консультации, менторство, мастермайнд. Артём Селифанов.',
+    canonical: SITE + '/networking',
+    ogTitle: 'Нескучный Нетворкинг — личный бренд и контент-маркетинг для экспертов',
+    ogDescription: 'Сообщество предпринимателей и экспертов для роста личного бренда. Продвижение в Telegram, Сетке и TenChat.',
+    ogImage: SITE + '/reference/openGraph/networking.webp',
+    twitterTitle: 'Нескучный Нетворкинг — личный бренд и контент-маркетинг для экспертов',
+    twitterDescription: 'Сообщество предпринимателей и экспертов для роста личного бренда',
+    twitterImage: SITE + '/reference/openGraph/networking.webp',
   },
-  'business': {
+  business: {
     title: 'Бизнес Сетка — закрытый клуб и мастермайнд для предпринимателей | Артём Селифанов',
     description: 'Закрытый клуб предпринимателей и экспертов. Мастермайнд-группы, бизнес-разборы, нетворкинг. 250 участников. Артём Селифанов — Бизнес Сетка.',
+    canonical: SITE + '/business',
+    ogTitle: 'Бизнес Сетка — закрытый клуб и мастермайнд для предпринимателей',
+    ogDescription: 'Закрытый клуб предпринимателей и экспертов. Мастермайнд-группы, бизнес-разборы, нетворкинг.',
+    ogImage: SITE + '/reference/openGraph/business.webp',
+    twitterTitle: 'Бизнес Сетка — закрытый клуб и мастермайнд для предпринимателей',
+    twitterDescription: 'Закрытый клуб предпринимателей и экспертов. Мастермайнд-группы, бизнес-разборы, нетворкинг.',
+    twitterImage: SITE + '/reference/openGraph/business.webp',
   },
-  'yappie': {
+  yappie: {
     title: 'Разработка сайтов и AI-решений для бизнеса — YAPPIE | Артём Селифанов',
     description: 'Разрабатываем сайты, Telegram-боты, CRM и веб-приложения с AI. Автоматизация бизнес-процессов под ключ. 50+ проектов, поддержка 24/7. YAPPIE — Артём Селифанов.',
+    canonical: SITE + '/yappie',
+    ogTitle: 'Разработка сайтов и AI-решений для бизнеса — YAPPIE | Артём Селифанов',
+    ogDescription: 'Разрабатываем сайты, Telegram-боты, CRM и веб-приложения с AI. Автоматизация бизнес-процессов под ключ.',
+    ogImage: SITE + '/reference/openGraph/yappie.webp',
+    twitterTitle: 'Разработка сайтов и AI-решений для бизнеса — YAPPIE | Артём Селифанов',
+    twitterDescription: 'Разрабатываем сайты, Telegram-боты, CRM и веб-приложения с AI. Автоматизация бизнес-процессов под ключ.',
+    twitterImage: SITE + '/reference/openGraph/yappie.webp',
   },
-  'study': {
+  study: {
     title: 'Фокус — Тест на позиционирование личного бренда | Артём Селифанов',
     description: 'Пройдите бесплатный тест на позиционирование личного бренда. Узнайте свои сильные стороны, определите целевую аудиторию и получите персональные рекомендации по развитию.',
+    canonical: SITE + '/study',
+    ogTitle: 'Фокус — Тест на позиционирование личного бренда',
+    ogDescription: 'Пройдите бесплатный тест на позиционирование личного бренда и получите персональные рекомендации',
+    ogImage: SITE + '/reference/openGraph/study.webp',
+    twitterTitle: 'Фокус — Тест на позиционирование личного бренда',
+    twitterDescription: 'Пройдите бесплатный тест на позиционирование личного бренда и получите персональные рекомендации',
+    twitterImage: SITE + '/reference/openGraph/study.webp',
   },
-  'mice': {
+  mice: {
     title: 'Бизнес-миссии в Карелию | MICE Karelia — Артём Селифанов',
     description: 'Бизнес-миссии в Карелию под ключ. Прямой доступ к предприятиям, власти и инвестпроектам. 6 лет опыта, 40+ организованных миссий. Программа и расчёт за 24 часа.',
+    canonical: SITE + '/mice',
+    ogTitle: 'Бизнес-миссии в Карелию | MICE Karelia',
+    ogDescription: 'Бизнес-миссии в Карелию под ключ. Прямой доступ к предприятиям, власти и инвестпроектам. 6 лет опыта, 40+ организованных миссий.',
+    ogImage: SITE + '/reference/openGraph/mice.webp',
+    twitterTitle: 'Бизнес-миссии в Карелию | MICE Karelia',
+    twitterDescription: 'Бизнес-миссии в Карелию под ключ. Прямой доступ к предприятиям, власти и инвестпроектам. 6 лет опыта, 40+ организованных миссий.',
+    twitterImage: SITE + '/reference/openGraph/mice.webp',
   },
 }
 
+function escapeHtml(str) {
+  return str.replace(/"/g, '&quot;').replace(/'/g, '&#39;')
+}
+
+function injectMeta(html, meta) {
+  // Используем index OG image как fallback для страниц без своей OG картинки
+  const ogImage = meta.ogImage && existsSync(join(distDir, 'reference', 'openGraph', (meta.ogImage.split('/').pop() || '')))
+    ? meta.ogImage
+    : (SITE + '/reference/openGraph/opengraph_index.webp')
+
+  const tags = `
+    <link rel="canonical" href="${escapeHtml(meta.canonical)}">
+    <meta property="og:title" content="${escapeHtml(meta.ogTitle)}">
+    <meta property="og:description" content="${escapeHtml(meta.ogDescription)}">
+    <meta property="og:image" content="${escapeHtml(ogImage)}">
+    <meta property="og:url" content="${escapeHtml(meta.canonical)}">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${escapeHtml(meta.twitterTitle)}">
+    <meta name="twitter:description" content="${escapeHtml(meta.twitterDescription)}">
+    <meta name="twitter:image" content="${escapeHtml(meta.twitterImage || ogImage)}">`
+
+  // Вставляем после title
+  html = html.replace(/<\/title>/, '</title>' + tags)
+  return html
+}
+
 function injectPageMeta() {
-  const baseTitle = 'Личный бренд эксперта: стратегия, упаковка и поток клиентов в Telegram | Артём Селифанов'
-  const baseDescription = 'Создам систему привлечения клиентов через личный бренд. Позиционирование, упаковка экспертности и продвижение в Telegram для предпринимателей. Запишитесь на аудит!'
+  // Сначала index.html
+  const indexPath = join(distDir, 'index.html')
+  if (existsSync(indexPath)) {
+    let html = readFileSync(indexPath, 'utf8')
+    html = html.replace(/<title>[^<]*<\/title>/, `<title>${pageMeta.index.title}</title>`)
+    html = injectMeta(html, pageMeta.index)
+    writeFileSync(indexPath, html)
+    console.log('✓ Injected SEO meta for /')
+  }
 
   for (const [dir, meta] of Object.entries(pageMeta)) {
+    if (dir === 'index') continue
     const htmlPath = join(distDir, dir, 'index.html')
     if (!existsSync(htmlPath)) continue
 
     let html = readFileSync(htmlPath, 'utf8')
-    // Заменяем title
-    html = html.replace(
-      /<title>[^<]*<\/title>/,
-      `<title>${meta.title}</title>`
-    )
-    // Заменяем meta description
-    if (html.includes('name="description"')) {
-      html = html.replace(
-        /<meta name="description" content="[^"]*"/,
-        `<meta name="description" content="${meta.description}"`
-      )
-    } else {
-      html = html.replace(
-        /<\/title>/,
-        `</title>\n    <meta name="description" content="${meta.description}">`
-      )
-    }
+    html = html.replace(/<title>[^<]*<\/title>/, `<title>${meta.title}</title>`)
+    html = injectMeta(html, meta)
     writeFileSync(htmlPath, html)
     console.log(`✓ Injected SEO meta for /${dir}/`)
   }

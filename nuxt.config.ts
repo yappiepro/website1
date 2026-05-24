@@ -209,10 +209,15 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/',
     head: {
+      title: 'Личный бренд эксперта: стратегия, упаковка и поток клиентов в Telegram | Артём Селифанов',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
         { name: 'author', content: 'Артём Селифанов' },
+        {
+          name: 'description',
+          content: 'Создам систему привлечения клиентов через личный бренд. Позиционирование, упаковка экспертности и продвижение в Telegram для предпринимателей. Запишитесь на аудит!',
+        },
         { name: 'yandex-verification', content: '27bf0858465d6882' },
         {
           name: 'google-site-verification',

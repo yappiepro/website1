@@ -45,6 +45,7 @@ export default defineNuxtConfig({
     provider: 'iconify',
     mode: 'svg',
     class: '',
+    fetchTimeout: 5000,
   },
 
   vite: {
@@ -138,8 +139,7 @@ export default defineNuxtConfig({
   },
 
   // Static Site Generation (SSG) for GitHub Pages
-  // SSR отключён — все страницы генерируются статически при сборке
-  ssr: false,
+  ssr: true,
   nitro: {
     output: {
       publicDir: 'dist',
@@ -270,9 +270,6 @@ export default defineNuxtConfig({
       firebaseVapidKey: process.env.NUXT_FIREBASE_VAPID_KEY,
       supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL,
       supabaseAnonKey: process.env.NUXT_PUBLIC_SUPABASE_ANON_KEY,
-      supabaseServiceRoleKey: process.env.NUXT_SUPABASE_SERVICE_ROLE_KEY,
-      adminPassword: process.env.NUXT_ADMIN_PASSWORD || 'Bk62li4z',
-      telegramBotToken: process.env.NUXT_TELEGRAM_BOT_TOKEN,
       telegramChatId: process.env.NUXT_TELEGRAM_CHAT_ID,
     },
   },
@@ -317,7 +314,7 @@ export default defineNuxtConfig({
     },
     workbox: {
       // navigateFallback: '/offline',
-      globPatterns: ['**/*.{js,css,txt,png,ico,svg,webp,json,woff,woff2,html}'],
+      globPatterns: ['**/*.{js,css,txt,png,ico,svg,webp,json,woff,woff2}'],
       // Исключаем дубли 404 из precache: /404 и /404.html нормализуются в один URL
       globIgnores: ['**/404.html', '**/404/index.html', '**/404'],
       maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,

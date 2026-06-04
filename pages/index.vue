@@ -691,7 +691,7 @@
                 >
                   <Icon name="fa-solid:users" class="w-7 h-7 text-gray-700" />
                 </div>
-                <h3 class="text-2xl font-bold mb-2">Стратегическая сессия</h3>
+                <h3 class="text-2xl font-bold mb-2">Консультация</h3>
                 <p class="text-sm text-gray-600">
                   Час плотной работы: вы уходите с планом, а не с общими советами
                 </p>
@@ -1438,9 +1438,6 @@
     <!-- Нижняя навигация для мобильных -->
     <MobileBottomNav theme="light" />
 
-    <!-- Push уведомления промопт (отключено) -->
-    <!-- <PushNotificationPrompt /> -->
-
     <!-- Кнопка наверх (фиксированная, видна при скролле) - только для десктопа -->
     <button
       v-show="scrolled"
@@ -1469,7 +1466,6 @@ import Header from '~/components/layout/Header.vue'
 import BaseMobileMenu from '~/components/layout/BaseMobileMenu.vue'
 import Footer from '~/components/layout/Footer.vue'
 import MobileBottomNav from '~/components/layout/MobileBottomNav.vue'
-// import PushNotificationPrompt from '~/components/ui/PushNotificationPrompt.vue'
 import ContactForm from '~/components/ui/ContactForm.vue'
 
 // SEO для главной страницы
@@ -1591,7 +1587,6 @@ const mobileMenuItems = [
   { href: '#cases', label: 'Кейсы' },
   { href: '#testimonials', label: 'Отзывы' },
   { href: '#faq', label: 'FAQ' },
-  { href: '/notifications', label: 'Push (тест)' },
 ]
 
 const socialNetworks = [

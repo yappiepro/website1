@@ -223,6 +223,12 @@
 import { ref, computed, onMounted } from 'vue'
 import { useSupabase } from '~/composables/useSupabase'
 
+useSeoMeta({
+  title: 'Админ-панель — Заявки | Артём Селифанов',
+  description: 'Административная панель для просмотра заявок с сайта.',
+  robots: 'noindex, nofollow',
+})
+
 const supabase = useSupabase()
 const isAuthenticated = ref(false)
 const isLoggingIn = ref(false)

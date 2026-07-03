@@ -694,57 +694,7 @@
             Расскажите о задаче в двух словах — пришлём предварительную программу и расчёт в течение 24 часов. Без давления и обязательств.
           </p>
 
-            <!-- Simple form -->
-            <div class="max-w-lg mx-auto p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm text-left">
-              <div class="space-y-4">
-                <div>
-                  <label class="text-sm text-slate-400 mb-1 block">Ваше имя *</label>
-                  <input v-model="formName" type="text" placeholder="Как к вам обращаться"
-                         class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm" />
-                </div>
-                <div>
-                  <label class="text-sm text-slate-400 mb-1 block">Телефон *</label>
-                  <input v-model="formPhone" type="tel" placeholder="+7 (___) ___-__-__"
-                         class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm" />
-                </div>
-                <div>
-                  <label class="text-sm text-slate-400 mb-1 block">Email *</label>
-                  <input v-model="formEmail" type="email" placeholder="name@company.ru"
-                         class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm" />
-                </div>
-                <div>
-                  <label class="text-sm text-slate-400 mb-1 block">Мессенджер (необязательно)</label>
-                  <div class="flex flex-col sm:flex-row gap-3">
-                    <input v-model="formTelegram" type="text" placeholder="@telegram"
-                           class="flex-1 px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm" />
-                    <input v-model="formMax" type="text" placeholder="MAX"
-                           class="flex-1 px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm" />
-                  </div>
-                </div>
-                <div>
-                  <label class="text-sm text-slate-400 mb-1 block">Ваша задача (необязательно)</label>
-                  <textarea v-model="formTask" rows="3" placeholder="Опишите кратко, что хотите получить от поездки"
-                            class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-400 outline-none focus:border-blue-500 transition-all text-sm resize-none"></textarea>
-                </div>
-                <button @click="submitForm" :disabled="formSubmitting" class="w-full py-4 bg-blue-600 hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-600/25">
-                  {{ formSubmitting ? 'Отправка...' : 'Получить программу и расчёт →' }}
-                </button>
-              </div>
 
-              <!-- Success message -->
-              <div v-show="formSubmitted" class="text-center py-8">
-                <Icon name="fa-solid:check-circle" class="w-16 h-16 text-green-500 mx-auto mb-4" />
-                <div class="text-xl font-bold mb-2">Заявка отправлена!</div>
-                <p class="text-slate-400 text-sm">Отвечу лично в течение нескольких часов. Без спама и автоответов.</p>
-              </div>
-            </div>
-
-          <p class="mt-6 text-sm text-slate-500 italic">
-            Отвечаю лично в течение нескольких часов. Без спама и автоответов.<br />
-            — Артём Селифанов
-          </p>
-
-          <p v-if="formError" class="mt-4 text-sm text-red-400 font-medium">{{ formError }}</p>
 
           <!-- Contact info -->
           <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">

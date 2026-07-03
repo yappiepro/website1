@@ -78,20 +78,6 @@
                 Выстраиваю систему продвижения для экспертов, фрилансеров и предпринимателей. Вы получаете стабильный поток заявок из контента — без рекламного бюджета и ежедневного постинга. Работаю с 2021 года.
               </p>
 
-              <!-- Input для ввода проблемы -->
-              <div class="mb-8 max-w-xl">
-                <label for="problem-input" class="block text-sm font-semibold text-gray-700 mb-2">
-                  С чем вам нужна помощь?
-                </label>
-                <input
-                  id="problem-input"
-                  v-model="problemText"
-                  type="text"
-                  placeholder="Например: нет заявок из блога, не знаю как упаковать экспертизу..."
-                  class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none"
-                />
-              </div>
-
               <div class="flex flex-wrap gap-4 mb-10">
                 <a
                   :href="telegramLink"
@@ -1420,10 +1406,7 @@
             </div>
           </div>
 
-          <!-- Правая колонка: Форма -->
-          <div class="w-full lg:w-[40%] bg-white rounded-2xl shadow-lg p-5 sm:p-6 lg:p-8">
-            <ContactForm default-source="Главная страница" :selected-service="selectedService" />
-          </div>
+
         </div>
       </section>
 

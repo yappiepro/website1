@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full">
+  <div v-if="false" class="w-full">
     <h3 class="text-base font-bold text-gray-900 mb-2 text-center">{{ sectionTitle }}</h3>
     <p class="text-xs text-gray-600 mb-4 text-center">
       {{ sectionDescription }}

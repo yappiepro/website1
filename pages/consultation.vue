@@ -453,9 +453,8 @@
       id="contact"
       class="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-violet-50 via-white to-blue-50"
     >
-      <div class="w-full flex flex-col lg:flex-row justify-center gap-6 lg:gap-8">
-        <!-- Левая колонка: Текст и преимущества -->
-        <div class="w-full lg:w-[40%] space-y-6">
+      <div class="w-full flex justify-center">
+        <div class="w-full max-w-2xl space-y-6">
           <!-- Бейдж -->
           <div
             class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-2xl shadow-sm"

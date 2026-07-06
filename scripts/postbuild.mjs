@@ -211,7 +211,7 @@ function injectPageMeta() {
 
 copyPublicFiles(publicDir, distDir)
 copySitemapFiles()
-injectPageMeta()
+// injectPageMeta() — отключено: SSR (ssr:true) корректно рендерит useHead/useSeoMeta
 
 if (existsSync(twoHundredHtml) && !existsSync(indexHtml)) {
   copyFileSync(twoHundredHtml, indexHtml)

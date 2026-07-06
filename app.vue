@@ -16,20 +16,7 @@ import LoadingBar from '~/components/layout/LoadingBar.vue'
 import CookieBanner from '~/components/layout/CookieBanner.vue'
 import GoogleAnalytics from '~/components/GoogleAnalytics.vue'
 
-const route = useRoute()
 const config = useRuntimeConfig()
-const siteUrl = computed(() => (config.public.siteUrl || '').replace(/\/+$/, ''))
-const canonicalUrl = computed(() => {
-  if (!siteUrl.value) {
-    return null
-  }
-  const path = route.path || '/'
-  return `${siteUrl.value}${path === '/' ? '' : path}`
-})
-
-useHead(() => ({
-  link: canonicalUrl.value ? [{ rel: 'canonical', href: canonicalUrl.value }] : [],
-}))
 
 // Метрики и аналитика подключаются через клиентские плагины/компоненты.
 useHead({

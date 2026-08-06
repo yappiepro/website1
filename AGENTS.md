@@ -1,43 +1,43 @@
 # AGENTS.md
 
 ## Developer Commands
-- `npm run dev`: Start development server.
-- `npm run generate`: Full production build pipeline (Meta → OG Images → Nuxt Gen → Postbuild → Sitemap). **Do not use `nuxt generate` directly** if you need updated metadata or sitemaps.
-- `npm run lint`: Run ESLint.
-- `npm run lint:fix`: Run ESLint with auto-fix.
-- `npm run cleanup`: Detect unused files and dependencies (via Knip).
-- `npm run cleanup:fix`: Auto-fix unused files and dependencies.
-- `npm run deps:check`: Verify dependency usage (via Depcheck).
+- `npm run dev`: Start development server (reads `.env` via `runtimeConfig`).
+- `npm run generate`: Full production build pipeline — `gen-blog-meta.mjs` → `generate-og-images.mjs` → `nuxt generate` → `postbuild.mjs` → `generate-sitemap.mjs`. **Never use `nuxt generate` directly** — it skips the meta/OG/sitemap scripts and produces a broken site.
+- `npm run lint` / `npm run lint:fix`: ESLint (flat config, repo defaults — no `.eslintrc`). Pre-commit hook runs `lint-staged` via Husky.
+- `npm run cleanup` / `cleanup:fix`: Knip unused-file/dep detection.
+- `npm run deps:check`: Depcheck (`--ignores='@types/*'`).
 - `npm run favicons`: Regenerate favicons from source.
-- `npm run analyze`: Run Nuxt bundle analyzer.
+- `npm run analyze`: Nuxt bundle analyzer.
+- **No test suite exists.** Verification = `npm run lint` + `npm run generate`.
 
 ## Setup
-- **Node**: 20 (pinned in CI).
-- **Env**: Copy `.env.example` to `.env` and fill in Firebase, Supabase, and Telegram keys. The dev server reads these via `runtimeConfig.public`.
-- **Husky**: Runs on `npm install` via the `prepare` script. Pre-commit hook triggers `lint-staged`.
+- **Node**: 20 (pinned in both CI workflows).
+- **Env**: Copy `.env.example` → `.env` (Firebase, Supabase, Telegram). Missing keys degrade gracefully at build; full local prod build needs the Firebase/Supabase values the CI passes as secrets.
+- **Secrets in CI**: `deploy.yml` passes `NUXT_*` and `NUXT_SUPABASE_SERVICE_ROLE_KEY`; `send-push.yml` needs `VAPID_PRIVATE_KEY` and `FIREBASE_SERVICE_ACCOUNT`. Locally these are absent — do not hardcode them.
+- **Committed secret**: `artemselifanov-ru-pwa-firebase-adminsdk-fbsvc-*.json` is tracked at repo root (used by the push-notification workflow). Don't touch it, and don't add new secrets to the repo.
 
-## Architecture & Pipeline
-- **Framework**: Nuxt 4 (SSR → SSG for GitHub Pages), Tailwind CSS 4, Vue 3.
-- **Deploy**: Push to `main` triggers `.github/workflows/deploy.yml` which runs `npm run generate`, copies `.output/public` → `dist`, and deploys to GitHub Pages.
-- **Content Pipeline** (`/scripts`, ignored during build):
-  - `gen-blog-meta.mjs`: Generates `data/blog-meta.js` and `data/blog-loaders.js`. **Must run after adding new blog articles** (or use `npm run generate` which runs it first).
-  - `generate-og-images.mjs`: Generates OG images for all blog articles.
-  - `convert-md-to-json.mjs` / `convert-telegram-to-knowledge.mjs`: Populate `data/knowledge/posts-data.json`.
-  - `postbuild.mjs`: Copies sitemap files and public assets to `dist`.
-  - `generate-sitemap.mjs`: Generates sitemap XML files.
-- **Integrations**: Supabase (DB/auth), Firebase (PWA push notifications), Telegram bot (form notifications).
-- **Path alias**: `@/*` maps to project root (see `tsconfig.json`).
+## Architecture
+- **Framework**: Nuxt 4 (SSR → SSG), Tailwind CSS 4 (`@tailwindcss/vite`), Vue 3. `@/*` → project root (`tsconfig.json`).
+- **Deploy**: Push to `main` runs `.github/workflows/deploy.yml` → `npm run generate` → copies build to `dist/` → GitHub Pages. Manual `workflow_dispatch` works too. `dist/`, `.output/`, `.nuxt/` are gitignored; CI rebuilds from scratch — never commit build output.
+- **Build output quirk**: `nuxt.config.ts` sets `nitro.output.publicDir: 'dist'`, so `nuxt generate` writes `dist/` directly; the deploy step's `.output/public` copy is a no-op fallback. `postbuild.mjs` then copies `public/` assets into `dist/`, renames `__sitemap__/*.xml` → `sitemap-*.xml`, and writes the sitemap index.
+- **SEO**: `ssr: true` renders `useHead`/`useSeoMeta` per page (set on each page file, e.g. `pages/index.vue:1480`). `injectPageMeta()` in `postbuild.mjs` is **disabled** — do not re-enable.
+- **TypeScript**: `strict: true` but `typeCheck: false` (`nuxt.config.ts`). Build will still fail on real TS errors, but there is no standalone typecheck script.
+- **PWA**: `@vite-pwa/nuxt`, `generateSW`, `autoUpdate`. Offline fallback disabled (`navigateFallback` commented out); `globIgnores` excludes `/404*` duplicates. Icons via `@nuxt/icon` SVG mode with Iconify caching.
+- **Fonts**: Manrope (Cyrillic) via `@nuxt/fonts` + Fontaine; `preload: false`, `display: swap`.
+- **`functions/` directory is legacy/unused** by the current build — ignore it.
 
-## Content Management
-- **Blog Articles**: Add as JS files in `data/blog/[cluster]/`, import in `data/blog.js`, then run `npm run generate`.
-- **Knowledge Base**: Content in `data/knowledge/posts-data.json` (generated). Topics defined in `data/knowledge/topics.js`.
-- **Pages**: File-based routing under `pages/`. Main routes: `/`, `/blog`, `/knowledge`, `/consultation`, `/mentorship`, `/networking`, `/business`, `/yappie`, `/study`, `/part1-3`.
+## Content Pipeline
+- **Blog articles** (138 JS files): live in `data/blog/[cluster]/<slug>.js` as `export default { slug, title, description, category, cluster, date, image, content }` where `content` is an **HTML string** (h2/h3, tables in `<div class="table-wrapper">`, CTA blocks). Ordering follows the array in `data/blog.js`.
+- **Adding a blog article requires 2 steps**: (1) create `data/blog/[cluster]/<slug>.js`, (2) `import` + add it to the `articles` array in `data/blog.js`. Then run `npm run generate`.
+- **Generated blog files**: `data/blog-meta.js` and `data/blog-loaders.js` are regenerated by `gen-blog-meta.mjs` on every generate. Do not hand-edit them.
+- **OG images**: `generate-og-images.mjs` writes **SVG** files to `public/images/blog/[cluster]/<slug>-og.svg`. No raster assets needed.
+- **Knowledge base**: topics in `data/knowledge/topics.js`; posts in `data/knowledge/posts-data.json` (generated from a local `HH.json` Telegram export via `convert-telegram-to-knowledge.mjs`). **`posts-data.json` is read at build time by `nuxt.config.ts` to build routes — it must exist or the build fails.** It is committed.
+- **Sitemap**: `generate-sitemap.mjs` writes `sitemap-pages.xml`, `sitemap-blog.xml`, `sitemap.xml` into `dist/`.
 
-## Conventions & Quirks
-- **Build order matters**: `generate` is a sequential pipeline; failure in any early step (e.g. `gen-blog-meta`) breaks the rest.
-- **Link Checker**: Disabled in production (`nuxt.config.ts:33-35`) to avoid false 500 errors during prerendering.
-- **TypeScript**: Strict mode on but `typeCheck: false` (`nuxt.config.ts:326-328`). No separate `tsconfig` — extends `.nuxt/tsconfig.json`.
-- **No separate config files**: ESLint, Knip, and Prettier use defaults (no `.eslintrc`, `knip.json`, etc. in repo).
-- **Nitro output**: `dist/` is the final deploy artifact, generated from `.output/public` by the CI workflow. Locally, `nuxt generate` outputs to `.output/public` and `postbuild.mjs` handles the copy.
-- **Font**: Manrope with Cyrillic subset, preloaded via `@nuxt/fonts` + Fontaine for CLS prevention.
-- **PWA**: Configured via `@vite-pwa/nuxt` with Iconify caching, offline support disabled (`navigateFallback` commented out).
+## Conventions & Gotchas
+- **`data/blog/README.md` is stale**: its internal-link examples use an old `/website1/` baseURL and mention only 5 old clusters — ignore those parts. Actual internal links are `/blog/...` (site `baseURL` is `/`, domain `https://artemselifanov.ru`).
+- **`nuxt generate` fails hard** on prerender errors (`nitro.prerender.failOnError: true`) and on route-less article slugs. Adding a bad slug/import to `data/blog.js` breaks the whole pipeline.
+- **Link checker disabled** in production to avoid false 500s during prerendering — don't "fix" this.
+- **`*.json` is globally gitignored** with narrow whitelists (`package.json`, `package-lock.json`, `tsconfig.json`, `composer.json`). New JSON files you create won't be committed unless you whitelist them.
+- **Pages**: file-based routing under `pages/`. Main routes: `/`, `/blog`, `/knowledge`, `/networking`, `/business`, `/yappie`, `/study`, `/mice`, `/consultation`, `/mentorship`, `/networking-rules`, plus `/part1`–`/part3`, `/offer`, `/cookie`, `/privacy`, `/map`, `/admin/contacts`. Any page to be prerendered must also be added to `nitro.prerender.routes` in `nuxt.config.ts`.
+- **Contact forms were removed** (recent commits) — pages show only Telegram/Email/Max buttons. Don't re-add form logic.

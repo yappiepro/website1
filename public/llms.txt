@@ -1,0 +1,47 @@
+# Артём Селифанов — личный бренд для предпринимателей и экспертов
+
+> Сайт Артёма Селифанова: система продвижения личного бренда для экспертов, фрилансеров и предпринимателей. Контент-маркетинг, упаковка экспертности, продвижение в Telegram — органический поток заявок без рекламного бюджета. Сайт также описывает отдельные направления: сообщество «Нескучный Нетворкинг», клуб «Бизнес Сетка», разработка сайтов и AI-решений (YAPPIE), бизнес-миссии в Карелию.
+
+Сайт статический, контент на русском языке. Работает с 2021 года. Основные направления — продвижение через контент (без рекламы и ежедневного постинга), консультации и менторство по запуску блога. Связаться: Telegram https://t.me/artemselifanov.
+
+## Основные разделы
+
+- [Главная](https://artemselifanov.ru/): услуги, кейсы и система продвижения личного бренда
+- [Блог](https://artemselifanov.ru/blog): 138 статей по разработке сайтов, веб-приложений, мобильной разработке и AI для бизнеса
+- [База знаний](https://artemselifanov.ru/knowledge): структурированные материалы по личному бренду, контент-стратегии, продажам и нетворкингу
+- [Консультация](https://artemselifanov.ru/consultation): разовая консультация — за 60 минут конкретный план блога
+- [Менторство](https://artemselifanov.ru/mentorship): менторская программа по запуску блога, 5 сессий один на один
+- [Нескучный Нетворкинг](https://artemselifanov.ru/networking): сообщество для развития личного бренда через контент и знакомства
+- [Бизнес Сетка](https://artemselifanov.ru/business): закрытый клуб и мастермайнд для предпринимателей
+- [YAPPIE](https://artemselifanov.ru/yappie): разработка сайтов, Telegram-ботов, CRM и веб-приложений с AI
+- [Фокус](https://artemselifanov.ru/study): тест на позиционирование личного бренда
+- [Бизнес-миссии в Карелию](https://artemselifanov.ru/mice): бизнес-миссии под ключ с GR-сопровождением
+- [Правила нетворкинга](https://artemselifanov.ru/networking-rules): правила сообщества «Нескучный Нетворкинг»
+
+## Блог по темам
+
+- [Разработка сайтов](https://artemselifanov.ru/blog/cluster/razrabotka-saytov): заказ, этапы, стоимость и типичные ошибки
+- [Создание сайтов](https://artemselifanov.ru/blog/cluster/sozdanie-saytov): пошаговые руководства для самостоятельного запуска
+- [Мобильные приложения](https://artemselifanov.ru/blog/cluster/mobilnye-prilozheniya): виды, разработка и продвижение приложений
+- [Веб-разработка](https://artemselifanov.ru/blog/cluster/veb-razrabotka): фронтенд, бэкенд, API и DevOps
+- [Искусственный интеллект](https://artemselifanov.ru/blog/cluster/iskusstvennyy-intellekt): применение ИИ и нейросетей в бизнесе
+- [Личный бренд](https://artemselifanov.ru/blog/cluster/lichnyy-brend): упаковка экспертности и позиционирование
+- [Контент-маркетинг](https://artemselifanov.ru/blog/cluster/kontent-marketing): стратегии и практики привлечения клиентов контентом
+- [Нетворкинг](https://artemselifanov.ru/blog/cluster/networking): полезные знакомства и развитие сети контактов
+- [Telegram-маркетинг](https://artemselifanov.ru/blog/cluster/telegram-marketing): ведение каналов и продвижение в Telegram
+- [Чат-боты](https://artemselifanov.ru/blog/cluster/chat-boty): что такое чат-боты и как использовать в бизнесе
+- [Монетизация экспертности](https://artemselifanov.ru/blog/cluster/monetizatsiya-ekspertnosti): продажа услуг, онлайн-курсы и консалтинг
+- [SEO](https://artemselifanov.ru/blog/cluster/seo): продвижение сайтов в поисковых системах
+- [SMM](https://artemselifanov.ru/blog/cluster/smm): продвижение в социальных сетях
+- [No-code](https://artemselifanov.ru/blog/cluster/nocode): создание сайтов и сервисов без кода
+- [Email-маркетинг](https://artemselifanov.ru/blog/cluster/email-marketing): рассылки и сбор базы подписчиков
+- [UX/UI](https://artemselifanov.ru/blog/cluster/ux-ui): дизайн интерфейсов и прототипирование
+- [Управление проектами](https://artemselifanov.ru/blog/cluster/upravlenie-proektami): Agile, Scrum и системы задач
+- [Аналитика](https://artemselifanov.ru/blog/cluster/analitika): метрики и веб-аналитика
+- [Контекстная реклама](https://artemselifanov.ru/blog/cluster/kontekstnaya-reklama): Яндекс.Директ и запуск рекламы
+
+## Правовые документы
+
+- [Публичная оферта](https://artemselifanov.ru/offer)
+- [Политика обработки персональных данных](https://artemselifanov.ru/privacy)
+- [Согласие на обработку персональных данных](https://artemselifanov.ru/cookie)

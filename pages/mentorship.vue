@@ -855,7 +855,7 @@ useHead({
     },
     { name: 'robots', content: 'index, follow' },
   ],
-  link: [{ rel: 'canonical', href: 'https://artemselifanov.ru/mentorship' }],
+  link: [{ rel: 'canonical', href: 'https://artemselifanov.ru/mentorship/' }],
 })
 
 useSeoMeta({

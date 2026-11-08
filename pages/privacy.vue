@@ -202,7 +202,7 @@ useSeoMeta({
 
 useHead({
   link: [
-    { rel: 'canonical', href: 'https://artemselifanov.ru/privacy' }
+    { rel: 'canonical', href: 'https://artemselifanov.ru/privacy/' }
   ]
 })
 </script>

@@ -1,0 +1,361 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "Селифанов Артем" [ref=e8] [cursor=pointer]:
+        - /url: /
+      - button "Открыть меню" [ref=e9]:
+        - img [ref=e10]
+  - main [ref=e12]:
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - heading "Блог, который приносит клиентов — а не просто подписчиков" [level=1] [ref=e17]:
+          - generic [ref=e18]: Блог, который приносит клиентов — а не просто подписчиков
+        - paragraph [ref=e19]: Выстраиваю систему продвижения для экспертов, фрилансеров и предпринимателей. Вы получаете стабильный поток заявок из контента — без рекламного бюджета и ежедневного постинга. Работаю с 2021 года.
+        - generic [ref=e20]:
+          - generic [ref=e21]: С чем вам нужна помощь?
+          - textbox "С чем вам нужна помощь?" [ref=e22]:
+            - /placeholder: "Например: нет заявок из блога, не знаю как упаковать экспертизу..."
+        - generic [ref=e23]:
+          - link "Отправить в Telegram" [ref=e24] [cursor=pointer]:
+            - /url: https://t.me/artemselifanov
+          - link "Max Отправить в Max" [ref=e27] [cursor=pointer]:
+            - /url: https://max.ru/u/f9LHodD0cOLO_FSLoMnfL87zUzWaeDrIUVzSccI1rSSfL24Xr81W37H7wmk
+        - generic [ref=e29]:
+          - generic [ref=e30]
+          - generic [ref=e34]
+      - generic [ref=e39]:
+        - generic [ref=e41]:
+          - img "Дзен" [ref=e43]
+          - img "Сетка" [ref=e45]
+          - img "Площадка" [ref=e47]
+          - img "TenChat" [ref=e49]
+          - img "Площадка" [ref=e51]
+        - generic [ref=e52]:
+          - generic [ref=e53]
+          - paragraph [ref=e57]: Работаю с 5+ площадками одновременно
+    - generic [ref=e60]:
+      - generic [ref=e61]:
+        - generic [ref=e63]: Причина результатов
+        - heading "Не советы — система, которая уже доказала результат на мне самом" [level=2] [ref=e64]
+        - paragraph [ref=e65]: "За 2 года: 0 → 45 000 подписчиков, 50+ платных клиентов ежемесячно, средний чек вырос с 3 000 до 8 000 ₽. Без рекламы. Только органика и правильная структура."
+        - heading "Не обещаю миллион подписчиков, обещаю нужных клиентов" [level=3] [ref=e66]
+        - paragraph [ref=e67]: "Главное не в числе, а в качестве:"
+        - list [ref=e68]:
+          - listitem [ref=e69]: Не обещаю миллион подписчиков — обещаю нужных клиентов
+          - listitem [ref=e70]: Адаптирую методику под вас, а не заставляю писать по шаблону
+          - listitem [ref=e71]: Честно говорю, если считаю, что справитесь сами
+          - listitem [ref=e72]: Работаю только с тем, что доказало эффективность
+        - heading "Я работаю только с тем, что работает" [level=3] [ref=e73]
+        - paragraph [ref=e74]: Я адаптирую методику под вас, не заставляю писать 1000 постов, не советую платить за рекламу, если работает органика, и не настаиваю на своих привычных платформах. Моя цель — ваши результаты.
+      - generic [ref=e77]:
+        - heading "Работаю в связке" [level=3] [ref=e78]:
+          - img [ref=e80]
+          - text: Работаю в связке
+        - generic [ref=e82]:
+          - generic [ref=e83]
+          - generic [ref=e90]
+          - generic [ref=e97]
+          - generic [ref=e104]
+    - generic [ref=e112]:
+      - generic [ref=e113]:
+        - generic [ref=e115]: Система
+        - heading "Telegram — моя посадочная. Остальное — источники трафика" [level=2] [ref=e116]:
+          - text: Telegram — моя посадочная.
+          - text: Остальное — источники трафика
+        - paragraph [ref=e117]: Системный подход к дистрибуции личного бренда
+      - generic [ref=e118]:
+        - generic [ref=e119]:
+          - generic [ref=e121]: ТенЧат
+          - generic [ref=e123]: Дзен
+          - generic [ref=e125]: Сетка
+          - generic [ref=e127]: Тредс
+          - generic [ref=e129]: ВК
+        - img [ref=e131]
+        - generic [ref=e142]:
+          - link [ref=e144] [cursor=pointer]:
+            - /url: https://t.me/bussinessetka
+          - generic [ref=e147]: Целевая аудитория
+      - generic [ref=e149]:
+        - generic [ref=e150]:
+          - generic [ref=e151]
+          - generic [ref=e156]: 50-200
+          - paragraph [ref=e157]
+          - paragraph [ref=e159]: Без шума алгоритмов. Только польза, кейсы и решения для роста дохода.
+        - generic [ref=e160]:
+          - generic [ref=e161]
+          - generic [ref=e166]
+          - paragraph [ref=e179]: Работают на охваты. Собирают внимание и фильтруют случайных зрителей.
+        - generic [ref=e180]:
+          - generic [ref=e181]: 2000+
+          - paragraph [ref=e182]: подписчиков в соцсетях ежемесячно
+        - generic [ref=e184]:
+          - generic [ref=e185]: 🎯
+          - generic [ref=e186]
+        - link "Записаться в Telegram" [ref=e190] [cursor=pointer]:
+          - /url: https://t.me/artemselifanov
+          - img [ref=e191]
+          - generic [ref=e193]: Записаться в Telegram
+      - generic [ref=e194]:
+        - generic [ref=e195]:
+          - generic [ref=e196]
+          - heading "Сообщества в Telegram" [level=3] [ref=e200]
+          - paragraph [ref=e201]: Закрытые сообщества для предпринимателей и экспертов, где вы найдёте полезные связи и окружение для роста
+        - generic [ref=e202]:
+          - link "750 за 6 мес Нескучный Нетворкинг Нескучный Нетворкинг Полезные связи" [ref=e203] [cursor=pointer]:
+            - /url: /networking
+          - link "240 за 1,5 мес Бизнес Сетка Бизнес Сетка Закрытый клуб" [ref=e215] [cursor=pointer]:
+            - /url: /business
+    - generic [ref=e228]:
+      - generic [ref=e229]:
+        - generic [ref=e231]: Услуги
+        - heading "Форматы работы" [level=2] [ref=e232]
+        - paragraph [ref=e233]: Выберите формат, который подходит под вашу задачу
+      - generic [ref=e234]:
+        - generic [ref=e235]:
+          - generic [ref=e236]
+          - generic [ref=e242]
+          - list [ref=e245]
+          - link "Записаться" [ref=e262] [cursor=pointer]:
+            - /url: "#contact?service=Диагностика"
+        - generic [ref=e263]:
+          - generic [ref=e264]
+          - generic [ref=e270]
+          - list [ref=e273]
+          - link "Подробнее" [ref=e294] [cursor=pointer]:
+            - /url: /consultation
+          - link "Записаться" [ref=e295] [cursor=pointer]:
+            - /url: "#contact?service=Консультация"
+        - generic [ref=e296]:
+          - generic [ref=e297]
+          - generic [ref=e303]
+          - list [ref=e306]
+          - link "Подробнее" [ref=e331] [cursor=pointer]:
+            - /url: /mentorship
+          - link "Начать работу" [ref=e332] [cursor=pointer]:
+            - /url: "#contact?service=Менторство"
+      - paragraph [ref=e334]:
+        - text: "Также предлагаю услуги по разработке:"
+        - link "веб- и мобильная разработка" [ref=e335] [cursor=pointer]:
+          - /url: /yappie
+    - generic [ref=e337]:
+      - generic [ref=e338]:
+        - generic [ref=e340]: Для кого
+        - heading "Выберите свою ситуацию" [level=2] [ref=e341]
+      - generic [ref=e342]:
+        - generic [ref=e343]:
+          - heading "Вы только думаете о блоге" [level=3] [ref=e344]
+          - generic [ref=e345]
+        - generic [ref=e353]:
+          - heading "Ведёте блог 2–3 месяца без заявок" [level=3] [ref=e354]
+          - generic [ref=e355]
+        - generic [ref=e363]:
+          - heading "Хотите не советов, а готовую систему" [level=3] [ref=e364]
+          - generic [ref=e365]
+      - generic [ref=e373]:
+        - heading "Результат" [level=3] [ref=e374]
+        - generic [ref=e375]:
+          - generic [ref=e376]
+          - generic [ref=e380]
+          - generic [ref=e384]
+    - generic [ref=e389]:
+      - generic [ref=e390]:
+        - generic [ref=e392]: Инфраструктура
+        - heading "Экосистема проектов" [level=2] [ref=e393]
+        - paragraph [ref=e394]: Для комплексного роста бизнеса я создал инфраструктуру, которая помогает моим клиентам масштабироваться
+      - generic [ref=e395]:
+        - link "Веб-разработка Сайты, которые продают, а не просто висят Посмотреть услуги" [ref=e396] [cursor=pointer]:
+          - /url: /yappie
+          - img [ref=e398]
+          - heading "Веб-разработка" [level=3] [ref=e400]
+          - paragraph [ref=e401]: Сайты, которые продают, а не просто висят
+          - generic [ref=e402]
+        - link "Блог Статьи о разработке, автоматизации и AI для бизнеса Читать статьи" [ref=e406] [cursor=pointer]:
+          - /url: /blog
+          - img [ref=e408]
+          - heading "Блог" [level=3] [ref=e410]
+          - paragraph [ref=e411]: Статьи о разработке, автоматизации и AI для бизнеса
+          - generic [ref=e412]
+        - link "База знаний 220+ постов о личном бренде, контенте и продвижении Изучить материалы" [ref=e416] [cursor=pointer]:
+          - /url: /knowledge
+          - img [ref=e418]
+          - heading "База знаний" [level=3] [ref=e420]
+          - paragraph [ref=e421]: 220+ постов о личном бренде, контенте и продвижении
+          - generic [ref=e422]
+      - generic [ref=e427]:
+        - generic [ref=e428]:
+          - generic [ref=e429]
+          - heading "Полный цикл работы с клиентом" [level=3] [ref=e433]
+          - paragraph [ref=e434]: "Закрываю всю цепочку: от привлечения внимания до автоматизации продаж"
+        - generic [ref=e436]:
+          - generic [ref=e438]
+          - generic [ref=e445]
+          - generic [ref=e452]
+          - generic [ref=e459]
+    - generic [ref=e466]:
+      - generic [ref=e467]:
+        - generic [ref=e468]:
+          - img [ref=e469]
+          - generic [ref=e471]: Результаты
+        - 'heading "Результаты: личный пример и внедрённые методики" [level=2] [ref=e472]'
+      - generic [ref=e473]:
+        - generic [ref=e474]:
+          - generic [ref=e475]
+          - generic [ref=e479]
+          - generic [ref=e507]
+        - generic [ref=e509]:
+          - generic [ref=e510]
+          - generic [ref=e514]
+          - generic [ref=e542]
+        - generic [ref=e544]:
+          - generic [ref=e545]
+          - generic [ref=e549]
+          - generic [ref=e576]
+    - generic [ref=e579]:
+      - generic [ref=e580]:
+        - generic [ref=e581]:
+          - img [ref=e582]
+          - generic [ref=e584]: Отзывы
+        - heading "Что говорят клиенты" [level=2] [ref=e585]
+        - paragraph [ref=e586]: Реальные истории людей, которые уже внедрили мои рекомендации
+      - generic [ref=e587]:
+        - generic [ref=e588]:
+          - img [ref=e590]
+          - paragraph [ref=e592]: "Внедрила рекомендации: разделила контент для Сетки и Telegram, вышла на регулярность и добавила больше продаж. С того момента запустила несколько крупных проектов по сопровождению. Спасибо за экспертизу и опыт."
+          - generic [ref=e593]
+        - generic [ref=e599]:
+          - img [ref=e601]
+          - paragraph [ref=e603]: Создала канал в Сетке, запустила Telegram. Уже вижу живой интерес — люди подписываются, просматривают страницу. Это приятно и подстёгивает продолжать. Всё начиналось с нуля, а сейчас есть реальная аудитория и momentum.
+          - generic [ref=e604]
+        - generic [ref=e610]:
+          - img [ref=e612]
+          - paragraph [ref=e614]: "Иногда приходишь с одним запросом, а уходишь с совершенно противоположным — и именно это становится главным результатом. Я точно поняла, чего не хочу: воздушного контента без почвы. Хочу показывать реальные дела и опираться на свой опыт в бизнес-анализе. Для этого и нужны консультации."
+          - generic [ref=e615]
+        - generic [ref=e621]:
+          - img [ref=e623]
+          - paragraph [ref=e625]: Работа помогла выстроить контент, который реально продаёт. Методология адаптируется под конкретного человека и его аудиторию — неважно, запускаетесь ли вы с нуля, проходите ребрендинг или хотите усилить позиции.
+          - generic [ref=e626]
+    - generic [ref=e633]:
+      - generic [ref=e634]:
+        - generic [ref=e636]: Процесс
+        - heading "Этапы работы" [level=2] [ref=e637]
+      - generic [ref=e640]:
+        - generic [ref=e641]:
+          - generic [ref=e643]
+          - generic [ref=e647]: "1"
+        - generic [ref=e648]:
+          - generic [ref=e650]
+          - generic [ref=e654]: "2"
+        - generic [ref=e655]:
+          - generic [ref=e657]
+          - generic [ref=e661]: "3"
+        - generic [ref=e662]:
+          - generic [ref=e664]
+          - generic [ref=e668]: "4"
+        - generic [ref=e669]:
+          - generic [ref=e671]
+          - generic [ref=e675]: "5"
+    - generic [ref=e677]:
+      - generic [ref=e678]:
+        - heading "Честные ответы на возражения" [level=2] [ref=e679]
+        - paragraph [ref=e680]: Которые мне часто задают
+      - generic [ref=e681]:
+        - generic [ref=e682]:
+          - heading "\"Это очень дорого / А может быть дешевле?\"" [level=3] [ref=e683]
+          - paragraph [ref=e684]: "Понимаю, что менторство — это инвестиция. Но посчитайте стоимость ошибки: месяц на поиск информации, месяц на попытки, риск потерять целевых подписчиков из-за плохой упаковки. 80% моих клиентов окупают менторство в первый же месяц за счёт новых клиентов. Это не расходы, это ускорение вашего заработка в разы."
+        - generic [ref=e685]:
+          - heading "\"Я попробую сам, может сработает?\"" [level=3] [ref=e686]
+          - paragraph [ref=e687]: Может. Но сколько вы готовы потратить времени? Месяц на «тесты» или час на диагностику, чтобы понять, что именно работает? Я честно скажу, нужна ли вам моя помощь или вы можете справиться сами. Риск — только моё время на разговор, а шанс — сэкономить месяцы попыток.
+        - generic [ref=e688]:
+          - heading "\"Я не верю, что это работает без большого бюджета\"" [level=3] [ref=e689]
+          - paragraph [ref=e690]: "Справедливо. Я тоже не верил, пока не запустил канал «Нескучный Нетворкинг» на 500+ подписчиков за 3 месяца без единого рубля в рекламу. Это не магия — это система: позиционирование + дистрибуция + регулярность. Я научу вас каждой технике."
+    - generic [ref=e692]:
+      - generic [ref=e693]:
+        - generic [ref=e694]:
+          - img [ref=e695]
+          - generic [ref=e697]: FAQ
+        - heading "Сомневаетесь? Это нормально" [level=2] [ref=e698]
+        - paragraph [ref=e699]: Вот что обычно спрашивают перед тем, как начать
+      - generic [ref=e700]:
+        - button "Я только начал, мне рано?" [ref=e702]:
+          - generic [ref=e703]: Я только начал, мне рано?
+          - img [ref=e704]
+        - button "А что, если у меня ничего не выйдет?" [ref=e707]:
+          - generic [ref=e708]: А что, если у меня ничего не выйдет?
+          - img [ref=e709]
+        - button "Сколько времени нужно уделять?" [ref=e712]:
+          - generic [ref=e713]: Сколько времени нужно уделять?
+          - img [ref=e714]
+        - button "Почему я должен платить вам, а не учиться сам?" [ref=e717]:
+          - generic [ref=e718]: Почему я должен платить вам, а не учиться сам?
+          - img [ref=e719]
+        - button "Чем вы отличаетесь от других наставников?" [ref=e722]:
+          - generic [ref=e723]: Чем вы отличаетесь от других наставников?
+          - img [ref=e724]
+    - generic [ref=e727]:
+      - generic [ref=e728]:
+        - generic [ref=e729]:
+          - img [ref=e730]
+          - generic [ref=e732]: Связаться со мной
+        - heading "Готовы перестать гадать и начать получать клиентов?" [level=2] [ref=e733]
+        - paragraph [ref=e734]: "Напишите мне в Telegram, и я проведу бесплатный разбор вашей ситуации за 30 минут. Вы узнаете: что работает именно в вашем случае, с чего начать прямо сейчас и подходит ли вам мой формат работы."
+        - generic [ref=e735]:
+          - generic [ref=e736]
+          - generic [ref=e743]
+          - generic [ref=e750]
+        - generic [ref=e757]:
+          - paragraph [ref=e758]: "Или напишите напрямую:"
+          - generic [ref=e759]
+      - generic [ref=e767]:
+        - heading "Онлайн запись" [level=3] [ref=e768]
+        - paragraph [ref=e769]: Заполните форму и я свяжусь с вами в течение 24 часов
+        - generic [ref=e770]:
+          - generic [ref=e771]: "Выберите услугу:"
+          - generic [ref=e772]
+        - generic [ref=e776]:
+          - generic [ref=e777]
+          - generic [ref=e780]
+          - generic [ref=e783]
+          - generic [ref=e786]
+          - generic [ref=e789]
+          - button "Отправить" [disabled] [ref=e797]
+    - generic [ref=e800]:
+      - generic [ref=e801]:
+        - generic [ref=e802]:
+          - heading "Разделы сайта" [level=3] [ref=e803]
+          - list [ref=e804]
+        - generic [ref=e817]:
+          - heading "Артем Селифанов" [level=3] [ref=e818]
+          - generic [ref=e819]
+          - heading "Контакты" [level=3] [ref=e823]
+          - list [ref=e824]
+        - generic [ref=e831]:
+          - heading "Сообщества" [level=3] [ref=e832]
+          - list [ref=e833]
+        - generic [ref=e838]:
+          - heading "Соцсети" [level=3] [ref=e839]
+          - generic [ref=e840]
+      - generic [ref=e855]:
+        - generic [ref=e856]: © 2026 Артем Селифанов. Все права защищены.
+        - generic [ref=e857]:
+          - link "Политика конфиденциальности" [ref=e858] [cursor=pointer]:
+            - /url: /privacy
+          - link "Договор оферты" [ref=e859] [cursor=pointer]:
+            - /url: /offer
+          - link "Cookie политика" [ref=e860] [cursor=pointer]:
+            - /url: /cookie
+  - navigation [ref=e862]:
+    - link "Главная" [ref=e863] [cursor=pointer]:
+      - /url: /
+      - img [ref=e866]
+    - link "Нетворкинг" [ref=e869] [cursor=pointer]:
+      - /url: /networking
+      - img [ref=e871]
+    - link "Бизнес" [ref=e876] [cursor=pointer]:
+      - /url: /business
+      - img [ref=e878]
+    - link "Веб" [ref=e881] [cursor=pointer]:
+      - /url: /yappie
+      - img [ref=e883]
+    - link "Блог" [ref=e886] [cursor=pointer]:
+      - /url: /blog
+      - img [ref=e888]

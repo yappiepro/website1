@@ -127,7 +127,7 @@ useSeoMeta({
 
 useHead({
   link: [
-    { rel: 'canonical', href: `https://artemselifanov.ru/knowledge/post/${postId}` }
+    { rel: 'canonical', href: `https://artemselifanov.ru/knowledge/post/${postId}/` }
   ]
 })
 

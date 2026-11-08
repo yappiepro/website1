@@ -307,7 +307,7 @@ useSeoMeta({
 
 useHead({
   link: [
-    { rel: 'canonical', href: `https://artemselifanov.ru/blog/cluster/${clusterSlug}` }
+    { rel: 'canonical', href: `https://artemselifanov.ru/blog/cluster/${clusterSlug}/` }
   ]
 })
 </script>

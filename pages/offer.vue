@@ -232,7 +232,7 @@ useSeoMeta({
 
 useHead({
   link: [
-    { rel: 'canonical', href: 'https://artemselifanov.ru/offer' }
+    { rel: 'canonical', href: 'https://artemselifanov.ru/offer/' }
   ]
 })
 </script>

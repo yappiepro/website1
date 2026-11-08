@@ -48,7 +48,7 @@ useSeoMeta({
 })
 
 useHead({
-  link: [{ rel: 'canonical', href: 'https://artemselifanov.ru/business' }],
+  link: [{ rel: 'canonical', href: 'https://artemselifanov.ru/business/' }],
 })
 
 const isMobileMenuOpen = ref(false)

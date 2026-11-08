@@ -181,7 +181,7 @@ useSeoMeta({
 
 useHead({
   link: [
-    { rel: 'canonical', href: 'https://artemselifanov.ru/cookie' }
+    { rel: 'canonical', href: 'https://artemselifanov.ru/cookie/' }
   ]
 })
 </script>

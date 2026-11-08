@@ -53,7 +53,7 @@ useSeoMeta({
 
 useHead({
   link: [
-    { rel: 'canonical', href: `https://artemselifanov.ru/knowledge/${topicSlug}` }
+    { rel: 'canonical', href: `https://artemselifanov.ru/knowledge/${topicSlug}/` }
   ]
 })
 

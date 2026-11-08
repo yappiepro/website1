@@ -717,7 +717,7 @@ useHead({
     },
     { name: 'robots', content: 'index, follow' },
   ],
-  link: [{ rel: 'canonical', href: 'https://artemselifanov.ru/networking-rules' }],
+  link: [{ rel: 'canonical', href: 'https://artemselifanov.ru/networking-rules/' }],
 })
 
 useSeoMeta({

@@ -578,7 +578,7 @@ useHead({
     },
     { name: 'robots', content: 'index, follow' },
   ],
-  link: [{ rel: 'canonical', href: 'https://artemselifanov.ru/consultation' }],
+  link: [{ rel: 'canonical', href: 'https://artemselifanov.ru/consultation/' }],
 })
 
 useSeoMeta({

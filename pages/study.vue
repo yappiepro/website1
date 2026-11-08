@@ -1106,7 +1106,7 @@ onUnmounted(() => {
 
 useHead({
   link: [
-    { rel: 'canonical', href: 'https://artemselifanov.ru/study' }
+    { rel: 'canonical', href: 'https://artemselifanov.ru/study/' }
   ]
 })
 

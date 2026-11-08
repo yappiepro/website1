@@ -43,7 +43,7 @@ useSeoMeta({
 })
 
 useHead({
-  link: [{ rel: 'canonical', href: 'https://artemselifanov.ru/networking' }],
+  link: [{ rel: 'canonical', href: 'https://artemselifanov.ru/networking/' }],
 })
 
 const isMobileMenuOpen = ref(false)

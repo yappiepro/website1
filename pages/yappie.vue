@@ -1121,7 +1121,7 @@ useSeoMeta({
 })
 
 useHead({
-  link: [{ rel: 'canonical', href: 'https://artemselifanov.ru/yappie' }],
+  link: [{ rel: 'canonical', href: 'https://artemselifanov.ru/yappie/' }],
 })
 
 import Accordion from '~/components/ui/accordion/Accordion.vue'

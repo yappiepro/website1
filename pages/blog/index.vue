@@ -567,7 +567,7 @@ function getClusterButtonActiveClass(cluster) {
 
 useHead({
   link: [
-    { rel: 'canonical', href: 'https://artemselifanov.ru/blog' }
+    { rel: 'canonical', href: 'https://artemselifanov.ru/blog/' }
   ]
 })
 

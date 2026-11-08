@@ -24,7 +24,7 @@ useSeoMeta({
 
 useHead({
   link: [
-    { rel: 'canonical', href: 'https://artemselifanov.ru/knowledge' }
+    { rel: 'canonical', href: 'https://artemselifanov.ru/knowledge/' }
   ]
 })
 

@@ -543,7 +543,7 @@ useSeoMeta({
 })
 
 useHead({
-  link: [{ rel: 'canonical', href: `https://artemselifanov.ru/blog/${article.slug}` }],
+  link: [{ rel: 'canonical', href: `https://artemselifanov.ru/blog/${article.slug}/` }],
 })
 </script>
 

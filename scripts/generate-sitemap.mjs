@@ -36,7 +36,6 @@ const pages = [
   { path: '/cookie', priority: '0.3', changefreq: 'monthly' },
   { path: '/privacy', priority: '0.3', changefreq: 'monthly' },
   { path: '/offer', priority: '0.3', changefreq: 'monthly' },
-  { path: '/offline', priority: '0.1', changefreq: 'monthly' },
   ...knowledgeRoutes.map((path) => ({ path, priority: '0.7', changefreq: 'weekly' })),
   ...knowledgePostRoutes.map((path) => ({ path, priority: '0.6', changefreq: 'weekly' })),
 ]
@@ -47,11 +46,15 @@ const blogPages = ['/blog', ...blogClusters, ...blogRoutes]
 const baseUrl = 'https://artemselifanov.ru'
 const lastmod = new Date().toISOString().split('T')[0]
 
+// GitHub Pages serves prerendered directories at URLs ending in a slash.
+// Emit that final URL directly to avoid one-hop redirects from the sitemap.
+const sitemapPath = (path) => (path === '/' ? '/' : `${path.replace(/\/+$/, '')}/`)
+
 // Генерация sitemap-pages.xml
 const pagesXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${pages.map(page => `  <url>
-    <loc>${baseUrl}${page.path}</loc>
+    <loc>${baseUrl}${sitemapPath(page.path)}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
@@ -62,7 +65,7 @@ ${pages.map(page => `  <url>
 const blogXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${blogPages.map(path => `  <url>
-    <loc>${baseUrl}${path}</loc>
+    <loc>${baseUrl}${sitemapPath(path)}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>weekly</changefreq>
   </url>`).join('\n')}

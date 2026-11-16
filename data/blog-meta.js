@@ -894,6 +894,15 @@ export const articles = [
     "image": "/images/blog/networking/networking-dlya-biznesa-og.svg"
   },
   {
+    "slug": "mastermaynd-gruppa-chto-eto-i-kak-sozdat",
+    "title": "Мастермайнд-группа: что это такое и как создать с нуля",
+    "description": "Что такое мастермайнд-группа, как она работает и как создать свою для предпринимателей и экспертов. Практическое руководство с форматами, примерами и пошаговым планом запуска.",
+    "category": "Нетворкинг",
+    "cluster": "networking",
+    "date": "2026-05-24",
+    "image": "/images/blog/networking/mastermaynd-gruppa-og.svg"
+  },
+  {
     "slug": "chto-takoe-chat-bot",
     "title": "Что такое чат-бот: как работает, виды и зачем нужен бизнесу",
     "description": "Разбираем, что такое чат-бот простыми словами, как он работает, какие виды существуют и зачем нужен бизнесу. Примеры, сравнение платформ и с чего начать в 2026 году.",

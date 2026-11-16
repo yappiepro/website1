@@ -899,7 +899,7 @@ export const articles = [
     "description": "Что такое мастермайнд-группа, как она работает и как создать свою для предпринимателей и экспертов. Практическое руководство с форматами, примерами и пошаговым планом запуска.",
     "category": "Нетворкинг",
     "cluster": "networking",
-    "date": "2026-05-24",
+    "date": "2026-11-16",
     "image": "/images/blog/networking/mastermaynd-gruppa-og.svg"
   },
   {
@@ -908,7 +908,7 @@ export const articles = [
     "description": "Как выбирать деловые мероприятия, конференции и форумы для предпринимателей и экспертов. Пошаговое руководство по подготовке, нетворкингу и конвертации знакомств в результат.",
     "category": "Нетворкинг",
     "cluster": "networking",
-    "date": "2026-05-24",
+    "date": "2026-11-16",
     "image": "/images/blog/networking/delovye-meropriytiya-og.svg"
   },
   {

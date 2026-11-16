@@ -102,6 +102,7 @@ export const articleLoaders = {
   'kak-razvit-set-kontaktov': () => import('./blog/networking/kak-razvit-set-kontaktov.js').then(m => m.default),
   'networking-dlya-biznesa': () => import('./blog/networking/networking-dlya-biznesa.js').then(m => m.default),
   'mastermaynd-gruppa-chto-eto-i-kak-sozdat': () => import('./blog/networking/mastermaynd-gruppa-chto-eto-i-kak-sozdat.js').then(m => m.default),
+  'delovye-meropriytiya-kak-vybrat-i-poluchat-maksimum': () => import('./blog/networking/delovye-meropriytiya-kak-vybrat-i-poluchat-maksimum.js').then(m => m.default),
   'chto-takoe-chat-bot': () => import('./blog/chat-boty/chto-takoe-chat-bot.js').then(m => m.default),
   'chat-bot-dlya-biznesa': () => import('./blog/chat-boty/chat-bot-dlya-biznesa.js').then(m => m.default),
   'chat-bot-v-telegram': () => import('./blog/chat-boty/chat-bot-v-telegram.js').then(m => m.default),

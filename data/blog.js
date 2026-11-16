@@ -99,6 +99,7 @@ import chtoTakoeNetworking from './blog/networking/chto-takoe-networking.js'
 import kakRazvitSetKontaktov from './blog/networking/kak-razvit-set-kontaktov.js'
 import networkingDlyaBiznesa from './blog/networking/networking-dlya-biznesa.js'
 import mastermayndGruppa from './blog/networking/mastermaynd-gruppa-chto-eto-i-kak-sozdat.js'
+import delovyeMeropriytiya from './blog/networking/delovye-meropriytiya-kak-vybrat-i-poluchat-maksimum.js'
 import chtoTakoeChatBot from './blog/chat-boty/chto-takoe-chat-bot.js'
 import chatBotDlyaBiznesa from './blog/chat-boty/chat-bot-dlya-biznesa.js'
 import chatBotVTelegram from './blog/chat-boty/chat-bot-v-telegram.js'
@@ -244,6 +245,7 @@ export const articles = [
   kakRazvitSetKontaktov,
   networkingDlyaBiznesa,
   mastermayndGruppa,
+  delovyeMeropriytiya,
   chtoTakoeChatBot,
   chatBotDlyaBiznesa,
   chatBotVTelegram,

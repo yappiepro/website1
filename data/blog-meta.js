@@ -903,6 +903,15 @@ export const articles = [
     "image": "/images/blog/networking/mastermaynd-gruppa-og.svg"
   },
   {
+    "slug": "delovye-meropriytiya-kak-vybrat-i-poluchat-maksimum",
+    "title": "Деловые мероприятия: как выбирать и получать максимум пользы",
+    "description": "Как выбирать деловые мероприятия, конференции и форумы для предпринимателей и экспертов. Пошаговое руководство по подготовке, нетворкингу и конвертации знакомств в результат.",
+    "category": "Нетворкинг",
+    "cluster": "networking",
+    "date": "2026-05-24",
+    "image": "/images/blog/networking/delovye-meropriytiya-og.svg"
+  },
+  {
     "slug": "chto-takoe-chat-bot",
     "title": "Что такое чат-бот: как работает, виды и зачем нужен бизнесу",
     "description": "Разбираем, что такое чат-бот простыми словами, как он работает, какие виды существуют и зачем нужен бизнесу. Примеры, сравнение платформ и с чего начать в 2026 году.",

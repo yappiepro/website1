@@ -726,7 +726,7 @@
               </div>
 
               <div class="mb-6">
-                <div class="text-4xl font-black text-white">35 000 ₽</div>
+                <div class="text-4xl font-black text-white">45 000 ₽</div>
                 <div class="text-sm text-gray-400">в месяц</div>
               </div>
 
